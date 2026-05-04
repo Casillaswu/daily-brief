@@ -1,0 +1,1055 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Competitor Brief · 2026-W19 · PH iGaming</title>
+<style>
+:root{
+  --ink:#1f1d1a; --ink-2:#4a4742; --ink-3:#8a857d;
+  --paper:#fff; --paper-2:#f7f5f1;
+  --rule:#d9d4cb; --rule-2:#ebe6dd;
+  --hi:#fff3a6;
+  --pos:#c9e4cf; --pos-ink:#2f6b3b;
+  --neu:#e1dfd9; --neu-ink:#5b574e;
+  --neg:#f1c9c5; --neg-ink:#8a3a33;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+body{
+  background:#f0eee9;
+  font-family:Arial,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);min-height:100vh;font-size:13px;line-height:1.65;
+}
+a{color:inherit;}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.hi{background:var(--hi);padding:0 2px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.shell{max-width:1320px;margin:0 auto;background:#fff;}
+
+.mast{background:#1f1d1a;color:#fff;padding:22px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.mast .mark{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;border:1px solid rgba(255,255,255,.4);padding:6px 10px;flex:none;}
+.mast .ttl{flex:1;min-width:200px;}
+.mast .ttl h1{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+.mast .ttl .sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;}
+.mast .logos{display:flex;gap:5px;flex:none;flex-wrap:wrap;}
+.mast .lang{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:2px;flex:none;}
+.mast .lang a,.mast .lang button{border:none;background:none;cursor:pointer;padding:5px 12px;border-radius:99px;color:rgba(255,255,255,.7);font:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;line-height:1;}
+.mast .lang .active{background:#fff;color:var(--ink);}
+.logo{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(0,0,0,.06);flex:none;}
+
+.body{padding:8px 32px 32px;}
+
+.sec{margin-top:32px;scroll-margin-top:20px;}
+.sec-lbl{margin-bottom:10px;}
+.sec-lbl .chip{background:var(--ink);color:#fff;font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.06em;margin-right:8px;}
+.sec-lbl .en{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+.sec-lbl h2{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-top:8px;}
+.sec-lbl .rule{height:2px;background:var(--ink);margin-top:10px;}
+.sec-deck{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.exec{margin-top:24px;}
+.exec h3{font-size:30px;font-weight:800;letter-spacing:-.015em;line-height:1.4;max-width:90%;}
+.exec h3 .line{display:block;}
+.exec h3 .line + .line{margin-top:6px;}
+.exec p.deck{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin-top:18px;max-width:80%;}
+.exec p.deck b{color:var(--ink);}
+.exec p.deck + p.deck{margin-top:12px;}
+.exec p.deck em{font-style:normal;color:var(--ink-3);font-size:11.5px;}
+.exec .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.exec .axis{border-left:3px solid var(--ink);padding:8px 14px;font-size:12px;color:var(--ink-2);line-height:1.7;}
+.exec .axis b{color:var(--ink);display:block;margin-bottom:2px;}
+
+.kpi{margin-top:14px;border:1px solid var(--ink);display:grid;grid-template-columns:minmax(150px,1.1fr) .8fr .8fr 1.1fr 1fr 1.5fr;}
+.kpi .head{background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);text-transform:uppercase;font-weight:800;border-bottom:2px solid var(--ink);padding:12px;}
+.kpi .cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px;font-size:12px;line-height:1.6;}
+.kpi .cell:nth-child(6n){border-right:none;}
+.kpi .name{display:flex;align-items:center;gap:10px;}
+.kpi .name b{font-size:13px;}
+.kpi .name .grp{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;letter-spacing:.05em;}
+.kpi .big{font-weight:800;font-size:16px;}
+.trend{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:3px;font-size:10.5px;font-weight:700;}
+.trend.up{background:var(--pos);color:var(--pos-ink);}
+.trend.down{background:var(--neg);color:var(--neg-ink);}
+.trend.flat{background:var(--neu);color:var(--neu-ink);}
+.bar{height:8px;background:var(--rule-2);border-radius:2px;overflow:hidden;margin-top:6px;}
+.bar > i{display:block;height:100%;}
+.sev{padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;}
+.sev.high{background:var(--neg);color:var(--neg-ink);}
+.sev.mid{background:var(--neu);color:var(--neu-ink);}
+.sev.low{background:var(--pos);color:var(--pos-ink);}
+
+.brands{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+.bcard{border:1px solid var(--rule);border-top-width:4px;background:#fff;padding:16px;display:flex;flex-direction:column;gap:8px;min-height:150px;}
+.bcard.hot{background:#1f1d1a;color:#fff;border-color:#1f1d1a;}
+.bcard.alert{background:var(--neg);border-color:var(--neg-ink);}
+.bcard.cold{opacity:.85;}
+.bcard .top{display:flex;justify-content:space-between;align-items:center;}
+.bcard .nm{font-size:15px;font-weight:800;}
+.bcard .stat{padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace;}
+.bcard.hot .stat{background:#fff;color:var(--ink);}
+.bcard.alert .stat{background:var(--neg-ink);color:#fff;}
+.bcard.cold .stat{background:var(--rule-2);color:var(--ink-3);}
+.bcard.active .stat{background:var(--paper-2);color:var(--ink);}
+.bcard .meta{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.75;}
+.bcard .desc{font-size:11.5px;line-height:1.7;opacity:.92;}
+.bcard.hot .desc{color:rgba(255,255,255,.92);}
+
+.strat{margin-top:14px;background:#1f1d1a;color:#fff;padding:26px 30px;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);}
+.qa.full{grid-column:1/-1;}
+.qa .q{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.qa .a{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.92);}
+.qa .a b{color:#fff;}
+.qa .a p{margin-bottom:6px;}
+.qa .src{display:block;color:rgba(255,255,255,.45);font-size:10.5px;margin-top:6px;}
+
+.radar{margin-top:14px;background:#1f1d1a;color:#fff;padding:24px;}
+.radar-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.radar-head .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:800;margin-bottom:4px;}
+.radar-head .sub{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.radar-head .self-pick{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.radar-head .self-pick .pick-lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:800;}
+.vssel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 32px 9px 14px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4 L5 7 L8 4' fill='none' stroke='white' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 10px center;}
+.vssel option{background:#1f1d1a;color:#fff;}
+.vsbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.vsbtns button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.vsbtns button:hover{background:rgba(255,255,255,.18);}
+.vsbtns button.active{background:#fff;color:var(--ink);}
+.vsbtns button i{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.radar-body{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;}
+.radar-body .grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px 16px;font-size:12.5px;}
+.radar-body .grid span:nth-child(4n+1),.radar-body .grid span:nth-child(4n+3){color:rgba(255,255,255,.55);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;}
+.radar-body .grid span:nth-child(4n+2),.radar-body .grid span:nth-child(4n+0){font-weight:700;}
+.radar-body .legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;}
+.radar-body .legend span{display:inline-flex;align-items:center;gap:6px;}
+.radar-body .legend i{width:12px;height:12px;display:inline-block;border-radius:2px;}
+.radar svg{width:100%;max-width:380px;display:block;margin:0 auto;}
+
+.moves{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+.mcard{border:1px solid var(--rule);border-top-width:4px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:9px;}
+.mcard .top{display:flex;align-items:center;gap:8px;}
+.mcard .top .meta{flex:1;}
+.mcard .top .meta b{font-size:12px;font-weight:700;display:block;}
+.mcard .top .meta span{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;}
+.mcard h4{font-size:14px;font-weight:700;line-height:1.5;}
+.mcard .detail{font-size:12px;line-height:1.7;color:var(--ink-2);}
+.mcard .src{font-size:11px;color:var(--ink-3);line-height:1.6;}
+.mcard .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-3);}
+.mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;}
+.mcard .impact b{color:var(--ink);font-weight:700;}
+
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:60px 18px 80px 130px 1fr 50px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:13px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{display:flex;align-items:center;gap:8px;font-weight:800;font-size:13px;}
+.trow .br .logo{width:22px;height:22px;font-size:9px;}
+.trow .desc{font-size:12.5px;color:var(--ink-2);line-height:1.55;}
+.trow .desc a{color:var(--ink-2);border-bottom:1px dotted var(--ink-3);text-decoration:none;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+
+.recon{margin-top:14px;background:#fff;border:1px solid var(--rule);overflow:hidden;}
+.recon .head{display:grid;grid-template-columns:130px 1fr 1fr 1.5fr 1fr 1fr;gap:14px;padding:12px 18px;background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;border-bottom:2px solid var(--ink);}
+.recon .row{display:grid;grid-template-columns:130px 1fr 1fr 1.5fr 1fr 1fr;gap:14px;padding:14px 18px;border-bottom:1px solid var(--rule-2);align-items:center;font-size:11.5px;line-height:1.65;}
+.recon .row:last-child{border-bottom:none;}
+.recon .row .nm{display:flex;align-items:center;gap:8px;}
+.recon .row .nm .logo{width:26px;height:26px;font-size:11px;}
+.recon .row .nm b{font-size:13px;display:block;}
+.recon .row .nm span{font-size:9.5px;font-weight:700;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;}
+.recon .none{color:var(--ink-3);font-style:italic;}
+.recon .alert{color:var(--neg-ink);font-weight:700;}
+.recon .new{color:var(--pos-ink);font-weight:700;}
+
+.impl{background:var(--paper-2);border:1px solid var(--rule);padding:22px 24px;margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.impl .col h5{font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);font-weight:800;text-transform:uppercase;margin-bottom:10px;}
+.impl .col ul{list-style:none;padding:0;}
+.impl .col li{font-size:12.5px;line-height:1.75;color:var(--ink-2);padding:6px 0;display:flex;gap:8px;}
+.impl .col li::before{content:"·";color:var(--ink);font-weight:800;font-size:14px;flex:none;}
+.impl .col li b{color:var(--ink);}
+
+.footer{margin-top:32px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px;}
+.fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
+.fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
+.fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
+.srcs{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;}
+.srcs span{font-size:11.5px;color:var(--ink-2);display:flex;align-items:center;gap:6px;}
+.srcs i{width:8px;height:8px;border-radius:50%;flex:none;}
+.srcs i.ok{background:var(--pos-ink);}
+.srcs i.partial{background:#c96442;}
+.srcs i.pending{background:var(--ink-3);}
+.srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
+.fcard ol{padding:0;list-style:none;}
+.fcard ol li{font-size:12px;line-height:1.75;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;}
+.fcard ol li .n{color:#c96442;font-weight:700;font-family:ui-monospace,Menlo,monospace;flex:none;}
+.colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
+.colophon b{color:var(--ink);letter-spacing:.16em;}
+
+@media (max-width:1023px){
+  .body{padding:8px 24px 28px;}
+  .mast{padding:18px 24px;}
+  .kpi{grid-template-columns:1fr;}
+  .kpi .head{display:none;}
+  .kpi .cell{border-right:none;display:grid;grid-template-columns:120px 1fr;gap:8px;}
+  .kpi .cell::before{content:attr(data-lbl);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;}
+  .kpi .cell:nth-child(6n+1)::before{display:none;}
+  .kpi .name{grid-column:1/-1;}
+  .brands{grid-template-columns:repeat(2,1fr);}
+  .moves{grid-template-columns:repeat(2,1fr);}
+  .radar-body{grid-template-columns:1fr;}
+  .impl{grid-template-columns:1fr;gap:18px;}
+  .footer{grid-template-columns:1fr;}
+  .recon .head{display:none;}
+  .recon .row{grid-template-columns:1fr;gap:6px;padding:14px 16px;}
+  .recon .row > div::before{content:attr(data-lbl);display:block;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;margin-bottom:2px;font-family:ui-monospace,Menlo,monospace;}
+  .recon .row > div:first-child::before{content:none;}
+  .qa-grid{grid-template-columns:1fr;}
+  .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:50px 14px 70px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
+  .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
+  .exec .axes{grid-template-columns:1fr;}
+  .sec-lbl h2{font-size:18px;}
+}
+@media (max-width:767px){
+  .body{padding:6px 16px 24px;}
+  .mast{padding:16px;gap:12px;}
+  .mast .ttl h1{font-size:18px;}
+  .brands{grid-template-columns:1fr;}
+  .moves{grid-template-columns:1fr;}
+  .strat{padding:18px 16px;}
+  .filter{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;}
+  .filter::-webkit-scrollbar{display:none;}
+  .exec h3{font-size:19px;}
+}
+@media print{
+  body{background:#fff;}
+  .shell{max-width:none;}
+  .filter,.vssel{display:none;}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+  .mast .mark{border-color:#000;}
+  .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
+  .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span{color:#000;}
+  .bcard.hot{background:#fff;color:#000;border:1px solid #000;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+<header class="mast">
+  <div class="mark">COMPETITOR // BRIEF</div>
+  <div class="ttl">
+    <h1>2026-W19 · 菲律宾 iGaming 竞品周报</h1>
+    <div class="sub">2026/05/04 – 05/10 · 9 家 PAGCOR 运营商 · 站内偵察 5/4 完成 · 内部使用</div>
+  </div>
+  <div class="lang" aria-label="Language">
+    <button class="active" aria-current="page">中</button>
+    <a href="2026-comW19-en.html">EN</a>
+  </div>
+  <div class="logos">
+    <span class="logo" style="background:#E89AAA" title="BingoPlus">BP</span>
+    <span class="logo" style="background:#2A5FAA" title="ArenaPlus">AP</span>
+    <span class="logo" style="background:#4F8C5C" title="GameZone">GZ</span>
+    <span class="logo" style="background:#2D6B4D" title="King.ph">K</span>
+    <span class="logo" style="background:#B6356D" title="Queen.ph">Q</span>
+    <span class="logo" style="background:#B89968" title="CasinoPlus">C+</span>
+    <span class="logo" style="background:#D86B27" title="OKBet/OKGames">OK</span>
+    <span class="logo" style="background:#C2272D" title="Bet88">88</span>
+    <span class="logo" style="background:#4A4FB8" title="PlayTime/PT Gaming">PT</span>
+  </div>
+</header>
+
+<div class="body">
+
+  <!-- ============ EXECUTIVE BRIEFING ============ -->
+  <section class="sec exec" id="briefing">
+    <div class="sec-lbl">
+      <span class="chip">▲</span><span class="en">Executive Briefing · 主管简报</span>
+      <h2>这一周看点</h2>
+      <div class="rule"></div>
+    </div>
+
+    <h3>
+      <span class="line">这周菲律宾 iGaming 三件事：</span>
+      <span class="line"><span class="hi">PT Gaming 正式上线</span>，PlayTime 集团转型完成；</span>
+      <span class="line">BingoPlus Night <span class="hi">将于 15 天后登场</span>，5/4 Manila Times 全版广告启动；</span>
+      <span class="line">母亲节和发薪日两个档期，<span class="hi">9 家都没有针对的促销动作</span>。</span>
+    </h3>
+
+    <p class="deck"><b>1. PT Gaming（即 PlayTime 旗下游戏入口）正式上线。</b><br>
+    上周 ptgaming.ph 还是占位页，本周已挂出完整页面：「PAGCOR Licensed / For All Your Gaming Needs」，底下挂出 9 家供应商 logo（JILI、Pragmatic Play、Evolution、PG、FC、JDB、SA Gaming、Pinnacle、Realtime Gaming）。playtime.ph 跳出弹窗说明「PLAYTIME ENTERTAINMENT 是未来集团页，PT Gaming 请前往 ptgaming.ph」。playtime.fit 同步改版为 SEO 介绍页（含完整产品菜单 + Vic Sotto 代言文案 + ₱7,730 welcome bonus + 10M+ 玩家叙事）。<em>(出处：ptgaming.ph + playtime.ph + playtime.fit 站内偵察 5/4)</em></p>
+
+    <p class="deck"><b>2. BingoPlus Night 将于 5/19 登场，本周开始大规模媒体宣传。</b><br>
+    Manila Times 5/4 上整版广告，同一天 SAKSI Ngayon、Tribune、BusinessMirror 三家媒体跟着发同步通稿。10 位艺人陣容敲定（Vice Ganda、Kim Chiu、Ely Buendia、Bamboo、Parokya Ni Edgar、Nina、Julie Anne San Jose、Yeng Constantino、Darren Espanto、Anthony Jennings）+ 3 位主持（Joy Barcoma、Markki Stroem、Rufa Mae Quinto）；GTV 5/22 晚 8 点 + GMA 5/23 早 10 点都安排了重播档。<em>(出处：<a href="https://www.manilatimes.net/2026/05/04/tmt-newswire/bingoplus-celebrates-4th-year-at-bingoplus-night-2026-step-into-the-next-plus/2334403">Manila Times 5/4</a>)</em></p>
+
+    <p class="deck"><b>3. 母亲节 5/10 + 发薪日 5/15 这两个档期，9 家都没有针对的促销动作。</b><br>
+    CasinoPlus 主推 2.6% 现金回馈和 jackpot 看板（左侧菜单挂着 2.6%Cashback 入口），无母亲节节点；Bet88 中文 UI 配 Maya / Lucky Games / G-Life 共用账号那套促销组合沿用，无母亲节节点；King + Queen 表面恢复登录注册流程，登入后仍是维护页。Amusnet 跟 747Live 入市进入第二周。<em>(出处：casinoplus.com.ph + bet88.ph + king.ph + queenking.ph 站内偵察 5/4)</em></p>
+
+    <div class="axes">
+      <div class="axis"><b>变化 1</b>PT Gaming 上线，PlayTime 集团转型完成</div>
+      <div class="axis"><b>变化 2</b>BingoPlus Night 5/19 媒体宣传启动</div>
+      <div class="axis"><b>空档</b>母亲节 + 发薪日，9 家都没有针对动作</div>
+    </div>
+  </section>
+
+  <!-- ============ §01 KPI MATRIX ============ -->
+  <section class="sec" id="kpi">
+    <div class="sec-lbl">
+      <span class="chip">§01</span><span class="en">KPI Comparison Matrix</span>
+      <h2>9 家 KPI 对比</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="sec-deck">本周公开动作 / SOV 估值 / 主推价档 / Jackpot 看板 / 高影响事件。SOV 为内部估算（含媒体版面 + 社群声量）。</p>
+
+    <div class="kpi">
+      <div class="head">公司</div>
+      <div class="head">本周动作</div>
+      <div class="head">SOV%</div>
+      <div class="head">主推价档</div>
+      <div class="head">Jackpot 看板</div>
+      <div class="head">本周高影响</div>
+
+      <div class="cell" data-lbl="公司"><div class="name"><span class="logo" style="background:#E89AAA">BP</span><div><b>BingoPlus</b><span class="grp">DigiPlus</span></div></div></div>
+      <div class="cell" data-lbl="本周动作"><div class="big">3</div><span class="trend up">▲ +3</span></div>
+      <div class="cell" data-lbl="SOV"><div class="bar"><i style="width:38%;background:#E89AAA"></i></div><div style="font-weight:700;margin-top:4px">38%</div></div>
+      <div class="cell" data-lbl="主推价档">JILI Super Ace 30% 现金回馈 + Bingo Mega / Bingo Rush 主线 hero</div>
+      <div class="cell" data-lbl="Jackpot 看板">5/19 大奖：BMW + iPhone 17 + LV + ₱1M</div>
+      <div class="cell" data-lbl="本周高影响"><span class="sev high">高</span> Manila Times 全版广告 + 三家通稿同步发布 <em style="color:var(--ink-3);font-size:10.5px;">(<a href="https://www.manilatimes.net/2026/05/04/tmt-newswire/bingoplus-celebrates-4th-year-at-bingoplus-night-2026-step-into-the-next-plus/2334403">Manila Times 5/4</a>)</em></div>
+
+      <div class="cell" data-lbl="公司"><div class="name"><span class="logo" style="background:#2A5FAA">AP</span><div><b>ArenaPlus</b><span class="grp">DigiPlus</span></div></div></div>
+      <div class="cell" data-lbl="本周动作"><div class="big">1</div><span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV"><div class="bar"><i style="width:18%;background:#2A5FAA"></i></div><div style="font-weight:700;margin-top:4px">18%</div></div>
+      <div class="cell" data-lbl="主推价档">PBA Commissioners Cup 淘汰赛末週 hero（5/10 mid 结束）</div>
+      <div class="cell" data-lbl="Jackpot 看板">— 不主打 jackpot 形式</div>
+      <div class="cell" data-lbl="本周高影响"><span class="sev mid">中</span> PBA + PVL Official Partner（官网 Title 自述）<em style="color:var(--ink-3);font-size:10.5px;">(<a href="https://arenaplus.ph/">arenaplus.ph</a> · <a href="https://en.wikipedia.org/wiki/2026_PBA_Commissioner's_Cup">Wikipedia</a>)</em></div>
+
+      <div class="cell" data-lbl="公司"><div class="name"><span class="logo" style="background:#B89968">C+</span><div><b>CasinoPlus</b><span class="grp">独立</span></div></div></div>
+      <div class="cell" data-lbl="本周动作"><div class="big">1</div><span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV"><div class="bar"><i style="width:14%;background:#B89968"></i></div><div style="font-weight:700;margin-top:4px">14%</div></div>
+      <div class="cell" data-lbl="主推价档">2.6% 现金回馈（4/15-5/31）</div>
+      <div class="cell" data-lbl="Jackpot 看板">5 个并列：JJBX ₱71M+ 居首</div>
+      <div class="cell" data-lbl="本周高影响"><span class="sev high">高</span> 历史 ₱271M / ₱99.99M / ₱84.55M 三笔 jackpot 反复用作信任资产 <em style="color:var(--ink-3);font-size:10.5px;">(<a href="https://www.manilatimes.net/2026/04/12/sports/casino-plus-awards-p271m-jackpot-to-sole-winner-reinforcing-responsible-gaming/2318591">Manila Times 4/12</a>)</em></div>
+
+      <div class="cell" data-lbl="公司"><div class="name"><span class="logo" style="background:#2D6B4D">K</span><div><b>King.ph</b><span class="grp">World Platinum</span></div></div></div>
+      <div class="cell" data-lbl="本周动作"><div class="big">0</div><span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV"><div class="bar"><i style="width:2%;background:#2D6B4D"></i></div><div style="font-weight:700;margin-top:4px">~2%</div></div>
+      <div class="cell" data-lbl="主推价档">登入后仍维护中，无新档</div>
+      <div class="cell" data-lbl="Jackpot 看板">— 无公开公告</div>
+      <div class="cell" data-lbl="本周高影响"><span class="sev high">高</span> 表面登录注册流程恢复，登入后仍维护中 <em style="color:var(--ink-3);font-size:10.5px;">(king.ph 站内偵察 5/4)</em></div>
+
+      <div class="cell" data-lbl="公司"><div class="name"><span class="logo" style="background:#B6356D">Q</span><div><b>Queen.ph</b><span class="grp">World Platinum</span></div></div></div>
+      <div class="cell" data-lbl="本周动作"><div class="big">0</div><span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV"><div class="bar"><i style="width:2%;background:#B6356D"></i></div><div style="font-weight:700;margin-top:4px">~2%</div></div>
+      <div class="cell" data-lbl="主推价档">登入后仍维护中，无新档</div>
+      <div class="cell" data-lbl="Jackpot 看板">— 无公开公告</div>
+      <div class="cell" data-lbl="本周高影响"><span class="sev high">高</span> 与 King 同集团，表面恢复但登入后仍维护中 <em style="color:var(--ink-3);font-size:10.5px;">(queenking.ph 站内偵察 5/4)</em></div>
+
+      <div class="cell" data-lbl="公司"><div class="name"><span class="logo" style="background:#C2272D">88</span><div><b>Bet88</b><span class="grp">独立</span></div></div></div>
+      <div class="cell" data-lbl="本周动作"><div class="big">1</div><span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV"><div class="bar"><i style="width:9%;background:#C2272D"></i></div><div style="font-weight:700;margin-top:4px">9%</div></div>
+      <div class="cell" data-lbl="主推价档">JILI 20 次免费旋转（20 FS）+ 首存 ₱8,888 + 周五 / 发薪日 100% reload</div>
+      <div class="cell" data-lbl="Jackpot 看板">体育 ₱6.9M + 每日 ₱50K 并列</div>
+      <div class="cell" data-lbl="本周高影响"><span class="sev mid">中</span> 中文 UI + Maya / Lucky Games / G-Life 共用账号 + 提现延迟补偿条款 <em style="color:var(--ink-3);font-size:10.5px;">(bet88.ph 站内偵察 5/4)</em></div>
+
+      <div class="cell" data-lbl="公司"><div class="name"><span class="logo" style="background:#4F8C5C">GZ</span><div><b>GameZone</b><span class="grp">DigiPlus</span></div></div></div>
+      <div class="cell" data-lbl="本周动作"><div class="big">0</div><span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV"><div class="bar"><i style="width:6%;background:#4F8C5C"></i></div><div style="font-weight:700;margin-top:4px">6%</div></div>
+      <div class="cell" data-lbl="主推价档">日赛 ₱12,888 × 4 + ₱6,000 × 3 + ₱188 免费</div>
+      <div class="cell" data-lbl="Jackpot 看板">— 走日赛不走 jackpot</div>
+      <div class="cell" data-lbl="本周高影响"><span class="sev low">低</span> Tatak Kamao（Pacquiao 主题）+ Tongits / Pusoy 真人对战维持 <em style="color:var(--ink-3);font-size:10.5px;">(gzone.ph 站内偵察 5/4)</em></div>
+
+      <div class="cell" data-lbl="公司"><div class="name"><span class="logo" style="background:#D86B27">OK</span><div><b>OKBet / OKGames</b><span class="grp">独立</span></div></div></div>
+      <div class="cell" data-lbl="本周动作"><div class="big">3</div><span class="trend up">▲ +3</span></div>
+      <div class="cell" data-lbl="SOV"><div class="bar"><i style="width:12%;background:#D86B27"></i></div><div style="font-weight:700;margin-top:4px">12%</div></div>
+      <div class="cell" data-lbl="主推价档">Welcome Bundle / Non-Stop Bonuses + Top-Up 60% Rebate</div>
+      <div class="cell" data-lbl="Jackpot 看板">Vertex Play ₱1,403,500 leaderboard + Win ₱10,000 Challenge + Golden Draw 7PM 每日开奖</div>
+      <div class="cell" data-lbl="本周高影响"><span class="sev high">高</span> 站内大量新檔上线 + 启用 Michelle Marquez Dee（MMD）作 OKGames 品牌代言人 <em style="color:var(--ink-3);font-size:10.5px;">(okbet.com.ph 站内偵察 5/4)</em></div>
+
+      <div class="cell" data-lbl="公司"><div class="name"><span class="logo" style="background:#4A4FB8">PT</span><div><b>PlayTime / PT Gaming</b><span class="grp">独立</span></div></div></div>
+      <div class="cell" data-lbl="本周动作"><div class="big">3</div><span class="trend up">▲ +3</span></div>
+      <div class="cell" data-lbl="SOV"><div class="bar"><i style="width:11%;background:#4A4FB8"></i></div><div style="font-weight:700;margin-top:4px">11%</div></div>
+      <div class="cell" data-lbl="主推价档">Welcome ₱7,730 + 2.55% 无上限 cashback + Vic Sotto 代言</div>
+      <div class="cell" data-lbl="Jackpot 看板">PT Gaming 接入 9 家供应商，库存大涨</div>
+      <div class="cell" data-lbl="本周高影响"><span class="sev high">高</span> ptgaming.ph 完整上线 + playtime.fit 改版 SEO + playtime.ph 转为集团页 <em style="color:var(--ink-3);font-size:10.5px;">(ptgaming.ph + playtime.ph + playtime.fit 站内偵察 5/4)</em></div>
+    </div>
+  </section>
+
+  <!-- ============ §02 BRAND SNAPSHOT ============ -->
+  <section class="sec" id="snapshot">
+    <div class="sec-lbl">
+      <span class="chip">§02</span><span class="en">Brand Snapshot · 9 家速览</span>
+      <h2>本周状态速览</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="sec-deck">深色 = 集团热动 (HOT)；红色 = 异常 / Alert；淡色 = 维持 / 0 动作 (COLD)；白色 = 仍在动 (ACTIVE)。</p>
+    <div class="brands">
+
+      <div class="bcard hot" style="border-top-color:#E89AAA">
+        <div class="top"><span class="nm">BingoPlus</span><span class="stat">HOT</span></div>
+        <div class="meta">3 MOVES · DigiPlus</div>
+        <div class="desc">5/4 Manila Times 全版广告加三家媒体同步通稿；BingoPlus Night 将于 15 天后登场，10 位艺人加 3 位主持陣容已敲定；GTV 5/22 + GMA 5/23 重播档安排好（Manila Times 5/4）</div>
+      </div>
+
+      <div class="bcard hot" style="border-top-color:#4A4FB8">
+        <div class="top"><span class="nm">PlayTime / PT Gaming</span><span class="stat">HOT</span></div>
+        <div class="meta">3 MOVES · 独立</div>
+        <div class="desc">PT Gaming 完整上线（9 家供应商：JILI、Pragmatic Play、Evolution 等）；playtime.ph 转为集团页；playtime.fit 改版 SEO 介绍页 + Vic Sotto 代言 + ₱7,730 welcome（站内偵察 5/4）</div>
+      </div>
+
+      <div class="bcard hot" style="border-top-color:#D86B27">
+        <div class="top"><span class="nm">OKBet / OKGames</span><span class="stat">HOT</span></div>
+        <div class="meta">3 MOVES · 独立</div>
+        <div class="desc">Michelle Marquez Dee（MMD）启用为 OKGames 品牌代言；Welcome Bundle / Vertex Play ₱1,403,500 leaderboard / Golden Draw 每日 7PM / Top-Up 60% Rebate 多档新档同时上线（站内偵察 5/4）</div>
+      </div>
+
+      <div class="bcard hot" style="border-top-color:#B89968">
+        <div class="top"><span class="nm">CasinoPlus</span><span class="stat">HOT</span></div>
+        <div class="meta">1 MOVE · 独立</div>
+        <div class="desc">2.6% 现金回馈（4/15-5/31）+ 5 个 jackpot 站内同步公示；历史 ₱271M / ₱99.99M / ₱84.55M 三笔 jackpot 反复用作信任资产（Manila Times 4/12）</div>
+      </div>
+
+      <div class="bcard active" style="border-top-color:#2A5FAA">
+        <div class="top"><span class="nm">ArenaPlus</span><span class="stat">ACTIVE</span></div>
+        <div class="meta">1 MOVE · DigiPlus</div>
+        <div class="desc">arenaplus.ph 官网 Title 自述「Philippines' Best Online Sportsbook · Official Partner of the PBA and PVL」；本周打 PBA Commissioners Cup 淘汰赛末週 hero（5/10 mid 结束）</div>
+      </div>
+
+      <div class="bcard active" style="border-top-color:#C2272D">
+        <div class="top"><span class="nm">Bet88</span><span class="stat">ACTIVE</span></div>
+        <div class="meta">1 MOVE · 独立</div>
+        <div class="desc">中文 UI + Maya / Lucky Games / G-Life 共用账号；JILI 20 次免费旋转（20 FS）+ 首存 ₱8,888 + 周五 / 发薪日 100% reload（站内偵察 5/4）</div>
+      </div>
+
+      <div class="bcard alert" style="border-top-color:#2D6B4D">
+        <div class="top"><span class="nm">King.ph</span><span class="stat">ALERT</span></div>
+        <div class="meta">维护中 · World Platinum</div>
+        <div class="desc">表面登录 / 注册流程恢复，但登入后仍是维护页面。挂合规标语「Play for Fun. Enjoy the Game. Know When to Pause.」；本周无新档活动（站内偵察 5/4）</div>
+      </div>
+
+      <div class="bcard alert" style="border-top-color:#B6356D">
+        <div class="top"><span class="nm">Queen.ph</span><span class="stat">ALERT</span></div>
+        <div class="meta">维护中 · World Platinum</div>
+        <div class="desc">与 King 同集团，表面恢复但登入后仍维护中。「EASY SIGN UP / START INSTANTLY!」红色 CTA + Richard Gutierrez 代言主视觉沿用（站内偵察 5/4）</div>
+      </div>
+
+      <div class="bcard cold" style="border-top-color:#4F8C5C">
+        <div class="top"><span class="nm">GameZone</span><span class="stat">COLD</span></div>
+        <div class="meta">维持原状 · DigiPlus</div>
+        <div class="desc">Tatak Kamao（Pacquiao 主题）+ Tongits / Pusoy 真人对战 + 日赛 ₱12,888 × 4 全维持，本周无新动作（站内偵察 5/4）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §03 STRATEGIC READ ============ -->
+  <section class="sec" id="strategic">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">Strategic Read · 5Q</span>
+      <h2>策略解读 · 5 个问题</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="strat">
+      <div class="qa-grid">
+        <div class="qa">
+          <span class="q">Q1<br>市场空间</span>
+          <span class="a">
+            <p>本周供应端三家齐发：PT Gaming 接入 9 家供应商上线、Amusnet × 747Live 入市进入第二周、OKGames 多档新档同时启动。</p>
+            <p><b>9 家这周都没有针对母亲节 5/10 或发薪日 5/15 做出促销动作。</b></p>
+            <span class="src">出处：W19 站内偵察 5/4 + 9 家公开动作汇总</span>
+          </span>
+        </div>
+        <div class="qa">
+          <span class="q">Q2<br>玩家关心什么</span>
+          <span class="a">
+            <p>提现速度、客服响应、KYC 流程仍是 PH 玩家三大关注点。</p>
+            <p>King + Queen 表面恢复但登入后仍维护，玩家如果在这两站留有余额，本周会持续关注「能不能正常拿钱」。</p>
+            <span class="src">出处：PH 玩家社群常见话题 + king.ph / queenking.ph 站内偵察 5/4</span>
+          </span>
+        </div>
+        <div class="qa">
+          <span class="q">Q3<br>各家路线</span>
+          <span class="a">
+            <p>BingoPlus 走名人 + 大宴会；ArenaPlus 走体育 IP；CasinoPlus 走 jackpot + cashback；Bet88 走促销堆叠 + 中文 UI；GameZone 走真人牌局；OKGames 走代言 + 多档活动；PlayTime / PT Gaming 走多供应商库存。</p>
+            <p>9 家路线全列出后，<b>「节庆主题」与「情感叙事」两个象限本周没人做。</b></p>
+            <span class="src">出处：本周 9 家公开动作 + 站内偵察 5/4 交叉</span>
+          </span>
+        </div>
+        <div class="qa">
+          <span class="q">Q4<br>价档</span>
+          <span class="a">
+            <p>CasinoPlus 给 2.6% 现金回馈；Bet88 给 20 次免费旋转加首存 ₱8,888；OKGames 给 60% Top-Up Rebate；PlayTime 给 ₱7,730 welcome 加 2.55% 无上限 cashback；GameZone 用 ₱12,888 日赛拉日活。</p>
+            <p>各家给的金额结构相近，玩家从首存优惠角度难以区分。</p>
+            <span class="src">出处：各家官网 /promotions 页 W19 站内偵察 5/4</span>
+          </span>
+        </div>
+        <div class="qa full">
+          <span class="q">Q5<br>差异化</span>
+          <span class="a">
+            <p>这周 9 家走的路径：</p>
+            <p>· DigiPlus 三品牌（BingoPlus、ArenaPlus、GameZone）主要走名人和体育 IP；<br>
+            · CasinoPlus 走 jackpot 和 cashback；<br>
+            · Bet88 走促销堆叠和中文 UI；<br>
+            · King + Queen 仍在维护中；<br>
+            · OKGames 走 MMD 代言加多档新档；<br>
+            · PlayTime / PT Gaming 走多供应商库存。</p>
+            <p><b>9 家这周都没有针对母亲节的档期做出促销动作。</b></p>
+            <span class="src">出处：本周 9 家公开动作 + 站内偵察 5/4 交叉</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §04 CAPABILITY RADAR ============ -->
+  <section class="sec" id="radar">
+    <div class="sec-lbl">
+      <span class="chip">§04</span><span class="en">Capability Radar · 6 axes</span>
+      <h2>六轴能力雷达</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="radar">
+      <div class="radar-head">
+        <div>
+          <div class="lbl">六轴对比</div>
+          <div class="sub">右上下拉选客户 X，下方按钮选要对标的竞品</div>
+        </div>
+        <div class="self-pick">
+          <span class="pick-lbl">客户 X</span>
+          <select class="vssel" id="selfsel" aria-label="选择客户 X"></select>
+        </div>
+      </div>
+      <div class="vsbtns" id="vsbtns" aria-label="选择对标"></div>
+      <div class="radar-body">
+        <div class="left">
+          <div class="grid" id="radarGrid"></div>
+          <div class="legend">
+            <span><i style="background:#fff3a6"></i><b id="legendSelf">客户 X · PlayTime</b></span>
+            <span><i id="legendVsColor" style="background:#E89AAA"></i><b id="legendVs">BingoPlus</b></span>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 320" id="radarSvg" aria-label="6-axis capability radar">
+          <g id="rings"></g>
+          <g id="axes"></g>
+          <polygon id="polyVs" fill-opacity="0.35" stroke-width="2"></polygon>
+          <polygon id="polySelf" fill="#fff3a6" fill-opacity="0.42" stroke="#fff3a6" stroke-width="2.2"></polygon>
+          <g id="labels"></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §05 WEEKLY MOVES (merged W18+W19) ============ -->
+  <section class="sec" id="moves-sec">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Weekly Moves</span>
+      <h2>本周动向（W19）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="moves" id="moveCards">
+
+      <div class="mcard" data-cat="活动" data-sev="high" style="border-top-color:#E89AAA">
+        <div class="top"><span class="logo" style="background:#E89AAA;width:26px;height:26px;font-size:10px">BP</span>
+          <div class="meta"><b>BingoPlus</b><span>05/04 · 活动 · DigiPlus</span></div>
+          <span class="sev high">高影响</span>
+        </div>
+        <h4>5/4 Manila Times 全版广告；BingoPlus Night 将于 <span class="hi">15 天后登场</span>，正大力进行媒体宣传</h4>
+        <div class="detail">5/19 4 周年大宴会，开场前 15 天启动媒体宣传。Manila Times 5/4 上整版广告，同一天 SAKSI Ngayon、Tribune、BusinessMirror 三家媒体跟着发同步通稿。10 位艺人陣容（Vice Ganda、Kim Chiu、Ely Buendia、Bamboo、Parokya Ni Edgar、Nina、Julie Anne San Jose、Yeng Constantino、Darren Espanto、Anthony Jennings）+ 3 位主持（Joy Barcoma、Markki Stroem、Rufa Mae Quinto）；GTV 5/22 晚 8 点 + GMA 5/23 早 10 点都安排了重播档。</div>
+        <div class="src">出处：<a href="https://www.manilatimes.net/2026/05/04/tmt-newswire/bingoplus-celebrates-4th-year-at-bingoplus-night-2026-step-into-the-next-plus/2334403">Manila Times 5/4</a> · SAKSI Ngayon · Tribune · BusinessMirror</div>
+        <div class="impact"><span>对客户 X 的影响</span><b>娱乐版面 SOV 被吃</b></div>
+      </div>
+
+      <div class="mcard" data-cat="产品" data-sev="high" style="border-top-color:#4A4FB8">
+        <div class="top"><span class="logo" style="background:#4A4FB8;width:26px;height:26px;font-size:10px">PT</span>
+          <div class="meta"><b>PlayTime / PT Gaming</b><span>05/04 · 产品 · 独立</span></div>
+          <span class="sev high">高影响</span>
+        </div>
+        <h4>PT Gaming <span class="hi">完整上线</span>；PlayTime 集团转型完成</h4>
+        <div class="detail">上周 ptgaming.ph 还是占位页，本周已挂出完整页面：「PAGCOR Licensed / For All Your Gaming Needs」，底下挂 9 家供应商 logo（JILI、Pragmatic Play、Evolution Gaming、PG、FC、JDB、SA Gaming、Pinnacle Solution、Realtime Gaming）。playtime.ph 跳出弹窗：「PLAYTIME ENTERTAINMENT 是未来集团页，PT Gaming 请前往 ptgaming.ph」；playtime.fit 同步改版为完整 SEO 介绍页（含 BLOG / SLOT / CARD GAMES / FISH HUNTER / LIVE CASINO / COLOR GAME / E-BINGO / SPORTS / PROMOTIONS 全菜单 + Vic Sotto 代言文案 + ₱7,730 welcome bonus + 2.55% 无上限 cashback）。</div>
+        <div class="src">出处：ptgaming.ph + playtime.ph + playtime.fit 站内偵察 5/4</div>
+        <div class="impact"><span>对客户 X 的影响</span><b>游戏库存军备升级</b></div>
+      </div>
+
+      <div class="mcard" data-cat="人事" data-sev="high" style="border-top-color:#D86B27">
+        <div class="top"><span class="logo" style="background:#D86B27;width:26px;height:26px;font-size:10px">OK</span>
+          <div class="meta"><b>OKBet / OKGames</b><span>05/04 · 人事 · 独立</span></div>
+          <span class="sev high">高影响</span>
+        </div>
+        <h4>启用 <span class="hi">Michelle Marquez Dee（MMD）</span>为 OKGames 品牌代言人；多档新档同步上线</h4>
+        <div class="detail">5/4 站内偵察发现：MMD 已挂在站内 hero 位（蓝色礼服形象），文案「OKGames Brand Ambassador」。同期上线多档新活动：Welcome Bundle / Non-Stop Bonuses（首存礼包）；Vertex Play Launched ₱1,403,500 leaderboard + Win ₱10,000 Challenge；Golden Draw Live Daily at 7PM（每日抽奖直播）；Top-Up 60% Rebate（充值返现）。新游戏栏含 PLAYTECH、OMNIPLAY、JILI、VERTEXPLAY 多家供应商接入。</div>
+        <div class="src">出处：okbet.com.ph 站内偵察 5/4</div>
+        <div class="impact"><span>对客户 X 的影响</span><b>娱乐 + 体育版面再多一个对手</b></div>
+      </div>
+
+      <div class="mcard" data-cat="产品" data-sev="high" style="border-top-color:#B89968">
+        <div class="top"><span class="logo" style="background:#B89968;width:26px;height:26px;font-size:10px">C+</span>
+          <div class="meta"><b>CasinoPlus</b><span>05/04 · 产品 · 独立</span></div>
+          <span class="sev high">高影响</span>
+        </div>
+        <h4>5 个 jackpot 同步公示；历史 <span class="hi">₱271M / ₱99.99M / ₱84.55M</span> 三笔反复用作信任资产</h4>
+        <div class="detail">站内 JJBX Gold ₱71M+、Bao Zhu Zhao Fu、Pula Puti、Color Game、Lightning Gongs 5 个 jackpot 实时计数。把 4/10 单笔破纪录 ₱271,433,871.79 Color Game + Sun Star ₱99.99M JJBX + 4/24 ₱84.55M Clark 三笔历史奖金当作信任资产，反复在站内强化。本周左侧菜单挂「2.6%Cashback」「98%」直接入口。</div>
+        <div class="src">出处：<a href="https://www.manilatimes.net/2026/04/12/sports/casino-plus-awards-p271m-jackpot-to-sole-winner-reinforcing-responsible-gaming/2318591">Manila Times 4/12</a> · <a href="https://www.sunstar.com.ph/pampanga/casino-plus-pays-out-9999m-grand-jackpot-jin-ji-bao-xi-gold-jackpot-maxed-out">Sun Star Pampanga</a> · casinoplus.com.ph 站内偵察 5/4</div>
+        <div class="impact"><span>对客户 X 的影响</span><b>「能拿钱」叙事被独占</b></div>
+      </div>
+
+      <div class="mcard" data-cat="产品" data-sev="mid" style="border-top-color:#2A5FAA">
+        <div class="top"><span class="logo" style="background:#2A5FAA;width:26px;height:26px;font-size:10px">AP</span>
+          <div class="meta"><b>ArenaPlus</b><span>05/04 · 产品 · DigiPlus</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>ArenaPlus 站内打 PBA Commissioners Cup <span class="hi">淘汰賽末週</span> hero（5/10 mid 结束）</h4>
+        <div class="detail">arenaplus.ph 官网 Title 自述：「Philippines' Best Online Sportsbook and Official Partner of the PBA and PVL」。2026 PBA 季赛 #50 金禧紀念第二輪淘汰賽延伸到 5/10 mid。本周站内 hero 维持 PBA Cup 淘汰賽末週叙事；下周 5/10 mid 结束后会接 quarterfinal。</div>
+        <div class="src">出处：<a href="https://arenaplus.ph/">arenaplus.ph</a> 官网 Title · <a href="https://en.wikipedia.org/wiki/2026_PBA_Commissioner's_Cup">Wikipedia 2026 PBA Cup</a></div>
+        <div class="impact"><span>对客户 X 的影响</span><b>PBA 体育博彩 SOV 持续</b></div>
+      </div>
+
+      <div class="mcard" data-cat="活动" data-sev="high" style="border-top-color:#E89AAA">
+        <div class="top"><span class="logo" style="background:#E89AAA;width:26px;height:26px;font-size:10px">BP</span>
+          <div class="meta"><b>BingoPlus</b><span>04/30 · 活动 · DigiPlus</span></div>
+          <span class="sev high">高影响</span>
+        </div>
+        <h4>4/30 BingoPlus Night 5/19 大奖组合公告：BMW + iPhone 17 + LV + ₱1M</h4>
+        <div class="detail">4 周年大宴会大奖组合：BMW X1 xDrive25e xLine + iPhone 17 Pro Max + LV 包 + ₱500K BingoPlus credits + ₱500K 亚洲奢华旅游。同期 4/29 Sexbomb 復出拍 Triple Fortune Ball 推广片 + More Than Win 5 位赢家颁奖公关。Pacquiao 9 款共名遊戲（Pacquiao Fortune、Boxing King 等）跨 BingoPlus + GameZone + ArenaPlus 三品牌持续维运。</div>
+        <div class="src">出处：BusinessWorld · Manila Times · Tribune · SAKSI Ngayon（W18 报道）</div>
+        <div class="impact"><span>对客户 X 的影响</span><b>大宴会 SOV 持续</b></div>
+      </div>
+
+      <div class="mcard" data-cat="产品" data-sev="mid" style="border-top-color:#3a4a6b">
+        <div class="top"><span class="logo" style="background:#3a4a6b;width:26px;height:26px;font-size:10px">A×</span>
+          <div class="meta"><b>Amusnet × 747Live</b><span>04/28 · 产品 · 供应商</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>4/28 Amusnet 透过 747Live 入菲市场；本周进入第二週</h4>
+        <div class="detail">Amusnet 4/28 透过 747Live 当首个本地夥伴，正式入菲律宾市场。214 款游戏列入 PAGCOR EGLD 核准。本周第二週主推 100 Golden Coins: Reel Fishing、Extra Crown、100 Golden Coins。配合 PT Gaming 这周接入 9 家供应商，菲律宾 iGaming 这周整体进入「游戏库存军备升级」週。</div>
+        <div class="src">出处：<a href="https://www.gamingintelligence.com/sectors/online-gaming/229979-amusnet-enters-the-philippines-with-pagcor-approval/">Gaming Intelligence</a> · <a href="https://eegaming.org/latest-news/2026/04/28/138093/amusnet-officially-enters-the-philippine-market/">EE Gaming</a></div>
+        <div class="impact"><span>对客户 X 的影响</span><b>游戏库存军备升级</b></div>
+      </div>
+
+      <div class="mcard" data-cat="产品" data-sev="mid" style="border-top-color:#2D6B4D">
+        <div class="top"><span class="logo" style="background:#2D6B4D;width:26px;height:26px;font-size:10px">K</span>
+          <div class="meta"><b>King.ph + Queen.ph</b><span>05/04 · 产品 · World Platinum</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>表面登录 / 注册流程恢复，<span class="hi">登入后仍维护中</span></h4>
+        <div class="detail">5/4 站内偵察确认两站都跳出登录注册弹窗，但实际登入后仍在维护页面。King 走极简黑色，挂合规标语「Play for Fun. Enjoy the Game. Know When to Pause.」；Queen 走红色 +金色，「EASY SIGN UP / START INSTANTLY!」配 Richard Gutierrez 代言 + 柯基吉祥物主视觉沿用。两站本周无新档活动或公关。</div>
+        <div class="src">出处：king.ph 站内偵察 5/4 · queenking.ph 站内偵察 5/4</div>
+        <div class="impact"><span>对客户 X 的影响</span><b>双站持续 ALERT</b></div>
+      </div>
+
+      <div class="mcard" data-cat="价格" data-sev="mid" style="border-top-color:#C2272D">
+        <div class="top"><span class="logo" style="background:#C2272D;width:26px;height:26px;font-size:10px">88</span>
+          <div class="meta"><b>Bet88</b><span>05/04 · 价格 · 独立</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>促销堆叠沿用；提现延迟 <span class="hi">每日 10% 上限 ₱1,000</span> 补偿条款持续</h4>
+        <div class="detail">JILI Super Ace 20 次免费旋转（KYC 触发，0 次流水要求）+ 首存 100% 上限 ₱8,888（最低 ₱300）+ 周五 / 发薪日 100% reload + 体育 ₱6.9M + 每日 ₱50K 短池 + MLB 每周 5% cashback。提现延迟补偿条款沿用到 12/31/2026。中文 UI + Maya / Lucky Games / G-Life 共用账号持续 — 9 家里促销组合最复杂的一家。</div>
+        <div class="src">出处：<a href="https://bet88.ph/promo/jilisignupbonus">bet88.ph/promo</a> · bet88.ph 站内偵察 5/4</div>
+        <div class="impact"><span>对客户 X 的影响</span><b>「速度承诺」赛道被卡位</b></div>
+      </div>
+
+      <div class="mcard" data-cat="活动" data-sev="mid" style="border-top-color:#4F8C5C">
+        <div class="top"><span class="logo" style="background:#4F8C5C;width:26px;height:26px;font-size:10px">GZ</span>
+          <div class="meta"><b>GameZone</b><span>05/04 · 活动 · DigiPlus</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>Tatak Kamao + Tongits / Pusoy 真人对战 + 日赛多档维持</h4>
+        <div class="detail">本周 GameZone 站内无新档变动，维持「Tatak Kamao」（Pacquiao 主题）+ Tongits / Pusoy PvP 真人牌局两条主轴。日赛运作频次：₱188 免费入场每日多次、₱12,888 赛 4 场/日、₱6,000 赛 3 场/日。「PVP Mode Tongits, Pusoy」差异化定位（vs AI bot 平台）持续。Vice Ganda × GameZone 既有合作维持。</div>
+        <div class="src">出处：gzone.ph 站内偵察 5/4 · The Pickiest Eater PH（W18 报道）</div>
+        <div class="impact"><span>对客户 X 的影响</span><b>差异化对手稳定</b></div>
+      </div>
+
+      <div class="mcard" data-cat="融资" data-sev="low" style="border-top-color:#3a4a6b">
+        <div class="top"><span class="logo" style="background:#3a4a6b;width:26px;height:26px;font-size:10px">⊙</span>
+          <div class="meta"><b>PAGCOR / 行业</b><span>04/27 · 政策 · 监管</span></div>
+          <span class="sev low">低影响</span>
+        </div>
+        <h4>SiGMA Asia Summit 5/31-6/3；PAGCOR 4/27 公告官方背书（T-27）</h4>
+        <div class="detail">PAGCOR 4/27 公告背书 SiGMA Asia 峰会（SMX Pasay City，5/31-6/3）。本周进入 T-27 暖场期，9 家运营商可能会在峰会週前后排公关 / 产品发布 — 下周开始要密切观察各家是否有动作堆在这个档期。</div>
+        <div class="src">出处：Tribuna Casino · Yogonet（W18 沿用）</div>
+        <div class="impact"><span>对客户 X 的影响</span><b>峰会週 5/31-6/3 待暖场</b></div>
+      </div>
+
+      <div class="mcard" data-cat="活动" data-sev="low" style="border-top-color:#E89AAA">
+        <div class="top"><span class="logo" style="background:#E89AAA;width:26px;height:26px;font-size:10px">BP</span>
+          <div class="meta"><b>BingoPlus</b><span>04/29 · 活动 · DigiPlus</span></div>
+          <span class="sev low">低影响</span>
+        </div>
+        <h4>4/29 Sexbomb 復出 Triple Fortune Ball；More Than Win 5 位赢家颁奖</h4>
+        <div class="detail">国民级女子组合 Sexbomb 復出为 Triple Fortune Ball 拍推广片，加上既有 Luis Manzano / Maine Mendoza / Piolo Pascual / Kim Chiu 形成「年龄层全包」结构。同期 4/29 More Than Win 5 位赢家颁奖公关。</div>
+        <div class="src">出处：SunStar Pampanga（W18 报道）</div>
+        <div class="impact"><span>对客户 X 的影响</span><b>名人版面叙事铺底</b></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ §06 TIMELINE ============ -->
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Timeline · 时间轴</span>
+      <h2>近两週大事记</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow">
+        <span class="d mono">05/04</span><span class="dot warn"></span>
+        <span class="cat">PR</span>
+        <div class="br"><span class="logo" style="background:#E89AAA">BP</span>BingoPlus</div>
+        <div class="desc">Manila Times 全版广告 + 三家媒体同步通稿；BingoPlus Night 5/19 4 週年宴 10 艺人 + 3 主持陣容（<a href="https://www.manilatimes.net/2026/05/04/tmt-newswire/bingoplus-celebrates-4th-year-at-bingoplus-night-2026-step-into-the-next-plus/2334403">Manila Times 5/4</a>）</div>
+        <span class="wk mono">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">05/04</span><span class="dot green"></span>
+        <span class="cat">上线</span>
+        <div class="br"><span class="logo" style="background:#4A4FB8">PT</span>PT Gaming</div>
+        <div class="desc">ptgaming.ph 上完整页 + 9 家供应商 logo（JILI、Pragmatic Play、Evolution、PG、FC、JDB、SA、Pinnacle、Realtime Gaming）；playtime.ph 转集团页（站内偵察 5/4）</div>
+        <span class="wk mono">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">05/04</span><span class="dot pink"></span>
+        <span class="cat">代言</span>
+        <div class="br"><span class="logo" style="background:#D86B27">OK</span>OKBet / OKGames</div>
+        <div class="desc">Michelle Marquez Dee（MMD）启用为 OKGames 品牌代言人；Welcome Bundle + Vertex Play ₱1.4M leaderboard + Golden Draw + Top-Up 60% Rebate 多档同时上线（站内偵察 5/4）</div>
+        <span class="wk mono">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">05/04</span><span class="dot warn"></span>
+        <span class="cat">异常</span>
+        <div class="br"><span class="logo" style="background:#2D6B4D">K</span>King + Queen</div>
+        <div class="desc">表面登录 / 注册流程恢复，登入后仍维护中。本周无新档活动（站内偵察 5/4）</div>
+        <span class="wk mono">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">05/04</span><span class="dot pink"></span>
+        <span class="cat">JACKPOT</span>
+        <div class="br"><span class="logo" style="background:#B89968">C+</span>CasinoPlus</div>
+        <div class="desc">5 个 jackpot 实时公示，JJBX Gold ₱71M+ 持续累积；左侧菜单挂 2.6%Cashback + 98% 入口（站内偵察 5/4）</div>
+        <span class="wk mono">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">05/04</span><span class="dot blue"></span>
+        <span class="cat">UI</span>
+        <div class="br"><span class="logo" style="background:#2A5FAA">AP</span>ArenaPlus</div>
+        <div class="desc">PBA Commissioners Cup 淘汰賽最後一周 hero 维持（5/10 mid 结束，<a href="https://en.wikipedia.org/wiki/2026_PBA_Commissioner's_Cup">Wikipedia</a>）</div>
+        <span class="wk mono">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">05/04</span><span class="dot warn"></span>
+        <span class="cat">空档</span>
+        <div class="br"><span class="logo" style="background:#1f1d1a">9</span>9 家</div>
+        <div class="desc">母亲节 5/10 + 发薪日 5/15 这两个档期，9 家都没有针对的促销动作（9 家 /promotions 页对照）</div>
+        <span class="wk mono">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">04/30</span><span class="dot pink"></span>
+        <span class="cat">活动</span>
+        <div class="br"><span class="logo" style="background:#E89AAA">BP</span>BingoPlus</div>
+        <div class="desc">BingoPlus Night 5/19 大奖组合公告：BMW + iPhone 17 + LV + ₱1M + 旅游（BusinessWorld / Manila Times）</div>
+        <span class="wk mono">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">04/29</span><span class="dot pink"></span>
+        <span class="cat">代言</span>
+        <div class="br"><span class="logo" style="background:#E89AAA">BP</span>BingoPlus</div>
+        <div class="desc">Sexbomb 復出 Triple Fortune Ball + More Than Win 5 位赢家颁奖（SunStar Pampanga）</div>
+        <span class="wk mono">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">04/28</span><span class="dot blue"></span>
+        <span class="cat">供应商</span>
+        <div class="br"><span class="logo" style="background:#3a4a6b">A×</span>Amusnet × 747Live</div>
+        <div class="desc">Amusnet 透过 747Live 当首个本地夥伴入菲市场，214 款游戏 EGLD 核准（<a href="https://www.gamingintelligence.com/sectors/online-gaming/229979-amusnet-enters-the-philippines-with-pagcor-approval/">Gaming Intelligence</a>）</div>
+        <span class="wk mono">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">04/27</span><span class="dot blue"></span>
+        <span class="cat">合作</span>
+        <div class="br"><span class="logo" style="background:#2A5FAA">AP</span>ArenaPlus</div>
+        <div class="desc">arenaplus.ph 官网 Title 自述「Official Partner of the PBA and PVL」；2026 PBA 季赛 #50 金禧续约（<a href="https://arenaplus.ph/">arenaplus.ph</a>）</div>
+        <span class="wk mono">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d mono">04/27</span><span class="dot blue"></span>
+        <span class="cat">政策</span>
+        <div class="br"><span class="logo" style="background:#3a4a6b">⊙</span>PAGCOR</div>
+        <div class="desc">SiGMA Asia 峰会 5/31-6/3 PAGCOR 官方背书；本周进入 T-27 暖场观察期（Tribuna Casino / Yogonet）</div>
+        <span class="wk mono">W18</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §07 RECON TABLE ============ -->
+  <section class="sec" id="recon">
+    <div class="sec-lbl">
+      <span class="chip">§07</span><span class="en">Recon Table · 9 家深度比对</span>
+      <h2>站内偵察 · 5 维度比对</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="recon">
+      <div class="head"><span>公司</span><span>促销 / Promo</span><span>KOL · 代言</span><span>产品 · 新档</span><span>定价</span><span>通路 / GCash · Maya</span></div>
+
+      <div class="row">
+        <div data-lbl="公司"><div class="nm"><span class="logo" style="background:#E89AAA">BP</span><div><b>BingoPlus</b><span>DigiPlus</span></div></div></div>
+        <div data-lbl="促销">+ Night 5/19 倒数 + Manila Times 全版广告</div>
+        <div data-lbl="KOL"><span class="new">+ 10 艺人 + 3 主持陣容公告</span></div>
+        <div data-lbl="产品">Pacquiao 9 款共名游戏 + Drop Ball game 主推</div>
+        <div data-lbl="定价">JILI Super Ace 30% 现金回馈</div>
+        <div data-lbl="通路"><span class="new">GCash 即时提现主打</span></div>
+      </div>
+      <div class="row">
+        <div data-lbl="公司"><div class="nm"><span class="logo" style="background:#2A5FAA">AP</span><div><b>ArenaPlus</b><span>DigiPlus</span></div></div></div>
+        <div data-lbl="促销">PBA Cup 淘汰赛末週 hero</div>
+        <div data-lbl="KOL">PBA + PVL Official Partner（官网 Title 自述）</div>
+        <div data-lbl="产品">PBA Cup 淘汰赛叙事，5/10 mid 结束</div>
+        <div data-lbl="定价">维持</div>
+        <div data-lbl="通路">支援 GCash · Maya，无专属</div>
+      </div>
+      <div class="row">
+        <div data-lbl="公司"><div class="nm"><span class="logo" style="background:#B89968">C+</span><div><b>CasinoPlus</b><span>独立</span></div></div></div>
+        <div data-lbl="促销">2.6% 现金回馈（4/15-5/31）</div>
+        <div data-lbl="KOL">— 无头部代言</div>
+        <div data-lbl="产品"><span class="new">5 个 jackpot 同步公示 + 左侧菜单加 98% 入口</span></div>
+        <div data-lbl="定价">维持</div>
+        <div data-lbl="通路"><span class="new">GCash 主打存款入口</span></div>
+      </div>
+      <div class="row">
+        <div data-lbl="公司"><div class="nm"><span class="logo" style="background:#2D6B4D">K</span><div><b>King.ph</b><span>World Platinum</span></div></div></div>
+        <div data-lbl="促销"><span class="alert">表面恢复，登入后仍维护中</span></div>
+        <div data-lbl="KOL">— 无头部代言（极简风）</div>
+        <div data-lbl="产品">合规标语「Play for Fun. Enjoy the Game.」黑色主调</div>
+        <div data-lbl="定价">无新档</div>
+        <div data-lbl="通路">支援 GCash · Maya（+63 国码登录页可见）</div>
+      </div>
+      <div class="row">
+        <div data-lbl="公司"><div class="nm"><span class="logo" style="background:#B6356D">Q</span><div><b>Queen.ph</b><span>World Platinum</span></div></div></div>
+        <div data-lbl="促销"><span class="alert">表面恢复，登入后仍维护中</span></div>
+        <div data-lbl="KOL">Richard Gutierrez（红西装代言）+ 柯基吉祥物</div>
+        <div data-lbl="产品">「EASY SIGN UP / START INSTANTLY!」红色主视觉</div>
+        <div data-lbl="定价">无新档</div>
+        <div data-lbl="通路">支援 GCash · Maya（同 King）</div>
+      </div>
+      <div class="row">
+        <div data-lbl="公司"><div class="nm"><span class="logo" style="background:#C2272D">88</span><div><b>Bet88</b><span>独立</span></div></div></div>
+        <div data-lbl="促销">JILI 20 次免费旋转 + ₱8,888 首存 + 周五 / 发薪日 100% reload</div>
+        <div data-lbl="KOL">— 无头部代言</div>
+        <div data-lbl="产品">中文 UI + 提现延迟补偿条款（每日 10% 上限 ₱1,000）</div>
+        <div data-lbl="定价">促销堆叠沿用</div>
+        <div data-lbl="通路"><span class="new">Maya / Lucky Games / G-Life 共用账号</span></div>
+      </div>
+      <div class="row">
+        <div data-lbl="公司"><div class="nm"><span class="logo" style="background:#4F8C5C">GZ</span><div><b>GameZone</b><span>DigiPlus</span></div></div></div>
+        <div data-lbl="促销">日赛 ₱12,888 × 4 + ₱6,000 × 3 + ₱188 免费</div>
+        <div data-lbl="KOL">Vice Ganda × GameZone 既有合作</div>
+        <div data-lbl="产品">Tongits / Pusoy 真人对战 + Tatak Kamao（Pacquiao 主题）</div>
+        <div data-lbl="定价">维持</div>
+        <div data-lbl="通路"><span class="new">GCash 10 分钟提现</span></div>
+      </div>
+      <div class="row">
+        <div data-lbl="公司"><div class="nm"><span class="logo" style="background:#D86B27">OK</span><div><b>OKBet / OKGames</b><span>独立</span></div></div></div>
+        <div data-lbl="促销"><span class="new">Welcome Bundle + Vertex Play ₱1.4M leaderboard + Top-Up 60% Rebate</span></div>
+        <div data-lbl="KOL"><span class="new">Michelle Marquez Dee（MMD）OKGames Brand Ambassador</span></div>
+        <div data-lbl="产品"><span class="new">Golden Draw 每日 7PM + PLAYTECH / OMNIPLAY / JILI / VERTEXPLAY 多供应商接入</span></div>
+        <div data-lbl="定价">多档同步上线</div>
+        <div data-lbl="通路">支援 GCash · Maya</div>
+      </div>
+      <div class="row">
+        <div data-lbl="公司"><div class="nm"><span class="logo" style="background:#4A4FB8">PT</span><div><b>PlayTime / PT Gaming</b><span>独立</span></div></div></div>
+        <div data-lbl="促销">Welcome ₱7,730 + 2.55% 无上限 cashback</div>
+        <div data-lbl="KOL">Vic Sotto + PT IDOLS 25 / 60 创作者</div>
+        <div data-lbl="产品"><span class="new">PT Gaming 完整上线 + 9 家供应商 + playtime.fit 改版 SEO 介绍页</span></div>
+        <div data-lbl="定价">维持</div>
+        <div data-lbl="通路"><span class="new">GCash / Maya 5-10 分钟提现</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §08 IMPLICATIONS ============ -->
+  <section class="sec" id="implications">
+    <div class="sec-lbl">
+      <span class="chip">§08</span><span class="en">Implications</span>
+      <h2>威胁 / 机会</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="impl">
+      <div class="col">
+        <h5>威胁 · Threats</h5>
+        <ul>
+          <li>DigiPlus 媒体宣传週吃掉 5 月娱乐版面 SOV，<b>客户 X 同期发稿曝光被压缩</b>（Manila Times 5/4 + 三家通稿）</li>
+          <li>CasinoPlus 用历史 ₱271M 反复做信任轴，<b>「能拿钱」叙事被独占</b>（Manila Times 4/12）</li>
+          <li>OKGames 启用 MMD 代言人 + 同时上多档新档，<b>娱乐 + 体育版面又多一个对手</b>（站内偵察 5/4）</li>
+          <li>PT Gaming 接入 9 家供应商 + Amusnet × 747Live 入市第二週，<b>游戏库存军备升级</b>（站内偵察 5/4 + Gaming Intelligence）</li>
+          <li>ArenaPlus 是 PBA + PVL 官方夥伴（官网 Title 自述），<b>体育博彩 SOV 持续主导</b>（arenaplus.ph）</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>机会 · Opportunities</h5>
+        <ul>
+          <li>母亲节 5/10 + 发薪日 5/15 两个档期，<b>9 家都没有针对的促销动作</b>（本周 9 家 /promotions 页对照）</li>
+          <li>King + Queen 表面恢复但登入后仍维护，玩家关注「能不能正常拿钱」；<b>「秒提现」叙事仍有空间</b>（站内偵察 5/4）</li>
+          <li>Bet88 有提现延迟补偿条款，但<b>「节庆 × 速度 × 情感」</b>仍是 9 家都没碰的象限（bet88.ph + 本周空档对照）</li>
+          <li>SiGMA Asia 峰会 5/31-6/3 进入 T-27 暖场期，可以排产品 / 公关挂这个档期（Tribuna Casino）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <section class="sec">
+    <div class="footer">
+      <div class="fcard">
+        <h5>方法论 · Methodology</h5>
+        <p>本期报告依据 4/27–5/03（W18 末）+ 5/04（W19 周一）期间 9 家 PAGCOR-licensed PH 运营商的公开资讯整理：含官方公告、媒体报导、社群动态与站内 UI 变动。Web search 周一上午 + W18 末（5/2 周六）站内快照基准 + 站内偵察 5/4 实地访问 + PH 主流媒体通稿交叉验证。</p>
+        <div class="srcs">
+          <span><i class="ok"></i>官方公告 <em>· 已采集</em></span>
+          <span><i class="ok"></i>媒体报道 <em>· 已采集</em></span>
+          <span><i class="ok"></i>社群监测 <em>· 已采集</em></span>
+          <span><i class="ok"></i>站内偵察 5/4 <em>· 9/9 完成</em></span>
+          <span><i class="partial"></i>第三方数据 <em>· 部分</em></span>
+          <span><i class="pending"></i>OKGames 转型脈络 <em>· 待持续追踪</em></span>
+        </div>
+      </div>
+      <div class="fcard">
+        <h5>下期追踪 · W20（5/11-5/17）</h5>
+        <ol>
+          <li><span class="n">01</span>King + Queen 是否结束维护（影响双站 SOV 回归）</li>
+          <li><span class="n">02</span>BingoPlus Night T-7 暖场波 + Pacquiao 是否现身公关</li>
+          <li><span class="n">03</span>OKGames MMD 代言素材投放强度 + 是否有新一波 PR</li>
+          <li><span class="n">04</span>母亲节 5/10 是否有人临场补位 + 发薪日 5/15 短档新进者</li>
+          <li><span class="n">05</span>ArenaPlus PBA Cup quarterfinal 上架（5/10 mid 后）</li>
+        </ol>
+      </div>
+    </div>
+    <div class="colophon">
+      <span><b>COMPETITOR-BRIEF</b> · CLIENT_X · ISSUE 2026-W19</span>
+      <span>研究：CompWatch · 编辑：Reagan · 内部使用</span>
+    </div>
+  </section>
+
+</div></div>
+
+<script>
+// ─── Capability Radar ──
+const RADAR_LABELS = ['BRAND','UX','CONTENT','PRICING','RETENTION','REACH'];
+const RADAR_LABELS_ZH = ['品牌力','体验','内容','定价','留存','通路'];
+
+const BRANDS = {
+  bingoplus:  { name:'BingoPlus',         color:'#E89AAA', scores:[92,78,88,72,80,80] },
+  arenaplus:  { name:'ArenaPlus',         color:'#2A5FAA', scores:[88,75,72,62,68,80] },
+  gamezone:   { name:'GameZone',          color:'#4F8C5C', scores:[60,68,72,62,58,50] },
+  king:       { name:'King.ph',           color:'#2D6B4D', scores:[40,30,38,55,28,42] },
+  queen:      { name:'Queen.ph',          color:'#B6356D', scores:[42,30,40,55,28,44] },
+  casinoplus: { name:'CasinoPlus',        color:'#B89968', scores:[64,70,66,80,74,56] },
+  okbet:      { name:'OKBet / OKGames',   color:'#D86B27', scores:[70,65,75,68,58,68] },
+  bet88:      { name:'Bet88',             color:'#C2272D', scores:[58,65,65,78,64,55] },
+  playtime:   { name:'PlayTime / PT Gaming', color:'#4A4FB8', scores:[68,62,72,68,62,65] }
+};
+let selfId = 'playtime';
+let vsId = 'bingoplus';
+const cx=160, cy=160, R=130;
+const angle = i => (Math.PI*2*i)/6 - Math.PI/2;
+
+function ringPolygon(rr){
+  return Array.from({length:6},(_,i)=>`${cx+rr*Math.cos(angle(i))},${cy+rr*Math.sin(angle(i))}`).join(' ');
+}
+function polyPoints(values){
+  return values.map((v,i)=>{const r=(v/100)*R;return `${cx+r*Math.cos(angle(i))},${cy+r*Math.sin(angle(i))}`;}).join(' ');
+}
+function labelPos(i,off=22){
+  const x = cx + (R+off)*Math.cos(angle(i));
+  const y = cy + (R+off)*Math.sin(angle(i)) + 4;
+  return {x,y};
+}
+
+function initRadar(){
+  const ringsG = document.getElementById('rings');
+  [1,.75,.5,.25].forEach((s,i)=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',ringPolygon(R*s));
+    p.setAttribute('fill', i===0 ? 'rgba(255,255,255,.04)' : 'none');
+    p.setAttribute('stroke','rgba(255,255,255,.18)');
+    ringsG.appendChild(p);
+  });
+  const axesG = document.getElementById('axes');
+  for(let i=0;i<6;i++){
+    const x=cx+R*Math.cos(angle(i)), y=cy+R*Math.sin(angle(i));
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x);l.setAttribute('y2',y);
+    l.setAttribute('stroke','rgba(255,255,255,.1)');
+    axesG.appendChild(l);
+  }
+  const labG = document.getElementById('labels');
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const p=labelPos(i,18);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',p.x);t1.setAttribute('y',p.y-6);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('fill','#fff');t1.setAttribute('font-size','11');t1.setAttribute('font-weight','800');
+    t1.textContent=lbl;
+    labG.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',p.x);t2.setAttribute('y',p.y+6);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('fill','rgba(255,255,255,.6)');t2.setAttribute('font-size','9');
+    t2.textContent=RADAR_LABELS_ZH[i];
+    labG.appendChild(t2);
+  });
+  // populate self dropdown
+  const selfSel = document.getElementById('selfsel');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = d.name;
+    if(id===selfId) opt.selected = true;
+    selfSel.appendChild(opt);
+  });
+  selfSel.addEventListener('change', e => { selfId = e.target.value; render(); });
+
+  // populate vs buttons
+  const vsbtns = document.getElementById('vsbtns');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const b = document.createElement('button');
+    b.dataset.id = id;
+    b.innerHTML = `<i style="background:${d.color}"></i>${d.name}`;
+    if(id===vsId) b.classList.add('active');
+    b.onclick = () => {
+      vsId = id;
+      document.querySelectorAll('#vsbtns button').forEach(x => x.classList.toggle('active', x.dataset.id===id));
+      render();
+    };
+    vsbtns.appendChild(b);
+  });
+
+  render();
+}
+function render(){
+  const self = BRANDS[selfId];
+  const vs = BRANDS[vsId];
+  const polySelf = document.getElementById('polySelf');
+  const polyVs = document.getElementById('polyVs');
+  polySelf.setAttribute('points',polyPoints(self.scores));
+  polyVs.setAttribute('points',polyPoints(vs.scores));
+  polyVs.setAttribute('fill',vs.color);
+  polyVs.setAttribute('stroke',vs.color);
+  document.getElementById('legendSelf').textContent='客户 X · '+self.name;
+  document.getElementById('legendVs').textContent=vs.name;
+  document.getElementById('legendVsColor').style.background=vs.color;
+  const grid = document.getElementById('radarGrid');
+  grid.innerHTML='';
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const sv=self.scores[i], vv=vs.scores[i];
+    const lead = vv > sv;
+    grid.innerHTML += `<span>${lbl}</span><span>${sv}</span><span>vs</span><span style="color:${lead?'var(--neg)':'var(--pos)'}">${vv}</span>`;
+  });
+}
+initRadar();
+</script>
+
+</body>
+</html>

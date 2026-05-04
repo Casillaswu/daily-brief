@@ -4,14 +4,14 @@
 # ════════════════════════════════════════════════════════════
 *
 
-# 白名單：只發佈 public/（GitHub Pages source 設這裡）
+# 白名單：只發佈 docs/（GitHub Pages 只支援 /(root) 或 /docs）
 !.gitignore
-!public/
-!public/**
+!docs/
+!docs/**
 
 # 永遠排除 macOS / IDE 雜訊（即使在白名單內）
 .DS_Store
-public/.DS_Store
+docs/.DS_Store
 .idea/
 .vscode/
 __pycache__/

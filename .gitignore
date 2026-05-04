@@ -1,0 +1,18 @@
+# ════════════════════════════════════════════════════════════
+# 預設全部排除 — 保護內部 IP（_sources / _x-monitoring / _design /
+# _diff-rules / lessons-learned / snapshots / 原始 .md / 草稿）
+# ════════════════════════════════════════════════════════════
+*
+
+# 白名單：只發佈 public/（GitHub Pages source 設這裡）
+!.gitignore
+!public/
+!public/**
+
+# 永遠排除 macOS / IDE 雜訊（即使在白名單內）
+.DS_Store
+public/.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.pyc

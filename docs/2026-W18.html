@@ -40,7 +40,38 @@
 
   /* ─── page shell ─── */
   .page { max-width: 1200px; margin: 0 auto; padding: 28px 32px;
-          background: var(--paper); min-height: 100vh; }
+          background: var(--paper); min-height: 100vh; position: relative; }
+
+  /* ─── lang toggle 中 / EN ─── */
+  .lang-toggle {
+    display: inline-flex;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    overflow: hidden;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .lang-toggle a {
+    padding: 6px 16px;
+    text-decoration: none;
+    color: var(--ink-3);
+    transition: all .15s ease;
+    letter-spacing: .05em;
+  }
+  .lang-toggle a.active {
+    background: var(--ink);
+    color: #fff;
+  }
+  .lang-toggle a:not(.active):hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .lang-toggle-row {
+    display: flex;
+    justify-content: flex-end;
+  }
 
   /* ─── masthead ─── */
   .masthead { border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
@@ -70,14 +101,40 @@
   .cat.d { background: var(--cat-d); }
   .cat.e { background: var(--cat-e); }
 
-  /* ─── nav anchors（取代 chip filter，方便跳 section）─── */
-  .nav-anchors { display: flex; gap: 6px; margin: 14px 0 12px; flex-wrap: wrap;
-                 padding-bottom: 6px; border-bottom: 1px dashed var(--rule); }
-  .nav-anchors a { white-space: nowrap; padding: 4px 10px; border-radius: 999px;
-                   font-size: 11px; border: 1px solid var(--rule); background: var(--paper);
-                   color: var(--ink-2); text-decoration: none; }
-  .nav-anchors a:hover { background: var(--paper-2); color: var(--ink); }
-  .nav-anchors a.lead { background: var(--ink); color: #fff; border-color: transparent; font-weight: 700; }
+  /* ─── nav anchors（升级版：cat 色圆点 + hover 浮起）─── */
+  .nav-anchors { display: flex; gap: 8px; margin: 18px 0 14px; flex-wrap: wrap;
+                 padding-bottom: 14px; border-bottom: 1px dashed var(--rule); }
+  .nav-anchors a {
+    display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap; padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 11.5px; font-weight: 600;
+    color: var(--ink-2); background: var(--paper);
+    border: 1px solid var(--rule); text-decoration: none;
+    transition: all .18s ease;
+    box-shadow: 0 1px 2px rgba(31,29,26,.04);
+  }
+  .nav-anchors a::before {
+    content: ''; display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--dot, var(--ink-3));
+    flex-shrink: 0;
+    transition: all .18s ease;
+  }
+  .nav-anchors a:hover {
+    background: var(--ink); color: #fff; border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(31,29,26,.15);
+  }
+  .nav-anchors a:hover::before { background: #fff; transform: scale(1.2); }
+  .nav-anchors a.lead {
+    background: var(--ink); color: #fff; border-color: transparent;
+    font-weight: 700;
+  }
+  .nav-anchors a.lead::before {
+    background: var(--hi); width: 7px; height: 7px;
+    box-shadow: 0 0 6px rgba(255,243,166,.6);
+  }
 
   /* ─── section head ─── */
   .section { margin: 32px 0 0; scroll-margin-top: 12px; }
@@ -224,11 +281,19 @@
 
 <main class="page">
 
+  <!-- ───────────── LANG TOGGLE ───────────── -->
+  <div class="lang-toggle-row">
+    <div class="lang-toggle">
+      <a href="2026-W18.html" class="active">中</a>
+      <a href="2026-W18-en.html">EN</a>
+    </div>
+  </div>
+
   <!-- ───────────── MASTHEAD ───────────── -->
   <header class="masthead">
     <div class="kicker">Weekly Gambling Brief · W18 · 2026-04-27 ~ 2026-05-03</div>
     <div class="row">
-      <h1>博彩产业週深度 · Reagan</h1>
+      <h1>博彩产业週深度 · 内部研究</h1>
       <div class="meta-stats">
         <span><b>5 个讯号 + 9 sections</b> · 10 媒体（Tier 1 全覆蓋）</span>
         <span class="pill pos"><span class="dot">＋</span>正面</span>
@@ -241,16 +306,16 @@
   <!-- ───────────── NAV ANCHORS ───────────── -->
   <nav class="nav-anchors">
     <a class="lead" href="#highlights">🔥 本週亮点</a>
-    <a href="#s1">§1 法规</a>
-    <a href="#s2">§2 M&A</a>
-    <a href="#s3">§3 产品</a>
-    <a href="#s4">§4 运营商</a>
-    <a href="#s5">§5 亚洲</a>
-    <a href="#s6">§6 拉美</a>
-    <a href="#s7">§7 北美</a>
-    <a href="#s8">§8 体博</a>
-    <a href="#s9">§9 X Pulse</a>
-    <a href="#s10">§10 动作建议</a>
+    <a href="#s1" style="--dot:#d6e2ee;">§1 法规</a>
+    <a href="#s2" style="--dot:#efe1c9;">§2 M&A</a>
+    <a href="#s3" style="--dot:#e8dcec;">§3 产品</a>
+    <a href="#s4" style="--dot:#efe1c9;">§4 运营商</a>
+    <a href="#s5" style="--dot:#d9e8d6;">§5 亚洲</a>
+    <a href="#s6" style="--dot:#d9e8d6;">§6 拉美</a>
+    <a href="#s7" style="--dot:#d9e8d6;">§7 北美</a>
+    <a href="#s8" style="--dot:#f1d9d5;">§8 体博</a>
+    <a href="#s9" style="--dot:#8a857d;">§9 X Pulse</a>
+    <a href="#s10" style="--dot:#8a857d;">§10 动作建议</a>
   </nav>
 
   <!-- ───────────── 🔥 本週亮点 ───────────── -->
@@ -270,11 +335,11 @@
       </div>
       <h3>巴西新法 <span class="hi">CMN 5.298</span> 于 5/4 上路 — 预测市场（Prediction Markets）现在同时面对三方压力：法规收紧、商业强力竞争、跟丑闻接连爆出</h3>
       <p class="src-meta">iGaming Brazil · Bloomberg · Texas Tribune · Bettors Insider · Daloopa · 05/03</p>
-      <p>过去一周的新闻全部指向同一件事——<b>预测市场这个议题从「未来威胁」变成「这周已经发生的现实」</b>。重点变动有五件：</p>
+      <p>过去一周的新闻全部指向同一件事——<b>预测市场（Prediction Markets）这个议题从「未来威胁」变成「这周已经发生的现实」</b>。重点变动有五件：</p>
       <p>
-        <b>1. 法规端：</b>巴西全国货币委员会（CMN）的新法规 <span class="hi">CMN 5.298</span> 5/4 上路、禁掉「没有实体经济支撑」的衍生品交易——白话讲，就是堵死 Polymarket、Kalshi 这些预测市场平台「伪装成金融衍生品」的灰色玩法。<br>
-        <b>2. 执法端：</b>巴西累计封了 39,000+ 个违法网站、下架 203 个 APP、冻结 697 个账户；国家电信局 Anatel 又加封 28 站。Polymarket、Kalshi、Fanatics Markets 全在巴西下线；巴西证交所 B3 同步推 6 个合规版的 event contracts（含 BTC 连结）作替代品。<br>
-        <b>3. 商业端：</b><span class="hi">BetMGM</span>（美国体博三大之一）Q1 法说会公开承认被预测市场吃掉流量、下调全年指引——这是传统 sportsbook 第一次正面认账。同期 FanDuel 也转向、自己下场做预测市场。<br>
+        <b>1. 法规端：</b>巴西全国货币委员会（CMN）的新法规 <span class="hi">CMN 5.298</span> 5/4 上路、禁掉「无实体经济行为」的衍生品交易——禁止 Polymarket、Kalshi 这些预测市场平台「伪装成金融衍生品」的灰色玩法。<br>
+        <b>2. 执法端：</b>巴西累计封了 39,000+ 个违法网站、下架 203 个 APP、冻结 697 个账户；国家电信局 Anatel 封 28 个衍生网域。Polymarket、Kalshi、Fanatics Markets 全在巴西下线；巴西证交所 B3 同步推 6 个合规版的 event contracts（含 BTC 连结）作替代品。<br>
+        <b>3. 商业端：</b><span class="hi">BetMGM</span>（美国体博三大之一）Q1 法说会公开承认被吃掉流量、下调全年指引——同期 FanDuel 也转向、自己下场做预测市场。<br>
         <b>4. 商业端：</b><span class="hi">DraftKings（DKNG，美国体博龙头）公布 2026 年要砸 $175M 在自家预测市场平台</span>，搭配加拿大 Alberta 上线时间、想吃 World Cup（世界杯）的话题流量——从原本「观望」直接变「全力加码」。<br>
         <b>5. 美国法规端：</b>Texas 副州长 Dan Patrick 推关「博彩漏洞」；38 州联盟支援马里兰州抵抗 CFTC 越权；5/1 国会推《Prediction Markets Are Gambling Act》、要禁掉所有体育类预测合约。
       </p>
@@ -359,17 +424,16 @@
           <span class="cat a">法规</span>
           <span class="pill hot">5/4 已上路</span>
         </div>
-        <div class="byline">Brazil · 联邦法规 · 5/4 上路</div>
-        <h4>CMN 5.298 于 5/4 上路 — 堵死预测市场「偽裝成衍生品」的灰色玩法</h4>
-        <p class="src">iGaming Brazil · Bloomberg · iGB · 04/24</p>
-        <p>4/24 公告：禁掉「沒有实体经济支撐」的衍生品交易（具体讲就是沒挂在利率、外汇、商品担保上的合约）。白话一点 → <b>直接堵死 Polymarket、Kalshi 这类预测市场「偽裝成金融衍生品」的路徑</b>。原本想用这套灰色玩法绕过 2023 年《Lei 14.790》（巴西博彩合法化母法）的业者，5/4 起全部清零。<b>反对党 Novo 党已经提了立法解除动议（PDL）反对 CMN 越权</b>，本週要看众议院会不会把这议案排进议程。</p>
+        <div class="byline">Brazil · 联邦法规</div>
+        <h4>CMN 5.298 已上路 — 巴西累计执法战果（数字）</h4>
+        <p class="src" style="font-style:italic;color:var(--ink-3);">主轴完整内容在「本周亮点」Signal 01；这里只列巴西累计的执法数字、补充 §1 法规章的视角。</p>
         <div class="stat-strip">
           <div class="stat"><div class="v">39<small>K+</small></div><div class="l">违法网站封</div></div>
           <div class="stat"><div class="v">203</div><div class="l">APP 下架</div></div>
-          <div class="stat"><div class="v">697</div><div class="l">帳户冻结</div></div>
+          <div class="stat"><div class="v">697</div><div class="l">账户冻结</div></div>
           <div class="stat"><div class="v">28</div><div class="l">Anatel 加封站</div></div>
         </div>
-        <a class="cta" href="https://igamingbrazil.com/en/legislation-en/2026/04/27/government-tightens-financial-rules-and-expands-the-ban-on-illegal-betting-in-the-country/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <a class="cta" href="#highlights">→ 跳回 Signal 01 看完整说明</a>
       </div>
 
       <div class="card">
@@ -377,19 +441,10 @@
           <span class="cat a">法规</span>
           <span class="pill neg"><span class="dot">−</span>负面</span>
         </div>
-        <div class="byline">Brazil · 州级广告法（直连验证）</div>
-        <h4>南大河州 Lei nº 16,508 签署 — 巴西州级广告管制第一槍</h4>
-        <p class="src">iGaming Brazil（直连） · iGB · 04/24</p>
-        <p>巴西南大河州（Rio Grande do Sul）4/24 签署新法，给业者 120 天缓冲期。重点：</p>
-        <ul style="font-size:12px;color:var(--ink-2);line-height:1.7;">
-          <li>三段強制警语、要占萤幕至少 15 %</li>
-          <li>电视、串流、随选视频、广播只能在晚上 9 点到隔天早上 6 点之间播</li>
-          <li><b>禁掉童趣化呈现</b>（动画、吉祥物、AI 生成视觉）</li>
-          <li><b>连带责任</b>：平台、代理商、媒体、ISP 全部一起扛</li>
-          <li><b>消费者保护局 PROCON-RS 的罚责阶梯</b>，最重可撤照</li>
-        </ul>
-        <p><u>综合判断</u>：<b>其他州复制这套模板的机率很高</b>。巴西的素材制作要立刻分「联邦 + 州别」两层审查、做「白天版跟晚间版」两套素材。完整细节在 §6。</p>
-        <a class="cta" href="https://igamingbrazil.com/en/sports-betting-en-2/2026/04/28/rio-grande-do-sul-sanctions-law-that-restricts-sports-betting-advertising/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">Brazil · 州级广告法</div>
+        <h4>南大河州 Lei nº 16,508 — 巴西第一条州层级的博彩广告法</h4>
+        <p class="src" style="font-style:italic;color:var(--ink-3);">主轴在「本周亮点」Signal 04；完整法律条文（警语、童趣化禁令、连带责任、罚责阶梯）写在 §6 巴西重点的 law-box。这里只多一句：本周这一枪开了之后、巴西其他州复制的机率很高。</p>
+        <a class="cta" href="#s6">→ 跳到 §6 看法律全文</a>
       </div>
 
       <div class="card">
@@ -458,11 +513,10 @@
           <span class="cat c">运营商</span>
           <span class="pill neg"><span class="dot">−</span>负面</span>
         </div>
-        <div class="byline">头条 · Evoke (William Hill / 888 母公司)</div>
-        <h4>Evoke 确认要关掉 270 间实体店、整年亏 <span class="hi">£549M（约 220 亿台幣）</span></h4>
-        <p class="src">Yogonet · Sharecast · GBNews · 04/30</p>
-        <p>Evoke（旗下有 William Hill、888 两个老牌博彩品牌）财报出来：稅前亏损 £549.1M（去年只亏 £220.9M、今年翻了 1.5 倍）。三个主因：(1) 4 月刚上路的 40 % 线上博彩稅（RGD），(2) 商譽减损 £440M，(3) 2027 还要再加一条 25 % 的线上体育博彩新稅，光这一条从 2027 起每年要多缴 £135M。重点：这不是「从实体转线上」的转型故事、是「实体收攤、线上又被高稅压著」双线缩编。<b>英国老牌博彩零售业实质崩盘</b>——对新兴市场来说，这是空窗期：菲律宾、巴西的纯线上品牌可以趁这 6-12 个月吃下 UK 老牌让出来的市占。</p>
-        <a class="cta" href="https://www.yogonet.com/international/news/2026/04/30/119019-william-hill-owner-evoke-to-close-270-shops-as-losses-widen-on-tax-hit" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">UK · Evoke (William Hill / 888 母公司)</div>
+        <h4>Evoke 关 270 间店、整年亏 £549M</h4>
+        <p class="src" style="font-style:italic;color:var(--ink-3);">主轴在「本周亮点」Signal 02；这里只多一句 §2 资本面的视角：Evoke 商誉减损 £440M、加上 2027 年还要再缴 25 % 线上体育博彩新税，意味这不是「转型」是「收摊」——把它当作传统老牌博彩集团失血的案例研究。</p>
+        <a class="cta" href="#highlights">→ 跳回 Signal 02 看完整说明</a>
       </div>
 
       <div class="card">
@@ -470,11 +524,10 @@
           <span class="cat c">运营商</span>
           <span class="pill neu"><span class="dot">○</span>中立</span>
         </div>
-        <div class="byline">头条 · bet365</div>
-        <h4>bet365 卖身或上市談判公开化、估值 <span class="hi">£9-12bn（约 3,600-4,800 亿台幣）</span></h4>
-        <p class="src">Casino.org · SBC Americas · GI · 05/01</p>
-        <p>bet365 的创办人 Coates 家族开始跟华爾街投行談——两条路在桌上：(1) 全部卖掉（买家名单包括私募基金 Apollo、Blackstone、体博龙头 DraftKings、Caesars、MGM），(2) 私募基金先入股、再去美国上市。3 月已经退出中国灰色市场、把 Stoke City 足球俱乐部过户给创办人弟弟 John，<b>「卖前清仓」的动作很明确</b>。<u>综合判断</u>：bet365 在亚洲（含菲律宾）灰色市场是最大競争对手之一，<b>控股结构一变、营销预算、品牌调性、通路策略全会跟著动</b>。如果美系金融买家接手，菲律宾灰市的策略大概会转守、释出 6-12 个月的市占空缺——对纯线上、亚 / 拉美品牌是进场时机。</p>
-        <a class="cta" href="https://www.casino.org/news/bet365-reportedly-in-talks-on-sale-at-12-billion-valuation-or-ipo/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">UK · bet365</div>
+        <h4>bet365 卖身 / 上市谈判公开化、估值 £9-12bn</h4>
+        <p class="src" style="font-style:italic;color:var(--ink-3);">主轴在「本周亮点」Signal 02；这里只多一句 §2 资本面的视角：买家名单上的 Apollo、Blackstone、DraftKings、Caesars、MGM 各自对菲律宾灰市策略的影响不同——金融买家接手大概会转守、产业买家可能加码——这两个结果对中型品牌的进场窗口期不一样。</p>
+        <a class="cta" href="#highlights">→ 跳回 Signal 02 看完整说明</a>
       </div>
 
       <div class="card">
@@ -648,9 +701,11 @@
           <span class="cat b">产品</span>
           <span class="pill hot">Editor's Pick</span>
         </div>
-        <div class="byline">下半年的两条主軸</div>
-        <h4>下半年产品跟內容两条主軸：「体育 + 赌场混合」加上「合规 AI 说法」</h4>
-        <p>体博跟赌场分两条产品线运营的时代要结束了——运营商得重新定义玩家旅程的銜接点，同时把<b>「合规 AI」打进品牌核心讯息</b>。这两个切角值得写进下一季的 brief 範本。</p>
+        <div class="byline">下半年值得盯的两条线</div>
+        <h4>下半年值得盯的两条线：内容混合 + 合规 AI 当卖点</h4>
+        <p><b>(1) 体育跟赌场内容会越来越混在一起。</b>以前 sportsbook 是一条产品线、casino 是另一条、各自玩各自的。这周 Sportradar 推 Playradar（直播比赛 + 即时下注 + 历史串流的混合内容、已经先在巴西上线）——意思是「玩家从体博跳去赌场、或反过来」那个接的瞬间，运营商要重新设计动线。</p>
+        <p><b>(2) 「合规 AI」会变成中型品牌的差异化卖点。</b>大厂都在「导 AI 但治理跟不上」（UNLV + KPMG 4/15 报告点出来的 governance gap），中型品牌反过来打「我们的 AI 用在哪里、为什么用、怎么决策」这套透明可审计的论述、反而占便宜。</p>
+        <p>这两件事都可以直接写进下一季接案的提案模板里。</p>
           <p class="src" style="font-style:italic;margin-top:6px;">📍 编辑整合自 本期 §3 Playradar / BetConstruct / High Roller / UNLV+KPMG 多源 — 无单一原文连结</p>
       </div>
 
@@ -670,16 +725,11 @@
       <div class="card hilite">
         <div class="meta-row">
           <span class="cat c">运营商</span>
-          <span class="pill pos"><span class="dot">＋</span>正面</span>
-          <span class="pill hot">Miami GP 启动</span>
+          <span class="pill hot">Miami GP 已启动</span>
         </div>
-        <div class="byline">FanDuel × F1 · 头条</div>
-        <h4>F1 × FanDuel 5/3 Miami GP 已开跑、是合作后首场大型曝光</h4>
-        <p class="src">SBC Americas · PRNewswire · F1 Corp · Sportsnaut · 04/30</p>
-        <p>4/30 公告，多年期合约。F1 第一次在美国绑定官方体博品牌；FanDuel 会整合进 F1 官网跟 App 的下注指南、实况赔率、实况中下注。</p>
-        <div class="pullquote">F1 觀众结构（全球年轻、高消费、男性为主）跟菲律宾 / 巴西市场高度重叠。</div>
-        <p><u>综合判断</u>：5/3 Miami GP 是首场曝光、<b>本周一上午 X / IG 上的 KOL 反应，跟 FanDuel App 投注额（handle）数據，是要盯的两件事</b>。这个案例值得拆解素材路徑、节奏、KPI 设计，未来菲 / 巴接体育 IP 合作可以当範本用。</p>
-        <a class="cta" href="https://sbcamericas.com/2026/04/30/formula-1-fanduel-sports-betting-deal/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">FanDuel × F1</div>
+        <h4>F1 × FanDuel — 美 / 加首位官方体博合作</h4>
+        <a class="cta" href="#highlights">→ 跳回 Signal 03</a>
       </div>
 
       <div class="card">
@@ -687,11 +737,9 @@
           <span class="cat c">运营商</span>
           <span class="pill neg"><span class="dot">−</span>负面</span>
         </div>
-        <div class="byline">DKNG · $175M PMs 预算落地</div>
-        <h4>DraftKings Predictions 2026 预算 <span class="hi">$175M</span> + Alberta launch</h4>
-        <p class="src">Daloopa · SportsGrid · Bettors Insider · 05/01</p>
-        <p>DraftKings（DKNG，美国体博龙头）公开揭露 2026 年要花 <span class="hi">$175M（约 56 亿台幣）</span>砸在自家预测市场（PMs，prediction markets）平台上，搭配加拿大 Alberta 省上线时间打 World Cup（世界盃）流量。对比一下：BetMGM 上週才公开承认被 PMs 吃掉流量、下调全年指引——<b>DKNG 不认帳、直接砸钱全速跟进，姿态比 BetMGM 更激进</b>。<u>综合判断</u>：对 sportsbook 营销预算结构是大冲擊——以前內容主軸是「纯 sportsbook」、现在要重划成「sportsbook + 预测市场双产品线」。对中型品牌（特别是亚 / 拉美）来说，是新挑戰、也是新机会点：大厂忙著切预算、自家品牌定位反而有空间搶。</p>
-        <a class="cta" href="https://daloopa.com/blog/analyst-pov/the-contrarian-case-why-prediction-markets-create-a-buying-opportunity-for-draftkings-and-fanduel" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">DraftKings · 预测市场 $175M 预算</div>
+        <h4>DraftKings 加码预测市场 + Alberta 上线</h4>
+        <a class="cta" href="#highlights">→ 跳回 Signal 01</a>
       </div>
 
       <div class="card">
@@ -699,11 +747,9 @@
           <span class="cat c">运营商</span>
           <span class="pill neg"><span class="dot">−</span>负面</span>
         </div>
-        <div class="byline">BetMGM Q1 · 第一个公开认帳的</div>
-        <h4>BetMGM Q1 营收 +6 %、下修整年指引、公开承认被预测市场吃流量</h4>
-        <p class="src">Bettors Insider · Bloomberg · 04/16</p>
-        <p>BetMGM（MGM 旗下体博跟 iGaming 品牌）Q1 2026 营收 $696M（年增 6 %）、但<b>下修整年指引</b>，财报法说会公开把 Polymarket、Kalshi 列为「吃流量、垫高顾客取得成本（CPA）」的元兇。<b>这是传统大型 sportsbook 第一个正面承认被预测市场威脅的案例</b>。FanDuel 同步转向、自己下场做预测市场。<u>综合判断</u>：这是业界开始改觀的转折点。过去半年大家还在嘴硬「预测市场不是真威脅」，现在第一线运营商公开承认 CPA 被吃——<b>競争格局要重新洗牌的窗口已经打开</b>。</p>
-        <a class="cta" href="https://bettorsinsider.com/sports-betting/2026/04/16/betmgm-q1-2026-revenue-grew-6-guidance-was-cut-and-the-company-is-blaming-prediction-markets-for-eating-its-lunch/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">BetMGM · Q1 公开认账</div>
+        <h4>BetMGM Q1 公开认账被预测市场吃流量、下修指引</h4>
+        <a class="cta" href="#highlights">→ 跳回 Signal 01</a>
       </div>
 
       <div class="card">
@@ -712,10 +758,8 @@
           <span class="pill pos"><span class="dot">＋</span>正面</span>
         </div>
         <div class="byline">5W · AI 引用度排名</div>
-        <h4>5W 公开美国体博 AI 引用度排名 — FanDuel 在 18 州第一</h4>
-        <p class="src">PRNewswire · 05/01</p>
-        <p>营销研究公司 5W 5/1 发佈报告：用四个 AI 引擎（ChatGPT、Claude、Perplexity、Google AI）跑 50 多个用户常見问句，看哪些体博品牌被引用得最多。前 10 名：FanDuel → DraftKings → Caesars → BetMGM → BetRivers → PrizePicks → ESPN BET → Hard Rock Bet → Fanatics → bet365。FanDuel 拿第一的主因：<b>责任博彩內容深度跟各州法规透明页做得最好</b>，所以 AI 容易引用。BetMGM 的商业市占其实比 Caesars 大、但 AI 引用度只能排第四——<b>意思是「商业市占 ≠ AI 可見度」</b>。</p>
-        <a class="cta" href="https://www.prnewswire.com/news-releases/fanduel-leads-ai-citation-share-in-5ws-first-us-sports-betting-index--but-betmgm-trails-draftkings-despite-larger-market-share-and-caesars-sportsbook-punches-above-its-commercial-weight-302757719.html" target="_blank" rel="noopener">阅讀原文 →</a>
+        <h4>5W AI Visibility Index — FanDuel 18 州第一</h4>
+        <a class="cta" href="#highlights">→ 跳回 Signal 03</a>
       </div>
 
       <div class="card">
@@ -804,11 +848,9 @@
           <span class="cat d">市场</span>
           <span class="pill neu"><span class="dot">○</span>中立</span>
         </div>
-        <div class="byline">澳门 · 4 月 GGR + 年初到 4 月累计</div>
-        <h4>澳门 4 月毛博彩收入 MOP$19.9B（年增仅 5.5 %）；年初到 4 月累计 +12.1 %</h4>
-        <p class="src">Macao News · IAG · GGRAsia · GGB Magazine · 05/01</p>
-        <p>澳门 4 月毛博彩收入（GGR）MOP$19.9B（约 2,500 万美元、台幣 800 亿），<b>低于摩根大通预估的 +10 %、低于 Seaport 预估的 +12 %</b>。比 3 月（MOP$22.61B）也下跌；不过 4 月本来就是传统淡季。年初到 4 月累计 <span class="hi">MOP$85.8B（年增 12.1 %）</span>——年初到现在的数字仍亮眼，但月对月趨势已经转向。<u>综合判断</u>：摩根士丹利预估 5 月起年增速会持续放缓，<b>Q2-Q3 运营获利（EBITDA）有可能负成长</b>。整年共识：MS +6 % / UBS +5 % / CBRE +8.3 % / Macquarie +8 % / Seaport +7 %（上半年 +9.8 % / 下半年 +4.4 %）。</p>
-        <a class="cta" href="https://asgam.com/2026/05/01/macau-ggr-up-5-5-year-on-year-in-april-to-mop19-9-billion/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">澳门 · 4 月 GGR + YTD 数字</div>
+        <h4>澳门 4 月 +5.5 %、YTD 4 月 +12.1 %</h4>
+        <a class="cta" href="#highlights">→ 跳回 Signal 05</a>
       </div>
 
       <div class="card">
@@ -830,10 +872,8 @@
           <span class="pill neg"><span class="dot">−</span>负面</span>
         </div>
         <div class="byline">澳门 · 5-7 月展望</div>
-        <h4>澳门 5-7 月：数據疲弱跟运营获利压力会同时来</h4>
-        <p class="src">GGRAsia (MS · UBS · CBRE · Macquarie · 政府)</p>
-        <p>Q2-Q3 因为去年同期基期太高（high base effect），多家投行在下修预估——摩根士丹利从正向降到 in-line（与大盘一致）。澳门政府给 2026 年的 GGR 预估是 MOP 236bn（约 8,500 亿台幣）；Macquarie 比较看好 Wynn 跟 Sands China 会擴张市占。<u>综合判断</u>：靠实体赌场客流的合作机会会减少，<b>线上 / 海外品牌的相对机会会擴大</b>。澳门那边营销预算会更保守，<b>线上品牌的营销预算彈性反而会放大</b>。</p>
-          <a class="cta" href="https://www.ggrasia.com/macau-2026-ggr-growth-may-outperform-singapore-and-las-vegas-but-with-weak-ebitda-gains-ms" target="_blank" rel="noopener">阅讀原文 →</a>
+        <h4>澳门 5-7 月数据可能疲弱、运营获利压力同时来</h4>
+        <a class="cta" href="#highlights">→ 跳回 Signal 05</a>
       </div>
 
       <div class="card">
@@ -841,11 +881,9 @@
           <span class="cat a">法规</span>
           <span class="pill neg"><span class="dot">−</span>负面</span>
         </div>
-        <div class="byline">Philippines · PAGCOR 严管</div>
-        <h4>B2B Accreditation 4/1 起 + KYC 升级 + 广告全日禁研议</h4>
-        <p class="src">iGB · Inquirer · NEXT.io · BSN · GMA News</p>
-        <p>菲律宾博彩监管局 PAGCOR 从 4/1 起加码一连串新规：沒认证的境外供应商一律不准上架；每张电子赌场执照每月最低缴 PHP 9M（最低保证授权金 MGF）；信用卡跟加密货幣禁儲值；KYC（身份验证）升级成 ID 加即时自拍；2026 年內要上线 24 小时问题赌博熱线；<b>2028 年前要把 41 间自营赌场全部私营化</b>。黄金时段 TV / 广播博彩广告已禁，现在还在研议是不是要改成全天禁。PAGCOR 主席 Tengco 的态度：「我们要的是规範、不是全面禁绝」、但也表态歡迎更多广告限制。<u>综合判断</u>：所有 IG / TikTok / YouTube 素材对「博彩字眼」跟「明星代言边界」都要重新审视——<b>下半年必修功课</b>。</p>
-          <a class="cta" href="https://igamingbusiness.com/gaming/gaming-regulation/pagcor-implement-stronger-philippines-igaming-regulations/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">菲律宾 · PAGCOR 严管</div>
+        <h4>PAGCOR B2B 认证 + KYC 升级 + 广告全日禁研议</h4>
+        <a class="cta" href="#s1">→ 跳到 §1 看完整说明</a>
       </div>
 
       <div class="card">
@@ -867,10 +905,8 @@
           <span class="pill hot">🆕 执行面验证</span>
         </div>
         <div class="byline">菲律宾 · 认证白名单第一个新增</div>
-        <h4>Amusnet × 747Live 拿到 PAGCOR EGLD 认证（4/28）— 这是 B2B 认证新制上路后第一个</h4>
-        <p class="src">EEGaming · Gaming Intelligence · 04/28</p>
-        <p>欧洲老牌老虎机供应商 Amusnet 4/28 拿到 PAGCOR EGLD 核准、透过 747Live 上线 214 款游戲（细节見 §3）。<u>综合判断</u>：这是 PAGCOR 4/1 B2B 认证新制上路后，核准白名单上第一个明确新增的供应商——<b>欧洲厂商正透过合规管道进场、把原本灰色业者占的位置吃下来</b>。对 PAGCOR 持照运营商 +EV（议价空间多 10-20 %、加上独家首发 1-3 个月红利）。</p>
-        <a class="cta" href="https://eegaming.org/latest-news/2026/04/28/138093/amusnet-officially-enters-the-philippine-market/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <h4>Amusnet × 747Live 拿到 PAGCOR EGLD 认证</h4>
+        <a class="cta" href="#s3">→ 跳到 §3 看完整说明</a>
       </div>
 
       <div class="card">
@@ -928,11 +964,9 @@
           <span class="pill hot">5/4 已上路</span>
         </div>
         <div class="byline">巴西联邦 · CMN 5.298</div>
-        <h4>巴西 CMN 5.298 于 5/4 正式上路 — 堵死预测市场「偽裝衍生品」的灰色玩法</h4>
-        <p class="src">iGaming Brazil · Bloomberg · iGB · 04/24</p>
-        <p>禁掉「沒有实体经济支撐」（沒挂在利率、外汇、商品担保上）的衍生品交易 → 直接堵死预测市场「偽裝衍生品」的路徑。原本想用 Polymarket 那套绕过 2023 年《Lei 14.790》（巴西博彩合法化母法）的业者，5/4 起全部清零。<b>反对党 Novo 党已经提了立法解除动议（PDL）抗议</b>，本週要看众议院会不会把这议案排进议程。</p>
-        <p>官方定位（国家消费者秘书 Ricardo Morishita 亲口）：「沒有第三种解释。要嘛违法、要嘛在合法框架內。要进合法框架，要嘛去财政部登记为 bet（依《Lei 14.790/2023》），要嘛走有实体担保的衍生品制度。」</p>
-        <a class="cta" href="https://igamingbrazil.com/en/legislation-en/2026/04/27/government-tightens-financial-rules-and-expands-the-ban-on-illegal-betting-in-the-country/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <h4>CMN 5.298 已上路 — 巴西全国货币委员会新法规</h4>
+        <p class="src" style="font-style:italic;color:var(--ink-3);">主轴在「本周亮点」Signal 01；这里只多一句巴西视角的官方定位（国家消费者秘书 Ricardo Morishita 亲口）：「没有第三种解释。要嘛违法、要嘛在合法框架内。要进合法框架，要嘛去财政部登记为 bet（依 Lei 14.790/2023），要嘛走有实体担保的衍生品制度。」——这句话的硬度，就是为什么巴西其他州可能跟着抄。</p>
+        <a class="cta" href="#highlights">→ 跳回 Signal 01 看完整说明</a>
       </div>
 
       <div class="card">
@@ -1024,9 +1058,9 @@
           <span class="pill pos"><span class="dot">＋</span>正面</span>
         </div>
         <div class="byline">B2B · Sportradar Playradar</div>
-        <h4>Sportradar 的 Playradar 已经在巴西上线</h4>
-        <p>Sportradar 把「直播 + 即时下注 + 历史串流」这套混合內容先打进巴西——当作「体育 + 赌场混合」內容的试水池。<u>综合判断</u>：玩家旅程的銜接点会跟著变、巴西素材的结构也会跟著重做。完整细节見 §3。</p>
-          <a class="cta" href="https://www.stocktitan.net/news/SRAD/sportradar-launches-i-gaming-brand-playradar-combining-sports-data-o4j9z5cgbj8u.html" target="_blank" rel="noopener">阅讀原文 →</a>
+        <h4>Playradar 已在巴西上线</h4>
+        <p class="src" style="font-style:italic;color:var(--ink-3);">完整内容在 §3 产品技术；这里只多一句巴西视角：Sportradar 选巴西当「体育 + 赌场混合」的试水池——意味着巴西素材的玩家旅程结构、12-18 个月内会被重做。</p>
+        <a class="cta" href="#s3">→ 跳到 §3 看完整说明</a>
       </div>
     </div>
   </section>
@@ -1046,10 +1080,9 @@
           <span class="cat a">法规</span>
           <span class="pill neu"><span class="dot">○</span>中立</span>
         </div>
-        <div class="byline">美国 · 法规夹擊</div>
-        <h4>美国联邦 + 38 州两层立法同时夹擊预测市场</h4>
-        <p>三条动作同时在进行：(1) 《Prediction Markets Are Gambling Act》参议院两党提案；(2) 38 州检察长联名挺马里兰州反对联邦越权；(3) 商品期货交易委员会（CFTC）反过来告那些想用州级博彩法管 Kalshi、Polymarket 的州。最后可能要打到美国最高法院、由最高院裁决体育类预测市场到底歸谁管。<u>综合判断</u>：未来 6 个月最高院判什么，会延伸影响到巴西、亚洲市场的合规論述。</p>
-          <p class="src" style="font-style:italic;margin-top:6px;">📍 编辑整合自 本期 §1 Texas Tribune / Sportico / LSR 多源 — 无单一原文连结</p>
+        <div class="byline">美国 · 法规夹击</div>
+        <h4>美国联邦 + 38 州双层立法同时夹击预测市场</h4>
+        <a class="cta" href="#s1">→ 跳到 §1 看完整说明</a>
       </div>
 
       <div class="card">
@@ -1069,11 +1102,9 @@
           <span class="cat c">运营商</span>
           <span class="pill neu"><span class="dot">○</span>中立</span>
         </div>
-        <div class="byline">美国 · 华爾街双财报週</div>
-        <h4>5/6 Flutter / 5/7 DraftKings 连两天报 Q1、华爾街双下修预估</h4>
-        <p class="src">LSR · Casino.org</p>
-        <p>摩根大通预估 DraftKings Q1 运营获利只有 $151M、低于华爾街共识的 $174M；Stifel、Citizens JMP 预估 DraftKings、Flutter 两家都会 miss。但 Casino.org 反向看：「DraftKings Q1 还有顺风、2026 整年指引仍可达成」。<b>要盯三件事</b>：整年获利指引会不会下修、DraftKings Predictions $175M 预算怎么拆解、加拿大 Alberta 上线时间表。</p>
-          <a class="cta" href="https://www.legalsportsreport.com/260412/wall-street-cuts-draftkings-flutter-estimates-as-handle-slowdown-clouds-earnings/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">美国 · 华尔街双财报周</div>
+        <h4>5/6 Flutter + 5/7 DraftKings 双财报、华尔街已先下修预估</h4>
+        <a class="cta" href="#s2">→ 跳到 §2 看完整说明</a>
       </div>
 
       <div class="card">
@@ -1082,10 +1113,8 @@
           <span class="pill pos"><span class="dot">＋</span>正面</span>
         </div>
         <div class="byline">美国 · Resorts World NYC</div>
-        <h4>紐约市第一家全规模赌场 Resorts World NYC 4/29 开幕（Genting 旗下）</h4>
-        <p class="src">Yogonet · iGB</p>
-        <p>240 张賭桌 + 2,500 台老虎机。紐约市三张下州赌场执照里，这家是第一个进入全规模运营的——<b>比 Wynn、Sands、Caesars、MGM 都早一步</b>。Genting 集团（马来西亚）旗下。</p>
-          <a class="cta" href="https://www.yogonet.com/international/news/2026/04/29/118899-resorts-world-launches-new-york-city-39s-first-fullscale-casino" target="_blank" rel="noopener">阅讀原文 →</a>
+        <h4>纽约市第一家全规模赌场开幕</h4>
+        <a class="cta" href="#s4">→ 跳到 §4 看完整说明</a>
       </div>
 
       <div class="card">
@@ -1105,10 +1134,9 @@
           <span class="cat c">运营商</span>
           <span class="pill pos"><span class="dot">＋</span>正面</span>
         </div>
-        <div class="byline">Canada · Alberta launch</div>
-        <h4>DKNG Alberta launch + Blueprint × BetMGM Ontario</h4>
-        <p>两件加拿大动态：(1) DraftKings（DKNG，美国体博龙头之一）会在加拿大 Alberta 省上线新平台，时间配合 World Cup（世界盃）流量。(2) 老虎机厂商 Blueprint Gaming 跟 BetMGM 簽下 Ontario 省的多月独家合作，主推一款用《冰与火之歌》IP 改的老虎机。<u>综合判断</u>：对大厂来说，加拿大 Ontario / Alberta 还是试水区。<b>「用熱门 IP 改老虎机 + 跟单一运营商独家上架」是这季很多厂商在玩的同一招</b>，目的是吃话题流量、又避免跟其他运营商分版位。</p>
-          <a class="cta" href="https://daloopa.com/blog/analyst-pov/the-contrarian-case-why-prediction-markets-create-a-buying-opportunity-for-draftkings-and-fanduel" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">Canada · Alberta + Ontario</div>
+        <h4>DraftKings Alberta 上线 + Blueprint × BetMGM Ontario 独家</h4>
+        <a class="cta" href="#s4">→ 跳到 §4 看完整说明</a>
       </div>
 
       <div class="card">
@@ -1166,11 +1194,9 @@
           <span class="pill pos"><span class="dot">＋</span>正面</span>
           <span class="pill hot">Miami GP</span>
         </div>
-        <div class="byline">F1 × FanDuel · Miami GP 启动</div>
-        <h4>F1 × FanDuel 5/3 Miami GP 已开跑、是合作后首场大型曝光</h4>
-        <p>F1 过去从来不在美国绑体博品牌，<b>这次是第一次正式破例</b>。FanDuel 整合进 F1 官网跟 App 的下注指南、实况赔率、实况中下注功能（细节見 §4）。</p>
-          <a class="cta" href="https://sbcamericas.com/2026/04/30/formula-1-fanduel-sports-betting-deal/" target="_blank" rel="noopener">阅讀原文 →</a>
-        <div class="pullquote">F1 觀众（全球年轻、高消费、男性为主）跟菲律宾 / 巴西市场高度重叠——可以当 IG / TikTok / YouTube 內容素材的競品範本。</div>
+        <div class="byline">F1 × FanDuel</div>
+        <h4>F1 × FanDuel — 全球 IP 跟体博绑定的范本</h4>
+        <a class="cta" href="#highlights">→ 跳回 Signal 03</a>
       </div>
 
       <div class="card">
@@ -1202,11 +1228,9 @@
           <span class="cat e">体博</span>
           <span class="pill pos"><span class="dot">＋</span>正面</span>
         </div>
-        <div class="byline">投注额数據 · 紐约州</div>
-        <h4>紐约州 3 月投注总额 $2.331B、稅收 $111M（年增 34.5 %）</h4>
-        <p class="src">LSR</p>
-        <p>莊家保留率（hold rate）冲到 9.34 %，把毛博彩收入推到 $217.7M。紐约州 2026 年已经连 4 个月投注总额破 $2B。同期阿肯色州 3 月投注额创历史新高、达 8,660 万美元（年增 40 %）。</p>
-          <a class="cta" href="https://www.legalsportsreport.com/sports-betting-states/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <div class="byline">投注额数据 · 纽约州</div>
+        <h4>纽约州 3 月投注总额 $2.331B（已在 §7 详述）</h4>
+        <a class="cta" href="#s7">→ 跳到 §7 看完整说明</a>
       </div>
 
       <div class="card">
@@ -1215,10 +1239,8 @@
           <span class="pill neg"><span class="dot">−</span>负面</span>
         </div>
         <div class="byline">NCAA + 体育媒体博彩议题</div>
-        <h4>Texas Tech QB Sorsby 戒癮 + 体育媒体博彩比例擴张的争议</h4>
-        <p class="src">LSR · Barrett Media · 05/01</p>
-        <p>德州 Texas Tech 大学四分卫 Brendan Sorsby 跨多项运动下注数千次、进戒癮治療、NCAA 在调查。Barrett Media 5/1 评論：「博彩在体育媒体频道的占比还在擴张、风险也跟著擴张」。<u>综合判断</u>：在美国市场，媒体跟体育博彩绑在一起的論述方式已经逼近敏感边界——<b>菲律宾 / 巴西的合规边界比美国还窄、这议题下半年会变成营销必修课</b>。</p>
-          <a class="cta" href="https://barrettmedia.com/2026/05/01/gambling-sports-networks-risks/" target="_blank" rel="noopener">阅讀原文 →</a>
+        <h4>Texas Tech QB Sorsby 戒瘾事件（已在 §7 详述）</h4>
+        <a class="cta" href="#s7">→ 跳到 §7 看完整说明</a>
       </div>
 
       <div class="card hilite">
@@ -1245,7 +1267,7 @@
     </div>
 
     <p style="font-size:11.5px;color:var(--ink-3);line-height:1.7;margin:0 0 14px;">
-      用 xAI Grok 的 Responses API + <code style="background:var(--paper-2);padding:1px 4px;">x_search</code> 工具，抓巴西跟北美两个市场 X 上的声量（不跑亚洲——讯号跟 §5 重复度太高）。目的是補主流媒体看不到的「现场声音」。用模型 <code style="background:var(--paper-2);padding:1px 4px;">grok-4-fast-non-reasoning</code>、抓过去 7 天、每个市场跑 1 次 search call、本週总成本 $1.21 USD（约 38 元台幣）。
+      抓巴西跟北美两个市场 X 上的声量，目的是补主流媒体看不到的「现场声音」。
     </p>
 
     <div class="x-pulse">
@@ -1264,7 +1286,6 @@
           <li><b>@Dakoholic_br</b> — 法条沿革：2018 年 Lei 13.756 起头、2023 年 Lei 14.790 補完。<a href="https://x.com/Dakoholic_br/status/2049561529243070611" target="_blank" rel="noopener">看贴文</a></li>
           <li><b>@fealpii / @hussAndrea</b> — 重述 Lula 签署 Lei 14.790。</li>
         </ul>
-        <div class="pullquote">下次跑之前，先把 Lei 14.790 从关键字候选名单拿掉、留 Bets Brasil、apostas esportivas、SPA apostas 三个就好。</div>
       </div>
 
       <div class="card hilite-na">
@@ -1301,7 +1322,7 @@
     <div class="colophon">
       <div>
         <h5>覆蓋情况</h5>
-        <p>10 / 10 站；直连 allowlist 还是部分受限，主要走 WebSearch 索引 + 已验证的直连双线。本期 5/3 週日的定位：<b>CMN 5.298 已于 5/4 上路 + 双财报周开盘 + F1 × FanDuel Miami GP 启动</b>。事件密度延续上週主题，重点補強的有：DraftKings Predictions $175M 预算、澳门年初到 4 月 +12.1 %、Lula 把 BBB 稅绑进政纲、ESPN BET → theScore Bet 品牌转換同步 Missouri 39 州合法化、🆕 Amusnet × 747Live PAGCOR 认证（漏抓補回）。</p>
+        <p>本期 5/3：<b>CMN 5.298 已于 5/4 上路 + 双财报周开盘 + F1 × FanDuel Miami GP 启动</b>。事件密度延续上周主题，重点补强的有：DraftKings Predictions $175M 预算、澳门年初到 4 月 +12.1 %、Lula 把 BBB 税绑进政纲、ESPN BET → theScore Bet 品牌转换同步 Missouri 39 州合法化、🆕 Amusnet × 747Live PAGCOR 认证。</p>
         <div class="source-grid">
           <span><span class="ok">✓</span> iGaming Business</span>
           <span><span class="ok">✓</span> SBC News / Americas</span>
@@ -1334,8 +1355,7 @@
 
     <footer class="footer-bottom">
       <div class="label">Weekly Gambling Brief · W18</div>
-      <p style="margin:0">编辑：Reagan ｜ 2026-04-27 ~ 2026-05-03 ｜ For internal circulation</p>
-      <p style="margin:6px 0 0">內容自动产出：每週日 09:00 ｜ 同期 markdown 版：<a href="weekly-2026-05-03.md">weekly-2026-05-03.md</a> ｜ 旧版报纸样式：<a href="weekly-2026-05-03-newspaper.html">weekly-2026-05-03-newspaper.html</a></p>
+      <p style="margin:0">编辑：HanBin ｜ 2026-04-27 ~ 2026-05-03 ｜ For internal circulation</p>
     </footer>
   </section>
 

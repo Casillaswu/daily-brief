@@ -23,11 +23,22 @@
   .sub { font-size: 13px; color: var(--ink-2); margin-bottom: 28px;
     padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
   ul { list-style: none; padding: 0; margin: 0; }
-  .entry { border-bottom: 1px solid var(--rule); }
-  .entry a { display: block; padding: 18px 8px; text-decoration: none;
+  .entry { border-bottom: 1px solid var(--rule); position: relative; }
+  .entry-main { display: block; padding: 18px 60px 18px 8px; text-decoration: none;
     color: var(--ink); transition: background .12s; }
-  .entry a:hover { background: var(--paper-2); }
+  .entry-main:hover { background: var(--paper-2); }
   .entry.empty { padding: 18px 8px; color: var(--ink-3); font-size: 13px; }
+  .entry-en {
+    position: absolute; top: 50%; right: 14px; transform: translateY(-50%);
+    font-size: 11px; font-weight: 700; letter-spacing: .05em;
+    padding: 5px 12px; border: 1px solid var(--rule); border-radius: 999px;
+    background: var(--paper); color: var(--ink-2); text-decoration: none;
+    transition: all .15s ease;
+  }
+  .entry-en:hover {
+    background: var(--ink); color: #fff; border-color: transparent;
+    transform: translateY(-50%) scale(1.05);
+  }
   .row1 { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px;
     flex-wrap: wrap; }
   .week { font-family: ui-monospace, Menlo, monospace; font-size: 13px;
@@ -40,6 +51,8 @@
   @media (max-width: 600px) {
     .page { padding: 24px 18px; }
     h1 { font-size: 20px; }
+    .entry-main { padding: 18px 56px 18px 8px; }
+    .entry-en { right: 10px; padding: 4px 10px; font-size: 10px; }
   }
 </style>
 </head>
@@ -50,15 +63,17 @@
   <div class="sub">每週日更新 · 法規 · 運營商 · 市場 · 產品 · 體博</div>
   <ul>
 
-        <li class="entry">
-          <a href="./2026-W18.html">
-            <div class="row1">
-              <span class="week">2026-W18</span>
-              <span class="date">2026-04-27 ~ 2026-05-03</span>
-            </div>
-            <div class="desc">W18：CMN 5.298 5/4 倒數 · F1 × FanDuel 今晚啟動 · DKNG $175M PMs 預算 · Macau YTD +12.1%</div>
-          </a>
-        </li>
+    <li class="entry">
+      <a class="entry-main" href="./2026-W18.html">
+        <div class="row1">
+          <span class="week">2026-W18</span>
+          <span class="date">2026-04-27 ~ 2026-05-03</span>
+        </div>
+        <div class="desc">W18：CMN 5.298 已於 5/4 上路 · F1 × FanDuel Miami GP 啟動 · DraftKings $175M 加碼預測市場 · 澳門 YTD 4 月 +12.1%</div>
+      </a>
+      <a class="entry-en" href="./2026-W18-en.html" title="English version">EN</a>
+    </li>
+
   </ul>
   <footer>By Reagan · 2026</footer>
 </div>

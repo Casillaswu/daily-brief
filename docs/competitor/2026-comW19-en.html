@@ -129,6 +129,23 @@ a{color:inherit;}
 .mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;}
 .mcard .impact b{color:var(--ink);font-weight:700;}
 
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:60px 18px 80px 140px 1fr 50px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;margin-top:14px;font-size:11px;color:var(--ink-3);flex-wrap:wrap;align-items:center;}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
 .impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
 .impl .col.threat{border-top-color:var(--neg-ink);}
@@ -178,6 +195,10 @@ a{color:inherit;}
   .footer{grid-template-columns:1fr;}
   .qa-grid{grid-template-columns:1fr;}
   .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:50px 14px 70px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
   .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
   .exec .axes{grid-template-columns:1fr;}
   .sec-lbl h2{font-size:18px;}
@@ -596,10 +617,123 @@ a{color:inherit;}
     </div>
   </section>
 
-  <!-- ============ §05 IMPLICATIONS ============ -->
+  <!-- ============ §05 TIMELINE ============ -->
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Timeline</span>
+      <h2>Two-Week Activity Timeline</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot warn"></span>
+        <span class="cat">PR</span>
+        <span class="br">BingoPlus</span>
+        <span class="desc">Manila Times full page + 3 syndicated newswires</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot green"></span>
+        <span class="cat">launch</span>
+        <span class="br">PT Gaming</span>
+        <span class="desc">ptgaming.ph live with 9 supplier logos</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot pink"></span>
+        <span class="cat">endorse</span>
+        <span class="br">OKGames</span>
+        <span class="desc">Michelle Marquez Dee (MMD) signed as brand ambassador</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot pink"></span>
+        <span class="cat">JACKPOT</span>
+        <span class="br">CasinoPlus</span>
+        <span class="desc">5 jackpots ticking on-site, JJBX Gold ₱71M+ still climbing</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot blue"></span>
+        <span class="cat">UI</span>
+        <span class="br">ArenaPlus</span>
+        <span class="desc">PBA Cup elimination final-week hero (ends 5/10 mid)</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot warn"></span>
+        <span class="cat">anomaly</span>
+        <span class="br">King + Queen</span>
+        <span class="desc">Surface back, logged-in still in maintenance</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot warn"></span>
+        <span class="cat">gap</span>
+        <span class="br">All 9</span>
+        <span class="desc">Mother's Day 5/10 + payday 5/15 — zero campaigns</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">04/30</span>
+        <span class="dot pink"></span>
+        <span class="cat">event</span>
+        <span class="br">BingoPlus</span>
+        <span class="desc">Night grand-prize package: BMW + iPhone 17 + LV + ₱1M + travel</span>
+        <span class="wk">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d">04/29</span>
+        <span class="dot pink"></span>
+        <span class="cat">endorse</span>
+        <span class="br">BingoPlus</span>
+        <span class="desc">Sexbomb returned for Triple Fortune Ball promo</span>
+        <span class="wk">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d">04/28</span>
+        <span class="dot blue"></span>
+        <span class="cat">supplier</span>
+        <span class="br">Amusnet × 747Live</span>
+        <span class="desc">Entered PH market via 747Live, 214 titles EGLD-approved</span>
+        <span class="wk">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d">04/27</span>
+        <span class="dot blue"></span>
+        <span class="cat">partner</span>
+        <span class="br">ArenaPlus</span>
+        <span class="desc">Renewed PBA + PVL official partnership (Season #50 golden anniversary)</span>
+        <span class="wk">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d">04/27</span>
+        <span class="dot blue"></span>
+        <span class="cat">policy</span>
+        <span class="br">PAGCOR</span>
+        <span class="desc">SiGMA Asia 5/31-6/3 official endorsement (T-27)</span>
+        <span class="wk">W18</span>
+      </div>
+    </div>
+    <div class="tl-legend">
+      <span><i style="background:var(--neg-ink)"></i>Anomaly / urgent</span>
+      <span><i style="background:#c96442"></i>Event / endorse</span>
+      <span><i style="background:#2A5FAA"></i>Policy / partner / UI</span>
+      <span><i style="background:var(--pos-ink)"></i>Launch / recover</span>
+    </div>
+  </section>
+
+  <!-- ============ §06 IMPLICATIONS ============ -->
   <section class="sec" id="implications">
     <div class="sec-lbl">
-      <span class="chip">§05</span><span class="en">Implications</span>
+      <span class="chip">§06</span><span class="en">Implications</span>
       <h2>Threats / Opportunities</h2>
       <div class="rule"></div>
     </div>

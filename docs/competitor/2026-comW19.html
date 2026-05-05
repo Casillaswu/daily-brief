@@ -129,6 +129,23 @@ a{color:inherit;}
 .mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;}
 .mcard .impact b{color:var(--ink);font-weight:700;}
 
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:60px 18px 80px 140px 1fr 50px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;margin-top:14px;font-size:11px;color:var(--ink-3);flex-wrap:wrap;align-items:center;}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
 .impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
 .impl .col.threat{border-top-color:var(--neg-ink);}
@@ -178,6 +195,10 @@ a{color:inherit;}
   .footer{grid-template-columns:1fr;}
   .qa-grid{grid-template-columns:1fr;}
   .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:50px 14px 70px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
   .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
   .exec .axes{grid-template-columns:1fr;}
   .sec-lbl h2{font-size:18px;}
@@ -596,10 +617,123 @@ a{color:inherit;}
     </div>
   </section>
 
-  <!-- ============ §05 IMPLICATIONS ============ -->
+  <!-- ============ §05 TIMELINE ============ -->
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Timeline · 时间轴</span>
+      <h2>近两周大事记</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot warn"></span>
+        <span class="cat">PR</span>
+        <span class="br">BingoPlus</span>
+        <span class="desc">Manila Times 全版广告加三家媒体通稿同步发布</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot green"></span>
+        <span class="cat">上线</span>
+        <span class="br">PT Gaming</span>
+        <span class="desc">ptgaming.ph 正式上线，挂出 9 家供应商</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot pink"></span>
+        <span class="cat">代言</span>
+        <span class="br">OKGames</span>
+        <span class="desc">Michelle Marquez Dee（MMD）启用为品牌代言人</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot pink"></span>
+        <span class="cat">JACKPOT</span>
+        <span class="br">CasinoPlus</span>
+        <span class="desc">5 个 jackpot 即时公示，JJBX Gold ₱71M+ 持续累积</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot blue"></span>
+        <span class="cat">UI</span>
+        <span class="br">ArenaPlus</span>
+        <span class="desc">PBA Cup 末週 hero 维持（5/10 mid 结束）</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot warn"></span>
+        <span class="cat">异常</span>
+        <span class="br">King + Queen</span>
+        <span class="desc">表面恢复，登入后仍维护中</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">05/04</span>
+        <span class="dot warn"></span>
+        <span class="cat">空档</span>
+        <span class="br">9 家</span>
+        <span class="desc">母亲节 5/10 加发薪日 5/15 全 0</span>
+        <span class="wk">W19</span>
+      </div>
+      <div class="trow">
+        <span class="d">04/30</span>
+        <span class="dot pink"></span>
+        <span class="cat">活动</span>
+        <span class="br">BingoPlus</span>
+        <span class="desc">Night 大奖组合公告（BMW + iPhone 17 + LV + ₱1M + 旅游）</span>
+        <span class="wk">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d">04/29</span>
+        <span class="dot pink"></span>
+        <span class="cat">代言</span>
+        <span class="br">BingoPlus</span>
+        <span class="desc">Sexbomb 復出拍 Triple Fortune Ball 推广</span>
+        <span class="wk">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d">04/28</span>
+        <span class="dot blue"></span>
+        <span class="cat">供应商</span>
+        <span class="br">Amusnet × 747Live</span>
+        <span class="desc">透过 747Live 入菲市场，214 款 PAGCOR EGLD 核准</span>
+        <span class="wk">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d">04/27</span>
+        <span class="dot blue"></span>
+        <span class="cat">合作</span>
+        <span class="br">ArenaPlus</span>
+        <span class="desc">PBA + PVL 续约官方夥伴（季赛 #50 金禧）</span>
+        <span class="wk">W18</span>
+      </div>
+      <div class="trow">
+        <span class="d">04/27</span>
+        <span class="dot blue"></span>
+        <span class="cat">政策</span>
+        <span class="br">PAGCOR</span>
+        <span class="desc">SiGMA Asia 5/31-6/3 官方背书（T-27）</span>
+        <span class="wk">W18</span>
+      </div>
+    </div>
+    <div class="tl-legend">
+      <span><i style="background:var(--neg-ink)"></i>异常 / 重要</span>
+      <span><i style="background:#c96442"></i>活动 / 代言</span>
+      <span><i style="background:#2A5FAA"></i>政策 / 合作 / UI</span>
+      <span><i style="background:var(--pos-ink)"></i>上线 / 恢复</span>
+    </div>
+  </section>
+
+  <!-- ============ §06 IMPLICATIONS ============ -->
   <section class="sec" id="implications">
     <div class="sec-lbl">
-      <span class="chip">§05</span><span class="en">Implications</span>
+      <span class="chip">§06</span><span class="en">Implications</span>
       <h2>威胁 / 机会</h2>
       <div class="rule"></div>
     </div>

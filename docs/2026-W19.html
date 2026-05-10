@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>博彩产业周深度 Brief · W19 · 2026-05-04 ~ 2026-05-10</title>
+<meta name="description" content="W19：DKNG / FanDuel Q1 双财报坐实 sportsbook + PMs 双线结构 · Bally's Intralot £225M Evoke takeover 5/18 倒数 · CMN 5.298 5/4 生效首周 SPA 第一波罰單 · Macau May Golden Week 创史上新高 · AWS thermal outage 冲击 FanDuel + Coinbase" />
+
+<style>
+  /* ─── tokens（对齐 News Clipping wireframe README）─────────── */
+  :root {
+    --ink: #1f1d1a;
+    --ink-2: #4a4742;
+    --ink-3: #8a857d;
+    --paper: #ffffff;
+    --paper-2: #f7f5f1;
+    --rule: #d9d4cb;
+    --rule-2: #ebe6dd;
+    --hi: #fff3a6;
+    --pos: #c9e4cf; --pos-ink: #2f6b3b;
+    --neu: #e1dfd9; --neu-ink: #5b574e;
+    --neg: #f1c9c5; --neg-ink: #8a3a33;
+    --cat-a: #d6e2ee; /* 法规 */
+    --cat-b: #e8dcec; /* 产品 */
+    --cat-c: #efe1c9; /* 运营商 */
+    --cat-d: #d9e8d6; /* 市场 */
+    --cat-e: #f1d9d5; /* 体博 */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #f0eee9; color: var(--ink);
+               font-family: Arial, "Helvetica Neue", "PingFang TC", "Microsoft JhengHei", sans-serif;
+               -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  a { color: var(--ink); text-decoration: underline; }
+  a:hover { color: #000; }
+  u { text-decoration: underline; text-underline-offset: 2px; }
+  mark, .hi { background: var(--hi); padding: 0 2px; border-radius: 2px;
+              -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  ul { padding-left: 18px; margin: 6px 0; }
+  ul li { margin: 3px 0; }
+
+  /* ─── page shell ─── */
+  .page { max-width: 1200px; margin: 0 auto; padding: 28px 32px;
+          background: var(--paper); min-height: 100vh; position: relative; }
+
+  /* ─── lang toggle 中 / EN ─── */
+  .lang-toggle {
+    display: inline-flex;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    overflow: hidden;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .lang-toggle a {
+    padding: 6px 16px;
+    text-decoration: none;
+    color: var(--ink-3);
+    transition: all .15s ease;
+    letter-spacing: .05em;
+  }
+  .lang-toggle a.active {
+    background: var(--ink);
+    color: #fff;
+  }
+  .lang-toggle a:not(.active):hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .lang-toggle-row {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* ─── masthead ─── */
+  .masthead { border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+  .masthead .kicker { font-size: 11px; letter-spacing: .22em; color: var(--ink-3);
+                      font-weight: 700; text-transform: uppercase; }
+  .masthead .row { display: flex; justify-content: space-between; align-items: baseline;
+                   gap: 18px; margin-top: 4px; flex-wrap: wrap; }
+  .masthead h1 { margin: 0; font-size: 22px; font-weight: 800; line-height: 1.2; color: var(--ink); }
+  .masthead .meta-stats { display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+                          font-size: 11px; color: var(--ink-3); }
+
+  /* ─── pills / cats / chips ─── */
+  .pill { display: inline-flex; align-items: center; gap: 4px;
+          padding: 2px 8px; border-radius: 999px; font-size: 10px;
+          border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); }
+  .pill.pos { background: var(--pos); color: var(--pos-ink); border-color: transparent; }
+  .pill.neu { background: var(--neu); color: var(--neu-ink); border-color: transparent; }
+  .pill.neg { background: var(--neg); color: var(--neg-ink); border-color: transparent; }
+  .pill.hot { background: var(--ink); color: #fff; border-color: transparent; font-weight: 700; }
+  .pill.rank { font-weight: 700; }
+  .pill .dot { font-weight: 700; }
+  .cat { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 3px;
+         color: var(--ink); font-weight: 600; }
+  .cat.a { background: var(--cat-a); }
+  .cat.b { background: var(--cat-b); }
+  .cat.c { background: var(--cat-c); }
+  .cat.d { background: var(--cat-d); }
+  .cat.e { background: var(--cat-e); }
+
+  /* ─── nav anchors（升级版：cat 色圆点 + hover 浮起）─── */
+  .nav-anchors { display: flex; gap: 8px; margin: 18px 0 14px; flex-wrap: wrap;
+                 padding-bottom: 14px; border-bottom: 1px dashed var(--rule); }
+  .nav-anchors a {
+    display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap; padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 11.5px; font-weight: 600;
+    color: var(--ink-2); background: var(--paper);
+    border: 1px solid var(--rule); text-decoration: none;
+    transition: all .18s ease;
+    box-shadow: 0 1px 2px rgba(31,29,26,.04);
+  }
+  .nav-anchors a::before {
+    content: ''; display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--dot, var(--ink-3));
+    flex-shrink: 0;
+    transition: all .18s ease;
+  }
+  .nav-anchors a:hover {
+    background: var(--ink); color: #fff; border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(31,29,26,.15);
+  }
+  .nav-anchors a:hover::before { background: #fff; transform: scale(1.2); }
+  .nav-anchors a.lead {
+    background: var(--ink); color: #fff; border-color: transparent;
+    font-weight: 700;
+  }
+  .nav-anchors a.lead::before {
+    background: var(--hi); width: 7px; height: 7px;
+    box-shadow: 0 0 6px rgba(255,243,166,.6);
+  }
+
+  /* ─── section head ─── */
+  .section { margin: 32px 0 0; scroll-margin-top: 12px; }
+  .section-head { display: flex; align-items: baseline; gap: 10px;
+                  border-bottom: 2px solid var(--ink); padding-bottom: 6px; margin-bottom: 14px; }
+  .section-head .num { font-family: ui-monospace, Menlo, monospace; font-size: 13px;
+                       font-weight: 700; color: var(--ink); background: var(--hi);
+                       padding: 1px 8px; border-radius: 2px; }
+  .section-head h2 { margin: 0; font-size: 17px; font-weight: 800; color: var(--ink); }
+  .section-head .h2-en { font-size: 10px; letter-spacing: .22em; color: var(--ink-3);
+                         text-transform: uppercase; font-weight: 700; margin-left: auto; }
+
+  /* ─── lead story block（本周亮点）─── */
+  .lead {
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    padding: 18px 22px; margin: 14px 0 18px;
+  }
+  .lead .meta-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+  .lead h3 { margin: 0 0 8px; font-size: 19px; font-weight: 800; line-height: 1.4; color: var(--ink); }
+  .lead .src-meta { font-size: 11px; color: var(--ink-3); margin: 0 0 12px; }
+  .lead p { font-size: 13.5px; color: var(--ink-2); line-height: 1.75; margin: 0 0 14px; }
+  .lead .cta { display: inline-block; background: var(--ink); color: #fff; font-size: 12px;
+               padding: 8px 14px; text-decoration: none; font-weight: 600; letter-spacing: .04em; }
+
+  /* ─── highlight cards 2x2（Signal 02-05）─── */
+  .signals-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 6px; }
+  .signal-card { background: var(--paper-2); border-left: 3px solid var(--ink); padding: 14px 16px; }
+  .signal-card .label { font-size: 10px; letter-spacing: .2em; color: var(--ink-3);
+                        font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+  .signal-card h4 { margin: 0 0 6px; font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+  .signal-card p { font-size: 12.5px; color: var(--ink-2); line-height: 1.7; margin: 0; }
+
+  /* ─── card grid（每个 section 用）─── */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  .card { background: var(--paper); border: 1px solid var(--rule); padding: 14px 16px; }
+  .card.hilite { background: var(--paper-2); border-left: 3px solid var(--ink); }
+  .card .meta-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+  .card .byline { font-size: 10px; letter-spacing: .15em; color: var(--ink-3);
+                  font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+  .card h4 { margin: 0 0 6px; font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.45; }
+  .card .src { font-size: 11px; color: var(--ink-3); margin: 0 0 8px; }
+  .card p { font-size: 12.5px; color: var(--ink-2); line-height: 1.7; margin: 0 0 8px; }
+  .card a.cta { font-size: 11px; color: var(--ink); font-weight: 600;
+                text-decoration: underline; text-underline-offset: 2px; }
+  .card .pullquote { background: var(--paper-2); border-left: 3px solid var(--ink);
+                     padding: 8px 10px; font-size: 12px; color: var(--ink-2);
+                     font-style: italic; margin: 6px 0; line-height: 1.55; }
+  .card .stat-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
+                      background: var(--ink); color: var(--paper-2); padding: 10px;
+                      margin: 8px 0; }
+  .card .stat-strip .stat { text-align: center; }
+  .card .stat-strip .v { font-family: ui-monospace, Menlo, monospace; font-size: 16px;
+                         font-weight: 700; color: #fff; line-height: 1.1; }
+  .card .stat-strip .v small { font-size: 9px; font-weight: 600; opacity: .8; }
+  .card .stat-strip .l { font-size: 9px; letter-spacing: .15em; color: var(--rule-2);
+                         text-transform: uppercase; margin-top: 2px; }
+
+  /* ─── stat strip top（Macau 数据）─── */
+  .stat-strip-top { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+                    background: var(--ink); color: var(--paper-2); padding: 14px;
+                    margin: 14px 0 16px; }
+  .stat-strip-top .stat { text-align: center; }
+  .stat-strip-top .v { font-family: ui-monospace, Menlo, monospace; font-size: 22px;
+                       font-weight: 800; color: #fff; line-height: 1.1; }
+  .stat-strip-top .v small { font-size: 10px; font-weight: 600; opacity: .8; }
+  .stat-strip-top .l { font-size: 10px; letter-spacing: .15em; color: var(--rule-2);
+                       text-transform: uppercase; margin-top: 4px; }
+
+  /* ─── §6 RS Lei 详解 highlight box ─── */
+  .law-box { background: var(--paper-2); border: 1px solid var(--rule);
+             border-left: 4px solid var(--neg-ink); padding: 16px 20px; margin: 14px 0; }
+  .law-box .label { font-size: 10px; letter-spacing: .22em; color: var(--neg-ink);
+                    font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+  .law-box h4 { margin: 0 0 10px; font-size: 15px; font-weight: 800; color: var(--ink); }
+  .law-box .warning-list { background: var(--paper); border: 1px solid var(--rule);
+                           padding: 10px 12px; margin: 10px 0; font-style: italic;
+                           font-size: 12.5px; color: var(--ink-2); }
+  .law-box .warning-list li { margin: 4px 0; }
+  .law-box ul.terms { font-size: 12.5px; color: var(--ink-2); line-height: 1.8; }
+  .law-box ul.terms li b { color: var(--ink); }
+
+  /* ─── X Pulse 区块 ─── */
+  .x-pulse { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .x-pulse .card { background: var(--paper-2); }
+  .x-pulse .card.hilite-na { background: var(--ink); color: var(--paper-2); border: none; }
+  .x-pulse .card.hilite-na h4 { color: #fff; }
+  .x-pulse .card.hilite-na p { color: var(--rule-2); }
+  .x-pulse .card.hilite-na .byline { color: var(--hi); }
+  .x-pulse .card.hilite-na a { color: var(--hi); }
+  .x-pulse .card.hilite-na .pullquote { background: rgba(255,255,255,.08); color: var(--rule-2);
+                                         border-left-color: var(--hi); }
+
+  /* ─── footer / 动作建议 ─── */
+  .colophon { display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+              border-top: 2px solid var(--ink); padding-top: 18px; margin-top: 28px; }
+  .colophon h5 { margin: 0 0 8px; font-size: 11px; letter-spacing: .22em; color: var(--ink);
+                 font-weight: 800; text-transform: uppercase; }
+  .colophon p { font-size: 12px; color: var(--ink-2); line-height: 1.7; margin: 0 0 6px; }
+  .colophon .source-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px;
+                            margin-top: 6px; font-size: 11px; color: var(--ink-2); }
+  .colophon .source-grid .ok { color: var(--pos-ink); font-weight: 700; }
+  .colophon .source-grid .warn { color: var(--neu-ink); font-weight: 700; }
+  .colophon .next-list { font-size: 11.5px; line-height: 1.85; color: var(--ink-2); }
+  .colophon .next-list b { color: var(--ink); }
+  .colophon .next-list .urgent { color: var(--neg-ink); font-weight: 700; }
+
+  .footer-bottom { border-top: 1px solid var(--rule); margin-top: 22px; padding-top: 12px;
+                   font-size: 11px; color: var(--ink-3); line-height: 1.7; }
+  .footer-bottom .label { font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+                          font-weight: 700; color: var(--ink-2); margin-bottom: 4px; }
+
+  /* ─── breakpoints ─── */
+  @media (max-width: 1023px) {
+    .page { padding: 24px 24px; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .signals-grid { grid-template-columns: 1fr; }
+    .colophon { grid-template-columns: 1fr; }
+    .stat-strip-top { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 767px) {
+    .page { padding: 20px 16px; }
+    .masthead h1 { font-size: 17px; }
+    .masthead .row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .nav-anchors { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    .lead { padding: 14px 16px; }
+    .lead h3 { font-size: 16.5px; }
+    .grid-3, .grid-2, .x-pulse { grid-template-columns: 1fr; gap: 12px; }
+    .section-head h2 { font-size: 15.5px; }
+    .section-head .h2-en { display: none; }
+    .stat-strip-top { grid-template-columns: 1fr 1fr; }
+    .stat-strip-top .v { font-size: 18px; }
+  }
+  @media print {
+    body { background: #fff; }
+    .nav-anchors { display: none; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <!-- ───────────── LANG TOGGLE ───────────── -->
+  <div class="lang-toggle-row">
+    <div class="lang-toggle">
+      <a href="2026-W19.html" class="active">中</a>
+      <a href="2026-W19-en.html">EN</a>
+    </div>
+  </div>
+
+  <!-- ───────────── MASTHEAD ───────────── -->
+  <header class="masthead">
+    <div class="kicker">Weekly Gambling Brief · W19 · 2026-05-04 ~ 2026-05-10</div>
+    <div class="row">
+      <h1>博彩产业周深度 · 内部研究</h1>
+      <div class="meta-stats">
+        <span><b>5 个讯号 + 10 sections</b> · 11 媒体（Tier 1 + Tier 2 复盖）</span>
+        <span class="pill pos"><span class="dot">＋</span>正面</span>
+        <span class="pill neu"><span class="dot">○</span>中立</span>
+        <span class="pill neg"><span class="dot">−</span>负面</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ───────────── NAV ANCHORS ───────────── -->
+  <nav class="nav-anchors">
+    <a class="lead" href="#highlights">🔥 本周亮点</a>
+    <a href="#s1" style="--dot:#d6e2ee;">§1 法规</a>
+    <a href="#s2" style="--dot:#efe1c9;">§2 M&A</a>
+    <a href="#s3" style="--dot:#e8dcec;">§3 产品</a>
+    <a href="#s4" style="--dot:#efe1c9;">§4 运营商</a>
+    <a href="#s5" style="--dot:#d9e8d6;">§5 亚洲</a>
+    <a href="#s6" style="--dot:#d9e8d6;">§6 拉美</a>
+    <a href="#s7" style="--dot:#d9e8d6;">§7 北美</a>
+    <a href="#s8" style="--dot:#f1d9d5;">§8 体博</a>
+    <a href="#s9" style="--dot:#8a857d;">§9 X Pulse</a>
+    <a href="#s10" style="--dot:#8a857d;">§10 动作建议</a>
+  </nav>
+
+  <!-- ───────────── 🔥 本周亮点 ───────────── -->
+  <section class="section" id="highlights">
+    <div class="section-head">
+      <span class="num">🔥</span>
+      <h2>本周 5 个值得注意的讯号</h2>
+      <span class="h2-en">Five Signals This Week</span>
+    </div>
+
+    <!-- LEAD = Signal 01 -->
+    <article class="lead">
+      <div class="meta-row">
+        <span class="pill hot rank">01 · 头条</span>
+        <span class="cat c">运营商</span>
+        <span class="pill pos"><span class="dot">＋</span>正面</span>
+      </div>
+      <h3>DraftKings + FanDuel 双财报让美国体博 <span class="hi">「sportsbook + 预测市场」双线产品</span>成定局 — 预算上调到 <span class="hi">$200-300M</span>、market-making（庄家做市）启动、4 月每位玩家的预测市场交易额已超过 sportsbook 投注额</h3>
+      <p class="src-meta">Benzinga · iGB · SBC Americas · Covers · LSR · TechCrunch · CoinDesk · 05/06-07</p>
+      <p><b>为什么把这两家放一起讲</b>：DraftKings（DKNG，美国体育博彩龙头之一）跟 FanDuel（Flutter 旗下、美国 sportsbook 市占第一）这两家加起来吃下美国 70%+ 的体博市场——他们同步往同一个方向走，等于整个美国体博产业的方向都换了。</p>
+      <p>
+        <b>1. DraftKings Q1 财报（5/7 公布）双双 beat：</b>营收 $1.646B（约 530 亿台币、+17% YoY 即比去年同期增 17%）、净利 $21.1M（去年同期亏 $33.9M、转正）、<b>EPS（每股盈余）$0.20 大幅超过分析师共识 $0.02</b>。<br>
+        <b>2. DraftKings 全年预测市场预算上调到 $200-300M（约 64-96 亿台币）：</b>相比 W18 揭露的 $175M 上修 14% 到 71%。CEO Jason Robins 公开说其他平台「没庄家做市」的说法是「不负责任的（irresponsibly）」——他暗示 Kalshi（美国 CFTC 持牌的预测市场平台）跟 Polymarket（离岸预测市场平台、用加密币结算）其实都靠 market-makers（做市商）撑流动性。DraftKings 自己已启动 market-making 业务、且开始有正向回报。<br>
+        <b>3. JP Morgan 估 DraftKings 4 月预测市场玩家流量已超过 sportsbook：</b>每位玩家每月在预测市场上的交易额，已经超过他在 sportsbook 上的 handle（投注总额、玩家下注的总金额）。<span class="hi">这是预测市场从「补位」变「替代」的第一个量化证据</span>。<br>
+        <b>4. Flutter Q1 财报（5/6 公布）：</b>FanDuel 美国 handle <span class="hi">-9% YoY</span>、AMP（average monthly players、月活跃玩家）-6% YoY；月对月看从 1 月 -5% 一路反弹到 3 月 +1%、跌幅缩小。FanDuel 同时把预算挪到预测市场。Flutter 母公司本身在评估是否从 LSE（London Stock Exchange、伦敦证交所）退市、把策略重心搬到美国 FanDuel。<br>
+        <b>5. Kalshi 5/7 估值冲到 $22B（约 7,000 亿台币）：</b>完成 Series F（F 轮、公司中后期成长阶段）$1B 募资，5 个月内估值翻倍。Coatue 领投，Morgan Stanley、Sequoia、a16z 跟投。机构资金（避险基金、资产管理公司、自营交易商、保险公司）正式进场预测市场赛道。
+      </p>
+      <p><u>综合判断</u>：对接北美案子，行销素材结构要从「只讲 sportsbook」改成「sportsbook + 预测市场双轨叙述」——因为客户的玩家行为已经分流到两个产品。对菲律宾、巴西品牌，Kalshi 的 $22B 估值会被业界拿来当「预测市场已经机构化」的最强论述，未来可能用「合规金融衍生品」名义二度尝试进入亚拉美灰市——这是合规 marketing 不能不准备的下一波风险。<b>对纯线上品牌 +EV、且最高优先序。</b></p>
+      <a class="cta" href="https://www.benzinga.com/markets/earnings/26/05/52393835/draftkings-q1-highlights-double-beat-prediction-markets-year-end" target="_blank" rel="noopener">阅读原文 →</a>
+    </article>
+
+    <!-- Signals 02-05 -->
+    <div class="signals-grid">
+      <div class="signal-card">
+        <div class="label">Signal 02 · BRAZIL CMN 5.298 生效首周</div>
+        <h4>巴西 CMN 5.298 法令上路 + Lula 政治升级 + 第一波 KYC 罚单已下</h4>
+        <p><b>为什么重要</b>：CMN（巴西全国货币委员会）的 5.298 号法令禁「无实体经济支撑」衍生品——白话讲，堵死 Polymarket、Kalshi 「伪装成衍生品」绕博彩法的灰色玩法。5/4 是生效日，过去一周看执法有没有真咬下去。</p>
+        <p>(a) <b>Anatel</b>（巴西电信局）累计封 <span class="hi">27-29 个预测市场平台</span>（Polymarket / Kalshi / Fanatics Markets 全清零）。<br>
+        (b) <b>SPA</b>（巴西博彩监管秘书处）<b>第一波 Ordinance 722（KYC 执行细则）罚单已开</b>——金额未公开、业内估数百万雷亚尔级（约 600 万到 2,000 万台币）。最严重可面临执照暂停（5 年照成本 R$30M / 约 1.8 亿台币）。<br>
+        (c) <b>Lula</b> 政府 BBB 税（Banks/Bets/Billionaires）已进 2026 党内竞选纲领。<br>
+        (d) Q1 体博税收 R$3.397B（+123.7% YoY）成「政策成功」佐证。<br>
+        (e) Betano 市占 27%、bet365 约 20%——Kaizen Gaming 领先已定型。</p>
+        <p><u>综合判断</u>：本周执法力持续落地——SPA 罚单已开、Anatel 封站持续、Lula 论述不退让。</p>
+        <p>对接巴西案子：(1) 灰市「衍生品包装」绕过路彻底封死；(2) 「白天版 / 晚间版」素材策略要在 8/22 RS 州 Lei 16,508 全执行前准备好；(3) 预算从「短期促销」改成「长期品牌资产」——Lula 压力下花掉就没的促销难站住、品牌资产保留率高。</p>
+        <p><b>对纯线上合规品牌 +EV、对灰市玩法 -EV。</b></p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://brightsideofnews.com/gambling/brazil-igaming-operator-enforcement-2026/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+      <div class="signal-card">
+        <div class="label">Signal 03 · UK Bally's £225M Evoke Takeover</div>
+        <h4>Bally's Intralot 5/18 倒数收 Evoke £225M——UK 老牌博彩重组定型</h4>
+        <p><b>这两家是谁</b>：<b>Bally's Intralot</b> 是 2025 年希腊 Intralot（彩票 + 体博技术供应商）合并 Bally's Corp（美国博彩运营商）国际互动业务后的新实体（约 €2.7B 交易），美国 Bally's Corp 是大股东。<b>Evoke</b> 是原 888 Holdings、2024 年改名后的英国运营商，旗下含 William Hill、Mr Green、888casino。</p>
+        <p>(a) <span class="hi">Bally's Intralot 出价 50p / 股、估值 £225M（约 90 亿台币）、溢价 29%</span>，all-share + partial cash 结构。<br>
+        (b) Evoke 净负债 £1.8B（约 720 亿台币）、市值只剩 £175M。股价从 2021 收 William Hill 后跌 90%+。<br>
+        (c) <b>5/18 17:00 伦敦时间是 UK takeover rules 强制截止日</b>——必须公告 firm offer 或 walk away。<br>
+        (d) bet365 卖身谈判（£9bn-$12bn）这周无新进展，但 Evoke 案会成 UK 老牌定价回地表的标杆。</p>
+        <p><u>综合判断</u>：W18 讲的「UK 老牌博彩 6-12 个月空窗」这周进入「真有人接盘」阶段——欧美中型运营商整合潮第一枪。</p>
+        <p>对亚拉美纯线上品牌：(1) UK 老牌新兴市场扩张动能弱化、内部整合中无暇打菲 / 巴。亚拉美市占空窗仍开。(2) <b>Bally's 接手后 9-18 个月会进「砍成本 + 整品牌组合」期</b>——M&A 整合期会裁员、洗职位、撤冗员。这就是挖角资深人才（市场 / 产品 / 合规 / 技术）的最佳时机：被裁的愿意降薪或去新兴市场、原本挖不动的核心人才会松动。</p>
+        <p><b>对纯线上品牌 +EV，挖人才要在 5/18 到 7/31 之间下手。</b></p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/154985/ballys-intralot-evoke-takeover-bid" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+      <div class="signal-card">
+        <div class="label">Signal 04 · 澳门 5 月黄金周创高</div>
+        <h4>澳门 5/1-5 五一黄金周创 5 月历史新高、5 月 GGR 预估反弹——W18「双重压力期」判断要降温</h4>
+        <p><b>为什么这件事重要</b>：W18 我们判断「澳门 5-7 月会出现数据疲弱 + EBITDA 压力两个压力同时来」。这周数据直接打脸——黄金周创 5 月历史新高、反弹力道超出预期。</p>
+        <p>(a) <span class="hi">5/1-5 五一黄金周（中国国庆假期带动观光的 5 天连假）每日博彩收入 MOP$1.02B（澳门币 10.2 亿、约 4 亿台币、+12% YoY）</span>——比卖方预估的 MOP$850M 高 15-20%、是「多年来最大的预估超出（multi-year biggest beat）」（JP Morgan 评论）、达 2019 年（疫情前）同期 90%+。<br>
+        (b) <b>870K 观光客（+2.7% YoY）、平均每日入境约 17 万人（+41% YoY）、创 5 月黄金周历史新高</b>、超过 2019 年水平 7%。<br>
+        (c) JP Morgan 估 5 月 1-12 日每日 GGR（gross gaming revenue、毛博彩收入）US$89M（约 28 亿台币、含黄金周后尾段）。<br>
+        (d) Seaport 上修 5 月 YoY 至 +8.5%、CLSA +6.6%。<br>
+        (e) CLSA 点出「premium-mass off-peak（中高端非高峰期）出游意愿上升」——意思是中高端玩家在非节庆期间也愿意飞澳门、这是过去几年没看到的现象。</p>
+        
+        <p><u>综合判断</u>：W18「澳门双重压力期」的判断这周要降温——5 月反弹打脸了原本的负面预期。</p>
+        <p>但要注意：<b>「base mass（底层大众客群）-15%」的高低分化结构这周没变</b>。意思是高端玩家强、底端弱、客群结构是分化的。所以行销预算还是该集中在「中高端会员经营」——这个判断不变、只是负面预期降级。</p>
+        <p><b>为什么 5/13 业内派对（Industry Party）跟 5/12-14 G2E Asia 一起看是关键窗口</b>：(1) 5/13 在 MGM COTAI 的 Industry Party（Interblock + Light & Wonder 钻石赞助）会有澳门各大运营商高层出席，这种场边的非正式发言通常会洩露下一季度的合作信号、新产品规划、人事变动；(2) 5/12-14 的 G2E Asia 是亚洲博彩业最大产业展会，展位现场的合作意向、签约动作能看出后续走向。两者合在一起看、能判断高位（5 月反弹）能不能延续到 Q3——这是行销预算分配 H2 资源的关键依据。</p>
+        <p><b>对澳门 IR（综合度假村）/ VIP 行销夥伴 +EV、但别因为 5 月反弹就过度修正全年观——base mass 弱势没变。</b></p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.ggrasia.com/macau-daily-casino-ggr-us127-5mln-during-may-golden-week-jp-morgan" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+      <div class="signal-card">
+        <div class="label">Signal 05 · AWS 数据中心过热</div>
+        <h4>AWS 5/8 数据中心过热让 FanDuel 卡盘——云端集中风险首次以「体博卡盘」可见化</h4>
+        <p><b>为什么这件事重要</b>：体育博彩、预测市场两个产品线都跑在 AWS（Amazon Web Services、亚马逊云端服务）上。一朵云挂掉，FanDuel、DraftKings、Kalshi 全部一起出问题。这次是这种集中风险第一次以「玩家直接看到卡盘」的形式爆出来。</p>
+        <p>(a) 5/8（周四）晚上 <span class="hi">AWS 美国东部 1 区（US-East-1、北维吉尼亚州数据中心）过热</span>——EC2（Elastic Compute Cloud、AWS 的云端虚拟机服务）跟 EBS（Elastic Block Store、AWS 的云端硬碟储存服务）中断数小时。<br>
+        (b) <b>FanDuel 多州无法存取</b>——玩家在 X 上投诉卡盘、无法 cash out（兑现）。<br>
+        (c) Coinbase（加密币交易平台）同期挂掉——同一朵云、同时受影响。<br>
+        (d) AWS 5/9 早上完全恢复。<br>
+        (e) FanDuel、DraftKings 都用 AWS、Kalshi 也用 AWS——同一朵云挂掉就全部一起挂。</p>
+        
+        <p><u>综合判断</u>：</p>
+        <p>(1) 对技术、合规论述：「multi-cloud（多云架构）/ region-redundant（多区域备援）」会从工程议题升级为「合规可信度」议题——对菲律宾 PAGCOR（合规要求高）跟巴西 SPA（KYC 即客户身份验证 + uptime 即系统正常运行时间监管）这种监管严的市场，这是 +EV 的差异化卖点。</p>
+        <p>(2) 对行销论述：「卡盘 = 玩家信任崩盘」这个说法这周是被动反应、下周开始会被竞品主动攻击——大型运营商会被监管单位跟玩家社群要求公开 SLA（service level agreement、服务水准协议）跟 uptime 数据。</p>
+        <p>(3) <b>对中型品牌为什么是 +EV（差异化机会）</b>：中型品牌可以主打「我们不只跑 AWS」（多云架构）当差异化卖点、把这次事件转成自己的行销弹药。</p>
+        <p><b>对大型 sportsbook 为什么是 -EV（信任压力）</b>：因为 FanDuel、DraftKings 都用 AWS——大型运营商接下来要花更多成本对外解释「为什么一朵云挂了我们全部都挂了」、要追加预算建多云架构、还要回应监管单位的 SLA / uptime 公开要求。原本可以省的钱省不了、原本不用做的公关要做。</p>
+        <p><b>对中型品牌 +EV、对大型 sportsbook -EV。</b></p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.cnbc.com/2026/05/08/aws-outage-data-center-fanduel-coinbase.html" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── §1 法规动态 ───────────── -->
+  <section class="section" id="s1">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>法规动态 — 美 / 巴 / 菲 / 英四线同步加压</h2>
+      <span class="h2-en">Regulation · Multi-Front Pressure</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat a">法规</span>
+          <span class="pill neg"><span class="dot">−</span>负面</span>
+          <span class="pill hot">🆕 5/6-7</span>
+        </div>
+        <div class="byline">U.S. · AZ Liburdi 改判 Kalshi 胜</div>
+        <h4>5/6-7 Arizona 联邦法官 Liburdi 改判 Kalshi 胜 — 联邦 preempts 州博彩法首次拿到判决级成果</h4>
+        <p class="src">SBC Americas · Casino.org · Gambling Insider · 05/06-07</p>
+        <p>美国地方法院 Liburdi 法官首次发出「禁制令」（preliminary injunction）阻 AZ 对 Kalshi 进行刑事 / 民事执法。法官结论：「<b>CFTC 对 CFTC-regulated event contracts 有 exclusive jurisdiction、州博彩法被联邦法 preempt</b>」。这是 Kalshi 4 月在 NJ 胜后的第二个联邦级胜利、<span class="hi">对 sportsbook 反攻 PMs 的「应视为博彩」论述正式被司法实体推回</span>。AZ AG Mayes 保留上訴權。<br><u>综合判断</u>：联邦 vs 州 preemption 结论若上訴后仍维持，对巴西、菲律宾的「合規叙述工具箱」是负面 — 菲 / 巴的合規广告 brief 预留「prediction market 风险条款」缓冲会更必要。</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://sbcamericas.com/2026/05/07/kalshi-receives-arizona-injunction/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat a">法规</span>
+          <span class="pill neu"><span class="dot">○</span>中立</span>
+          <span class="pill hot">🆕 4/30 Senate</span>
+        </div>
+        <div class="byline">U.S. · Senate 自禁 PMs trading</div>
+        <h4>Senate 通过议员 + 员工自禁 PMs trading — Kalshi / Polymarket 在 X 公开支持</h4>
+        <p class="src">CNBC · Fortune · Newsmax · 04/30</p>
+        <p>Sen. Bernie Moreno（OH）推、<b>全院一致通过、立即生效</b>——首次美国国会级「自我约束」法案。Kalshi CEO Tarek Mansour 在 X 表态支持「Kalshi 已 proactively 阻擋 members of congress」、Polymarket 同步声援。<div class="pullquote">表面是政治洁身叙述、实质是「<b>PMs 业者主动放棄一塊客群換取监管 goodwill</b>」——这个「合規让利」姿势会被 sportsbook 拿来反过来检视「sportsbook 是否该对 NCAA 投注下同样自禁」。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.cnbc.com/2026/04/30/senate-prediction-markets-trading-ban-kalshi-polymarket.html" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat a">法规</span>
+          <span class="pill neu"><span class="dot">○</span>中立</span>
+          <span class="pill hot">🆕 5/8 CO</span>
+        </div>
+        <div class="byline">U.S. · CO 州 Kalshi 法規辯论</div>
+        <h4>CO 州针对 Kalshi 的州法讨论升温 — Better Markets 公开呼籲「自己上去看到底像 sports betting 还是 derivatives」</h4>
+        <p class="src">CPR · Better Markets · 05/08</p>
+        <p>科罗拉多州立法者直指「<b>Kalshi 在 CO 完全不受州监管运作</b>」。Better Markets（华府消费者保护倡议组织）公开呼吁「上 Kalshi 看看到底像 sports betting 还是 derivatives trading（衍生品交易、即金融期货 / 选择权类的合约买卖）」——<span class="hi">这是业界首次以「自己上去看」的口语化论述说服立法者</span>。<br><u>综合判断</u>：亚利桑那州 Liburdi 法官 5/6-7 改判 Kalshi 赢之后，<b>科罗拉多州是下一个要关注的</b>——他们的州法讨论升温、可能成为下一个被联邦法 preempt（取代）掉州博彩法的案例。对 sportsbook 想用「预测市场本质就是博彩」反攻来说，这条讯号反向证实了一件事：连「derivatives trading 是金融衍生品、不是赌博」这种术语区分都正在被立法者重新审视。<b>对 sportsbook 反攻论述 +EV、对预测市场 -EV</b>。</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.cpr.org/2026/05/08/colorado-sports-gambling-kalshi-prediction-market/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat a">法规</span>
+          <span class="pill hot">5/4 生效首周</span>
+        </div>
+        <div class="byline">Brazil · CMN 5.298 生效首周执法</div>
+        <h4>CMN 5.298 生效首周执法战果 — Anatel 封 27-29 站、SPA 第一波 KYC 罰單已下</h4>
+        <p class="src" style="font-style:italic;color:var(--ink-3);">主軸完整内容在「本周亮点」Signal 02；这里只列累積执法数字。</p>
+        <div class="stat-strip">
+          <div class="stat"><div class="v">29</div><div class="l">PMs 平台封</div></div>
+          <div class="stat"><div class="v">39<small>K+</small></div><div class="l">违法网站封（累计）</div></div>
+          <div class="stat"><div class="v">203</div><div class="l">APP 下架</div></div>
+          <div class="stat"><div class="v">697</div><div class="l">帳户凍结</div></div>
+        </div>
+        <a class="cta" href="#highlights">→ 跳回 Signal 02 看完整说明</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat a">法规</span>
+          <span class="pill neg"><span class="dot">−</span>负面</span>
+        </div>
+        <div class="byline">Philippines · PAGCOR · 本周新进展</div>
+        <h4>5/8 PAGCOR 正式背书 SiGMA Asia Summit 2026（5/31-6/3 马尼拉）</h4>
+        <p class="src">Yogonet · FocusGN · 05/08</p>
+        <p><b>背景</b>：PAGCOR（菲律宾博彩监管局）有双重身份——既是监管单位（发牌、监管私营运营商），也是运营商本身（旗下自营 Casino Filipino 连锁实体赌场约 41 间）。这就是 2028 年前要把自营赌场全部私有化的原因——拆分掉「球员兼裁判」的角色冲突。</p>
+        <p>本周新进展：5/8 PAGCOR 正式背书 SiGMA Asia Summit 2026（5/31-6/3、马尼拉 SMX Convention Centre Pasay）——这是 Tengco 上任后第二次以 PAGCOR 主席身份对外正式背书 B2B summit。</p>
+        <p><u>综合判断</u>：5/12-14 G2E Asia + 5/31-6/3 SiGMA Asia 两个 summit 中间，是 EGLD（电子博彩牌照）名单下次更新时点——新进供应商的首发合作期红利议价窗口开到 6/30 前。<b>W18 已完整报：B2B 认证、MGF（最低保证授权金、每张照每月 PHP 9M）、KYC 升级、广告全日禁研议、Casino Filipino 私有化进度</b>——本期不重复展开。</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://next.io/news/regulation/pagcor-toughens-igaming-restrictions-considers-ad-ban/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat a">法规</span>
+          <span class="pill hot">Editor's Pick · W18 持续观察</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">「美 / 巴 / 菲 / 英四地法规互相影响」论述维持 W18 观察。本周新进展：美国（AZ Liburdi 改判 + Senate 自禁 + CO 辩论）、巴西（CMN + SPA 罰单，详见 Signal 02）、菲律宾（PAGCOR 5/8 背书 SiGMA）三线同时推进。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §2 M&A 与资本动作 ───────────── -->
+  <section class="section" id="s2">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>M&A 与资本动作</h2>
+      <span class="h2-en">Capital Markets · Consolidation</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat c">运营商</span>
+          <span class="pill neg"><span class="dot">−</span>负面</span>
+          <span class="pill hot">🆕 5/18 倒数</span>
+        </div>
+        <div class="byline">UK · Bally's Intralot £225M Evoke takeover</div>
+        <h4>Bally's Intralot 5/18 倒数 Evoke £225M → 详见 Signal 03</h4>
+        <p style="margin:0;font-size:12px;color:var(--ink-2);">5/18 17:00 London time UK takeover rules 强制 deadline——必须宣布 firm offer 或 walk away。挖人才窗口 5/18-7/31。</p>
+        <a class="cta" href="#highlights" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;">→ 跳回 Signal 03 看完整说明</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat c">运营商</span>
+          <span class="pill pos"><span class="dot">＋</span>正面</span>
+          <span class="pill hot">🆕 Q1 双财报</span>
+        </div>
+        <div class="byline">U.S. · DKNG Q1 + Flutter Q1 + Kalshi $22B</div>
+        <h4>美国体博三家 Q1 + Kalshi 估值定型 → 详见 Signal 01</h4>
+        <p style="margin:0;font-size:12px;color:var(--ink-2);">DKNG 双 beat（营收 $1.646B / +17%、EPS $0.20 vs 共识 $0.02）+ PMs 预算上修 $200-300M、market-making 已启动；Flutter Q1 FanDuel handle -9% YoY + LSE 退市评估；Kalshi 5/7 $1B Series F、估值 $22B（5 个月翻倍）。</p>
+        <a class="cta" href="#highlights" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;">→ 跳回 Signal 01 看完整说明</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat c">运营商</span>
+          <span class="pill hot">Editor's Pick · W18 持续观察</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">M&A 主题「从横向收品牌改成垂直收能力」论述维持 W18 观察、本周无更新。新进展见 Signal 03（Bally's Intralot Evoke）。</p>
+      </div>
+
+    </div>
+
+    <!-- M&A 统计 strip -->
+    <div class="stat-strip-top" style="margin-top:20px;">
+      <div class="stat"><div class="v">£225<small>M</small></div><div class="l">Bally's Intralot 出价</div></div>
+      <div class="stat"><div class="v">$22<small>B</small></div><div class="l">Kalshi Series F 估值</div></div>
+      <div class="stat"><div class="v">$1.6<small>B</small></div><div class="l">DKNG Q1 营收 +17%</div></div>
+      <div class="stat"><div class="v">-9<small>%</small></div><div class="l">FanDuel handle YoY</div></div>
+    </div>
+  </section>
+
+  <!-- ───────────── §3 产品与技术发布 ───────────── -->
+  <section class="section" id="s3">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>产品与技术发布</h2>
+      <span class="h2-en">Tech &amp; Product Releases</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <p style="margin:0;font-size:12px;color:var(--ink-3);font-style:italic;">本周产品 / 技术发布唯一新讯号是 AWS thermal outage 5/8 冲击 FanDuel + Coinbase——主轴在「本周亮点」Signal 05。</p>
+        <p style="margin:6px 0 0;font-size:11px;color:var(--ink-2);">→ 详见 <a href="#highlights" style="font-weight:600;">本周亮点 Signal 05</a></p>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat b">产品</span>
+          <span class="pill hot">Editor's Pick · W18 持续观察</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">「下半年两条线：内容混合（Playradar）+ 合规 AI 当卖点（UNLV+KPMG governance gap）」论述维持 W18 观察、本周无更新。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §4 大运营商动向 ───────────── -->
+  <section class="section" id="s4">
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2>大运营商动向</h2>
+      <span class="h2-en">Major Operators · Earnings &amp; Strategy</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <p style="margin:0;font-size:12px;color:var(--ink-3);font-style:italic;">本周大运营商动态主要在「本周亮点」Signal 01（DKNG / FanDuel / Kalshi Q1 + PMs 双线结构）、Signal 03（Bally's Intralot 5/18 倒数 Evoke）、Signal 04（澳门 Golden Week + MGM China）。§4 本周无独立新讯号。</p>
+        <p style="margin:6px 0 0;font-size:11px;color:var(--ink-2);">→ 详见 <a href="#highlights" style="font-weight:600;">本周亮点 Signal 01 / 03 / 04</a></p>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat c">运营商</span>
+          <span class="pill hot">Editor's Pick · W18 持续观察</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">「Flutter / DraftKings 双财报会定调 H2」论述本周已落地——Signal 01 直接覆盖。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §5 亚洲市场 — 菲律宾 + Macau ───────────── -->
+  <section class="section" id="s5">
+    <div class="section-head">
+      <span class="num">05</span>
+      <h2>亚洲市场 — 菲律宾 / Macau / 东南亚</h2>
+      <span class="h2-en">APAC · Philippines &amp; Macau</span>
+    </div>
+
+    <!-- Macau stat strip -->
+    <div class="stat-strip-top">
+      <div class="stat"><div class="v">MOP$1.02<small>B</small></div><div class="l">5/1-5 daily / +12% YoY</div></div>
+      <div class="stat"><div class="v">870<small>K</small></div><div class="l">Golden Week 观光客 / +2.7%</div></div>
+      <div class="stat"><div class="v">+8.5<small>%</small></div><div class="l">Seaport 5 月 GGR 预估</div></div>
+      <div class="stat"><div class="v">+170<small>%</small></div><div class="l">Premium mass vs 2019</div></div>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat d">市场</span>
+          <span class="pill neu"><span class="dot">○</span>持续追踪</span>
+        </div>
+        <div class="byline">澳门 · 5/1-5 黄金周完整数据</div>
+        <h4>5/1-5 五一黄金周创 5 月历史新高 → 详见 Signal 04</h4>
+        <a class="cta" href="#highlights" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;">→ 跳到 Signal 04 看完整说明</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat d">市场</span>
+          <span class="pill pos"><span class="dot">＋</span>正面</span>
+          <span class="pill hot">🆕 5/1-12 强尾</span>
+        </div>
+        <div class="byline">澳门 · 5 月 GGR 预估反弹</div>
+        <h4>JP Morgan May 1-12 daily GGR US$89M / Seaport 上修 5 月 YoY 至 +8.5% / CLSA +6.6%</h4>
+        <p class="src">GGRAsia · 05/08-09</p>
+        <p>含 Golden Week 后 tail，意味 Golden Week 后仍有「premium-mass off-peak」延续强势。CLSA 点出「<b>premium-mass off-peak 出游意愿上升</b>」——这是「中高端会员营销」预算配置该更激进的讯号。</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.ggrasia.com/macau-daily-ggr-us89mln-for-may-1-to-12-jp-morgan/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat a">法规</span>
+          <span class="pill neu"><span class="dot">○</span>持续追踪</span>
+        </div>
+        <div class="byline">菲律宾 · PAGCOR EGLD 名单观察</div>
+        <h4>本周 EGLD 名单无新公开供应商</h4>
+        <p>W18 已报 Amusnet × 747Live 拿到 PAGCOR EGLD 认证（4/28、214 款游戏上架），是 4/1 B2B 认证新制后白名单第一个新增。本周无后续新进供应商公开。下次大宗变动观察时点：5/12 G2E Asia 后第一周。</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://eegaming.org/latest-news/2026/04/28/138093/amusnet-officially-enters-the-philippine-market/" target="_blank" rel="noopener">阅读 Amusnet × 747Live 4/28 EGLD 核准原报导 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat d">市场</span>
+          <span class="pill neu"><span class="dot">○</span>中立</span>
+          <span class="pill hot">🔴 5/12-14 倒数</span>
+        </div>
+        <div class="byline">亞洲 · 5/12-14 G2E Asia + 5/31-6/3 SiGMA Asia</div>
+        <h4>G2E Asia（5/12-14 澳门威尼斯人）+ PAGCOR 5/8 正式背书 SiGMA Asia 2026（5/31-6/3 SMX Pasay）</h4>
+        <p class="src">Yogonet · FocusGN · IAG · 05/08</p>
+        <p>亞洲博彩展 G2E Asia 5/12-14 倒数；5/13 Industry Party 在 MGM COTAI（Interblock + L&amp;W Diamond Sponsor）；预计 6,000 人。<b>5/8 PAGCOR 正式背书 SiGMA Asia Summit 2026</b>——Tengco 上任后第二次以 PAGCOR 主席身份对外正式背书 B2B summit。<div class="pullquote">兩个 summit 中间 + PAGCOR EGLD 名單下次更新时点，是观察「<b>B2B Accreditation 4/1 死线后第二波白名單变动</b>」的最佳窗口；新进供应商首发合作期红利议价窗口开到 6/30 前。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.yogonet.com/international/news/2026/05/08/119873-pagcor-endorses-sigma-asia-summit-2026-in-manila" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat d">市场</span>
+          <span class="pill hot">Editor's Pick · W18 持续观察</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">「澳门 Q2-Q3 压力 + 菲律宾严管 → 纯线上品牌窗口」论述维持 W18 观察。本周新进展：澳门 5/1-5 Golden Week 创高（Signal 04）、PAGCOR 5/8 背书 SiGMA Asia 详见上方。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §6 拉美市场 — 巴西重点 ───────────── -->
+  <section class="section" id="s6">
+    <div class="section-head">
+      <span class="num">06</span>
+      <h2>拉美市场 — 巴西重点</h2>
+      <span class="h2-en">LATAM · Brazil Deep Dive</span>
+    </div>
+
+    <div class="grid-3">
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat a">法规</span>
+          <span class="pill hot">5/4 已上路</span>
+        </div>
+        <div class="byline">巴西联邦 · CMN 5.298 + SPA 罰單 + Lula BBB 税</div>
+        <h4>本周巴西联邦动态 → 详见 Signal 02</h4>
+        <p style="margin:0;font-size:12px;color:var(--ink-2);">CMN 5.298 5/4 生效首周 + SPA Ordinance 722 第一波 KYC 罰单已下 + Lula BBB 税进 2026 党内竞选纲领 + Q1 体博税收 R$3.397B（+123.7% YoY）——主轴完整说明在本周亮点 Signal 02。</p>
+        <a class="cta" href="#highlights" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;">→ 跳回 Signal 02 看完整说明</a>
+      </div>
+    </div>
+
+    <!-- RS Lei 16,508 进度卡（完整警语 + 9 项条款已在 W18 weekly 写过） -->
+    <div class="card">
+      <div class="meta-row">
+        <span class="cat a">法规</span>
+        <span class="pill neu"><span class="dot">○</span>持续追踪</span>
+      </div>
+      <div class="byline">State · Rio Grande do Sul · Lei nº 16,508</div>
+      <h4>120 日适应期倒数中 — ~8/22 全执行；本周其他州无新跟进</h4>
+      <p>4/24 签署生效、120 日适应期。RS 模板（警语占萤幕 ≥15%、限播时段 21:00-06:00、PROCON 连带责任、平台 / 代理 / 媒体 / ISP 连带罚款）<b>本周仍是地方政府最容易抄的工具包</b>，但其他州本周无新跟进案。<b>完整警语全文 + 9 项条款详解写在 W18 weekly</b>——本期不重复展开。</p>
+      <p><u>综合判断</u>：进度无变化、判断维持——「白天版 / 晚间版」素材策略仍要在 8/22 前准备好。下次升级窗口是 7 月初观察其他州（Minas Gerais、SP）是否跟进。</p>
+      <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://igamingbrazil.com/en/sports-betting-en-2/2026/04/28/rio-grande-do-sul-sanctions-law-that-restricts-sports-betting-advertising/" target="_blank" rel="noopener">阅读 RS Lei 16,508 完整法律原文 →</a>
+    </div>
+
+  </section>
+
+  <!-- ───────────── §7 北美市场 ───────────── -->
+  <section class="section" id="s7">
+    <div class="section-head">
+      <span class="num">07</span>
+      <h2>北美市场 — 美国 / 加拿大</h2>
+      <span class="h2-en">North America · USA &amp; Canada</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat c">运营商</span>
+          <span class="pill pos"><span class="dot">＋</span>正面</span>
+          <span class="pill hot">🆕 Ontario CAD$9.6B</span>
+        </div>
+        <div class="byline">Canada · Ontario 3 月 handle 创高 + Alberta 待 launch</div>
+        <h4>Ontario 3 月 sports betting handle CAD$9.6B 创高 + DKNG Alberta 待加拿大监管核准</h4>
+        <p class="src">Gambling 911 · 05/09</p>
+        <p>加拿大 iGaming Ontario 第二年仍持续成长。<br><u>综合判断</u>：Ontario 增长为 Alberta（第三大省，DKNG 擬 launch）的 ROI 预估上修——对 DKNG / FanDuel 加拿大资本配置会更積極、对亚 / 拉美擴张节奏可能更选择性。Alberta 28 家运营商核准名单已过、DKNG 待加拿大监管核准 launch。</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gambling911.com/gambling/live-gambling-news-top-trending-updates-247-saturday-may-9-2026-09-05-2026.html" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat e">体博</span>
+          <span class="pill hot">Editor's Pick · W18 持续观察</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">「美国体博饱和 + 预测市场分流 → 美系大厂对外擴张动能减弱」论述维持 W18 观察、本周无更新。本周新进展（Q1 -2%、Kalshi $22B、AZ Liburdi 改判）见 Signal 01-03。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §8 体育博彩专区 ───────────── -->
+  <section class="section" id="s8">
+    <div class="section-head">
+      <span class="num">08</span>
+      <h2>体育博彩专区</h2>
+      <span class="h2-en">Sports Betting · U.S. &amp; Prediction Markets</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat e">体博</span>
+          <span class="pill neu"><span class="dot">○</span>持续追踪</span>
+        </div>
+        <div class="byline">W18 持续追踪 · MLB × Polymarket</div>
+        <h4>MLB × Polymarket 3 年 $150-300M 赞助 + CFTC 完整性协议（本周无新进展）</h4>
+        <p>NBA Damon Jones 认罪、F1 × FanDuel Miami GP 启动 — 这两件 W18 已完整报。本周无新进展。MLB × Polymarket 案侧记：Kalshi MLB 沖盘量 5/8-9 达 $1.5-2M / 日，意味 MLB 数据已是预测市场平台主流量来源之一。</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/156945/damon-jones-guilty-plea-nba-betting-scandal-rozier-charges" target="_blank" rel="noopener">阅读 NBA Damon Jones 认罪原报导 →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat e">体博</span>
+          <span class="pill hot">Editor's Pick · W18 持续观察</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">赞助结构论述（大牌绑全球 IP、中型绑区域、区域绑 KOL）维持 W18 观察、本周无更新。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §9 X / Social Pulse ───────────── -->
+  <section class="section" id="s9">
+    <div class="section-head">
+      <span class="num">09</span>
+      <h2>X / Social Pulse — Brazil + NA</h2>
+      <span class="h2-en">X · Brazil + NA</span>
+    </div>
+
+    <div class="x-pulse">
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat e">体博</span>
+          <span class="pill neu"><span class="dot">○</span>中立</span>
+        </div>
+        <div class="byline">9.1 BRAZIL</div>
+        <h4>本周 BR 无 X 讯号级贴文 — 主流媒体已写透法规执行面</h4>
+        <p>主流媒体已把巴西法规执行面写透（CMN 5.298 + SPA + Lula），X 上的 SPA 官方帐号 @SPA_MF_BR 本周公开发文密度不高。</p>
+        <p><u>综合判断</u>：下周要看 Anatel 是否扩封到 30+ 平台、SPA 是否公布第一波罚单金额名单。</p>
+      </div>
+
+      <div class="card hilite-na">
+        <div class="meta-row">
+          <span class="cat e" style="background:var(--hi);">体博</span>
+          <span class="pill hot" style="background:var(--hi);color:var(--ink);">最有价值</span>
+        </div>
+        <div class="byline">9.2 NORTH AMERICA</div>
+        <h4>抓到 3 条同方向讯号 — 「PMs 已从业界战场升级到金融市场 + 法律 + 估值三线结构胜利」</h4>
+        <ul style="font-size:11.5px;color:var(--rule-2);line-height:1.7;">
+          <li><b style="color:#fff;">@KalshiHQ / @mansourtarek（Kalshi CEO Tarek Mansour）</b> — 5/7 Kalshi 正式宣布 $1B 募资 / $22B 估值（5 个月内翻倍、Coatue 领投）。Mansour 在 X 表态「<b style="color:var(--hi);">Prediction markets are moving from early adoption to core financial infrastructure</b>」、强调机构钱已进场（hedge funds / asset managers / prop firms / insurers）；同时公开支持 Senate 自禁议员 PMs trading。<a href="https://techcrunch.com/2026/05/07/kalshi-doubles-valuation-in-5-months-hitting-22-billion/" target="_blank" rel="noopener" style="color:var(--hi);">看 Mansour 发言</a></li>
+          <li><b style="color:#fff;">@JasonRobins（DraftKings CEO）/ @DraftKings</b> — 5/7 Q1 财报后 Robins 在 call 中以「<b style="color:var(--hi);">irresponsibly</b>」評论 PMs 竞品「没莊家」说法、暗示 Kalshi / Polymarket 透过 market-makers 维持流动性 = 「也是有莊家、本质上跟 sportsbook 一样」。<b style="color:#fff;">这是 sportsbook 龙头首次直接挑战 PMs 的「peer-to-peer」核心叙述</b>。<a href="https://sbcamericas.com/2026/05/08/draftkings-predictions-q1-earnings/" target="_blank" rel="noopener" style="color:var(--hi);">看 SBC Americas</a></li>
+          <li><b style="color:#fff;">@WALLACHLEGAL（Daniel Wallach）</b> — 持续評论 AZ Liburdi 改判案、强调 CFTC vs 州博彩法的 preemption 结论「是联邦 PMs 司法路徑首次拿到实质判决级成果」、AZ AG Mayes 上訴可能性高。<a href="https://www.casino.org/news/federal-judge-blocks-arizona-criminal-case-against-kalshi/" target="_blank" rel="noopener" style="color:var(--hi);">看判决报导</a></li>
+        </ul>
+        <div class="pullquote"><b style="color:var(--hi);">$22B 估值 + DKNG 武器化反攻叙述 + 联邦 preemption 判决</b>三軸合流——对接 NA 案子：H2 brief 预算结构要把「<b style="color:var(--hi);">sportsbook + PMs 双线</b>」当预设、不再是「sportsbook 为主、PMs 为輔」。</div>
+      </div>
+
+    </div>
+
+    <p style="font-size:11.5px;color:var(--ink-2);line-height:1.7;margin:14px 0 0;">
+      <b>本周 X Pulse 重点：</b>NA 三条 X 讯号高度同向——Kalshi $22B = 估值定型、Robins = sportsbook 反攻论述武器化、Wallach = 法律 preemption 畅通——三轴合流构成「<b>预测市场已从业界战局升到金融市场 + 法律 + 估值三线胜利</b>」的本周最强现场声量。
+    </p>
+  </section>
+
+  <!-- ───────────── §10 与动作建议 ───────────── -->
+  <section class="section" id="s10">
+    <div class="section-head">
+      <span class="num">10</span>
+      <h2>来源复盖与动作建议</h2>
+      <span class="h2-en">Sources · Coverage · Notes</span>
+    </div>
+
+    <div class="colophon">
+      <div>
+        <h5>复盖情况</h5>
+        <p>本期 W19（5/4-5/10）：<b>DKNG / FanDuel 双财报坐实 sportsbook + PMs 双线结构 + Bally's Intralot £225M Evoke takeover 5/18 倒数 + CMN 5.298 5/4 生效首周 SPA 第一波罰單 + Macau May Golden Week 创史上新高 + AWS thermal outage 冲击 FanDuel + Coinbase</b>。重点新讯号：Kalshi $22B Series F、AZ Liburdi 改判 Kalshi 胜、Senate 自禁 PMs trading、Ontario 3 月 handle CAD$9.6B 创高。</p>
+        <div class="source-grid">
+          <span><span class="ok">✓</span> iGaming Business</span>
+          <span><span class="ok">✓</span> SBC News / Americas</span>
+          <span><span class="ok">✓</span> Gambling Insider</span>
+          <span><span class="ok">✓</span> Yogonet International</span>
+          <span><span class="ok">✓</span> Inside Asian Gaming</span>
+          <span><span class="ok">✓</span> GGR Asia</span>
+          <span><span class="warn">!</span> PAGCOR 官方 (二手)</span>
+          <span><span class="ok">✓</span> iGaming Brazil</span>
+          <span><span class="ok">✓</span> Legal Sports Report</span>
+          <span><span class="ok">✓</span> Sports Handle (聚合)</span>
+          <span><span class="ok">✓</span> Bettors Insider · Casino.org</span>
+          <span><span class="ok">✓</span> CNBC · TechCrunch · CoinDesk</span>
+        </div>
+      </div>
+      <div>
+        <h5>下周要盯的事</h5>
+        <p class="next-list">
+          ·&nbsp;<b class="urgent">5/12-14 🔴</b> G2E Asia 2026（澳门威尼斯人）— 亞洲产业情报密度跳阶；观察 PAGCOR EGLD 名單下次大宗变动的最佳窗口<br>
+          ·&nbsp;<b>5/13</b> Industry Party @ MGM COTAI（钻石赞助：Interblock + Light &amp; Wonder）<br>
+          ·&nbsp;<b class="urgent">5/18 🔴</b> 17:00 London time — Bally's Intralot Evoke takeover deadline，必须宣布 firm offer 或 walk away<br>
+          ·&nbsp;<b>5/18</b> Sportradar 新任 COO Sameer Deen 上任（搭 Playradar 拉美擴張）<br>
+          ·&nbsp;<b>5/19-21</b> SBC Summit Canada（多倫多）<br>
+          ·&nbsp;<b>5/31-6/3</b> SiGMA Asia Summit（SMX Convention Centre Pasay，PAGCOR 已正式背书）<br>
+          ·&nbsp;<b>5/4 后第二周</b> 巴西 SPA 第二波罰單名單金额；Anatel 是否擴封至 30+ 平台<br>
+          ·&nbsp;<b>6 月初</b> Macau 5 月 GGR 官方公佈——验证 5/1-5 强势能否延续
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer-bottom">
+      <div class="label">Weekly Gambling Brief · W19</div>
+      <p style="margin:0">编辑：Reagan Weekly · W19 / 2026-05-10 ｜ 2026-05-04 ~ 2026-05-10 ｜ For internal circulation</p>
+    </footer>
+  </section>
+
+</main>
+
+</body>
+</html>

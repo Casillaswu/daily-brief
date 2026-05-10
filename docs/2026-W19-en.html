@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gambling Industry Weekly · W19 · 2026-05-04 to 2026-05-10</title>
+<meta name="description" content="W19: DKNG / FanDuel Q1 dual earnings cement sportsbook + PMs dual structure · Bally's Intralot £225M Evoke takeover 5/18 countdown · CMN 5.298 enforcement first week with SPA's first KYC fines · Macau May Golden Week sets all-time May high · AWS thermal outage hits FanDuel + Coinbase" />
+
+<style>
+  /* ─── tokens (aligned with News Clipping wireframe README) ─── */
+  :root {
+    --ink: #1f1d1a;
+    --ink-2: #4a4742;
+    --ink-3: #8a857d;
+    --paper: #ffffff;
+    --paper-2: #f7f5f1;
+    --rule: #d9d4cb;
+    --rule-2: #ebe6dd;
+    --hi: #fff3a6;
+    --pos: #c9e4cf; --pos-ink: #2f6b3b;
+    --neu: #e1dfd9; --neu-ink: #5b574e;
+    --neg: #f1c9c5; --neg-ink: #8a3a33;
+    --cat-a: #d6e2ee; /* Regulation */
+    --cat-b: #e8dcec; /* Product */
+    --cat-c: #efe1c9; /* Operators */
+    --cat-d: #d9e8d6; /* Market */
+    --cat-e: #f1d9d5; /* Sportsbook */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #f0eee9; color: var(--ink);
+               font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+               -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  a { color: var(--ink); text-decoration: underline; }
+  a:hover { color: #000; }
+  u { text-decoration: underline; text-underline-offset: 2px; }
+  mark, .hi { background: var(--hi); padding: 0 2px; border-radius: 2px;
+              -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  ul { padding-left: 18px; margin: 6px 0; }
+  ul li { margin: 3px 0; }
+
+  /* ─── page shell ─── */
+  .page { max-width: 1200px; margin: 0 auto; padding: 28px 32px;
+          background: var(--paper); min-height: 100vh; position: relative; }
+
+  /* ─── lang toggle 中 / EN ─── */
+  .lang-toggle {
+    display: inline-flex;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    overflow: hidden;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .lang-toggle a {
+    padding: 6px 16px;
+    text-decoration: none;
+    color: var(--ink-3);
+    transition: all .15s ease;
+    letter-spacing: .05em;
+  }
+  .lang-toggle a.active {
+    background: var(--ink);
+    color: #fff;
+  }
+  .lang-toggle a:not(.active):hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .lang-toggle-row {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* ─── masthead ─── */
+  .masthead { border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+  .masthead .kicker { font-size: 11px; letter-spacing: .22em; color: var(--ink-3);
+                      font-weight: 700; text-transform: uppercase; }
+  .masthead .row { display: flex; justify-content: space-between; align-items: baseline;
+                   gap: 18px; margin-top: 4px; flex-wrap: wrap; }
+  .masthead h1 { margin: 0; font-size: 22px; font-weight: 800; line-height: 1.2; color: var(--ink); }
+  .masthead .meta-stats { display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+                          font-size: 11px; color: var(--ink-3); }
+
+  /* ─── pills / cats / chips ─── */
+  .pill { display: inline-flex; align-items: center; gap: 4px;
+          padding: 2px 8px; border-radius: 999px; font-size: 10px;
+          border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); }
+  .pill.pos { background: var(--pos); color: var(--pos-ink); border-color: transparent; }
+  .pill.neu { background: var(--neu); color: var(--neu-ink); border-color: transparent; }
+  .pill.neg { background: var(--neg); color: var(--neg-ink); border-color: transparent; }
+  .pill.hot { background: var(--ink); color: #fff; border-color: transparent; font-weight: 700; }
+  .pill.rank { font-weight: 700; }
+  .pill .dot { font-weight: 700; }
+  .cat { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 3px;
+         color: var(--ink); font-weight: 600; }
+  .cat.a { background: var(--cat-a); }
+  .cat.b { background: var(--cat-b); }
+  .cat.c { background: var(--cat-c); }
+  .cat.d { background: var(--cat-d); }
+  .cat.e { background: var(--cat-e); }
+
+  /* ─── nav anchors ─── */
+  .nav-anchors { display: flex; gap: 8px; margin: 18px 0 14px; flex-wrap: wrap;
+                 padding-bottom: 14px; border-bottom: 1px dashed var(--rule); }
+  .nav-anchors a {
+    display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap; padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 11.5px; font-weight: 600;
+    color: var(--ink-2); background: var(--paper);
+    border: 1px solid var(--rule); text-decoration: none;
+    transition: all .18s ease;
+    box-shadow: 0 1px 2px rgba(31,29,26,.04);
+  }
+  .nav-anchors a::before {
+    content: ''; display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--dot, var(--ink-3));
+    flex-shrink: 0;
+    transition: all .18s ease;
+  }
+  .nav-anchors a:hover {
+    background: var(--ink); color: #fff; border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(31,29,26,.15);
+  }
+  .nav-anchors a:hover::before { background: #fff; transform: scale(1.2); }
+  .nav-anchors a.lead {
+    background: var(--ink); color: #fff; border-color: transparent;
+    font-weight: 700;
+  }
+  .nav-anchors a.lead::before {
+    background: var(--hi); width: 7px; height: 7px;
+    box-shadow: 0 0 6px rgba(255,243,166,.6);
+  }
+
+  /* ─── section head ─── */
+  .section { margin: 32px 0 0; scroll-margin-top: 12px; }
+  .section-head { display: flex; align-items: baseline; gap: 10px;
+                  border-bottom: 2px solid var(--ink); padding-bottom: 6px; margin-bottom: 14px; }
+  .section-head .num { font-family: ui-monospace, Menlo, monospace; font-size: 13px;
+                       font-weight: 700; color: var(--ink); background: var(--hi);
+                       padding: 1px 8px; border-radius: 2px; }
+  .section-head h2 { margin: 0; font-size: 17px; font-weight: 800; color: var(--ink); }
+  .section-head .h2-en { font-size: 10px; letter-spacing: .22em; color: var(--ink-3);
+                         text-transform: uppercase; font-weight: 700; margin-left: auto; }
+
+  /* ─── lead story block ─── */
+  .lead {
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    padding: 18px 22px; margin: 14px 0 18px;
+  }
+  .lead .meta-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+  .lead h3 { margin: 0 0 8px; font-size: 19px; font-weight: 800; line-height: 1.4; color: var(--ink); }
+  .lead .src-meta { font-size: 11px; color: var(--ink-3); margin: 0 0 12px; }
+  .lead p { font-size: 13.5px; color: var(--ink-2); line-height: 1.75; margin: 0 0 14px; }
+  .lead .cta { display: inline-block; background: var(--ink); color: #fff; font-size: 12px;
+               padding: 8px 14px; text-decoration: none; font-weight: 600; letter-spacing: .04em; }
+
+  /* ─── highlight cards 2x2 (Signal 02-05) ─── */
+  .signals-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 6px; }
+  .signal-card { background: var(--paper-2); border-left: 3px solid var(--ink); padding: 14px 16px; }
+  .signal-card .label { font-size: 10px; letter-spacing: .2em; color: var(--ink-3);
+                        font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+  .signal-card h4 { margin: 0 0 6px; font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+  .signal-card p { font-size: 12.5px; color: var(--ink-2); line-height: 1.7; margin: 0; }
+
+  /* ─── card grid ─── */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  .card { background: var(--paper); border: 1px solid var(--rule); padding: 14px 16px; }
+  .card.hilite { background: var(--paper-2); border-left: 3px solid var(--ink); }
+  .card .meta-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+  .card .byline { font-size: 10px; letter-spacing: .15em; color: var(--ink-3);
+                  font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+  .card h4 { margin: 0 0 6px; font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.45; }
+  .card .src { font-size: 11px; color: var(--ink-3); margin: 0 0 8px; }
+  .card p { font-size: 12.5px; color: var(--ink-2); line-height: 1.7; margin: 0 0 8px; }
+  .card a.cta { font-size: 11px; color: var(--ink); font-weight: 600;
+                text-decoration: underline; text-underline-offset: 2px; }
+  .card .pullquote { background: var(--paper-2); border-left: 3px solid var(--ink);
+                     padding: 8px 10px; font-size: 12px; color: var(--ink-2);
+                     font-style: italic; margin: 6px 0; line-height: 1.55; }
+  .card .stat-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
+                      background: var(--ink); color: var(--paper-2); padding: 10px;
+                      margin: 8px 0; }
+  .card .stat-strip .stat { text-align: center; }
+  .card .stat-strip .v { font-family: ui-monospace, Menlo, monospace; font-size: 16px;
+                         font-weight: 700; color: #fff; line-height: 1.1; }
+  .card .stat-strip .v small { font-size: 9px; font-weight: 600; opacity: .8; }
+  .card .stat-strip .l { font-size: 9px; letter-spacing: .15em; color: var(--rule-2);
+                         text-transform: uppercase; margin-top: 2px; }
+
+  /* ─── stat strip top ─── */
+  .stat-strip-top { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+                    background: var(--ink); color: var(--paper-2); padding: 14px;
+                    margin: 14px 0 16px; }
+  .stat-strip-top .stat { text-align: center; }
+  .stat-strip-top .v { font-family: ui-monospace, Menlo, monospace; font-size: 22px;
+                       font-weight: 800; color: #fff; line-height: 1.1; }
+  .stat-strip-top .v small { font-size: 10px; font-weight: 600; opacity: .8; }
+  .stat-strip-top .l { font-size: 10px; letter-spacing: .15em; color: var(--rule-2);
+                       text-transform: uppercase; margin-top: 4px; }
+
+  /* ─── §6 RS Lei law-box ─── */
+  .law-box { background: var(--paper-2); border: 1px solid var(--rule);
+             border-left: 4px solid var(--neg-ink); padding: 16px 20px; margin: 14px 0; }
+  .law-box .label { font-size: 10px; letter-spacing: .22em; color: var(--neg-ink);
+                    font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+  .law-box h4 { margin: 0 0 10px; font-size: 15px; font-weight: 800; color: var(--ink); }
+  .law-box .warning-list { background: var(--paper); border: 1px solid var(--rule);
+                           padding: 10px 12px; margin: 10px 0; font-style: italic;
+                           font-size: 12.5px; color: var(--ink-2); }
+  .law-box .warning-list li { margin: 4px 0; }
+  .law-box ul.terms { font-size: 12.5px; color: var(--ink-2); line-height: 1.8; }
+  .law-box ul.terms li b { color: var(--ink); }
+
+  /* ─── X Pulse ─── */
+  .x-pulse { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .x-pulse .card { background: var(--paper-2); }
+  .x-pulse .card.hilite-na { background: var(--ink); color: var(--paper-2); border: none; }
+  .x-pulse .card.hilite-na h4 { color: #fff; }
+  .x-pulse .card.hilite-na p { color: var(--rule-2); }
+  .x-pulse .card.hilite-na .byline { color: var(--hi); }
+  .x-pulse .card.hilite-na a { color: var(--hi); }
+  .x-pulse .card.hilite-na .pullquote { background: rgba(255,255,255,.08); color: var(--rule-2);
+                                         border-left-color: var(--hi); }
+
+  /* ─── footer / action items ─── */
+  .colophon { display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+              border-top: 2px solid var(--ink); padding-top: 18px; margin-top: 28px; }
+  .colophon h5 { margin: 0 0 8px; font-size: 11px; letter-spacing: .22em; color: var(--ink);
+                 font-weight: 800; text-transform: uppercase; }
+  .colophon p { font-size: 12px; color: var(--ink-2); line-height: 1.7; margin: 0 0 6px; }
+  .colophon .source-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px;
+                            margin-top: 6px; font-size: 11px; color: var(--ink-2); }
+  .colophon .source-grid .ok { color: var(--pos-ink); font-weight: 700; }
+  .colophon .source-grid .warn { color: var(--neu-ink); font-weight: 700; }
+  .colophon .next-list { font-size: 11.5px; line-height: 1.85; color: var(--ink-2); }
+  .colophon .next-list b { color: var(--ink); }
+  .colophon .next-list .urgent { color: var(--neg-ink); font-weight: 700; }
+
+  .footer-bottom { border-top: 1px solid var(--rule); margin-top: 22px; padding-top: 12px;
+                   font-size: 11px; color: var(--ink-3); line-height: 1.7; }
+  .footer-bottom .label { font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+                          font-weight: 700; color: var(--ink-2); margin-bottom: 4px; }
+
+  /* ─── breakpoints ─── */
+  @media (max-width: 1023px) {
+    .page { padding: 24px 24px; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .signals-grid { grid-template-columns: 1fr; }
+    .colophon { grid-template-columns: 1fr; }
+    .stat-strip-top { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 767px) {
+    .page { padding: 20px 16px; }
+    .masthead h1 { font-size: 17px; }
+    .masthead .row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .nav-anchors { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    .lead { padding: 14px 16px; }
+    .lead h3 { font-size: 16.5px; }
+    .grid-3, .grid-2, .x-pulse { grid-template-columns: 1fr; gap: 12px; }
+    .section-head h2 { font-size: 15.5px; }
+    .section-head .h2-en { display: none; }
+    .stat-strip-top { grid-template-columns: 1fr 1fr; }
+    .stat-strip-top .v { font-size: 18px; }
+  }
+  @media print {
+    body { background: #fff; }
+    .nav-anchors { display: none; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <!-- ───────────── LANG TOGGLE ───────────── -->
+  <div class="lang-toggle-row">
+    <div class="lang-toggle">
+      <a href="2026-W19.html">中</a>
+      <a href="2026-W19-en.html" class="active">EN</a>
+    </div>
+  </div>
+
+  <!-- ───────────── MASTHEAD ───────────── -->
+  <header class="masthead">
+    <div class="kicker">Weekly Gambling Brief · W19 · May 4 to May 10, 2026</div>
+    <div class="row">
+      <h1>Gambling Industry Weekly · Internal Research</h1>
+      <div class="meta-stats">
+        <span><b>5 signals + 10 sections</b> · 11 outlets (Tier 1 + Tier 2 coverage)</span>
+        <span class="pill pos"><span class="dot">＋</span>Positive</span>
+        <span class="pill neu"><span class="dot">○</span>Neutral</span>
+        <span class="pill neg"><span class="dot">−</span>Negative</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ───────────── NAV ANCHORS ───────────── -->
+  <nav class="nav-anchors">
+    <a class="lead" href="#highlights">🔥 Highlights</a>
+    <a href="#s1" style="--dot:#d6e2ee;">§1 Regulation</a>
+    <a href="#s2" style="--dot:#efe1c9;">§2 M&amp;A</a>
+    <a href="#s3" style="--dot:#e8dcec;">§3 Product</a>
+    <a href="#s4" style="--dot:#efe1c9;">§4 Operators</a>
+    <a href="#s5" style="--dot:#d9e8d6;">§5 APAC</a>
+    <a href="#s6" style="--dot:#d9e8d6;">§6 LATAM</a>
+    <a href="#s7" style="--dot:#d9e8d6;">§7 N.America</a>
+    <a href="#s8" style="--dot:#f1d9d5;">§8 Sportsbook</a>
+    <a href="#s9" style="--dot:#8a857d;">§9 X Pulse</a>
+    <a href="#s10" style="--dot:#8a857d;">§10 Action Items</a>
+  </nav>
+
+  <!-- ───────────── 🔥 HIGHLIGHTS ───────────── -->
+  <section class="section" id="highlights">
+    <div class="section-head">
+      <span class="num">🔥</span>
+      <h2>Five Signals This Week</h2>
+      <span class="h2-en">Highlights</span>
+    </div>
+
+    <!-- LEAD = Signal 01 -->
+    <article class="lead">
+      <div class="meta-row">
+        <span class="pill hot rank">01 · Lead</span>
+        <span class="cat c">Operators</span>
+        <span class="pill pos"><span class="dot">＋</span>Positive</span>
+      </div>
+      <h3>DraftKings + FanDuel Q1 dual earnings cement <span class="hi">"sportsbook + prediction markets" dual product line</span> in U.S. — PMs budget upgraded to <span class="hi">$200-300M</span>, market-making launched, April per-customer PMs volume already exceeds sportsbook handle</h3>
+      <p class="src-meta">Benzinga · iGB · SBC Americas · Covers · LSR · TechCrunch · CoinDesk · 05/06-07</p>
+      <p><b>Why these two together</b>: DraftKings (DKNG, one of the U.S. sports betting leaders) and FanDuel (Flutter-owned, U.S. sportsbook market share #1) together hold 70%+ of the U.S. sports betting market. When they move in the same direction simultaneously, the entire U.S. sports betting industry effectively pivots with them.</p>
+      <p>
+        <b>1. DraftKings Q1 earnings (released 5/7) double beat:</b> revenue $1.646B (+17% YoY), net income $21.1M (vs. -$33.9M loss YoY, swung positive), <b>EPS $0.20 vastly exceeded analyst consensus of $0.02</b>.<br>
+        <b>2. DraftKings full-year prediction markets budget upgraded to $200-300M:</b> 14% to 71% above the $175M figure W18 disclosed. CEO Jason Robins publicly called rival platforms' "no market-maker" claims "irresponsibly" misleading — implying Kalshi (CFTC-licensed prediction market platform) and Polymarket (offshore prediction market platform settling in crypto) actually rely on market-makers for liquidity. DraftKings has launched its own market-making business with positive returns starting.<br>
+        <b>3. JP Morgan estimates DraftKings April PMs volume already exceeded sportsbook:</b> per-customer monthly volume on prediction markets has already surpassed the same customer's sportsbook handle (total amount wagered, not operator's net take). <span class="hi">This is the first quantitative evidence that prediction markets have moved from "supplement" to "substitute"</span>.<br>
+        <b>4. Flutter Q1 earnings (released 5/6):</b> FanDuel U.S. handle <span class="hi">-9% YoY</span>, AMP (average monthly players) -6% YoY; month-over-month, the trough rebounded from -5% in January to +1% in March — narrowing the decline. FanDuel is also reallocating budget to prediction markets. Flutter parent is evaluating delisting from LSE (London Stock Exchange) and shifting strategic focus to FanDuel U.S.<br>
+        <b>5. Kalshi closed Series F (mid-late stage growth round) on 5/7 at $22B valuation:</b> $1B raise, valuation doubled in 5 months. Coatue led, with Morgan Stanley, Sequoia, and a16z participating. Institutional capital (hedge funds, asset managers, prop trading firms, insurers) is officially entering the prediction markets space.
+      </p>
+      <p><br><u>Bottom line</u>: For North American campaigns, marketing asset structure must shift from "sportsbook only" to "sportsbook + prediction markets dual narrative" — because customers' player behavior has bifurcated across two product lines. For Philippine and Brazilian brands, Kalshi's $22B valuation will be cited as the strongest evidence that "prediction markets are now institutional," and could be used to attempt a second push into LATAM/APAC gray markets under the "compliant financial derivatives" banner — this is the next-wave compliance risk that marketing must prepare for. <b>+EV for pure online brands, top priority.</b></p>
+      <a class="cta" href="https://www.benzinga.com/markets/earnings/26/05/52393835/draftkings-q1-highlights-double-beat-prediction-markets-year-end" target="_blank" rel="noopener">Read original →</a>
+    </article>
+
+    <!-- Signals 02-05 -->
+    <div class="signals-grid">
+      <div class="signal-card">
+        <div class="label">Signal 02 · BRAZIL CMN 5.298 enforcement first week</div>
+        <h4>Brazil CMN 5.298 takes effect + Lula political escalation + first KYC fines issued</h4>
+        <p><b>Why it matters</b>: CMN (Brazilian National Monetary Council) Resolution 5.298 bans derivatives "without underlying economic substance" — in plain language, it shuts down the gray-area route that Polymarket and Kalshi used to disguise themselves as derivatives and bypass gambling law. May 4 was effective date; this past week tests whether enforcement bites.</p>
+        <p>(a) <b>Anatel</b> (Brazilian National Telecommunications Agency) has cumulatively blocked <span class="hi">27-29 prediction market platforms</span> (Polymarket / Kalshi / Fanatics Markets all cleared).<br>
+        (b) <b>SPA</b> (Brazilian Sports & Bets Secretariat) <b>issued first wave of Ordinance 722 (KYC enforcement) fines</b> — amounts undisclosed, industry estimates "low millions of reais" (roughly USD $200K-$700K range). Most severe could face license suspension (5-year license costs R$30M / ~USD $6M).<br>
+        (c) <b>Lula</b> government has formally embedded the BBB tax (Banks/Bets/Billionaires) in the 2026 PT party manifesto.<br>
+        (d) Q1 sports betting tax revenue R$3.397B (+123.7% YoY) becomes "policy success" evidence.<br>
+        (e) Betano holds 27% market share, bet365 ~20% — Kaizen Gaming's lead is now consolidated.</p>
+        <p><br><u>Bottom line</u>: Enforcement intensity continues landing this week — SPA fines opened, Anatel blocks ongoing, Lula narrative not retreating.</p>
+        <p>For Brazil campaign work: (1) the gray "derivatives wrapper" workaround is fully sealed off; (2) "daytime version / evening version" creative strategy must be ready before RS state Lei 16,508 full enforcement on 8/22; (3) budget should shift from "short-term promo" to "long-term brand asset" — promos burn cash that won't survive Lula pressure; brand assets retain better.</p>
+        <p><b>+EV for pure online compliant brands, -EV for gray-market plays.</b></p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://brightsideofnews.com/gambling/brazil-igaming-operator-enforcement-2026/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+      <div class="signal-card">
+        <div class="label">Signal 03 · UK Bally's £225M Evoke Takeover</div>
+        <h4>Bally's Intralot 5/18 deadline countdown on £225M Evoke takeover — UK legacy gambling restructure now confirmed</h4>
+        <p><b>Who these two are</b>: <b>Bally's Intralot</b> is the new entity formed in 2025 after Greek lottery + sports betting tech supplier Intralot merged with Bally's Corp's (U.S. gambling operator) International Interactive arm (~€2.7B deal); U.S. Bally's Corp is the largest shareholder. <b>Evoke</b> is the former 888 Holdings (renamed 2024), UK operator owning William Hill, Mr Green, and 888casino.</p>
+        <p>(a) <span class="hi">Bally's Intralot bid 50p/share at £225M valuation, 29% premium</span>, all-share + partial cash structure.<br>
+        (b) Evoke net debt £1.8B; market cap only £175M. Stock has dropped 90%+ since the 2021 William Hill acquisition.<br>
+        (c) <b>5/18 17:00 London time is the UK takeover rules mandatory deadline</b> — must announce firm offer or walk away.<br>
+        (d) bet365 sale negotiations (£9bn-$12bn) saw no new progress this week, but the Evoke deal will set the benchmark for repricing UK legacy operators back to ground level.</p>
+        <p><br><u>Bottom line</u>: The "UK legacy gambling 6-12 month vacuum" we called out in W18 has now entered the "someone is actually picking up the pieces" phase — first shot in the European mid-tier operator consolidation wave.</p>
+        <p>For APAC/LATAM pure-online brands: (1) UK legacy operators' emerging-markets expansion momentum will further weaken; internal restructuring leaves no bandwidth for Philippines/Brazil. The APAC/LATAM market share vacuum stays open. (2) <b>After Bally's takeover, 9-18 months of "cost cuts + brand portfolio rationalization" is coming</b> — M&A integration cycles produce layoffs, role consolidations, and redundancy purges. This is the prime window to recruit senior talent (marketing / product / compliance / tech): laid-off senior talent will accept pay cuts or relocate to emerging markets, and core people previously immovable will become available.</p>
+        <p><b>+EV for pure online brands; talent acquisition window is 5/18 to 7/31.</b></p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/154985/ballys-intralot-evoke-takeover-bid" target="_blank" rel="noopener">Read original →</a>
+      </div>
+      <div class="signal-card">
+        <div class="label">Signal 04 · Macau May Golden Week sets all-time high</div>
+        <h4>Macau May 1-5 Golden Week sets all-time May high; May GGR estimates rebound — W18's "double-pressure period" call needs to soften</h4>
+        <p><b>Why this matters</b>: In W18 we called for "Macau May-July to show data softness + EBITDA pressure simultaneously." This week's data slapped that down — Golden Week set an all-time May high, with rebound strength exceeding expectations.</p>
+        <p>(a) <span class="hi">5/1-5 May Day Golden Week (Chinese national holiday driving 5-day tourism) daily gaming revenue MOP$1.02B (~USD $127M, +12% YoY)</span> — 15-20% above sell-side consensus of MOP$850M, the "biggest multi-year beat" (JP Morgan), reaching 90%+ of 2019 (pre-pandemic) levels.<br>
+        (b) <b>870K visitors (+2.7% YoY); average daily arrivals ~170K (+41% YoY); all-time May Golden Week high</b>, 7% above 2019.<br>
+        (c) JP Morgan estimates 5/1-12 daily GGR (gross gaming revenue) US$89M (including post-Golden Week tail).<br>
+        (d) Seaport raised May YoY estimate to +8.5%; CLSA +6.6%.<br>
+        (e) CLSA flagged "premium-mass off-peak travel willingness rising" — meaning premium-mass players are willing to fly to Macau in non-holiday periods, a behavior unseen in recent years.</p>
+
+        <p><br><u>Bottom line</u>: W18's "Macau double-pressure period" call needs to soften this week — May rebound has slapped down the original negative expectation.</p>
+        <p>But note: <b>the "base mass -15%" high/low bifurcation structure has not changed this week</b>. Premium players are strong, base mass is weak — the customer mix remains polarized. Marketing budgets should still concentrate on "premium-mass member retention" — that call holds, only the negative expectation downgrades.</p>
+        <p><b>Why 5/13 Industry Party + 5/12-14 G2E Asia together is the key window</b>: (1) the 5/13 Industry Party at MGM COTAI (Interblock + Light & Wonder Diamond Sponsors) draws Macau operator senior leadership; sideline informal remarks typically leak next-quarter partnership signals, new product plans, and personnel changes; (2) G2E Asia 5/12-14 is APAC's largest gambling industry trade show — booth-floor partnership intent and signing actions reveal forward direction. Together, they tell us whether the May rebound can extend into Q3 — the key data point for H2 marketing budget allocation.</p>
+        <p><b>+EV for Macau IR (integrated resort) / VIP marketing partners — but don't over-correct the full-year view based on a May rebound; base-mass weakness remains.</b></p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.ggrasia.com/macau-daily-casino-ggr-us127-5mln-during-may-golden-week-jp-morgan" target="_blank" rel="noopener">Read original →</a>
+      </div>
+      <div class="signal-card">
+        <div class="label">Signal 05 · AWS thermal outage</div>
+        <h4>AWS 5/8 thermal outage hits FanDuel — cloud concentration risk first surfaces visibly as "sportsbook downtime"</h4>
+        <p><b>Why this matters</b>: Both sports betting and prediction markets product lines run on AWS (Amazon Web Services). When one cloud goes down, FanDuel, DraftKings, and Kalshi all break simultaneously. This is the first time this concentration risk has surfaced in a way players directly see — bets stuck.</p>
+        <p>(a) Thursday evening 5/8, <span class="hi">AWS US-East-1 (Northern Virginia data center) overheated</span> — EC2 (Elastic Compute Cloud, AWS virtual machines) and EBS (Elastic Block Store, AWS block storage) interrupted for hours.<br>
+        (b) <b>FanDuel inaccessible across multiple states</b> — players complained on X about stuck bets and inability to cash out.<br>
+        (c) Coinbase (crypto exchange) went down concurrently — same cloud, same incident.<br>
+        (d) AWS fully recovered Friday morning 5/9.<br>
+        (e) FanDuel, DraftKings, and Kalshi all use AWS — when one cloud goes down, they all go down.</p>
+
+        <p><br><u>Bottom line</u>:</p>
+        <p>(1) For tech and compliance narrative: "multi-cloud / region-redundant" architecture moves from an engineering topic to a "compliance credibility" topic — for PAGCOR (high compliance bar) in the Philippines and SPA (KYC + uptime regulated) in Brazil, this is a +EV differentiation point.</p>
+        <p>(2) For marketing narrative: "stuck bets = player trust collapse" is a passive reaction this week, but next week competitors will start actively attacking; major operators will be pressured by regulators and player communities to publicly disclose SLA (service level agreement) and uptime data.</p>
+        <p>(3) <b>Why this is +EV for mid-tier brands (differentiation opportunity)</b>: mid-tier brands can headline "we don't only run on AWS" (multi-cloud architecture) as a differentiation pitch and convert this incident into marketing ammunition.</p>
+        <p><b>Why this is -EV for major sportsbooks (trust pressure)</b>: because FanDuel and DraftKings both run on AWS — major operators now have to spend more explaining "why one cloud took us all down," budget multi-cloud rebuilds, and respond to regulator SLA/uptime disclosure demands. Costs they could have skipped, can't skip; PR they didn't have to do, now have to.</p>
+        <p><b>+EV for mid-tier brands, -EV for major sportsbooks.</b></p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.cnbc.com/2026/05/08/aws-outage-data-center-fanduel-coinbase.html" target="_blank" rel="noopener">Read original →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── §1 REGULATION ───────────── -->
+  <section class="section" id="s1">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>Regulation — U.S. / Brazil / Philippines / UK Four-Front Pressure</h2>
+      <span class="h2-en">Regulation · Multi-Front Pressure</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat a">Regulation</span>
+          <span class="pill neg"><span class="dot">−</span>Negative</span>
+          <span class="pill hot">🆕 5/6-7</span>
+        </div>
+        <div class="byline">U.S. · AZ Liburdi rules for Kalshi</div>
+        <h4>5/6-7 Arizona federal judge Liburdi rules for Kalshi — federal preempts state gambling law, first judgment-level result</h4>
+        <p class="src">SBC Americas · Casino.org · Gambling Insider · 05/06-07</p>
+        <p>U.S. District Court Judge Liburdi issued the first preliminary injunction blocking Arizona criminal/civil enforcement against Kalshi. Court conclusion: "<b>CFTC has exclusive jurisdiction over CFTC-regulated event contracts; state gambling law is preempted by federal law</b>." This is Kalshi's second federal-level victory after winning in NJ in April; <span class="hi">the sportsbook counter-narrative of "PMs should be treated as gambling" has been formally pushed back by judicial action</span>. AZ AG Mayes retains right of appeal.<br><br><u>Bottom line</u>: If federal vs state preemption holds on appeal, this is negative for the Brazilian and Philippine "compliance narrative toolkit" — Philippine/Brazilian compliance ad briefs need to start reserving "prediction market risk clause" buffers.</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://sbcamericas.com/2026/05/07/kalshi-receives-arizona-injunction/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat a">Regulation</span>
+          <span class="pill neu"><span class="dot">○</span>Neutral</span>
+          <span class="pill hot">🆕 4/30 Senate</span>
+        </div>
+        <div class="byline">U.S. · Senate self-ban on PMs trading</div>
+        <h4>Senate passes self-ban on members + staff PMs trading — Kalshi / Polymarket publicly support on X</h4>
+        <p class="src">CNBC · Fortune · Newsmax · 04/30</p>
+        <p>Pushed by Sen. Bernie Moreno (OH), <b>passed unanimously, effective immediately</b> — first U.S. Congress-level "self-restraint" act. Kalshi CEO Tarek Mansour stated on X "Kalshi has proactively blocked members of congress"; Polymarket echoed support.<div class="pullquote">Surface narrative is political-cleanliness; substantively, it's "<b>PMs operators voluntarily ceding a customer segment in exchange for regulator goodwill</b>" — this "compliance concession" posture will get reflected back at sportsbook with "should sportsbook self-ban on NCAA betting too?"</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.cnbc.com/2026/04/30/senate-prediction-markets-trading-ban-kalshi-polymarket.html" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat a">Regulation</span>
+          <span class="pill neu"><span class="dot">○</span>Neutral</span>
+          <span class="pill hot">🆕 5/8 CO</span>
+        </div>
+        <div class="byline">U.S. · CO state Kalshi regulatory debate</div>
+        <h4>CO state debate over Kalshi heats up — Better Markets publicly calls for "go look yourself: is it sports betting or derivatives"</h4>
+        <p class="src">CPR · Better Markets · 05/08</p>
+        <p>Colorado state legislators directly called out "<b>Kalshi operates in CO entirely outside state regulation</b>." Better Markets (DC consumer protection advocacy group) publicly urged "go on Kalshi yourself and see whether it looks like sports betting or derivatives trading (financial futures/options contracts)" — <span class="hi">first time the industry has used the colloquial "go look yourself" framing to persuade legislators</span>.<br><br><u>Bottom line</u>: After Arizona Judge Liburdi's 5/6-7 ruling for Kalshi, <b>Colorado is the next state to watch</b> — its state-law debate is heating up and could become the next case where federal law preempts state gambling law. For sportsbook trying to counter with "prediction markets are essentially gambling," this signal reverse-confirms one thing: even the term distinction "derivatives trading is financial derivatives, not gambling" is being re-examined by legislators. <b>+EV for sportsbook counter-narrative, -EV for prediction markets</b>.</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.cpr.org/2026/05/08/colorado-sports-gambling-kalshi-prediction-market/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat a">Regulation</span>
+          <span class="pill hot">5/4 enforcement first week</span>
+        </div>
+        <div class="byline">Brazil · CMN 5.298 enforcement first week</div>
+        <h4>CMN 5.298 enforcement first week scoreboard — Anatel blocked 27-29 sites, SPA first KYC fines issued</h4>
+        <p class="src" style="font-style:italic;color:var(--ink-3);">Full content in Highlights Signal 02; this card lists cumulative enforcement numbers only.</p>
+        <div class="stat-strip">
+          <div class="stat"><div class="v">29</div><div class="l">PMs platforms blocked</div></div>
+          <div class="stat"><div class="v">39<small>K+</small></div><div class="l">illegal sites blocked (cumulative)</div></div>
+          <div class="stat"><div class="v">203</div><div class="l">apps removed</div></div>
+          <div class="stat"><div class="v">697</div><div class="l">accounts frozen</div></div>
+        </div>
+        <a class="cta" href="#highlights">→ Jump to Signal 02 for full coverage</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat a">Regulation</span>
+          <span class="pill neg"><span class="dot">−</span>Negative</span>
+        </div>
+        <div class="byline">Philippines · PAGCOR · this week's update</div>
+        <h4>5/8 PAGCOR formally endorses SiGMA Asia Summit 2026 (5/31-6/3 Manila)</h4>
+        <p class="src">Yogonet · FocusGN · 05/08</p>
+        <p><b>Background</b>: PAGCOR (Philippine Amusement and Gaming Corporation) has dual identity — both regulator (licensing and overseeing private operators) and operator (running the Casino Filipino chain of ~41 brick-and-mortar venues). This is why the 2028 deadline to privatize the operator side exists — to dismantle the "player and umpire in one" structural conflict.</p>
+        <p>This week's update: 5/8 PAGCOR formally endorsed SiGMA Asia Summit 2026 (5/31-6/3, Manila SMX Convention Centre Pasay) — Tengco's second formal PAGCOR-chairman-level endorsement of a B2B summit since taking office.</p>
+        <p><br><u>Bottom line</u>: Between G2E Asia 5/12-14 and SiGMA Asia 5/31-6/3, the next EGLD (e-gaming license) list update window opens — new supplier first-mover commercial premium negotiation window stays open until 6/30. <b>W18 fully covered: B2B accreditation, MGF (minimum guaranteed franchise fee, PHP 9M per license per month), KYC upgrade, full-day ad ban discussion, Casino Filipino privatization progress</b> — not re-expanded here.</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://next.io/news/regulation/pagcor-toughens-igaming-restrictions-considers-ad-ban/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat a">Regulation</span>
+          <span class="pill hot">Editor's Pick · W18 carry-over</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">"Four-jurisdiction regulatory cross-pollination (US / BR / PH / UK)" thesis carries over from W18. New this week: U.S. (AZ Liburdi ruling + Senate self-ban + CO debate), Brazil (CMN + SPA fines, see Signal 02), Philippines (PAGCOR 5/8 SiGMA endorsement) all advancing simultaneously.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §2 M&A AND CAPITAL ───────────── -->
+  <section class="section" id="s2">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>M&amp;A and Capital Markets</h2>
+      <span class="h2-en">Capital Markets · Consolidation</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat c">Operators</span>
+          <span class="pill neg"><span class="dot">−</span>Negative</span>
+          <span class="pill hot">🆕 5/18 countdown</span>
+        </div>
+        <div class="byline">UK · Bally's Intralot £225M Evoke takeover</div>
+        <h4>Bally's Intralot 5/18 deadline countdown on £225M Evoke → see Signal 03</h4>
+        <p style="margin:0;font-size:12px;color:var(--ink-2);">5/18 17:00 London time UK takeover rules mandatory deadline — must announce firm offer or walk away. Talent acquisition window 5/18-7/31.</p>
+        <a class="cta" href="#highlights" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;">→ Jump to Signal 03 for full coverage</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat c">Operators</span>
+          <span class="pill pos"><span class="dot">＋</span>Positive</span>
+          <span class="pill hot">🆕 Q1 dual earnings</span>
+        </div>
+        <div class="byline">U.S. · DKNG Q1 + Flutter Q1 + Kalshi $22B</div>
+        <h4>U.S. sportsbook three Q1 reports + Kalshi valuation set → see Signal 01</h4>
+        <p style="margin:0;font-size:12px;color:var(--ink-2);">DKNG double beat (revenue $1.646B / +17%, EPS $0.20 vs $0.02 consensus) + PMs budget upgraded to $200-300M, market-making launched; Flutter Q1 FanDuel handle -9% YoY + LSE delisting under review; Kalshi 5/7 $1B Series F at $22B valuation (5-month doubling).</p>
+        <a class="cta" href="#highlights" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;">→ Jump to Signal 01 for full coverage</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat c">Operators</span>
+          <span class="pill hot">Editor's Pick · W18 carry-over</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">M&amp;A theme "from horizontal brand acquisition to vertical capability acquisition" thesis carries over from W18 — no update this week. New developments in Signal 03 (Bally's Intralot Evoke).</p>
+      </div>
+
+    </div>
+
+    <!-- M&A stat strip -->
+    <div class="stat-strip-top" style="margin-top:20px;">
+      <div class="stat"><div class="v">£225<small>M</small></div><div class="l">Bally's Intralot bid</div></div>
+      <div class="stat"><div class="v">$22<small>B</small></div><div class="l">Kalshi Series F valuation</div></div>
+      <div class="stat"><div class="v">$1.6<small>B</small></div><div class="l">DKNG Q1 revenue +17%</div></div>
+      <div class="stat"><div class="v">-9<small>%</small></div><div class="l">FanDuel handle YoY</div></div>
+    </div>
+  </section>
+
+  <!-- ───────────── §3 PRODUCT ───────────── -->
+  <section class="section" id="s3">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>Product and Tech Releases</h2>
+      <span class="h2-en">Tech &amp; Product Releases</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <p style="margin:0;font-size:12px;color:var(--ink-3);font-style:italic;">The only new product / tech signal this week is the AWS thermal outage 5/8 hitting FanDuel + Coinbase — main thread in Highlights Signal 05.</p>
+        <p style="margin:6px 0 0;font-size:11px;color:var(--ink-2);">→ See <a href="#highlights" style="font-weight:600;">Highlights Signal 05</a></p>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat b">Product</span>
+          <span class="pill hot">Editor's Pick · W18 carry-over</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">"Two H2 lines: content blending (Playradar) + compliant AI as differentiation (UNLV+KPMG governance gap)" thesis carries over from W18 — no update this week.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §4 MAJOR OPERATORS ───────────── -->
+  <section class="section" id="s4">
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2>Major Operators · Movement</h2>
+      <span class="h2-en">Major Operators · Earnings &amp; Strategy</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <p style="margin:0;font-size:12px;color:var(--ink-3);font-style:italic;">This week's major operator developments are concentrated in Highlights Signal 01 (DKNG / FanDuel / Kalshi Q1 + PMs dual structure), Signal 03 (Bally's Intralot 5/18 Evoke deadline), and Signal 04 (Macau Golden Week + MGM China). §4 has no independent new signals this week.</p>
+        <p style="margin:6px 0 0;font-size:11px;color:var(--ink-2);">→ See <a href="#highlights" style="font-weight:600;">Highlights Signals 01 / 03 / 04</a></p>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat c">Operators</span>
+          <span class="pill hot">Editor's Pick · W18 carry-over</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">"Flutter / DraftKings dual earnings will set H2 tone" thesis has now landed — Signal 01 covers in full.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §5 APAC ───────────── -->
+  <section class="section" id="s5">
+    <div class="section-head">
+      <span class="num">05</span>
+      <h2>APAC — Philippines / Macau / SE Asia</h2>
+      <span class="h2-en">APAC · Philippines &amp; Macau</span>
+    </div>
+
+    <!-- Macau stat strip -->
+    <div class="stat-strip-top">
+      <div class="stat"><div class="v">MOP$1.02<small>B</small></div><div class="l">5/1-5 daily / +12% YoY</div></div>
+      <div class="stat"><div class="v">870<small>K</small></div><div class="l">Golden Week visitors / +2.7%</div></div>
+      <div class="stat"><div class="v">+8.5<small>%</small></div><div class="l">Seaport May GGR estimate</div></div>
+      <div class="stat"><div class="v">+170<small>%</small></div><div class="l">Premium mass vs 2019</div></div>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat d">Market</span>
+          <span class="pill neu"><span class="dot">○</span>Tracking</span>
+        </div>
+        <div class="byline">Macau · 5/1-5 Golden Week full data</div>
+        <h4>5/1-5 Golden Week sets all-time May high → see Signal 04</h4>
+        <a class="cta" href="#highlights" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;">→ Jump to Signal 04 for full coverage</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat d">Market</span>
+          <span class="pill pos"><span class="dot">＋</span>Positive</span>
+          <span class="pill hot">🆕 5/1-12 strong tail</span>
+        </div>
+        <div class="byline">Macau · May GGR estimates rebound</div>
+        <h4>JP Morgan May 1-12 daily GGR US$89M / Seaport raises May YoY to +8.5% / CLSA +6.6%</h4>
+        <p class="src">GGRAsia · 05/08-09</p>
+        <p>Includes post-Golden Week tail, meaning "premium-mass off-peak" strength continues post-Golden Week. CLSA flags "<b>premium-mass off-peak travel willingness rising</b>" — signal that "premium-mass member marketing" budgets should be even more aggressive.</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.ggrasia.com/macau-daily-ggr-us89mln-for-may-1-to-12-jp-morgan/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat a">Regulation</span>
+          <span class="pill neu"><span class="dot">○</span>Tracking</span>
+        </div>
+        <div class="byline">Philippines · PAGCOR EGLD list watch</div>
+        <h4>This week: no new public EGLD-approved suppliers</h4>
+        <p>W18 reported Amusnet × 747Live receiving PAGCOR EGLD approval (4/28, 214 games launched) — the first new whitelist addition under the 4/1 B2B accreditation regime. No new public additions this week. Next big-batch update window: first week after G2E Asia 5/12.</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://eegaming.org/latest-news/2026/04/28/138093/amusnet-officially-enters-the-philippine-market/" target="_blank" rel="noopener">Read original Amusnet × 747Live 4/28 EGLD approval →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat d">Market</span>
+          <span class="pill neu"><span class="dot">○</span>Neutral</span>
+          <span class="pill hot">🔴 5/12-14 countdown</span>
+        </div>
+        <div class="byline">APAC · 5/12-14 G2E Asia + 5/31-6/3 SiGMA Asia</div>
+        <h4>G2E Asia (5/12-14 Macau Venetian) + PAGCOR 5/8 formal endorsement of SiGMA Asia 2026 (5/31-6/3 SMX Pasay)</h4>
+        <p class="src">Yogonet · FocusGN · IAG · 05/08</p>
+        <p>APAC gambling expo G2E Asia 5/12-14 countdown; 5/13 Industry Party at MGM COTAI (Interblock + L&amp;W Diamond Sponsors); ~6,000 expected attendees. <b>5/8 PAGCOR formally endorsed SiGMA Asia Summit 2026</b> — Tengco's second formal PAGCOR-chairman-level B2B summit endorsement since taking office.<div class="pullquote">Between the two summits + the next PAGCOR EGLD list update window, this is the best window to observe "<b>second wave of B2B accreditation 4/1 deadline whitelist additions</b>"; new supplier first-mover commercial premium negotiation window stays open until 6/30.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.yogonet.com/international/news/2026/05/08/119873-pagcor-endorses-sigma-asia-summit-2026-in-manila" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat d">Market</span>
+          <span class="pill hot">Editor's Pick · W18 carry-over</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">"Macau Q2-Q3 pressure + Philippine tightening → pure online brand window" thesis carries over from W18. New developments: Macau 5/1-5 Golden Week high (Signal 04), PAGCOR 5/8 SiGMA Asia endorsement covered above.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §6 LATAM ───────────── -->
+  <section class="section" id="s6">
+    <div class="section-head">
+      <span class="num">06</span>
+      <h2>LATAM — Brazil Deep Dive</h2>
+      <span class="h2-en">LATAM · Brazil Deep Dive</span>
+    </div>
+
+    <div class="grid-3">
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat a">Regulation</span>
+          <span class="pill hot">5/4 in effect</span>
+        </div>
+        <div class="byline">Brazil federal · CMN 5.298 + SPA fines + Lula BBB tax</div>
+        <h4>This week's Brazil federal dynamics → see Signal 02</h4>
+        <p style="margin:0;font-size:12px;color:var(--ink-2);">CMN 5.298 enforcement first week + SPA Ordinance 722 first KYC fines issued + Lula BBB tax in 2026 PT manifesto + Q1 sports betting tax revenue R$3.397B (+123.7% YoY) — main thread covered in Highlights Signal 02.</p>
+        <a class="cta" href="#highlights" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;">→ Jump to Signal 02 for full coverage</a>
+      </div>
+    </div>
+
+    <!-- RS Lei 16,508 progress card -->
+    <div class="card">
+      <div class="meta-row">
+        <span class="cat a">Regulation</span>
+        <span class="pill neu"><span class="dot">○</span>Tracking</span>
+      </div>
+      <div class="byline">State · Rio Grande do Sul · Lei nº 16,508</div>
+      <h4>120-day adaptation period countdown — full enforcement ~8/22; no new state followers this week</h4>
+      <p>Signed and effective 4/24, 120-day adaptation period. RS template (warning text occupies ≥15% of screen, broadcast time restricted to 21:00-06:00, PROCON joint liability, platform/agency/media/ISP joint penalty) <b>remains the most copyable toolkit for state governments</b> this week, but no new state follow-up cases. <b>Full warning text + 9-clause breakdown was written in W18 weekly</b> — not re-expanded here.</p>
+      <p><br><u>Bottom line</u>: No progress change, call holds — "daytime version / evening version" creative strategy still must be ready before 8/22. Next escalation watch window: early July to monitor whether Minas Gerais or São Paulo follow.</p>
+      <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://igamingbrazil.com/en/sports-betting-en-2/2026/04/28/rio-grande-do-sul-sanctions-law-that-restricts-sports-betting-advertising/" target="_blank" rel="noopener">Read RS Lei 16,508 full law text →</a>
+    </div>
+
+  </section>
+
+  <!-- ───────────── §7 NORTH AMERICA ───────────── -->
+  <section class="section" id="s7">
+    <div class="section-head">
+      <span class="num">07</span>
+      <h2>North America — U.S. / Canada</h2>
+      <span class="h2-en">North America · USA &amp; Canada</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat c">Operators</span>
+          <span class="pill pos"><span class="dot">＋</span>Positive</span>
+          <span class="pill hot">🆕 Ontario CAD$9.6B</span>
+        </div>
+        <div class="byline">Canada · Ontario March handle high + Alberta pending launch</div>
+        <h4>Ontario March sports betting handle CAD$9.6B all-time high + DKNG Alberta pending Canadian regulatory approval</h4>
+        <p class="src">Gambling 911 · 05/09</p>
+        <p>Canada iGaming Ontario continues year-2 growth.<br><br><u>Bottom line</u>: Ontario growth lifts ROI estimates for Alberta (third-largest province, DKNG planned launch) — DKNG/FanDuel Canada capital allocation will be more aggressive; APAC/LATAM expansion may become more selective. Alberta 28-operator approval list has cleared; DKNG pending Canadian regulatory approval to launch.</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gambling911.com/gambling/live-gambling-news-top-trending-updates-247-saturday-may-9-2026-09-05-2026.html" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat e">Sportsbook</span>
+          <span class="pill hot">Editor's Pick · W18 carry-over</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">"U.S. saturation + PMs siphon → U.S. majors' external expansion momentum weakening" thesis carries over from W18. New developments this week (Q1 -2%, Kalshi $22B, AZ Liburdi ruling) covered in Signals 01-03.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §8 SPORTSBOOK ───────────── -->
+  <section class="section" id="s8">
+    <div class="section-head">
+      <span class="num">08</span>
+      <h2>Sportsbook Zone</h2>
+      <span class="h2-en">Sports Betting · U.S. &amp; Prediction Markets</span>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat e">Sportsbook</span>
+          <span class="pill neu"><span class="dot">○</span>Tracking</span>
+        </div>
+        <div class="byline">W18 tracking · MLB × Polymarket</div>
+        <h4>MLB × Polymarket 3-year $150-300M sponsorship + CFTC integrity agreement (no new progress this week)</h4>
+        <p>NBA Damon Jones guilty plea; F1 × FanDuel Miami GP launched — both fully covered in W18, no new progress this week. MLB × Polymarket sidebar: Kalshi MLB volume hit $1.5-2M / day on 5/8-9, meaning MLB data is now a primary volume source for prediction market platforms.</p>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/156945/damon-jones-guilty-plea-nba-betting-scandal-rozier-charges" target="_blank" rel="noopener">Read NBA Damon Jones guilty plea original →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row">
+          <span class="cat e">Sportsbook</span>
+          <span class="pill hot">Editor's Pick · W18 carry-over</span>
+        </div>
+        <p style="margin:0;font-style:italic;color:var(--ink-3);font-size:12px;">Sponsorship structure thesis (majors lock global IP, mid-tier lock regional leagues, regional lock KOLs) carries over from W18 — no update this week.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── §9 X / SOCIAL PULSE ───────────── -->
+  <section class="section" id="s9">
+    <div class="section-head">
+      <span class="num">09</span>
+      <h2>X / Social Pulse — Brazil + NA</h2>
+      <span class="h2-en">X · Brazil + NA</span>
+    </div>
+
+    <div class="x-pulse">
+
+      <div class="card">
+        <div class="meta-row">
+          <span class="cat e">Sportsbook</span>
+          <span class="pill neu"><span class="dot">○</span>Neutral</span>
+        </div>
+        <div class="byline">9.1 BRAZIL</div>
+        <h4>This week BR: no signal-grade X posts — mainstream media has covered enforcement thoroughly</h4>
+        <p>Mainstream media has covered Brazilian regulatory enforcement comprehensively (CMN 5.298 + SPA + Lula); SPA's official X account @SPA_MF_BR has low public posting density this week.</p>
+        <p><br><u>Bottom line</u>: Next week watch whether Anatel expands blocks to 30+ platforms and whether SPA publishes the first wave of fine amounts and named operators.</p>
+      </div>
+
+      <div class="card hilite-na">
+        <div class="meta-row">
+          <span class="cat e" style="background:var(--hi);">Sportsbook</span>
+          <span class="pill hot" style="background:var(--hi);color:var(--ink);">most valuable</span>
+        </div>
+        <div class="byline">9.2 NORTH AMERICA</div>
+        <h4>Caught 3 same-direction signals — "PMs have moved from industry battlefield to financial market + legal + valuation tri-line victory"</h4>
+        <ul style="font-size:11.5px;color:var(--rule-2);line-height:1.7;">
+          <li><b style="color:#fff;">@KalshiHQ / @mansourtarek (Kalshi CEO Tarek Mansour)</b> — 5/7 Kalshi formally announced $1B raise / $22B valuation (5-month doubling, Coatue-led). Mansour stated on X "<b style="color:var(--hi);">Prediction markets are moving from early adoption to core financial infrastructure</b>" emphasizing institutional capital is already in (hedge funds / asset managers / prop firms / insurers); also publicly supported the Senate self-ban on members PMs trading. <a href="https://techcrunch.com/2026/05/07/kalshi-doubles-valuation-in-5-months-hitting-22-billion/" target="_blank" rel="noopener" style="color:var(--hi);">See Mansour's statement</a></li>
+          <li><b style="color:#fff;">@JasonRobins (DraftKings CEO) / @DraftKings</b> — On the 5/7 Q1 earnings call, Robins called PMs rivals' "no market-maker" claims "<b style="color:var(--hi);">irresponsibly</b>" misleading, implying Kalshi/Polymarket use market-makers to maintain liquidity = "they have a market-maker too, structurally same as sportsbook." <b style="color:#fff;">First time a sportsbook leader directly challenges PMs' "peer-to-peer" core narrative.</b> <a href="https://sbcamericas.com/2026/05/08/draftkings-predictions-q1-earnings/" target="_blank" rel="noopener" style="color:var(--hi);">See SBC Americas</a></li>
+          <li><b style="color:#fff;">@WALLACHLEGAL (Daniel Wallach)</b> — Continuing commentary on AZ Liburdi ruling, emphasizing CFTC vs state gambling law preemption conclusion is "the first substantive judgment-level result for federal PMs judicial path"; AZ AG Mayes appeal probability high. <a href="https://www.casino.org/news/federal-judge-blocks-arizona-criminal-case-against-kalshi/" target="_blank" rel="noopener" style="color:var(--hi);">See ruling coverage</a></li>
+        </ul>
+        <div class="pullquote"><b style="color:var(--hi);">$22B valuation + DKNG weaponized counter-narrative + federal preemption ruling</b> — three axes converge. For NA campaigns: H2 brief budget structure must default to "<b style="color:var(--hi);">sportsbook + PMs dual line</b>," no longer "sportsbook primary, PMs supplementary."</div>
+      </div>
+
+    </div>
+
+    <p style="font-size:11.5px;color:var(--ink-2);line-height:1.7;margin:14px 0 0;">
+      <b>This week's X Pulse takeaway:</b> NA's three X signals are highly aligned — Kalshi $22B = valuation set, Robins = sportsbook counter-narrative weaponized, Wallach = legal preemption clear — three axes converge into "<b>prediction markets have moved from industry battlefield to financial market + legal + valuation tri-line victory</b>" — this week's strongest live voice signal.
+    </p>
+  </section>
+
+  <!-- ───────────── §10 SOURCES &amp; ACTION ITEMS ───────────── -->
+  <section class="section" id="s10">
+    <div class="section-head">
+      <span class="num">10</span>
+      <h2>Source Coverage and Action Items</h2>
+      <span class="h2-en">Sources · Coverage · Notes</span>
+    </div>
+
+    <div class="colophon">
+      <div>
+        <h5>Coverage</h5>
+        <p>This week W19 (5/4-5/10): <b>DKNG / FanDuel dual earnings cement sportsbook + PMs dual structure + Bally's Intralot £225M Evoke takeover 5/18 countdown + CMN 5.298 enforcement first week with SPA's first KYC fines + Macau May Golden Week sets all-time May high + AWS thermal outage hits FanDuel + Coinbase</b>. Key new signals: Kalshi $22B Series F, AZ Liburdi rules for Kalshi, Senate self-ban on PMs trading, Ontario March handle CAD$9.6B all-time high.</p>
+        <div class="source-grid">
+          <span><span class="ok">✓</span> iGaming Business</span>
+          <span><span class="ok">✓</span> SBC News / Americas</span>
+          <span><span class="ok">✓</span> Gambling Insider</span>
+          <span><span class="ok">✓</span> Yogonet International</span>
+          <span><span class="ok">✓</span> Inside Asian Gaming</span>
+          <span><span class="ok">✓</span> GGR Asia</span>
+          <span><span class="warn">!</span> PAGCOR official (secondary)</span>
+          <span><span class="ok">✓</span> iGaming Brazil</span>
+          <span><span class="ok">✓</span> Legal Sports Report</span>
+          <span><span class="ok">✓</span> Sports Handle (aggregator)</span>
+          <span><span class="ok">✓</span> Bettors Insider · Casino.org</span>
+          <span><span class="ok">✓</span> CNBC · TechCrunch · CoinDesk</span>
+        </div>
+      </div>
+      <div>
+        <h5>Next Week's Watch List</h5>
+        <p class="next-list">
+          ·&nbsp;<b class="urgent">5/12-14 🔴</b> G2E Asia 2026 (Macau Venetian) — APAC industry intelligence density jumps; best window to watch next big-batch PAGCOR EGLD list update<br>
+          ·&nbsp;<b>5/13</b> Industry Party @ MGM COTAI (Diamond Sponsors: Interblock + Light &amp; Wonder)<br>
+          ·&nbsp;<b class="urgent">5/18 🔴</b> 17:00 London time — Bally's Intralot Evoke takeover deadline; must announce firm offer or walk away<br>
+          ·&nbsp;<b>5/18</b> Sportradar new COO Sameer Deen takes office (paired with Playradar LATAM expansion)<br>
+          ·&nbsp;<b>5/19-21</b> SBC Summit Canada (Toronto)<br>
+          ·&nbsp;<b>5/31-6/3</b> SiGMA Asia Summit (SMX Convention Centre Pasay; PAGCOR formally endorsed)<br>
+          ·&nbsp;<b>2nd week post-5/4</b> Brazil SPA second-wave fine names and amounts; whether Anatel expands blocks to 30+ platforms<br>
+          ·&nbsp;<b>Early June</b> Macau May GGR official release — verify whether 5/1-5 strength extends
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer-bottom">
+      <div class="label">Weekly Gambling Brief · W19</div>
+      <p style="margin:0">Editor: Reagan Weekly · W19 / 2026-05-10 ｜ 2026-05-04 to 2026-05-10 ｜ For internal circulation</p>
+    </footer>
+  </section>
+
+</main>
+
+</body>
+</html>

@@ -180,6 +180,17 @@ a{color:inherit;}
 .colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
 .colophon b{color:var(--ink);letter-spacing:.16em;}
 
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+
 @media (max-width:1023px){
   .body{padding:8px 24px 28px;}
   .mast{padding:18px 24px;}
@@ -248,6 +259,17 @@ a{color:inherit;}
     <span class="logo" style="background:#4A4FB8" title="PlayTime/PT Gaming">PT</span>
   </div>
 </header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>JUMP TO</b>
+  <a href="#briefing">▲ Briefing</a>
+  <a href="#kpi">§01 KPI</a>
+  <a href="#strategic">§02 5Q</a>
+  <a href="#radar">§03 Radar</a>
+  <a href="#moves-sec">§04 Moves</a>
+  <a href="#timeline">§05 Timeline</a>
+  <a href="#implications">§06 T/O</a>
+</nav>
 
 <div class="body">
 
@@ -396,7 +418,7 @@ a{color:inherit;}
         <div class="qa">
           <span class="q">Q3<br>The gap</span>
           <span class="a">
-            <p>Mother's Day 5/10 just passed — <b>all 9 brands skipped it, as predicted in W19</b>, zero creative anywhere. Next cultural date: payday 5/15 (T-4) and Father's Day 6/15 (T-35) — Father's Day is at zero from everyone too.</p>
+            <p>Mother's Day 5/10 just passed — <b>all 9 brands skipped it, as predicted in W19</b>, zero creative anywhere. Next cultural date: payday 5/15 (T-4) and Philippine Father's Day (June 15) — Father's Day is at zero from everyone too.</p>
             <p><b>New empty quadrant: "retention narrative post-rebate-cap."</b> The last 18 months in PH iGaming has run on cashback math. Now that PAGCOR has capped that, whoever moves the retention story from "money back" to "player identity + community belonging" first owns the next 12 months.</p>
             <p><b>Another empty flag: local-IP slot content.</b> CasinoPlus quietly dropped a wave of PH-mythology slots this week (Bakunawa 2 / Maria Makiling / Ibong Adarna / Lam-ang / Diwata-Mayari) — first operator visibly running a "local-IP" lane. The other 8 are still stacking international suppliers.</p>
             <span class="src">Source: site recon 5/11 + Father's Day calendar check</span>
@@ -439,6 +461,17 @@ a{color:inherit;}
       <div class="rule"></div>
     </div>
     <div class="radar">
+      <div class="radar-formula">
+        <h6>Scoring Formula (100 per axis, weighted sub-factors)</h6>
+        <table>
+          <tr><td>BRAND</td><td>media exposure 35% + endorsement/IP 25% + brand recall 25% + recent share-of-voice change 15%</td></tr>
+          <tr><td>UX</td><td>site accessibility 30% + signup/login smoothness 25% + payment/withdrawal signals 25% + UI clarity 20%</td></tr>
+          <tr><td>CONTENT</td><td>exclusive games/IP 35% + local-culture content 25% + activity density 25% + update cadence 15%</td></tr>
+          <tr><td>PRICING</td><td>bonus appeal 30% + <b>compliance safety 30%</b> + terms transparency 25% + actual claimable value 15%</td></tr>
+          <tr><td>RETENTION</td><td>ongoing promo 30% + VIP/comeback flow 25% + service/trust 25% + community engagement 20%</td></tr>
+          <tr><td>REACH</td><td>TV/media 30% + social voice 25% + KOL/talent 20% + offline/payment touchpoints 15% + SEO/site visibility 10%</td></tr>
+        </table>
+      </div>
       <div class="radar-head">
         <div>
           <div class="lbl">Six-axis comparison</div>
@@ -594,7 +627,7 @@ a{color:inherit;}
           <span class="sev mid">Mid impact</span>
         </div>
         <h4>Mother's Day 5/10 passed — <span class="hi">all 9 brands skipped it, as predicted in W19</span></h4>
-        <div class="detail">W19 brief had already called it: Mother's Day 5/10 and payday 5/15 — no operator had anything scheduled. Mother's Day has now passed and the prediction held — zero campaign creative on this date across all 9 brands. No Mother's Day-themed slot, no Mother's Day cashback bump, no mom-themed ads. Next cultural dates: payday 5/15 (T-4) and Father's Day 6/15 (T-35) — Father's Day is also at zero from everyone right now.</div>
+        <div class="detail">W19 brief had already called it: Mother's Day 5/10 and payday 5/15 — no operator had anything scheduled. Mother's Day has now passed and the prediction held — zero campaign creative on this date across all 9 brands. No Mother's Day-themed slot, no Mother's Day cashback bump, no mom-themed ads. Next cultural dates: payday 5/15 (T-4) and Philippine Father's Day (June 15) — Father's Day is also at zero from everyone right now.</div>
         <div class="src">Source: 9-brand /promotions site recon 5/11 + Mother's Day search returned zero brand-led creative</div>
         <div class="impact"><span>Impact on Client X</span><b>Cultural-date flags still open</b></div>
       </div>
@@ -738,7 +771,7 @@ a{color:inherit;}
         <ul>
           <li>King + Queen now in week 3 of maintenance — <b>"instant payout + trustworthy operator" remains the biggest empty flag</b>. <em>Source: site recon 5/11</em></li>
           <li>The 1.5% cap kills cashback as a differentiator — <b>"brand identity + community belonging" is the H2 moat</b>. <em>Source: cross-read on 5/7 memo</em></li>
-          <li>Father's Day 6/15 enters T-35 warm-up window — <b>still zero brands moving; "win for Dad" quadrant still empty</b>. <em>Source: 9-brand /promotions cross-check this week</em></li>
+          <li>Philippine Father's Day (June 15) is in warm-up window — <b>still zero brands moving; "win for Dad" quadrant still empty</b>. <em>Source: 9-brand /promotions cross-check this week</em></li>
           <li>Outside of CasinoPlus, <b>"local cultural IP" is still empty for the other 8</b> — AI / mythology / history / folk-story lanes still open to enter. <em>Source: site recon 5/11</em></li>
           <li>SiGMA Asia summit 5/31–6/3 hits T-20 — <b>pre-summit announcement + PR window still open</b>. <em>Source: Tribuna Casino W18</em></li>
         </ul>
@@ -787,15 +820,15 @@ const RADAR_LABELS = ['BRAND','UX','CONTENT','PRICING','RETENTION','REACH'];
 const RADAR_LABELS_ZH = ['Brand','UX','Content','Pricing','Retention','Reach'];
 
 const BRANDS = {
-  bingoplus:  { name:'BingoPlus',         color:'#E89AAA', scores:[92,78,88,72,80,82] },
-  arenaplus:  { name:'ArenaPlus',         color:'#2A5FAA', scores:[88,75,72,62,68,80] },
-  gamezone:   { name:'GameZone',          color:'#4F8C5C', scores:[60,68,72,62,58,50] },
-  king:       { name:'King.ph',           color:'#2D6B4D', scores:[35,25,30,50,22,38] },
-  queen:      { name:'Queen.ph',          color:'#B6356D', scores:[38,25,32,50,22,40] },
-  casinoplus: { name:'CasinoPlus',        color:'#B89968', scores:[64,72,70,76,70,56] },
-  okbet:      { name:'OKBet / OKGames',   color:'#D86B27', scores:[72,65,75,68,58,68] },
-  bet88:      { name:'Bet88',             color:'#C2272D', scores:[58,65,68,70,60,55] },
-  playtime:   { name:'PlayTime / PT Gaming', color:'#4A4FB8', scores:[78,62,74,64,58,72] }
+  bingoplus:  { name:'BingoPlus',         color:'#E89AAA', scores:[90,80,80,70,85,85] },
+  arenaplus:  { name:'ArenaPlus',         color:'#2A5FAA', scores:[85,75,80,70,65,80] },
+  gamezone:   { name:'GameZone',          color:'#4F8C5C', scores:[55,70,70,75,70,50] },
+  king:       { name:'King.ph',           color:'#2D6B4D', scores:[35,25,30,35,20,30] },
+  queen:      { name:'Queen.ph',          color:'#B6356D', scores:[30,25,30,35,20,30] },
+  casinoplus: { name:'CasinoPlus',        color:'#B89968', scores:[65,75,90,55,80,60] },
+  okbet:      { name:'OKBet / OKGames',   color:'#D86B27', scores:[65,70,65,75,65,65] },
+  bet88:      { name:'Bet88',             color:'#C2272D', scores:[55,65,75,55,70,55] },
+  playtime:   { name:'PlayTime / PT Gaming', color:'#4A4FB8', scores:[85,70,75,60,75,80] }
 };
 let selfId = 'playtime';
 let vsId = 'bingoplus';

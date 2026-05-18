@@ -180,6 +180,17 @@ a{color:inherit;}
 .colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
 .colophon b{color:var(--ink);letter-spacing:.16em;}
 
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+
 @media (max-width:1023px){
   .body{padding:8px 24px 28px;}
   .mast{padding:18px 24px;}
@@ -248,6 +259,17 @@ a{color:inherit;}
     <span class="logo" style="background:#4A4FB8" title="PlayTime/PT Gaming">PT</span>
   </div>
 </header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>跳到</b>
+  <a href="#briefing">▲ 简报</a>
+  <a href="#kpi">§01 KPI</a>
+  <a href="#strategic">§02 5Q</a>
+  <a href="#radar">§03 雷达</a>
+  <a href="#moves-sec">§04 动向</a>
+  <a href="#timeline">§05 时间轴</a>
+  <a href="#implications">§06 威胁/机会</a>
+</nav>
 
 <div class="body">
 
@@ -396,7 +418,7 @@ a{color:inherit;}
         <div class="qa">
           <span class="q">Q3<br>缺口</span>
           <span class="a">
-            <p>母亲节 5/10 已经过——<b>9 家如预测全部跳过</b>，0 档期素材。下周父亲节 6/15 进入 T-35 暖场期，目前也是 0 家有动作。</p>
+            <p>母亲节 5/10 已经过——<b>9 家如预测全部跳过</b>，0 档期素材。下周菲律宾父亲节 6/15 进入暖场期，目前也是 0 家有动作。</p>
             <p><b>新空白旗：「rebate 上限后的留存叙事」。</b>过去 18 个月 PH iGaming 大多靠 cashback 数字打留存。PAGCOR 5/7 砸下来之后，谁先把留存论述从「钱的回报」转到「玩家身分加社群归属」，谁就先卡位。</p>
             <p><b>另一个白旗：地方 IP 加文化资产。</b>CasinoPlus 这周悄悄上线 PH 神话 slot 系列（Bakunawa 2 / Maria Makiling / Ibong Adarna / Lam-ang / Diwata-Mayari），是 9 家第一个明显走「本土 IP」路线。其他 8 家仍然在国际供应商堆叠。</p>
             <span class="src">出处：本周 9 家站内偵察 + 父亲节档期对照</span>
@@ -439,6 +461,17 @@ a{color:inherit;}
       <div class="rule"></div>
     </div>
     <div class="radar">
+      <div class="radar-formula">
+        <h6>评分公式（每轴 100 分、子项加权）</h6>
+        <table>
+          <tr><td>BRAND 品牌力</td><td>媒体曝光 35% + 代言/IP 25% + 品牌记忆点 25% + 近期声量变化 15%</td></tr>
+          <tr><td>UX 体验</td><td>官网可访问性 30% + 注册/登入顺畅 25% + 支付/提现讯号 25% + UI 清晰度 20%</td></tr>
+          <tr><td>CONTENT 内容</td><td>独家游戏/IP 35% + 本土化内容 25% + 活动丰富度 25% + 更新频率 15%</td></tr>
+          <tr><td>PRICING 定价</td><td>bonus 吸引力 30% + <b>合规安全度 30%</b> + 条款透明度 25% + 玩家实际可领价值 15%</td></tr>
+          <tr><td>RETENTION 留存</td><td>ongoing promo 30% + VIP/回流机制 25% + 客服/信任 25% + 社群活跃 20%</td></tr>
+          <tr><td>REACH 通路</td><td>TV/媒体 30% + 社群声量 25% + KOL/艺人 20% + 线下/支付触点 15% + SEO/官网可见度 10%</td></tr>
+        </table>
+      </div>
       <div class="radar-head">
         <div>
           <div class="lbl">六轴对比</div>
@@ -539,9 +572,9 @@ a{color:inherit;}
           <span class="sev high">高影响</span>
         </div>
         <h4>BingoPlus Night T-8 <span class="hi">媒体二轮通稿</span>，10+ 媒体接力</h4>
-        <div class="detail">5/19 大宴会进入最后一周倒数。本周通稿扩散：Manila Bulletin（5/4）、Panay News、Sun Star Pampanga、Tribune、SAKSI Ngayon、Crazy Little Things I Love、The Tech Gamer、Bloggers Philippines 等 10+ 媒体接力——加上 5/4 Manila Times 整版广告。10 艺人加 3 主持人阵容已经定调，GTV 5/22 晚 8 加 GMA 5/23 早 10 重播档期确认。大奖组合（BMW + iPhone 17 + LV + ₱500K credits + ₱500K 亚洲旅游）持续作为 hero 资产宣传。</div>
+        <div class="detail">5/19 大宴会进入最后一周倒数。本周通稿扩散：Manila Bulletin（5/4）、Panay News、Sun Star Pampanga、Tribune、SAKSI Ngayon、Crazy Little Things I Love、The Tech Gamer、Bloggers Philippines 等 10+ 媒体接力——加上 5/4 Manila Times 整版广告。10 艺人加 3 主持人阵容已经定调，GTV 5/22 晚 8 加 GMA 5/23 早 10 重播档期确认。大奖组合（BMW + iPhone 17 + LV + ₱500K credits + ₱500K 亚洲旅游）持续作为 主推资产宣传。</div>
         <div class="src">出处：<a href="https://mb.com.ph/2026/05/04/four-times-the-fun-bingoplus-celebrates-4th-year-with-bingoplus-night-2026-step-into-the-next-plus">Manila Bulletin 5/4</a> · <a href="https://www.panaynews.net/four-times-the-fun-bingoplus-celebrates-4th-year-at-bingoplus-night-2026-step-into-the-next-plus/">Panay News</a> · <a href="https://www.sunstar.com.ph/pampanga/feature/four-times-the-fun-bingoplus-celebrates-4th-year-at-bingoplus-night-2026-step-into-the-next-plus">Sun Star Pampanga</a></div>
-        <div class="impact"><span>对客户 X 的影响</span><b>娱乐 SOV 持续被吃</b></div>
+        <div class="impact"><span>对客户 X 的影响</span><b>娱乐声量份额（SOV） 持续被吃</b></div>
       </div>
 
       <div class="mcard" style="border-top-color:#C2272D">
@@ -594,7 +627,7 @@ a{color:inherit;}
           <span class="sev mid">中影响</span>
         </div>
         <h4>母亲节 5/10 通过，<span class="hi">9 家如 W19 预测全部跳过</span></h4>
-        <div class="detail">W19 brief 已经预测：母亲节 5/10 加发薪日 5/15 这两个档期，9 家都没有针对的促销动作。母亲节 5/10 已经过，9 家全部 0 档期素材兑现——既没出母亲节限定 slot、也没出母亲节 cashback 加成、也没出妈妈题材广告。下一个文化档期：发薪日 5/15（T-4）加父亲节 6/15（T-35）——目前父亲节也是 0 家有动作。</div>
+        <div class="detail">W19 brief 已经预测：母亲节 5/10 加发薪日 5/15 这两个档期，9 家都没有针对的促销动作。母亲节 5/10 已经过，9 家全部 0 档期素材兑现——既没出母亲节限定 slot、也没出母亲节 cashback 加成、也没出妈妈题材广告。下一个文化档期：发薪日 5/15（T-4）加菲律宾父亲节 6/15——目前父亲节也是 0 家有动作。</div>
         <div class="src">出处：本周 9 家 /promotions 页站内偵察 5/11 + 母亲节相关搜寻 0 结果</div>
         <div class="impact"><span>对客户 X 的影响</span><b>文化档期白旗仍空着</b></div>
       </div>
@@ -738,7 +771,7 @@ a{color:inherit;}
         <ul>
           <li>King 加 Queen 维护进入第 3 周，<b>「秒提现 + 可信运营」叙事仍是 9 家最大白旗</b>。<em>出处：站内偵察 5/11</em></li>
           <li>PAGCOR 1.5% 上限把 cashback 数字差异化掐死，<b>「品牌身分 + 社群归属」叙事下半年护城河</b>。<em>出处：5/7 备忘录交叉分析</em></li>
-          <li>父亲节 6/15 进入 T-35 暖场期，<b>9 家目前 0 动作；「赢钱给爸爸」象限仍空</b>。<em>出处：本周 9 家 /promotions 对照</em></li>
+          <li>菲律宾父亲节 6/15 进入暖场期，<b>9 家目前 0 动作；「赢钱给爸爸」象限仍空</b>。<em>出处：本周 9 家 /promotions 对照</em></li>
           <li>除 CasinoPlus 外，<b>8 家「本土文化 IP」仍空着</b>——AI / 神话 / 历史 / Folk Story 赛道还可入场。<em>出处：站内偵察 5/11</em></li>
           <li>SiGMA Asia 峰会 5/31-6/3 进入 T-20，<b>会前发布加 PR 窗口仍开放</b>。<em>出处：Tribuna Casino W18</em></li>
         </ul>
@@ -787,15 +820,15 @@ const RADAR_LABELS = ['BRAND','UX','CONTENT','PRICING','RETENTION','REACH'];
 const RADAR_LABELS_ZH = ['品牌力','体验','内容','定价','留存','通路'];
 
 const BRANDS = {
-  bingoplus:  { name:'BingoPlus',         color:'#E89AAA', scores:[92,78,88,72,80,82] },
-  arenaplus:  { name:'ArenaPlus',         color:'#2A5FAA', scores:[88,75,72,62,68,80] },
-  gamezone:   { name:'GameZone',          color:'#4F8C5C', scores:[60,68,72,62,58,50] },
-  king:       { name:'King.ph',           color:'#2D6B4D', scores:[35,25,30,50,22,38] },
-  queen:      { name:'Queen.ph',          color:'#B6356D', scores:[38,25,32,50,22,40] },
-  casinoplus: { name:'CasinoPlus',        color:'#B89968', scores:[64,72,70,76,70,56] },
-  okbet:      { name:'OKBet / OKGames',   color:'#D86B27', scores:[72,65,75,68,58,68] },
-  bet88:      { name:'Bet88',             color:'#C2272D', scores:[58,65,68,70,60,55] },
-  playtime:   { name:'PlayTime / PT Gaming', color:'#4A4FB8', scores:[78,62,74,64,58,72] }
+  bingoplus:  { name:'BingoPlus',         color:'#E89AAA', scores:[90,80,80,70,85,85] },
+  arenaplus:  { name:'ArenaPlus',         color:'#2A5FAA', scores:[85,75,80,70,65,80] },
+  gamezone:   { name:'GameZone',          color:'#4F8C5C', scores:[55,70,70,75,70,50] },
+  king:       { name:'King.ph',           color:'#2D6B4D', scores:[35,25,30,35,20,30] },
+  queen:      { name:'Queen.ph',          color:'#B6356D', scores:[30,25,30,35,20,30] },
+  casinoplus: { name:'CasinoPlus',        color:'#B89968', scores:[65,75,90,55,80,60] },
+  okbet:      { name:'OKBet / OKGames',   color:'#D86B27', scores:[65,70,65,75,65,65] },
+  bet88:      { name:'Bet88',             color:'#C2272D', scores:[55,65,75,55,70,55] },
+  playtime:   { name:'PlayTime / PT Gaming', color:'#4A4FB8', scores:[85,70,75,60,75,80] }
 };
 let selfId = 'playtime';
 let vsId = 'bingoplus';

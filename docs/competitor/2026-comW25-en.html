@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Competitor Weekly · 2026-W25 · Philippine iGaming</title>
+<style>
+:root{
+  --ink:#1f1d1a; --ink-2:#4a4742; --ink-3:#8a857d;
+  --paper:#fff; --paper-2:#f7f5f1;
+  --rule:#d9d4cb; --rule-2:#ebe6dd;
+  --hi:#fff3a6;
+  --pos:#c9e4cf; --pos-ink:#2f6b3b;
+  --neu:#e1dfd9; --neu-ink:#5b574e;
+  --neg:#f1c9c5; --neg-ink:#8a3a33;
+  --warn:#fce8c2; --warn-ink:#8a5f1a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+body{
+  background:#f0eee9;
+  font-family:Arial,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);min-height:100vh;font-size:13px;line-height:1.65;
+}
+a{color:inherit;}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.hi{background:var(--hi);padding:0 2px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.shell{max-width:1320px;margin:0 auto;background:#fff;}
+
+.mast{background:#1f1d1a;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.mast .mark{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;border:1px solid rgba(255,255,255,.4);padding:6px 10px;flex:none;}
+.mast .ttl{flex:1;min-width:200px;}
+.mast .ttl h1{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+.mast .ttl .sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;}
+.mast .logos{display:flex;gap:5px;flex:none;flex-wrap:wrap;}
+.mast .lang{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:2px;flex:none;}
+.mast .lang a,.mast .lang button{border:none;background:none;cursor:pointer;padding:5px 12px;border-radius:99px;color:rgba(255,255,255,.7);font:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;line-height:1;}
+.mast .lang .active{background:#fff;color:var(--ink);}
+.logo{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(0,0,0,.06);flex:none;}
+.logo.closed{opacity:.4;text-decoration:line-through;}
+
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+.body{padding:8px 32px 32px;}
+
+.sec{margin-top:32px;scroll-margin-top:60px;}
+.sec-lbl{margin-bottom:10px;}
+.sec-lbl .chip{background:var(--ink);color:#fff;font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.06em;margin-right:8px;}
+.sec-lbl .en{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+.sec-lbl h2{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-top:8px;}
+.sec-lbl .rule{height:2px;background:var(--ink);margin-top:10px;}
+.sec-deck{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.exec{margin-top:24px;}
+.exec h3{font-size:30px;font-weight:800;letter-spacing:-.015em;line-height:1.4;max-width:90%;}
+.exec h3 .line{display:block;}
+.exec h3 .line + .line{margin-top:6px;}
+.exec p.deck{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin-top:18px;max-width:80%;}
+.exec p.deck b{color:var(--ink);}
+.exec p.deck + p.deck{margin-top:12px;}
+.exec p.deck em{font-style:normal;color:var(--ink-3);font-size:11.5px;}
+.exec .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.exec .axis{border-left:3px solid var(--ink);padding:8px 14px;font-size:12px;color:var(--ink-2);line-height:1.7;}
+.exec .axis b{color:var(--ink);display:block;margin-bottom:2px;}
+
+.kpi{margin-top:14px;border:1px solid var(--ink);display:grid;grid-template-columns:minmax(170px,1.2fr) .8fr .8fr 1.1fr 1fr 1.5fr;}
+.kpi .head{background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);text-transform:uppercase;font-weight:800;border-bottom:2px solid var(--ink);padding:12px;}
+.kpi .cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px;font-size:12px;line-height:1.6;}
+.kpi .cell:nth-child(6n){border-right:none;}
+.kpi .name{display:flex;align-items:flex-start;gap:10px;flex-direction:column;}
+.kpi .name b{font-size:13px;display:block;}
+.kpi .name .grp{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;letter-spacing:.05em;display:block;margin-top:1px;}
+.kpi .name .status{padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace;display:inline-block;margin-top:5px;}
+.kpi .name .status-hot{background:#1f1d1a;color:#fff;}
+.kpi .name .status-active{background:#fbe3b3;color:#8a5f1a;}
+.kpi .name .status-alert{background:var(--neg);color:var(--neg-ink);}
+.kpi .name .status-cold{background:#d6e4f0;color:#2A5FAA;}
+.kpi .name .status-closed{background:#2b2b2b;color:#bbb;}
+.kpi .cell.closed{color:var(--ink-3);font-style:italic;}
+.kpi .big{font-weight:800;font-size:16px;}
+.trend{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:3px;font-size:10.5px;font-weight:700;}
+.trend.up{background:var(--pos);color:var(--pos-ink);}
+.trend.down{background:var(--neg);color:var(--neg-ink);}
+.trend.flat{background:var(--neu);color:var(--neu-ink);}
+.trend.new{background:#1f1d1a;color:#fff;}
+.bar{height:8px;background:var(--rule-2);border-radius:2px;overflow:hidden;margin-top:6px;}
+.bar > i{display:block;height:100%;}
+.sev{padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;}
+.sev.high{background:var(--neg);color:var(--neg-ink);}
+.sev.mid{background:var(--neu);color:var(--neu-ink);}
+.sev.low{background:var(--pos);color:var(--pos-ink);}
+
+.strat{margin-top:14px;background:#1f1d1a;color:#fff;padding:26px 30px;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);}
+.qa.full{grid-column:1/-1;}
+.qa .q{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.qa .q .qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+.qa .a{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.92);}
+.qa .a b{color:#fff;}
+.qa .a p{margin-bottom:6px;}
+.qa .src{display:block;color:rgba(255,255,255,.45);font-size:10.5px;margin-top:6px;}
+.qa .src a{color:rgba(255,255,255,.6);}
+
+.radar{margin-top:14px;background:#1f1d1a;color:#fff;padding:24px;}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.radar-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.radar-head .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:800;margin-bottom:4px;}
+.radar-head .sub{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.radar-head .self-pick{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.radar-head .self-pick .pick-lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:800;}
+.vssel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 32px 9px 14px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4 L5 7 L8 4' fill='none' stroke='white' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 10px center;}
+.vssel option{background:#1f1d1a;color:#fff;}
+.vsbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.vsbtns button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.vsbtns button:hover{background:rgba(255,255,255,.18);}
+.vsbtns button.active{background:#fff;color:var(--ink);}
+.vsbtns button i{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.radar-body{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;}
+.radar-body .grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px 16px;font-size:12.5px;}
+.radar-body .grid span:nth-child(4n+1),.radar-body .grid span:nth-child(4n+3){color:rgba(255,255,255,.55);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;}
+.radar-body .grid span:nth-child(4n+2),.radar-body .grid span:nth-child(4n+0){font-weight:700;}
+.radar-body .legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;}
+.radar-body .legend span{display:inline-flex;align-items:center;gap:6px;}
+.radar-body .legend i{width:12px;height:12px;display:inline-block;border-radius:2px;}
+.radar svg{width:100%;max-width:380px;display:block;margin:0 auto;}
+.radar-note{margin-top:12px;background:rgba(255,255,255,.05);border-left:3px solid rgba(255,255,255,.4);padding:10px 14px;font-size:11.5px;color:rgba(255,255,255,.8);line-height:1.65;}
+.radar-note b{color:#fff;}
+
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px;margin-top:14px;}
+.mcard{border:1px solid var(--rule);border-top-width:4px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:9px;scroll-margin-top:60px;}
+.mcard .top{display:flex;align-items:center;gap:8px;}
+.mcard .top .meta{flex:1;}
+.mcard .top .meta b{font-size:12px;font-weight:700;display:block;}
+.mcard .top .meta span{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;}
+.mcard h4{font-size:14px;font-weight:700;line-height:1.5;}
+.mcard .detail{font-size:12px;line-height:1.7;color:var(--ink-2);}
+.mcard table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px;}
+.mcard table th{text-align:left;padding:4px 6px;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--rule);}
+.mcard table td{padding:5px 6px;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.mcard .warn{padding:8px 12px;background:var(--warn);border-left:3px solid var(--warn-ink);font-size:11.5px;color:var(--warn-ink);line-height:1.6;}
+.mcard .warn b{color:var(--warn-ink);}
+.mcard .social{padding:7px 12px;background:var(--paper-2);border-left:3px solid var(--ink-3);font-size:11px;color:var(--ink-2);line-height:1.6;}
+.mcard .src{font-size:11px;color:var(--ink-3);line-height:1.6;}
+.mcard .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-3);}
+.mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;}
+.mcard .impact b{color:var(--ink);font-weight:700;}
+
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:90px 18px 110px 120px 1fr 60px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--ink-2);}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+.impl-meth{margin-top:14px;background:var(--paper-2);border-left:3px solid var(--ink);padding:14px 18px;font-size:12px;line-height:1.75;color:var(--ink-2);}
+.impl-meth h6{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.06em;margin-bottom:6px;}
+.impl-meth b{color:var(--ink);}
+.impl-meth ul{list-style:none;padding:0;margin-top:6px;display:flex;flex-direction:column;gap:6px;}
+.impl-meth li{padding-left:14px;position:relative;}
+.impl-meth li::before{content:"·";position:absolute;left:2px;color:var(--ink-3);font-weight:800;}
+.impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
+.impl .col.threat{border-top-color:var(--neg-ink);}
+.impl .col.opp{border-top-color:var(--pos-ink);}
+.impl .col h5{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:18px;}
+.impl .col h5 .dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none;}
+.impl .col.threat h5 .dot{background:var(--neg-ink);}
+.impl .col.opp h5 .dot{background:var(--pos-ink);}
+.impl .col h5 .en{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);font-weight:800;text-transform:uppercase;}
+.impl .col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.impl .col li{display:block;padding:14px 16px;background:var(--paper-2);border-left:3px solid;font-size:12.5px;line-height:1.8;color:var(--ink-2);}
+.impl .col.threat li{border-left-color:var(--neg-ink);}
+.impl .col.opp li{border-left-color:var(--pos-ink);}
+.impl .col li b{color:var(--ink);}
+.impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
+
+.footer{margin-top:32px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px;}
+.fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
+.fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
+.fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
+.srcs{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;}
+.srcs span{font-size:11.5px;color:var(--ink-2);display:flex;align-items:center;gap:6px;}
+.srcs i{width:8px;height:8px;border-radius:50%;flex:none;}
+.srcs i.ok{background:var(--pos-ink);}
+.srcs i.partial{background:#c96442;}
+.srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
+.fcard ol{padding:0;list-style:none;}
+.fcard ol li{font-size:12px;line-height:1.75;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;}
+.fcard ol li .n{color:#c96442;font-weight:700;font-family:ui-monospace,Menlo,monospace;flex:none;}
+.colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
+.colophon b{color:var(--ink);letter-spacing:.16em;}
+
+@media (max-width:1023px){
+  .body{padding:8px 24px 28px;}
+  .mast{padding:18px 24px;}
+  .subnav{padding:8px 24px;font-size:10.5px;}
+  .kpi{grid-template-columns:1fr;}
+  .kpi .head{display:none;}
+  .kpi .cell{border-right:none;display:grid;grid-template-columns:120px 1fr;gap:8px;}
+  .kpi .cell::before{content:attr(data-lbl);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;}
+  .kpi .cell:nth-child(6n+1)::before{display:none;}
+  .kpi .name{grid-column:1/-1;}
+  .radar-body{grid-template-columns:1fr;}
+  .impl{grid-template-columns:1fr;gap:18px;}
+  .footer{grid-template-columns:1fr;}
+  .qa-grid{grid-template-columns:1fr;}
+  .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:70px 14px 90px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
+  .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
+  .exec .axes{grid-template-columns:1fr;}
+  .sec-lbl h2{font-size:18px;}
+}
+@media (max-width:767px){
+  .body{padding:6px 16px 24px;}
+  .mast{padding:16px;gap:12px;}
+  .mast .ttl h1{font-size:18px;}
+  .subnav{padding:6px 16px;}
+  .strat{padding:18px 16px;}
+  .exec h3{font-size:19px;}
+}
+@media print{
+  body{background:#fff;}
+  .shell{max-width:none;}
+  .vssel,.vsbtns,.subnav{display:none;}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+  .mast .mark{border-color:#000;}
+  .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
+  .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+<header class="mast">
+  <div class="mark">COMPETITOR // BRIEF</div>
+  <div class="ttl">
+    <h1>2026-W25 · Philippine iGaming Competitor Weekly</h1>
+    <div class="sub">Data window: 6/08-6/15 review, 6/15-6/22 outlook · 10-brand watchlist (9 PAGCOR-licensed + OKADA PLAY; King / Queen closed) · Internal use</div>
+  </div>
+  <div class="lang" aria-label="Language">
+    <a href="2026-comW25.html">中</a>
+    <button class="active" aria-current="page">EN</button>
+  </div>
+  <div class="logos">
+    <span class="logo" style="background:#E89AAA" title="BingoPlus">BP</span>
+    <span class="logo" style="background:#2A5FAA" title="ArenaPlus">AP</span>
+    <span class="logo" style="background:#4F8C5C" title="GameZone">GZ</span>
+    <span class="logo closed" style="background:#2D6B4D" title="King.ph · closed">K</span>
+    <span class="logo closed" style="background:#B6356D" title="Queen.ph · closed">Q</span>
+    <span class="logo" style="background:#B89968" title="CasinoPlus">C+</span>
+    <span class="logo" style="background:#D86B27" title="OKBet/OKGames">OK</span>
+    <span class="logo" style="background:#C2272D" title="Bet88">88</span>
+    <span class="logo" style="background:#4A4FB8" title="PlayTime/PT Gaming">PT</span>
+    <span class="logo" style="background:#8B7355" title="OKADA PLAY">OP</span>
+  </div>
+</header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>JUMP TO</b>
+  <a href="#briefing">▲ Briefing</a>
+  <a href="#kpi">§01 KPI</a>
+  <a href="#strategic">§02 5Q</a>
+  <a href="#radar">§03 Radar</a>
+  <a href="#moves-sec">§04 Moves</a>
+  <a href="#timeline">§05 Timeline</a>
+  <a href="#implications">§06 Threats/Opps</a>
+</nav>
+
+<div class="body">
+
+  <!-- ============ EXECUTIVE BRIEFING ============ -->
+  <section class="sec exec" id="briefing">
+    <div class="sec-lbl">
+      <span class="chip">▲</span><span class="en">Executive Briefing</span>
+      <h2>This week's read</h2>
+      <div class="rule"></div>
+    </div>
+
+    <h3>
+      <span class="line">Three things in PH iGaming this week:</span>
+      <span class="line">DigiPlus's GameZone + New Coast will <span class="hi">jointly build and run LaVie's online platform</span>;</span>
+      <span class="line">World Cup is one week in — <span class="hi">all four operators added specials</span> (last week only Bet88);</span>
+      <span class="line">PAGCOR headwinds persist: GGR forecast down up to <span class="hi">19%</span>, online −22.43% in Q1, B2B supplier down-listing 8/1 looming.</span>
+    </h3>
+
+    <p class="deck"><b>1. DigiPlus (PH-listed gaming group; parent of BingoPlus / ArenaPlus / GameZone) partners with a land-based casino to take it online.</b><br>
+    Its GameZone operating unit signed with New Coast Leisure to jointly build and run the online gaming platform for LaVie Resort &amp; Casino in Malate, Manila. This is the first time the leader builds online for a land-based casino — picking up a "platform-for-others" line of business, while also taking the LaVie physical asset at the parent level. <b>See §04 Card 1.</b><em>(Sources: <a href="https://bworldonline.com/corporate/2026/06/11/755917/digiplus-unit-signs-online-gaming-deal-with-new-coast-leisure/">BusinessWorld 6/11</a> · <a href="https://www.ggrasia.com/international-ent-to-launch-philippine-online-gaming-ops-in-partnership-with-digiplus-unit">GGRAsia</a> · <a href="https://asgam.com/2026/06/10/iec-to-partner-with-digiplus-in-launching-new-philippines-online-gaming-business-via-manilas-lavie-resort-casino/">IAG 6/10</a>)</em></p>
+
+    <p class="deck"><b>2. One week into the World Cup, all four operators have added World Cup specials (last week only Bet88).</b><br>
+    The World Cup opened 6/11 (PH early 6/12), runs to 7/19, ~38 days — the sportsbook segment's biggest acquisition window of the year. Checked the promo pages on 6/15: OKBet runs a FIFA 2026 "Spin for Glory" World Cup slot jackpot of ₱15,888,888; Bet88 keeps its ₱4,900,000 pool and adds a 25% rebate; CasinoPlus runs a World Cup Challenge ₱478,800; ArenaPlus added a World Cup Daily Bonus. Last week only Bet88 had one; this week all four do. <b>See §04 Card 2.</b></p>
+
+    <p class="deck"><b>3. PAGCOR's headwinds persist: 2026 full-year GGR forecast down up to 19% (₱320-350B), online −22.43% in Q1; B2B supplier accreditation down-listing on 8/1 looming (about 6 weeks out).</b><br>
+    PAGCOR chair Tengco attributes the online decline mainly to the Middle East crisis (higher fuel / transport costs squeezing lower-income discretionary spend); a further factor is the BSP's 2025 directive for banks / e-wallets to remove in-app access links to gambling platforms. <b>See §04 Card 3 + §02 Q1.</b><em>(Sources: <a href="https://www.yogonet.com/international/news/2026/06/09/122943-pagcor-forecasts-lower-philippine-gaming-revenue-in-2026-amid-online-slowdown">Yogonet 6/9</a> · <a href="https://agbrief.com/news/27/05/2026/pagcor-sets-july-deadline-for-b2b-accreditation/">AGB</a>)</em></p>
+
+    <div class="axes">
+      <div class="axis"><b>Group</b>DigiPlus's GameZone + New Coast jointly build and run LaVie's online platform. The leader moves from "only its own online brands" to "building platforms for other casinos," while taking the LaVie physical asset.</div>
+      <div class="axis"><b>Event</b>World Cup opened 6/11; within a week all four (ArenaPlus / OKBet / Bet88 / CasinoPlus) launched World Cup specials (last week only Bet88).</div>
+      <div class="axis"><b>Platform</b>PAGCOR's headwinds persist — 2026 GGR forecast down up to 19%, online −22.43% in Q1 (Tengco attributes it mainly to the Middle East crisis), B2B supplier down-listing 8/1 looming.</div>
+    </div>
+  </section>
+
+  <!-- ============ §01 KPI ============ -->
+  <section class="sec" id="kpi">
+    <div class="sec-lbl">
+      <span class="chip">§01</span><span class="en">KPI Comparison Matrix · 10 brands</span>
+      <h2>KPI Comparison Matrix (10-brand watchlist)</h2>
+      <div class="rule"></div>
+      <div class="sec-deck">Status: 🔴 HOT · 🟠 ACTIVE · 🟡 ALERT · 🔵 COLD · ⚫ CLOSED (shut / not scored). SOV is an internal estimate (media space + social voice); the 8 scored brands sum to ~94%, the remaining ~6% covers industry / regulatory / group PR + King / Queen placeholders. Pricing is from 6/15 on-site recon. King.ph / Queen.ph marked closed since 2026-05-29, not scored.</div>
+    </div>
+    <div class="kpi">
+      <div class="head">Company</div><div class="head">Moves</div><div class="head">SOV%</div><div class="head">Lead offer</div><div class="head">Jackpot board</div><div class="head">Top impact</div>
+
+      <div class="cell name"><b>GameZone</b><span class="grp">DigiPlus</span><span class="status status-hot">🔴 HOT</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">2</span> <span class="trend up">▲ +2</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">14%</span><div class="bar"><i style="width:14%;background:#4F8C5C"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Daily-game ₱12,888 × 4 + ₱6,000 × 3 + ₱188 free (within compliance cap)</div>
+      <div class="cell" data-lbl="Jackpot">— daily-game, not jackpot</div>
+      <div class="cell" data-lbl="Top impact">High — jointly with New Coast, builds &amp; runs LaVie's online platform → Card 1</div>
+
+      <div class="cell name"><b>ArenaPlus</b><span class="grp">DigiPlus</span><span class="status status-hot">🔴 HOT</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">2</span> <span class="trend up">▲ +1</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">18%</span><div class="bar"><i style="width:18%;background:#2A5FAA"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">PBA / PVL / NBA sports + <b>World Cup Daily Bonus</b> (new)</div>
+      <div class="cell" data-lbl="Jackpot">—</div>
+      <div class="cell" data-lbl="Top impact">High — World Cup Daily Bonus live → Card 2</div>
+
+      <div class="cell name"><b>BingoPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">1</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">18%</span><div class="bar"><i style="width:18%;background:#E89AAA"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">JILI Super Ace 30% first-deposit cashback (one-off, welcome)</div>
+      <div class="cell" data-lbl="Jackpot">June new pool pending official disclosure</div>
+      <div class="cell" data-lbl="Top impact">Mid — group LaVie-deal PR spillover, no own new offer this week</div>
+
+      <div class="cell name"><b>CasinoPlus</b><span class="grp">Independent</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">2</span> <span class="trend up">▲ +1</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">11%</span><div class="bar"><i style="width:11%;background:#B89968"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">1.5% cashback + 1.5% return bonus</div>
+      <div class="cell" data-lbl="Jackpot">World Cup Challenge ₱478,800 (6/11-6/17) + BNG World Cup Fortune Race (6/4-7/18) + EVO Perya Fiesta ₱1,380,000</div>
+      <div class="cell" data-lbl="Top impact">Mid — SimilarWeb #1 most-visited in April; World Cup Challenge (₱478,800) + BNG World Cup Fortune Race live → Card 2</div>
+
+      <div class="cell name"><b>PlayTime / PT Gaming</b><span class="grp">Independent</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">1</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">10%</span><div class="bar"><i style="width:10%;background:#4A4FB8"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">₱8,080 welcome + 1.5% ongoing cashback (promo page locked, 5/29 baseline)</div>
+      <div class="cell" data-lbl="Jackpot">June Gold Rush deposit pool 2M + Evolution Perya Fiesta year-round</div>
+      <div class="cell" data-lbl="Top impact">Mid — promo page locked, no new move this week</div>
+
+      <div class="cell name"><b>OKBet / OKGames</b><span class="grp">Independent</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">2</span> <span class="trend up">▲ +1</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">8%</span><div class="bar"><i style="width:8%;background:#D86B27"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Main site 1.5% daily rebate + Welcome Bundle; sports sub-site 35% first deposit + 0.8% ongoing</div>
+      <div class="cell" data-lbl="Jackpot"><b>FIFA 2026 Spin for Glory ₱15,888,888</b> (AdvantPlay, 6/8-7/26) + Vertex Play ₱1,288,000</div>
+      <div class="cell" data-lbl="Top impact">Mid — FIFA 2026 Spin for Glory (₱15,888,888 World Cup slot jackpot) live → Card 2</div>
+
+      <div class="cell name"><b>Bet88</b><span class="grp">Independent</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">2</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">8%</span><div class="bar"><i style="width:8%;background:#C2272D"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">100% first deposit ₱8,888 + 30% daily + 28-day streak</div>
+      <div class="cell" data-lbl="Jackpot"><b>World Cup Prize Pool ₱4,900,000</b> + 25% sports cashback + Double Your Winnings (football)</div>
+      <div class="cell" data-lbl="Top impact">Mid — World Cup special held and boosted (₱4,900,000 pool + 25% cashback + double winnings) → Card 2</div>
+
+      <div class="cell name"><b>OKADA PLAY</b><span class="grp">PhilWeb × Okada Manila</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#8B7355"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Early-stage pricing not fully disclosed</div>
+      <div class="cell" data-lbl="Jackpot">— pending official disclosure</div>
+      <div class="cell" data-lbl="Top impact">Low — week 5 after 5/13 commercial launch, 0 new releases this week</div>
+
+      <div class="cell name"><b>King.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="Moves">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="Lead offer">Closed (confirmed 2026-05-29) · not scored</div>
+      <div class="cell closed" data-lbl="Jackpot">—</div>
+      <div class="cell closed" data-lbl="Top impact">Closed (confirmed 2026-05-29) · not scored</div>
+
+      <div class="cell name"><b>Queen.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="Moves">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="Lead offer">Closed (confirmed 2026-05-29) · not scored</div>
+      <div class="cell closed" data-lbl="Jackpot">—</div>
+      <div class="cell closed" data-lbl="Top impact">Closed (confirmed 2026-05-29) · not scored</div>
+    </div>
+  </section>
+
+  <!-- ============ §02 5Q ============ -->
+  <section class="sec" id="strategic">
+    <div class="sec-lbl">
+      <span class="chip">§02</span><span class="en">Strategic Read · 5Q</span>
+      <h2>Strategic Read · Five Questions (neutral)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="strat">
+      <div class="qa-grid">
+        <div class="qa"><div class="q"><span class="qchip">Q1</span><br>Market space</div><div class="a"><p>The market is shrinking. PAGCOR forecasts 2026 full-year GGR at ₱320-350B, down up to 19% from 2025's ₱396.14B; Q1 GGR fell 15.87% YoY to ₱87.6B, with online electronic gaming down 22.43%. PAGCOR chair Tengco attributes the online decline mainly to the Middle East crisis — higher fuel / transport costs squeezing lower-income discretionary spend (players cover necessities first; further factors and detail in §04 Card 3). Regulators keep tightening: B2B down-listing 8/1, KYC, prime-time ad ban with an all-day ban under study, a 24/7 helpline (the last three from a February Senate hearing — standing background). The biggest supply-side move this week is GameZone building LaVie's online platform.</p><p><b>In a line: the market shrinks and acquisition gets harder, so pure promo-number play yields less; the leader pulls the battle toward "scale + ecosystem." If an all-day ad ban lands, the 9 brands' TV / KOL playbook needs a rebuild.</b></p><span class="src">Sources: <a href="https://www.yogonet.com/international/news/2026/06/09/122943-pagcor-forecasts-lower-philippine-gaming-revenue-in-2026-amid-online-slowdown">Yogonet 6/9</a> · <a href="https://tribune.net.ph/2026/05/16/philippine-gaming-industry-ggr-drops-16-in-q1">tribune Q1 -16%</a> · <a href="https://www.pna.gov.ph/articles/1268823">PNA Feb hearing</a></span></div></div>
+
+        <div class="qa"><div class="q"><span class="qchip">Q2</span><br>Player concerns</div><div class="a"><p>What players care about barely overlaps with the big industry stories. This week's three headlines (LaVie deal / World Cup kickoff / B2B countdown) had little player chatter. What players actually argue about — all backed by public data: <b>(1) money can't get out or in</b> (deposits often stall — KYC + payment-channel limits; withdrawal delays of days to weeks are a constant complaint, and legal-advice sites list "withdrawal not arriving" as a red flag for picking a site); <b>(2) gambling debt and addiction</b> (the police cybercrime unit logged ~1,891 illegal-online-gambling complaints in Q1 2026 alone; media estimate 30M+ Filipinos gamble online; the church and public-health voices call it a social crisis); <b>(3) impersonation scams</b> (brand names used for phishing links — an old problem).</p><p><b>In a line: players want money in, money out, no scams, plus recovery resources — not another promo number. To land with players, Client X's edge is "smooth deposits, fast withdrawals, transparent KYC, anti-fraud."</b></p><span class="src">Sources: <a href="https://tribuna.com/en/casino/news/2026-03-16-philippine-cybercrime-agency-logs-1891-illegal-online-gambling-complaints-in-the-first-th/">cybercrime Q1 complaints</a> · <a href="https://gulfnews.com/special-reports/philippines-online-gambling-boom-sparks-addiction-crisis-1.500270192">gulfnews addiction crisis</a> · <a href="https://www.lawyer-philippines.com/articles/legal-guide-on-resolving-casino-balance-withdrawal-issues-through-gcash">withdrawal legal guide</a> (long-running structural issues, not event-specific)</span></div></div>
+
+        <div class="qa"><div class="q"><span class="qchip">Q3</span><br>Gaps</div><div class="a"><p><b>Deposit-path education:</b> deposits already stall (KYC + payment channels), yet 0 of 9 ran "alternative deposit / how to fund" content this week. A real gap.</p><p><b>Father's Day window:</b> 6/21 Father's Day (this Sunday) + 6/15 payday, 0 of 9 moved on Father's Day creatives (confirmed daily by the trigger monitor 6/8-6/15).</p><p><b>B2B compliance comms:</b> 8/1 supplier down-listing looms, 0 of 9 disclose their suppliers' accreditation status.</p><p><b>Note:</b> last week's "World Cup promo gap" no longer holds — all four added World Cup specials (see §04 Card 2), removed from gaps.</p><span class="src">Sources: trigger monitor 6/8-6/15 + 6/15 on-site</span></div></div>
+
+        <div class="qa"><div class="q"><span class="qchip">Q4</span><br>Pricing</div><div class="a"><p>From 6/15 on-site recon:</p><p><b>Rebate / cashback line:</b> the four non-DigiPlus operators (CasinoPlus, OKBet, Bet88, PlayTime) mostly anchor their lead rebates around 1.5% — looking more and more alike. <b>World Cup add-ons:</b> all four treat the World Cup as the main battlefield — OKBet's FIFA 2026 slot jackpot ₱15,888,888 (largest), Bet88 ₱4,900,000 pool + 25% rebate, CasinoPlus World Cup Challenge ₱478,800, ArenaPlus World Cup Daily Bonus. <b>Welcome:</b> Bet88 100% first deposit ₱8,888, PlayTime ₱8,080, BingoPlus 30% one-off.</p><p><b>In a line: pricing itself barely moved this week — no one's offers got clearly more or less generous; what actually moved is World Cup specials, from one operator to four within a week. Next watch: whether deposit friction forces a shift from "how big the bonus" to "can money get in."</b></p><span class="src">Sources: 6/15 on-site (CasinoPlus / OKBet / Bet88 / ArenaPlus)</span></div></div>
+
+        <div class="qa full"><div class="q"><span class="qchip">Q5</span><br>Differentiation</div><div class="a"><p>The DigiPlus stable lifts its strategic dimension via the LaVie deal (GameZone shifts from a B2C site to a "platform supplier"); the World Cup specials are out across all four, no one missing; the non-DigiPlus operators' rebates all sit around 1.5%; GameZone flips from quiet to hot on the LaVie deal; OKADA PLAY stays low.</p><p><b>Conclusion: the competitive question moved up a notch again. Last week was "who is more credible on scale and compliance"; this week DigiPlus adds "who can string a land-based casino, a platform-for-others business, and online self-op into one ecosystem." For mid-tier independents there's a new pressure: the leader is becoming a platform supplier and could turn into your upstream. And the World Cup window proved a point — these gaps close fast (one operator to four in a week), so the chance to win recognition on "nobody else is doing it" is increasingly short-lived.</b></p><span class="src">Sources: this week's public-move roundup + 6/15 on-site + multi-source DigiPlus × LaVie deal</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §03 RADAR ============ -->
+  <section class="sec" id="radar">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">Capability Radar · 6 axes · 10 brands</span>
+      <h2>Six-Axis Capability Radar (10 brands; King / Queen closed, not scored)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="radar">
+      <div class="radar-formula">
+        <h6>Scoring formula (100 per axis, weighted sub-items)</h6>
+        <table>
+          <tr><td>BRAND</td><td><b>Market share (revenue/traffic) 45%</b> + endorsement/IP 20% + player mention/national awareness 25% + this-week PR voice 10%</td></tr>
+          <tr><td>UX</td><td>Site availability 30% + signup/login smoothness 25% + payment/withdrawal signal 25% + UI clarity 20%</td></tr>
+          <tr><td>CONTENT</td><td>Exclusive games/IP 35% + localization 25% + activity richness 25% + update frequency 15%</td></tr>
+          <tr><td>PRICING</td><td>Bonus appeal 30% + <b>compliance safety 30%</b> + terms transparency 25% + real player-claimable value 15%</td></tr>
+          <tr><td>RETENTION</td><td>Ongoing promo 30% + VIP/return mechanics 25% + support/trust 25% + community activity 20%</td></tr>
+          <tr><td>REACH</td><td>TV/media 30% + social voice 25% + KOL/celebrity 20% + offline/payment touchpoints 15% + SEO/site visibility 10%</td></tr>
+        </table>
+      </div>
+      <div class="radar-head">
+        <div>
+          <div class="lbl">Six-axis comparison (10 brands)</div>
+          <div class="sub">Top-right dropdown picks the scoring baseline (default PlayTime); buttons below pick the benchmark.<br><em style="color:rgba(255,255,255,.6);font-style:normal;">Scores carry over from W22 SimilarWeb anchoring; no new traffic data this week. The LaVie deal only moves the GameZone REACH recent-voice sub-item, not structural BRAND. King / Queen closed; if selected, show N/A, no polygon.</em></div>
+        </div>
+        <div class="self-pick">
+          <span class="pick-lbl">Baseline brand</span>
+          <select class="vssel" id="selfsel" aria-label="Select baseline brand"></select>
+        </div>
+      </div>
+      <div class="vsbtns" id="vsbtns" aria-label="Select benchmark"></div>
+      <div class="radar-body">
+        <div class="left">
+          <div class="grid" id="radarGrid"></div>
+          <div class="legend">
+            <span><i style="background:#fff3a6"></i><b id="legendSelf">Baseline · PlayTime</b></span>
+            <span><i id="legendVsColor" style="background:#4F8C5C"></i><b id="legendVs">GameZone</b></span>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 320" id="radarSvg" aria-label="6-axis capability radar">
+          <g id="rings"></g>
+          <g id="axes"></g>
+          <polygon id="polyVs" fill-opacity="0.35" stroke-width="2"></polygon>
+          <polygon id="polySelf" fill="#fff3a6" fill-opacity="0.42" stroke="#fff3a6" stroke-width="2.2"></polygon>
+          <g id="labels"></g>
+        </svg>
+      </div>
+      <div class="radar-note">
+        The BRAND "market share" sub-item is anchored on <b>SimilarWeb Apr 2026 traffic</b> + industry revenue ordinal, carried over from the W22 5/24 anchoring (no new traffic data this week, no re-scoring). This week's SimilarWeb April most-visited ordering (CasinoPlus #1 / BingoPlus #2 / OKBet #3 / Bet88 #4 / ArenaPlus #5) matches the existing BRAND ordinal and is not a re-scoring basis. <b>The LaVie deal is a group move; it counts toward the GameZone REACH recent-voice sub-item (50→55 this week), not structural BRAND. King / Queen closed since 2026-05-29 show "N/A" on all six axes, no polygon.</b> BRAND worked example: PlayTime = market share 90×45% + endorsement 80×20% + mention 80×25% + this-week PR 60×10% = 82.5, rounded to 85.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §04 WEEKLY MOVES ============ -->
+  <section class="sec" id="moves-sec">
+    <div class="sec-lbl">
+      <span class="chip">§04</span><span class="en">Weekly Moves</span>
+      <h2>Weekly Moves (W25)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="moves" id="moveCards">
+
+      <div class="mcard" style="border-top-color:#4F8C5C">
+        <div class="top"><span class="logo" style="background:#4F8C5C;width:26px;height:26px;font-size:10px">GZ</span>
+          <div class="meta"><b>Card 1 · DigiPlus / GameZone</b><span>06/10-06/11 · Group structure + platform business</span></div>
+          <span class="sev high">High impact</span>
+        </div>
+        <h4>GameZone + New Coast to build &amp; run the online platform for <span class="hi">LaVie land-based casino</span></h4>
+        <div class="detail">DigiPlus's GameZone operating entity (Total Gamezone Xtreme) signed a cooperation agreement with New Coast Leisure (NCLI) on 6/10-6/11 to build the online gaming platform for LaVie Resort &amp; Casino in Malate, Manila, plus technical and operational support. NCLI's parent is Hong Kong-listed International Entertainment Corp (IEC); via a ₱12B (~US$204M) convertible-note subscription, DigiPlus will hold ~53.89% of IEC once fully converted, with LaVie as the core asset.
+        <table>
+          <tbody>
+            <tr><td><b>Deal type</b></td><td>Non-exclusive; GameZone handles content integration, provision and operation + technical support for LaVie's online platform</td></tr>
+            <tr><td><b>Term</b></td><td>Initial two years, renewable annually; revenue share by contribution</td></tr>
+            <tr><td><b>Control backdrop</b></td><td>Via ₱12B convertible notes, DigiPlus takes ~53.89% of IEC once fully converted; the second (final) HK$800M tranche issued, the first HK$800M in early March</td></tr>
+            <tr><td><b>Condition</b></td><td>Still subject to PAGCOR approval</td></tr>
+          </tbody>
+        </table></div>
+        <div class="detail"><b>Why it matters:</b> DigiPlus used to "run a few of its own online brands" (BingoPlus / ArenaPlus / GameZone). This week it took two new steps: taking the LaVie physical casino at the parent level (with talks on Diamond Hotel + a second hotel beside LaVie to form a gaming district), and starting to "build platforms for others" — GameZone now builds online systems for a third-party land-based casino, not just its own site. As the market shrinks, the leader opens two more lines: land-based and platform-for-others.</div>
+        <div class="warn"><b>⚠️ Note:</b> the deal still awaits PAGCOR approval, not live; a "cooperation agreement" is a framework — launch timing and earnings are not disclosed. The 53.89% is "once fully converted," so conversion progress needs follow-up. Cite as "signed, pending approval," not "operating."</div>
+        <div class="social"><b>⚠️ Single-source:</b> so far only corporate / business media report it (BusinessWorld / GGRAsia / IAG / Philstar / Manila Times / Manila Bulletin / Inquirer / bilyonaryo); no player discussion.</div>
+        <div class="src">Sources: <a href="https://bworldonline.com/corporate/2026/06/11/755917/digiplus-unit-signs-online-gaming-deal-with-new-coast-leisure/">BusinessWorld 6/11</a> · <a href="https://www.ggrasia.com/international-ent-to-launch-philippine-online-gaming-ops-in-partnership-with-digiplus-unit">GGRAsia</a> · <a href="https://asgam.com/2026/06/10/iec-to-partner-with-digiplus-in-launching-new-philippines-online-gaming-business-via-manilas-lavie-resort-casino/">IAG 6/10</a> · <a href="https://www.philstar.com/business/2026/06/12/2534514/digiplus-unit-tapped-online-gaming-lavie-resort-casino">Philstar 6/12</a> · <a href="https://asgam.com/2026/05/05/digiplus-reportedly-in-talks-to-acquire-second-manila-hotel-alongside-lavie-resort-casino-to-develop-larger-gaming-hub/">IAG 5/5 gaming district</a></div>
+        <div class="impact"><span><b>For Client X:</b> the leader becoming a platform supplier cuts both ways — a stronger rival (fuller ecosystem) and a potential upstream (the market gains a platform to rent, but renting the leader's platform hands player data to the biggest rival — weigh it).</span></div>
+      </div>
+
+      <div class="mcard" style="border-top-color:#2f6b3b">
+        <div class="top"><span class="logo" style="background:#2f6b3b;width:26px;height:26px;font-size:10px">WC</span>
+          <div class="meta"><b>Card 2 · Sportsbook / World Cup</b><span>06/11 on · Event window</span></div>
+          <span class="sev high">High impact</span>
+        </div>
+        <h4>One week in, <span class="hi">all four operators have World Cup specials</span> (last week only Bet88)</h4>
+        <div class="detail">The World Cup opened 6/11 (PH early 6/12), runs to 7/19, ~38 days — the sportsbook segment's biggest acquisition window of the year.
+        <table>
+          <thead><tr><th>Brand</th><th>World Cup special (confirmed 6/15)</th><th>Window</th></tr></thead>
+          <tbody>
+            <tr><td><b>OKBet</b></td><td>FIFA 2026 "Spin for Glory" slot jackpot ₱15,888,888 (AdvantPlay)</td><td>6/8-7/26</td></tr>
+            <tr><td><b>Bet88</b></td><td>World Cup Prize Pool ₱4,900,000 + 25% sports cashback + Double Your Winnings</td><td>ongoing</td></tr>
+            <tr><td><b>CasinoPlus</b></td><td>World Cup Challenge ₱478,800 + BNG World Cup Fortune Race</td><td>6/11-6/17 / 6/4-7/18</td></tr>
+            <tr><td><b>ArenaPlus</b></td><td>World Cup Daily Bonus</td><td>ongoing</td></tr>
+          </tbody>
+        </table></div>
+        <div class="detail"><b>Why it matters:</b> last week (W24) only Bet88 ran a World Cup special, and newly-crowned Best Sportsbook ArenaPlus was still all-basketball. One week into the tournament, all four are in — it closed fast, one operator to four in a week. OKBet's ₱15,888,888 slot jackpot is the largest number (an AdvantPlay World Cup-themed slot, not a sports-odds promo); Bet88 holds its ₱4.9M pool and adds 25% rebate; CasinoPlus runs a time-limited challenge; ArenaPlus also added a daily bonus.</div>
+        <div class="warn"><b>⚠️ Note:</b> OKBet's World Cup special is a "slot jackpot," not a sports-odds promo, different in nature from Bet88 / ArenaPlus's sports specials — don't lump them together. Odds / mechanics detail are in images; for exact terms, open each promo.</div>
+        <div class="social"><b>⚠️ Single-source:</b> player reaction to post-kickoff World Cup books hasn't built up yet this week.</div>
+        <div class="src">Sources: 6/15 on-site (<a href="https://arenaplus.ph/promo">ArenaPlus</a> · <a href="https://www.okbet.com/reward-center">OKBet</a> · <a href="https://bet88.ph/en/promo/sportspromotions">Bet88 sports</a> · <a href="https://www.casinoplus.com.ph/promotions/">CasinoPlus</a>) · DigiPlus Brazil relaunch status in §05</div>
+        <div class="impact"><span><b>For Client X:</b> the World Cup window is closed — all four are in within a week, so winning recognition on "nobody else is doing World Cup" is no longer available. To compete, play on window size, mechanics, localization. Also a lesson: these short windows close in days, so entrant moves should be measured in days, not weeks.</span></div>
+      </div>
+
+      <div class="mcard" style="border-top-color:#8a3a33">
+        <div class="top"><span class="logo" style="background:#8a3a33;width:26px;height:26px;font-size:10px">PG</span>
+          <div class="meta"><b>Card 3 · PAGCOR / Regulation</b><span>06/08-06/15 · Policy + payments</span></div>
+          <span class="sev high">High impact</span>
+        </div>
+        <h4>GGR forecast down up to <span class="hi">19%</span>, online −22.43% in Q1, B2B supplier down-listing 8/1 looming</h4>
+        <div class="detail">PAGCOR's headwinds keep advancing:
+        <table>
+          <tbody>
+            <tr><td><b>2026 GGR forecast</b></td><td>Tengco (PAGCOR chair) reiterated on 6/9 at SiGMA: full-year ₱320-350B, down up to 19% from 2025's ₱396.14B; Q1 GGR -15.87% YoY to ₱87.6B, online electronic gaming -22.43% to ₱39.9B</td></tr>
+            <tr><td><b>Cause of the online decline</b></td><td>Tengco says it's <b>mainly the Middle East crisis</b> — higher fuel / transport costs squeezing lower-income discretionary spend (players cover necessities first); a further factor is the BSP's 2025 directive for banks / e-wallets to remove in-app links to gambling platforms</td></tr>
+            <tr><td><b>B2B down-listing 8/1</b></td><td>5/31 application deadline passed; any supplier not fully accredited by 7/31 has its systems / platform / games / equipment de-listed from 8/1 (about 6 weeks out)</td></tr>
+            <tr><td><b>Standing regulation</b></td><td>KYC tightening (submit ID + live selfie before depositing), prime-time-only ad ban (5:30-8:30 PM) with an all-day ban under study, a 24/7 helpline</td></tr>
+          </tbody>
+        </table></div>
+        <div class="detail"><b>Why it matters:</b> online fell 22.43% in the quarter. Tengco attributes it mainly to the Middle East crisis (economic pressure pushing lower-income players to necessities first); the e-wallet in-app-link removal is one factor. For operators, the deposit path is a structural friction point to keep watching; under the headwind the promo math naturally shifts from "how much bonus to acquire" toward "watch deposit success rate × first-deposit conversion."</div>
+        <div class="warn"><b>⚠️ Note:</b> "down up to 19%" is PAGCOR's full-year forecast range; Q1 actual was -15.87% — keep forecast and actual distinct. Attribute per Tengco's words: mainly the Middle East crisis, with the e-wallet link removal one factor — don't flip it to "mainly payments." The e-wallet link removal is a BSP 2025 policy, not new this week.</div>
+        <div class="src">Sources: <a href="https://www.yogonet.com/international/news/2026/06/09/122943-pagcor-forecasts-lower-philippine-gaming-revenue-in-2026-amid-online-slowdown">Yogonet 6/9</a> · <a href="https://agbrief.com/news/27/05/2026/pagcor-sets-july-deadline-for-b2b-accreditation/">AGB B2B 8/1</a> · <a href="https://tribune.net.ph/2026/05/16/philippine-gaming-industry-ggr-drops-16-in-q1">tribune Q1 -16%</a> · <a href="https://www.pna.gov.ph/articles/1268823">PNA Feb hearing</a></div>
+        <div class="impact"><span><b>For Client X:</b> before entry, vet your own suppliers on "filed by 5/31 + can pass by 7/31"; consider adding "how to deposit / alternative cashflow" education to ~30-day creative, and move the marketing metric from CPA toward deposit success rate × first-deposit conversion.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ §05 TIMELINE ============ -->
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Timeline · last two weeks</span>
+      <h2>Timeline (two-week reverse order)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow"><span class="d">06/11 on</span><span class="dot green"></span><span class="cat">EVENT</span><span class="br">Sportsbook</span><span class="desc">World Cup kickoff; within a week ArenaPlus / OKBet / Bet88 / CasinoPlus all launched World Cup specials</span><span class="wk">W25</span></div>
+      <div class="trow"><span class="d">06/10-06/11</span><span class="dot pink"></span><span class="cat">GROUP</span><span class="br">DigiPlus</span><span class="desc">GameZone × New Coast signs to build &amp; run LaVie casino's online platform (pending PAGCOR approval)</span><span class="wk">W25</span></div>
+      <div class="trow"><span class="d">06/09</span><span class="dot warn"></span><span class="cat">POLICY</span><span class="br">PAGCOR</span><span class="desc">Tengco (SiGMA) reiterates 2026 GGR forecast down up to 19%; attributes online decline mainly to the Middle East crisis</span><span class="wk">W25</span></div>
+      <div class="trow"><span class="d">06/05</span><span class="dot blue"></span><span class="cat">MEDIA</span><span class="br">DigiPlus</span><span class="desc">Philstar / MB report 6/2 GGA APAC repeat Digital Operator (W24 lede, backdrop this week)</span><span class="wk">W24</span></div>
+      <div class="trow"><span class="d">06/01-06/02</span><span class="dot pink"></span><span class="cat">AWARD</span><span class="br">DigiPlus</span><span class="desc">SiGMA Best Sportsbook (ArenaPlus) + GGA APAC Digital Operator double awards (W24 lede)</span><span class="wk">W24</span></div>
+      <div class="trow"><span class="d">05/31</span><span class="dot warn"></span><span class="cat">POLICY</span><span class="br">PAGCOR</span><span class="desc">B2B supplier accreditation application deadline</span><span class="wk">W23→24</span></div>
+      <div class="trow"><span class="d">05/29</span><span class="dot pink"></span><span class="cat">GOV</span><span class="br">DigiPlus</span><span class="desc">AGM: mandatory-listing pitch + Ping Chen appointed + Brazil June (W23 lede)</span><span class="wk">W23</span></div>
+    </div>
+    <div class="tl-legend">
+      <span><i style="background:#8a3a33"></i>Policy / anomaly / payments</span>
+      <span><i style="background:#2A5FAA"></i>Product / media / industry</span>
+      <span><i style="background:#c96442"></i>Governance / group / awards</span>
+      <span><i style="background:#2f6b3b"></i>Event / earnings</span>
+    </div>
+  </section>
+
+  <!-- ============ §06 IMPLICATIONS ============ -->
+  <section class="sec" id="implications">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Implications · Threats / Opportunities</span>
+      <h2>Implications (Threats / Opportunities)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="impl-meth">
+      <h6>Entry parameters (all internal estimates)</h6>
+      <ul>
+        <li><b>Catch-up cost of the leader's ecosystem play:</b> a non-listed entrant matching the "scale + ecosystem" narrative faces ~₱10M-₱30M + 6-12 months just for a governance framework + third-party endorsement.</li>
+        <li><b>Entry volume needs trimming:</b> with the market shrinking (GGR forecast down up to 19%) + the MGF monthly floor, first-year acquisition targets should be cut 15-25%.</li>
+        <li><b>Deposit success rate is a metric to watch:</b> PH deposits have inherent friction (KYC + payment channels); the entry model should fold "deposit success rate × first-deposit conversion" into its core, not just CPA.</li>
+        <li><b>World Cup window:</b> ~38 days 6/11-7/19 in play; Altenar-grade fully-managed sportsbook licensing ~₱8M-₱15M / year.</li>
+      </ul>
+    </div>
+    <div class="impl">
+      <div class="col threat">
+        <h5><span class="dot"></span>Threats (5)<span class="en">Threats</span></h5>
+        <ul>
+          <li><b>The leader is becoming a platform supplier — could shift from rival to upstream.</b> GameZone builds LaVie's online platform; DigiPlus moves from "online self-op" to "land-based + platform-for-others." Mid-tier independents and Client X without matching scale / ecosystem fall behind structurally on voice and bargaining; renting the leader's platform hands player data to the biggest rival. <em>Cost of inaction (internal est.): a build-your-own vs depend-on-leader dilemma, with the catch-up window narrowing as the leader's ecosystem fills out.</em></li>
+          <li><b>Market shrinking, but the monthly fee has a floor.</b> 2026 GGR forecast down up to 19%, online -22.43% in Q1; PAGCOR's MGF first batch started 6/1 (online e-casino min ₱9M/month, sports ₱3M, payable regardless of revenue). Market down, costs floored — entry is against the current. <em>Cost of inaction (internal est.): if the market is misjudged as still growing, first-year targets run 15-25% high and, without MGF in the burn model, ROI ranges down.</em></li>
+          <li><b>Deposit friction is a structural problem.</b> PH deposits inherently stall (KYC + payment-channel limits); online -22.43% in Q1; a model that watches CPA but not deposit success rate distorts. <em>Cost of inaction (internal est.): if post-entry deposit success rate is low, CPA looks on-target but first-deposit conversion collapses, understating effective acquisition cost by 30-50%.</em></li>
+          <li><b>8/1 supplier down-listing looms, supply chain may break.</b> If a few of the 9 brands' suppliers missed 5/31 filing / can't pass by 7/31, 1-3 may briefly disrupt in early August. <em>Cost of inaction (internal est.): post-entry replacement backup ~₱2M-₱5M, launch pushed back 4-8 weeks.</em></li>
+          <li><b>Ads could go all-day banned, a structural risk to SOV play.</b> Currently only prime time is banned; if extended to all-day + digital, the 9 brands' TV / KOL / social playbook needs a rebuild. <em>Cost of inaction (internal est.): channel rebuild, acquisition cost +20-40% short-term.</em></li>
+        </ul>
+      </div>
+      <div class="col opp">
+        <h5><span class="dot"></span>Opportunities (4)<span class="en">Opportunities</span></h5>
+        <ul>
+          <li><b>Nobody is doing deposit education</b> (internal est. cost ~₱200K-₱500K / 4 weeks). PH deposits already take extra steps (KYC + payment channels), yet 0 of 9 ran "how to deposit / alternative cashflow" content. Client X can run "deposit education + alternative cashflow guidance," turning the payment friction into a player-trust asset. <em>Counter-note: alternative cashflow guidance must clear legal review first, avoid any "guaranteed / sure-win" wording, and never steer around compliant rails.</em></li>
+          <li><b>No one has planted a Father's Day flag</b> (internal est. cost ~₱500K-₱1M / 4 weeks). 6/21 Father's Day, 0 of 9 moved this week. Client X can run brand-emotion communication (non-promo, no family / child imagery), purely on "father" emotion + a responsible-gaming message. <em>Counter-note: the red line on festivals is "reaching minors and families"; copy and channels go through legal review first.</em></li>
+          <li><b>No one is telling a B2B compliance story</b> (internal est. cost ~₱200K / 4 weeks). 8/1 down-listing looms, 0 of 9 disclose their suppliers' accreditation status. Client X can run a "full-stack accreditation narrative + supplier-status public page," turning the 8/1 pressure into differentiation. <em>Counter-note: if "compliance narrative" becomes an industry obligation, the window closes fast.</em></li>
+          <li><b>After the World Cup, it's about "execution + localization"</b> (internal est. cost depends on window). With all four World Cup specials out, "doing it" is no longer the differentiator; next it's mechanics, pool size, localization. If Client X has a sportsbook, the edge is execution detail, not the window itself. <em>Counter-note: all four moved first; do a live sweep of rivals' actual mechanics before entering, don't build against stale intel.</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="footer">
+    <div class="fcard">
+      <h5>Methodology + Sources</h5>
+      <p>10-brand watchlist (9 PAGCOR-licensed + entrant OKADA PLAY) + industry / regulatory moves. King.ph / Queen.ph marked closed since 2026-05-29, not scored (single-source, see §01). On 6/15 the promo pages of ArenaPlus / OKBet / Bet88 / CasinoPlus were checked on-site, World Cup specials verified per operator (screenshots saved); PlayTime's promo page is locked, 5/29 baseline carried over; BingoPlus / GameZone pricing carried over. Player-side topics come from public media and legal / regulatory sources (cybercrime complaint counts, addiction-crisis reports, withdrawal legal guidance) — long-running structural issues, not event-specific social chatter. The online-decline attribution follows Tengco's 6/9 words (mainly the Middle East crisis, e-wallet link removal a further factor); the e-wallet link removal is a BSP 2025 policy, not new this week; KYC / ads / helpline are February Senate-hearing background. Radar scores carry over from W22 5/24 SimilarWeb (Apr 2026) anchoring, no new traffic data this week, no re-scoring. Data window 6/08-6/15 review, 6/15-6/22 outlook.</p>
+      <div class="srcs">
+        <span><i class="ok"></i>BusinessWorld / GGRAsia / IAG / Philstar / Manila Times / MB / Inquirer / bilyonaryo<em>DigiPlus × LaVie deal 6/10-6/11</em></span>
+        <span><i class="ok"></i>IAG<em>DigiPlus talks on 2nd hotel beside LaVie / gaming district 5/5</em></span>
+        <span><i class="ok"></i>Yogonet<em>2026 GGR -19% + online -22.43% + decline attribution 6/9</em></span>
+        <span><i class="ok"></i>PNA<em>Feb Senate hearing: KYC / ad control / helpline</em></span>
+        <span><i class="ok"></i>AGB · tribune<em>B2B 8/1 down-listing + Q1 GGR -16%</em></span>
+        <span><i class="ok"></i>Inquirer / bilyonaryo<em>DigiPlus Brazil end-June relaunch + South Africa 2027</em></span>
+        <span><i class="ok"></i>6/15 on-site<em>ArenaPlus / OKBet / Bet88 / CasinoPlus World Cup specials</em></span>
+        <span><i class="ok"></i>Player-side: tribuna / gulfnews / lawyer-philippines<em>complaints / addiction / withdrawals</em></span>
+        <span><i class="partial"></i>PlayTime promo baseline 2026-05-29<em>locked, carried over</em></span>
+      </div>
+    </div>
+    <div class="fcard">
+      <h5>Next issue (W26 · 2026-06-22) watch list</h5>
+      <ol>
+        <li><span class="n">1</span>Actual results / player reaction to the four World Cup specials (Card 2 player side to W26)</li>
+        <li><span class="n">2</span>Whether the DigiPlus × LaVie platform deal gets PAGCOR approval, and actual launch timing</li>
+        <li><span class="n">3</span>DigiPlus's IEC conversion progress (toward 53.89% once fully converted) + Diamond Hotel / second-hotel gaming-district progress</li>
+        <li><span class="n">4</span>B2B down-listing 8/1 (~5 weeks next week), whether the 9 start disclosing supplier accreditation status</li>
+        <li><span class="n">5</span>Q2 online GGR data (out ~late July): whether -22.43% has bottomed</li>
+        <li><span class="n">6</span>Whether PAGCOR + Ads Standards Council finalize digital / social ad rules, and whether the all-day ban widens</li>
+        <li><span class="n">7</span>Whether the 9 brands launch Father's Day 6/21 creatives</li>
+        <li><span class="n">8</span>DigiPlus Brazil actual relaunch timing (this week: pre-World Cup end-June target, final-stage, not live)</li>
+        <li><span class="n">9</span>Whether King.ph / Queen.ph closure gets PAGCOR / group / trade-media second-source confirmation</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span><b>COMPETITOR // BRIEF</b> · 2026-W25 · PH iGaming · 10-brand watchlist (King / Queen closed) · Internal use</span>
+    <span>Data window 6/08-6/15 review · 6/15-6/22 outlook</span>
+  </div>
+
+</div>
+</div>
+
+<script>
+const RADAR_LABELS = ['BRAND','UX','CONTENT','PRICING','RETENTION','REACH'];
+const RADAR_LABELS_ZH = ['','','','','',''];
+
+const BRANDS = {
+  bingoplus:  { name:'BingoPlus',           color:'#E89AAA', scores:[80,75,80,70,75,85] },
+  arenaplus:  { name:'ArenaPlus',           color:'#2A5FAA', scores:[60,70,70,65,60,75] },
+  gamezone:   { name:'GameZone',            color:'#4F8C5C', scores:[35,70,65,75,70,55] },
+  king:       { name:'King.ph · closed',    color:'#2D6B4D', scores:[0,0,0,0,0,0], closed:true },
+  queen:      { name:'Queen.ph · closed',   color:'#B6356D', scores:[0,0,0,0,0,0], closed:true },
+  casinoplus: { name:'CasinoPlus',          color:'#B89968', scores:[75,70,75,65,70,60] },
+  okbet:      { name:'OKBet / OKGames',     color:'#D86B27', scores:[50,60,60,60,60,60] },
+  bet88:      { name:'Bet88',               color:'#C2272D', scores:[50,60,65,60,65,55] },
+  playtime:   { name:'PlayTime / PT Gaming',color:'#4A4FB8', scores:[85,70,70,65,70,65] },
+  okadaplay:  { name:'OKADA PLAY',          color:'#8B7355', scores:[30,25,25,25,20,50] }
+};
+let selfId = 'playtime';
+let vsId = 'gamezone';
+const cx=160, cy=160, R=130;
+const angle = i => (Math.PI*2*i)/6 - Math.PI/2;
+
+function ringPolygon(rr){
+  return Array.from({length:6},(_,i)=>`${cx+rr*Math.cos(angle(i))},${cy+rr*Math.sin(angle(i))}`).join(' ');
+}
+function polyPoints(values){
+  return values.map((v,i)=>{const r=(v/100)*R;return `${cx+r*Math.cos(angle(i))},${cy+r*Math.sin(angle(i))}`;}).join(' ');
+}
+function labelPos(i,off=22){
+  const x = cx + (R+off)*Math.cos(angle(i));
+  const y = cy + (R+off)*Math.sin(angle(i)) + 4;
+  return {x,y};
+}
+
+function initRadar(){
+  const ringsG = document.getElementById('rings');
+  [1,.75,.5,.25].forEach((s,i)=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',ringPolygon(R*s));
+    p.setAttribute('fill', i===0 ? 'rgba(255,255,255,.04)' : 'none');
+    p.setAttribute('stroke','rgba(255,255,255,.18)');
+    ringsG.appendChild(p);
+  });
+  const axesG = document.getElementById('axes');
+  for(let i=0;i<6;i++){
+    const x=cx+R*Math.cos(angle(i)), y=cy+R*Math.sin(angle(i));
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x);l.setAttribute('y2',y);
+    l.setAttribute('stroke','rgba(255,255,255,.1)');
+    axesG.appendChild(l);
+  }
+  const labG = document.getElementById('labels');
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const p=labelPos(i,18);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',p.x);t1.setAttribute('y',p.y-6);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('fill','#fff');t1.setAttribute('font-size','10');t1.setAttribute('font-weight','800');
+    t1.textContent=lbl;
+    labG.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',p.x);t2.setAttribute('y',p.y+6);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('fill','rgba(255,255,255,.6)');t2.setAttribute('font-size','9');
+    t2.textContent=RADAR_LABELS_ZH[i];
+    labG.appendChild(t2);
+  });
+  const selfSel = document.getElementById('selfsel');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = d.name;
+    if(id===selfId) opt.selected = true;
+    selfSel.appendChild(opt);
+  });
+  selfSel.addEventListener('change', e => { selfId = e.target.value; render(); });
+
+  const vsbtns = document.getElementById('vsbtns');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const b = document.createElement('button');
+    b.dataset.id = id;
+    b.innerHTML = `<i style="background:${d.color}"></i>${d.name}`;
+    if(id===vsId) b.classList.add('active');
+    b.onclick = () => {
+      vsId = id;
+      document.querySelectorAll('#vsbtns button').forEach(x => x.classList.toggle('active', x.dataset.id===id));
+      render();
+    };
+    vsbtns.appendChild(b);
+  });
+
+  render();
+}
+function render(){
+  const self = BRANDS[selfId];
+  const vs = BRANDS[vsId];
+  const polySelf = document.getElementById('polySelf');
+  const polyVs = document.getElementById('polyVs');
+  polySelf.setAttribute('points', self.closed ? '' : polyPoints(self.scores));
+  polyVs.setAttribute('points', vs.closed ? '' : polyPoints(vs.scores));
+  polyVs.setAttribute('fill', vs.closed ? 'none' : vs.color);
+  polyVs.setAttribute('stroke', vs.closed ? 'none' : vs.color);
+  document.getElementById('legendSelf').textContent='Baseline · '+self.name;
+  document.getElementById('legendVs').textContent=vs.name;
+  document.getElementById('legendVsColor').style.background=vs.closed?'#555':vs.color;
+  const grid = document.getElementById('radarGrid');
+  grid.innerHTML='';
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const sv = self.closed ? 'N/A' : self.scores[i];
+    const vv = vs.closed ? 'N/A' : vs.scores[i];
+    const lead = (!self.closed && !vs.closed && vs.scores[i] > self.scores[i]);
+    grid.innerHTML += `<span>${lbl}</span><span>${sv}</span><span>vs</span><span style="color:${lead?'var(--neg)':'var(--pos)'}">${vv}</span>`;
+  });
+}
+initRadar();
+</script>
+
+</body>
+</html>

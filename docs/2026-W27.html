@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>博彩产业周深度 Brief · W27 · 2026-06-29 ~ 2026-07-05</title>
+<meta name="description" content="W27 产业视角周报：预测市场本周多个法院节点、方向都偏向「预测市场就是赌博」（密歇根禁 Kalshi、新泽西走到最高法院 8/4 期限）；澳门 6 月赌收实际 -12.1%、9 月来最弱；巴西财政部 7/1 对博彩公司开案加勒令下架 CazéTV 涉事广告、13% 税上路；世界杯淘汰赛投注破纪录、是卡塔尔 9 倍；菲律宾 B2B 剩 26 天、越南破获台湾人主导的跨国赌博洗钱网" />
+<link rel="alternate" hreflang="zh-Hans" href="2026-W27.html" /><link rel="alternate" hreflang="en" href="2026-W27-en.html" /><link rel="alternate" hreflang="x-default" href="2026-W27.html" />
+
+<style>
+  :root {
+    --ink: #1f1d1a;
+    --ink-2: #4a4742;
+    --ink-3: #8a857d;
+    --paper: #ffffff;
+    --paper-2: #f7f5f1;
+    --rule: #d9d4cb;
+    --rule-2: #ebe6dd;
+    --hi: #fff3a6;
+    --pos: #c9e4cf; --pos-ink: #2f6b3b;
+    --neu: #e1dfd9; --neu-ink: #5b574e;
+    --neg: #f1c9c5; --neg-ink: #8a3a33;
+    --cat-a: #d6e2ee;
+    --cat-b: #e8dcec;
+    --cat-c: #efe1c9;
+    --cat-d: #d9e8d6;
+    --cat-e: #f1d9d5;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #f0eee9; color: var(--ink);
+               font-family: Arial, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "PingFang TC", "Microsoft JhengHei", sans-serif;
+               -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  a { color: var(--ink); text-decoration: underline; }
+  a:hover { color: #000; }
+  u { text-decoration: underline; text-underline-offset: 2px; }
+  mark, .hi { background: var(--hi); padding: 0 2px; border-radius: 2px;
+              -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  ul { padding-left: 18px; margin: 6px 0; }
+  ul li { margin: 3px 0; }
+
+  .page { max-width: 1200px; margin: 0 auto; padding: 28px 32px;
+          background: var(--paper); min-height: 100vh; position: relative; }
+
+  .lang-toggle { display: inline-flex; background: var(--paper-2); border: 1px solid var(--rule);
+                 border-radius: 999px; overflow: hidden; font-size: 11px; font-weight: 700;
+                 margin-bottom: 12px; }
+  .lang-toggle a { padding: 6px 16px; text-decoration: none; color: var(--ink-3);
+                   transition: all .15s ease; letter-spacing: .05em; }
+  .lang-toggle a.active { background: var(--ink); color: #fff; }
+  .lang-toggle a:not(.active):hover { background: var(--paper); color: var(--ink); }
+  .lang-toggle-row { display: flex; justify-content: flex-end; }
+
+  .masthead { border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+  .masthead .kicker { font-size: 11px; letter-spacing: .22em; color: var(--ink-3);
+                      font-weight: 700; text-transform: uppercase; }
+  .masthead .row { display: flex; justify-content: space-between; align-items: baseline;
+                   gap: 18px; margin-top: 4px; flex-wrap: wrap; }
+  .masthead h1 { margin: 0; font-size: 22px; font-weight: 800; line-height: 1.2; color: var(--ink); }
+  .masthead .meta-stats { display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+                          font-size: 11px; color: var(--ink-3); }
+
+  .pill { display: inline-flex; align-items: center; gap: 4px;
+          padding: 2px 8px; border-radius: 999px; font-size: 10px;
+          border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); }
+  .pill.pos { background: var(--pos); color: var(--pos-ink); border-color: transparent; }
+  .pill.neu { background: var(--neu); color: var(--neu-ink); border-color: transparent; }
+  .pill.neg { background: var(--neg); color: var(--neg-ink); border-color: transparent; }
+  .pill.hot { background: var(--ink); color: #fff; border-color: transparent; font-weight: 700; }
+  .pill.rank { font-weight: 700; }
+  .pill .dot { font-weight: 700; }
+  .cat { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 3px;
+         color: var(--ink); font-weight: 600; }
+  .cat.a { background: var(--cat-a); }
+  .cat.b { background: var(--cat-b); }
+  .cat.c { background: var(--cat-c); }
+  .cat.d { background: var(--cat-d); }
+  .cat.e { background: var(--cat-e); }
+
+  .nav-anchors { display: flex; gap: 8px; margin: 18px 0 14px; flex-wrap: wrap;
+                 padding-bottom: 14px; border-bottom: 1px dashed var(--rule); }
+  .nav-anchors a {
+    display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap; padding: 7px 14px;
+    border-radius: 6px; font-size: 11.5px; font-weight: 600;
+    color: var(--ink-2); background: var(--paper);
+    border: 1px solid var(--rule); text-decoration: none;
+    transition: all .18s ease;
+    box-shadow: 0 1px 2px rgba(31,29,26,.04);
+  }
+  .nav-anchors a::before {
+    content: ''; display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--dot, var(--ink-3));
+    flex-shrink: 0;
+    transition: all .18s ease;
+  }
+  .nav-anchors a:hover {
+    background: var(--ink); color: #fff; border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(31,29,26,.15);
+  }
+  .nav-anchors a:hover::before { background: #fff; transform: scale(1.2); }
+  .nav-anchors a.lead {
+    background: var(--ink); color: #fff; border-color: transparent;
+    font-weight: 700;
+  }
+  .nav-anchors a.lead::before {
+    background: var(--hi); width: 7px; height: 7px;
+    box-shadow: 0 0 6px rgba(255,243,166,.6);
+  }
+
+  .section { margin: 32px 0 0; scroll-margin-top: 12px; }
+  .signal-card, .lead, article[id^="sig-"], div[id^="sig-"] { scroll-margin-top: 24px; }
+  .section-head { display: flex; align-items: baseline; gap: 10px;
+                  border-bottom: 2px solid var(--ink); padding-bottom: 6px; margin-bottom: 14px; }
+  .section-head .num { font-family: ui-monospace, Menlo, monospace; font-size: 13px;
+                       font-weight: 700; color: var(--ink); background: var(--hi);
+                       padding: 1px 8px; border-radius: 2px; }
+  .section-head h2 { margin: 0; font-size: 17px; font-weight: 800; color: var(--ink); }
+  .section-head .h2-en { font-size: 10px; letter-spacing: .22em; color: var(--ink-3);
+                         text-transform: uppercase; font-weight: 700; margin-left: auto; }
+
+  .subsection-head { margin: 22px 0 10px; font-size: 13.5px; font-weight: 800; color: var(--ink);
+                     border-left: 4px solid var(--ink); padding-left: 10px; }
+
+  .signals-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px;
+  }
+  .lead { background: var(--paper-2); border-left: 5px solid var(--ink);
+          padding: 18px 22px; grid-column: 1 / -1; margin-bottom: 4px; }
+  .lead .meta-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+  .lead h3 { margin: 0 0 8px; font-size: 17px; font-weight: 800; color: var(--ink); line-height: 1.35; }
+  .lead .src-meta { font-size: 11px; color: var(--ink-3); margin: 0 0 10px; letter-spacing: .05em; }
+  .lead p { font-size: 13px; color: var(--ink-2); line-height: 1.75; margin: 0 0 10px; }
+  .lead .cta { display:inline-block; background: var(--ink); color: #fff; padding: 6px 14px;
+               font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 2px;
+               margin-top: 4px; }
+  .signal-card {
+    background: var(--paper-2); border-left: 3px solid var(--ink);
+    padding: 16px 18px;
+  }
+  .signal-card .label { font-size: 10px; letter-spacing: .2em; color: var(--ink-3);
+                        font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+  .signal-card h4 { margin: 0 0 8px; font-size: 14.5px; font-weight: 800; color: var(--ink); line-height: 1.4; }
+  .signal-card .signal-key { font-size: 12px; color: var(--ink-2); line-height: 1.7;
+                              margin: 0 0 8px; padding: 8px 10px; background: var(--paper);
+                              border: 1px solid var(--rule-2); border-radius: 2px; }
+  .signal-card .signal-judge { font-size: 12px; color: var(--ink-2); line-height: 1.75;
+                                margin: 6px 0 8px; }
+  .signal-card .signal-judge u { font-weight: 600; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+
+  .card { background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; }
+  .card.hilite { background: var(--paper-2); border-left: 3px solid var(--ink); }
+  .card .meta-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+  .card h4 { margin: 0 0 8px; font-size: 14.5px; font-weight: 700; color: var(--ink); line-height: 1.5; }
+  .card .src-date, .card .src { font-size: 11px; color: var(--ink-3); margin: 0 0 10px; letter-spacing: .05em; }
+  .card p { font-size: 12.5px; color: var(--ink-2); line-height: 1.75; margin: 0 0 10px; }
+  .card .judge { font-size: 12.5px; color: var(--ink-2); line-height: 1.8;
+                 background: var(--paper-2); padding: 10px 12px; margin: 10px 0;
+                 border-left: 3px solid var(--ink); }
+  .card .judge u { font-weight: 700; color: var(--ink); }
+  .card .judge .lead-in { font-weight: 700; color: var(--ink); }
+
+  .news-sources {
+    border-top: 1px dashed var(--rule);
+    padding-top: 8px;
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+  .news-sources .label {
+    color: var(--ink-2); font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase;
+    margin-bottom: 4px; font-size: 10px;
+  }
+  .news-sources ul { padding-left: 14px; margin: 0; list-style: none; }
+  .news-sources li {
+    margin: 2px 0; line-height: 1.6;
+    position: relative;
+  }
+  .news-sources li::before {
+    content: '·'; color: var(--ink-3); margin-right: 6px;
+    position: absolute; left: -10px;
+  }
+  .news-sources a { color: var(--ink-2); }
+
+  .x-pulse { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .x-pulse .card { background: var(--paper-2); }
+  .x-pulse .card.hilite-na { background: var(--ink); color: var(--paper-2); border: none; }
+  .x-pulse .card.hilite-na h4 { color: #fff; }
+  .x-pulse .card.hilite-na p { color: var(--rule-2); }
+  .x-pulse .card.hilite-na a { color: var(--hi); }
+  .x-pulse .card.hilite-na .judge { background: rgba(255,255,255,.08); color: var(--rule-2);
+                                     border-left-color: var(--hi); }
+  .x-pulse .card.hilite-na .judge u { color: #fff; }
+  .x-pulse .card.hilite-na .news-sources { border-top-color: var(--ink-3); }
+  .x-pulse .card.hilite-na .news-sources a,
+  .x-pulse .card.hilite-na .news-sources .label { color: var(--hi); }
+
+  .colophon { display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+              border-top: 2px solid var(--ink); padding-top: 18px; margin-top: 28px; }
+  .colophon h5 { margin: 0 0 8px; font-size: 11px; letter-spacing: .22em; color: var(--ink);
+                 font-weight: 800; text-transform: uppercase; }
+  .colophon p { font-size: 12px; color: var(--ink-2); line-height: 1.7; margin: 0 0 6px; }
+  .colophon .source-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px;
+                            margin-top: 6px; font-size: 11px; color: var(--ink-2); }
+  .colophon .source-grid .ok { color: var(--pos-ink); font-weight: 700; }
+  .colophon .source-grid .warn { color: var(--neu-ink); font-weight: 700; }
+  .colophon .next-list { font-size: 12px; line-height: 1.85; color: var(--ink-2); }
+  .colophon .next-list b { color: var(--ink); }
+  .colophon .next-list .urgent { color: var(--neg-ink); font-weight: 700; }
+
+  .footer-bottom { border-top: 1px solid var(--rule); margin-top: 22px; padding-top: 12px;
+                   font-size: 11px; color: var(--ink-3); line-height: 1.7; }
+  .footer-bottom .label { font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+                          font-weight: 700; color: var(--ink-2); margin-bottom: 4px; }
+
+  @media (max-width: 1023px) {
+    .page { padding: 24px 24px; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .signals-grid { grid-template-columns: 1fr; }
+    .colophon { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 767px) {
+    .page { padding: 20px 16px; }
+    .masthead h1 { font-size: 17px; }
+    .masthead .row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .nav-anchors { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    .grid-3, .grid-2, .grid-auto, .x-pulse { grid-template-columns: 1fr; gap: 12px; }
+    .section-head h2 { font-size: 15.5px; }
+    .section-head .h2-en { display: none; }
+  }
+  @media print {
+    body { background: #fff; }
+    .nav-anchors { display: none; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap;">
+      <div>
+        <div class="kicker">Weekly Gambling Brief · W27 · 2026-06-29 ~ 2026-07-05</div>
+        <h1 style="margin:4px 0 0;font-size:22px;font-weight:800;line-height:1.2;color:var(--ink);">博彩产业视角周报 · 全球博彩产业</h1>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="lang-toggle">
+          <a href="2026-W27.html" class="active" aria-current="page">中</a>
+          <a href="2026-W27-en.html">EN</a>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:11px;">
+          <span class="pill pos"><span class="dot">＋</span>利好</span>
+          <span class="pill neu"><span class="dot">○</span>中立</span>
+          <span class="pill neg"><span class="dot">−</span>不利</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV ANCHORS -->
+  <nav class="nav-anchors">
+    <a class="lead" href="#highlights">🔥 本周亮点</a>
+    <a href="#s1" style="--dot:#d6e2ee;">§1 法规</a>
+    <a href="#s2" style="--dot:#efe1c9;">§2 M&amp;A</a>
+    <a href="#s3" style="--dot:#e8dcec;">§3 产品</a>
+    <a href="#s4" style="--dot:#efe1c9;">§4 运营商</a>
+    <a href="#s5" style="--dot:#d9e8d6;">§5 亚洲</a>
+    <a href="#s6" style="--dot:#d9e8d6;">§6 拉美</a>
+    <a href="#s7" style="--dot:#d9e8d6;">§7 北美</a>
+    <a href="#s8" style="--dot:#f1d9d5;">§8 体博</a>
+    <a href="#s9" style="--dot:#8a857d;">§9 X</a>
+    <a href="#s10" style="--dot:#8a857d;">§10 建议</a>
+  </nav>
+
+  <!-- 🔥 本周亮点 -->
+  <section class="section" id="highlights">
+    <div class="section-head">
+      <span class="num">🔥</span>
+      <h2>本周 5 个值得注意的讯号</h2>
+      <span class="h2-en">Five Headline Signals</span>
+    </div>
+
+    <div class="signals-grid">
+
+      <!-- Signal 01 — LEAD -->
+      <article class="lead">
+        <div class="meta-row">
+          <span class="pill hot rank">01 · 头条</span>
+          <span class="cat a">法规</span>
+          <span class="pill neu"><span class="dot">○</span>中立</span>
+          <span class="pill hot">北美 · 预测市场</span>
+        </div>
+        <h3>预测市场官司：<span class="hi">本周多个关键节点，方向都偏向「预测市场就是赌博」</span></h3>
+        <p class="src-meta">Gambling Insider · Courthouse News · 2026-06-29 ~ 07-05</p>
+        <p>背景：预测市场（PMs、prediction markets、让人下注「某件事会不会发生」的平台，像 Kalshi、Polymarket）归谁管，美国吵了大半年。管金融的联邦机构 CFTC（美国商品期货交易委员会）说「这是金融产品、归联邦管」；很多州说「这就是赌博、该归州管、甚至该禁」。</p>
+        <p>本周有几个关键节点：<br><b>1. 密歇根</b>：法官核发临时禁制令（TRO）、要 Kalshi 停止在该州提供体育赛事合约，不停就连续罚款。密歇根成为继内华达、麻州之后第 3 个下禁制令挡 Kalshi 的州。<br><b>2. 内华达</b>：最高法院驳回 Kalshi 的紧急暂缓申请，还排了 7/16 藐视法庭听证（查它为什么没照禁令把该州用户挡在外面）。<br><b>3. 平台反击</b>：Polymarket 7/1 在联邦法院反告新墨西哥州；Kalshi 另在俄亥俄州告该州博彩管制委员会、要取消一笔 $500 万行政罚款。<br><b>4. 新泽西</b>：官司走到了美国最高法院——大法官 Alito 要新泽西州在 8/4 前提出上诉状。这可能是最高法院第一次表态「联邦的金融法压不压得过州的赌博法」。</p>
+        <p>同一周明尼苏达的联邦听证（7/3），主审法官 Menendez 当庭问「体育事件合约跟传统体育投注到底有没有本质区别」、还说要说服她「押某个球员的篮板数有经济意义」是件难事，当天没判、裁定押后。</p>
+        <p><br><u>综合判断</u>：对预测市场平台 -EV、对花钱拿牌照守规矩的持牌方 +EV。这周这么多法院、连共和党执政的州、连州监管都在挡预测市场，方向很清楚：「预测市场就是赌博」这个认定在变强，「它是天生合法的金融产品、不用牌照」这套说法在变弱。对做菲律宾、巴西的操盘手，直接的意义是——别信「预测市场不用牌照也能做」，拿牌照、守规矩才是这行的门槛。<b>操作建议</b>：跟预测市场平台合作的代理、B2B，把「美国监管还没定案、州级禁令和罚款一直在发生」写进合约风险条款、讲清楚某个州被禁时谁承担损失；盯三个日子——7/16 内华达藐视听证、8/1 明尼苏达禁令生效、8/4 新泽西最高法院期限。</p>
+        <a class="cta" href="https://www.gamblinginsider.com/news/169700/prediction-markets-weekly-roundup-kalshi-polymarket-taxes-cboe" target="_blank" rel="noopener">阅读原文 →</a>
+      </article>
+
+      <!-- Signal 02 -->
+      <article class="signal-card">
+        <div class="label" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>讯号 02 · 亚洲 · 市场</span>
+          <span class="pill neg" style="letter-spacing:0;"><span class="dot">−</span>不利</span>
+        </div>
+        <h4>澳门 6 月赌场收入实际数字：<span class="hi">同比 -12.1% 到 MOP$18.5B、去年 9 月以来最弱</span></h4>
+        <div class="signal-key">
+          本周澳门 6 月实际数字出来了：毛博彩收入（GGR、玩家输掉的总额）MOP$18.52B（约 2.29 亿美元、约 720 亿台币）、同比掉 12.1%、比 5 月环比掉 18.1%、是去年 9 月以来最弱的一个月。分析师普遍归因世界杯——104 场比赛把玩家的博彩预算分去体育投注、也压低了到访。但上半年累计还 +6.8%（MOP$126.9B），所以这是世界杯的单季分流、不是需求崩了。
+          <div class="stat-strip" style="margin-top:10px;">
+            <div class="stat"><b>-12.1%</b><span>6 月 GGR 同比（环比 -18.1%）</span></div>
+            <div class="stat"><b>MOP$18.52B</b><span>6 月单月（US$2.29B）</span></div>
+            <div class="stat"><b>+6.8%</b><span>上半年累计仍正</span></div>
+            <div class="stat"><b>104 场</b><span>世界杯 48 队新赛制、分流预算</span></div>
+          </div>
+        </div>
+        <p class="signal-judge"><br><u>综合判断</u>：对澳门综合度假村（赌场）-EV。6–7 月直接按「同比转负」估，但别据此把全年、把 2027 都看衰——世界杯 7/19 结束后、8 月起玩家预算回流、有机会看到反弹。<b>操作建议</b>：做澳门或亚太中高端贵宾客（VIP、单次下注几万到几十万的客层）营销的，档期往 7/19 世界杯决赛之后排；跟澳门方谈合作时用「单月分流、全年仍正」这个分寸沟通、别被单月数字带着过度反应。<a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://asgam.com/2026/07/01/macau-ggr-falls-12-1-year-on-year-to-mop18-5-billion-in-june-as-operators-feel-impact-of-football-world-cup/" target="_blank" rel="noopener">IAG 阅读原文 →</a></p>
+      </article>
+
+      <!-- Signal 03 -->
+      <article class="signal-card">
+        <div class="label" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>讯号 03 · 巴西 · 法规</span>
+          <span class="pill neg" style="letter-spacing:0;"><span class="dot">−</span>不利</span>
+        </div>
+        <h4>巴西财政部 7/1 对博彩公司开案、<span class="hi">勒令立即下架 CazéTV 涉事广告；罚则最高吊照或 R$20 亿</span></h4>
+        <div class="signal-key">
+          巴西财政部下属的博彩监管秘书处（SPA、Secretaria de Prêmios e Apostas）7/1 对多家博彩公司开了调查程序，针对它们在世界杯转播平台 CazéTV 上的广告。理由很具体：广告内容「催人下注」，法定的博彩风险警语字体小到看不清。SPA 同时下了预防性命令、要求立即停播这些违规广告——跟只能劝导的广告自律机构 CONAR 不同，财政部的命令有强制力、不照做违法。司法部也同步介入、查有没有违反消费者保护法。罚则：情节严重或再犯，最高吊销牌照或罚到 R$20 亿（约 1,100 亿台币）。另外博彩税（GGR 税率）7 月从 12% 升到 13%（2028 到 15%），但上半年税收反而破纪录——前 5 个月光博彩就贡献 BRL5.89B（约 330 亿台币）、同比涨近 86%。
+        </div>
+        <p class="signal-judge"><br><u>综合判断</u>：对靠名人、网红、把赔率塞进转播冲量的打法 -EV、对把广告做合规、走自有渠道的持牌方 +EV。容易看错的地方——税收破纪录不代表监管会放松，反而给了政府「这个产业有钱、可以多管多收」的底气。稽查从查一家转播台，升到财政部亲自开案加勒令下架，说明监管这次是玩真的。<b>操作建议</b>：世界杯期间巴西的网红、名人合作，先确认对方广告有没有挂 SPA 的牌照号、有没有把赔率伪装成解说内容——CazéTV 就是被抓的样本；财务模型把 13% 税率和 2028 到 15% 的路径都算进去。<a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://igamingbrazil.com/en/legislation-en/2026/07/01/ministry-of-finance-opens-proceedings-against-betting-companies-following-world-cup-advertisements/" target="_blank" rel="noopener">iGaming Brazil 阅读原文 →</a></p>
+      </article>
+
+      <!-- Signal 04 -->
+      <article class="signal-card">
+        <div class="label" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>讯号 04 · 体育博彩</span>
+          <span class="pill pos" style="letter-spacing:0;"><span class="dot">＋</span>利好</span>
+        </div>
+        <h4>世界杯进淘汰赛、投注破纪录：<span class="hi">美国整届估 $2.82B–$4.3B、是卡塔尔的 9 倍</span></h4>
+        <div class="signal-key">
+          世界杯进到淘汰赛（决赛 7/19）、投注纪录还在往上堆。这届 48 队、104 场，把两大体育博彩（sportsbook）龙头 FanDuel（Flutter 旗下、美国市占第一）和 DraftKings（DKNG、美国市占前二）的足球数据都推到史上最高。
+          <div class="stat-strip" style="margin-top:10px;">
+            <div class="stat"><b>$2.82–4.3B</b><span>美国整届投注额估</span></div>
+            <div class="stat"><b>约 9 倍</b><span>vs 上届卡塔尔（约 $4.9 亿）</span></div>
+            <div class="stat"><b>$1.3B / $1.1B</b><span>FanDuel / DraftKings 各自估</span></div>
+            <div class="stat"><b>$11.3B</b><span>DraftKings Predictions 年化成交量</span></div>
+          </div>
+        </div>
+        <p class="signal-judge"><br><u>综合判断</u>：对同时有赌场和体育博彩的综合运营商 +EV、对只做足球盘的 -EV、对巴西持牌方 +EV。足球盘利润薄，真正的价值是趁世界杯拉大量新注册用户、再导去赌场和老虎机（slot）这类高利润产品做长期留存。要补的一点：预测市场这次证明它能在同一批赛事上做到很大的量（DraftKings 一个产品就年化 $11.3B）、还自建交易所压成本。<b>操作建议</b>：获客流程设计成「注册领赛事优惠、顺势玩赌场」；淘汰赛这段高意图用户最集中、把留存动作排在决赛前后；中小品牌别跟龙头硬抢热门场、挑冷门对阵做差异化。<a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.playusa.com/news/world-cup-2026-betting-tracks-toward-record-handle/" target="_blank" rel="noopener">PlayUSA 阅读原文 →</a></p>
+      </article>
+
+      <!-- Signal 05 -->
+      <article class="signal-card">
+        <div class="label" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>讯号 05 · 亚洲 · 法规</span>
+          <span class="pill neg" style="letter-spacing:0;"><span class="dot">−</span>不利</span>
+        </div>
+        <h4>菲律宾 B2B 认证期限剩 26 天、电子钱包立法讨论持续；<span class="hi">越南破获台湾人主导的跨国赌博洗钱网</span></h4>
+        <div class="signal-key">
+          <b>菲律宾</b>：给本地线上博彩供货的 B2B 厂商，要在 7/31 前完成 PAGCOR（菲律宾博彩监管局）认证，今天（7/5）剩 26 天、没过的 8/1 起系统强制下线。限制电子钱包接入博彩、设 21 岁年龄门槛的两条立法（参议员 Hontiveros 案、众议院 House Bill 1351「Kontra E-Sugal」），本周讨论持续发烧，方向都是从「玩家怎么进来玩」这端收紧。<br><b>越南</b>（新增观察区）：警方破获一个由 5 名台湾籍人士主导的跨国线上赌博加洗钱网络，两个月内用 266 个银行账户洗了超过 VNĐ1 兆（约 3,840 万美元、约 12 亿台币），动员 66 名警力在胡志明市、河内、河静等地抓了 36 人。越南目前合法的只有 Corona Resort（富国岛）、Grand Ho Tram、Vân Đồn 几个本地试点，离岸灰市（W88、WE88、188bet 这类）仍是主力、但执法在同步收紧。
+        </div>
+        <p class="signal-judge"><br><u>综合判断</u>：对靠电子钱包低门槛拉客、靠没认证境外供应商的中小纯线上运营商 -EV、对做越南离岸灰市的品牌 -EV、对资本厚扛得住合规成本的品牌相对 +EV。菲律宾和越南是同一个方向的两个案例——监管从「发牌」转向「打执行、清入口」。<b>操作建议</b>：菲律宾上游每家供应商再确认 7/31 前的 PAGCOR 认证进度、没拿到的马上找替代；获客流程按「电子钱包接入会被限、年龄验证会更严」提前重做；做越南市场的，把「离岸网络被执法打击」当明确的经营前提。<a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://vietnamnews.vn/society/1784447/police-bust-taiwanese-run-trans-national-gambling-money-laundering-ring.html" target="_blank" rel="noopener">Vietnam News 阅读原文 →</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- §1 法规动态 -->
+  <section class="section" id="s1">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>法规动态</h2>
+      <span class="h2-en">Regulation</span>
+    </div>
+
+    <div style="background:var(--paper-2);border-left:3px solid var(--ink-3);padding:12px 16px;margin-bottom:16px;font-size:12px;line-height:1.7;color:var(--ink-2);">
+      讯号 01 已经把本周预测市场的几个法院节点（密歇根、内华达、俄亥俄、新泽西、明尼苏达）讲完了，这里不重复，补三条没进讯号区的法规细节。
+    </div>
+
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">美国 · 州课税</span></div>
+        <h4>美国各州对预测市场课税：<span class="hi">北卡 6%、新泽西 9%</span></h4>
+        <p class="src">Gambling Insider · 2026-07-02</p>
+        <p>除了禁，美国有些州开始改用「课税」对付预测市场。北卡罗来纳州两院 7/2 通过的预算报告里，含一条 6% 的预测市场税（待正式确认后送州长签署）；新泽西两院委员会同步推进对预测市场营收课 9% 附加税的法案（但把「建立监管框架、禁止某些合约」的条文拿掉了、只留税）。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对预测市场平台 -EV、对观察「各州反制工具箱」+EV。工具正在从「禁」扩到「税」——跟上周肯塔基 14.25% 高税同一逻辑，但北卡、新泽西的税率温和得多，意思是「不赶平台走、但要分一杯羹」。<b>操作建议</b>：这套「州级课税」的演化值得记进新兴市场的预判——一个产业挡不住时、政府下一步通常是「合法化加课税」，菲律宾、巴西都走过这条路。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/169583/north-carolina-new-jersey-prediction-market-tax-proposals" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">美国 · 联邦立法</span></div>
+        <h4>美国联邦法案：<span class="hi">禁公职人员用预测市场押政治结果</span></h4>
+        <p class="src">Gambling Insider · 2026-07</p>
+        <p>四名跨党派众议员提了一条新联邦法案「No Profiting from Public Service Act」、要禁止公职人员（含政客、最高法院大法官、其他联邦官员）交易股票、以及用预测市场押政府和政治结果。这加入了国会这两年已经堆了二十多条、冲着预测市场来的联邦法案清单。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对预测市场平台 -EV（政治盘是它的招牌品类之一）、对短期营运影响有限（还只是提案）。<b>操作建议</b>：这条本身不急，但它是「国会对预测市场的态度」的温度计——两年二十多条法案、说明立法端的共识是「要管」、只是还没谈拢怎么管。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/169700/prediction-markets-weekly-roundup-kalshi-polymarket-taxes-cboe" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">英国 · 成本</span></div>
+        <h4>英国 UKGC 牌照费 10 月起<span class="hi">涨 25%</span></h4>
+        <p class="src">Gambling Insider · 2026-07-02</p>
+        <p>英国博彩委员会（UKGC）宣布、牌照费从 10 月起调涨 25%。这叠加在英国本来就重的成本上——线上博彩税（RGD、remote gaming duty）4 月已升到 40%，加上前胸球衣广告禁令将至（见 §4）。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对英国老牌博彩 -EV、对纯线上新兴市场品牌 +EV（人才和资源会从英国往外流）。这跟「Bally's 收购 Evoke、英国老牌被高成本压出人才」是同一条线的延续。<b>操作建议</b>：现在到年底是挖英国资深产品、合规人才的窗口，10 月费用调涨可能加速中小英国运营商的出走或裁并。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/169658/ukgc-licence-fees-rise-october-2026" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §2 M&A 与资本动作 -->
+  <section class="section" id="s2">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>M&amp;A 与资本动作</h2>
+      <span class="h2-en">M&amp;A &amp; Capital Moves</span>
+    </div>
+
+    <div style="background:var(--paper-2);border-left:3px solid var(--ink-3);padding:12px 16px;margin-bottom:16px;font-size:12px;line-height:1.7;color:var(--ink-2);">
+      这周有三桩新交易：中东卡位、数据版权集中、平台补前端。（Evolution／Galaxy、Bally's／Evoke 两桩旧案本周无进度，等有结论再写。）
+    </div>
+
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat c">运营商</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">中东 · 新兴市场</span></div>
+        <h4>Momentum Group × Fanatics 成立合资公司、<span class="hi">扩阿联酋商业博彩</span></h4>
+        <p class="src">iGaming Future · 2026-06-29</p>
+        <p>Momentum Group 和 Fanatics（美国体育用品加博彩公司）6/29 成立策略合资公司，由 Fanatics 来经营和扩张 Momentum 在阿联酋（UAE）的持牌商业博彩业务。阿联酋 2023 年才设立监管机构 GCGRA、开始建合法博彩框架，是中东第一个走这条路的国家。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对想早卡位中东新兴市场的运营商 +EV、对观察「下一个巴西」在哪 +EV。阿联酋市场小，但它是中东这个人均高、过去全禁的区域第一个开口子的地方，先进去的有先发优势。<b>操作建议</b>：把阿联酋列进新兴市场观察名单、看它的监管框架怎么长；短期规模还小、不用急，但要开始建认知。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://igamingfuture.com/category/m-and-a/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat b">产品</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">数据 · 版权</span></div>
+        <h4>Sportradar 完成收购 <span class="hi">IMG ARENA 的体育博彩版权组合</span></h4>
+        <p class="src">iGaming Future · 2026-06</p>
+        <p>体育数据龙头 Sportradar 完成了从 Endeavor 手上收购 IMG ARENA 及其全球体育博彩版权组合。这把「赛事数据加官方版权」这块进一步集中到 Sportradar 手上。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对依赖第三方赛事数据的中小运营商 mixed（供应商更集中、议价空间变小）、对 Sportradar +EV。<b>操作建议</b>：做产品的，留意上游数据供应商集中后、成本和条款可能变，别把数据来源压在单一供应商上。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://igamingfuture.com/category/m-and-a/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat b">产品</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">平台 · 前端</span></div>
+        <h4>EveryMatrix 收购前端团队 <span class="hi">Goma Gaming</span></h4>
+        <p class="src">iGaming Future · 2026-06</p>
+        <p>平台供应商 EveryMatrix 收购了专攻使用者体验（UX）的 Goma Gaming、补自家前端开发能力。金额未披露，属产业里常见的「补技术团队」型小并购。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对供应商端中性、对观察「平台商在补什么能力」+EV——补前端、说明大家越来越把「玩家体验、留存」当竞争重点、不只拼后端功能。<b>操作建议</b>：做产品的，把前端体验、留存流程当今年的重点投入项，这是供应商都在加码的方向。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://igamingfuture.com/category/m-and-a/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §3 产品与技术发布 -->
+  <section class="section" id="s3">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>产品与技术发布</h2>
+      <span class="h2-en">Product &amp; Tech</span>
+    </div>
+
+    <div style="background:var(--paper-2);border-left:3px solid var(--ink-3);padding:12px 16px;margin-bottom:16px;font-size:12px;line-height:1.7;color:var(--ink-2);">
+      这周产品面的重点：预测市场在建自己的基础设施（DraftKings 自建交易所），连传统金融的老牌交易所也在往「事件合约」这块挤（Cboe）。
+    </div>
+
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat b">产品</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">🆕 新讯号</span></div>
+        <h4>DraftKings 推自家内部交易所 DKeX、<span class="hi">预测产品年化成交量冲 $11.3B</span></h4>
+        <p class="src">Gambling Insider · Front Office Sports · 2026-07</p>
+        <p>DraftKings 把预测市场这块又往前推了一步——推出自家内部交易所 DKeX（预期能改善这块业务的成本结构）。它的预测产品 DraftKings Predictions 内建在 3,000 万用户的 DraftKings App 里，6/21 那周年化总成交量冲到 $11.3B、年化客户成交量 $3.4B。对照另一边，FanDuel 跟 CME Group（芝加哥商品交易所）合作的预测产品初期只在 5 个州上线、走得更谨慎。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对理解「预测市场的护城河」+EV。要看懂的一点——自建交易所意味着 DraftKings 不只想蹭预测市场这个品类，是想拥有底层的撮合和清算基础设施、把成本和数据都握在自己手上。这比「上线一个预测产品」严肃得多。<b>操作建议</b>：做产品的，把预测市场当「一个正在自建基础设施的对手」来研究、不是当短期流行；它「细颗粒、高频、像交易」的产品做法值得拆解，看哪些能用到自家的即时下注（in-play）上。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://frontofficesports.com/draftkings-fanduel-push-further-into-prediction-markets/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat b">产品</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">传统金融 · 事件合约</span></div>
+        <h4>老牌交易所 Cboe 向 SEC 申请<span class="hi">「公司 KPI 二元期权」</span></h4>
+        <p class="src">Gambling Insider · 2026-07</p>
+        <p>Cboe Global Markets（芝加哥选择权交易所、美国历史悠久的期权和证券交易所、不是预测市场那种新平台）向美国证管会（SEC）申请，要推一类新的二元期权（binary options、押某件事会不会发生的是非题合约）、挂钩企业的营运指标（KPI）。如果批准，投资人能透过证券账户押「某公司某个 KPI 会不会达标」。这跟 CFTC 监管的预测市场不同（走的是 SEC、证券这条路），但方向一样——连传统金融的老牌交易所都越来越想做「事件型金融产品」。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对「预测市场是不是特例」的判断 +EV。要点是——当传统的大型交易所也来做事件合约，说明「押事件」这件事正在被主流金融接纳，预测市场平台不再是孤例。这对它们的合法性论述是加分。<b>操作建议</b>：这是宏观观察、不用马上动作，但记进「事件合约这个大类正在被主流金融机构接手」的趋势线。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/169700/prediction-markets-weekly-roundup-kalshi-polymarket-taxes-cboe" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat b">产品</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">市场诚信</span></div>
+        <h4>市场诚信警报：<span class="hi">Kalshi 上一个押「某首歌会不会冲上 Spotify 榜首」的盘、引来机器人刷了 50 万次假串流</span></h4>
+        <p class="src">Gambling Insider · 2026-07</p>
+        <p>Spotify 删掉了歌曲「Earrings」超过 50 万次假串流——因为 Kalshi 上一个押「这首歌会不会冲上 Spotify 美国榜首」的盘，引来机器人刷串流去操纵结果、真的把歌刷上了榜首。事件起于一名 Kalshi 交易者投诉机器人活动扭曲了这个盘。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对预测市场平台 -EV。这是「预测市场能不能防操纵」的一个实锤案例——当一个盘的赔付跟真实世界的可刷数据挂钩（串流数、投票数这类），就会有人去刷那个数据来赢盘。这是预测市场跟传统体育投注的结构差异：体育比赛结果难操纵，但「某榜单名次」这种盘很容易。<b>操作建议</b>：这是论证「预测市场有传统博彩没有的诚信风险」的好素材，向监管、合作方解释「为什么持牌体育博彩比预测市场更可控」时用得上。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/169700/prediction-markets-weekly-roundup-kalshi-polymarket-taxes-cboe" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §4 大运营商动向 -->
+  <section class="section" id="s4">
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2>大运营商动向</h2>
+      <span class="h2-en">Major Operators</span>
+    </div>
+
+    <div style="background:var(--paper-2);border-left:3px solid var(--ink-3);padding:12px 16px;margin-bottom:16px;font-size:12px;line-height:1.7;color:var(--ink-2);">
+      这周运营商面：Kalshi 打舆论战、预测市场阵营反咬美国博彩协会、传统足球赞助因禁令在挪位。
+    </div>
+
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat c">运营商</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">舆论战</span></div>
+        <h4>Kalshi 上线「Kalshi Truth」信息页、<span class="hi">打舆论战</span></h4>
+        <p class="src">Gambling Insider · 2026-07</p>
+        <p>Kalshi 在官网上线一个叫「Kalshi Truth」的信息页面（就是一个专门反驳外界批评的网页）、逐条反驳 11 个说法、包括「体育事件合约就是没牌照的体育投注」这一条。等于在打官司之外，Kalshi 又开了一条主动管理舆论的战线。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对观察预测市场的公关策略 +EV。这说明 Kalshi 意识到「法律战」和「舆论战」要一起打——光在法庭赢不够，还要在公众和立法者心里把「我们不是赌博」这套说法立住。<b>操作建议</b>：看它这 11 条怎么写，是研究「预测市场怎么把自己跟赌博切割」最直接的一手材料，对做合规叙述、对政府沟通有参考价值。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/169700/prediction-markets-weekly-roundup-kalshi-polymarket-taxes-cboe" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">两阵营对抗</span></div>
+        <h4>预测市场阵营反咬美国博彩协会<span class="hi">「串通打压」</span></h4>
+        <p class="src">Gambling Insider · 2026-07-02</p>
+        <p>代表 Kalshi 等多家平台的「预测市场联盟」（Coalition for Prediction Markets）公开指控美国博彩协会（AGA、代表传统持牌博彩业）跟州监管机构串通、协调打压受联邦监管的事件合约。导火线是有报导说，马里兰州博彩管理局递给 CFTC 的一封批评预测市场的信，用的是 AGA 准备的模板文字（逐字照搬）。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对理解「这场战争的两个阵营」+EV。看清楚这条战线——一边是传统持牌博彩业（AGA、各州监管、想守住自己的牌照和税收），一边是预测市场平台（走联邦、想绕开州牌照）。这不只是法律之争，是两个商业模式在抢地盘。<b>操作建议</b>：做体育博彩的，心里要清楚预测市场抢的是持牌方的用户和监管地位、AGA 的立场跟持牌运营商一致；这条对抗线会持续，是理解北美市场格局的关键。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/169700/prediction-markets-weekly-roundup-kalshi-polymarket-taxes-cboe" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat e">体博</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">英超 · 赞助</span></div>
+        <h4>Everton 把 Stake 从前胸移到袖标：<span class="hi">英超前胸博彩禁令将至</span></h4>
+        <p class="src">Gambling Insider · 2026-07-03</p>
+        <p>英超（Premier League）自愿性的前胸球衣博彩赞助禁令即将生效，俱乐部纷纷把博彩品牌从前胸挪到袖标、训练服等次要位置。Everton（艾佛顿、英超球队）就把 Stake 从前胸移到了袖标。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对靠英超前胸曝光的博彩品牌 -EV、对观察「广告位收紧后钱往哪走」+EV。这跟巴西查转播广告、英国牌照费涨，是同一个大趋势——成熟市场的博彩广告位在系统性收紧。<b>操作建议</b>：做品牌曝光的，别再把预算重押在会被禁的高曝光位（前胸、转播口播），这些位子在成熟市场一个个被关；把曝光预算往自有渠道、内容、次要广告位分散。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/169795/everton-stake-shirt-sleeve-sponsorship" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §5 亚洲市场专区 -->
+  <section class="section" id="s5">
+    <div class="section-head">
+      <span class="num">05</span>
+      <h2>亚洲市场 — 菲律宾 / 澳门 / 越南</h2>
+      <span class="h2-en">Asia</span>
+    </div>
+
+    <div style="background:var(--paper-2);border-left:3px solid var(--ink-3);padding:12px 16px;margin-bottom:16px;font-size:12px;line-height:1.7;color:var(--ink-2);">
+      菲律宾 B2B、越南（讯号 05）、澳门 6 月数字（讯号 02）上面写完了，这里只补两件没讲的：澳门上半年的对照数字、和菲律宾持牌运营商的促销监测。
+    </div>
+
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">市场</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">澳门 · 对照</span></div>
+        <h4>澳门上半年累计仍 +6.8%：<span class="hi">6 月的坏是世界杯的一次性分流</span></h4>
+        <p class="src">Inside Asian Gaming · GGRAsia · 2026-07-01</p>
+        <p>补讯号 02 的对照数字。澳门 6 月单月同比 -12.1% 确实难看，但上半年（1–6 月）累计 GGR 还有 MOP$126.9B、同比 +6.8%。澳门政府对全年的官方估算是约 US$29B。把两个数字放一起看：6 月的坏主要是世界杯把玩家博彩预算分去体育投注、加压低到访——这是一次性的赛事因素、不是澳门需求崩了。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对做澳门营销的人来说、判断的分寸很重要——6–7 月按「转负」保守估，但别据此把全年、把 2027 都看衰。世界杯 7/19 结束后、8 月起玩家预算回流，有机会看到反弹。<b>操作建议</b>：档期往 7/19 之后排；跟澳门方谈合作时，用「单月分流、全年仍正」这个分寸沟通，别被单月数字带着过度反应。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.ggrasia.com/macau-government-estimates-full-year-2026-casino-ggr-will-reach-us29-billion" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">市场</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">菲律宾 · 合规监测</span></div>
+        <h4>菲律宾持牌运营商促销监测：<span class="hi">6 家确认全在 PAGCOR 合规框架内</span></h4>
+        <p class="src">Chrome MCP 实抓 + 现场截图补 ArenaPlus / Solaire / MSW · 2026-07-05</p>
+        <p>本周菲律宾 6 家持牌运营商拿到 promo 数据、全部落在 PAGCOR 框架内。直接受「比率」上限管、都守在线内的：OKBet「1.5% Daily Rebate」（贴上限）、HawkPlay 和 Jiliko 的 cashback 都在 2% 以下（Jiliko 分 0.5% 真人体育、1% 老虎机捕鱼、2% USDT 充值）、MSW 的 UFC「输钱返现 10%、封顶 ₱1,000」——都低于 15% cashback 上限。用「披索封顶」或「彩金加成」把数字做大的：ArenaPlus 全是固定披索额加流水门槛（Welcome 最高 ₱8,100、Slot Weekly Cashback 最高 ₱180,000〈已结束〉、World Cup Daily 存 ₱301 解锁、每日最高 ₱850）、Solaire 的 Weekly Cashback 封顶 ₱120,000 加 Parlay Boost 最高 20% 加成、MSW Odds Boost（用每人 ₱50,000 赔付责任上限管、不是比率）。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对合规运营商 +EV、对想踩线抢量的 -EV。一个合规设计规律值得记——头部把回馈分两类打：一类是「真比率」（rebate、cashback），全部守在 1.5% / 15% 内；另一类是「披索封顶」「彩金加成」「赔付责任上限」，不吃比率上限、所以数字能做很大（₱120K、₱180K、20% boost）、看着诱人但不违规。<b>操作建议</b>：自家想给大额回馈，别硬把超 15% 的「比率」标成 cashback（名实不符最容易被 PAGCOR 抽中），学头部用披索封顶或彩金加成结构。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.okbet.com/reward-center" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §6 拉美市场专区 -->
+  <section class="section" id="s6">
+    <div class="section-head">
+      <span class="num">06</span>
+      <h2>拉美市场 — 巴西重点</h2>
+      <span class="h2-en">LATAM · Brazil</span>
+    </div>
+
+    <div style="background:var(--paper-2);border-left:3px solid var(--ink-3);padding:12px 16px;margin-bottom:16px;font-size:12px;line-height:1.7;color:var(--ink-2);">
+      巴西最大的事——财政部 7/1 开案加 13% 税上路（讯号 03）上面写完了，这里补税收数字、非法市场竞争、和名人代言的舆论。
+    </div>
+
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">巴西 · 税收</span></div>
+        <h4>巴西上半年博彩税收 BRL5.89B、同比涨 86%：<span class="hi">税收破纪录跟稽查升级同时发生</span></h4>
+        <p class="src">Casino Guardian · iGamingToday · 2026-07-03</p>
+        <p>补讯号 03 的数字。2026 前 5 个月，巴西光博彩就贡献了 BRL5.89B（约 330 亿台币）税收、同比涨了近 86%。同一时间，监管却在升级稽查（财政部 7/1 开案）、税率也在涨（7 月到 13%）。这不矛盾——产业规模越大、贡献税收越多，反而给了政府「这个产业有钱、可以多管多收」的正当性。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对巴西持牌方 mixed——市场在长（税收数字证明规模在扩），但监管和税负同步在加。别指望「贡献税收多了、政府就会手软」。<b>操作建议</b>：巴西的财务模型把「规模在长、但每单位利润被税和合规成本侵蚀」当基准假设；早进、走合规、把负责任博彩做扎实的能吃到市场增长；靠擦边冲量的，随稽查升级风险越来越大。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.casinoguardian.co.uk/2026/07/03/brazils-betting-industry-sees-record-tax-revenue-growth/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">市场</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">巴西 · 非法市场</span></div>
+        <h4>巴西合法市场在长、<span class="hi">非法市场也在长：竞争仍在</span></h4>
+        <p class="src">iGaming Business · 2026-07</p>
+        <p>iGaming Business 这周点出一个操盘上重要的现实——巴西的合法博彩市场在产生实打实的税收，但非法（未授权）市场仍在制造真实竞争。合法化不会让非法运营商自动消失，它们靠不缴税、不受广告限制、能给更激进的优惠来抢用户。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对巴西持牌方 mixed——持牌方守规矩、缴 13% 税、受广告限制，但对手（非法运营商）不用。这是「合法化早期」的典型阵痛。<b>操作建议</b>：巴西持牌方别只跟其他持牌方比，要认知到真正抢走用户的可能是非法运营商；把「合规、可信、支付有保障」当差异化卖点讲给用户听，这是非法运营商给不了的；同时该向监管施压打非法市场。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://igamingbusiness.com/legal-compliance/regulation/illegal-operators-regulated-betting-market-brazil/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">巴西 · 代言舆论</span></div>
+        <h4>名人代言争议延烧：<span class="hi">Virginia Fonseca、Blaze 合约被要求公开</span></h4>
+        <p class="src">X 公开贴文 · 2026-07</p>
+        <p>上周（W26）是名人和球员发起反代言运动。这周舆论进一步聚焦到具体的人和合约——网红 Virginia Fonseca 推广体育博彩被批评，有声音要求公开她跟 Blaze（博彩平台）的合约「黑箱」、并呼吁政府撤销给博彩推广的相关许可。这跟之前 Neymar 代言 Blaze 的争议被拿来对照。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对靠大网红、明星代言冲量的打法 -EV。舆论从「泛泛反广告」进化到「盯具体名人的合约」，代言的个人风险在升高——名人自己也会开始怕接。<b>操作建议</b>：巴西现阶段慎用大网红、明星代言，尤其别碰「把合约做得不透明」的操作；预算挪向产品、注册优惠这类不靠脸的获客；要用 KOL 也选中小、垂直、愿意合规披露的，别押高曝光大明星当箭靶。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://x.com/search?q=virginia%20blaze%20apostas" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §7 北美市场 -->
+  <section class="section" id="s7">
+    <div class="section-head">
+      <span class="num">07</span>
+      <h2>北美市场 — 美国 / 加拿大</h2>
+      <span class="h2-en">North America</span>
+    </div>
+
+    <div style="background:var(--paper-2);border-left:3px solid var(--ink-3);padding:12px 16px;margin-bottom:16px;font-size:12px;line-height:1.7;color:var(--ink-2);">
+      北美的核心事件——预测市场多州判决（讯号 01）、州课税（§1）、世界杯破纪录（讯号 04）、两阵营对抗（§4）——前面写完了，这里补一条监管机构的态度信号。
+    </div>
+
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">美国 · 监管态度</span></div>
+        <h4>密歇根博彩委员会退出 NCPG：<span class="hi">因为 NCPG 跟 Kalshi 合作</span></h4>
+        <p class="src">Gambling Insider · 2026-07-03</p>
+        <p>密歇根博彩管制委员会（Michigan Gaming Control Board）宣布退出全国问题博彩委员会（NCPG、National Council on Problem Gambling）、理由是 NCPG 跟 Kalshi 的合作跟自己的使命冲突。等于州监管机构用「退出行业协会」这个动作，公开表态不认可预测市场平台。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：对预测市场平台 -EV、对观察「州监管态度」+EV。这是个信号——连负责任博彩这种本该中立的领域，州监管都不愿意跟 Kalshi 沾边，说明州这一层对预测市场的抵触是全方位的、不只在法庭。<b>操作建议</b>：这条印证 §4 的判断——传统持牌博彩阵营（含州监管）跟预测市场是对立的，且对立在往各个层面扩散。做北美的，把这条对立线当格局的基本盘。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/169744/michigan-gaming-control-board-withdraws-ncpg-kalshi" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §8 体育博彩专区 -->
+  <section class="section" id="s8">
+    <div class="section-head">
+      <span class="num">08</span>
+      <h2>体育博彩专区</h2>
+      <span class="h2-en">Sports Betting</span>
+    </div>
+
+    <div style="background:var(--paper-2);border-left:3px solid var(--ink);padding:14px 16px;font-size:12.5px;line-height:1.75;color:var(--ink-2);">
+      <p style="margin:0 0 8px;">体育博彩本周的实质动态写在别处了：世界杯投注破纪录在讯号 04、预测市场分食在 §3、英超赞助收紧在 §4。这里加一句总结。</p>
+      <p style="margin:0;"><br><u>综合判断</u>：这周体育博彩的两件事连起来看清楚了产业的处境。第一、需求在爆（世界杯投注破纪录、进淘汰赛还在冲）——但龙头靠的是拉新客、之后用赌场赚钱、不是靠足球盘这一届赚钱。第二、预测市场在同场分食、还自建交易所（DKeX）——它不只抢流量、在建基础设施。同时广告位在收紧（英超前胸禁令、巴西查转播广告、英国牌照费涨）——成熟市场对体育博彩的约束在系统性加强。<b>操作建议</b>：世界杯的钱别砸会被禁的高曝光位（球衣前胸、转播口播），改砸注册优惠、产品差异化、交叉销售；针对「比分接近、难猜」的赛事做更像交易的产品、抓预测市场那批用户。</p>
+    </div>
+  </section>
+
+  <!-- §9 X 社交脉动 -->
+  <section class="section" id="s9">
+    <div class="section-head">
+      <span class="num">09</span>
+      <h2>X 社交脉动 — 巴西 + 北美</h2>
+      <span class="h2-en">X · Brazil + NA</span>
+    </div>
+    <div class="x-pulse">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat e">体博</span><span class="pill neg"><span class="dot">−</span>不利</span></div>
+        <h4>巴西社交主线：<span class="hi">从「泛反广告」聚焦到「查具体名人合约」</span></h4>
+        <p class="src">X 公开贴文 · apostas propaganda Copa Virginia Blaze · 过去 7 天</p>
+        <p>本周巴西 X 圈的高信号从「泛反广告」聚焦到「查具体名人和俱乐部赞助」。参与的有球迷、也有对名人代言的直接批评。</p>
+        <div class="judge"><span class="lead-in"><u>本周巴西观察</u></span>：X 讨论从「泛泛反广告」进化到「盯具体名人合约（Virginia／Blaze）和俱乐部赞助」，跟财政部 7/1 开案、名人代言争议（讯号 03、§6）同方向，民间舆论在帮监管加压、且越来越具体到「点名」。<b>BR takeaway</b>：靠大网红、明星代言的打法，在巴西的舆论风险这周从「行业级」下沉到「点名级」——接代言的个人开始有实质风险。</div>
+        <div class="news-sources">
+          <div class="label">本周抓到的 X 主题（grok 实抓）</div>
+          <ul>
+            <li><a href="https://x.com/i/status/2073551762103865532" target="_blank" rel="noopener noreferrer">@httpthayx — 批评 Virginia Fonseca 推广博彩、拿她跟 Neymar/Blaze 双标对比</a></li>
+            <li><a href="https://x.com/i/status/2073536697933963647" target="_blank" rel="noopener noreferrer">@Amandavettorazz — 要求公开 Virginia／Blaze 合约黑箱、呼吁撤销博彩推广许可</a></li>
+            <li><a href="https://x.com/i/status/2073519781265785180" target="_blank" rel="noopener noreferrer">@Renan_cfg — 批评 Corinthians 接博彩赞助有损形象</a></li>
+          </ul>
+        </div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://x.com/search?q=virginia%20blaze%20apostas" target="_blank" rel="noopener">看 X 讨论 →</a>
+      </div>
+
+      <div class="card hilite-na">
+        <div class="meta-row"><span class="cat e" style="background:var(--hi);">法规</span><span class="pill hot" style="background:var(--hi);color:var(--ink);">最有价值</span></div>
+        <h4>北美社交主线：预测市场多州司法战、法律圈实时拆解</h4>
+        <p class="src" style="color:var(--rule-2);">X 公开贴文 · prediction markets Kalshi Minnesota Arizona · 过去 7 天</p>
+        <p>本周北美 X 高信号集中在预测市场的多州司法战、由博彩法律圈的账号在实时拆解。</p>
+        <p>
+          <b>· @WALLACHLEGAL [HIGH]</b>：连续拆解明尼苏达联邦听证、法官 Menendez 质疑 Kalshi 的联邦优先论述、认为预测市场可能超出 1974 年 CFTC 立法本意。<br>
+          <b>· @AZFreeNews [HIGH]</b>：报导亚利桑那联邦法官阻止该州 AG 对 Kalshi 提刑事指控、裁定联邦法优先、引「创新 vs 权限」辩论。<br>
+          <b>· @op314nion_ [MED]</b>：点出欧盟 ESMA 已对预测市场事件合约喊零售禁令、跟美国形成跨大西洋分歧。
+        </p>
+        <div class="judge"><span class="lead-in"><u>本周北美观察</u></span>：法律圈在实时拆各州判决——明尼苏达法官偏向州、亚利桑那法官偏向联邦。@op314nion_ 那条提醒了一个对照：欧盟已经对预测市场零售端喊禁、美国还在吵归谁管——同一个产品、不同法域态度差很大。这正是新兴市场论证「预测市场合法性因地而异」的现成素材。<b>NA takeaway</b>：下一个看得到结果的节点是 7/16 内华达藐视听证、8/1 明尼苏达禁令生效、8/4 新泽西最高法院期限。</div>
+        <div class="news-sources">
+          <div class="label">本周抓到的 X 主题（高信号）</div>
+          <ul>
+            <li><a href="https://x.com/WALLACHLEGAL/status/2073390111497097719" target="_blank" rel="noopener noreferrer">@WALLACHLEGAL — 明尼苏达听证、法官质疑 Kalshi 联邦优先论述</a></li>
+            <li><a href="https://x.com/AZFreeNews/status/2073059186741526647" target="_blank" rel="noopener noreferrer">@AZFreeNews — 亚利桑那联邦法官挡州 AG 对 Kalshi 刑事指控</a></li>
+            <li><a href="https://x.com/op314nion_/status/2073555970584637789" target="_blank" rel="noopener noreferrer">@op314nion_ — 欧盟 ESMA 对预测市场零售禁令、跨大西洋分歧</a></li>
+          </ul>
+        </div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--hi);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://x.com/WALLACHLEGAL/status/2073390111497097719" target="_blank" rel="noopener">看 X 讨论 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §10 建议 -->
+  <section class="section" id="s10">
+    <div class="section-head">
+      <span class="num">10</span>
+      <h2>下周建议关注</h2>
+      <span class="h2-en">Next Week Focus</span>
+    </div>
+
+    <div class="colophon">
+      <div>
+        <h5>📊 来源覆盖</h5>
+        <div class="source-grid">
+          <span><span class="ok">✓</span> iGaming Business</span>
+          <span><span class="ok">✓</span> SBC News / Americas</span>
+          <span><span class="ok">✓</span> Gambling Insider</span>
+          <span><span class="ok">✓</span> Yogonet International</span>
+          <span><span class="ok">✓</span> Inside Asian Gaming</span>
+          <span><span class="ok">✓</span> GGR Asia</span>
+          <span><span class="warn">!</span> PAGCOR 官方（二手）</span>
+          <span><span class="ok">✓</span> iGaming Brazil · BNLData</span>
+          <span><span class="ok">✓</span> Legal Sports Report</span>
+          <span><span class="ok">✓</span> Sports Handle</span>
+          <span><span class="ok">✓</span> Courthouse News · PlayUSA</span>
+          <span><span class="ok">✓</span> Casino Guardian · iGamingToday</span>
+          <span><span class="ok">✓</span> iGaming Future · Vietnam News</span>
+          <span><span class="ok">✓</span> Front Office Sports · AGB</span>
+          <span><span class="ok">✓</span> OKBet 等 7 家官网 · X（grok 实抓）</span>
+        </div>
+      </div>
+      <div>
+        <h5>📌 下周建议关注</h5>
+        <p class="next-list">
+          ·&nbsp;<b class="urgent">7/16 🔴</b> 内华达最高法院 Kalshi 藐视法庭听证<br>
+          &nbsp;&nbsp;&nbsp;查 Kalshi 为什么没照禁令做地理围栏、看会不会被判藐视<br>
+          ·&nbsp;<b class="urgent">7/17 🔴</b> Evolution 收购 Galaxy Gaming 完成期限<br>
+          &nbsp;&nbsp;&nbsp;看最后几个州审批过不过<br>
+          ·&nbsp;<b>7/19</b> 世界杯决赛<br>
+          &nbsp;&nbsp;&nbsp;赛事获客档期结束、看留存和交叉销售成效、澳门玩家预算回流起点<br>
+          ·&nbsp;<b class="urgent">7/31 🔴</b> PAGCOR B2B 供应商认证期限<br>
+          &nbsp;&nbsp;&nbsp;8/1 起没认证的系统强制下线（今天剩 26 天）<br>
+          ·&nbsp;<b class="urgent">8/1 🔴</b> 明尼苏达州预测市场禁令生效<br>
+          &nbsp;&nbsp;&nbsp;第一个明文禁 PM 平台的州法正式上路<br>
+          ·&nbsp;<b class="urgent">8/4 🔴</b> 新泽西对 Kalshi 的最高法院上诉状期限<br>
+          &nbsp;&nbsp;&nbsp;可能是最高法院第一次表态联邦压不压得过州赌博法<br>
+          ·&nbsp;<b>7 月底</b> CFTC 预测市场规则草案公示期结束 + 8 月初澳门 7 月官方营收<br>
+          ·&nbsp;<b>持续</b> 巴西财政部调查进度 + 13% 税 + 名人合约舆论；菲律宾电子钱包、年龄限制立法
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer-bottom">
+      <div class="label">博彩产业周深度 Brief · W27</div>
+      <p style="margin:0">编辑：Reagan · W27 / 2026-07-05 ｜ 涵盖期间 2026-06-29 ~ 2026-07-05 ｜ For internal circulation</p>
+    </footer>
+  </section>
+
+</main>
+
+</body>
+</html>

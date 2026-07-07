@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>竞品周报 · 2026-W28 · 菲律宾 iGaming</title>
+<style>
+:root{
+  --ink:#1f1d1a; --ink-2:#4a4742; --ink-3:#8a857d;
+  --paper:#fff; --paper-2:#f7f5f1;
+  --rule:#d9d4cb; --rule-2:#ebe6dd;
+  --hi:#fff3a6;
+  --pos:#c9e4cf; --pos-ink:#2f6b3b;
+  --neu:#e1dfd9; --neu-ink:#5b574e;
+  --neg:#f1c9c5; --neg-ink:#8a3a33;
+  --warn:#fce8c2; --warn-ink:#8a5f1a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+body{
+  background:#f0eee9;
+  font-family:Arial,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);min-height:100vh;font-size:13px;line-height:1.65;
+}
+a{color:inherit;}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.hi{background:var(--hi);padding:0 2px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.shell{max-width:1320px;margin:0 auto;background:#fff;}
+
+.mast{background:#1f1d1a;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.mast .mark{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;border:1px solid rgba(255,255,255,.4);padding:6px 10px;flex:none;}
+.mast .ttl{flex:1;min-width:200px;}
+.mast .ttl h1{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+.mast .ttl .sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;}
+.mast .logos{display:flex;gap:5px;flex:none;flex-wrap:wrap;}
+.mast .lang{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:2px;flex:none;}
+.mast .lang a,.mast .lang button{border:none;background:none;cursor:pointer;padding:5px 12px;border-radius:99px;color:rgba(255,255,255,.7);font:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;line-height:1;}
+.mast .lang .active{background:#fff;color:var(--ink);}
+.logo{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(0,0,0,.06);flex:none;}
+.logo.closed{opacity:.4;text-decoration:line-through;}
+
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+.body{padding:8px 32px 32px;}
+
+.sec{margin-top:32px;scroll-margin-top:60px;}
+.sec-lbl{margin-bottom:10px;}
+.sec-lbl .chip{background:var(--ink);color:#fff;font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.06em;margin-right:8px;}
+.sec-lbl .en{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+.sec-lbl h2{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-top:8px;}
+.sec-lbl .rule{height:2px;background:var(--ink);margin-top:10px;}
+.sec-deck{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.exec{margin-top:24px;}
+.exec h3{font-size:30px;font-weight:800;letter-spacing:-.015em;line-height:1.4;max-width:90%;}
+.exec h3 .line{display:block;}
+.exec h3 .line + .line{margin-top:6px;}
+.exec p.deck{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin-top:18px;max-width:80%;}
+.exec p.deck b{color:var(--ink);}
+.exec p.deck + p.deck{margin-top:12px;}
+.exec p.deck em{font-style:normal;color:var(--ink-3);font-size:11.5px;}
+.exec .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.exec .axis{border-left:3px solid var(--ink);padding:8px 14px;font-size:12px;color:var(--ink-2);line-height:1.7;}
+.exec .axis b{color:var(--ink);display:block;margin-bottom:2px;}
+
+.kpi{margin-top:14px;border:1px solid var(--ink);display:grid;grid-template-columns:minmax(170px,1.2fr) .8fr .8fr 1.1fr 1fr 1.5fr;}
+.kpi .head{background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);text-transform:uppercase;font-weight:800;border-bottom:2px solid var(--ink);padding:12px;}
+.kpi .cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px;font-size:12px;line-height:1.6;}
+.kpi .cell:nth-child(6n){border-right:none;}
+.kpi .name{display:flex;align-items:flex-start;gap:10px;flex-direction:column;}
+.kpi .name b{font-size:13px;display:block;}
+.kpi .name .grp{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;letter-spacing:.05em;display:block;margin-top:1px;}
+.kpi .name .status{padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace;display:inline-block;margin-top:5px;}
+.kpi .name .status-hot{background:#1f1d1a;color:#fff;}
+.kpi .name .status-active{background:#fbe3b3;color:#8a5f1a;}
+.kpi .name .status-alert{background:var(--neg);color:var(--neg-ink);}
+.kpi .name .status-cold{background:#d6e4f0;color:#2A5FAA;}
+.kpi .name .status-closed{background:#2b2b2b;color:#bbb;}
+.kpi .cell.closed{color:var(--ink-3);font-style:italic;}
+.kpi .big{font-weight:800;font-size:16px;}
+.trend{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:3px;font-size:10.5px;font-weight:700;}
+.trend.up{background:var(--pos);color:var(--pos-ink);}
+.trend.down{background:var(--neg);color:var(--neg-ink);}
+.trend.flat{background:var(--neu);color:var(--neu-ink);}
+.trend.new{background:#1f1d1a;color:#fff;}
+.bar{height:8px;background:var(--rule-2);border-radius:2px;overflow:hidden;margin-top:6px;}
+.bar > i{display:block;height:100%;}
+.sev{padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;}
+.sev.high{background:var(--neg);color:var(--neg-ink);}
+.sev.mid{background:var(--neu);color:var(--neu-ink);}
+.sev.low{background:var(--pos);color:var(--pos-ink);}
+
+.strat{margin-top:14px;background:#1f1d1a;color:#fff;padding:26px 30px;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);}
+.qa.full{grid-column:1/-1;}
+.qa .q{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.qa .q .qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+.qa .a{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.92);}
+.qa .a b{color:#fff;}
+.qa .a p{margin-bottom:6px;}
+.qa .src{display:block;color:rgba(255,255,255,.45);font-size:10.5px;margin-top:6px;}
+.qa .src a{color:rgba(255,255,255,.6);}
+
+.radar{margin-top:14px;background:#1f1d1a;color:#fff;padding:24px;}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.radar-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.radar-head .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:800;margin-bottom:4px;}
+.radar-head .sub{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.radar-head .self-pick{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.radar-head .self-pick .pick-lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:800;}
+.vssel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 32px 9px 14px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4 L5 7 L8 4' fill='none' stroke='white' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 10px center;}
+.vssel option{background:#1f1d1a;color:#fff;}
+.vsbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.vsbtns button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.vsbtns button:hover{background:rgba(255,255,255,.18);}
+.vsbtns button.active{background:#fff;color:var(--ink);}
+.vsbtns button i{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.radar-body{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;}
+.radar-body .grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px 16px;font-size:12.5px;}
+.radar-body .grid span:nth-child(4n+1),.radar-body .grid span:nth-child(4n+3){color:rgba(255,255,255,.55);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;}
+.radar-body .grid span:nth-child(4n+2),.radar-body .grid span:nth-child(4n+0){font-weight:700;}
+.radar-body .legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;}
+.radar-body .legend span{display:inline-flex;align-items:center;gap:6px;}
+.radar-body .legend i{width:12px;height:12px;display:inline-block;border-radius:2px;}
+.radar svg{width:100%;max-width:380px;display:block;margin:0 auto;}
+.radar-note{margin-top:12px;background:rgba(255,255,255,.05);border-left:3px solid rgba(255,255,255,.4);padding:10px 14px;font-size:11.5px;color:rgba(255,255,255,.8);line-height:1.65;}
+.radar-note b{color:#fff;}
+
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px;margin-top:14px;}
+.mcard{border:1px solid var(--rule);border-top-width:4px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:9px;scroll-margin-top:60px;}
+.mcard .top{display:flex;align-items:center;gap:8px;}
+.mcard .top .meta{flex:1;}
+.mcard .top .meta b{font-size:12px;font-weight:700;display:block;}
+.mcard .top .meta span{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;}
+.mcard h4{font-size:14px;font-weight:700;line-height:1.5;}
+.mcard .detail{font-size:12px;line-height:1.7;color:var(--ink-2);}
+.mcard table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px;}
+.mcard table th{text-align:left;padding:4px 6px;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--rule);}
+.mcard table td{padding:5px 6px;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.mcard .warn{padding:8px 12px;background:var(--warn);border-left:3px solid var(--warn-ink);font-size:11.5px;color:var(--warn-ink);line-height:1.6;}
+.mcard .warn b{color:var(--warn-ink);}
+.mcard .social{padding:7px 12px;background:var(--paper-2);border-left:3px solid var(--ink-3);font-size:11px;color:var(--ink-2);line-height:1.6;}
+.mcard .src{font-size:11px;color:var(--ink-3);line-height:1.6;}
+.mcard .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-3);}
+.mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;}
+.mcard .impact b{color:var(--ink);font-weight:700;}
+
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:80px 18px 90px 130px 1fr 60px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--ink-2);}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+.impl-meth{margin-top:14px;background:var(--paper-2);border-left:3px solid var(--ink);padding:14px 18px;font-size:12px;line-height:1.75;color:var(--ink-2);}
+.impl-meth h6{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.06em;margin-bottom:6px;}
+.impl-meth b{color:var(--ink);}
+.impl-meth ul{list-style:none;padding:0;margin-top:6px;display:flex;flex-direction:column;gap:6px;}
+.impl-meth li{padding-left:14px;position:relative;}
+.impl-meth li::before{content:"·";position:absolute;left:2px;color:var(--ink-3);font-weight:800;}
+.impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
+.impl .col.threat{border-top-color:var(--neg-ink);}
+.impl .col.opp{border-top-color:var(--pos-ink);}
+.impl .col h5{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:18px;}
+.impl .col h5 .dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none;}
+.impl .col.threat h5 .dot{background:var(--neg-ink);}
+.impl .col.opp h5 .dot{background:var(--pos-ink);}
+.impl .col h5 .en{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);font-weight:800;text-transform:uppercase;}
+.impl .col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.impl .col li{display:block;padding:14px 16px;background:var(--paper-2);border-left:3px solid;font-size:12.5px;line-height:1.8;color:var(--ink-2);}
+.impl .col.threat li{border-left-color:var(--neg-ink);}
+.impl .col.opp li{border-left-color:var(--pos-ink);}
+.impl .col li b{color:var(--ink);}
+.impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
+
+.footer{margin-top:32px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px;}
+.fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
+.fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
+.fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
+.srcs{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;}
+.srcs span{font-size:11.5px;color:var(--ink-2);display:flex;align-items:center;gap:6px;}
+.srcs i{width:8px;height:8px;border-radius:50%;flex:none;}
+.srcs i.ok{background:var(--pos-ink);}
+.srcs i.partial{background:#c96442;}
+.srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
+.fcard ol{padding:0;list-style:none;}
+.fcard ol li{font-size:12px;line-height:1.75;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;}
+.fcard ol li .n{color:#c96442;font-weight:700;font-family:ui-monospace,Menlo,monospace;flex:none;}
+.colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
+.colophon b{color:var(--ink);letter-spacing:.16em;}
+
+@media (max-width:1023px){
+  .body{padding:8px 24px 28px;}
+  .mast{padding:18px 24px;}
+  .subnav{padding:8px 24px;font-size:10.5px;}
+  .kpi{grid-template-columns:1fr;}
+  .kpi .head{display:none;}
+  .kpi .cell{border-right:none;display:grid;grid-template-columns:120px 1fr;gap:8px;}
+  .kpi .cell::before{content:attr(data-lbl);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;}
+  .kpi .cell:nth-child(6n+1)::before{display:none;}
+  .kpi .name{grid-column:1/-1;}
+  .radar-body{grid-template-columns:1fr;}
+  .impl{grid-template-columns:1fr;gap:18px;}
+  .footer{grid-template-columns:1fr;}
+  .qa-grid{grid-template-columns:1fr;}
+  .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:60px 14px 80px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
+  .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
+  .exec .axes{grid-template-columns:1fr;}
+  .sec-lbl h2{font-size:18px;}
+}
+@media (max-width:767px){
+  .body{padding:6px 16px 24px;}
+  .mast{padding:16px;gap:12px;}
+  .mast .ttl h1{font-size:18px;}
+  .subnav{padding:6px 16px;}
+  .strat{padding:18px 16px;}
+  .exec h3{font-size:19px;}
+}
+@media print{
+  body{background:#fff;}
+  .shell{max-width:none;}
+  .vssel,.vsbtns,.subnav{display:none;}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+  .mast .mark{border-color:#000;}
+  .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
+  .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+<header class="mast">
+  <div class="mark">COMPETITOR // BRIEF</div>
+  <div class="ttl">
+    <h1>2026-W28 · 菲律宾 iGaming 竞品周报</h1>
+    <div class="sub">数据窗口：6/29-7/06 回顾、7/06-7/13 展望 · 10 家观察清单（9 家 PAGCOR 持照 + OKADA PLAY；King / Queen 已关停）· 内部使用</div>
+  </div>
+  <div class="lang" aria-label="Language">
+    <button class="active" aria-current="page">中</button>
+    <a href="2026-comW28-en.html">EN</a>
+  </div>
+  <div class="logos">
+    <span class="logo" style="background:#E89AAA" title="BingoPlus">BP</span>
+    <span class="logo" style="background:#2A5FAA" title="ArenaPlus">AP</span>
+    <span class="logo" style="background:#4F8C5C" title="GameZone">GZ</span>
+    <span class="logo closed" style="background:#2D6B4D" title="King.ph · 已关停">K</span>
+    <span class="logo closed" style="background:#B6356D" title="Queen.ph · 已关停">Q</span>
+    <span class="logo" style="background:#B89968" title="CasinoPlus">C+</span>
+    <span class="logo" style="background:#D86B27" title="OKBet/OKGames">OK</span>
+    <span class="logo" style="background:#C2272D" title="Bet88">88</span>
+    <span class="logo" style="background:#4A4FB8" title="PlayTime/PT Gaming">PT</span>
+    <span class="logo" style="background:#8B7355" title="OKADA PLAY">OP</span>
+  </div>
+</header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>跳到</b>
+  <a href="#briefing">▲ 简报</a>
+  <a href="#kpi">§01 KPI</a>
+  <a href="#strategic">§02 5Q</a>
+  <a href="#radar">§03 雷达</a>
+  <a href="#moves-sec">§04 动向</a>
+  <a href="#timeline">§05 时间轴</a>
+  <a href="#implications">§06 威胁/机会</a>
+</nav>
+
+<div class="body">
+
+  <!-- ============ EXECUTIVE BRIEFING ============ -->
+  <section class="sec exec" id="briefing">
+    <div class="sec-lbl">
+      <span class="chip">▲</span><span class="en">Executive Briefing · 主管简报</span>
+      <h2>这一周看点</h2>
+      <div class="rule"></div>
+    </div>
+
+    <h3>
+      <span class="line">这周菲律宾 iGaming 三件事：</span>
+      <span class="line">PAGCOR 7/15 换版进最后一周、<span class="hi">逾期未改即违规</span>；</span>
+      <span class="line">6/29-7/06 <span class="hi">各竞品均无新促销动作</span>；</span>
+      <span class="line">本周无新季度数据、<span class="hi">数字要等月底</span>——第二季 GGR 月底出、参院禁 / 管法案还没定。</span>
+    </h3>
+
+    <p class="deck"><b>1. PAGCOR 7/15 责任博彩广告换版进最后一周，逾期未改即违规。</b><br>
+    6/9 备忘录定的期限 7/15、本周（7/6）已进最后一周。所有持牌业者、供应商、系统管理者、场馆运营商，要在 7/15 前把旧责任博彩广告换成主打「24 小时国家问题赌博求助专线」的新版、留到 9/15、7/16 交合规报告。PAGCOR 到本周还没公布素材规格（尺寸 / 必含字样）。<b>详 §04 卡 1。</b><em>(出处：<a href="https://asgam.com/2026/06/17/pagcor-orders-replacement-of-responsible-gambling-ads-with-materials-promoting-new-24-7-national-problem-gambling-helpline/">asgam 6/17</a> · <a href="https://agbrief.com/news/philippines/17/06/2026/pagcor-orders-gaming-ads-replaced-with-problem-gambling-helpline-materials/">AGB 6/17</a>)</em></p>
+
+    <p class="deck"><b>2. 6/29-7/06 各竞品均无新促销动作。</b><br>
+    上周（W27）热的是 DigiPlus「Entertainment for Good」愿景（6/26），本周没有接力新动作。世界杯约 7/19 收，体育档退潮延续 W27。<b>详 §04 卡 2。</b></p>
+
+    <p class="deck"><b>3. 本周无新季度数据、数字要等月底。</b><br>
+    第二季线上 GGR 约 7 月底才出（第一季全业 -15.87%、线上电子博彩 -22.43%）。参议院禁 / 管两派法案（禁令方 3 案含 SB 47「反线上博彩法」、管制方 2 案）还没定案、本周无新听证。MGF 最低保证费 6/1 起第一批开始缴收。<b>详 §06。</b><em>(出处：<a href="https://www.yogonet.com/international/news/2026/06/09/122943-pagcor-forecasts-lower-philippine-gaming-revenue-in-2026-amid-online-slowdown">Yogonet GGR 背景</a> · <a href="https://www.gamblinginsider.com/news/30543/philippines-senate-prepares-hearings-to-weigh-complete-ban-on-online-gambling">GamblingInsider 参院</a>)</em></p>
+
+    <div class="axes">
+      <div class="axis"><b>合规</b>7/15 换版进最后一周、7/16 交报告、留到 9/15。PAGCOR 本周未公布素材规格。MGF 最低保证费 6/1 起第一批开始缴收（线上 e-casino 月 GGR 没到 ₱3,000 万门槛也缴 ₱900 万保底）。</div>
+      <div class="axis"><b>竞品</b>6/29-7/06 各竞品都没出新档、新游或新合作。价档沿用 W27。</div>
+      <div class="axis"><b>市场</b>第二季线上 GGR 约 7 月底出（Q1 -22.43%）；参院禁 / 管法案还没定案、本周无新进展；MGF 第一批在缴。</div>
+    </div>
+  </section>
+
+  <!-- ============ §01 KPI ============ -->
+  <section class="sec" id="kpi">
+    <div class="sec-lbl">
+      <span class="chip">§01</span><span class="en">KPI Comparison Matrix · 10 brands</span>
+      <h2>KPI 比较矩阵（10 家观察清单）</h2>
+      <div class="rule"></div>
+      <div class="sec-deck">状态色：🔴 HOT（集团热动）· 🟠 ACTIVE（仍在动）· 🟡 ALERT（异常）· 🔵 COLD（静默）· ⚫ CLOSED（已关停 / 不评分）。本周各竞品在 6/29-7/06 窗口都没出新档、也没新动作。价档沿用上周（W27 6/29、本周无变动）。SOV 为内部估算（媒体版面 + 社群声量）、本周普遍偏低、8 家可评分者加总约 88%。King.ph / Queen.ph 自 2026-05-29 起关停、不评分。</div>
+    </div>
+    <div class="kpi">
+      <div class="head">公司</div><div class="head">本周动作</div><div class="head">SOV%</div><div class="head">主推价档</div><div class="head">Jackpot 看板</div><div class="head">本周高影响</div>
+
+      <div class="cell name"><b>BingoPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend down">▼ -3</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">16%</span><div class="bar"><i style="width:16%;background:#E89AAA"></i></div></div>
+      <div class="cell" data-lbl="主推价档">JILI Super Ace 30% 首存现金返利 + Pinoy Drop Ball Turbo（6/19 上线、非本周）· 沿用 W27</div>
+      <div class="cell" data-lbl="Jackpot">沿用前期</div>
+      <div class="cell" data-lbl="本周高影响">低 — 本周窗口内 0 新动作；EfG 愿景为 6/26 上周旧事</div>
+
+      <div class="cell name"><b>ArenaPlus</b><span class="grp">DigiPlus</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">8%</span><div class="bar"><i style="width:8%;background:#2A5FAA"></i></div></div>
+      <div class="cell" data-lbl="主推价档">促销页沿用 W27（多为已结束档、世界杯 + NBA 季后赛皆收）</div>
+      <div class="cell" data-lbl="Jackpot">—</div>
+      <div class="cell" data-lbl="本周高影响">低 — 窗口内 0 新档</div>
+
+      <div class="cell name"><b>GameZone</b><span class="grp">DigiPlus</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">6%</span><div class="bar"><i style="width:6%;background:#4F8C5C"></i></div></div>
+      <div class="cell" data-lbl="主推价档">Newcomer / Free WIN / VIP / Long-term / Limited 分级档（沿用 W27、图片化无金额）</div>
+      <div class="cell" data-lbl="Jackpot">— 走日赛不走 jackpot</div>
+      <div class="cell" data-lbl="本周高影响">低 — 窗口内 0 新档；LaVie 线上平台仍待 PAGCOR 核准</div>
+
+      <div class="cell name"><b>CasinoPlus</b><span class="grp">独立</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">12%</span><div class="bar"><i style="width:12%;background:#B89968"></i></div></div>
+      <div class="cell" data-lbl="主推价档">1.5% Cashrebate（档期 5/15-<b>7/31</b>、沿用 W27）+ EVO High Cash Rebate</div>
+      <div class="cell" data-lbl="Jackpot">EVO Perya Fiesta ₱1,380,000</div>
+      <div class="cell" data-lbl="本周高影响">低 — 1.5% 档到 7/31、本周无新动作；页脚挂 PAGCOR 求助专线 (02) 8248-9568</div>
+
+      <div class="cell name"><b>OKBet / OKGames</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">8%</span><div class="bar"><i style="width:8%;background:#D86B27"></i></div></div>
+      <div class="cell" data-lbl="主推价档">主站 1.5% 日返 + Welcome Bundle；体育子站 35% 首存（沿用 W27）</div>
+      <div class="cell" data-lbl="Jackpot">FIFA 2026 Spin for Glory ₱15,888,888（沿用）</div>
+      <div class="cell" data-lbl="本周高影响">低 — 沿用前期、本周无变动</div>
+
+      <div class="cell name"><b>Bet88</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">8%</span><div class="bar"><i style="width:8%;background:#C2272D"></i></div></div>
+      <div class="cell" data-lbl="主推价档">100% 首存 ₱8,888 + 30% 每日（沿用 W27、图片化无金额）</div>
+      <div class="cell" data-lbl="Jackpot">World Cup Prize Pool ₱4,900,000（沿用）</div>
+      <div class="cell" data-lbl="本周高影响">低 — 沿用前期、本周无变动</div>
+
+      <div class="cell name"><b>PlayTime / PT Gaming</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">9%</span><div class="bar"><i style="width:9%;background:#4A4FB8"></i></div></div>
+      <div class="cell" data-lbl="主推价档">₱8,080 迎宾 + 1.5% 持续返利（promo 页锁址、沿用 5/29 baseline）</div>
+      <div class="cell" data-lbl="Jackpot">June Gold Rush（6 月档、7 月续档待查）+ Evolution Perya Fiesta</div>
+      <div class="cell" data-lbl="本周高影响">低 — promo 页锁址、本周无新动作</div>
+
+      <div class="cell name"><b>OKADA PLAY</b><span class="grp">PhilWeb × Okada Manila</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#8B7355"></i></div></div>
+      <div class="cell" data-lbl="主推价档">上线初期价档未完整公开</div>
+      <div class="cell" data-lbl="Jackpot">— 待披露</div>
+      <div class="cell" data-lbl="本周高影响">低 — 5/13 商业落地后第 8 周（自 5/13 起算）、本周 0 新通稿</div>
+
+      <div class="cell name"><b>King.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="本周动作">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="主推价档">已关停（2026-05-29 确认）· 不评分</div>
+      <div class="cell closed" data-lbl="Jackpot">—</div>
+      <div class="cell closed" data-lbl="本周高影响">已关停（2026-05-29 确认）· 不评分</div>
+
+      <div class="cell name"><b>Queen.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="本周动作">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="主推价档">已关停（2026-05-29 确认）· 不评分</div>
+      <div class="cell closed" data-lbl="Jackpot">—</div>
+      <div class="cell closed" data-lbl="本周高影响">已关停（2026-05-29 确认）· 不评分</div>
+    </div>
+  </section>
+
+  <!-- ============ §02 5Q ============ -->
+  <section class="sec" id="strategic">
+    <div class="sec-lbl">
+      <span class="chip">§02</span><span class="en">Strategic Read · 5Q</span>
+      <h2>战略解读 · 五问（中性陈述）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="strat">
+      <div class="qa-grid">
+        <div class="qa"><div class="q"><span class="qchip">Q1</span><br>市场空间</div><div class="a"><p>6/29-7/06 各竞品均无出新档、新游或新合作。上周热的是 DigiPlus 的公司愿景（6/26），本周没有接力新动作。市场本身还在缩：第一季全业 GGR ₱87.60 亿（年减 15.87%）、线上电子博彩 ₱39.90 亿（年减 22.43%），第二季数据约 7 月底出。</p><p><b>一句话：本周没有新产品、新档或新竞品动作；动的只有 PAGCOR 的合规期限在倒数。</b></p><span class="src">出处：<a href="https://www.yogonet.com/international/news/2026/06/09/122943-pagcor-forecasts-lower-philippine-gaming-revenue-in-2026-amid-online-slowdown">Yogonet GGR 背景</a></span></div></div>
+
+        <div class="qa"><div class="q"><span class="qchip">Q2</span><br>玩家关心</div><div class="a"><p>玩家长期在意的还是三件事：钱进不去、出不来（KYC 卡关 + 支付通道限制、GCash / Maya 解绑后入金更难）、赌债跟成瘾、品牌名被拿去做钓鱼诈骗。求助专线是业者要做的事、玩家不太讨论。参议院禁令的声浪玩家有感、但这周没有新听证、也没有新的引爆点。</p><p><b>判断：这周对玩家的感受影响不大；真正牵动玩家的是入金卡不卡、禁令会不会来，这两件这周都没动。</b></p><span class="src">出处：长期结构性议题（成瘾 / 提款 / 钓鱼诈骗）+ 参院禁令背景</span></div></div>
+
+        <div class="qa"><div class="q"><span class="qchip">Q3</span><br>缺口</div><div class="a"><p><b>7/15 更新求助专线素材：</b>看有无竞品做出差异化，把专线讯息做成玩家看得懂、愿意转的东西。</p><p><b>入金教学：</b>玩家存款常卡（KYC + 支付通道 + e-wallet 解绑），无竞品出「怎么存、替代金流」的教学。延续 W25-W27。</p><p><b>7 月档期空窗：</b>世界杯约 7/19 收，7 月中到下旬体育档退潮后的空窗没人提前铺。</p><span class="src">出处：本周窗口各竞品无新档</span></div></div>
+
+        <div class="qa"><div class="q"><span class="qchip">Q4</span><br>价档结构</div><div class="a"><p><b>返利仍维持在 1.5%：</b>CasinoPlus 1.5% Cashrebate（到 7/31）、OKBet 主站 1.5%、Bet88 / PlayTime 1.5% 持续返利。非 DigiPlus 这几家返利长得越来越像。<b>体育档在退潮：</b>ArenaPlus 促销页多为已结束档；OKBet（FIFA 奖池 ₱15,888,888）、Bet88（世界杯奖池 ₱4.9M）沿用前期。<b>迎宾档：</b>Bet88 100% 首存 ₱8,888、PlayTime ₱8,080、BingoPlus JILI 30%。</p><p><b>一句话：与上周一样、没大变化。</b></p><span class="src">出处：价档沿用 W27 6/29 实读</span></div></div>
+
+        <div class="qa full"><div class="q"><span class="qchip">Q5</span><br>差异化结论</div><div class="a"><p>本周竞品无较大的新竞争动作。9 家在窗口内都没出手，声量集中在法规层（7/15 倒数）。</p><p><b>结论：本周没有竞品差异化可读；下半年真正的护城河维持 W27 判断——内容够不够独家、IP 锁不锁得住、合规讲得清不清楚。只靠返利数字拼的运营商，长期会越来越吃亏。</b></p><p><b>提议：这周没人出手，对进场者反而是难得的准备窗口。趁现在，把 7/15 换版素材（banner / 字卡 / 结尾卡 / OOH 求助专线通用层）先做完、把责任博彩做成查得到的动作（自我排除、入金限额、透明 KYC 教学）备好，等 8 月旺季再上。以上是建议、不是已发生的事。</b></p><span class="src">出处：本周各竞品无新竞争动作 + 价档沿用 W27</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §03 RADAR ============ -->
+  <section class="sec" id="radar">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">Capability Radar · 6 axes · 10 brands</span>
+      <h2>六轴能力雷达（10 家、King / Queen 已关停不评分）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="radar">
+      <div class="radar-formula">
+        <h6>评分公式（每轴 100 分、子项加权）</h6>
+        <table>
+          <tr><td>BRAND 品牌力</td><td><b>市场份额（营收/流量）45%</b> + 代言/IP 长期合作 20% + 玩家提及率/国民认知 25% + 本周 PR 声量 10%</td></tr>
+          <tr><td>UX 体验</td><td>官网可访问性 30% + 注册/登入顺畅 25% + 支付/提现讯号 25% + UI 清晰度 20%</td></tr>
+          <tr><td>CONTENT 内容</td><td>独家游戏/IP 35% + 本土化内容 25% + 活动丰富度 25% + 更新频率 15%</td></tr>
+          <tr><td>PRICING 定价</td><td>奖励吸引力 30% + <b>合规安全度 30%</b> + 条款透明度 25% + 玩家实际可领价值 15%</td></tr>
+          <tr><td>RETENTION 留存</td><td>持续型促销 30% + VIP/回流机制 25% + 客服/信任 25% + 社群活跃 20%</td></tr>
+          <tr><td>REACH 通路</td><td>TV/媒体 30% + 社群声量 25% + KOL/艺人 20% + 线下/支付触点 15% + SEO/官网可见度 10%</td></tr>
+        </table>
+      </div>
+      <div class="radar-head">
+        <div>
+          <div class="lbl">六轴对比（10 家）</div>
+          <div class="sub">右上下拉选评分基线（默认 PlayTime）、下方按钮选对标竞品。<br><em style="color:rgba(255,255,255,.6);font-style:normal;">分数沿用 W22 SimilarWeb 锚定 + W27 微调。本周各竞品窗口内都没新动作、也无新流量数据、全数维持 W27、不重打分。King / Queen 已关停、选取显示 N/A、不画图。</em></div>
+        </div>
+        <div class="self-pick">
+          <span class="pick-lbl">基线品牌</span>
+          <select class="vssel" id="selfsel" aria-label="选择基线品牌"></select>
+        </div>
+      </div>
+      <div class="vsbtns" id="vsbtns" aria-label="选择对标"></div>
+      <div class="radar-body">
+        <div class="left">
+          <div class="grid" id="radarGrid"></div>
+          <div class="legend">
+            <span><i style="background:#fff3a6"></i><b id="legendSelf">基线 · PlayTime</b></span>
+            <span><i id="legendVsColor" style="background:#4F8C5C"></i><b id="legendVs">GameZone</b></span>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 320" id="radarSvg" aria-label="6-axis capability radar">
+          <g id="rings"></g>
+          <g id="axes"></g>
+          <polygon id="polyVs" fill-opacity="0.35" stroke-width="2"></polygon>
+          <polygon id="polySelf" fill="#fff3a6" fill-opacity="0.42" stroke="#fff3a6" stroke-width="2.2"></polygon>
+          <g id="labels"></g>
+        </svg>
+      </div>
+      <div class="radar-note">
+        BRAND「市场份额」子项依 <b>SimilarWeb Apr 2026 流量</b> + 业内收入排序，沿用 W22 5/24 锚定 + W27 微调。SimilarWeb 5 月访问量排序（CasinoPlus 第 1 / BingoPlus 第 2 / OKBet 第 3 / Bet88 第 4）为流量口径、跟本雷达 BRAND 营收 ordinal（PlayTime 行业 #1）不同、列供参照、不冲突、不构成重打分依据。<b>本周各竞品窗口内都没新动作、6 轴全数维持 W27、不重打分。King / Queen 自 2026-05-29 关停、6 轴显示「N/A」、不画图。</b>BRAND 一轴回算示范：PlayTime = 市场份额 100×45% + 代言 80×20% + 提及率 80×25% + 本周 PR 60×10% = 87、取 85；BingoPlus = 市场份额 80×45% + 代言 75×20% + 提及率 78×25% + 本周 PR 60×10%（EfG 出窗、本周无新 PR）= 78、取 82（维持 W27、本周不重打）。
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ §04 WEEKLY MOVES ============ -->
+  <section class="sec" id="moves-sec">
+    <div class="sec-lbl">
+      <span class="chip">§04</span><span class="en">Weekly Moves</span>
+      <h2>本周动向（W28）</h2>
+      <div class="rule"></div>
+      <div class="sec-deck">本周 2 张（W27 4 张 / W26 5 张）。本周各竞品在窗口内均无新竞品动作，「无新进展」的卡按纪律直接删、不放「持续追踪」凑数。留下的两张一张是合规规定期限倒数、一张是本周竞品静默的实证。</div>
+    </div>
+    <div class="moves" id="moveCards">
+
+      <div class="mcard" style="border-top-color:#8a3a33">
+        <div class="top"><span class="logo" style="background:#8a3a33;width:26px;height:26px;font-size:10px">PG</span>
+          <div class="meta"><b>卡 1 · PAGCOR / 监管</b><span>06/09 备忘录、7/15 最后一周</span></div>
+          <span class="sev high">高影响</span>
+        </div>
+        <h4>责任博彩广告 7/15 前换成求助专线，<span class="hi">逾期未改即违规</span></h4>
+        <div class="detail">PAGCOR 6/9 备忘录的期限 7/15 剩 9 天（本周 7/6 = T-9）。所有持牌业者、供应商、系统管理者、场馆运营商，要在 7/15 前把旧责任博彩广告换成主打「24 小时国家问题赌博求助专线」的新版、留到 9/15、7/16 交报告。这是 W26 起报的令、本周进最后倒数、无新指令。
+        <table><tbody>
+            <tr><td><b>期限</b></td><td>7/15 前换完、9/15 前留着、7/16 交报告</td></tr>
+            <tr><td><b>范围</b></td><td>看板、户外大型广告、数位广告等 OOH；持牌业者 + 供应商 + 系统管理者 + 场馆运营商</td></tr>
+            <tr><td><b>审批</b></td><td>求助专线素材免广告标准委员会审、PAGCOR 直发豁免证</td></tr>
+            <tr><td><b>专线本体</b></td><td>24 小时求助专线 5/26 上线、12 名 para-counselor + 心理专业人员三班轮值</td></tr>
+            <tr><td><b>MGF 一起压</b></td><td>最低保证费第一批 6/1-12/31 收：线上 e-casino 月 GGR 没到 ₱3,000 万 / ₱1,500 万门槛、也要缴 ₱900 万 / ₱300 万</td></tr>
+        </tbody></table></div>
+        <div class="detail"><b>为什么值得看：</b>7/15 是规定期限、现在进最后一周。7/15 后还挂旧版的责任博彩版位就算违规，得全部下架重做，花更多钱。PAGCOR 到现在还没公布素材规格（尺寸 / 必含字样），各家只能先按自己的理解做，之后可能被要求返工。</div>
+        <div class="detail" style="color:var(--ink-3)">💬 社群信号：换版令属业者侧合规事项、玩家端一般不讨论。6/29 前次实读 CasinoPlus 页脚已挂专线号码 (02) 8248-9568。</div>
+        <div class="src">出处：<a href="https://asgam.com/2026/06/17/pagcor-orders-replacement-of-responsible-gambling-ads-with-materials-promoting-new-24-7-national-problem-gambling-helpline/">asgam 6/17</a> · <a href="https://agbrief.com/news/philippines/17/06/2026/pagcor-orders-gaming-ads-replaced-with-problem-gambling-helpline-materials/">AGB 6/17</a> · <a href="https://ggbmagazine.com/articles/pagcor-replaces-responsible-gambling-ads-new-national-helpline-promotion/">GGB Magazine</a> · <a href="https://www.ggrasia.com/pagcor-orders-gaming-firms-to-promote-national-helpline-in-responsible-gambling-ads">GGRAsia 求助专线</a></div>
+        <div class="impact"><span><b>提议（对客户 X）：</b>趁这周没人出手，把整套责任博彩版位（banner / 字卡 / 结尾卡 / OOH）先做一版新求助专线通用层、7/15 前一起换掉；规格还没出就先做保守通用版，等 PAGCOR 出规格再微调。把 MGF 算进每月成本——月 GGR 到不了 ₱3,000 万，每月先亏 ₱900 万起跳，首年财务模型要先把这笔算进去。</span></div>
+      </div>
+
+      <div class="mcard" style="border-top-color:#5b574e">
+        <div class="top"><span class="logo" style="background:#5b574e;width:26px;height:26px;font-size:10px">MK</span>
+          <div class="meta"><b>卡 2 · 全市场</b><span>06/29-07/06 窗口</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>6/29-7/06 <span class="hi">竞品都没出新促销</span>，促销档跟上周一样</h4>
+        <div class="detail">6/29-7/06 这周，9 家都没出新档、新游或新合作。上周 DigiPlus 一家把声量拉满（EfG 愿景），这周整个市场都安静下来，连月底发薪日、世界杯尾声都没人加码。</div>
+        <div class="detail"><b>为什么值得看：</b>体育档退潮延续——世界杯约 7/19 收、NBA 季后赛 6/13 已完，接下来到 8 月旺季前是档期空窗。本周声量集中在法规层（7/15 换版倒数）、竞品端无新竞争动作。</div>
+        <div class="detail" style="color:var(--ink-3)">💬 社群信号：本周竞品端无新竞争动作、玩家端无当周新触发点。</div>
+        <div class="src">出处：价档沿用上周 <a href="https://www.casinoplus.com.ph/promotions/">W27 6/29</a>（本周无变动）· 每日 trigger 监听 6/29-7/06 无新促销上架</div>
+        <div class="impact"><span><b>提议（对客户 X）：</b>这周是准备窗口、不是空窗。趁没人出手，把 7/15 换版素材做完、把 8 月旺季（回国旅游 + 开学季）的档期企划先排好；这周先别急着投，把预算留给旺季。以上是建议。</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ §05 TIMELINE ============ -->
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Timeline · 近两周大事记</span>
+      <h2>时间轴（双周倒序）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow"><span class="d">07/06</span><span class="dot warn"></span><span class="cat">政策</span><span class="br">PAGCOR</span><span class="desc">7/15 责任博彩换版令进最后一周（T-9）；素材规格仍未公布</span><span class="wk">W28</span></div>
+      <div class="trow"><span class="d">06/29-07/06</span><span class="dot blue"></span><span class="cat">全市场</span><span class="br">9 家</span><span class="desc">6/29-7/06 各竞品均无新档 / 新游 / 新合作；价档沿用 W27</span><span class="wk">W28</span></div>
+      <div class="trow"><span class="d">06/24-06/26</span><span class="dot pink"></span><span class="cat">集团</span><span class="br">DigiPlus</span><span class="desc">发布 Entertainment for Good 公司愿景 + 责任博彩框架（多源）</span><span class="wk">W27</span></div>
+      <div class="trow"><span class="d">06/17</span><span class="dot warn"></span><span class="cat">政策</span><span class="br">PAGCOR</span><span class="desc">多家媒体报导 6/9 备忘录：7/15 前换责任博彩广告为求助专线素材、留到 9/15</span><span class="wk">W26</span></div>
+      <div class="trow"><span class="d">06/01 起</span><span class="dot warn"></span><span class="cat">政策</span><span class="br">PAGCOR</span><span class="desc">MGF 最低保证费第一批起跑（6/1-12/31、月 GGR ₱3,000 万门槛 → 保底 ₱900 万）</span><span class="wk">W24→W28</span></div>
+    </div>
+        <div class="tl-legend">
+      <span><i style="background:#8a3a33"></i>政策 / 异常 / 支付</span>
+      <span><i style="background:#2A5FAA"></i>产品 / 媒体 / 产业</span>
+      <span><i style="background:#c96442"></i>治理 / 集团 / 奖项</span>
+      <span><i style="background:#2f6b3b"></i>赛事 / 财报</span>
+    </div>
+  </section>
+
+  <!-- ============ §06 IMPLICATIONS ============ -->
+  <section class="sec" id="implications">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Implications · 威胁 / 机会</span>
+      <h2>影响推演（威胁 / 机会）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="impl-meth">
+      <h6>进场参数参考（皆为内部估算）</h6>
+      <ul>
+        <li><b>责任博彩素材换版：</b>7/15 前把整套责任博彩版位做一版新求助专线通用层、估 ~₱150K-₱400K / 一次性；规格还没出、先做保守通用版。</li>
+        <li><b>MGF 每月固定支出：</b>月 GGR 到不了 ₱3,000 万、每月先亏 ₱900 万起跳、首年财务模型要先算进去。</li>
+        <li><b>进场量下修：</b>市场在缩（GGR 估年减最多 19%）+ MGF 固定成本 + DigiPlus 越做越大，首年获客目标建议下修 15-25%（沿用 W27）。</li>
+        <li><b>准备成本：</b>趁这周把 7/15 素材 + 8 月旺季企划做完、几乎不用额外投放、只花产能。</li>
+      </ul>
+    </div>
+    <div class="impl">
+      <div class="col threat">
+        <h5><span class="dot"></span>威胁（5 条）<span class="en">Threats</span></h5>
+        <ul>
+          <li><b>7/15 责任博彩换版是规定期限、剩 9 天；错过这天、旧素材得全部下架重做。</b>6/9 就下的令、这周进 T-9；7/15 后还挂旧版就算违规。规格还没出、返工风险更高。<em>不动的代价（内部估算）：素材拖到 7/15 当天才一起下架重做、比提前换贵 2-3 倍；规格出得晚、可能还要改第二次。</em></li>
+          <li><b>市场在缩、MGF 又是固定成本，这时候进场不好打。</b>2026 GGR 估年减最多 19%、线上第一季 -22.43%；只约 25 家月 GGR 到 ₱3,000 万门槛。<em>不动的代价（内部估算）：误判市场还在长、首年目标偏高 15-25%、没把 MGF 算进成本、ROI 下修。</em></li>
+          <li><b>参议院禁令还没定案、进场时机有政策上的尾部风险。</b>禁 / 管两派法案（禁令方 3 案含 SB 47、管制方 2 案）还悬着、本周无新听证；结果没出来前、进场节奏跟预算承诺都要留退路。<em>判断 + 不动的代价（内部估算）：预算全押上去、万一禁令方向转急、沉没成本高、也没得回头。</em></li>
+          <li><b>DigiPlus 的内容跟体育资源领先延续、这周差距也没缩小。</b>BingoPlus 办 ADT 高球 + 上在地新游、ArenaPlus 是 NBA 菲律宾官方博彩伙伴（4 月签）；独立运营商还挤在世界杯奖池 + 1.5% 返利、这周也没新动作追上。<em>判断 + 不动的代价（内部估算）：跟它拼顶级 IP、体量不对、获客被它声量稀释 30-50%。</em></li>
+          <li><b>入金摩擦是老问题、e-wallet 解绑后更卡。</b>存款常卡（KYC + 支付通道 + GCash / Maya 解绑）、线上第一季 -22.43%；只盯 CPA、不盯入金成功率会失真。<em>不动的代价（内部估算）：入金成功率低、CPA 看似达标但首存转化崩、有效获客成本被低估 30-50%。</em></li>
+        </ul>
+      </div>
+      <div class="col opp">
+        <h5><span class="dot"></span>机会（4 条）<span class="en">Opportunities</span></h5>
+        <ul>
+          <li><b>这周没人出手，正好低成本把素材跟企划先做起来</b>（内部估算 ~₱0 额外投放、只花产能）。把 7/15 换版素材 + 8 月旺季（回国旅游 + 开学季）企划先做完。<em>提醒：这周别急着投、把预算留给旺季；素材规格还没出、先做保守通用版。</em></li>
+          <li><b>求助专线素材做成信任素材、没人占</b>（内部估算 ~₱150K-₱400K / 一次性）。7/15 大家都要换、但换版是义务、不是差异化。客户 X 可把专线讯息做成玩家看得懂、愿意转的素材、不只是法定小字。<em>提醒：专线素材有 PAGCOR 可能后出的规格、必含字样等官方 spec、别自创、法务先看。</em></li>
+          <li><b>责任博彩做成查得到的动作、独立运营商还没人占</b>（内部估算 ~₱200K-₱800K / 一次性）。DigiPlus 用 Sportradar 占了头位、但中小品牌这块还是口号。客户 X 可做规模适配的玩家保护（自我排除、入金限额、透明 KYC 教学）。<em>提醒：玩家保护涉合规承诺、法务先看、别夸「100% 安全」。</em></li>
+          <li><b>入金教学 + 替代金流没人做</b>（内部估算 ~₱200K-₱500K / 4 周）。没一家出「怎么存 / 替代金流」教学（e-wallet 解绑后更痛）。客户 X 可做入金教学 + 替代金流引导、把支付摩擦转成信任素材。<em>提醒：替代金流法务先看、不碰「保证 / 稳赚」、不引导绕过合规通道。</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="footer">
+    <div class="fcard">
+      <h5>方法论 + 数据源</h5>
+      <p>10 家观察清单（9 家 PAGCOR 持照 + 进场者 OKADA PLAY）+ 行业 / 监管动作。King.ph / Queen.ph 自 2026-05-29 起关停、不评分（单口径、详 §01）。本周各竞品无新促销 / 新档、新合作；价档沿用上周（W27 6/29）、无变动。每日 trigger 监听 6/29-7/06 全周未见新促销上架。web search 6/29-7/06 窗口亦无新档 / 新合作（命中的 <a href="https://sigma.world/news/licensed-igaming-firms-form-philippine-alliance/">PlaySafe Alliance（SiGMA 2025-08）</a>、<a href="https://www.bworldonline.com/corporate/2025/07/08/683851/digiplus-shares-rebound-15-on-p6-b-buyback-announcement/">DigiPlus P6B 回购（BusinessWorld 2025-07）</a> 经日期核实为一年前旧事、已排除）。7/15 换版令来自 6/17 多家媒体报导 PAGCOR 6/9 备忘录（asgam / AGB / GGB Magazine / GGRAsia）；求助专线 5/26 上线、24 小时、12 名 para-counselor。MGF 来自 PAGCOR 备忘录 6/1 起跑。GGR -19% 全年 / 线上 -22.43%（Q1）为背景、本周无新季度数据（第二季约 7 月底出）。参议院禁 / 管法案（禁令方 3 案含 SB 47 / 管制方 2 案）为持续背景、本周无新听证。SimilarWeb 5 月「最多造访」排序（CasinoPlus > BingoPlus > OKBet > Bet88）为流量口径、与雷达 BRAND 营收 ordinal 不同、列供参照、不冲突。雷达分数沿用 W22 5/24 SimilarWeb（Apr 2026）锚定 + W27 微调；本周全数维持、不重打分。数据窗口 6/29-7/06 回顾、7/06-7/13 展望。</p>
+      <div class="srcs">
+        <span><i class="ok"></i>asgam / AGB / GGB Magazine / GGRAsia<em>PAGCOR 7/15 换版令 6/17 报导 6/9 备忘录 + 求助专线</em></span>
+        <span><i class="ok"></i>trigger-ledger 6/29-7/06<em>全周无竞品 / 促销触发、本地共享源、不推 GitHub</em></span>
+        <span><i class="ok"></i>SiGMA / BusinessWorld<em>PlaySafe Alliance 2025-08 + P6B 回购 2025-07、旧事排除</em></span>
+        <span><i class="ok"></i>Yogonet<em>GGR 全年 -19% / Q1 -22.43% 背景</em></span>
+        <span><i class="partial"></i>价档沿用上周 W27 6/29<em>本周无变动</em></span>
+        <span><i class="partial"></i>社群信号<em>本周无重大事件、玩家端无新触发</em></span>
+        <span><i class="partial"></i>PlayTime promo baseline 2026-05-29<em>锁址、沿用</em></span>
+      </div>
+    </div>
+    <div class="fcard">
+      <h5>下期（W29 · 2026-07-13）追踪清单</h5>
+      <ol>
+        <li><span class="n">1</span>7/15 换版当日：各家换版进度、PAGCOR 有没有公布素材规格；7/16 合规报告</li>
+        <li><span class="n">2</span>追踪各家 7 月初有无新档 / 促销上架（本期价档沿用上周、无变动）</li>
+        <li><span class="n">3</span>第二季线上 GGR 数据（约 7 月底出）：验证 -22.43% 有没有触底 + MGF 起跑后有没有运营商出清</li>
+        <li><span class="n">4</span>世界杯 7/19 收档后、各家体育档怎么转 / 接新赛事；8 月旺季（回国旅游 + 开学季）有没有人提前铺</li>
+        <li><span class="n">5</span>DigiPlus Entertainment for Good 有没有在 7 月落地成实际广告（TV / OOH / KOL）；巴西 BingoPlus 重启；LaVie 平台 PAGCOR 核准</li>
+        <li><span class="n">6</span>参议院禁 / 管法案有没有新听证 / 新进展</li>
+        <li><span class="n">7</span>CasinoPlus 1.5% Cashrebate 7/31 到期后续档</li>
+        <li><span class="n">8</span>King.ph / Queen.ph 关停有没有 PAGCOR / 集团 / 产业媒体二口径确认</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span><b>COMPETITOR // BRIEF</b> · 2026-W28 · PH iGaming · 10 家观察清单（King / Queen 已关停）· 内部使用</span>
+    <span>数据窗口 6/29-7/06 回顾 · 7/06-7/13 展望</span>
+  </div>
+
+</div>
+</div>
+
+<script>
+const RADAR_LABELS = ['品牌力','体验','内容','定价','留存','通路'];
+const RADAR_LABELS_ZH = ['','','','','',''];
+
+const BRANDS = {
+  bingoplus:  { name:'BingoPlus',           color:'#E89AAA', scores:[82,75,82,70,75,85] },
+  arenaplus:  { name:'ArenaPlus',           color:'#2A5FAA', scores:[60,70,70,65,60,75] },
+  gamezone:   { name:'GameZone',            color:'#4F8C5C', scores:[35,70,65,75,70,50] },
+  king:       { name:'King.ph · 已关停',     color:'#2D6B4D', scores:[0,0,0,0,0,0], closed:true },
+  queen:      { name:'Queen.ph · 已关停',    color:'#B6356D', scores:[0,0,0,0,0,0], closed:true },
+  casinoplus: { name:'CasinoPlus',          color:'#B89968', scores:[75,70,75,65,70,60] },
+  okbet:      { name:'OKBet / OKGames',     color:'#D86B27', scores:[50,60,60,60,60,60] },
+  bet88:      { name:'Bet88',               color:'#C2272D', scores:[50,60,65,60,65,55] },
+  playtime:   { name:'PlayTime / PT Gaming',color:'#4A4FB8', scores:[85,70,70,65,70,65] },
+  okadaplay:  { name:'OKADA PLAY',          color:'#8B7355', scores:[30,25,25,25,20,50] }
+};
+let selfId = 'playtime';
+let vsId = 'gamezone';
+const cx=160, cy=160, R=130;
+const angle = i => (Math.PI*2*i)/6 - Math.PI/2;
+
+function ringPolygon(rr){
+  return Array.from({length:6},(_,i)=>`${cx+rr*Math.cos(angle(i))},${cy+rr*Math.sin(angle(i))}`).join(' ');
+}
+function polyPoints(values){
+  return values.map((v,i)=>{const r=(v/100)*R;return `${cx+r*Math.cos(angle(i))},${cy+r*Math.sin(angle(i))}`;}).join(' ');
+}
+function labelPos(i,off=22){
+  const x = cx + (R+off)*Math.cos(angle(i));
+  const y = cy + (R+off)*Math.sin(angle(i)) + 4;
+  return {x,y};
+}
+
+function initRadar(){
+  const ringsG = document.getElementById('rings');
+  [1,.75,.5,.25].forEach((s,i)=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',ringPolygon(R*s));
+    p.setAttribute('fill', i===0 ? 'rgba(255,255,255,.04)' : 'none');
+    p.setAttribute('stroke','rgba(255,255,255,.18)');
+    ringsG.appendChild(p);
+  });
+  const axesG = document.getElementById('axes');
+  for(let i=0;i<6;i++){
+    const x=cx+R*Math.cos(angle(i)), y=cy+R*Math.sin(angle(i));
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x);l.setAttribute('y2',y);
+    l.setAttribute('stroke','rgba(255,255,255,.1)');
+    axesG.appendChild(l);
+  }
+  const labG = document.getElementById('labels');
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const p=labelPos(i,18);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',p.x);t1.setAttribute('y',p.y-6);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('fill','#fff');t1.setAttribute('font-size','11');t1.setAttribute('font-weight','800');
+    t1.textContent=lbl;
+    labG.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',p.x);t2.setAttribute('y',p.y+6);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('fill','rgba(255,255,255,.6)');t2.setAttribute('font-size','9');
+    t2.textContent=RADAR_LABELS_ZH[i];
+    labG.appendChild(t2);
+  });
+  const selfSel = document.getElementById('selfsel');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = d.name;
+    if(id===selfId) opt.selected = true;
+    selfSel.appendChild(opt);
+  });
+  selfSel.addEventListener('change', e => { selfId = e.target.value; render(); });
+
+  const vsbtns = document.getElementById('vsbtns');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const b = document.createElement('button');
+    b.dataset.id = id;
+    b.innerHTML = `<i style="background:${d.color}"></i>${d.name}`;
+    if(id===vsId) b.classList.add('active');
+    b.onclick = () => {
+      vsId = id;
+      document.querySelectorAll('#vsbtns button').forEach(x => x.classList.toggle('active', x.dataset.id===id));
+      render();
+    };
+    vsbtns.appendChild(b);
+  });
+
+  render();
+}
+function render(){
+  const self = BRANDS[selfId];
+  const vs = BRANDS[vsId];
+  const polySelf = document.getElementById('polySelf');
+  const polyVs = document.getElementById('polyVs');
+  polySelf.setAttribute('points', self.closed ? '' : polyPoints(self.scores));
+  polyVs.setAttribute('points', vs.closed ? '' : polyPoints(vs.scores));
+  polyVs.setAttribute('fill', vs.closed ? 'none' : vs.color);
+  polyVs.setAttribute('stroke', vs.closed ? 'none' : vs.color);
+  document.getElementById('legendSelf').textContent='基线 · '+self.name;
+  document.getElementById('legendVs').textContent=vs.name;
+  document.getElementById('legendVsColor').style.background=vs.closed?'#555':vs.color;
+  const grid = document.getElementById('radarGrid');
+  grid.innerHTML='';
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const sv = self.closed ? 'N/A' : self.scores[i];
+    const vv = vs.closed ? 'N/A' : vs.scores[i];
+    const lead = (!self.closed && !vs.closed && vs.scores[i] > self.scores[i]);
+    grid.innerHTML += `<span>${lbl}</span><span>${sv}</span><span>vs</span><span style="color:${lead?'var(--neg)':'var(--pos)'}">${vv}</span>`;
+  });
+}
+initRadar();
+</script>
+
+</body>
+</html>

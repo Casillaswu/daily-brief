@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Weekly Gambling Brief · W32 · 2026-08-03 ~ 2026-08-09</title>
+<meta name="description" content="W32 industry brief: US Q2 earnings week confirms prediction markets are eating sports-betting handle — Flutter swings to a loss, DraftKings profit halved, PENN bucks the trend on retail; CFTC on 8/8 orders prediction markets to drop American-style odds, same week as the Iowa hearing (AGA joins), the Wisconsin appeal and Arizona criminal charges; DraftKings goes on offence, building its own prediction-market product; Vietnam's Hai Phong police bust a Chinese-run cross-border online-gambling money-laundering ring (28 arrests, 2,003 accounts frozen); Brazil H1 betting tax tops €1.15bn, rate rising to 13% then 15% by 2028" />
+<link rel="alternate" hreflang="zh-Hans" href="2026-W32.html" /><link rel="alternate" hreflang="en" href="2026-W32-en.html" /><link rel="alternate" hreflang="x-default" href="2026-W32.html" />
+
+<style>
+  :root {
+    --ink: #1f1d1a;
+    --ink-2: #4a4742;
+    --ink-3: #8a857d;
+    --paper: #ffffff;
+    --paper-2: #f7f5f1;
+    --rule: #d9d4cb;
+    --rule-2: #ebe6dd;
+    --hi: #fff3a6;
+    --pos: #c9e4cf; --pos-ink: #2f6b3b;
+    --neu: #e1dfd9; --neu-ink: #5b574e;
+    --neg: #f1c9c5; --neg-ink: #8a3a33;
+    --cat-a: #d6e2ee;
+    --cat-b: #e8dcec;
+    --cat-c: #efe1c9;
+    --cat-d: #d9e8d6;
+    --cat-e: #f1d9d5;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #f0eee9; color: var(--ink);
+               font-family: Arial, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "PingFang TC", "Microsoft JhengHei", sans-serif;
+               -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  a { color: var(--ink); text-decoration: underline; }
+  a:hover { color: #000; }
+  u { text-decoration: underline; text-underline-offset: 2px; }
+  mark, .hi { background: var(--hi); padding: 0 2px; border-radius: 2px;
+              -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  ul { padding-left: 18px; margin: 6px 0; }
+  ul li { margin: 3px 0; }
+
+  .page { max-width: 1200px; margin: 0 auto; padding: 28px 32px;
+          background: var(--paper); min-height: 100vh; position: relative; }
+
+  .lang-toggle { display: inline-flex; background: var(--paper-2); border: 1px solid var(--rule);
+                 border-radius: 999px; overflow: hidden; font-size: 11px; font-weight: 700;
+                 margin-bottom: 12px; }
+  .lang-toggle a { padding: 6px 16px; text-decoration: none; color: var(--ink-3);
+                   transition: all .15s ease; letter-spacing: .05em; }
+  .lang-toggle a.active { background: var(--ink); color: #fff; }
+  .lang-toggle a:not(.active):hover { background: var(--paper); color: var(--ink); }
+  .lang-toggle-row { display: flex; justify-content: flex-end; }
+
+  .masthead { border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+  .masthead .kicker { font-size: 11px; letter-spacing: .22em; color: var(--ink-3);
+                      font-weight: 700; text-transform: uppercase; }
+  .masthead .row { display: flex; justify-content: space-between; align-items: baseline;
+                   gap: 18px; margin-top: 4px; flex-wrap: wrap; }
+  .masthead h1 { margin: 0; font-size: 22px; font-weight: 800; line-height: 1.2; color: var(--ink); }
+  .masthead .meta-stats { display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+                          font-size: 11px; color: var(--ink-3); }
+
+  .pill { display: inline-flex; align-items: center; gap: 4px;
+          padding: 2px 8px; border-radius: 999px; font-size: 10px;
+          border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); }
+  .pill.pos { background: var(--pos); color: var(--pos-ink); border-color: transparent; }
+  .pill.neu { background: var(--neu); color: var(--neu-ink); border-color: transparent; }
+  .pill.neg { background: var(--neg); color: var(--neg-ink); border-color: transparent; }
+  .pill.hot { background: var(--ink); color: #fff; border-color: transparent; font-weight: 700; }
+  .pill.rank { font-weight: 700; }
+  .pill .dot { font-weight: 700; }
+  .cat { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 3px;
+         color: var(--ink); font-weight: 600; }
+  .cat.a { background: var(--cat-a); }
+  .cat.b { background: var(--cat-b); }
+  .cat.c { background: var(--cat-c); }
+  .cat.d { background: var(--cat-d); }
+  .cat.e { background: var(--cat-e); }
+
+  .nav-anchors { display: flex; gap: 8px; margin: 18px 0 14px; flex-wrap: wrap;
+                 padding-bottom: 14px; border-bottom: 1px dashed var(--rule); }
+  .nav-anchors a {
+    display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap; padding: 7px 14px;
+    border-radius: 6px; font-size: 11.5px; font-weight: 600;
+    color: var(--ink-2); background: var(--paper);
+    border: 1px solid var(--rule); text-decoration: none;
+    transition: all .18s ease;
+    box-shadow: 0 1px 2px rgba(31,29,26,.04);
+  }
+  .nav-anchors a::before {
+    content: ''; display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--dot, var(--ink-3));
+    flex-shrink: 0;
+    transition: all .18s ease;
+  }
+  .nav-anchors a:hover {
+    background: var(--ink); color: #fff; border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(31,29,26,.15);
+  }
+  .nav-anchors a:hover::before { background: #fff; transform: scale(1.2); }
+  .nav-anchors a.lead {
+    background: var(--ink); color: #fff; border-color: transparent;
+    font-weight: 700;
+  }
+  .nav-anchors a.lead::before {
+    background: var(--hi); width: 7px; height: 7px;
+    box-shadow: 0 0 6px rgba(255,243,166,.6);
+  }
+
+  .section { margin: 32px 0 0; scroll-margin-top: 12px; }
+  .signal-card, .lead, article[id^="sig-"], div[id^="sig-"] { scroll-margin-top: 24px; }
+  .section-head { display: flex; align-items: baseline; gap: 10px;
+                  border-bottom: 2px solid var(--ink); padding-bottom: 6px; margin-bottom: 14px; }
+  .section-head .num { font-family: ui-monospace, Menlo, monospace; font-size: 13px;
+                       font-weight: 700; color: var(--ink); background: var(--hi);
+                       padding: 1px 8px; border-radius: 2px; }
+  .section-head h2 { margin: 0; font-size: 17px; font-weight: 800; color: var(--ink); }
+  .section-head .h2-en { font-size: 10px; letter-spacing: .22em; color: var(--ink-3);
+                         text-transform: uppercase; font-weight: 700; margin-left: auto; }
+
+  .subsection-head { margin: 22px 0 10px; font-size: 13.5px; font-weight: 800; color: var(--ink);
+                     border-left: 4px solid var(--ink); padding-left: 10px; }
+  .sec-note { font-size: 12px; color: var(--ink-3); line-height: 1.7; margin: 0 0 14px; }
+
+  .signals-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px;
+  }
+  .lead { background: var(--paper-2); border-left: 5px solid var(--ink);
+          padding: 18px 22px; grid-column: 1 / -1; margin-bottom: 4px; }
+  .lead .meta-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+  .lead h3 { margin: 0 0 8px; font-size: 17px; font-weight: 800; color: var(--ink); line-height: 1.35; }
+  .lead .src-meta { font-size: 11px; color: var(--ink-3); margin: 0 0 10px; letter-spacing: .05em; }
+  .lead p { font-size: 13px; color: var(--ink-2); line-height: 1.75; margin: 0 0 10px; }
+  .lead .cta { display:inline-block; background: var(--ink); color: #fff; padding: 6px 14px;
+               font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 2px;
+               margin-top: 4px; }
+  .signal-card {
+    background: var(--paper-2); border-left: 3px solid var(--ink);
+    padding: 16px 18px;
+  }
+  .signal-card .label { font-size: 10px; letter-spacing: .2em; color: var(--ink-3);
+                        font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+  .signal-card h4 { margin: 0 0 8px; font-size: 14.5px; font-weight: 800; color: var(--ink); line-height: 1.4; }
+  .signal-card .signal-key { font-size: 12px; color: var(--ink-2); line-height: 1.7;
+                              margin: 0 0 8px; padding: 8px 10px; background: var(--paper);
+                              border: 1px solid var(--rule-2); border-radius: 2px; }
+  .signal-card .signal-judge { font-size: 12px; color: var(--ink-2); line-height: 1.75;
+                                margin: 6px 0 8px; }
+  .signal-card .signal-judge u { font-weight: 600; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+
+  .card { background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; }
+  .card.hilite { background: var(--paper-2); border-left: 3px solid var(--ink); }
+  .card .meta-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+  .card h4 { margin: 0 0 8px; font-size: 14.5px; font-weight: 700; color: var(--ink); line-height: 1.5; }
+  .card .src-date, .card .src { font-size: 11px; color: var(--ink-3); margin: 0 0 10px; letter-spacing: .05em; }
+  .card p { font-size: 12.5px; color: var(--ink-2); line-height: 1.75; margin: 0 0 10px; }
+  .card .judge { font-size: 12.5px; color: var(--ink-2); line-height: 1.8;
+                 background: var(--paper-2); padding: 10px 12px; margin: 10px 0;
+                 border-left: 3px solid var(--ink); }
+  .card .judge u { font-weight: 700; color: var(--ink); }
+  .card .judge .lead-in { font-weight: 700; color: var(--ink); }
+
+  .news-sources {
+    border-top: 1px dashed var(--rule);
+    padding-top: 8px;
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+  .news-sources .label {
+    color: var(--ink-2); font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase;
+    margin-bottom: 4px; font-size: 10px;
+  }
+  .news-sources ul { padding-left: 14px; margin: 0; list-style: none; }
+  .news-sources li {
+    margin: 2px 0; line-height: 1.6;
+    position: relative;
+  }
+  .news-sources li::before {
+    content: '·'; color: var(--ink-3); margin-right: 6px;
+    position: absolute; left: -10px;
+  }
+  .news-sources a { color: var(--ink-2); }
+
+  .x-pulse { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .x-pulse .card { background: var(--paper-2); }
+  .x-pulse .card.hilite-na { background: var(--ink); color: var(--paper-2); border: none; }
+  .x-pulse .card.hilite-na h4 { color: #fff; }
+  .x-pulse .card.hilite-na p { color: var(--rule-2); }
+  .x-pulse .card.hilite-na a { color: var(--hi); }
+  .x-pulse .card.hilite-na .judge { background: rgba(255,255,255,.08); color: var(--rule-2);
+                                     border-left-color: var(--hi); }
+  .x-pulse .card.hilite-na .judge u { color: #fff; }
+  .x-pulse .card.hilite-na .news-sources { border-top-color: var(--ink-3); }
+  .x-pulse .card.hilite-na .news-sources a,
+  .x-pulse .card.hilite-na .news-sources .label { color: var(--hi); }
+
+  .colophon { display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+              border-top: 2px solid var(--ink); padding-top: 18px; margin-top: 28px; }
+  .colophon h5 { margin: 0 0 8px; font-size: 11px; letter-spacing: .22em; color: var(--ink);
+                 font-weight: 800; text-transform: uppercase; }
+  .colophon p { font-size: 12px; color: var(--ink-2); line-height: 1.7; margin: 0 0 6px; }
+  .colophon .source-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px;
+                            margin-top: 6px; font-size: 11px; color: var(--ink-2); }
+  .colophon .source-grid .ok { color: var(--pos-ink); font-weight: 700; }
+  .colophon .source-grid .warn { color: var(--neu-ink); font-weight: 700; }
+  .colophon .next-list { font-size: 12px; line-height: 1.85; color: var(--ink-2); }
+  .colophon .next-list b { color: var(--ink); }
+  .colophon .next-list .urgent { color: var(--neg-ink); font-weight: 700; }
+
+  .footer-bottom { border-top: 1px solid var(--rule); margin-top: 22px; padding-top: 12px;
+                   font-size: 11px; color: var(--ink-3); line-height: 1.7; }
+  .footer-bottom .label { font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+                          font-weight: 700; color: var(--ink-2); margin-bottom: 4px; }
+
+  @media (max-width: 1023px) {
+    .page { padding: 24px 24px; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .signals-grid { grid-template-columns: 1fr; }
+    .colophon { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 767px) {
+    .page { padding: 20px 16px; }
+    .masthead h1 { font-size: 17px; }
+    .masthead .row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .nav-anchors { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    .grid-3, .grid-2, .grid-auto, .x-pulse { grid-template-columns: 1fr; gap: 12px; }
+    .section-head h2 { font-size: 15.5px; }
+    .section-head .h2-en { display: none; }
+  }
+  @media print {
+    body { background: #fff; }
+    .nav-anchors { display: none; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+<style>.lead p,.card p,.card .judge,.signal-card .signal-key,.signal-card .signal-judge,.next-list{text-wrap:pretty;}</style>
+</head>
+<body>
+
+<main class="page">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap;">
+      <div>
+        <div class="kicker">Weekly Gambling Brief · W32 · 2026-08-03 ~ 2026-08-09</div>
+        <h1 style="margin:4px 0 0;font-size:22px;font-weight:800;line-height:1.2;color:var(--ink);">Gambling Industry Weekly · Global</h1>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="lang-toggle">
+          <a href="2026-W32.html">中</a>
+          <a href="2026-W32-en.html" class="active" aria-current="page">EN</a>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:11px;">
+          <span class="pill pos"><span class="dot">＋</span>Positive</span>
+          <span class="pill neu"><span class="dot">○</span>Neutral</span>
+          <span class="pill neg"><span class="dot">−</span>Negative</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV ANCHORS -->
+  <nav class="nav-anchors">
+    <a class="lead" href="#highlights">🔥 Highlights</a>
+    <a href="#s1" style="--dot:#d6e2ee;">§1 Regulation</a>
+    <a href="#s2" style="--dot:#efe1c9;">§2 M&amp;A</a>
+    <a href="#s3" style="--dot:#e8dcec;">§3 Product</a>
+    <a href="#s4" style="--dot:#efe1c9;">§4 Operators</a>
+    <a href="#s5" style="--dot:#d9e8d6;">§5 Asia</a>
+    <a href="#s6" style="--dot:#d9e8d6;">§6 LatAm</a>
+    <a href="#s7" style="--dot:#d9e8d6;">§7 N.America</a>
+    <a href="#s8" style="--dot:#f1d9d5;">§8 Sports</a>
+    <a href="#s9" style="--dot:#8a857d;">§9 X</a>
+    <a href="#s10" style="--dot:#8a857d;">§10 Next</a>
+  </nav>
+
+  <!-- 🔥 Highlights -->
+  <section class="section" id="highlights">
+    <div class="section-head">
+      <span class="num">🔥</span>
+      <h2>Five Headline Signals</h2>
+      <span class="h2-en">This Week</span>
+    </div>
+
+    <div class="signals-grid">
+
+      <!-- Signal 01 — LEAD -->
+      <article class="lead">
+        <div class="meta-row">
+          <span class="pill hot rank">01 · LEAD</span>
+          <span class="cat c">Operators</span>
+          <span class="pill neg"><span class="dot">−</span>Negative</span>
+          <span class="pill hot">N.America · Q2 earnings</span>
+        </div>
+        <h3>US Q2 earnings week confirms it: <span class="hi">prediction markets are eating sports-betting handle</span> — Flutter swings to a loss, DraftKings profit halved</h3>
+        <p class="src-meta">GlobeNewswire · iGaming Business · CasinoBeats · 08/05–08/07</p>
+        <p>Two US sports-betting leaders reported this week and, for the first time, named prediction markets (PMs — platforms that let people bet on whether an event will happen, including who wins a game) as a primary drag.</p>
+        <p>Flutter (FanDuel's parent, listed in London) on Aug 5: revenue of US$4.326bn, up 3% YoY, but EPS swung to a US$1.57 loss and adjusted EBITDA fell 45% to US$508m. Three things stacked up — softer US sports-betting revenue, higher UK online gambling tax, and heavy World Cup marketing. Its own prediction-market unit earned just US$6m in Q2, and analysts said outright that FanDuel is roughly 9–12 months behind DraftKings in prediction markets. DraftKings (a US sports-betting leader, top-two by share) on Aug 6: revenue down 5% YoY, adjusted EBITDA halved from US$300.6m a year earlier to US$114.64m, though it reaffirmed full-year revenue guidance of US$6.5–6.9bn. One number to size it up: Bank of America (BofA) estimates June consumer wagering on prediction markets at roughly US$10bn — about 85% of US online sports-betting handle over the same period.</p>
+        <p><br><u>Bottom line</u>: this is not a one-off bad quarter, it is structural. For operators that only run online sports betting, whose moat is just "a legal license + brand," this is −EV — player money is flowing toward something with an unsettled regulatory identity but a lower-friction betting experience. <b>Execution</b>: in markets built on sports betting like the Philippines and Vietnam, stop assuming "handle only goes up." This "bet on whether an event happens" product form will eventually arrive in local or offshore versions and pull volume — treat it as a direct competitor to study now, not a fringe topic. For any partnership tied to a pure sportsbook, re-run its 12-month volume outlook.</p>
+        <a class="cta" href="https://igamingbusiness.com/finance/quarterly-results/draftkings-2026-q2-earnings-predictions/" target="_blank" rel="noopener">Read original →</a>
+      </article>
+
+      <!-- Signal 02 -->
+      <div class="signal-card">
+        <div class="label">SIGNAL 02 · N.AMERICA · REGULATION</div>
+        <h4>CFTC orders prediction markets to drop American-style odds, Kalshi complies: <span class="hi">same week, Iowa hearing, Wisconsin appeal and Arizona criminal charges all move at once</span></h4>
+        <p class="signal-key">The US federal Commodity Futures Trading Commission (CFTC) on Aug 8 told prediction-market platforms to strip "+150 / −200" American moneyline odds from contract pages, arguing the presentation dresses financial contracts up to look like sports betting and is misleading; Kalshi (a CFTC-licensed prediction market) confirmed it will comply. Three litigation fronts moved the same week: Kalshi's case against the Iowa state government went to a hearing, with the veteran gaming-industry body AGA joining on the state's side; the CFTC appealed its Wisconsin defeat; and Arizona brought criminal charges against Kalshi while the CFTC counter-sued Arizona for obstructing its oversight.</p>
+        <p class="signal-judge"><br><u>Bottom line</u>: short-term favorable for licensed operators that dutifully hold state licenses and pay tax — the claim that "a single federal license overrides state gambling law" is being questioned court by court; but the federal appeal is not over and cases are spread across multiple circuits, so Neutral. <b>Execution</b>: the playbook — "the moment a local licensee sees a platform taking its tax, it pushes government to move via the 'illegal gambling, fine it, block it' angle" — applies in the Philippines, Vietnam and Brazil. If you have a partnership with a prediction-market platform, write "who eats the loss if it's banned" into the contract now.
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://bettorsinsider.com/news/2026/08/08/cftc-tells-prediction-markets-to-ditch-american-style-odds-as-sports-betting-fight-escalates/" target="_blank" rel="noopener">Read original →</a></p>
+      </div>
+
+      <!-- Signal 03 -->
+      <div class="signal-card">
+        <div class="label">SIGNAL 03 · N.AMERICA · PRODUCT</div>
+        <h4>DraftKings goes on the offensive: <span class="hi">no longer defending — building its own prediction-market product</span></h4>
+        <p class="signal-key">DraftKings' stance on its earnings call was the strategic move most worth watching this week: rather than just guarding a sportsbook getting bitten, it will build its own prediction-market product and compete directly — effectively conceding this product form won't disappear and can only be met by entering it.</p>
+        <p class="signal-judge"><br><u>Bottom line</u>: this is the turn from "getting bitten" to "getting in." Once licensed, compliance-staffed majors like DraftKings and FanDuel all build these, it endorses the product form and washes half the "prediction markets = grey offshore" stigma away. For people making sports-betting content and plans, it's a change signal — over the next 12 months, "prediction-market-style betting" moves from the fringe to a line on the mainstream operator menu. <b>Execution</b>: start studying its product shape now (how contracts are designed, how settlement is explained, how marketing sidesteps "this is gambling") — don't wait until it becomes standard to catch up.
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://igamingbusiness.com/finance/quarterly-results/draftkings-2026-q2-earnings-predictions/" target="_blank" rel="noopener">Read original →</a></p>
+      </div>
+
+      <!-- Signal 04 -->
+      <div class="signal-card">
+        <div class="label">SIGNAL 04 · ASIA · VIETNAM</div>
+        <h4>Vietnam's Hai Phong police bust a Chinese-run cross-border online-gambling money-laundering ring: <span class="hi">28 arrested, 2,003 accounts frozen</span>, offshore crackdown steps up again</h4>
+        <p class="signal-key">Hai Phong (Hải Phòng) police this week took down a Chinese-led cross-border online-gambling money-laundering network: 28 arrests, 2,003 bank accounts frozen, more than VND 300bn (about US$12m) in flows laundered via USDT through Telegram. The same week, Quang Tri (Quảng Trị) police dismantled an OK9 offshore sportsbook plus pirated-football-broadcast operation — 16 indicted, roughly VND 150bn in illegal transactions per month.</p>
+        <p class="signal-judge"><br><u>Bottom line</u>: Vietnam's enforcement against offshore online gambling is clearly escalating — not just blocking sites, but arrests, frozen accounts and tracing crypto flows. For offshore brands living on Vietnamese grey traffic, −EV; for licensed local pilots (Phu Quoc's Corona, Grand Ho Tram outside HCMC — now admitting eligible Vietnamese citizens) it is an indirect positive. <b>Execution</b>: if you have offshore partnerships or spend in Vietnam, re-assess "funds frozen" as a real risk; and watch whether Vietnam's licensed local channel widens further in 2026–2027 — that is the compliant way in.
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://brightsideofnews.com/gambling/news/vietnam-grand-ho-tram-casino-locals/" target="_blank" rel="noopener">Read original →</a></p>
+      </div>
+
+      <!-- Signal 05 -->
+      <div class="signal-card">
+        <div class="label">SIGNAL 05 · LATAM · BRAZIL</div>
+        <h4>Brazil H1 betting tax tops <span class="hi">€1.15bn</span>, rate up to 13% and 15% by 2028; SPA orders licensees to bring sites into compliance within August</h4>
+        <p class="signal-key">Brazil's regulated betting market paid more than €1.15bn in federal tax in H1. On rates: from January 2026 the gross-gaming-revenue tax on licensees rose from 12% to 13%, and the law already schedules a rise to 15% before 2028. On enforcement: the SPA (Secretaria de Prêmios e Apostas, Brazil's Ministry of Finance betting regulator) requires licensees to bring websites and apps into line with the new rules within August, or be fined. The SECAP portal currently lists 87 operators holding valid Bets ANGB licenses.</p>
+        <p class="signal-judge"><br><u>Bottom line</u>: Brazil's path is clear — use tax numbers to prove "regulation works" (H1's €1.15bn is a political chip) while steadily raising rates and compliance bars. For licensed operators, costs get heavier each year, −EV; but for the market overall this moves toward "stable and predictable," +EV for long-term investment. <b>Execution</b>: model Brazil costs at a 15% tax rate, not today's 13%; reserve budget for "compliance re-versioning at any time" — the SPA's "fix by the deadline or be fined" cadence will become routine.
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.igamingtoday.com/brazils-betting-tax-revenue-jumps-to-e1-16bn-as-political-battle-over-market-intensifies/" target="_blank" rel="noopener">Read original →</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §1 Regulation -->
+  <section class="section" id="s1">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>Regulation</h2>
+      <span class="h2-en">Regulation</span>
+    </div>
+    <p class="sec-note">The CFTC odds order is this week's headline regulation (see Signal 02); here we only add the separate litigation events not covered in the signal.</p>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">Regulation</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">N.America · Iowa</span></div>
+        <h4>Kalshi v. Iowa goes to a hearing, <span class="hi">veteran gaming body AGA shows up to back the state</span></h4>
+        <p class="src">iGaming Expert · Local 12 · past 7 days</p>
+        <p>Kalshi's case against the Iowa state government went to a hearing in early August; the judge heard two hours of oral argument and reserved judgment. Notably the veteran US gaming-industry body AGA joined on the state's side — meaning traditional gambling now treats prediction markets as an opponent to block via regulation, no longer just watching.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: with the AGA stepping in personally, "prediction markets vs. licensed gambling" escalates from a corporate spat to an industry-level lobbying war — short-term favorable for licensees. <b>Execution</b>: the "industry association + state government jointly pressuring a new entrant" play will recur in any market with strong local licensee interests — keep it as a template.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://igamingexpert.com/regions/north-america/new-york-prediction-markets-kalshi" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">Regulation</span><span class="pill neg"><span class="dot">−</span>Negative</span><span class="pill hot">N.America · Arizona</span></div>
+        <h4>Arizona brings <span class="hi">criminal charges</span> against Kalshi; CFTC counter-sues Arizona for obstructing oversight</h4>
+        <p class="src">Local 12 · past 7 days</p>
+        <p>Arizona went harder than other states — bringing criminal charges against Kalshi for violating state gambling and election-betting laws. The CFTC hit back, suing Arizona for obstructing federal oversight.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: the criminal track is a new variable. States mostly used civil injunctions before; Arizona going criminal raises the stakes and forces the CFTC to meet it head-on — a pressure escalation for the whole prediction-market space. <b>Execution</b>: if criminal exposure sticks, it will scare off small service providers partnering with prediction-market platforms — if you sit somewhere in that supply chain, confirm whether your role counts as "aiding illegal gambling."</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://local12.com/news/nation-world/congress-weighs-regulating-sports-prediction-markets-kalshi-polymarket-cftc-contracts" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row"><span class="cat a">Regulation</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">📌 Editor's Pick</span></div>
+        <h4>The prediction-market regulatory fight went from "one state, one case" <span class="hi">to "many fronts at once" this week</span></h4>
+        <p class="src" style="font-style:italic;">📍 Editorial synthesis from Signal 02 / §1 / §7 — no single source link</p>
+        <p>Stack up this week's scattered moves: CFTC odds order (the federal side drawing its own line), Iowa hearing (state sues platform), Wisconsin appeal (federal contests its defeat), Arizona criminal (state escalates), Congress weighing legislation (should the federal level unify oversight). Five things in one week means this is no longer sporadic litigation — it's the federal and state levels fighting over who gets to define who regulates prediction markets.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: for market-intelligence work, this week is a watershed — prediction-market legality won't be settled by any single ruling; it will drag into a multi-year, multi-jurisdiction tug of war. Nobody should bet on "a verdict soon." <b>Execution</b>: for any content or partnership themed on prediction markets, write "regulation unsettled" in as a permanent premise — don't write "it'll be clear once ruling X comes out."</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://bettorsinsider.com/news/2026/08/08/cftc-tells-prediction-markets-to-ditch-american-style-odds-as-sports-betting-fight-escalates/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §2 M&A -->
+  <section class="section" id="s2">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>M&amp;A &amp; Capital</h2>
+      <span class="h2-en">M&amp;A &amp; Capital</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card hilite">
+        <div class="meta-row"><span class="cat c">Operators</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">📌 Editor's Pick</span></div>
+        <h4>M&amp;A was quiet this week — the money is flowing into <span class="hi">"building your own prediction-market product," not acquisitions</span></h4>
+        <p class="src" style="font-style:italic;">📍 Editorial synthesis from Signal 01 / Signal 03 — no single source link</p>
+        <p>No big deals closed this week. In the context of earnings week, the quiet is itself a signal: big operators' capital priority now is building their own prediction-market products (see Signal 03), not buying ready-made targets. The 2024–2025 wave of "buy a license, enter a market" deals (FDJ buying Kindred, Flutter's three-in-a-row) has, for now, given way to internal spend on "defend the sportsbook + chase prediction markets."</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: cooling M&amp;A doesn't mean a cold market — capital just changed direction, from "buying turf" to "filling out product." For small operators hoping to exit via acquisition, −EV, since buyer appetite is tied up in in-house builds; for the supply side (B2B prediction-market tech), +EV, as majors building in-house drives a wave of tech procurement. <b>Execution</b>: if you're seeking an exit or a buyer, don't count on good valuations right now; if you supply tech, this is the window to knock on the majors' doors.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://sbcnews.co.uk/features/2026/07/07/gaming-mergers-acquisitions" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §3 Product -->
+  <section class="section" id="s3">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>Product &amp; Tech</h2>
+      <span class="h2-en">Product &amp; Tech</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat b">Product</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">🆕 New</span></div>
+        <h4>DigiPlus adds "Bingo Speed" to BingoPlus, <span class="hi">a fast-paced take on 5×5 bingo</span></h4>
+        <p class="src">AGB · 08/03</p>
+        <p>DigiPlus (a PAGCOR-licensed listed digital-entertainment firm, BingoPlus's parent) released "Bingo Speed" on Aug 3, turning the classic 5×5 bingo card into a faster, denser digital version under BingoPlus's live-hosted bingo games.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: a routine "iterate the product to keep local users" move by a compliant Philippine operator — not a big deal, but the direction is right: as PAGCOR tightens on offshore, local licensees lean on product experience for retention. <b>Execution</b>: for people making Philippine-market creative, track the product cadence of local leaders like BingoPlus — new mechanics usually ship with a wave of spend, a bellwether for local traffic.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://agbrief.com/news/philippines/03/08/2026/digiplus-enhances-digital-entertainment-offering-with-bingo-speed-release/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat b">Product</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">Tech · AI</span></div>
+        <h4>Playgon's AI-generated live-dealer tech rolls out in phases in Q3, <span class="hi">starting with baccarat</span></h4>
+        <p class="src">Casino.org · past 7 days</p>
+        <p>Canada's Playgon Games plans to bring its AI-generated live-dealer tech to the iGaming market in Q3, phased — baccarat first, then blackjack, then roulette.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: if AI dealers look decent, they cut live-casino labor costs and redefine what "real presence" as a selling point means. For small operators, +EV (cost savings); for brands differentiated on human dealers, a mid-term threat. <b>Execution</b>: don't rush to switch — wait for the actual Q3 launch to gauge player acceptance; the old pitfall for AI dealers is the "uncanny valley," and one obvious tell drops trust.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.casino.org/news/canadian-gaming-playgon-ai-live-dealers/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §4 Operators -->
+  <section class="section" id="s4">
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2>Operators</h2>
+      <span class="h2-en">Operators</span>
+    </div>
+    <p class="sec-note">Flutter and DraftKings already got full cards in Signal 01; here we only place operators not covered there.</p>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat c">Operators</span><span class="pill pos"><span class="dot">＋</span>Positive</span><span class="pill hot">US · PENN</span></div>
+        <h4>PENN bucks the trend with strong earnings: <span class="hi">back to profit, record retail, ESPN Bet loss narrows to $9.5m</span></h4>
+        <p class="src">Gambling Insider · NEXT.io · 08/07</p>
+        <p>In the same earnings week, PENN Entertainment (which owns ESPN Bet) delivered: revenue of US$1.86bn, EPS of $0.44 beating the $0.35 expected, net income back in the black at US$32.6m (vs. a US$18.3m loss a year earlier). Key point: its interactive (online) segment loss narrowed from US$62m a year ago to US$9.5m; management reaffirmed full-year EBITDA up 20%+, with the online unit expected to turn positive in Q4.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: PENN reported the same week as Flutter and DraftKings but with the opposite result, and the difference is structure — PENN has a solid retail-casino base holding it up with online just adding on top, whereas the pure-online two are directly exposed to World Cup results and prediction-market competition. It confirms one thing: this squeeze targets "pure online sports betting," and those with physical or diversified revenue hold up. <b>Execution</b>: when assessing an operator partner, don't look only at online — look at revenue structure; pure-online names will swing harder this half-year.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/183462/penn-posts-record-retail-q2-as-digital-losses-narrow-to-9-5-million" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §5 Asia -->
+  <section class="section" id="s5">
+    <div class="section-head">
+      <span class="num">05</span>
+      <h2>Asia — Philippines / Macau / Vietnam</h2>
+      <span class="h2-en">Asia</span>
+    </div>
+    <p class="sec-note">The Vietnam offshore crackdown already got a full card in Signal 04; here we add Macau and the Philippine compliance-execution angle.</p>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">Market</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">Macau · GGR</span></div>
+        <h4>Macau July GGR −8.4% YoY, +9.4% MoM, <span class="hi">but the first seven months are still +4.4% YoY cumulatively</span></h4>
+        <p class="src">Inside Asian Gaming (asgam) · 08/01</p>
+        <p>Macau's July gross gaming revenue was MOP20.26bn (about US$2.51bn), down 8.4% YoY — a second straight monthly YoY decline, mainly from the World Cup diverting play and typhoons disrupting travel — but up 9.4% MoM from June. Zoom out: the first seven months of 2026 total MOP147.16bn, still +4.4% YoY, ahead of last year overall.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: consecutive monthly YoY drops are easily misread as "Macau declining," but the cumulative +4.4% shows this is just short-term diversion from a one-off event like the World Cup, not a trend reversal — Neutral. <b>Execution</b>: when briefing a client or boss on Macau, don't just drop the single-month −8.4% to alarm them — pair it with "cumulative still growing," or the framing is off.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://asgam.com/2026/08/01/macau-ggr-down-8-4-year-on-year-to-mop20-3-billion-in-july/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">Market</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">Philippines · competitor promo</span></div>
+        <h4>OKBet's "Top-Up 60% Rebate" unchanged: <span class="hi">a deposit bonus, not over PAGCOR's rebate red line</span></h4>
+        <p class="src">Source: PAGCOR-licensed operators' promo pages</p>
+        <p>Among PAGCOR-licensed operators, OKBet's flagship offer is currently "Top-Up 60% Rebate," with 60% unchanged from the last review (W23). A classification note: that 60% is a deposit bonus (a match-on-deposit ratio), not the daily rebate capped at 1.5% under PAGCOR's May 7 rules — so it is compliant.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: Philippine licensees' offers show no sign of breaching PAGCOR's rebate cap at present — Neutral. <b>Execution</b>: in Philippine competitor analysis, keep "60% deposit bonus" and "rebate" separate — PAGCOR caps rebate (≤1.5%) and cashback (≤15%), while deposit bonuses have no cap; judge compliance by the full offer text, not by the size of the number.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §6 LatAm -->
+  <section class="section" id="s6">
+    <div class="section-head">
+      <span class="num">06</span>
+      <h2>Latin America — Brazil Focus</h2>
+      <span class="h2-en">LatAm · Brazil</span>
+    </div>
+    <p class="sec-note">Brazil's tax and SPA compliance enforcement already got a full card in Signal 05; here we add an industry event and a global-context anchor.</p>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">Market</span><span class="pill pos"><span class="dot">＋</span>Positive</span><span class="pill hot">Brazil · event</span></div>
+        <h4>Rio Innovation Week 2026: <span class="hi">Flutter Brazil and Betano execs on regulation and advertising</span></h4>
+        <p class="src">iGaming Brazil · 08/07</p>
+        <p>At the betting track of Rio Innovation Week 2026 on Aug 7, Flutter Brazil CMO Álvaro Garcia and Betano Brazil institutional-relations director Guilherme Figueiredo shared a stage on regulation, advertising, sports investment and economic impact.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: majors' senior execs willing to stand up publicly and discuss regulation means Brazil has moved past "wait and see" into "how to scale within the rules" — +EV for long-term investment in Brazil. <b>Execution</b>: events like this are good venues to catch "regulatory direction + majors' narratives"; Brazil's ad rules are still moving, so watch for compliance red-line updates revealed on stage.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://igamingbrazil.com/en/event-coverage-en/2026/08/07/antonio-guerardi-of-ana-gaming-discusses-the-betting-market-at-rio-innovation-week-2026/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">Regulation</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">Global context · 2026-04 retrospective</span></div>
+        <h4>Brazil already blocked 27 prediction-market platforms in April, <span class="hi">putting this week's US battle in context</span></h4>
+        <p class="src">Gaming Intelligence · [2026-04 retrospective]</p>
+        <p>Background (not a this-week event, marked retrospective): back on April 24, 2026, Brazil's Anatel (national telecom agency) blocked 27 prediction-market platforms, including Kalshi and Polymarket, for violating betting law 14.790/2023 and operating without a license. SPA technical note 2,958/2026 classifies prediction markets as illegal fixed-odds betting.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: put Brazil's April step next to this week's US CFTC odds order and multi-state suits and the direction is the same — regulators everywhere are "classifying, drawing lines, then either regulating or blocking" prediction markets; Brazil chose the hardest option, "declare illegal and block." <b>Execution</b>: this is a global trend, not single-market noise. Any cross-market prediction-market plan should be risk-set for "could be declared wholly illegal in some country at any time" — Brazil is the precedent.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamingintelligence.com/legal/229826-brazil-blocks-access-to-prediction-market-platforms/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §7 North America -->
+  <section class="section" id="s7">
+    <div class="section-head">
+      <span class="num">07</span>
+      <h2>North America — US / Canada</h2>
+      <span class="h2-en">North America</span>
+    </div>
+    <p class="sec-note">US operator earnings already got full cards in Signal 01 and §4; here is the market-structure observation.</p>
+    <div class="grid-auto">
+
+      <div class="card hilite">
+        <div class="meta-row"><span class="cat c">Operators</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">📌 Editor's Pick</span></div>
+        <h4>Prediction-market handle already ~85% of sports betting: <span class="hi">it is no longer a complement, but a substitute</span></h4>
+        <p class="src" style="font-style:italic;">📍 Editorial synthesis from Signal 01 / §4 — representative source below</p>
+        <p>Back to that scale figure: BofA estimates June consumer wagering on prediction markets at roughly US$10bn, about 85% of US online sports-betting handle. A year ago it was treated as a niche experiment, a sports-betting add-on; now its size rivals sports betting itself, and its nature shifts accordingly — from "one more option" to "the same money moving between the two." The three leaders' Q2 reports put a price on that shift: whichever side the money flows to is the side whose report looks good.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: whether a product is a "complement" or a "substitute" comes down to whether it draws new demand or existing demand. Prediction markets draw existing demand — the same sports-betting players, the same budget — so it is zero-sum for sports betting. <b>Execution</b>: when sizing a market, stop adding prediction markets as "extra volume on top of sports betting"; treat it as a deduction that "siphons off existing sports-betting handle," so the sports-betting ceiling you arrive at isn't inflated.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://casinobeats.com/2026/08/07/flutter-draftkings-and-penn-all-report-losses-in-q2-is-everyone-losing-from-legal-gambling/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §8 Sports Betting -->
+  <section class="section" id="s8">
+    <div class="section-head">
+      <span class="num">08</span>
+      <h2>Sports Betting</h2>
+      <span class="h2-en">Sports Betting</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat e">Sports</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">Global · World Cup</span></div>
+        <h4>The 2026 World Cup's "player-friendly results" <span class="hi">genuinely bit into operators' hold rate this quarter</span></h4>
+        <p class="src">CasinoBeats · 08/07</p>
+        <p>Operators cited the same concrete cause repeatedly this earnings season: a run of "player-friendly" results at the 2026 World Cup (favorites winning, the public on the right side), plus the NBA's Knicks title, pushed down DraftKings' and Flutter's hold rate (the share of stakes players lose). Handle spiked during the tournament, but with results tilting toward players, operators saw "big volume, thin margin."</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: this is the old rule of sports betting — big events pull volume, but short-term profit rides on result luck; not every World Cup is an operator ATM — Neutral. <b>Execution</b>: don't sell partners the default story that "big event = guaranteed profit"; separate volume from margin. A universal event like the World Cup is useful for acquisition, but for a given quarter's profit it's a gamble on luck — manage expectations.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://casinobeats.com/2026/08/07/flutter-draftkings-and-penn-all-report-losses-in-q2-is-everyone-losing-from-legal-gambling/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+      <div class="card hilite">
+        <div class="meta-row"><span class="cat e">Sports</span><span class="pill neg"><span class="dot">−</span>Negative</span><span class="pill hot">📌 Editor's Pick</span></div>
+        <h4>The prediction-market threat to sportsbooks is fundamentally <span class="hi">repackaging "betting" from 'gambling' into 'trading'</span></h4>
+        <p class="src" style="font-style:italic;">📍 Editorial synthesis from Signal 01 / 02 / 03 — no single source link</p>
+        <p>The biggest external variable for sports betting this year isn't another sportsbook — it's prediction markets. Their punch is in the narrative: recasting "betting on a game" as "buying an event contract," sidestepping the psychological barrier of "this is gambling" and part of the regulation. The CFTC's demand this week to drop American odds (see Signal 02) is exactly an attempt to cut off that "looks-like-gambling" packaging.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: whoever gets to define "is this gambling or trading" controls this market's regulatory home and tax burden — the core battleground for sports betting over the next two to three years; for traditional sportsbooks, −EV (one more rival that dodges regulation). <b>Execution</b>: to fight back, sportsbook brands need to (1) add "event-betting" mechanics on the product side, and (2) hold the "we're licensed, taxed, trustworthy" position in the narrative — turning prediction markets' "regulation unsettled" into your own trust advantage.</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://bettorsinsider.com/news/2026/08/08/cftc-tells-prediction-markets-to-ditch-american-style-odds-as-sports-betting-fight-escalates/" target="_blank" rel="noopener">Read original →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §9 X Pulse -->
+  <section class="section" id="s9">
+    <div class="section-head">
+      <span class="num">09</span>
+      <h2>X · North America + Brazil</h2>
+      <span class="h2-en">X · North America + Brazil</span>
+    </div>
+    <div class="x-pulse">
+
+      <div class="card hilite-na">
+        <div class="meta-row"><span class="cat a" style="background:var(--hi);">Regulation</span><span class="pill hot" style="background:var(--hi);color:var(--ink);">Highest value</span></div>
+        <h4>Legal X circle half a step ahead of media: Iowa hearing detail, CFTC appeal, 8 federal circuits</h4>
+        <p class="src" style="color:var(--rule-2);">Public X posts · US / Canada prediction markets · past 7 days · grok search</p>
+        <p>The direction of the US cases was covered in Signals 01 and 02; X adds the litigation-level detail that media usually pick up a week or two later. The most authoritative voice in the gambling-law circle, @WALLACHLEGAL (attorney Daniel Wallach), posted several high-value threads this week: one on Kalshi v. Iowa's two-hour hearing, with AGA present and the state's counsel hedging on "whether Kalshi constitutes illegal sports gambling"; another that the CFTC appealed the Wisconsin denial and that prediction-market cases are now spread across 8 federal circuits. @USPredict also compiled New York's demand for over US$36bn in treble damages.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: "spread across 8 circuits" means any settlement will take a long time and rulings may differ by circuit — discount any "it'll be clear once the ruling comes" assumption. The AGA stepping in personally is an industry-level signal (see §1). <b>NA takeaway</b>: this week the fight went from "one state, one case" to "many fronts at once" — federal odds order, states suing platforms, federal appeal, criminal charges, Congress talk, all in one week. Undecided, but industry-level confrontation has formed.</div>
+        <div class="news-sources">
+          <div class="label">This week's high-signal X posts</div>
+          <ul>
+            <li><a href="https://x.com/WALLACHLEGAL/status/2085931319838531860" target="_blank" rel="noopener noreferrer">@WALLACHLEGAL [HIGH] — Kalshi v. Iowa two-hour hearing, AGA present, state counsel hedges</a></li>
+            <li><a href="https://x.com/WALLACHLEGAL/status/2085902300116135964" target="_blank" rel="noopener noreferrer">@WALLACHLEGAL [HIGH] — CFTC appeals Wisconsin denial; prediction-market cases across 8 circuits</a></li>
+            <li><a href="https://x.com/USPredict/status/2083990726967492964" target="_blank" rel="noopener noreferrer">@USPredict [HIGH] — New York sues Kalshi, seeks 36bn+ (penalties + restitution + treble)</a></li>
+          </ul>
+        </div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://x.com/WALLACHLEGAL/status/2085931319838531860" target="_blank" rel="noopener">See X thread →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">Market</span><span class="pill neu"><span class="dot">○</span>Neutral</span><span class="pill hot">Brazil</span></div>
+        <h4>Brazil's social throughline: <span class="hi">the tightening slate is set, SPA orders licensees to fix compliance by deadline</span></h4>
+        <p class="src">Public X posts · Brazil gambling regulation · past 7 days · grok search</p>
+        <p>Brazil's high-signal posts this week clustered on tightening and compliance enforcement: @MaltaMediaNews compiled Brazil's coming autoplay ban, mandatory betting pauses, ad restrictions and rate hikes, plus political pressure from the Lula government and supreme-court debate; @portalbetinfo reminded licensees they must update sites and apps per new SPA rules or be fined; @httpsJeffinho criticized the government for allowing betting while delaying full regulation, leading to addiction and debt cases.</p>
+        <div class="judge"><br><span class="lead-in"><u>Bottom line</u></span>: Brazil's throughline shifts from "market opening" to "how to thrive within tightening rules" — tax, advertising and anti-addiction features all pressing at once; whoever keeps compliance re-versioning on pace gets fined less. The @portalbetinfo post corroborates Signal 05's SPA compliance deadline — a direct action order for Brazil tech and compliance teams. <b>BR takeaway</b>: once anti-addiction features like autoplay bans and mandatory pauses are legislated, creative and product both have to change — treat it now as a compliance checklist to prep ahead.</div>
+        <div class="news-sources">
+          <div class="label">This week's high-signal X posts</div>
+          <ul>
+            <li><a href="https://x.com/MaltaMediaNews/status/2085714586259403259" target="_blank" rel="noopener noreferrer">@MaltaMediaNews [HIGH] — Brazil tightening: autoplay ban, mandatory pauses, ad limits, rate hikes</a></li>
+            <li><a href="https://x.com/portalbetinfo/status/2085111542308073921" target="_blank" rel="noopener noreferrer">@portalbetinfo [HIGH] — Licensees must update sites/apps per new SPA rules or be fined</a></li>
+            <li><a href="https://x.com/httpsJeffinho/status/2085545951343636726" target="_blank" rel="noopener noreferrer">@httpsJeffinho [MED] — Criticizes allowing betting while delaying regulation; addiction/debt cases rise</a></li>
+          </ul>
+        </div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://x.com/portalbetinfo/status/2085111542308073921" target="_blank" rel="noopener">See X thread →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §10 -->
+  <section class="section" id="s10">
+    <div class="section-head">
+      <span class="num">10</span>
+      <h2>Sources &amp; Next</h2>
+      <span class="h2-en">Sources &amp; Next</span>
+    </div>
+    <div class="colophon">
+      <div>
+        <h5>📊 Source coverage</h5>
+        <div class="source-grid">
+          <span><span class="ok">✓</span> iGaming Business</span>
+          <span><span class="ok">✓</span> SBC News · SBC Americas</span>
+          <span><span class="ok">✓</span> Gambling Insider</span>
+          <span><span class="ok">✓</span> Inside Asian Gaming (asgam)</span>
+          <span><span class="ok">✓</span> Yogonet International</span>
+          <span><span class="ok">✓</span> iGaming Brazil</span>
+          <span><span class="ok">✓</span> Legal Sports Report · Sports Handle</span>
+          <span><span class="ok">✓</span> Bettors Insider · CasinoBeats</span>
+          <span><span class="ok">✓</span> GlobeNewswire (Flutter results)</span>
+          <span><span class="ok">✓</span> AGB · NEXT.io · Gaming Intelligence</span>
+          <span><span class="ok">✓</span> X (N.America, Brazil, Vietnam high-signal posts)</span>
+          <span><span class="ok">✓</span> PAGCOR-licensed operators&#39; promo pages</span>
+        </div>
+      </div>
+      <div>
+        <h5>📌 Watch next week</h5>
+        <p class="next-list">
+          ·&nbsp;<b class="urgent">🔴</b> Ruling in Kalshi v. Iowa — judgment is reserved and could drop any time; AGA's involvement gives it industry-level significance<br>
+          ·&nbsp;<b class="urgent">🔴</b> Execution of the CFTC odds order — see what Kalshi's revised contract pages look like and whether Polymarket etc. follow<br>
+          ·&nbsp;<b>Ongoing</b> Brazil's first fines after the SPA August compliance deadline — who missed it, how heavy<br>
+          ·&nbsp;<b>Ongoing</b> FanDuel (Flutter) prediction-market product moves — analysts say 9–12 months behind DraftKings; will it accelerate<br>
+          ·&nbsp;<b>Ongoing</b> Vietnam offshore enforcement follow-through — will the Hai Phong case pull in more platforms or trigger fresh blocks/laws<br>
+          ·&nbsp;<b>Mid-Aug</b> Macau August GGR (out early Sept) — does footfall return after the World Cup; the test of whether the monthly dips are just short-term diversion<br>
+          ·&nbsp;<b>Ongoing</b> DraftKings' timeline for its in-house prediction-market product — after the "offence" stance, does it give a concrete launch date
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer-bottom">
+      <div class="label">Weekly Gambling Brief · W32</div>
+      <p style="margin:0">Editor: Reagan · W32 / 2026-08-09 ｜ Coverage 2026-08-03 ~ 2026-08-09 ｜ For internal circulation</p>
+    </footer>
+  </section>
+
+</main>
+
+</body>
+</html>

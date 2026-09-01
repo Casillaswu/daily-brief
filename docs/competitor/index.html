@@ -63,6 +63,27 @@ a{color:inherit;}
   .wk .links{flex-direction:row;}
   .wk .links a{flex:1;}
 }
+
+/* wrap-fix v1 */
+.nbk{white-space:nowrap;}
+/* 标题：自动平衡各行长度，避免末行只剩一两个字 */
+h1,h2,h3,h4,h5,h6,.mast .ttl h1,.sec-lbl h2,.mcard h4,.fcard h5,.radar-head .lbl,.wk .id{
+  text-wrap:balance;
+}
+/* 正文：避免寡行（末行孤字），并允许超长 URL / 英文词在容器内换行 */
+p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .social,
+.mcard .impact,.trow .desc,.kpi .cell,.strat .a p,.radar-note,.radar-formula td,
+.fcard p,.fcard ol li,.impl li,.impl-meth li,.srcs em,.wk .sum .ax{
+  text-wrap:pretty;
+  overflow-wrap:break-word;
+}
+/* 数据源说明独占一行，不与来源名单抢断点 */
+.srcs em{display:block;margin-top:1px;line-height:1.55;}
+/* 出处链接列：长标题在容器内断，不撑破卡片 */
+.mcard .src a,.strat .a .src a{overflow-wrap:anywhere;}
+@media (max-width:767px){
+  .srcs{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -109,9 +130,9 @@ a{color:inherit;}
       <span class="new">▲ LATEST</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>执法</b>PAGCOR 罚 CasinoPlus ₱100 万，因赞助的百支手机抽奖未报备；Tengco 在听证会上未具名，媒体依代言关系指认。CICC 另就博彩代言人立案 12 至 15 件，立案对象为本人。</span>
-      <span class="ax"><b>法规</b>PAGCOR 年内推查证 App，因境内约 50% 线上博彩站未持牌。PAGCOR 并联手 DICT / NTC / CICC 追非法业者的支付通道。</span>
-      <span class="ax"><b>结构</b>PAGCOR 持照数 74 家剩 48 家；2026 年总收入估年减 18%、净利估减约 91%。DigiPlus 另加 100 款免费游戏，主要用意扩受众。</span>
+      <span class="ax"><b>执法</b>PAGCOR 罚 CasinoPlus ₱100 万，因赞助的百支手机抽奖未报备；Tengco 在听证会上未具名，媒体依代言关系指认。CICC 另就博彩代言人立案 12 至 15 <span class="nbk">件，立案对象为本人。</span></span>
+      <span class="ax"><b>法规</b>PAGCOR 年内推查证 App，因境内约 50% 线上博彩站未持牌。PAGCOR 并联手 DICT / NTC / CICC 追<span class="nbk">非法业者的支付通道。</span></span>
+      <span class="ax"><b>结构</b>PAGCOR 持照数 74 家剩 48 家；2026 年总收入估年减 18%、净利估减约 91%。DigiPlus 另加 100 款免费游<span class="nbk">戏，主要用意扩受众。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW36.html">中文</a>
@@ -126,9 +147,9 @@ a{color:inherit;}
       <span class="date">2026-08-24</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>法规</b>参议院 SB 2347 禁广告法案条文被完整拆开：禁 TV / 广播 / 平面 / 户外 / 网站 / 社群 / 联盟行销，代言、置入、赞助、奖励露出全禁，只留自有官网与 App；过渡期一年、期内不得新签约。</span>
-      <span class="ax"><b>产业</b>Arden Consult 点名超过六成持照 GSA 低于最低保证费门槛，上半年线上收入约 11.9 亿美元、年减 31%；门槛 2027/01/01 再升一级，六个月内退场潮可期。</span>
-      <span class="ax"><b>竞争</b>DigiPlus 聘 Teneo 评估巴西、南非、纽西兰，龙头把成长押在本土之外；Bloomberry 的 FUNaloMAX 上次世代 App 与 MAX Rewards 会员分级，竞争维度自价格移向留存。9 家连续第四周零新价档。</span>
+      <span class="ax"><b>法规</b>参议院 SB 2347 禁广告法案条文被完整拆开：禁 TV / 广播 / 平面 / 户外 / 网站 / 社群 / 联盟行销，代言、置入、赞助、奖励露出全禁，只留自有官网与 App；过渡期一<span class="nbk">年、期内不得新签约。</span></span>
+      <span class="ax"><b>产业</b>Arden Consult 点名超过六成持照 GSA 低于最低保证费门槛，上半年线上收入约 11.9 亿美元、年减 31%；门槛 2027/01/01 再升一级，<span class="nbk">六个月内退场潮可期。</span></span>
+      <span class="ax"><b>竞争</b>DigiPlus 聘 Teneo 评估巴西、南非、纽西兰，龙头把成长押在本土之外；Bloomberry 的 FUNaloMAX 上次世代 App 与 MAX Rewards 会员分级，竞争维度自价格移向留存。9 家<span class="nbk">连续第四周零新价档。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW35.html">中文</a>
@@ -143,9 +164,9 @@ a{color:inherit;}
       <span class="date">2026-08-17</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>产业</b>PAGCOR 第二季数据：持照实体赌场 ₱454 亿年增 2.9%、电子博彩 ₱398.5 亿年减 37.2%，产业内部分岔确立，线上跌幅比整体差 17 个百分点。</span>
-      <span class="ax"><b>竞争</b>Newport 上半年净利年增逾一倍、归因数位管道贡献扩大；Bloomberry 亏损收窄、FUNaloMax 已商转、Solaire Online 数周内上线。整合度假村线上化自预测转实证。</span>
-      <span class="ax"><b>监管</b>PAGCOR 为 16 家 Casino Filipino 取得 ISO 9001:2015 认证，与解构自营 8 月呈送总统府时程呼应，判为出售前资产整备。9 家运营商连续第三周零新价档。</span>
+      <span class="ax"><b>产业</b>PAGCOR 第二季数据：持照实体赌场 ₱454 亿年增 2.9%、电子博彩 ₱398.5 亿年减 37.2%，产业内部分岔确立，线上跌幅比整体<span class="nbk">差 17 个百分点。</span></span>
+      <span class="ax"><b>竞争</b>Newport 上半年净利年增逾一倍、归因数位管道贡献扩大；Bloomberry 亏损收窄、FUNaloMax 已商转、Solaire Online 数周内上线。整合度假村<span class="nbk">线上化自预测转实证。</span></span>
+      <span class="ax"><b>监管</b>PAGCOR 为 16 家 Casino Filipino 取得 ISO 9001:2015 认证，与解构自营 8 月呈送总统府时程呼应，判为出售前资产整备。9 家运营商<span class="nbk">连续第三周零新价档。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW34.html">中文</a>
@@ -160,9 +181,9 @@ a{color:inherit;}
       <span class="date">2026-08-10</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>财报</b>DigiPlus 第二季财报公布——本土营收年减 37%、核心净利仅增 8%（净利季增 124% 源自 IEC 可转债帐面收益），惟用户端 MABD 季增 26% 首见回温。</span>
-      <span class="ax"><b>战略</b>龙头将成长重心移向海外：董事会核准申请纽西兰线上牌照，为继巴西后第三个国际市场，反映对本土成长空间转趋保守。</span>
-      <span class="ax"><b>价档</b>9 家可评分者均无新价档、促销力度延续趋缓；解构自营 GCG 建议 8 月呈送总统府（EO 年底前）列入监看。本周事件较少、§04 仅 2 卡。</span>
+      <span class="ax"><b>财报</b>DigiPlus 第二季财报公布——本土营收年减 37%、核心净利仅增 8%（净利季增 124% 源自 IEC 可转债帐面收益），惟用户端 MABD 季增<span class="nbk"> 26% 首见回温。</span></span>
+      <span class="ax"><b>战略</b>龙头将成长重心移向海外：董事会核准申请纽西兰线上牌照，为继巴西后第三个国际市场，反映对本<span class="nbk">土成长空间转趋保守。</span></span>
+      <span class="ax"><b>价档</b>9 家可评分者均无新价档、促销力度延续趋缓；解构自营 GCG 建议 8 月呈送总统府（EO 年底前）列入监看。本周事件较少、<span class="nbk">§04 仅 2 卡。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW33.html">中文</a>
@@ -177,9 +198,9 @@ a{color:inherit;}
       <span class="date">2026-08-03</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>合规</b>总统年度国会演说只字未提线上博彩（连两年如此）；B2B 供应商认证延期至 9/30 到期。</span>
-      <span class="ax"><b>市场</b>PAGCOR 上半年官方财报出来——总营收 -26.6%、净利 -85%、eGames -41.9%。</span>
-      <span class="ax"><b>竞品</b>大型实体赌场集团（Solaire Online / Okada 等委 PhilWeb）进军线上、抢 DigiPlus 地盘；CasinoPlus Color Game 破 ₱1 亿里程碑；体育空窗未补。</span>
+      <span class="ax"><b>合规</b>总统年度国会演说只字未提线上博彩（连两年如此）；B2B 供应商认证延期<span class="nbk">至 9/30 到期。</span></span>
+      <span class="ax"><b>市场</b>PAGCOR 上半年官方财报出来——总营收 -26.6%、净利 -85%、eGam<span class="nbk">es -41.9%。</span></span>
+      <span class="ax"><b>竞品</b>大型实体赌场集团（Solaire Online / Okada 等委 PhilWeb）进军线上、抢 DigiPlus 地盘；CasinoPlus Color Game 破 ₱1 亿里<span class="nbk">程碑；体育空窗未补。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW32.html">中文</a>
@@ -194,9 +215,9 @@ a{color:inherit;}
       <span class="date">2026-07-27</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>合规</b>SONA 于 7/27 召开、议员推点名线上博彩；PAGCOR AML 令定调全业洗钱高风险。</span>
-      <span class="ax"><b>市场</b>PAGCOR：收紧洗钱规范 + 调降实体赌场费率（线上 25% / 实体 30%）+ 解构自营赌场（卖 Casino Filipino）。</span>
-      <span class="ax"><b>竞品</b>DigiPlus 回购均价 ₱39 + BingoPlus VIP Club 往高端；嘉年华 7/23 收、其余 8 家 0 新档、体育空窗未补。</span>
+      <span class="ax"><b>合规</b>SONA 于 7/27 召开、议员推点名线上博彩；PAGCOR AML 令<span class="nbk">定调全业洗钱高风险。</span></span>
+      <span class="ax"><b>市场</b>PAGCOR：收紧洗钱规范 + 调降实体赌场费率（线上 25% / 实体 30%）+ 解构自营赌场（卖 Casino <span class="nbk">Filipino）。</span></span>
+      <span class="ax"><b>竞品</b>DigiPlus 回购均价 ₱39 + BingoPlus VIP Club 往高端；嘉年华 7/23 收、其余 8 家 0 <span class="nbk">新档、体育空窗未补。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW31.html">中文</a>
@@ -211,9 +232,9 @@ a{color:inherit;}
       <span class="date">2026-07-20</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>合规</b>OOH 换版期限过了仍未公布后续规格；7/28 SONA（年度施政报告）登场；Baguio 6/22 地方禁赌二读。</span>
-      <span class="ax"><b>市场</b>第二季博彩收入续跌、线上还没止跌官方数字月底出；DigiPlus 开始执行回购股份。</span>
-      <span class="ax"><b>竞品</b>BingoPlus 年中嘉年华 7/15-7/23、其余 8 家促销 0 新档；世界杯 7/19 决赛后体育档无接续。</span>
+      <span class="ax"><b>合规</b>OOH 换版期限过了仍未公布后续规格；7/28 SONA（年度施政报告）登场；Baguio 6/<span class="nbk">22 地方禁赌二读。</span></span>
+      <span class="ax"><b>市场</b>第二季博彩收入续跌、线上还没止跌官方数字月底出；DigiPlus<span class="nbk"> 开始执行回购股份。</span></span>
+      <span class="ax"><b>竞品</b>BingoPlus 年中嘉年华 7/15-7/23、其余 8 家促销 0 新档；世界杯 7/19 <span class="nbk">决赛后体育档无接续。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW30.html">中文</a>
@@ -228,9 +249,9 @@ a{color:inherit;}
       <span class="date">2026-07-13</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>合规</b>OOH 换版期限 7/15、PAGCOR 规格未出；7/31 B2B 认证、10/1 MGF 门槛上调到 ₱3,500 万 / ₱1,050 万。</span>
-      <span class="ax"><b>竞品</b>BingoPlus 7 月两档促销：百家乐大赛 ₱4,130 万 + 年中嘉年华 ₱1.7 亿；其余 8 家 0 新档。</span>
-      <span class="ax"><b>资本 / 供应链</b>PhilWeb 取得 Pragmatic Play 执照独家代理；DigiPlus 投资人公开信后 3 天重启 ₱53.6 亿回购。</span>
+      <span class="ax"><b>合规</b>OOH 换版期限 7/15、PAGCOR 规格未出；7/31 B2B 认证、10/1 MGF 门槛上调到 ₱3,500 万 /<span class="nbk"> ₱1,050 万。</span></span>
+      <span class="ax"><b>竞品</b>BingoPlus 7 月两档促销：百家乐大赛 ₱4,130 万 + 年中嘉年华 ₱1.7 亿；其余<span class="nbk"> 8 家 0 新档。</span></span>
+      <span class="ax"><b>资本 / 供应链</b>PhilWeb 取得 Pragmatic Play 执照独家代理；DigiPlus 投资人公开信后 3 天重启 <span class="nbk">₱53.6 亿回购。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW29.html">中文</a>
@@ -247,7 +268,7 @@ a{color:inherit;}
     <div class="sum">
       <span class="ax"><b>合规</b>PAGCOR 换版期限 7/15、7/16 交报告；素材规格仍未公布。</span>
       <span class="ax"><b>竞品</b>BingoPlus 百家乐大赛 7/1 发稿、其它营运商促销档沿用上周。</span>
-      <span class="ax"><b>市场</b>第二季 GGR 约 7 月底出（Q1 -22.43%）；参院禁 / 管法案还没定案。</span>
+      <span class="ax"><b>市场</b>第二季 GGR 约 7 月底出（Q1 -22.43%）；参院禁 <span class="nbk">/ 管法案还没定案。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW28.html">中文</a>
@@ -262,9 +283,9 @@ a{color:inherit;}
       <span class="date">2026-06-29</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>集团</b>DigiPlus 发布「Entertainment for Good」公司愿景；BingoPlus 上 PDB Turbo 新游、ADT 高球收赛。</span>
-      <span class="ax"><b>合规</b>PAGCOR 7/15 责任博彩广告剩 16 天需改版完成；MGF 第一批 6/1 起跑、₱3,000 万门槛。</span>
-      <span class="ax"><b>促销</b>CasinoPlus 1.5% 延到 7/31、各家无 6/30 发薪日专档。</span>
+      <span class="ax"><b>集团</b>DigiPlus 发布「Entertainment for Good」公司愿景；BingoPlus 上 PDB Turbo 新游<span class="nbk">、ADT 高球收赛。</span></span>
+      <span class="ax"><b>合规</b>PAGCOR 7/15 责任博彩广告剩 16 天需改版完成；MGF 第一批 6/1 起跑、₱<span class="nbk">3,000 万门槛。</span></span>
+      <span class="ax"><b>促销</b>CasinoPlus 1.5% 延到 7/31、各家无 6<span class="nbk">/30 发薪日专档。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW27.html">中文</a>
@@ -279,9 +300,9 @@ a{color:inherit;}
       <span class="date">2026-06-22</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>合规</b>PAGCOR 命 7/15 前把责任博彩广告换成 24 小时求助专线素材；CasinoPlus 已在官网页脚挂出专线号码。</span>
-      <span class="ax"><b>集团</b>DigiPlus 巴西 BingoPlus 重启仍未上线、LaVie 平台合作待 PAGCOR 核准；两线本周都还卡在 pending。</span>
-      <span class="ax"><b>节庆/赛事</b>父亲节 6/21 + 发薪日 6/15 双档期、九家零节庆促销；世界杯进第二周、四家专档维持不加码。</span>
+      <span class="ax"><b>合规</b>PAGCOR 命 7/15 前把责任博彩广告换成 24 小时求助专线素材；CasinoPlus 已在官<span class="nbk">网页脚挂出专线号码。</span></span>
+      <span class="ax"><b>集团</b>DigiPlus 巴西 BingoPlus 重启仍未上线、LaVie 平台合作待 PAGCOR 核准；两线本周都还卡<span class="nbk">在 pending。</span></span>
+      <span class="ax"><b>节庆/赛事</b>父亲节 6/21 + 发薪日 6/15 双档期、九家零节庆促销；世界杯进第二周、<span class="nbk">四家专档维持不加码。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW26.html">中文</a>
@@ -296,9 +317,9 @@ a{color:inherit;}
       <span class="date">2026-06-15</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>集团</b>DigiPlus 旗下 GameZone 与 New Coast 合作、协助帮 LaVie 建置与营运线上平台；自营线上跨到「帮别人做平台」。</span>
-      <span class="ax"><b>赛事</b>世界杯开打一周，ArenaPlus / OKBet / Bet88 / CasinoPlus 四家都推出了世界杯促销（上周只有 Bet88 一家）。</span>
-      <span class="ax"><b>平台</b>PAGCOR 利空持续：GGR 预估年减最多 19%、线上第一季 -22.43%（Tengco 归因中东危机）、B2B 牌照审查 8/1。</span>
+      <span class="ax"><b>集团</b>DigiPlus 旗下 GameZone 与 New Coast 合作、协助帮 LaVie 建置与营运线上平台；自营线上跨<span class="nbk">到「帮别人做平台」。</span></span>
+      <span class="ax"><b>赛事</b>世界杯开打一周，ArenaPlus / OKBet / Bet88 / CasinoPlus 四家都推出了世界杯促销（上周只有 <span class="nbk">Bet88 一家）。</span></span>
+      <span class="ax"><b>平台</b>PAGCOR 利空持续：GGR 预估年减最多 19%、线上第一季 -22.43%（Tengco 归因中东危机）、B2B<span class="nbk"> 牌照审查 8/1。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW25.html">中文</a>
@@ -313,9 +334,9 @@ a{color:inherit;}
       <span class="date">2026-06-08</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>产业</b>SiGMA Asia 大会（5/31-6/3）DigiPlus 连拿 ArenaPlus Best Sportsbook（6/1）+ 集团 Digital Operator of the Year（6/2）双奖、给强制上市论补第三方背书。</span>
-      <span class="ax"><b>赛事</b>FIFA 世界杯 6/11 倒数 3 天、盘口都开了、世界杯促销只有 Bet88 推（₱4.9M 奖池）、龙头 ArenaPlus 仍全篮球——龙头慢、小厂快。</span>
-      <span class="ax"><b>平台</b>B2B 过渡窗执行期（距 8/1 下架约 54 天）叠加 GGR 缩量 + PAGCOR 新设 MGF 月费地板、合规与固定成本同压。</span>
+      <span class="ax"><b>产业</b>SiGMA Asia 大会（5/31-6/3）DigiPlus 连拿 ArenaPlus Best Sportsbook（6/1）+ 集团 Digital Operator of the Year（6/2）双奖、给强制<span class="nbk">上市论补第三方背书。</span></span>
+      <span class="ax"><b>赛事</b>FIFA 世界杯 6/11 倒数 3 天、盘口都开了、世界杯促销只有 Bet88 推（₱4.9M 奖池）、龙头 ArenaPlus 仍全篮球<span class="nbk">——龙头慢、小厂快。</span></span>
+      <span class="ax"><b>平台</b>B2B 过渡窗执行期（距 8/1 下架约 54 天）叠加 GGR 缩量 + PAGCOR 新设 MGF 月费地板、<span class="nbk">合规与固定成本同压。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW24.html">中文</a>
@@ -330,9 +351,9 @@ a{color:inherit;}
       <span class="date">2026-06-01</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>政策</b>DigiPlus 5/29 股东会抛「持照运营商强制上市」论 + Ping Chen 接任 + 巴西 6 月底重启；PAGCOR 研议广告全面禁令。</span>
-      <span class="ax"><b>平台</b>PAGCOR B2B 认证「两个月过渡窗」明确化、5/31 申请截止、8/1 未过审强制下架。</span>
-      <span class="ax"><b>赛事</b>FIFA 世界杯 6/11 倒数 10 天、9 家 0 家世界杯专档；King / Queen 标记已关停。</span>
+      <span class="ax"><b>政策</b>DigiPlus 5/29 股东会抛「持照运营商强制上市」论 + Ping Chen 接任 + 巴西 6 月底重启；PAGCOR<span class="nbk"> 研议广告全面禁令。</span></span>
+      <span class="ax"><b>平台</b>PAGCOR B2B 认证「两个月过渡窗」明确化、5/31 申请截止、8/<span class="nbk">1 未过审强制下架。</span></span>
+      <span class="ax"><b>赛事</b>FIFA 世界杯 6/11 倒数 10 天、9 家 0 家世界杯专档；King / Qu<span class="nbk">een 标记已关停。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW23.html">中文</a>
@@ -347,9 +368,9 @@ a{color:inherit;}
       <span class="date">2026-05-25</span>
     </div>
     <div class="sum">
-      <span class="ax"><b>平台</b>ArenaPlus 把体育博彩后台从 Comtrade 切换到 Altenar — 6 个月内第 3 次 vendor 调整、对准世界杯。</span>
-      <span class="ax"><b>政策</b>PAGCOR EGLD 5/21 备忘录：B2B 供应商 7/31 前须通过认证、否则停止服务。</span>
-      <span class="ax"><b>运营</b>King + Queen 维护第 9 周；OKADA PLAY（PhilWeb × Okada Manila）升入观察清单。</span>
+      <span class="ax"><b>平台</b>ArenaPlus 把体育博彩后台从 Comtrade 切换到 Altenar — 6 个月内第 3 次 vendor<span class="nbk"> 调整、对准世界杯。</span></span>
+      <span class="ax"><b>政策</b>PAGCOR EGLD 5/21 备忘录：B2B 供应商 7/31 前须通过<span class="nbk">认证、否则停止服务。</span></span>
+      <span class="ax"><b>运营</b>King + Queen 维护第 9 周；OKADA PLAY（PhilWeb × Okada Mani<span class="nbk">la）升入观察清单。</span></span>
     </div>
     <div class="links">
       <a class="cn" href="2026-comW22.html">中文</a>

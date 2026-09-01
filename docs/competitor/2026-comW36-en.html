@@ -193,13 +193,13 @@ a{color:inherit;}
 .impl .col li b{color:var(--ink);}
 .impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
 
-.footer{margin-top:32px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px;}
+.footer{margin-top:32px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;}
 .fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
 .fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
 .fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
-.srcs{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;}
-.srcs span{font-size:11.5px;color:var(--ink-2);display:flex;align-items:center;gap:6px;}
-.srcs i{width:8px;height:8px;border-radius:50%;flex:none;}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px 22px;align-items:start;}
+.srcs span{position:relative;display:block;padding-left:16px;font-size:11.5px;line-height:1.6;color:var(--ink-2);text-wrap:pretty;}
+.srcs i{position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;}
 .srcs i.ok{background:var(--pos-ink);}
 .srcs i.partial{background:#c96442;}
 .srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
@@ -248,6 +248,27 @@ a{color:inherit;}
   .mast .mark{border-color:#000;}
   .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
   .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+
+/* wrap-fix v1 */
+.nbk{white-space:nowrap;}
+/* 标题：自动平衡各行长度，避免末行只剩一两个字 */
+h1,h2,h3,h4,h5,h6,.mast .ttl h1,.sec-lbl h2,.mcard h4,.fcard h5,.radar-head .lbl,.wk .id{
+  text-wrap:balance;
+}
+/* 正文：避免寡行（末行孤字），并允许超长 URL / 英文词在容器内换行 */
+p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .social,
+.mcard .impact,.trow .desc,.kpi .cell,.strat .a p,.radar-note,.radar-formula td,
+.fcard p,.fcard ol li,.impl li,.impl-meth li,.srcs em,.wk .sum .ax{
+  text-wrap:pretty;
+  overflow-wrap:break-word;
+}
+/* 数据源说明独占一行，不与来源名单抢断点 */
+.srcs em{display:block;margin-top:1px;line-height:1.55;}
+/* 出处链接列：长标题在容器内断，不撑破卡片 */
+.mcard .src a,.strat .a .src a{overflow-wrap:break-word;}
+@media (max-width:767px){
+  .srcs{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -585,7 +606,7 @@ a{color:inherit;}
     <div class="fcard">
       <h5>Methodology + sources</h5>
       <p>Ten-brand watchlist (nine PAGCOR licensees plus entrant OKADA PLAY) plus industry, regulatory and legislative moves. King.ph / Queen.ph closed 2026-05-29, not scored (single-source, see §01). This was an enforcement week: three threads come from the House appropriations hearings of 24 and 26 August, with the last two cards from the DigiPlus group; the nine operators posted no new offers and have now been quiet for five straight weeks. <b>⚠️ On-site recon downgraded this period:</b> the scheduled sandbox has no external network (head-checks on all nine canonical URLs returned 000), the Firecrawl key file does not exist, and the built-in browser was denied navigation in a non-interactive scheduled run. Offers rely on industry media, operator releases and the W33 baseline and were not verified on site; treat the offer columns' freshness on that basis and cite it alongside. <b>⚠️ Social signal downgraded this period:</b> the sandbox cannot capture X / Reddit / Threads live. The social signal on card 1 comes from the Facebook giveaway post itself and the public CICP response, both verifiable public social events rather than captured data; the other cards are marked single-source as applicable. <b>Identifying the fined party:</b> Tengco did not name the company at the 24 August hearing (GMA 8/25, read directly). The CasinoPlus attribution comes from media identifying it through Ivana Alawi's endorsement relationship; PAGCOR has published no named sanction notice. This brief says "identified by media", adjusts the §01 status colour accordingly, and moves the §03 PRICING score on the confirmed sanction facts (fine, stop order, warning) without drawing conclusions about the unnamed part. Two figures are on record for PAGCOR's 2026 total income guidance: GGRAsia nearly ₱86.95bn (about US$1.41bn) and GMA ₱86.498bn, both against ₱106.031bn in 2025. Net income guidance is ₱1.66bn (₱17.47bn in 2025). "About 10% recovery in July" is a verbal statement with no published dataset behind it. The 74-to-48 count, the freeze dating to the March 2024 board resolution, and the 30% e-games / 25% integrated resort rates come from Philstar 8/27 and Focus Gaming News, two sources. PAGCOR has issued no formal notice on the verification app's timing, whitelist source or appeal mechanism; "this year" is Tengco speaking. The two International Entertainment figures cover different scopes: about US$64m is the estimated full-year loss total and HK$425m is the non-cash fair-value component within it, so they cannot be added or swapped; 53.89% is the estimated stake on full conversion, which has not yet happened. ASC Circular 2026-008 (in force 2026/06/24, barring casino games and equipment from advertising material) is an existing rule, listed here as a creative-layer parameter in §02 Q3 and §06 rather than carded. SB 2347 (8/17-8/20), the Arden Consult MGF report (8/20-8/21), DigiPlus appointing Teneo (8/17) and the FUNaloMAX app (8/22) fall in the previous window and are listed in §05 and §06 rather than re-carded. The radar baseline follows the W22 5/24 SimilarWeb anchor; one score changed this week (CasinoPlus PRICING), with the arithmetic and the no-change reasoning in §03. Daily trigger monitoring: the ledger records three Philippines-relevant HITs between 8/24 and 8/31, on 8/25, 8/26 and 8/27 (Q3 competitor plus Q1 regulation), and cards 1, 3, 4 and 5 carry those original judgements forward without re-evaluation; the 8/28 and 8/29 HITs concern Brazilian regulation and are out of scope here. Data window: 8/24-8/31 review, 8/31-9/07 outlook.</p>
-      <div class="srcs"><span><i class="ok"></i>GMA News / Inquirer / Daily Tribune / Rappler / Focus Gaming News / MARKETECH APAC<em>Endorsement promotion fine · influencer liability · industry council position</em></span><span><i class="ok"></i>Philstar<em>12-15 CICC cases · licence freeze holds · net income guided -91%</em></span><span><i class="ok"></i>IAG / BusinessWorld / iGaming Business / Focus Gaming News / Marketing-Interactive<em>Official verification app · roughly 50% of sites unlicensed</em></span><span><i class="ok"></i>GGRAsia / Manila Bulletin<em>2026 guidance · e-wallet unlinking impact</em></span><span><i class="ok"></i>GGRAsia / AGB / IAG / BusinessWorld / Daily Tribune<em>ArenaSocial Arcade</em></span><span><i class="ok"></i>AGB / GGRAsia / Manila Times / Manila Bulletin<em>International Entertainment warning and interim results</em></span><span><i class="ok"></i>Inquirer Business<em>Ivana Alawi endorsement background</em></span><span><i class="partial"></i>trigger-ledger 8/24-8/31<em>Three Philippines-relevant HITs on 8/25 / 8/26 / 8/27 · local shared source</em></span><span><i class="partial"></i>On-site recon / social signal<em>⚠️ Downgraded: no external network + no Firecrawl key + browser navigation denied</em></span></div>
+      <div class="srcs"><span><i class="ok"></i>GMA News / Inquirer / Daily Tribune / Rappler / Focus Gaming News / MARKETECH APAC<em>Endorsement promotion fine · influencer liability · industry council position</em></span><span><i class="ok"></i>Philstar<em>12-15 CICC cases · licence freeze holds · net income guided -91%</em></span><span><i class="ok"></i>IAG / BusinessWorld / iGaming Business / Focus Gaming News / Marketing-Interactive<em>Official verification app · roughly 50% of sites unlicensed</em></span><span><i class="ok"></i>GGRAsia / Manila Bulletin<em>2026 guidance · e-wallet unlinking impact</em></span><span><i class="ok"></i>GGRAsia / AGB / IAG / BusinessWorld / Daily Tribune<em>ArenaSocial Arcade</em></span><span><i class="ok"></i>AGB / GGRAsia / Manila Times / Manila Bulletin<em>International Entertainment warning and interim results</em></span><span><i class="ok"></i>Inquirer Business<em>Ivana Alawi endorsement background</em></span><span><i class="partial"></i>trigger-ledger 8/24-8/31<em>Three Philippines-relevant HITs on 8/25 / 8/26 / 8/27 · local shared source</em></span><span><i class="partial"></i>On-site recon / social signal<em>⚠️ Downgraded: no external network + no Firecrawl key + browser navigation denied</em></span></div>
     </div>
     <div class="fcard">
       <h5>Next issue (W37 · 2026-09-07) watchlist</h5>

@@ -193,13 +193,13 @@ a{color:inherit;}
 .impl .col li b{color:var(--ink);}
 .impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
 
-.footer{margin-top:32px;display:grid;grid-template-columns:1.4fr 1fr;gap:14px;}
+.footer{margin-top:32px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;}
 .fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
 .fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
 .fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
-.srcs{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;}
-.srcs span{font-size:11.5px;color:var(--ink-2);display:flex;align-items:center;gap:6px;}
-.srcs i{width:8px;height:8px;border-radius:50%;flex:none;}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px 22px;align-items:start;}
+.srcs span{position:relative;display:block;padding-left:16px;font-size:11.5px;line-height:1.6;color:var(--ink-2);text-wrap:pretty;}
+.srcs i{position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;}
 .srcs i.ok{background:var(--pos-ink);}
 .srcs i.partial{background:#c96442;}
 .srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
@@ -248,6 +248,27 @@ a{color:inherit;}
   .mast .mark{border-color:#000;}
   .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
   .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+
+/* wrap-fix v1 */
+.nbk{white-space:nowrap;}
+/* 标题：自动平衡各行长度，避免末行只剩一两个字 */
+h1,h2,h3,h4,h5,h6,.mast .ttl h1,.sec-lbl h2,.mcard h4,.fcard h5,.radar-head .lbl,.wk .id{
+  text-wrap:balance;
+}
+/* 正文：避免寡行（末行孤字），并允许超长 URL / 英文词在容器内换行 */
+p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .social,
+.mcard .impact,.trow .desc,.kpi .cell,.strat .a p,.radar-note,.radar-formula td,
+.fcard p,.fcard ol li,.impl li,.impl-meth li,.srcs em,.wk .sum .ax{
+  text-wrap:pretty;
+  overflow-wrap:break-word;
+}
+/* 数据源说明独占一行，不与来源名单抢断点 */
+.srcs em{display:block;margin-top:1px;line-height:1.55;}
+/* 出处链接列：长标题在容器内断，不撑破卡片 */
+.mcard .src a,.strat .a .src a{overflow-wrap:break-word;}
+@media (max-width:767px){
+  .srcs{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -500,7 +521,7 @@ a{color:inherit;}
         </div>
         <h4>PAGCOR 2026 年收入估减 18%，<span class="hi">因电子钱包断链。</span></h4>
 <div class="detail">Tengco 8 月 26 日在众议院拨款委员会场边表示，他看不出有解除新线上博彩牌照冻结的必要。该冻结自 2024 年 3 月的董事会决议起实施，禁止 PAGCOR 受理新的线上博彩牌照申请。目前持照家数为 48 家，已由高峰的 74 家减少。他说监管方希望产业进一步整并，再考虑是否重启发照；PAGCOR 已辨识出一批未实际营运、只是握着牌照等着卖的持照者，正着手把这些主体清出市场。费率结构同步定调不动：电子游戏业者按毛博彩收入课 30%，综合度假村业者课 25%。</div><div class="detail">需求面的官方数字在同一周公布。PAGCOR 预估 2026 年总收入年减约 18%，两组口径并列：GGRAsia 报近 ₱869.5 亿（约 14.1 亿美元），GMA 报 ₱864.98 亿，两者皆对照 2025 年的 ₱1,060.31 亿。净利预估由 2025 年的 ₱174.7 亿降至 ₱16.6 亿，Philstar 以「跌 91%」为题。Tengco 把主因归给央行去年要求电子钱包与线上博彩平台断链，说实施后博彩活动一度掉约 40%，另提中东冲突压缩低所得客群消费。他同时说 7 月线上活动回升约 10%、8 月维持同水准，并对旺季抱期待。PAGCOR 另须每月拨款偿还积欠菲律宾体育委员会的款项。Tengco 另在同场估 2026 年全产业毛博彩收入约 ₱3,700 亿，低于 2025 年的 ₱3,961.4 亿（Philstar 8/27）。</div><div class="detail"><b>判断：</b>这三条讯息出自同一套收支安排。收入靠现有 48 家撑，缺口不靠发新照补，整并由最低保证费与合规淘汰去做。对进场者的意义很直接：申请路径这一年内不会开放，剩下收购一条，收购定价除营收外，要看标的的合规历史、未缴规费与名单登录状态。对承接行销工作的一方，48 家封顶意味着客户总数不会增加、只会减少，接案的重心应从开发新客转向做深现有客户；同时退场者释出的份额会被留下来的大型业者接走，媒体与 KOL 报价下半年可能不跌反升。7 月回升 10% 目前只有 Tengco 的口头说法、没有第三方数据佐证，排第四季档期时不宜当作已成立的复苏。</div><div class="detail"><b>⚠️ 口径提醒：</b>2026 年总收入预估出现两组数字：GGRAsia 近 ₱869.5 亿、GMA ₱864.98 亿。两者皆源自 PAGCOR 在该场听证提交的简报，差异可能来自四舍五入或口径区间，引用时注明来源、不合并成单一数字。「回升约 10%」为 Tengco 口头陈述，无公开数据集佐证。</div>
-        <div class="social">⚠️ 单口径补强说明：牌照家数 74 至 48 与费率不动来自 Philstar 8/27 与 Focus Gaming News 两源；财测数字来自 GGRAsia、IAG 8/25、GMA 8/25、Philstar 8/25、Manila Bulletin 多源。玩家端对牌照政策无讨论可采。</div>
+        <div class="social">⚠️ 单口径补强说明：牌照家数 74 至 48 与费率不动来自 Philstar 8/27 与 Focus Gaming News 两源；财测数字来自 GGRAsia、IAG 8/25、GMA 8/25、Philstar 8/25、Manila Bulletin 多源。玩家端未见对牌照政策的公开讨论。</div>
         <div class="src">出处：<a href="https://www.philstar.com/business/2026/08/27/2551995/pagcor-rules-out-entry-new-e-gaming-operators">Pagcor rules out entry of new e-gaming operators · Philstar 8/27</a> · <a href="https://focusgn.com/asia-pacific/pagcor-retains-freeze-on-new-licences-as-online-gaming-operators-fall-to-48">PAGCOR keeps moratorium on new online gaming licences · Focus Gaming News</a> · <a href="https://www.ggrasia.com/pagcor-expects-2026-income-down-18pct-to-us1-4bln-sees-late-year-recovery">Pagcor expects 2026 income down 18pct · GGRAsia</a> · <a href="https://asgam.com/2026/08/25/pagcor-expecting-18-income-decline-in-2026-although-chairman-tengco-points-to-positive-industry-momentum-in-july-and-august/">PAGCOR expecting 18% income decline in 2026 · IAG 8/25</a> · <a href="https://www.philstar.com/business/2026/08/25/2551518/pagcor-income-seen-drop-91">PAGCOR income seen to drop 91% · Philstar 8/25</a> · <a href="https://mb.com.ph/article/10932618/philippines/tengco-blames-e-wallet-delinking-middle-east-crisis-as-pagcor-earnings-take-hit">Tengco blames e-wallet delinking · Manila Bulletin</a></div>
         <div class="impact"><span><b>提议（对客户 X）：</b>进场路径若是收购持照者，接下来六个月的议价条件较有利，但尽职调查要多列三项：未缴最低保证费、过往处分纪录、PAGCOR 名单登录一致性。营收假设不宜引用 Tengco 的 7 月回升 10%，改用 PAGCOR 第二季实际数字（全产业毛博彩收入 ₱881.3 亿、年减 20.3%）作保守基准，等第三季官方数据出来再调。</span></div>
       </div>
@@ -512,7 +533,7 @@ a{color:inherit;}
         </div>
         <h4>DigiPlus 加 100 款免费游戏，<span class="hi">主要用意扩受众。</span></h4>
 <div class="detail">DigiPlus Interactive（BingoPlus、ArenaPlus、GameZone 母公司）8 月下旬在自家免费游玩社群平台 ArenaSocial 内推出新的游戏套件 ArenaSocial Arcade，一次加入 100 款以上免费游戏，类型包含技巧型挑战、反应类、策略类与高分竞赛，主打短时长与低门槛。ArenaSocial 本身于 2026 年稍早上线，定位为围绕体育与电竞挑战、休闲玩法、社群参与和奖励的免费游玩、不涉真钱投注环境。DigiPlus 总裁 Ping Chen（陈平，DigiPlus Interactive 总裁）称此举反映公司扩及更广受众、增加与数位生态互动方式的意图。</div><div class="detail"><b>判断：</b>产品本身不改变竞争格局，值得追的是监管站位。在广告禁令法案未定、代言执法已经开罚的环境下，一个免费、不投注的品类给了 DigiPlus 一条不受博彩广告规范约束的品牌曝光通道，同时把流量池养在自己手上，这正好对上电子钱包断链后转化漏斗掉约 40% 的问题。要盯的是接下来两周这套素材怎么投：投放平台是哪些、有没有带 21 岁以上或负责任博彩标语。若能在主流平台大量投放而不加这些标示，代表这个品类实务上被视为非博彩内容，那就是一条独立操盘方也能复制的路径。</div><div class="detail"><b>⚠️ 反向提醒：</b>ArenaSocial 与 ArenaPlus 是同集团的不同平台，玩家端的品牌联想若被监管认定为导流至投注产品，这条通道的合规待遇可能被重新界定，目前无官方口径。</div>
-        <div class="social">⚠️ 单口径补强说明：产业与主流媒体多源覆盖（GGRAsia、AGB 8/25、IAG 8/25、BusinessWorld 8/24、BusinessMirror 8/24、Daily Tribune 8/23）；来源为公司发布转述，玩家端使用数据未公开、社群端本期无法实抓。</div>
+        <div class="social">⚠️ 单口径补强说明：产业与主流媒体多源覆盖（GGRAsia、AGB 8/25、IAG 8/25、BusinessWorld 8/24、BusinessMirror 8/24、Daily Tribune 8/23）；来源为公司发布转述，玩家端使用数据未公开、社群端本期无法实抓、待补。</div>
         <div class="src">出处：<a href="https://www.ggrasia.com/digiplus-adds-skill-based-games-with-arenasocial-arcade-launch">DigiPlus adds skill-based games with ArenaSocial Arcade launch · GGRAsia</a> · <a href="https://agbrief.com/news/philippines/25/08/2026/digiplus-diversifies-digital-portfolio-with-arenasocial-and-arcade-launch/">DigiPlus diversifies digital portfolio with ArenaSocial and Arcade launch · AGB 8/25</a> · <a href="https://asgam.com/2026/08/25/digiplus-unveils-new-free-to-play-game-suite-for-recently-launched-social-gaming-platform-arenasocial/">DigiPlus unveils new free-to-play game suite · IAG 8/25</a> · <a href="https://bworldonline.com/spotlight/2026/08/24/771975/digiplus-expands-digital-entertainment-ecosystem-with-arenasocial-and-arenasocial-arcade/">DigiPlus expands digital entertainment ecosystem · BusinessWorld 8/24</a> · <a href="https://tribune.net.ph/2026/08/23/gaming-firm-launches-free-social-arcade-suite">Gaming firm launches free social arcade suite · Daily Tribune 8/23</a></div>
         <div class="impact"><span><b>提议（对客户 X）：</b>把免费、不投注品类列为进场素材组合的一个独立选项做可行性评估，评估重点在它于广告禁令情境下能不能承接品牌曝光。评估前先确认两件事：该品类在 PAGCOR 与 ASC 的归类，以及与主品牌之间的导流设计会不会让它被视为博彩广告。建议先观察 DigiPlus 这两周的投放实证再定，不急着跟。</span></div>
       </div>
@@ -585,11 +606,11 @@ a{color:inherit;}
     <div class="fcard">
       <h5>方法论 + 数据源</h5>
       <p>10 家观察清单（9 家 PAGCOR 持照 + 进场者 OKADA PLAY）+ 产业 / 监管 / 立法动作。King.ph / Queen.ph 自 2026-05-29 起关停、不评分（单口径、详 §01）。本周为监管执法周：三条主线来自 8/24 与 8/26 两场众议院拨款委员会场次，后两张卡来自 DigiPlus 集团；9 家运营商零新价档、连续第五周静默。<b>⚠️ 站内侦察本期降级：</b>排程沙箱无外网（9 家 canonical URL head-check 全回 000）、Firecrawl 金钥档案不存在、内建浏览器导航在非互动排程下被拒。价档以产业媒体 + 业者发稿 + W33 baseline 为准、未经站内二验；价档栏位的数据新鲜度以此为准，引用时请一并注明。<b>⚠️ 社群信号本期降级：</b>排程沙箱无法实抓 X / Reddit / Threads。卡 1 的社群信号来自该则 Facebook 抽奖贴文本身与 CICP 的公开回应，属可查证的公开社群事件、非实抓数据；其余各卡标「单口径」如实。<b>受罚方指认：</b>Tengco 在 8/24 听证会上未点名公司（GMA 8/25 原文已直读确认）。CasinoPlus 之名来自媒体依 Ivana Alawi 的代言关系所作指认，PAGCOR 尚未发布具名处分公告。本报以「媒体指为」表述、§01 状态色据此调整、§03 PRICING 按已确认的处分事实（罚款、令停、警告）调分，不对未具名部分作定性结论。PAGCOR 2026 年总收入预估两组口径并列：GGRAsia 近 ₱869.5 亿（约 14.1 亿美元）、GMA ₱864.98 亿，皆对照 2025 年 ₱1,060.31 亿。净利预估 ₱16.6 亿（2025 年 ₱174.7 亿）。「7 月回升约 10%」为 Tengco 口头陈述、无公开数据集佐证。牌照家数 74 至 48、冻结自 2024 年 3 月董事会决议、费率电子游戏 30% / 综合度假村 25%：来自 Philstar 8/27、Focus Gaming News，两源确认。官方辨识 App 的上线时程、白名单资料源、申诉机制细节，PAGCOR 尚未发布正式公告；「年内」为 Tengco 口头说法。International Entertainment 两项数字范围不同：约 6,400 万美元为全年亏损总额预估、HK$4.25 亿为其中的非现金公允价值损失项，不可相加或互换；53.89% 为可转债全数转换后的推估持股，转换尚未完成。ASC 第 2026-008 号通函（2026/06/24 生效、禁广告素材出现赌场游戏与器具）为既有规范，本期列为 §02 Q3 与 §06 的素材层参数，不立卡。SB 2347 禁广告法案（8/17-8/20）、Arden Consult 最低保证费报告（8/20-8/21）、DigiPlus 聘 Teneo（8/17）、FUNaloMAX App（8/22）落在上一窗口、列 §05 与 §06、不重复立卡。雷达基线沿用 W22 5/24 SimilarWeb（Apr 2026）；本周仅调 CasinoPlus PRICING 一格，回算过程与不调分理由详 §03。每日 trigger 监听：ledger 8/24-8/31 期间 8/25、8/26、8/27 三次与菲律宾相关的 HIT（Q3 竞品 + Q1 法规），本期卡 1、卡 3、卡 4、卡 5 沿用其原文判断、不重新评估；8/28 与 8/29 两次 HIT 为巴西法规、与本报无关、不纳入。数据窗口 8/24-8/31 回顾、8/31-9/07 展望。</p>
-      <div class="srcs"><span><i class="ok"></i>GMA News / Inquirer / Daily Tribune / Rappler / Focus Gaming News / MARKETECH APAC<em>代言促销罚款 · 网红责任 · 业界公会表态</em></span><span><i class="ok"></i>Philstar<em>CICC 12 至 15 件立案 · 牌照冻结不解除 · 净利估减 91%</em></span><span><i class="ok"></i>IAG / BusinessWorld / iGaming Business / Focus Gaming News / Marketing-Interactive<em>官方辨识 App · 约 50% 站点未持牌</em></span><span><i class="ok"></i>GGRAsia / Manila Bulletin<em>2026 年财测 · 电子钱包断链影响</em></span><span><i class="ok"></i>GGRAsia / AGB / IAG / BusinessWorld / Daily Tribune<em>ArenaSocial Arcade</em></span><span><i class="ok"></i>AGB / GGRAsia / Manila Times / Manila Bulletin<em>International Entertainment 盈警与中期业绩</em></span><span><i class="ok"></i>Inquirer Business<em>Ivana Alawi 代言关系背景</em></span><span><i class="partial"></i>trigger-ledger 8/24-8/31<em>8/25 / 8/26 / 8/27 三次菲律宾相关 HIT · 本地共享源</em></span><span><i class="partial"></i>站内侦察 / 社群信号<em>⚠️ 降级：沙箱无外网 + Firecrawl 金钥不存在 + 浏览器导航被拒</em></span></div>
+      <div class="srcs"><span><i class="ok"></i>GMA News / Inquirer / Daily Tribune / Rappler / Focus Gaming News / MARKETECH APAC<em>代言促销罚款 · 网红责任 · 业界公会表态</em></span><span><i class="ok"></i>Philstar<em>CICC 12 至 15 件立案 · 牌照冻结不解除 · 净利估减 91%</em></span><span><i class="ok"></i>IAG / BusinessWorld / iGaming Business / Focus Gaming News / Marketing-Interactive<em>官方辨识 App · 约 50% 站点未持牌</em></span><span><i class="ok"></i>GGRAsia / Manila Bulletin<em>2026 年财测 · 电子钱包断链影响</em></span><span><i class="ok"></i>GGRAsia / AGB / IAG / BusinessWorld / Daily Tribune<em>ArenaSocial Arcade</em></span><span><i class="ok"></i>AGB / GGRAsia / Manila Times / Manila Bulletin<em>International Entertainment 盈警与中期业绩</em></span><span><i class="ok"></i>Inquirer Business<em>Ivana Alawi 代言关系背景</em></span><span><i class="partial"></i>trigger-ledger 8/24-8/31<em>8/25 / 8/26 / 8/27 三次菲律宾相关 HIT · 本地共享源</em></span><span><i class="partial"></i>站内侦察 / 社群信号<em>⚠️ 降级：沙箱无外网 + Firecrawl 金钥不存在 + 浏览器导航被拒</em></span></div>
     </div>
     <div class="fcard">
       <h5>下期（W37 · 2026-09-07）追踪清单</h5>
-      <ol><li><span class="n">1</span>PAGCOR 是否发布具名的处分公告，确认受罚方身分</li><li><span class="n">2</span>CasinoPlus 与 Ivana Alawi 的代言关系是否变动</li><li><span class="n">3</span>CICC 12 至 15 件立案是否出现首例移送或公开名单</li><li><span class="n">4</span>官方辨识 App 的正式公告：上线日期、白名单资料源、申诉机制</li><li><span class="n">5</span>PAGCOR 是否公开现行 48 家持照名单与完整域名</li><li><span class="n">6</span>SB 2347 是否排入参院委员会一读或公听会；众议院是否出现对应版本</li><li><span class="n">7</span>San Fernando 要求的网红连带责任是否形成书面提案</li><li><span class="n">8</span>ArenaSocial Arcade 的投放素材：平台分布、是否带 21 岁以上与负责任博彩标语</li><li><span class="n">9</span>9/30 B2B 认证死线：是否有供应商掉队、内容断供</li><li><span class="n">10</span>第三季线上活动数据是否验证 Tengco 的「7 月回升 10%」</li><li><span class="n">11</span>9 家运营商是否有人在 9 月开季前先动体育档；CasinoPlus 1.5% 续档</li><li><span class="n">12</span>International Entertainment 可转债的实际转换时点</li><li><span class="n">13</span>解构自营：GCG 建议是否已呈送总统府；EO 时程</li><li><span class="n">14</span>ASC 是否就通函 2026-008 是否涵盖网红推广发布补充说明</li><li><span class="n">15</span>King.ph / Queen.ph 关停是否有二口径确认</li></ol>
+      <ol><li><span class="n">1</span>PAGCOR 是否发布具名的处分公告，确认受罚方身分</li><li><span class="n">2</span>CasinoPlus 与 Ivana Alawi 的代言关系是否变动</li><li><span class="n">3</span>CICC 12 至 15 件立案是否出现首例移送或公开名单</li><li><span class="n">4</span>官方辨识 App 的正式公告：上线日期、白名单资料源、申诉机制</li><li><span class="n">5</span>PAGCOR 是否公开现行 48 家持照名单与完整域名</li><li><span class="n">6</span>SB 2347 是否排入参院委员会一读或公听会；众议院是否出现对应版本</li><li><span class="n">7</span>San Fernando 要求的网红连带责任是否形成书面提案</li><li><span class="n">8</span>ArenaSocial Arcade 的投放素材：平台分布、是否带 21 岁以上与负责任博彩标语等标示</li><li><span class="n">9</span>9/30 B2B 认证死线：是否有供应商掉队、内容断供</li><li><span class="n">10</span>第三季线上活动数据是否验证 Tengco 的「7 月回升 10%」</li><li><span class="n">11</span>9 家运营商是否有人在 9 月开季前先动体育档；CasinoPlus 1.5% 续档</li><li><span class="n">12</span>International Entertainment 可转债的实际转换时点</li><li><span class="n">13</span>解构自营：GCG 建议是否已呈送总统府；EO 时程</li><li><span class="n">14</span>ASC 是否就通函 2026-008 是否涵盖网红推广发布补充说明</li><li><span class="n">15</span>King.ph / Queen.ph 关停是否有二口径确认</li></ol>
     </div>
   </div>
 

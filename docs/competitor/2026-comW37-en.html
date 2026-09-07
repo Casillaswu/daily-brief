@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Competitor Weekly · 2026-W37 · PH iGaming</title>
+<style>
+:root{
+  --ink:#1f1d1a; --ink-2:#4a4742; --ink-3:#8a857d;
+  --paper:#fff; --paper-2:#f7f5f1;
+  --rule:#d9d4cb; --rule-2:#ebe6dd;
+  --hi:#fff3a6;
+  --pos:#c9e4cf; --pos-ink:#2f6b3b;
+  --neu:#e1dfd9; --neu-ink:#5b574e;
+  --neg:#f1c9c5; --neg-ink:#8a3a33;
+  --warn:#fce8c2; --warn-ink:#8a5f1a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+body{
+  background:#f0eee9;
+  font-family:Arial,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);min-height:100vh;font-size:13px;line-height:1.65;
+}
+a{color:inherit;}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.hi{background:var(--hi);padding:0 2px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.shell{max-width:1320px;margin:0 auto;background:#fff;}
+
+.mast{background:#1f1d1a;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.mast .mark{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;border:1px solid rgba(255,255,255,.4);padding:6px 10px;flex:none;}
+.mast .ttl{flex:1;min-width:200px;}
+.mast .ttl h1{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+.mast .ttl .sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;}
+.mast .logos{display:flex;gap:5px;flex:none;flex-wrap:wrap;}
+.mast .lang{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:2px;flex:none;}
+.mast .lang a,.mast .lang button{border:none;background:none;cursor:pointer;padding:5px 12px;border-radius:99px;color:rgba(255,255,255,.7);font:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;line-height:1;}
+.mast .lang .active{background:#fff;color:var(--ink);}
+.logo{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(0,0,0,.06);flex:none;}
+.logo.closed{opacity:.4;text-decoration:line-through;}
+
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+.body{padding:8px 32px 32px;}
+
+.sec{margin-top:32px;scroll-margin-top:60px;}
+.sec-lbl{margin-bottom:10px;}
+.sec-lbl .chip{background:var(--ink);color:#fff;font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.06em;margin-right:8px;}
+.sec-lbl .en{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+.sec-lbl h2{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-top:8px;}
+.sec-lbl .rule{height:2px;background:var(--ink);margin-top:10px;}
+.sec-deck{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.exec{margin-top:24px;}
+.exec h3{font-size:30px;font-weight:800;letter-spacing:-.015em;line-height:1.4;max-width:90%;}
+.exec h3 .line{display:block;}
+.exec h3 .line + .line{margin-top:6px;}
+.exec p.deck{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin-top:18px;max-width:80%;}
+.exec p.deck b{color:var(--ink);}
+.exec p.deck + p.deck{margin-top:12px;}
+.exec p.deck em{font-style:normal;color:var(--ink-3);font-size:11.5px;}
+.exec .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.exec .axis{border-left:3px solid var(--ink);padding:8px 14px;font-size:12px;color:var(--ink-2);line-height:1.7;}
+.exec .axis b{color:var(--ink);display:block;margin-bottom:2px;}
+
+.kpi{margin-top:14px;border:1px solid var(--ink);display:grid;grid-template-columns:minmax(170px,1.2fr) .8fr .8fr 1.1fr 1fr 1.5fr;}
+.kpi .head{background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);text-transform:uppercase;font-weight:800;border-bottom:2px solid var(--ink);padding:12px;}
+.kpi .cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px;font-size:12px;line-height:1.6;}
+.kpi .cell:nth-child(6n){border-right:none;}
+.kpi .name{display:flex;align-items:flex-start;gap:10px;flex-direction:column;}
+.kpi .name b{font-size:13px;display:block;}
+.kpi .name .grp{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;letter-spacing:.05em;display:block;margin-top:1px;}
+.kpi .name .status{padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace;display:inline-block;margin-top:5px;}
+.kpi .name .status-hot{background:#1f1d1a;color:#fff;}
+.kpi .name .status-active{background:#fbe3b3;color:#8a5f1a;}
+.kpi .name .status-alert{background:var(--neg);color:var(--neg-ink);}
+.kpi .name .status-cold{background:#d6e4f0;color:#2A5FAA;}
+.kpi .name .status-closed{background:#2b2b2b;color:#bbb;}
+.kpi .cell.closed{color:var(--ink-3);font-style:italic;}
+.kpi .big{font-weight:800;font-size:16px;}
+.trend{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:3px;font-size:10.5px;font-weight:700;}
+.trend.up{background:var(--pos);color:var(--pos-ink);}
+.trend.down{background:var(--neg);color:var(--neg-ink);}
+.trend.flat{background:var(--neu);color:var(--neu-ink);}
+.trend.new{background:#1f1d1a;color:#fff;}
+.bar{height:8px;background:var(--rule-2);border-radius:2px;overflow:hidden;margin-top:6px;}
+.bar > i{display:block;height:100%;}
+.sev{padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;}
+.sev.high{background:var(--neg);color:var(--neg-ink);}
+.sev.mid{background:var(--neu);color:var(--neu-ink);}
+.sev.low{background:var(--pos);color:var(--pos-ink);}
+
+.strat{margin-top:14px;background:#1f1d1a;color:#fff;padding:26px 30px;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);}
+.qa.full{grid-column:1/-1;}
+.qa .q{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.qa .q .qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+.qa .a{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.92);}
+.qa .a b{color:#fff;}
+.qa .a p{margin-bottom:6px;}
+.qa .src{display:block;color:rgba(255,255,255,.45);font-size:10.5px;margin-top:6px;}
+.qa .src a{color:rgba(255,255,255,.6);}
+
+.radar{margin-top:14px;background:#1f1d1a;color:#fff;padding:24px;}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.radar-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.radar-head .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:800;margin-bottom:4px;}
+.radar-head .sub{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.radar-head .self-pick{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.radar-head .self-pick .pick-lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:800;}
+.vssel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 32px 9px 14px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4 L5 7 L8 4' fill='none' stroke='white' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 10px center;}
+.vssel option{background:#1f1d1a;color:#fff;}
+.vsbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.vsbtns button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.vsbtns button:hover{background:rgba(255,255,255,.18);}
+.vsbtns button.active{background:#fff;color:var(--ink);}
+.vsbtns button i{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.radar-body{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;}
+.radar-body .grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px 16px;font-size:12.5px;}
+.radar-body .grid span:nth-child(4n+1),.radar-body .grid span:nth-child(4n+3){color:rgba(255,255,255,.55);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;}
+.radar-body .grid span:nth-child(4n+2),.radar-body .grid span:nth-child(4n+0){font-weight:700;}
+.radar-body .legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;}
+.radar-body .legend span{display:inline-flex;align-items:center;gap:6px;}
+.radar-body .legend i{width:12px;height:12px;display:inline-block;border-radius:2px;}
+.radar svg{width:100%;max-width:380px;display:block;margin:0 auto;}
+.radar-note{margin-top:12px;background:rgba(255,255,255,.05);border-left:3px solid rgba(255,255,255,.4);padding:10px 14px;font-size:11.5px;color:rgba(255,255,255,.8);line-height:1.65;}
+.radar-note b{color:#fff;}
+
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px;margin-top:14px;}
+.mcard{border:1px solid var(--rule);border-top-width:4px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:9px;scroll-margin-top:60px;}
+.mcard .top{display:flex;align-items:center;gap:8px;}
+.mcard .top .meta{flex:1;}
+.mcard .top .meta b{font-size:12px;font-weight:700;display:block;}
+.mcard .top .meta span{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;}
+.mcard h4{font-size:14px;font-weight:700;line-height:1.5;}
+.mcard .detail{font-size:12px;line-height:1.7;color:var(--ink-2);}
+.mcard table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px;}
+.mcard table th{text-align:left;padding:4px 6px;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--rule);}
+.mcard table td{padding:5px 6px;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.mcard .warn{padding:8px 12px;background:var(--warn);border-left:3px solid var(--warn-ink);font-size:11.5px;color:var(--warn-ink);line-height:1.6;}
+.mcard .warn b{color:var(--warn-ink);}
+.mcard .social{padding:7px 12px;background:var(--paper-2);border-left:3px solid var(--ink-3);font-size:11px;color:var(--ink-2);line-height:1.6;}
+.mcard .src{font-size:11px;color:var(--ink-3);line-height:1.6;}
+.mcard .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-3);}
+.mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;}
+.mcard .impact b{color:var(--ink);font-weight:700;}
+
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:80px 18px 90px 130px 1fr 60px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--ink-2);}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+.impl-meth{margin-top:14px;background:var(--paper-2);border-left:3px solid var(--ink);padding:14px 18px;font-size:12px;line-height:1.75;color:var(--ink-2);}
+.impl-meth h6{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.06em;margin-bottom:6px;}
+.impl-meth b{color:var(--ink);}
+.impl-meth ul{list-style:none;padding:0;margin-top:6px;display:flex;flex-direction:column;gap:6px;}
+.impl-meth li{padding-left:14px;position:relative;}
+.impl-meth li::before{content:"·";position:absolute;left:2px;color:var(--ink-3);font-weight:800;}
+.impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
+.impl .col.threat{border-top-color:var(--neg-ink);}
+.impl .col.opp{border-top-color:var(--pos-ink);}
+.impl .col h5{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:18px;}
+.impl .col h5 .dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none;}
+.impl .col.threat h5 .dot{background:var(--neg-ink);}
+.impl .col.opp h5 .dot{background:var(--pos-ink);}
+.impl .col h5 .en{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);font-weight:800;text-transform:uppercase;}
+.impl .col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.impl .col li{display:block;padding:14px 16px;background:var(--paper-2);border-left:3px solid;font-size:12.5px;line-height:1.8;color:var(--ink-2);}
+.impl .col.threat li{border-left-color:var(--neg-ink);}
+.impl .col.opp li{border-left-color:var(--pos-ink);}
+.impl .col li b{color:var(--ink);}
+.impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
+
+.footer{margin-top:32px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;}
+.fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
+.fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
+.fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px 22px;align-items:start;}
+.srcs span{position:relative;display:block;padding-left:16px;font-size:11.5px;line-height:1.6;color:var(--ink-2);text-wrap:pretty;}
+.srcs i{position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;}
+.srcs i.ok{background:var(--pos-ink);}
+.srcs i.partial{background:#c96442;}
+.srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
+.fcard ol{padding:0;list-style:none;}
+.fcard ol li{font-size:12px;line-height:1.75;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;}
+.fcard ol li .n{color:#c96442;font-weight:700;font-family:ui-monospace,Menlo,monospace;flex:none;}
+.colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
+.colophon b{color:var(--ink);letter-spacing:.16em;}
+
+@media (max-width:1023px){
+  .body{padding:8px 24px 28px;}
+  .mast{padding:18px 24px;}
+  .subnav{padding:8px 24px;font-size:10.5px;}
+  .kpi{grid-template-columns:1fr;}
+  .kpi .head{display:none;}
+  .kpi .cell{border-right:none;display:grid;grid-template-columns:120px 1fr;gap:8px;}
+  .kpi .cell::before{content:attr(data-lbl);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;}
+  .kpi .cell:nth-child(6n+1)::before{display:none;}
+  .kpi .name{grid-column:1/-1;}
+  .radar-body{grid-template-columns:1fr;}
+  .impl{grid-template-columns:1fr;gap:18px;}
+  .footer{grid-template-columns:1fr;}
+  .qa-grid{grid-template-columns:1fr;}
+  .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:60px 14px 80px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
+  .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
+  .exec .axes{grid-template-columns:1fr;}
+  .sec-lbl h2{font-size:18px;}
+}
+@media (max-width:767px){
+  .body{padding:6px 16px 24px;}
+  .mast{padding:16px;gap:12px;}
+  .mast .ttl h1{font-size:18px;}
+  .subnav{padding:6px 16px;}
+  .strat{padding:18px 16px;}
+  .exec h3{font-size:19px;}
+}
+@media print{
+  body{background:#fff;}
+  .shell{max-width:none;}
+  .vssel,.vsbtns,.subnav{display:none;}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+  .mast .mark{border-color:#000;}
+  .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
+  .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+
+/* wrap-fix v1 */
+.nbk{white-space:nowrap;}
+/* 标题：自动平衡各行长度，避免末行只剩一两个字 */
+h1,h2,h3,h4,h5,h6,.mast .ttl h1,.sec-lbl h2,.mcard h4,.fcard h5,.radar-head .lbl,.wk .id{
+  text-wrap:balance;
+}
+/* 正文：避免寡行（末行孤字），并允许超长 URL / 英文词在容器内换行 */
+p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .social,
+.mcard .impact,.trow .desc,.kpi .cell,.strat .a p,.radar-note,.radar-formula td,
+.fcard p,.fcard ol li,.impl li,.impl-meth li,.srcs em,.wk .sum .ax{
+  text-wrap:pretty;
+  overflow-wrap:break-word;
+}
+/* 数据源说明独占一行，不与来源名单抢断点 */
+.srcs em{display:block;margin-top:1px;line-height:1.55;}
+/* 出处链接列：长标题在容器内断，不撑破卡片 */
+.mcard .src a,.strat .a .src a{overflow-wrap:break-word;}
+@media (max-width:767px){
+  .srcs{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="mast">
+  <div class="mark">COMPETITOR // BRIEF</div>
+  <div class="ttl">
+    <h1>2026-W37 · PH iGaming Competitor Weekly</h1>
+    <div class="sub">Data window: 8/31-9/07 review, 9/07-9/14 outlook · 10-brand watchlist (9 PAGCOR licensees + OKADA PLAY; King / Queen closed)</div>
+  </div>
+  <div class="lang" aria-label="Language">
+    <a href="2026-comW37.html">中</a>
+    <button class="active" aria-current="page">EN</button>
+  </div>
+  <div class="logos">
+    <span class="logo" style="background:#E89AAA" title="BingoPlus">BP</span>
+    <span class="logo" style="background:#2A5FAA" title="ArenaPlus">AP</span>
+    <span class="logo" style="background:#4F8C5C" title="GameZone">GZ</span>
+    <span class="logo closed" style="background:#2D6B4D" title="King.ph · closed">K</span>
+    <span class="logo closed" style="background:#B6356D" title="Queen.ph · closed">Q</span>
+    <span class="logo" style="background:#B89968" title="CasinoPlus">C+</span>
+    <span class="logo" style="background:#D86B27" title="OKBet/OKGames">OK</span>
+    <span class="logo" style="background:#C2272D" title="Bet88">88</span>
+    <span class="logo" style="background:#4A4FB8" title="PlayTime/PT Gaming">PT</span>
+    <span class="logo" style="background:#8B7355" title="OKADA PLAY">OP</span>
+  </div>
+</header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>Jump to</b>
+  <a href="#briefing">▲ Briefing</a>
+  <a href="#kpi">§01 KPI</a>
+  <a href="#strategic">§02 5Q</a>
+  <a href="#radar">§03 Radar</a>
+  <a href="#moves-sec">§04 Moves</a>
+  <a href="#timeline">§05 Timeline</a>
+  <a href="#implications">§06 Threats/Opps</a>
+</nav>
+
+<div class="body">
+
+  <section class="sec exec" id="briefing">
+    <div class="sec-lbl">
+      <span class="chip">▲</span><span class="en">Executive Briefing</span>
+      <h2>This week</h2>
+      <div class="rule"></div>
+    </div>
+    <h3>
+      House Bill 10982 would ban influencer ads over a 50.77% share.<br>
+      DigiPlus takes 97% of GGR on a rented third-party licence.<br>
+      PAGCOR has 8 days left on the 9/15 helpline ad swap.
+    </h3>
+    <p class="deck"><b>1. House Bill 10982 would ban influencer ads over a 50.77% share.</b><br>Cebu Third District Rep. Karen Hope Garcia filed House Bill 10982, the Online Gambling Advertising Prohibition Act of 2026, on 26 August. It first surfaced in the press on 1 September and spread to national and trade outlets between 3 and 5 September. It is pending first reading. The ban covers TV, radio, print, billboards, social media, websites and mobile apps, and it names influencers, content creators, affiliate marketers, celebrities and vloggers as covered parties. This version also bans promotional mechanics themselves, including bonuses, free bets and referral codes, plus cross-promotion of land-based products carrying the same brand. Penalties: operators face PHP 500,000 to PHP 10 million, licence suspension or revocation, and up to three years in prison; public figures must return endorsement fees already received and are barred from gambling endorsements for three to five years; platforms, media firms, adtech companies and ISPs face PHP 50,000 per day. See <a href="#sig-01">§04 card 1</a>.<em>（<a href="https://www.sunstar.com.ph/cebu/cebu-lawmaker-seeks-ban-on-online-gambling-ads-promotions">Sunstar 9/1</a> · <a href="https://www.manilatimes.net/2026/09/05/regions/bill-seeks-nationwide-ban-on-online-gambling-ads/2418746">Manila Times 9/5</a>）</em></p>
+    <p class="deck"><b>2. DigiPlus takes 97% of GGR on a rented third-party licence.</b><br>Hong Kong-listed International Entertainment Corporation (IEC, owner of LaVie Resort &amp; Casino Manila) told the exchange on 28 August, alongside its interim results, that subsidiary New Coast Leisure Inc (NCLI) now holds every PAGCOR licence it needs. The online platform it runs jointly with DigiPlus subsidiary Total Gamezone Xtreme Inc (TGXI) is slated for late August or September, opening with electronic casino games only and no live dealer. The revenue split, made public on 1 September, gives NCLI 3% and TGXI 97% of gross gaming revenue. With new online licences frozen and the licensee count down from 74 to 48, this is the first workable lateral expansion route this quarter. See <a href="#sig-02">§04 card 2</a>.<em>（<a href="https://asgam.com/2026/08/30/expansion-of-manila-casino-lavie-sees-iec-revenue-rise-50-in-fy26-as-company-prepares-for-launch-of-online-gaming-business/">IAG 8/30</a> · <a href="https://mb.com.ph/2026/09/01/digiplus-unit-prepares-for-new-online-gaming-cash-flow-in-partnership-with-iec">Manila Bulletin 9/1</a>）</em></p>
+    <p class="deck"><b>3. PAGCOR has 8 days left on the 9/15 helpline ad swap.</b><br>Dr Janice Saraza, officer-in-charge of PAGCOR's Health Services and Wellness Department, spoke on 4 September at HWONFEX 2026 on behalf of chairman and CEO Alejandro Tengco. She covered how regulated gaming revenue funds tourism, healthcare and education, and highlighted the 24/7 National Problem Gambling Helpline built with Seagulls Flock Organization. Two deadlines land in the same month: the retention period for responsible-gaming ads carrying the helpline expires 15 September, and the B2B supplier accreditation deadline falls 30 September, with unaccredited systems decommissioned from 1 October. See <a href="#sig-03">§04 card 3</a>.<em>（<a href="https://asgam.com/2026/09/06/pagcor-highlights-role-in-supporting-health-and-wellness-of-filipinos/">IAG 9/6</a> · <a href="https://www.ggrasia.com/pagcor-extends-deadline-to-sept-30-for-online-gaming-b2b-accreditation">GGRAsia</a>）</em></p>
+    <div class="axes">
+      <div class="axis"><b>Endorsements</b>Both chambers now have an ad-ban bill running, and the House version names influencers and affiliates as covered parties, with clawback penalties attached. Read: endorsement contracts have changed character. The worst case used to be that the brand gets fined and you do not get paid. The worst case now is that the talent has to return fees already collected and cannot take similar work for three to five years. A clause saying the contract is unaffected by future regulation does not remove that. Any long-dated endorsement deal from Q4 onward needs its rate and its termination clause renegotiated together.</div>
+      <div class="axis"><b>Offers</b>The House version bans bonuses, free bets and referral codes as well. Read: if this text passes as written, what is banned is not just advertising but the whole channel for talking about offers. Operators can still give the same value, they just have no way to tell players. That pushes up the value of the existing customer database, in-product messaging and the opt-in list, because those touchpoints sit outside the ban. Moving traffic into owned lists now is a cheap hedge.</div>
+      <div class="axis"><b>Market structure</b>DigiPlus opened a new online platform through a third-party licence holder and takes a 97% share. That is a new brand slot created without a new licence being issued. Read: the licence freeze binds less tightly than the announcement suggests. A party with capital and technology can rent a licence and go live, giving up a single-digit share. Once this is copied, the number of brands in the market will not converge with the number of licensees; a layer of white-label brands can sit under the 48.</div>
+    </div>
+    <div class="impl-meth" style="margin-top:14px">
+      <h6>Lede selection</h6>
+      <ul>
+        <li><b>✓ Lede #1 / card 1 ·</b> House ad-ban bill HB 10982, naming influencers and promotional mechanics, with clawback penalties (filed 8/26, first reported 9/1, spread 9/3-9/5) · B1 new policy · first public House version in this window, a separate bill from Senate SB 2347; scope and penalties are new facts</li>
+        <li><b>✓ Lede #2 / card 2 ·</b> NCLI holds all PAGCOR licences + JV platform going live in September + 3%／97% split (filed 8/28, reported 8/30-9/1) · B2 new partnership · licence status, launch timing and split are all first disclosures; last window carried only the shareholding and the financials</li>
+        <li><b>✓ Lede #3 / card 3 ·</b> PAGCOR responsible-gaming speech 9/4 plus the 9/15 ad-swap and 9/30 accreditation deadlines (9/4-9/6) · B2 · the speech is an in-window event; both deadlines are now inside two weeks and constrain creative and content scheduling</li>
+        <li><b>✗ Out of lede, into card 4 ·</b> DigiPlus wins three Awards of Excellence at the 22nd Philippine Quill Awards (9/4) · B2 · ranks fourth on strategic weight; the awards do not shift the competitive picture, the value is in the positioning it demonstrates</li>
+        <li><b>✗ Excluded ·</b> IEC interim revenue HK$852.5m, up 50.6% (8/28) · C1 carried as card 5 last window, folded into card 2 as background; PAGCOR's PHP 1m fine and the verification app (8/24-8/27) · C1 led last window, no new development, moved to §05 and §06; Tengco's 9/15 IAG Academy Summit keynote listing (9/2) · C3 an event listing, not a regulatory or commercial move; operator offers · zero new offers this week, no candidate</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="kpi">
+    <div class="sec-lbl">
+      <span class="chip">§01</span><span class="en">KPI Matrix · 10 brands</span>
+      <h2>KPI comparison matrix (10-brand watchlist)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">Status: 🔴 HOT (named or sanctioned by the regulator) · 🟠 ACTIVE · 🟡 ALERT · 🔵 COLD · ⚫ CLOSED (not scored). SOV is an internal estimate (media space + social volume); the eight scored brands total about 41%, with the remaining 59% going to House bill coverage, PAGCOR and the IEC group. <b>Offers have not moved for six straight weeks; none of this week's three threads landed on pricing.</b> King.ph / Queen.ph closed on 2026-05-29 and are not scored. BingoPlus holds 🟠 (two group-level moves); CasinoPlus moves 🔴 → 🟡 (no new development since the fine, endorsement relationship unchanged); the other six hold 🔵. On-site checks could not be run this period (no outbound network in the scheduled sandbox, browser not on a Philippine exit IP — see methodology); figures carry over from the W33 baseline.</div>
+    <div class="kpi">
+<div class="head">Brand</div><div class="head">Moves</div><div class="head">SOV%</div><div class="head">Lead offer</div><div class="head">Jackpot board</div><div class="head">Impact</div>
+
+      <div class="cell name"><b>BingoPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">16%</span><div class="bar"><i style="width:16%;background:#E89AAA"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Baccarat tournament PHP 41.3m (to 11/28) + JILI Super Ace 30% first-deposit rebate (carried)</div>
+      <div class="cell" data-lbl="Jackpot board">Baccarat tournament PHP 41.3m</div>
+      <div class="cell" data-lbl="Impact">Mid — group opens a second online revenue line, see <a href="#sig-02">§04 card 2</a></div>
+
+      <div class="cell name"><b>CasinoPlus</b><span class="grp">Independent</span><span class="status status-alert">🟡 ALERT</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">7%</span><div class="bar"><i style="width:7%;background:#B89968"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">1.5% cashrebate expired 7/31, successor unannounced; Color Game milestone + WinsDay Billion Drop (carried)</div>
+      <div class="cell" data-lbl="Jackpot board">Color Game Ultimate Jackpot PHP 100.7m</div>
+      <div class="cell" data-lbl="Impact">Mid — second week after the fine with no new development, see §05</div>
+
+      <div class="cell name"><b>ArenaPlus</b><span class="grp">DigiPlus</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#2A5FAA"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Promo page carried; no sports offer since 7/19</div>
+      <div class="cell" data-lbl="Jackpot board">—</div>
+      <div class="cell" data-lbl="Impact">Low — eighth week of the sports gap</div>
+
+      <div class="cell name"><b>GameZone</b><span class="grp">DigiPlus</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#4F8C5C"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Newcomer / VIP / Long-term tiers (carried)</div>
+      <div class="cell" data-lbl="Jackpot board">— daily tournaments</div>
+      <div class="cell" data-lbl="Impact">Low — zero new offers in the window</div>
+
+      <div class="cell name"><b>OKBet / OKGames</b><span class="grp">Independent</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#D86B27"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Main site 1.5% daily rebate + Welcome Bundle; sports 35% first deposit (carried)</div>
+      <div class="cell" data-lbl="Jackpot board">FIFA 2026 Spin for Glory PHP 15,888,888</div>
+      <div class="cell" data-lbl="Impact">Low — sports offer expired, successor unannounced</div>
+
+      <div class="cell name"><b>Bet88</b><span class="grp">Independent</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#C2272D"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">100% first deposit to PHP 8,888 + 30% daily (image-based, no figure in text)</div>
+      <div class="cell" data-lbl="Jackpot board">World Cup Prize Pool PHP 4,900,000</div>
+      <div class="cell" data-lbl="Impact">Low — zero new offers in the window</div>
+
+      <div class="cell name"><b>PlayTime / PT Gaming</b><span class="grp">Independent</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">4%</span><div class="bar"><i style="width:4%;background:#4A4FB8"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">PHP 8,080 welcome + 1.5% rebate (promo page gated, 5/29 baseline carried)</div>
+      <div class="cell" data-lbl="Jackpot board">Evolution Perya Fiesta (unconfirmed)</div>
+      <div class="cell" data-lbl="Impact">Low — page gated, no moves</div>
+
+      <div class="cell name"><b>OKADA PLAY</b><span class="grp">PhilWeb × Okada Manila</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#8B7355"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Launch-phase offers not fully public</div>
+      <div class="cell" data-lbl="Jackpot board">— undisclosed</div>
+      <div class="cell" data-lbl="Impact">Low — zero public moves this week</div>
+
+      <div class="cell name"><b>King.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="Moves">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="Lead offer">Closed (confirmed 2026-05-29) · not scored</div>
+      <div class="cell closed" data-lbl="Jackpot board">—</div>
+      <div class="cell closed" data-lbl="Impact">Closed (confirmed 2026-05-29) · not scored</div>
+
+      <div class="cell name"><b>Queen.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="Moves">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="Lead offer">Closed (confirmed 2026-05-29) · not scored</div>
+      <div class="cell closed" data-lbl="Jackpot board">—</div>
+      <div class="cell closed" data-lbl="Impact">Closed (confirmed 2026-05-29) · not scored</div>
+
+    </div>
+  </section>
+
+  <section class="sec" id="strategic">
+    <div class="sec-lbl">
+      <span class="chip">§02</span><span class="en">Strategic Read · 5Q</span>
+      <h2>Strategic read · five questions (neutral)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="strat">
+      <div class="qa-grid"><div class="qa"><div class="q"><span class="qchip">Q1</span><br>Market space</div><div class="a"><p>Supply gained a route this week that the existing structure did not account for. IEC subsidiary NCLI holds all the PAGCOR licences it needs and has handed online operation to DigiPlus subsidiary TGXI, keeping 3% and giving TGXI 97%. The freeze on new online licences since March 2024 and the drop from 74 to 48 licensees are both unchanged, but a licence holder can lease out the operating right.</p><p>On the demand side, two September deadlines are now inside two weeks: the retention period for responsible-gaming ads expires 15 September, and B2B supplier accreditation closes 30 September, with unaccredited systems shut off from 1 October.</p><p><b>Read: the freeze caps the number of licence holders, not the number of brands. A licensed shell can host a third-party operation, so the market can show more than 48 brands. For an entrant, that adds a much cheaper route than acquisition, namely finding a licensee that holds paper but has no operating capability. DigiPlus has now put a price on the table, and 3% is what a licence holder gets when the operator has the leverage.</b></p><span class="src">Sources: <a href="https://mb.com.ph/2026/09/01/digiplus-unit-prepares-for-new-online-gaming-cash-flow-in-partnership-with-iec">3%／97% split · Manila Bulletin 9/1</a> · <a href="https://www.ggrasia.com/pagcor-extends-deadline-to-sept-30-for-online-gaming-b2b-accreditation">B2B deadline 9/30 · GGRAsia</a></span></div></div><div class="qa"><div class="q"><span class="qchip">Q2</span><br>Player focus</div><div class="a"><p>Three familiar player-side problems showed no verifiable change this week: withdrawals stuck behind e-wallet identity checks, deposits routed through vouchers and messaging apps, and community talk dominated by scams and self-exclusion. On-site sampling was unavailable, so none of it is expanded here.</p><p>A new layer arrived from the legislature. The House bill cites PAGCOR's 2025 figures: electronic and online gaming GGR of PHP 201.12 billion, or 50.77% of the industry's PHP 396.14 billion, overtaking land-based casinos for the first time. The stated rationale is that advertising and influencer posts bring gambling into the home. <b>Read: the argument has moved from "some people get addicted" to "this sector is now large enough to require control", and it runs on the regulator's own published numbers. Answering that with "we are licensed" misses the point, because the licensed half is exactly what is being questioned.</b></p><span class="src">Sources: <a href="https://www.manilatimes.net/2026/09/05/regions/bill-seeks-nationwide-ban-on-online-gambling-ads/2418746">PHP 201.12bn at 50.77% · Manila Times 9/5</a></span></div></div><div class="qa"><div class="q"><span class="qchip">Q3</span><br>Unserved gaps</div><div class="a"><p>Five long-standing gaps again went untouched: plain-language compliance material, alternative payment guidance, offer-term calculators, identity-verification walkthroughs and licence-verification explainers.</p><p>A sixth arrives from how the House text treats promotional mechanics. Beyond advertising, it bans bonuses, free bets and referral codes. None of the nine currently treats non-promotional retention content as an asset; in-product messaging, email and opt-in lists are used almost entirely as delivery pipes for promo codes. <b>Read: if the ban becomes law, the codes go and the pipes stay. Building content those touchpoints can actually carry is what leaves you able to speak on the day the ban takes effect.</b></p><p>One hard constraint sits at the visual layer. Since Ad Standards Council (ASC) circular 2026-008 took effect on 24 June 2026, advertising material in any medium may not show or mention roulette, baccarat, blackjack, slot machines, cards, chips or dice; ASC issues a cease-and-desist order and copies PAGCOR.</p><span class="src">Sources: <a href="https://focusgn.com/asia-pacific/philippine-lawmaker-files-bill-to-ban-online-gambling-advertisements">Ban on promotional mechanics · Focus Gaming News</a></span></div></div><div class="qa"><div class="q"><span class="qchip">Q4</span><br>Offer structure</div><div class="a"><p>Two offer types, unchanged: DigiPlus runs campaigns, everyone else runs rebates, and nobody switched this week. Six weeks in, not one of the nine has launched anything new; the sports slot that expired 7/19 and CasinoPlus's 1.5% that expired 7/31 both sit empty.</p><p>The reason 1.5% looks identical everywhere is that it is the ceiling. Under current PAGCOR rules, cash rebates measured on player turnover or deposit are capped at 1.50% for electronic games (excluding casino table and arcade-type games), and cashback measured on net losses is capped at 15%. <b>Read: there is no differentiation left in the rebate line, because the ceiling is set by the regulator. What can still separate brands is how the cashback is calculated, how fast it lands, and whether the terms are written so a player can follow them. None of those is capped, and none falls inside the literal wording of the House ban.</b></p><span class="src">Sources: <a href="https://www.ggrasia.com/digiplus-says-limits-on-online-cash-rebates-to-level-the-playing-field-in-the-philippines">1.5% rebate / 15% cashback caps · GGRAsia</a></span></div></div><div class="qa full"><div class="q"><span class="qchip">Q5</span><br>Differentiation</div><div class="a"><p>This week's three threads sit on different layers. Legislation produced a House ad-ban bill naming influencers and promotional mechanics (Sunstar 9/1, Manila Times 9/5). Structure produced a licensed shell leasing out its operating right at a 3% to 97% split (IAG 8/30, Manila Bulletin 9/1). Execution has two September deadlines inside two weeks (IAG 9/6, GGRAsia). The nine operators themselves did nothing.</p><p><b>Conclusion: none of the three lands on pricing. Offers already sit at a regulator-set ceiling and have not moved in six weeks. What decides the next year is whether you can keep talking to players once the advertising channels narrow, and what it costs to obtain a licence slot you can go live on.</b></p><p><b>Proposal: three things. First, inventory the owned touchpoints as assets, covering the opt-in list, in-product messaging, messaging-app communities and support conversations, confirm each remains usable after an ad ban, and start moving traffic into them. Second, add two clauses to every multi-year endorsement and affiliate contract: termination on regulatory change, and clawback liability assigned to the brand. Third, if the entry route is still open, add "negotiate an operating share with a licence holder" as the second option next to acquisition, using the 3% to 97% split as a reference point. These are recommendations, not conclusions.</b></p><span class="src">Sources: <a href="https://www.sunstar.com.ph/cebu/cebu-lawmaker-seeks-ban-on-online-gambling-ads-promotions">Sunstar 9/1</a> · <a href="https://asgam.com/2026/08/30/expansion-of-manila-casino-lavie-sees-iec-revenue-rise-50-in-fy26-as-company-prepares-for-launch-of-online-gaming-business/">IAG 8/30</a> · <a href="https://asgam.com/2026/09/06/pagcor-highlights-role-in-supporting-health-and-wellness-of-filipinos/">IAG 9/6</a></span></div></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="radar">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">Capability Radar · 6 axes · 10 brands</span>
+      <h2>Six-axis capability radar (King / Queen closed, not scored)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="radar">
+      <div class="radar-formula">
+        <h6>Scoring formula (100 per axis, weighted sub-items)</h6>
+        <table><tr><td>BRAND</td><td><b>Market share (revenue/traffic) 45%</b> + endorsements/IP 20% + player mention rate 25% + PR volume this week 10%</td></tr><tr><td>UX</td><td>Site availability 30% + signup/login 25% + payment/withdrawal signals 25% + UI clarity 20%</td></tr><tr><td>CONTENT</td><td>Exclusive games/IP 35% + localisation 25% + campaign depth 25% + update cadence 15%</td></tr><tr><td>PRICING</td><td>Offer appeal 30% + <b>compliance safety 30%</b> + term clarity 25% + realisable player value 15%</td></tr><tr><td>RETENTION</td><td>Ongoing offers 30% + VIP/reactivation 25% + support/trust 25% + community activity 20%</td></tr><tr><td>REACH</td><td>TV/media 30% + social volume 25% + KOL/talent 20% + offline/payment touchpoints 15% + SEO/site visibility 10%</td></tr></table>
+      </div>
+      <div class="radar-head">
+        <div>
+          <div class="lbl">Six-axis comparison (10 brands)</div>
+          <div class="sub">Use the dropdown to pick the scoring baseline (default PlayTime) and the buttons below to pick a rival.<br><em style="color:rgba(255,255,255,.6);font-style:normal;">Baseline anchored to the W22 SimilarWeb read. All eight scored brands hold this week; no changes. King / Queen are closed, show N/A and are not plotted.</em></div>
+        </div>
+        <div class="self-pick">
+          <span class="pick-lbl">Baseline</span>
+          <select class="vssel" id="selfsel" aria-label="Select baseline brand"></select>
+        </div>
+      </div>
+      <div class="vsbtns" id="vsbtns" aria-label="vs"></div>
+      <div class="radar-body">
+        <div class="left">
+          <div class="grid" id="radarGrid"></div>
+          <div class="legend">
+            <span><i style="background:#fff3a6"></i><b id="legendSelf">Baseline · PlayTime</b></span>
+            <span><i id="legendVsColor" style="background:#4F8C5C"></i><b id="legendVs">GameZone</b></span>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 320" id="radarSvg" aria-label="6-axis capability radar">
+          <g id="rings"></g>
+          <g id="axes"></g>
+          <polygon id="polyVs" fill-opacity="0.35" stroke-width="2"></polygon>
+          <polygon id="polySelf" fill="#fff3a6" fill-opacity="0.42" stroke="#fff3a6" stroke-width="2.2"></polygon>
+          <g id="labels"></g>
+        </svg>
+      </div>
+      <div class="radar-note"><b>All eight scored brands hold this week.</b> Two of the three threads sit on legislation and group structure and the third on regulatory deadlines; none changes any brand's product-side capability. The House ad-ban bill applies to every licensee alike and is not law, so it creates no relative advantage. The NCLI × TGXI platform has not launched and its brand name and domain are undisclosed, so under the "no credit for moves that have not landed" rule, CONTENT and REACH for BingoPlus, ArenaPlus and GameZone are unchanged. DigiPlus's three communication awards are a group-level outcome, not a product capability of the three brands. On-site checks were unavailable (no outbound network in the sandbox, browser not on a Philippine exit IP), so the remaining UX and PRICING sub-items have no fresh measurement behind them.<br><br><b>BRAND sub-item worked example.</b> PlayTime BRAND 85 = market share 100 (industry #1) × 45% + endorsements/IP 80 × 20% + player mention rate 80 × 25% + PR volume 60 × 10% = 87, taken as 85. BingoPlus BRAND 83 = market share 75 (industry #3) × 45% + endorsements/IP 95 (five or more first-tier endorsers plus crossover IP) × 20% + player mention rate 85 × 25% + PR volume 90 (two group moves, above average) × 10% = 83.<br><br><b>What would trigger the next change:</b> the NCLI × TGXI platform launching with a public brand name, domain and welcome offer (affects CONTENT and REACH for BingoPlus and ArenaPlus, and PRICING across the board); either HB 10982 or SB 2347 entering substantive committee review (affects the KOL sub-item of REACH for all); supplier drop-outs and content gaps after the 9/30 accreditation deadline (affects that brand's CONTENT); any brand publishing an offer structure other than 1.5%; OKADA PLAY disclosing full pricing and operating data for the first time. SimilarWeb's May traffic order (CasinoPlus &gt; BingoPlus &gt; OKBet &gt; Bet88) uses a different basis from this radar's revenue-weighted BRAND and is listed for reference only; King / Queen are closed, show N/A on all six axes and are not plotted.</div>
+    </div>
+  </section>
+
+  <section class="sec" id="moves-sec">
+    <div class="sec-lbl">
+      <span class="chip">§04</span><span class="en">Weekly Moves</span>
+      <h2>Weekly moves (W37)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">Four cards this week (W36 five / W35 four). Card 1 comes from the House of Representatives, card 2 from IEC and DigiPlus exchange filings, cards 3 and 4 from PAGCOR and DigiPlus public events. The nine operators posted zero new offers, so pricing gets no card. The 8/24 fine and the verification app fall in the previous window and sit in §05 and §06.</div>
+    <div class="moves" id="moveCards">
+
+      <div class="mcard" id="sig-01" style="border-top-color:#8a3a33">
+        <div class="top"><span class="logo" style="background:#8a3a33;width:26px;height:26px;font-size:10px">HB</span>
+          <div class="meta"><b>Card 1 · House / Legislation</b><span>8/26-9/05</span></div>
+          <span class="sev high">High impact</span>
+        </div>
+        <h4>HB 10982 sets fines up to PHP 10M <span class="hi">over ads reaching homes.</span></h4>
+<div class="detail">Cebu Third District Rep. Karen Hope Garcia filed House Bill 10982, the Online Gambling Advertising Prohibition Act of 2026, on 26 August. It is pending first reading. Her stated rationale is that online gambling reaches households through livestream advertising, social-media bonus codes and influencer promotion, touching children and financially vulnerable families; she describes smartphones as 24-hour casinos people carry with them. The bill cites PAGCOR's 2025 figures: electronic and online gaming GGR of PHP 201.12 billion, or 50.77% of the industry's PHP 396.14 billion, overtaking licensed land-based casinos as the largest contributor for the first time. It also cites the World Health Organization's December 2024 fact sheet, which classes gambling disorder as a health-harming addictive behaviour and recommends prohibiting gambling advertising, promotion and sponsorship.</div><div class="detail">The ban covers TV, radio, print, billboards, social media, websites and mobile apps, plus search advertising, targeted digital campaigns, affiliate marketing, and promotional communication by email and SMS. It is a separate bill from Senator Francis Escudero's SB 2347, filed in August, and differs in three places: it names influencers, content creators, affiliate marketers, celebrities and vloggers as covered parties; it bans promotional mechanics themselves, including bonuses, free bets and referral codes; and it bars cross-promotion of land-based products carrying the same brand, while requiring stronger age and identity verification on online gambling accounts.</div><div class="detail">Penalties run in three tiers. Operators: PHP 500,000 to PHP 10 million, licence suspension or revocation, and up to three years in prison. Public figures: return of endorsement fees already received, plus a three- to five-year bar on gambling endorsements. Social platforms, media companies, adtech firms and internet service providers: PHP 50,000 per day for non-compliance, with possible licence revocation. Exemptions cover advertising for licensed land-based casinos, PCSO lotteries and sweepstakes, horse racing and licensed cockpits, still subject to responsible-gaming advisories; news reporting, academic discussion and government communication are also outside the ban.</div><div class="detail"><b>Read:</b> the point is not that another ad-ban bill exists, it is three specific provisions. First, the clawback. Returning fees already collected plus a three- to five-year bar means a deal signed today has to be valued against future regulatory risk rather than against the campaign rate. In practice that turns a long-dated endorsement into a liability with a tail. Second, promotional mechanics are inside the ban. If bonuses, free bets and referral codes cannot be communicated, what is banned is the entire acquisition script, leaving only players already on the list. Third, intermediaries are liable. PHP 50,000 a day for platforms, media and adtech means the buy side will start self-censoring before the bill passes, so the real tightening arrives ahead of any effective date. Three practical consequences: add regulatory-change termination clauses to Q4-onward endorsement and affiliate contracts with clawback liability assigned to the brand; start moving advertising traffic into owned lists, which sit outside the ban; and track closely whether this bill is consolidated with SB 2347, because whose text survives decides whether promotional mechanics are banned at all.</div><div class="detail"><b>⚠️ Timing basis:</b> the filing date is 26 August (Manila Times 9/5 and alienwp on bill status), which falls in the previous data window; first public coverage was Sunstar on 1 September, spreading to trade and national outlets between 3 and 5 September. This card states filing 8/26 and reporting from 9/1 side by side and does not count the filing date as an in-window event. The bill is pending first reading, not yet referred to committee, with no hearing scheduled; the text can change in committee.</div>
+        <div class="social">⚠️ Single-source note: Philippine mainstream and trade coverage is multi-source (Sunstar 9/1, Manila Times 9/5, Focus Gaming News, iGamingToday, Allin News 9/3); the full bill text is not published online, so all provision detail is second-hand and the original must be obtained before citing section numbers. Player-side and creator-side reaction could not be sampled this period.</div>
+        <div class="src">Sources: <a href="https://www.sunstar.com.ph/cebu/cebu-lawmaker-seeks-ban-on-online-gambling-ads-promotions">Cebu lawmaker seeks ban on online gambling ads, promotions · Sunstar 9/1</a> · <a href="https://www.manilatimes.net/2026/09/05/regions/bill-seeks-nationwide-ban-on-online-gambling-ads/2418746">Bill seeks nationwide ban on online gambling ads · Manila Times 9/5</a> · <a href="https://focusgn.com/asia-pacific/philippine-lawmaker-files-bill-to-ban-online-gambling-advertisements">Philippine lawmaker files bill to ban online gambling advertisements · Focus Gaming News</a> · <a href="https://alienwp.com/philippines-house-bill-10982-targets-online-gambling-advertising/">Philippines House Bill 10982 Targets Online Gambling Advertising · alienwp</a> · <a href="https://www.igamingtoday.com/cebu-lawmaker-proposes-ban-on-online-gambling-advertising/">Cebu Lawmaker Proposes Ban On Online Gambling Advertising · iGamingToday</a> · <a href="https://www.allinmedia.com.hk/2026/09/03/smartphones-turned-into-24-hour-casinos-philippine-representative-proposes-ban-on-online-gambling-ads/">Philippine Representative Proposes Ban on Online Gambling Ads · Allin News 9/3</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> build the endorsement and affiliate budget in two versions. In version one the bill passes as written, endorsements, affiliate marketing and promo-code communication are all unusable, and acquisition runs on owned lists and in-product touchpoints only; this version has to pull list-building cost forward into the first quarter after entry. In version two the consolidated text narrows to advertising only, leaving promotional mechanics usable while endorsements stay banned. The gap between the two versions is the price of this legislative risk, and it is worth computing now rather than waiting for a floor vote.</span></div>
+      </div>
+
+      <div class="mcard" id="sig-02" style="border-top-color:#c96442">
+        <div class="top"><span class="logo" style="background:#c96442;width:26px;height:26px;font-size:10px">IE</span>
+          <div class="meta"><b>Card 2 · DigiPlus / IEC</b><span>8/28-9/01</span></div>
+          <span class="sev high">High impact</span>
+        </div>
+        <h4>TGXI takes 97% of GGR <span class="hi">on a licence borrowed from NCLI.</span></h4>
+<div class="detail">IEC told the Hong Kong exchange on 28 August, alongside its interim results for FY2025/26, that wholly owned subsidiary New Coast Leisure Inc (NCLI) holds every PAGCOR licence it needs, and that the online platform it runs with DigiPlus's wholly owned subsidiary Total Gamezone Xtreme Inc (TGXI) is slated for late August or September 2026. The cooperation agreement was signed on 10-11 June and covers integration, aggregation, provision, technical support and operation of approved online games, subject to PAGCOR approval and applicable regulation. The product line as filed lists electronic casino games, electronic bingo, online poker and specialty games; the launch will carry electronic casino games only, with no live dealer. IEC also states the arrangement is entirely separate from LaVie's land-based casino business and does not currently involve taking integrated-resort games online.</div><div class="detail">The split was first disclosed in reporting on 1 September: on gross gaming revenue, NCLI takes 3% and TGXI takes 97%.</div><div class="detail">The operating figures in the same filing: group interim revenue HK$852.5 million, up 50.6%; gaming revenue HK$819.4 million, up 60.7%, driven mainly by the LaVie expansion; loss for the period HK$486.4 million (about US$62 million), driven by non-cash fair value movement on the HK$1.6 billion convertible notes subscribed by DigiPlus. Excluding that item, the loss narrowed 78.2% year on year and gross profit rose 66.4% to HK$454.6 million. The notes are unconverted; full conversion would give DigiPlus 53.89% of IEC.</div><div class="detail"><b>Read:</b> the value here is not the revenue contribution, it is that the deal has measured how tightly the licence freeze actually binds. PAGCOR has issued no new online licences since March 2024 and the count has fallen from 74 to 48, officially pending industry consolidation. But a licence holder can outsource operation to a third party and collect a share, so a new platform can appear while the licensee count stays flat. The 3% to 97% ratio is worth remembering: the licence holder takes 3%, which says that under current supply and demand the paper itself has far less bargaining power than operating capability and traffic. For anyone selling marketing services, this means the new clients that appear over the next year will not come only from the existing 48 but from white-label platforms of this kind, and those will subsidise hard to buy volume at launch, pushing Q4 media costs up. What to watch is when the brand name and domain surface, and how large the welcome offer is, because that number will set the floor price for the quarter.</div><div class="detail"><b>⚠️ Basis notes:</b> the launch window as filed reads "about late August or September", not a fixed date; as of this issue the platform's brand name and domain are undisclosed. The formal interim loss is HK$486.4 million (about US$62 million), which differs from the "could widen to about US$64 million" estimate in the 21 August profit warning; the formal figure governs. The 53.89% is a post-conversion estimate and conversion has not occurred. The 3% to 97% ratio applies to gross gaming revenue and is not a net profit split.</div>
+        <div class="social">⚠️ Single-source note: licence status and launch timing come from IEC's exchange filing, relayed by IAG 8/30 and checked against the full text; the split comes from Manila Bulletin 9/1; the underlying agreement comes from IAG 6/10 and BusinessWorld 6/11. There is no player-side discussion to sample, because the brand name is not yet public.</div>
+        <div class="src">Sources: <a href="https://asgam.com/2026/08/30/expansion-of-manila-casino-lavie-sees-iec-revenue-rise-50-in-fy26-as-company-prepares-for-launch-of-online-gaming-business/">Expansion of Manila casino LaVie sees IEC revenue rise 50% in FY26 · IAG 8/30</a> · <a href="https://mb.com.ph/2026/09/01/digiplus-unit-prepares-for-new-online-gaming-cash-flow-in-partnership-with-iec">DigiPlus unit prepares for new online gaming cash flow in partnership with IEC · Manila Bulletin 9/1</a> · <a href="https://asgam.com/2026/06/10/iec-to-partner-with-digiplus-in-launching-new-philippines-online-gaming-business-via-manilas-lavie-resort-casino/">IEC to partner with DigiPlus in launching new Philippines online gaming business · IAG 6/10</a> · <a href="https://bworldonline.com/corporate/2026/06/11/755917/digiplus-unit-signs-online-gaming-deal-with-new-coast-leisure/">DigiPlus unit signs online gaming deal with New Coast Leisure · BusinessWorld 6/11</a> · <a href="https://www.ggrasia.com/international-ent-to-launch-philippine-online-gaming-ops-in-partnership-with-digiplus-unit">International Ent to launch Philippine online gaming ops · GGRAsia</a> · <a href="https://mb.com.ph/2026/08/31/digiplus-partnership-lavie-upgrades-drive-iecs-philippine-gaming-expansion">DigiPlus partnership, LaVie upgrades drive IEC's Philippine gaming expansion · Manila Bulletin 8/31</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> run a feasibility study on negotiating an operating share with a licence holder as the second entry route alongside acquisition. Three points to cover: PAGCOR's approval scope and process for outsourced operation, where the DigiPlus deal is an approved precedent; the negotiating range on the split, where 3% to 97% is what an operator gets when it has the leverage, and an upfront guarantee demanded by the licence holder would push the real cost above the headline ratio; and the licence holder's own compliance history, because sanction records travel with the licence and are not severed by outsourcing operation.</span></div>
+      </div>
+
+      <div class="mcard" id="sig-03" style="border-top-color:#c96442">
+        <div class="top"><span class="logo" style="background:#c96442;width:26px;height:26px;font-size:10px">PG</span>
+          <div class="meta"><b>Card 3 · PAGCOR / Deadlines</b><span>9/04-9/06</span></div>
+          <span class="sev mid">Mid impact</span>
+        </div>
+        <h4>PAGCOR has 23 days left <span class="hi">on the B2B accreditation deadline.</span></h4>
+<div class="detail">Dr Janice Saraza, officer-in-charge of PAGCOR's Health Services and Wellness Department, spoke on 4 September at the opening of HWONFEX 2026 on behalf of chairman and CEO Alejandro Tengco. The speech had two parts: how regulated gaming revenue funds tourism, healthcare, education and social development, including partnerships with licensed integrated resorts to build hospitals and supply medical equipment; and mental and emotional wellbeing, centred on the 24/7 National Problem Gambling Helpline set up with Seagulls Flock Organization, which provides confidential counselling and professional referrals. IAG relayed PAGCOR's release on 6 September.</div><div class="detail">Two deadlines moved inside two weeks in the same period. First, PAGCOR's June memorandum required all licensees to replace responsible-gaming advertising with the 24/7 helpline version by 15 July and keep it in place until 15 September. Second, the B2B supplier accreditation deadline, pushed from 31 July to 30 September, means gaming systems, platforms, software and related equipment from unaccredited suppliers stop operating from 1 October.</div><div class="detail"><b>Read:</b> the speech itself is a public-relations move; what matters is when it appeared. Both chambers have an ad-ban bill running, PAGCOR's consistent position is tighter control rather than a total ban, and the most persuasive material for that position is evidence that player protection is already being done. The helpline has been live for a little over three months, and this was the week it got pushed onto a health and wellness stage. Two consequences for operators. Responsible gaming is no longer just a line of text on creative; it is becoming the regulator's evidence for its own position, and how well operators cooperate is being noted in that context. And once 15 September passes, someone has to decide which version of the advisory the current creative carries, because PAGCOR has not published the follow-on requirement, which is the item to confirm with the regulator this period. The 30 September accreditation deadline hits content supply directly: if a supplier drops out, its games disappear from the site on 1 October, so any Q4 campaign tied to a specific supplier's titles needs a fallback now.</div>
+        <div class="social">⚠️ Single-source note: the speech content comes from a PAGCOR release relayed by IAG 9/6, Context.ph 9/5 and The Financial District, which is multi-outlet republication of an official statement rather than independent reporting. Both deadlines are expiry dates on existing rules, not new rules this week. PAGCOR has not published usage data for the helpline.</div>
+        <div class="src">Sources: <a href="https://asgam.com/2026/09/06/pagcor-highlights-role-in-supporting-health-and-wellness-of-filipinos/">PAGCOR highlights role in supporting health and wellness of Filipinos · IAG 9/6</a> · <a href="https://context.ph/2026/09/05/pagcor-strengthens-player-safeguards-as-gaming-grows/">PAGCOR strengthens player safeguards as gaming grows · Context.ph 9/5</a> · <a href="https://www.thefinancialdistrict.com.ph/post/pagcor-highlights-role-in-tourism-health-and-wellness-at-hwonfex-2026">PAGCOR Highlights Role in Tourism, Health and Wellness at HWONFEX 2026 · The Financial District</a> · <a href="https://www.pagcor.ph/headlines/pagcor-launches-247-helpline-for-people-with-gambling-problem.html">PAGCOR launches 24/7 helpline for people with gambling problem · PAGCOR</a> · <a href="https://www.ggrasia.com/pagcor-extends-deadline-to-sept-30-for-online-gaming-b2b-accreditation">Pagcor extends deadline to Sept 30 for online gaming B2B accreditation · GGRAsia</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> two items for the next fortnight. Ask PAGCOR to confirm in writing what responsible-gaming advisory is required after 15 September and lock the creative template to that answer, so Q4 material does not have to be remade. And ask each game supplier for evidence of accreditation progress, pull any title from a supplier without accreditation by 30 September out of the Q4 campaign plan, and line up replacement content. Both cost almost nothing; the cost of missing them is content going dark after a campaign is live.</span></div>
+      </div>
+
+      <div class="mcard" id="sig-04" style="border-top-color:#E89AAA">
+        <div class="top"><span class="logo" style="background:#E89AAA;width:26px;height:26px;font-size:10px">DP</span>
+          <div class="meta"><b>Card 4 · DigiPlus / Brand</b><span>9/04</span></div>
+          <span class="sev mid">Mid impact</span>
+        </div>
+        <h4>DigiPlus won 3 communication awards <span class="hi">on responsible-gaming work.</span></h4>
+<div class="detail">DigiPlus Interactive, parent of BingoPlus, ArenaPlus and GameZone, took three Awards of Excellence at the 22nd Philippine Quill Awards on 4 September, in the audio/visual, publications and social media categories. The winning programmes covered three subjects: business growth storytelling, integrated financial and sustainability reporting, and responsible-gaming advocacy. The Philippine Quill Awards are run by the International Association of Business Communicators' Philippine chapter and judge the strategy and execution of corporate communication programmes.</div><div class="detail"><b>Read:</b> the awards do not shift the competitive picture; what is worth noting is the mix of subjects. In a year when both chambers are moving ad-ban bills and endorsement enforcement has already produced a fine, the market leader has put its communication resource into business narrative, sustainability reporting and responsible gaming rather than product and offers. Those three share one property: none is constrained by gambling advertising rules, and all three can run in mainstream media and corporate communication venues. When a ban does land, this is among the few things still publishable, and building it takes quarters rather than starting the day the ban arrives. For an independent operator the barrier here is subject choice rather than budget: a small team can turn "how we handle player protection" into publishable material, provided it starts accumulating the evidence and data now.</div>
+        <div class="social">⚠️ Single-source note: this comes from BusinessWorld's 9/4 corporate section and is republished company material from a single outlet. The content and performance of the winning programmes are not public. There is no player-side discussion to sample.</div>
+        <div class="src">Sources: <a href="https://bworldonline.com/spotlight/2026/09/04/774667/digiplus-earns-3-honors-at-22nd-philippine-quill-awards/">DigiPlus earns 3 honors at 22nd Philippine Quill Awards · BusinessWorld 9/4</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> list the subjects that fall outside gambling advertising rules and assess which are workable in the first year after entry. Candidates include player-protection practice, fund safety and withdrawal process explainers, payment partnership notes, community involvement, and corporate governance and financial disclosure. The test for each is whether the underlying material already exists in-house; fill the gaps now, because doing it after a ban takes effect costs far more.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Timeline · last two weeks</span>
+      <h2>Timeline (two weeks, reverse order)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow"><span class="d">09/04-06</span><span class="dot"></span><span class="cat">REG</span><span class="br">PAGCOR</span><span class="desc">HWONFEX 2026 speech: gaming revenue funding healthcare and education + the 24/7 problem gambling helpline (relayed by IAG 9/6)</span><span class="wk">W37</span></div>
+      <div class="trow"><span class="d">09/04</span><span class="dot pink"></span><span class="cat">BRAND</span><span class="br">DigiPlus</span><span class="desc">Three Awards of Excellence at the 22nd Philippine Quill Awards, including responsible-gaming advocacy</span><span class="wk">W37</span></div>
+      <div class="trow"><span class="d">09/01</span><span class="dot pink"></span><span class="cat">STRUCT</span><span class="br">DigiPlus / IEC</span><span class="desc">Split disclosed: NCLI 3%, TGXI 97%, measured on gross gaming revenue</span><span class="wk">W37</span></div>
+      <div class="trow"><span class="d">09/01-05</span><span class="dot"></span><span class="cat">LEGIS</span><span class="br">House / Garcia</span><span class="desc">HB 10982 ad-ban bill surfaces: bans influencers and affiliates, bans bonuses, free bets and referral codes, adds clawback penalties (filed 8/26, pending first reading)</span><span class="wk">W37</span></div>
+      <div class="trow"><span class="d">09/02</span><span class="dot blue"></span><span class="cat">AGENDA</span><span class="br">PAGCOR / Tengco</span><span class="desc">Keynote listing published for the 9/15 IAG Academy Summit (event listing, no card)</span><span class="wk">W37</span></div>
+      <div class="trow"><span class="d">08/28-30</span><span class="dot pink"></span><span class="cat">STRUCT</span><span class="br">IEC / New Coast Leisure</span><span class="desc">Exchange filing: NCLI holds all required PAGCOR licences; JV platform with TGXI slated for late August or September, electronic casino first, no live dealer</span><span class="wk">W36→W37</span></div>
+      <div class="trow"><span class="d">08/28</span><span class="dot green"></span><span class="cat">RESULTS</span><span class="br">International Entertainment</span><span class="desc">Interim revenue up 50.6% to HK$852.5m; formal loss HK$486.4m, narrowing 78.2% excluding convertible-note fair value movement</span><span class="wk">W36→W37</span></div>
+      <div class="trow"><span class="d">08/26</span><span class="dot"></span><span class="cat">REG</span><span class="br">PAGCOR / Tengco</span><span class="desc">Online licence freeze stays; licensees down from 74 to 48; tax rates unchanged (evidenced this week by the NCLI deal)</span><span class="wk">W36→W37</span></div>
+      <div class="trow"><span class="d">08/26</span><span class="dot"></span><span class="cat">ENF</span><span class="br">PAGCOR / CICC</span><span class="desc">CICC has 12 to 15 cases filed against gambling endorsers and influencers, targeting the individuals (no new development this week, background)</span><span class="wk">W36</span></div>
+      <div class="trow"><span class="d">08/24</span><span class="dot"></span><span class="cat">ENF</span><span class="br">PAGCOR</span><span class="desc">PHP 1m fine on a licensed online operator for an unfiled giveaway; paid, promotion halted, warning of suspension or revocation (no new development this week)</span><span class="wk">W36</span></div>
+      <div class="trow"><span class="d">08/24</span><span class="dot"></span><span class="cat">REG</span><span class="br">PAGCOR / Tengco</span><span class="desc">Official verification app due within the year; about 50% of online gambling sites accessed locally are unlicensed (no formal announcement this week)</span><span class="wk">W36</span></div>
+      <div class="trow"><span class="d">08/24</span><span class="dot green"></span><span class="cat">FCAST</span><span class="br">PAGCOR</span><span class="desc">2026 total income seen down about 18%; net income seen falling from PHP 17.47bn to PHP 1.66bn</span><span class="wk">W36</span></div>
+      <div class="trow"><span class="d">08/23-25</span><span class="dot blue"></span><span class="cat">PROD</span><span class="br">DigiPlus / ArenaSocial</span><span class="desc">Arcade suite launched with 100+ free-to-play titles (no media buy evidence available this week)</span><span class="wk">W36</span></div>
+      <div class="trow"><span class="d">08/17-20</span><span class="dot"></span><span class="cat">LEGIS</span><span class="br">Senate / Escudero</span><span class="desc">SB 2347 ad-ban bill: bans endorsements, product placement, merchandise and sponsorship; one-year transition (a separate House version appeared this week)</span><span class="wk">W35→W37</span></div>
+      <div class="trow"><span class="d">08/10</span><span class="dot"></span><span class="cat">SECTOR</span><span class="br">PAGCOR</span><span class="desc">2Q26 industry GGR PHP 88.13bn, down 20.3% y-o-y; e-gaming PHP 39.85bn, down 37.2%</span><span class="wk">W34→W37</span></div>
+      <div class="trow"><span class="d">07/20</span><span class="dot"></span><span class="cat">REG</span><span class="br">PAGCOR</span><span class="desc">B2B accreditation deadline moved from 7/31 to 9/30, decommissioning from 10/1 (23 days out)</span><span class="wk">W30→W37</span></div>
+      <div class="trow"><span class="d">07/01</span><span class="dot"></span><span class="cat">REG</span><span class="br">PAGCOR</span><span class="desc">Minimum guaranteed fee phase one: e-casino monthly revenue threshold PHP 30m / flat PHP 9m; rising to PHP 35m / PHP 10.5m from 2027/01/01</span><span class="wk">W27→W37</span></div>
+      <div class="trow"><span class="d">06/24</span><span class="dot"></span><span class="cat">REG</span><span class="br">ASC</span><span class="desc">Circular 2026-008 in force: advertising material in any medium may not show or refer to casino games and equipment</span><span class="wk">W26→W37</span></div>
+      <div class="trow"><span class="d">06/18</span><span class="dot"></span><span class="cat">REG</span><span class="br">PAGCOR</span><span class="desc">Memorandum: responsible-gaming ads swapped to the 24/7 helpline version by 7/15, retained until 9/15 (8 days out)</span><span class="wk">W25→W37</span></div>
+    </div>
+    <div class="tl-legend">
+      <span><i style="background:#8a3a33"></i>Policy / enforcement / payments</span>
+      <span><i style="background:#2A5FAA"></i>Offers / product / supply</span>
+      <span><i style="background:#c96442"></i>Capital / governance / group</span>
+      <span><i style="background:#2f6b3b"></i>Events / results</span>
+    </div>
+  </section>
+
+  <section class="sec" id="implications">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Implications · threats / opportunities</span>
+      <h2>Implications (threats / opportunities)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="impl-meth">
+      <h6>Entry parameters (all internal estimates)</h6>
+      <ul><li><b>The two ad-ban bills have to be costed separately:</b> Senate SB 2347 bans advertising, endorsements, product placement, merchandise and sponsorship; House HB 10982 adds a ban on bonuses, free bets and referral codes, names influencers and affiliates as covered parties, and attaches clawback penalties. The two are not consolidated; plan a contingency against the stricter House version. <b>Basis is <a href="#sig-01">§04 card 1</a>; not repeated elsewhere.</b></li><li><b>Endorsement contracts now carry a tail liability:</b> the House version requires public figures to return fees received and bars them for three to five years. Multi-year endorsement and affiliate contracts need a regulatory-change termination clause with clawback liability assigned to the brand.</li><li><b>Second route to a licence slot:</b> a licence holder can outsource online operation; DigiPlus's TGXI and IEC's NCLI split gross gaming revenue 97% to 3%. This is a PAGCOR-approved precedent and a usable reference point; the licence holder's sanction record travels with the licence and is not severed by outsourcing.</li><li><b>Two September deadlines:</b> the responsible-gaming ad retention period expires 9/15 with no published follow-on requirement; B2B supplier accreditation closes 9/30, with unaccredited systems stopped from 10/1. Q4 campaigns tied to a specific supplier need a fallback.</li><li><b>The rebate ceiling is set by the regulator:</b> current caps are 1.5% cash rebate on turnover or deposit (excluding casino table and arcade-type games) and 15% cashback on net losses. Differentiation is limited to calculation basis, settlement speed and term readability.</li><li><b>Licence fixed costs rise:</b> the minimum guaranteed fee for e-casino operators is PHP 9 million a month (against a PHP 30 million revenue threshold), rising to PHP 10.5 million (against PHP 35 million) from 2027/01/01. Model on the 2027 band.</li><li><b>Creative-level restriction:</b> ASC circular 2026-008, in force from 2026/06/24, bars advertising material from showing or referring to roulette, baccarat, blackjack, slot machines, cards, chips and dice.</li><li><b>Demand-side baseline:</b> PAGCOR sees 2026 total income down about 18%. Use the 2Q26 official figure (industry GGR PHP 88.13bn, down 20.3%) as the conservative revenue assumption.</li></ul>
+    </div>
+    <div class="impl">
+      <div class="col threat"><h5><span class="dot"></span>Threats<span class="en">Threats</span></h5><ul><li><b>Ad-ban pressure has gone from one Senate bill to a version in each chamber, and the House text is stricter.</b>Influencers and affiliates are named parties, promotional mechanics are banned, and clawback penalties apply. <em>Cost of inaction (internal estimate): signing multi-year endorsement deals on current terms through Q4 would force a one-off unwind and renegotiation if the bill passes, turning an estimated 15-30% of that contract value into sunk cost, plus a 4-8 week gap while replacements are found.</em></li><li><b>If promotional mechanics go too, the whole acquisition script fails, not just the creative.</b>Bonuses, free bets and referral codes are the shared entry pitch across all nine. <em>Cost of inaction (internal estimate): starting list-building only at that point takes an estimated 6-9 months to reach usable scale, with new-customer acquisition cost up an estimated 40-80% in the interim.</em></li><li><b>If leasing out a licensed shell gets copied, brand count keeps rising underneath the 48 licensees.</b>DigiPlus and NCLI have done it once, with regulatory approval. <em>Cost of inaction (internal estimate): planning on "licensee count capped means rival count capped" would understate Q4 media cost by an estimated 20-40%, as launch subsidies from new platforms push acquisition prices up across the board.</em></li><li><b>Content supply may break after the 30 September accreditation deadline, and campaigns are usually tied to specific suppliers.</b>Unaccredited systems stop operating from 1 October. <em>Cost of inaction (internal estimate): a Q4 lead campaign tied to a dropped supplier's titles needs a mid-flight content change, with rework and buy adjustment costing an estimated 20-40% of that campaign's budget.</em></li><li><b>DigiPlus now holds four channels outside gambling advertising rules; independent operators hold none.</b>A free-to-play category, a land-based resort position, award-winning corporate communication, and as of this week a new platform on a third-party licence. <em>Cost of inaction (internal estimate): budgeting on "the ban hits everyone equally" understates the share-of-voice gap against DigiPlus, and this week's white-label platform widens it another notch; directional, to be recalibrated once a bill passes.</em></li></ul></div>
+      <div class="col opp"><h5><span class="dot"></span>Opportunities<span class="en">Opportunities</span></h5><ul><li><b>Inventory owned touchpoints as assets and start moving traffic into them</b>(internal estimate ~PHP 200K-500K / 4-6 weeks) Opt-in lists, in-product messaging, messaging-app communities and support conversations all sit outside the literal wording of both bills. Building now costs far less than building from zero after a ban. <em>Note: list collection and use must comply with the Philippine Data Privacy Act; have legal sign off the consent language first.</em></li><li><b>Build a content line on subjects outside gambling advertising rules</b>(internal estimate ~PHP 150K-400K / one-off + monthly) Player-protection practice, fund safety and withdrawal explainers, payment partnership notes, corporate governance and financial disclosure. DigiPlus has already won three communication awards on this material, so the path is verified. <em>Note: the content must not carry promotional rewards or referral codes, or it may be classed as advertising.</em></li><li><b>Negotiate an operating share with a licence holder as a second entry route</b>(internal estimate ~PHP 300K-800K in diligence and negotiation / 6-10 weeks) The 97% to 3% precedent is public and regulator-approved. <em>Note: unpaid fees and prior sanctions travel with the licence, so diligence must cover them; the split alone is not the whole cost.</em></li><li><b>Differentiate on cashback basis and settlement speed</b>(internal estimate ~PHP 100K-250K / one-off) The percentage caps are regulator-set and identical across all nine, but the calculation basis, settlement frequency and term readability are not capped. <em>Note: any rewrite needs legal review and must not lead players to believe the realisable amount exceeds the regulatory cap.</em></li></ul></div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="fcard">
+      <h5>Methodology + sources</h5>
+      <p>Ten-brand watchlist (nine PAGCOR licensees plus entrant OKADA PLAY) covering sector, regulatory and legislative moves. King.ph / Queen.ph closed on 2026-05-29 and are not scored (single source, see §01). This was a legislation and structure week: card 1 comes from a House filing, card 2 from IEC and DigiPlus exchange filings, cards 3 and 4 from PAGCOR and DigiPlus public events; the nine operators posted zero new offers, a sixth straight static week. <b>⚠️ On-site checks downgraded:</b> the scheduled sandbox has no outbound network (all nine canonical URL head-checks returned 000); switching to live browser reads, CasinoPlus's promotions page returned an explicit Access Restricted geo page, and the promotions pages for BingoPlus, ArenaPlus, GameZone, OKBet and Bet88 are image and script rendered with no readable text layer. Both are access and page-type limits rather than fetch failures, and no offer content has been invented. Pricing figures rest on trade media, operator releases and the W33 baseline, without on-site verification; cite them on that basis. <b>⚠️ Social signals downgraded:</b> the scheduled environment cannot sample X, Reddit, Threads or public Facebook groups. All four cards are marked single-source; player-side and creator-side reaction is outstanding. HB 10982 was filed on 26 August, in the previous data window; first public coverage was 1 September, spreading through 5 September. This issue states filing 8/26 and reporting from 9/1 side by side. The full bill text is not published online, so provision detail is second-hand. IEC's two loss figures cover different scopes: the 8/21 warning gave "could widen to about US$64 million" as an estimate, while the 8/28 results give a formal HK$486.4 million (about US$62 million); the formal figure governs and the two are not interchangeable. The 53.89% is a post-conversion estimate and conversion has not occurred. The 3% to 97% ratio applies to gross gaming revenue and is not a net profit split. The 1.5% rebate and 15% cashback caps are existing PAGCOR rules, carried here as pricing parameters in §02 Q4 and §06 rather than as a card. ASC circular 2026-008 (in force 2026/06/24), the minimum guaranteed fee bands (in force 2026/07/01, rising 2027/01/01), the 9/30 B2B accreditation deadline and the 9/15 responsible-gaming ad retention period are all existing rules and sit in §05 and §06. The radar baseline carries over from the W22 5/24 SimilarWeb read; all eight scored brands hold this week, with the reasoning and BRAND worked examples in §03. Daily trigger monitoring: Philippine-relevant hits in the 8/31-9/07 ledger were 8/31 (competitor: NCLI × TGXI) and 9/02 (regulation: HB 10982), and cards 1 and 2 carry those readings forward without re-evaluation; the 9/03, 9/04 and 9/05 hits were Brazilian and are out of scope. The 9/04 and 9/05 Philippine-side scans reported a genuine empty window rather than a fetch failure. Data window: 8/31-9/07 review, 9/07-9/14 outlook.</p>
+      <div class="srcs"><span><i class="ok"></i>Sunstar / Manila Times / Focus Gaming News / iGamingToday / alienwp / Allin News<em>HB 10982 provisions and penalties</em></span><span><i class="ok"></i>IAG / Manila Bulletin / BusinessWorld / GGRAsia<em>NCLI licences and TGXI JV platform · revenue split · interim results</em></span><span><i class="ok"></i>IAG / Context.ph / The Financial District / PAGCOR<em>HWONFEX speech · 24/7 problem gambling helpline</em></span><span><i class="ok"></i>GGRAsia<em>B2B accreditation deadline moved to 9/30 · rebate and cashback caps</em></span><span><i class="ok"></i>BusinessWorld<em>DigiPlus three awards at the 22nd Philippine Quill Awards</em></span><span><i class="partial"></i>trigger-ledger 8/31-9/07<em>Two Philippine-relevant hits on 8/31 and 9/02 · local shared source</em></span><span><i class="partial"></i>On-site checks / social signals<em>⚠️ Downgraded: no sandbox network + browser not on a Philippine exit IP + image-based promo pages</em></span></div>
+    </div>
+    <div class="fcard">
+      <h5>Next issue (W38 · 2026-09-14) watchlist</h5>
+      <ol><li><span class="n">1</span>Whether HB 10982 is referred to committee, and whether it shows signs of consolidation with SB 2347</li><li><span class="n">2</span>Whether a consolidated text keeps the ban on bonuses, free bets and referral codes</li><li><span class="n">3</span>Whether the full HB 10982 text is published so sections and definitions can be checked</li><li><span class="n">4</span>The NCLI × TGXI platform's brand name, domain and launch date</li><li><span class="n">5</span>That platform's welcome offer and rebate structure against the existing nine</li><li><span class="n">6</span>Whether a second licensee outsources online operation</li><li><span class="n">7</span>Whether PAGCOR publishes the follow-on advisory requirement after the 9/15 deadline</li><li><span class="n">8</span>The 9/30 B2B deadline: supplier drop-outs and whether content goes dark from 10/1</li><li><span class="n">9</span>Whether Tengco's 9/15 IAG Academy Summit keynote signals new policy</li><li><span class="n">10</span>Whether PAGCOR names the operator in the 8/24 fine</li><li><span class="n">11</span>Formal announcement of the verification app: launch date, whitelist data source, dispute mechanism</li><li><span class="n">12</span>Whether the 12 to 15 CICC cases produce a first referral or a published list</li><li><span class="n">13</span>Whether any of the nine moves on sports offers before Q4; CasinoPlus 1.5% successor</li><li><span class="n">14</span>Decoupling: whether the governance commission's recommendation has reached the Palace, and the executive order timeline</li><li><span class="n">15</span>Actual conversion timing for IEC's convertible notes</li></ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span><b>COMPETITOR // BRIEF</b> · 2026-W37 · PH iGaming · 10-brand watchlist (King / Queen closed)</span>
+    <span>Data window 8/31-9/07 review · 9/07-9/14 outlook</span>
+  </div>
+
+</div>
+</div>
+
+<script>
+const RADAR_LABELS = ['BRAND','UX','CONTENT','PRICING','RETENTION','REACH'];
+const RADAR_LABELS_ZH = ['','','','','',''];
+
+const BRANDS = {
+  bingoplus:  { name:'BingoPlus',           color:'#E89AAA', scores:[83,75,86,70,78,85] },
+  arenaplus:  { name:'ArenaPlus',           color:'#2A5FAA', scores:[60,70,70,65,60,75] },
+  gamezone:   { name:'GameZone',            color:'#4F8C5C', scores:[35,70,65,75,70,50] },
+  king:       { name:'King.ph · closed',     color:'#2D6B4D', scores:[0,0,0,0,0,0], closed:true },
+  queen:      { name:'Queen.ph · closed',    color:'#B6356D', scores:[0,0,0,0,0,0], closed:true },
+  casinoplus: { name:'CasinoPlus',          color:'#B89968', scores:[75,70,75,60,70,60] },
+  okbet:      { name:'OKBet / OKGames',     color:'#D86B27', scores:[50,60,60,60,60,60] },
+  bet88:      { name:'Bet88',               color:'#C2272D', scores:[50,60,65,60,65,55] },
+  playtime:   { name:'PlayTime / PT Gaming',color:'#4A4FB8', scores:[85,70,70,65,70,65] },
+  okadaplay:  { name:'OKADA PLAY',          color:'#8B7355', scores:[32,25,30,25,20,50] }
+};
+let selfId = 'playtime';
+let vsId = 'gamezone';
+const cx=160, cy=160, R=130;
+const angle = i => (Math.PI*2*i)/6 - Math.PI/2;
+
+function ringPolygon(rr){
+  return Array.from({length:6},(_,i)=>`${cx+rr*Math.cos(angle(i))},${cy+rr*Math.sin(angle(i))}`).join(' ');
+}
+function polyPoints(values){
+  return values.map((v,i)=>{const r=(v/100)*R;return `${cx+r*Math.cos(angle(i))},${cy+r*Math.sin(angle(i))}`;}).join(' ');
+}
+function labelPos(i,off=22){
+  const x = cx + (R+off)*Math.cos(angle(i));
+  const y = cy + (R+off)*Math.sin(angle(i)) + 4;
+  return {x,y};
+}
+
+function initRadar(){
+  const ringsG = document.getElementById('rings');
+  [1,.75,.5,.25].forEach((s,i)=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',ringPolygon(R*s));
+    p.setAttribute('fill', i===0 ? 'rgba(255,255,255,.04)' : 'none');
+    p.setAttribute('stroke','rgba(255,255,255,.18)');
+    ringsG.appendChild(p);
+  });
+  const axesG = document.getElementById('axes');
+  for(let i=0;i<6;i++){
+    const x=cx+R*Math.cos(angle(i)), y=cy+R*Math.sin(angle(i));
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x);l.setAttribute('y2',y);
+    l.setAttribute('stroke','rgba(255,255,255,.1)');
+    axesG.appendChild(l);
+  }
+  const labG = document.getElementById('labels');
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const p=labelPos(i,18);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',p.x);t1.setAttribute('y',p.y-6);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('fill','#fff');t1.setAttribute('font-size','11');t1.setAttribute('font-weight','800');
+    t1.textContent=lbl;
+    labG.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',p.x);t2.setAttribute('y',p.y+6);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('fill','rgba(255,255,255,.6)');t2.setAttribute('font-size','9');
+    t2.textContent=RADAR_LABELS_ZH[i];
+    labG.appendChild(t2);
+  });
+  const selfSel = document.getElementById('selfsel');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = d.name;
+    if(id===selfId) opt.selected = true;
+    selfSel.appendChild(opt);
+  });
+  selfSel.addEventListener('change', e => { selfId = e.target.value; render(); });
+
+  const vsbtns = document.getElementById('vsbtns');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const b = document.createElement('button');
+    b.dataset.id = id;
+    b.innerHTML = `<i style="background:${d.color}"></i>${d.name}`;
+    if(id===vsId) b.classList.add('active');
+    b.onclick = () => {
+      vsId = id;
+      document.querySelectorAll('#vsbtns button').forEach(x => x.classList.toggle('active', x.dataset.id===id));
+      render();
+    };
+    vsbtns.appendChild(b);
+  });
+
+  render();
+}
+function render(){
+  const self = BRANDS[selfId];
+  const vs = BRANDS[vsId];
+  const polySelf = document.getElementById('polySelf');
+  const polyVs = document.getElementById('polyVs');
+  polySelf.setAttribute('points', self.closed ? '' : polyPoints(self.scores));
+  polyVs.setAttribute('points', vs.closed ? '' : polyPoints(vs.scores));
+  polyVs.setAttribute('fill', vs.closed ? 'none' : vs.color);
+  polyVs.setAttribute('stroke', vs.closed ? 'none' : vs.color);
+  document.getElementById('legendSelf').textContent='Baseline · '+self.name;
+  document.getElementById('legendVs').textContent=vs.name;
+  document.getElementById('legendVsColor').style.background=vs.closed?'#555':vs.color;
+  const grid = document.getElementById('radarGrid');
+  grid.innerHTML='';
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const sv = self.closed ? 'N/A' : self.scores[i];
+    const vv = vs.closed ? 'N/A' : vs.scores[i];
+    const lead = (!self.closed && !vs.closed && vs.scores[i] > self.scores[i]);
+    grid.innerHTML += `<span>${lbl}</span><span>${sv}</span><span>vs</span><span style="color:${lead?'var(--neg)':'var(--pos)'}">${vv}</span>`;
+  });
+}
+initRadar();
+</script>
+</body>
+</html>

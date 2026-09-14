@@ -474,5 +474,24 @@ p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .so
 
 </div>
 </div>
+
+<script>
+// 期数与最新期自动由卡片推导，避免每周手改漏改（静态文字为无 JS 时的 fallback）
+(function(){
+  var cards = document.querySelectorAll('article.wk');
+  if (!cards.length) return;
+  var meta = document.querySelectorAll('.meta-row span');
+  var top  = cards[0];
+  var wk   = top.querySelector('.chip');
+  var dt   = top.querySelector('.date');
+  if (meta[0] && wk && dt) {
+    var d = dt.textContent.trim();
+    meta[0].textContent = '最新 · 2026-' + wk.textContent.trim() + '（' + d.slice(5) + '）';
+  }
+  if (meta[1]) {
+    meta[1].textContent = '共 ' + cards.length + ' 期 / ' + cards.length + ' issues';
+  }
+})();
+</script>
 </body>
 </html>

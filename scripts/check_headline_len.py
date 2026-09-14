@@ -23,9 +23,12 @@ import sys
 from pathlib import Path
 
 # 每行容量（全角当量）。EN 由「字元数 x 0.5」换算而来。
-CAP_CN = {'lead': 61, 'signal': 34, 'col': 21}
-CAP_EN = {'lead': 62, 'signal': 25, 'col': 18}
-MAX_LINES = {'lead': 1, 'signal': 2, 'col': 2}
+# 2026-09-14（W37）線上實測修正：viewport 1163px、桌面三欄
+#   lead h3 1050px / signal h4 504px / col h4 318px / x-pulse h4 504px（與 signal 同寬）
+#   EN signal 舊值 25 當量（=50 字元）比實測 65-70 字元低一倍，等於逼標題砍進 71-83 字元的孤行區
+CAP_CN = {'lead': 61, 'signal': 34, 'col': 21, 'xpulse': 34}
+CAP_EN = {'lead': 62, 'signal': 34, 'col': 18, 'xpulse': 34}
+MAX_LINES = {'lead': 1, 'signal': 2, 'col': 2, 'xpulse': 2}
 MIN_LAST_FILL = 0.38  # 末行至少要填满这个比例，否则算孤行
 
 
@@ -54,6 +57,13 @@ def check(path: Path) -> int:
         rows.append(('lead', txt(x)))
     for x in re.findall(r'<div class="signal-card">.*?<h4>(.+?)</h4>', c, re.DOTALL):
         rows.append(('signal', txt(x)))
+    # §9 的卡雖然 class 是 .card，但在 .x-pulse 兩欄格線裡實際寬 504px（與 signal 同寬），
+    # 吃 col 的 318px 門檻會放行真孤行（W37 §9 巴西卡實測末行 9% 卻被判合格）。
+    xp = re.search(r'<div class="x-pulse">(.*?)</div>\s*</section>', c, re.DOTALL)
+    if xp:
+        for x in re.findall(r'<h4>(.+?)</h4>', xp.group(1), re.DOTALL):
+            rows.append(('xpulse', txt(x)))
+        c = c[:xp.start()] + c[xp.end():]
     for x in re.findall(r'<div class="card[^"]*">.*?<h4>(.+?)</h4>', c, re.DOTALL):
         rows.append(('col', txt(x)))
 
@@ -69,8 +79,8 @@ def check(path: Path) -> int:
             bad.append((kind, s, w, cap, f"孤行：末行仅 {last_fill * 100:.0f}%（需 >= 38%）"))
 
     lang = 'EN' if is_en else 'CN'
-    print(f"\n{'=' * 60}\n📏 {path.name}（{lang}·每行容量 lead/signal/col = "
-          f"{caps['lead']}/{caps['signal']}/{caps['col']} 当量）— 共 {len(rows)} 个标题\n{'=' * 60}")
+    print(f"\n{'=' * 60}\n📏 {path.name}（{lang}·每行容量 lead/signal/col/xpulse = "
+          f"{caps['lead']}/{caps['signal']}/{caps['col']}/{caps['xpulse']} 当量）— 共 {len(rows)} 个标题\n{'=' * 60}")
     if not bad:
         print("  ✓ 全部单行或两行饱满、无孤行")
         return 0

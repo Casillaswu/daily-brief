@@ -117,17 +117,34 @@ p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .so
 
   <div class="meta-row">
     <span>最新 · 2026-W38（09-14）</span>
-    <span>共 20 期 / 20 issues</span>
+    <span>共 21 期 / 21 issues</span>
     <span>观察 9 家 + 进场参考</span>
     <span>数据窗口 周一→周一</span>
   </div>
 
-  <!-- W38 -->
+  <!-- W39 -->
   <article class="wk latest">
+    <div class="id">
+      <span class="chip">W39</span>
+      <span class="date">2026-09-21</span>
+      <span class="new">▲ LATEST</span>
+    </div>
+    <div class="sum">
+      <span class="ax"><b>竞争</b>标普给 DigiPlus B+，因市占估四到五成。未来两年维持 40% 至 50%，第二名 15% 至 20%<span class="nbk">；2025 年份额 41%、2024 年 47%。</span></span>
+      <span class="ax"><b>体制</b>PAGCOR 拆分案仍待总统令，因 GCG 内部未审毕。总统认可则签发行政命令，拆分后监管收入<span class="nbk">只剩规费与罚款。</span></span>
+      <span class="ax"><b>执法</b>BSP 关闭逾 8,000 商户帐户，因店家代收赌资。导流率约 50%、电子钱包断链前约 75%<span class="nbk">；9 家价档面继续没有动静。</span></span>
+    </div>
+    <div class="links">
+      <a class="cn" href="2026-comW39.html">中文</a>
+      <a class="en" href="2026-comW39-en.html">EN</a>
+    </div>
+  </article>
+
+  <!-- W38 -->
+  <article class="wk">
     <div class="id">
       <span class="chip">W38</span>
       <span class="date">2026-09-14</span>
-      <span class="new">▲ LATEST</span>
     </div>
     <div class="sum">
       <span class="ax"><b>法规</b>BSP 给 12 个月整改期，因博彩收单须直连。草案点名六类商户只能走直连商户安排，新支付业者<span class="nbk">登记另冻结 12 个月。</span></span>
@@ -480,10 +497,10 @@ p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .so
 (function(){
   var cards = document.querySelectorAll('article.wk');
   if (!cards.length) return;
-  var meta = document.querySelectorAll('.meta-row span');
-  var top  = cards[0];
-  var wk   = top.querySelector('.chip');
-  var dt   = top.querySelector('.date');
+  var meta  = document.querySelectorAll('.meta-row span');
+  var first = cards[0];               // 不用 top：window.top 是保留全域，非函式作用域会被咬
+  var wk    = first.querySelector('.chip');
+  var dt    = first.querySelector('.date');
   if (meta[0] && wk && dt) {
     var d = dt.textContent.trim();
     meta[0].textContent = '最新 · 2026-' + wk.textContent.trim() + '（' + d.slice(5) + '）';

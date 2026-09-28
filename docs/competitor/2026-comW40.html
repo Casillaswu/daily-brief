@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>竞品周报 · 2026-W40 · 菲律宾 iGaming</title>
+<style>
+:root{
+  --ink:#1f1d1a; --ink-2:#4a4742; --ink-3:#8a857d;
+  --paper:#fff; --paper-2:#f7f5f1;
+  --rule:#d9d4cb; --rule-2:#ebe6dd;
+  --hi:#fff3a6;
+  --pos:#c9e4cf; --pos-ink:#2f6b3b;
+  --neu:#e1dfd9; --neu-ink:#5b574e;
+  --neg:#f1c9c5; --neg-ink:#8a3a33;
+  --warn:#fce8c2; --warn-ink:#8a5f1a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+body{
+  background:#f0eee9;
+  font-family:Arial,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);min-height:100vh;font-size:13px;line-height:1.65;
+}
+a{color:inherit;}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.hi{background:var(--hi);padding:0 2px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.shell{max-width:1320px;margin:0 auto;background:#fff;}
+
+.mast{background:#1f1d1a;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.mast .mark{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;border:1px solid rgba(255,255,255,.4);padding:6px 10px;flex:none;}
+.mast .ttl{flex:1;min-width:200px;}
+.mast .ttl h1{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+.mast .ttl .sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;}
+.mast .logos{display:flex;gap:5px;flex:none;flex-wrap:wrap;}
+.mast .lang{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:2px;flex:none;}
+.mast .lang a,.mast .lang button{border:none;background:none;cursor:pointer;padding:5px 12px;border-radius:99px;color:rgba(255,255,255,.7);font:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;line-height:1;}
+.mast .lang .active{background:#fff;color:var(--ink);}
+.logo{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(0,0,0,.06);flex:none;}
+.logo.closed{opacity:.4;text-decoration:line-through;}
+
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+.body{padding:8px 32px 32px;}
+
+.sec{margin-top:32px;scroll-margin-top:60px;}
+.sec-lbl{margin-bottom:10px;}
+.sec-lbl .chip{background:var(--ink);color:#fff;font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.06em;margin-right:8px;}
+.sec-lbl .en{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+.sec-lbl h2{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-top:8px;}
+.sec-lbl .rule{height:2px;background:var(--ink);margin-top:10px;}
+.sec-deck{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.exec{margin-top:24px;}
+.exec h3{font-size:30px;font-weight:800;letter-spacing:-.015em;line-height:1.4;max-width:90%;}
+.exec h3 .line{display:block;}
+.exec h3 .line + .line{margin-top:6px;}
+.exec p.deck{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin-top:18px;max-width:80%;}
+.exec p.deck b{color:var(--ink);}
+.exec p.deck + p.deck{margin-top:12px;}
+.exec p.deck em{font-style:normal;color:var(--ink-3);font-size:11.5px;}
+.exec .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.exec .axis{border-left:3px solid var(--ink);padding:8px 14px;font-size:12px;color:var(--ink-2);line-height:1.7;}
+.exec .axis b{color:var(--ink);display:block;margin-bottom:2px;}
+
+.kpi{margin-top:14px;border:1px solid var(--ink);display:grid;grid-template-columns:minmax(170px,1.2fr) .8fr .8fr 1.1fr 1fr 1.5fr;}
+.kpi .head{background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);text-transform:uppercase;font-weight:800;border-bottom:2px solid var(--ink);padding:12px;}
+.kpi .cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px;font-size:12px;line-height:1.6;}
+.kpi .cell:nth-child(6n){border-right:none;}
+.kpi .name{display:flex;align-items:flex-start;gap:10px;flex-direction:column;}
+.kpi .name b{font-size:13px;display:block;}
+.kpi .name .grp{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;letter-spacing:.05em;display:block;margin-top:1px;}
+.kpi .name .status{padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace;display:inline-block;margin-top:5px;}
+.kpi .name .status-hot{background:#1f1d1a;color:#fff;}
+.kpi .name .status-active{background:#fbe3b3;color:#8a5f1a;}
+.kpi .name .status-alert{background:var(--neg);color:var(--neg-ink);}
+.kpi .name .status-cold{background:#d6e4f0;color:#2A5FAA;}
+.kpi .name .status-closed{background:#2b2b2b;color:#bbb;}
+.kpi .cell.closed{color:var(--ink-3);font-style:italic;}
+.kpi .big{font-weight:800;font-size:16px;}
+.trend{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:3px;font-size:10.5px;font-weight:700;}
+.trend.up{background:var(--pos);color:var(--pos-ink);}
+.trend.down{background:var(--neg);color:var(--neg-ink);}
+.trend.flat{background:var(--neu);color:var(--neu-ink);}
+.trend.new{background:#1f1d1a;color:#fff;}
+.bar{height:8px;background:var(--rule-2);border-radius:2px;overflow:hidden;margin-top:6px;}
+.bar > i{display:block;height:100%;}
+.sev{padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;}
+.sev.high{background:var(--neg);color:var(--neg-ink);}
+.sev.mid{background:var(--neu);color:var(--neu-ink);}
+.sev.low{background:var(--pos);color:var(--pos-ink);}
+
+.strat{margin-top:14px;background:#1f1d1a;color:#fff;padding:26px 30px;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);}
+.qa.full{grid-column:1/-1;}
+.qa .q{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.qa .q .qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+.qa .a{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.92);}
+.qa .a b{color:#fff;}
+.qa .a p{margin-bottom:6px;}
+.qa .src{display:block;color:rgba(255,255,255,.45);font-size:10.5px;margin-top:6px;}
+.qa .src a{color:rgba(255,255,255,.6);}
+
+.radar{margin-top:14px;background:#1f1d1a;color:#fff;padding:24px;}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.radar-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.radar-head .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:800;margin-bottom:4px;}
+.radar-head .sub{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.radar-head .self-pick{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.radar-head .self-pick .pick-lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:800;}
+.vssel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 32px 9px 14px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4 L5 7 L8 4' fill='none' stroke='white' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 10px center;}
+.vssel option{background:#1f1d1a;color:#fff;}
+.vsbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.vsbtns button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.vsbtns button:hover{background:rgba(255,255,255,.18);}
+.vsbtns button.active{background:#fff;color:var(--ink);}
+.vsbtns button i{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.radar-body{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;}
+.radar-body .grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px 16px;font-size:12.5px;}
+.radar-body .grid span:nth-child(4n+1),.radar-body .grid span:nth-child(4n+3){color:rgba(255,255,255,.55);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;}
+.radar-body .grid span:nth-child(4n+2),.radar-body .grid span:nth-child(4n+0){font-weight:700;}
+.radar-body .legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;}
+.radar-body .legend span{display:inline-flex;align-items:center;gap:6px;}
+.radar-body .legend i{width:12px;height:12px;display:inline-block;border-radius:2px;}
+.radar svg{width:100%;max-width:380px;display:block;margin:0 auto;}
+.radar-note{margin-top:12px;background:rgba(255,255,255,.05);border-left:3px solid rgba(255,255,255,.4);padding:10px 14px;font-size:11.5px;color:rgba(255,255,255,.8);line-height:1.65;}
+.radar-note b{color:#fff;}
+
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px;margin-top:14px;}
+.mcard{border:1px solid var(--rule);border-top-width:4px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:9px;scroll-margin-top:60px;}
+.mcard .top{display:flex;align-items:center;gap:8px;}
+.mcard .top .meta{flex:1;}
+.mcard .top .meta b{font-size:12px;font-weight:700;display:block;}
+.mcard .top .meta span{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;}
+.mcard h4{font-size:14px;font-weight:700;line-height:1.5;}
+.mcard .detail{font-size:12px;line-height:1.7;color:var(--ink-2);}
+.mcard table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px;}
+.mcard table th{text-align:left;padding:4px 6px;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--rule);}
+.mcard table td{padding:5px 6px;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.mcard .warn{padding:8px 12px;background:var(--warn);border-left:3px solid var(--warn-ink);font-size:11.5px;color:var(--warn-ink);line-height:1.6;}
+.mcard .warn b{color:var(--warn-ink);}
+.mcard .social{padding:7px 12px;background:var(--paper-2);border-left:3px solid var(--ink-3);font-size:11px;color:var(--ink-2);line-height:1.6;}
+.mcard .src{font-size:11px;color:var(--ink-3);line-height:1.6;}
+.mcard .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-3);}
+.mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;}
+.mcard .impact b{color:var(--ink);font-weight:700;}
+
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:80px 18px 90px 130px 1fr 60px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--ink-2);}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+.impl-meth{margin-top:14px;background:var(--paper-2);border-left:3px solid var(--ink);padding:14px 18px;font-size:12px;line-height:1.75;color:var(--ink-2);}
+.impl-meth h6{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.06em;margin-bottom:6px;}
+.impl-meth b{color:var(--ink);}
+.impl-meth ul{list-style:none;padding:0;margin-top:6px;display:flex;flex-direction:column;gap:6px;}
+.impl-meth li{padding-left:14px;position:relative;}
+.impl-meth li::before{content:"·";position:absolute;left:2px;color:var(--ink-3);font-weight:800;}
+.impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
+.impl .col.threat{border-top-color:var(--neg-ink);}
+.impl .col.opp{border-top-color:var(--pos-ink);}
+.impl .col h5{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:18px;}
+.impl .col h5 .dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none;}
+.impl .col.threat h5 .dot{background:var(--neg-ink);}
+.impl .col.opp h5 .dot{background:var(--pos-ink);}
+.impl .col h5 .en{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);font-weight:800;text-transform:uppercase;}
+.impl .col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.impl .col li{display:block;padding:14px 16px;background:var(--paper-2);border-left:3px solid;font-size:12.5px;line-height:1.8;color:var(--ink-2);}
+.impl .col.threat li{border-left-color:var(--neg-ink);}
+.impl .col.opp li{border-left-color:var(--pos-ink);}
+.impl .col li b{color:var(--ink);}
+.impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
+
+.footer{margin-top:32px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;}
+.fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
+.fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
+.fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px 22px;align-items:start;}
+.srcs span{position:relative;display:block;padding-left:16px;font-size:11.5px;line-height:1.6;color:var(--ink-2);text-wrap:pretty;}
+.srcs i{position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;}
+.srcs i.ok{background:var(--pos-ink);}
+.srcs i.partial{background:#c96442;}
+.srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
+.fcard ol{padding:0;list-style:none;}
+.fcard ol li{font-size:12px;line-height:1.75;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;}
+.fcard ol li .n{color:#c96442;font-weight:700;font-family:ui-monospace,Menlo,monospace;flex:none;}
+.colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
+.colophon b{color:var(--ink);letter-spacing:.16em;}
+
+@media (max-width:1023px){
+  .body{padding:8px 24px 28px;}
+  .mast{padding:18px 24px;}
+  .subnav{padding:8px 24px;font-size:10.5px;}
+  .kpi{grid-template-columns:1fr;}
+  .kpi .head{display:none;}
+  .kpi .cell{border-right:none;display:grid;grid-template-columns:120px 1fr;gap:8px;}
+  .kpi .cell::before{content:attr(data-lbl);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;}
+  .kpi .cell:nth-child(6n+1)::before{display:none;}
+  .kpi .name{grid-column:1/-1;}
+  .radar-body{grid-template-columns:1fr;}
+  .impl{grid-template-columns:1fr;gap:18px;}
+  .footer{grid-template-columns:1fr;}
+  .qa-grid{grid-template-columns:1fr;}
+  .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:60px 14px 80px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
+  .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
+  .exec .axes{grid-template-columns:1fr;}
+  .sec-lbl h2{font-size:18px;}
+}
+@media (max-width:767px){
+  .body{padding:6px 16px 24px;}
+  .mast{padding:16px;gap:12px;}
+  .mast .ttl h1{font-size:18px;}
+  .subnav{padding:6px 16px;}
+  .strat{padding:18px 16px;}
+  .exec h3{font-size:19px;}
+}
+@media print{
+  body{background:#fff;}
+  .shell{max-width:none;}
+  .vssel,.vsbtns,.subnav{display:none;}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+  .mast .mark{border-color:#000;}
+  .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
+  .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+
+/* wrap-fix v1 */
+.nbk{white-space:nowrap;}
+/* 标题：自动平衡各行长度，避免末行只剩一两个字 */
+h1,h2,h3,h4,h5,h6,.mast .ttl h1,.sec-lbl h2,.mcard h4,.fcard h5,.radar-head .lbl,.wk .id{
+  text-wrap:balance;
+}
+/* 正文：避免寡行（末行孤字），并允许超长 URL / 英文词在容器内换行 */
+p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .social,
+.mcard .impact,.trow .desc,.kpi .cell,.strat .a p,.radar-note,.radar-formula td,
+.fcard p,.fcard ol li,.impl li,.impl-meth li,.srcs em,.wk .sum .ax{
+  text-wrap:pretty;
+  overflow-wrap:break-word;
+}
+/* 数据源说明独占一行，不与来源名单抢断点 */
+.srcs em{display:block;margin-top:1px;line-height:1.55;}
+/* 出处链接列：长标题在容器内断，不撑破卡片 */
+.mcard .src a,.strat .a .src a{overflow-wrap:break-word;}
+@media (max-width:767px){
+  .srcs{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="mast">
+  <div class="mark">COMPETITOR // BRIEF</div>
+  <div class="ttl">
+    <h1>2026-W40 · 菲律宾 iGaming 竞品周报</h1>
+    <div class="sub">数据窗口：9/21-9/28 回顾、9/28-10/5 展望 · 10 家观察清单（9 家 PAGCOR 持照 + OKADA PLAY；King / Queen 已关停）</div>
+  </div>
+  <div class="lang" aria-label="Language">
+    <button class="active" aria-current="page">中</button>
+    <a href="2026-comW40-en.html">EN</a>
+  </div>
+  <div class="logos">
+    <span class="logo" style="background:#E89AAA" title="BingoPlus">BP</span>
+    <span class="logo" style="background:#2A5FAA" title="ArenaPlus">AP</span>
+    <span class="logo" style="background:#4F8C5C" title="GameZone">GZ</span>
+    <span class="logo closed" style="background:#2D6B4D" title="King.ph">K</span>
+    <span class="logo closed" style="background:#B6356D" title="Queen.ph">Q</span>
+    <span class="logo" style="background:#B89968" title="CasinoPlus">C+</span>
+    <span class="logo" style="background:#D86B27" title="OKBet/OKGames">OK</span>
+    <span class="logo" style="background:#C2272D" title="Bet88">88</span>
+    <span class="logo" style="background:#4A4FB8" title="PlayTime/PT Gaming">PT</span>
+    <span class="logo" style="background:#8B7355" title="OKADA PLAY">OP</span>
+  </div>
+</header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>跳到</b>
+  <a href="#briefing">▲ 简报</a>
+  <a href="#kpi">§01 KPI</a>
+  <a href="#strategic">§02 5Q</a>
+  <a href="#radar">§03 雷达</a>
+  <a href="#moves-sec">§04 动向</a>
+  <a href="#timeline">§05 时间轴</a>
+  <a href="#implications">§06 威胁/机会</a>
+</nav>
+
+<div class="body">
+
+  <section class="sec exec" id="briefing">
+    <div class="sec-lbl">
+      <span class="chip">▲</span><span class="en">Executive Briefing · 主管简报</span>
+      <h2>本周摘要</h2>
+      <div class="rule"></div>
+    </div>
+    <h3>
+      DigiPlus 巴西线 9/25 归零，因巴西禁网赌。<br>
+      Solaire 线上一个月内开投，因目标占营收 20%。<br>
+      DigiPlus 利润率估降至 14.5%，因获客变贵。
+    </h3>
+    <p class="deck"><b>1. DigiPlus 巴西线 9/25 归零，因巴西禁网赌。</b><br>巴西总统 Lula 9 月 25 日签发临时措施（Medida Provisória，巴西总统签发、即日生效、须经国会追认的行政立法），禁止固定赔率投注与线上博彩的经营、提供、中介与广告，即日生效。巴西原本是 DigiPlus（BingoPlus、ArenaPlus、GameZone 母公司）第一个海外市场：2024 年 8 月申请联邦牌照、2025 年 1 月取得正式授权，旗下 GamePlus 品牌 2025 年 9 月试营运、数周后暂停改版。9 月 28 日该公司向 PSE（菲律宾证券交易所）揭露，评估后预期此措施对财务状况与营运成果不构成重大影响。一周前 ArenaPlus 负责人已公开说，挑巴西这种高度竞争的市场「有点激进」，南非牌照已到手、正准备上线。详 <a href="#sig-01">§04 卡 1</a>。<em>（<a href="https://context.ph/2026/09/28/brazil-ban-throws-spanner-into-digiplus-expansion/">Context.ph 9/28</a> · <a href="https://www.bworldonline.com/corporate/2026/09/21/778521/digiplus-takes-more-selective-approach-to-overseas-expansion/">BusinessWorld 9/21</a>）</em></p>
+    <p class="deck"><b>2. Solaire 线上一个月内开投，因目标占营收 20%。</b><br>Bloomberry（Solaire 综合度假村母公司、菲律宾上市公司）总裁兼营运长 Hawkins（Greg Hawkins）在马尼拉 IAG Academy Summit 受访表示，希望 2027 年底前线上业务占集团合并 GGR 约 20%。他同时说明，高端线上站 Solaire Online「从来没有做过行销」，接下来一个月左右会开始主动对市场投放；大众市场站 FUNaloMAX 已在自有平台重新上线数月，品牌名刻意不带 Solaire。9 月 25 日 Maybank Securities 把 Bloomberry 评等由持有调为买进，把线上平台放量列为观察催化剂之一。详 <a href="#sig-02">§04 卡 2</a>。<em>（<a href="https://asgam.com/2026/09/20/solaire-sets-online-gaming-target-at-20-of-group-wide-ggr/">IAG 9/20</a> · <a href="https://asgam.com/2026/09/25/maybank-securities-expecting-solaire-parent-bloomberry-to-return-to-profit-in-2027-on-vip-improvement-online-platform-growth/">IAG 9/25</a>）</em></p>
+    <p class="deck"><b>3. DigiPlus 利润率估降至 14.5%，因获客变贵。</b><br>标普（S&amp;P Global Ratings，国际三大信用评等机构之一）预估 DigiPlus 2026 至 2027 年 EBITDA 利润率 14.5% 至 16%，低于 2024 至 2025 年平均约 18%，并把压缩归因于 2025 年 8 月电子钱包与线上博彩平台断链后，获客与留客成本上升。同一份评等说明另提到，该公司 2026 年上半年月活跃用户（MAU）小幅回升，但未来两年内不一定回到断链前水准；更严的执法与拟议中的最低保证费会抬高门槛、挤压小型业者，市场会整并。详 <a href="#sig-03">§04 卡 3</a>。<em>（<a href="https://bworldonline.com/corporate/2026/09/22/780260/digiplus-faces-margin-pressure-as-customer-costs-rise-sp-says/">BusinessWorld 9/22</a> · <a href="https://insiderph.com/sp-sees-digiplus-gaining-as-weaker-gaming-rivals-exit">InsiderPH 9/21</a>）</em></p>
+    <div class="axes">
+      <div class="axis"><b>海外线</b>龙头第一个海外市场在一周内从「转观望」变成「整个市场被禁」。判断：财务上 DigiPlus 自己说不重大，这个说法可信，因为 GamePlus 试营运几周就停了，巴西从来没有贡献过实质营收。要看的是另一件事：海外选项少一个，管理层的注意力与预算会更集中在菲律宾本土与南非。对在菲律宾承接行销工作的一方，这代表第四季不要期待龙头在本土收手，要按它加码来编排期。</div>
+      <div class="axis"><b>新买家进场</b>一家从没投过广告的综合度假村线上站，宣布一个月左右开始主动投放，而且底下另有一个去品牌化的大众市场站。判断：Solaire 带的是陆上度假村的品牌信任，打的是跟现有 9 家同一批玩家。它的预算规模没有公开，但 20% 营收占比这个目标说明它不是试水温。10 月到 11 月菲律宾线上的版位与 KOL 报价，要预期出现一个新的出价者。</div>
+      <div class="axis"><b>获客成本</b>标普把断链的代价写成利润率：约 18% 掉到 14.5% 至 16%。判断：这是第一次有第三方从成本端量化 2025 年 8 月那次断链。过去只有 PAGCOR 自己讲的导流率（持照站投注占比约 50%、断链前约 75%）一个口径。市占四到五成的龙头都在多付获客成本，规模小的业者只会更吃力。三件事叠起来看：龙头回防本土、新买家进场、每个玩家的取得成本本来就在涨。第四季菲律宾线上的获客单价，按上涨编预算。</div>
+    </div>
+    <div class="impl-meth" style="margin-top:14px">
+      <h6>lede 入选推导</h6>
+      <ul>
+        <li><b>✓ Lede #1 / 卡 1 ·</b> 巴西临时措施禁线上博彩；DigiPlus 向 PSE 揭露「不构成重大影响」；ArenaPlus 负责人称巴西计画激进、转观望（9/21、9/25、9/28）· B2 / B3 · 龙头海外布局出现结构性变化，三个节点都落在本窗口</li>
+        <li><b>✓ Lede #2 / 卡 2 ·</b> Solaire Online 一个月左右开始投放、线上目标 2027 年底占集团 GGR 20%；Maybank 调升评等（9/20、9/25）· B4 新进竞品 · 首次有综合度假村线上品牌公开投放时程，直接影响第四季菲律宾线上买量</li>
+        <li><b>✓ Lede #3 / 卡 3 ·</b> 标普估 DigiPlus 利润率 14.5% 至 16%，归因断链后获客成本上升；MAU 未回到断链前（9/21-9/22）· B5 跨周新结论 · 上期卡 1 只有评等与市占，本期首次公开利润率与成本归因</li>
+        <li><b>✗ 排除出 lede、进 §02 与 §06 ·</b> PAGCOR 2025 年报：2026 年最低税后净利目标 ₱48.7 亿，2025 年实绩 ₱174.6 亿（9/21）· B5 · 属监管机关自身绩效门槛，对 9 家的相对位置无直接影响</li>
+        <li><b>✗ 排除 ·</b> Tengco 系列专访（9/23、9/25）· C1 上期卡 2 已立、本期为影片无文字稿、未读到新程序节点；Arden Consult 对 BSP 草案的警告（9/20）· C2 属论述、草案本体无变动、进 §06；PAGCOR 考虑强制赌场装智慧桌台（9/23）· 陆上设备、不在观察范围、匿名单一源；9 家运营商价档 · 本周零新价档</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="kpi">
+    <div class="sec-lbl">
+      <span class="chip">§01</span><span class="en">KPI 比较矩阵 · 10 家</span>
+      <h2>KPI 比较矩阵（10 家观察清单）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">状态色：🔴 HOT（监管点名 / 处分）· 🟠 ACTIVE（仍在动）· 🟡 ALERT（异常 / 倒数）· 🔵 COLD（静默）· ⚫ CLOSED（已关停 / 不评分）。SOV 为内部估算（媒体版面 + 社群声量），8 家可评分者加总约 40%，本周其余 60% 为巴西禁令报导、Bloomberry 与 Solaire 线上布局、PAGCOR 拆分系列专访。<b>价档面继续没有动静，最近一次新档停在 7 月。</b>King.ph / Queen.ph 自 2026-05-29 起关停、不评分。BingoPlus 维持 🟠（母公司巴西线与利润率两则报导）；ArenaPlus 由 🔵 转 🟠（负责人公开谈巴西转观望与南非上线）；CasinoPlus 由 🟠 转 🔵（窗口内无品牌端新事件、罚单线无新进展）；其余五家维持 🔵。促销数字本期站内无法二验（排程沙箱无外网，详方法论），沿用 W33 baseline。</div>
+    <div class="kpi">
+<div class="head">公司</div><div class="head">本周动作</div><div class="head">SOV%</div><div class="head">主推价档</div><div class="head">Jackpot 看板</div><div class="head">本周高影响</div>
+
+      <div class="cell name"><b>BingoPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">18%</span><div class="bar"><i style="width:18%;background:#E89AAA"></i></div></div>
+      <div class="cell" data-lbl="主推价档">百家乐大赛 ₱4,130 万（-11/28）+ JILI Super Ace 30% 首存返利（沿用）；广告主打下载 App 最高 ₱920、BingoPlusNight 每日 ₱50 万（Meta 广告库 9/28）</div>
+      <div class="cell" data-lbl="Jackpot 看板">百家乐大赛 ₱4,130 万</div>
+      <div class="cell" data-lbl="本周高影响">中 — 母公司巴西线归零、利润率预估下修，详 <a href="#sig-01">§04 卡 1</a>、<a href="#sig-03">卡 3</a></div>
+
+      <div class="cell name"><b>ArenaPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">6%</span><div class="bar"><i style="width:6%;background:#2A5FAA"></i></div></div>
+      <div class="cell" data-lbl="主推价档">促销页沿用；体育档 7/19 后无接续；广告 9/24 新开「win ₱5,000,000」奖池型素材（Meta 广告库 9/28、待站内二验）</div>
+      <div class="cell" data-lbl="Jackpot 看板">—</div>
+      <div class="cell" data-lbl="本周高影响">中 — 负责人谈巴西转观望、南非准备上线，详 <a href="#sig-01">§04 卡 1</a></div>
+
+      <div class="cell name"><b>CasinoPlus</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">5%</span><div class="bar"><i style="width:5%;background:#B89968"></i></div></div>
+      <div class="cell" data-lbl="主推价档">1.5% Cashrebate 7/31 到期、官方续档未公布，但 6/13 起的「1.5% Cash Rebate + 1.5% Return Bonus」广告仍在投（Meta 广告库 9/28、待站内二验）；Color Game 里程碑 + WinsDay Billion Drop（沿用）</div>
+      <div class="cell" data-lbl="Jackpot 看板">Color Game Ultimate Jackpot ₱1.007 亿</div>
+      <div class="cell" data-lbl="本周高影响">低 — 窗口内无品牌端新事件</div>
+
+      <div class="cell name"><b>PlayTime / PT Gaming</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#4A4FB8"></i></div></div>
+      <div class="cell" data-lbl="主推价档">₱8,080 迎宾（welcome）+ 1.5% 返利（促销页锁址、沿用 5/29 baseline）</div>
+      <div class="cell" data-lbl="Jackpot 看板">Evolution Perya Fiesta（待查）</div>
+      <div class="cell" data-lbl="本周高影响">低 — 页锁址、无动作</div>
+
+      <div class="cell name"><b>OKADA PLAY</b><span class="grp">PhilWeb × Okada Manila</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#8B7355"></i></div></div>
+      <div class="cell" data-lbl="主推价档">上线初期价档未完整公开</div>
+      <div class="cell" data-lbl="Jackpot 看板">— 待披露</div>
+      <div class="cell" data-lbl="本周高影响">低 — 母公司交易本周无后续</div>
+
+      <div class="cell name"><b>GameZone</b><span class="grp">DigiPlus</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#4F8C5C"></i></div></div>
+      <div class="cell" data-lbl="主推价档">Newcomer / VIP / Long-term 分级档（沿用）；广告主打 ₱6,888 迎宾（welcome）+ 帕奎奥与 Vice Ganda 代言（Meta 广告库 9/28）</div>
+      <div class="cell" data-lbl="Jackpot 看板">— 走日赛</div>
+      <div class="cell" data-lbl="本周高影响">低 — 母公司层事件、品牌端零动作</div>
+
+      <div class="cell name"><b>OKBet / OKGames</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#D86B27"></i></div></div>
+      <div class="cell" data-lbl="主推价档">主站 1.5% 日返 + Welcome Bundle；体育 35% 首存（沿用）</div>
+      <div class="cell" data-lbl="Jackpot 看板">FIFA 2026 Spin for Glory ₱15,888,888</div>
+      <div class="cell" data-lbl="本周高影响">低 — 体育档到期、续档未公布</div>
+
+      <div class="cell name"><b>Bet88</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#C2272D"></i></div></div>
+      <div class="cell" data-lbl="主推价档">100% 首存 ₱8,888 + 30% 每日（图片化、无金额）</div>
+      <div class="cell" data-lbl="Jackpot 看板">World Cup Prize Pool ₱4,900,000</div>
+      <div class="cell" data-lbl="本周高影响">低 — 窗口内 0 新档</div>
+
+      <div class="cell name"><b>King.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="本周动作">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="主推价档">已关停（2026-05-29 确认）· 不评分</div>
+      <div class="cell closed" data-lbl="Jackpot 看板">—</div>
+      <div class="cell closed" data-lbl="本周高影响">已关停 · 不评分</div>
+
+      <div class="cell name"><b>Queen.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="本周动作">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="主推价档">已关停（2026-05-29 确认）· 不评分</div>
+      <div class="cell closed" data-lbl="Jackpot 看板">—</div>
+      <div class="cell closed" data-lbl="本周高影响">已关停 · 不评分</div>
+
+    </div>
+    <div class="sec-deck"><b>价档面继续没有动静。</b>最近一次新档停在 7 月。CasinoPlus 的 1.5% 自 7/31 到期起算、本周第 9 周，到期后没有公布接续方案。体育空窗自 7/19 起算、本周第 11 周，同样没有接续公告。Solaire Online 与 FUNaloMAX 不在本观察清单内，其价档本期未查。</div>
+    <div class="sec-deck"><b>Meta 广告库快照。</b>Meta 广告库 9/28 快照（菲律宾、刊登中）另见三处与 baseline 不一致：CasinoPlus 6/13 起的「1.5% Cash Rebate + 1.5% Return Bonus」广告仍在投；GameZone 广告主打 ₱6,888 迎宾（welcome）加帕奎奥与 Vice Ganda 代言；ArenaPlus 9/24 新开「win ₱5,000,000」奖池型素材。广告在投不等于促销仍有效，三项均待站内二验。另两项观察：BingoPlus 首屏约 24 则广告有 20 则来自「BingoPlus0126」帐号而非官方页，是官方副帐号还是代理或联盟行销帐号未确认；Bet88 没有官方帐号在投，搜到的是 Dovira、Vamero Digital 等不明帐号以无关图片配「Play Game」，与 Bet88 的关系未确认、不推论。OKGames 与 PlayTime 广告只打节目、短剧与演唱会赞助，零促销数字。Solaire Online 与 OKADA PLAY 在投广告为 0，作为开投前基准。<em>（<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH">Meta Ad Library</a> 9/28）</em></div>
+  </section>
+
+  <section class="sec" id="strategic">
+    <div class="sec-lbl">
+      <span class="chip">§02</span><span class="en">Strategic Read · 5Q</span>
+      <h2>战略解读 · 五问（中性陈述）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="strat">
+      <div class="qa-grid">
+        <div class="qa"><div class="q"><span class="qchip">Q1</span><br>市场空间</div><div class="a"><p>本周的变化在需求端之外：供给端多了一个买家，少了一个海外出口。Bloomberry 把线上目标定在 2027 年底占集团 GGR 约 20%，并说 Solaire Online 一个月左右开始主动投放。DigiPlus 的第一个海外市场巴西，9 月 25 日被总统临时措施整个禁掉。</p><p>监管机关自己的数字也在往下走。PAGCOR 2025 年报列出，2026 年最低税后净利目标 ₱48.7 亿，2025 年实绩为 ₱174.6 亿；年报注明这是策略路线图下的最低门槛，不是全年获利预测。新线上牌照自 2024 年 3 月冻结、持照家数由 74 家降到 48 家这个前提没变。</p><p><b>判断：</b>这个市场没有变大，但抢同一块饼的人没有变少。龙头的海外出口少一个，新买家从陆上度假村转进来，而整体 GGR 还在年减。对进场者，这代表第四季不是低价买量的窗口。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q2</span><br>玩家关注焦点</div><div class="a"><p>本周没有新的玩家端数据。可以引用的是标普的一句话：DigiPlus 2026 年上半年 MAU 小幅回升，但未来两年内不一定回到断链前水准。</p><p><b>判断：</b>MAU 回不去，代表断链后流失的玩家没有全数回到持照站。上期导流率约 50% 那个数字说的也是同一件事。玩家在比较的是入金方不方便，不是哪一家的返利高。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q3</span><br>未被满足的缺口</div><div class="a"><p>六个旧缺口本周依然没人做：合规素材白话化、替代金流教学、促销条款试算、实名流程引导、持照查证说明，以及把促销以外的留客内容做成资产。上两期新增的金流变动玩家沟通预案、持照与未持照差别的玩家沟通素材，本周也没有人动。</p><p>本周新增第九项，来自 Solaire 的双品牌结构。9 家里没有一家用两个品牌分别对应高端与大众客群；BingoPlus、ArenaPlus、GameZone 是按游戏类型分，不是按客群分。</p><p><b>判断：</b>Solaire 用一个带度假村名字的高端站接住陆上 VIP 的信任，另开一个不带名字的站去抢大众。这个切法在菲律宾线上还没有人做过。对只有一个品牌的业者，这代表高端客群可能被一个自带实体信任的对手先切走一块。</p><p>画面层的硬约束继续在跑。ASC（菲律宾广告标准委员会）第 2026-008 号通函 6 月 24 日生效后，广告素材在任何媒体都不能出现或提到轮盘、百家乐、二十一点、角子机、纸牌、筹码、骰子这类赌场游戏与器具。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q4</span><br>价档结构</div><div class="a"><p>档型还是两套：DigiPlus 打活动、其余打返利，本周谁都没换。最近一次新档停在 7 月，7/19 到期的体育档与 7/31 到期的 CasinoPlus 1.5% 都空着。</p><p>1.5% 是监管画的上限。PAGCOR 现行规定，电子游戏业者按玩家投注额或存款给的现金返利上限为 1.5%（赌场桌台与街机类游戏除外），按玩家净损失给的现金回赠上限为 15%。</p><p><b>判断：</b>标普的利润率数字给了这一栏静默另一个解释。龙头的利润率在降，而降的原因是获客与留客成本，不是返利。在这个前提下，没有一家有余裕在返利上加码；Solaire 进场后，竞争会先打在版位与 KOL 报价，不是价档。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q5</span><br>差异化结论</div><div class="a"><p>本周三条主线落在同一层：竞争成本。海外线是 DigiPlus 巴西市场归零、向 PSE 揭露不构成重大影响；新买家是 Solaire Online 一个月左右开投、线上目标占集团 GGR 20%；成本端是标普估 DigiPlus 利润率降到 14.5% 至 16%、归因断链后获客变贵。9 家运营商本身零价档动作。</p><p><b>结论：</b>第四季菲律宾线上的竞争会打在买量成本上。龙头的资源留在本土，新买家带着实体品牌进来，而每个玩家的取得成本在断链后本来就在涨。价档面静默会延续，版位、KOL 与本土内容的价格会先动。</p><p><b>提议：</b>三件事。一是把第四季菲律宾线上的媒体与 KOL 采购提前锁定，不要等 Solaire 开投后再议价。二是把获客成本假设往上调，并把 Solaire Online 与 FUNaloMAX 的素材列进每周监看。三是任何跨市场合约都补上法规变更条款，巴西这次从签署到封站不到两周。以上为建议、非结论。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="radar">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">Capability Radar · 6 axes · 10 brands</span>
+      <h2>六轴能力雷达（10 家、King / Queen 已关停不评分）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="radar">
+      <div class="radar-formula">
+        <h6>评分公式（每轴 100 分、子项加权）</h6>
+        <table><tr><td>BRAND 品牌力</td><td><b>市场份额（营收 / 流量）45%</b> + 代言 / IP 20% + 玩家提及率 25% + 本周 PR 声量 10%</td></tr><tr><td>UX 体验</td><td>官网可访问性 30% + 注册 / 登入顺畅 25% + 支付 / 提现讯号 25% + UI 清晰度 20%</td></tr><tr><td>CONTENT 内容</td><td>独家游戏 / IP 35% + 本土化内容 25% + 活动丰富度 25% + 更新频率 15%</td></tr><tr><td>PRICING 定价</td><td>奖励吸引力 30% + <b>合规安全度 30%</b> + 条款透明度 25% + 玩家实际可领价值 15%</td></tr><tr><td>RETENTION 留存</td><td>持续型促销 30% + VIP / 回流机制 25% + 客服 / 信任 25% + 社群活跃 20%</td></tr><tr><td>REACH 通路</td><td>TV / 媒体 30% + 社群声量 25% + KOL / 艺人 20% + 线下 / 支付触点 15% + SEO / 官网可见度 10%</td></tr></table>
+      </div>
+      <div class="radar-head">
+        <div>
+          <div class="lbl">六轴对比（10 家）</div>
+          <div class="sub">右上下拉选评分基线（默认 PlayTime）、下方按钮选对标竞品。<br><em style="color:rgba(255,255,255,.6);font-style:normal;">基线沿用 W22 SimilarWeb 锚定。本周 8 家全部维持、无调分；King / Queen 已关停、不画图。</em></div>
+        </div>
+        <div class="self-pick">
+          <span class="pick-lbl">基线品牌</span>
+          <select class="vssel" id="selfsel" aria-label="基线品牌"></select>
+        </div>
+      </div>
+      <div class="vsbtns" id="vsbtns" aria-label="vs"></div>
+      <div class="radar-body">
+        <div class="left">
+          <div class="grid" id="radarGrid"></div>
+          <div class="legend">
+            <span><i style="background:#fff3a6"></i><b id="legendSelf">基线 · PlayTime</b></span>
+            <span><i id="legendVsColor" style="background:#4F8C5C"></i><b id="legendVs">GameZone</b></span>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 320" id="radarSvg" aria-label="6-axis capability radar">
+          <g id="rings"></g>
+          <g id="axes"></g>
+          <polygon id="polyVs" fill-opacity="0.35" stroke-width="2"></polygon>
+          <polygon id="polySelf" fill="#fff3a6" fill-opacity="0.42" stroke="#fff3a6" stroke-width="2.2"></polygon>
+          <g id="labels"></g>
+        </svg>
+      </div>
+      <div class="radar-note"><b>本周 8 家全部维持、无调分。</b>三条主线没有一条改变任一品牌在菲律宾的产品端能力。巴西禁令打的是 DigiPlus 海外线，而 GamePlus 试营运数周即暂停，BingoPlus、ArenaPlus、GameZone 在菲律宾的产品、代言与通路都没有变动。标普的利润率预估是集团财务层的判断，不是任一品牌的 UX 或 RETENTION 变化；MAU 小幅回升为既有趋势的描述，无品牌拆分数字。Solaire Online 与 FUNaloMAX 不在本观察清单内，不入雷达；其开投若落地，影响先落在全体的 REACH 竞价环境，要等到出现可观测的版位或 KOL 变化才会调分。本周 PR 子项：BingoPlus 与 ArenaPlus 有母公司层报导拉抬，CasinoPlus 回落，但该子项权重 10%，不足以推动 5 分级距。站内侦察本期无实测，UX 与 PRICING 的其余子项无本期数据支撑。<br><br><b>BRAND 子项回算示范。</b>PlayTime BRAND 85 ＝ 市场份额 100（行业 #1）× 45% ＋ 代言 / IP 80 × 20% ＋ 玩家提及率 80 × 25% ＋ 本周 PR 55 × 10% ＝ 86.5，取 85。BingoPlus BRAND 83 ＝ 市场份额 75 × 45% ＋ 代言 / IP 95 × 20% ＋ 玩家提及率 85 × 25% ＋ 本周 PR 85（母公司巴西线与利润率两则报导）× 10% ＝ 82.5，维持 83。CasinoPlus BRAND 75 ＝ 市场份额 80 × 45% ＋ 代言 / IP 60 × 20% ＋ 玩家提及率 75 × 25% ＋ 本周 PR 55（窗口内无品牌端新事件）× 10% ＝ 72.25，与维持值差距未满 5 分级距、维持。<br><br><b>下次调分的触发条件：</b>Solaire Online 或 FUNaloMAX 首波投放落地且出现可观测的版位或 KOL 合作；DigiPlus 公布巴西投资的减记金额或南非上线日；央行草案取得正式编号与生效日，且任一家公开其收单架构；总统府签发 PAGCOR 拆分行政命令；9/30 认证死线后出现供应商掉队与内容断供；任一家公布 1.5% 以外的新价档结构。</div>
+    </div>
+  </section>
+
+  <section class="sec" id="moves-sec">
+    <div class="sec-lbl">
+      <span class="chip">§04</span><span class="en">Weekly Moves</span>
+      <h2>本周动向（W40）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">本周 3 张（W39 4 张 / W38 4 张）。卡 1 来自巴西政府措施的产业媒体报导、DigiPlus 向 PSE 的揭露与菲律宾财经媒体，卡 2 来自 Bloomberry 高层受访与券商报告，卡 3 来自信评机构报告的财经媒体转述。9 家运营商本周零新价档、价档面不立卡。PAGCOR 拆分案本期只有影片专访、无新程序节点，不立卡；年报净利门槛进 §02 与 §06。</div>
+    <div class="moves" id="moveCards">
+
+      <div class="mcard" id="sig-01" style="border-top-color:#2A5FAA">
+        <div class="top"><span class="logo" style="background:#2A5FAA;width:26px;height:26px;font-size:10px">DP</span>
+          <div class="meta"><b>卡 1 · DigiPlus / 巴西</b><span>9/21-9/28</span></div>
+          <span class="sev high">高影响</span>
+        </div>
+        <h4>DigiPlus 巴西线 9/25 归零，<span class="hi">因巴西禁网赌。</span></h4>
+        <div class="detail">巴西总统 Lula（Luiz Inácio Lula da Silva，巴西现任总统）9 月 25 日签发临时措施，禁止固定赔率投注与线上博彩的经营、提供、中介与广告，刊登当日生效，须在最长 120 天内经国会追认。据产业媒体转述，玩家须在 10 月 5 日前申请提领，持照网站 10 月 6 日起封锁。</div>
+        <div class="detail">巴西原本是 DigiPlus 第一个海外市场。该公司 2024 年 8 月申请巴西联邦牌照、2025 年 1 月取得正式授权，旗下 GamePlus 品牌 2025 年 9 月试营运，数周后暂停改版，至今未重新上线。9 月 28 日 DigiPlus 向 PSE 揭露：公司正在评估此项发展与可能影响，依目前评估，这项临时措施预期不会对公司的财务状况或营运成果构成重大影响。揭露中没有交代在巴西的投资金额与目前曝险程度。</div>
+        <div class="detail">一周前的 9 月 21 日，ArenaPlus 负责人 Erick Su 受访时已经说，先前挑巴西这种高度竞争的市场「有点激进」，最近政策面也很动荡，巴西已上线但转为观望、评估是否续扩。同一篇报导提到，该公司 2026 年 4 月取得南非三张博彩牌照，正准备在规定期限内上线，另在申请纽西兰牌照。</div>
+        <div class="detail"><b>判断：</b>财务上「不重大」这个说法可信。GamePlus 只试营运几周就停，巴西从来没有贡献过实质营收，损失的主要是牌照与前期投入，这部分金额没有揭露。要看的是另外两件事。第一，海外选项少一个。南非还没上线，纽西兰还在申请，接下来至少一段时间，DigiPlus 的管理层注意力与行销预算会集中在菲律宾本土。对在菲律宾承接行销工作的一方，第四季要按龙头加码来编排期，不是按它分心来编。第二，巴西这次从签署到封站不到两周，广告与赞助是即日禁止。菲律宾参众两院各有一版禁广告法案在走（SB 2347、HB 10982），两版都还没进到委员会实质审查，但巴西的速度提醒一件事：法规一旦翻转，留给素材下架的时间可能以天计算。</div>
+        <div class="detail">⚠️ 口径提醒：临时措施的条文依产业媒体转述，本报未逐字读原文；10 月 5 日提领期限与 10 月 6 日封站日期依 iGaming Business 报导，每日监听 9/26 读原文时记为「约 10 月 5 日下线」，两者差一天，本卡并列、不择一。DigiPlus 揭露全文本期未取得，引文依 Context.ph 与 InsiderPH 转述。巴西投资金额、减记与否、GamePlus 是否正式撤出，三项均未读到、不推测。ArenaPlus 负责人受访日期报导写为「上周」，实际日期未载。国会追认结果未定，临时措施可能被修改或失效。</div>
+        <div class="social">⚠️ 单口径补强说明：四源交叉（Context.ph 9/28、InsiderPH 9/28、BusinessWorld 9/21、iGaming Business）。属公司揭露与跨国政策事件，玩家端无讨论可采；本期社群信号整体降级，详方法论。</div>
+        <div class="src">出处：<a href="https://context.ph/2026/09/28/brazil-ban-throws-spanner-into-digiplus-expansion/">Brazil ban throws spanner into DigiPlus expansion · Context.ph 9/28</a> · <a href="https://insiderph.com/digiplus-brazil-expansion-hits-wall-putting-south-africa-in-focus">DigiPlus Brazil expansion hits wall, putting South Africa in focus · InsiderPH 9/28</a> · <a href="https://www.bworldonline.com/corporate/2026/09/21/778521/digiplus-takes-more-selective-approach-to-overseas-expansion/">DigiPlus takes more selective approach to overseas expansion · BusinessWorld 9/21</a> · <a href="https://igamingbusiness.com/legal-compliance/regulation/president-lula-bans-betting-companies-brazil/">President Lula bans betting companies from operating in Brazil from 6 October · iGaming Business</a></div>
+        <div class="impact"><span><b>提议（对客户 X）：</b>两件事。一是第四季菲律宾线上排期按「DigiPlus 在本土加码」编，主推档期避开 BingoPlus 与 ArenaPlus 可能的大档，或预留加价空间。二是在所有涉及跨市场、或期限跨越 2027 年的合约里，补上法规变更条款：法规禁止或限制广告时，双方如何终止、如何结算已执行部分、素材下架由谁负责与在几天内完成。</span></div>
+      </div>
+
+      <div class="mcard" id="sig-02" style="border-top-color:#c96442">
+        <div class="top"><span class="logo" style="background:#c96442;width:26px;height:26px;font-size:10px">SOL</span>
+          <div class="meta"><b>卡 2 · Solaire / Bloomberry</b><span>9/20-9/25</span></div>
+          <span class="sev high">高影响</span>
+        </div>
+        <h4>Solaire 线上一个月内开投，<span class="hi">因目标占营收 20%。</span></h4>
+        <div class="detail">Bloomberry 总裁兼营运长 Hawkins（Greg Hawkins）在马尼拉 IAG Academy Summit 受访表示，希望 2027 年底前线上业务占集团合并 GGR 约 20%。报导 9 月 20 日刊出，Summit 于 9 月 15 日举行。</div>
+        <div class="detail">他同时说明两个品牌的安排。大众市场站 FUNaloMAX 数月前已在集团自有平台重新上线（正式上线日为 7 月 3 日），品牌名刻意不带 Solaire，正在累积独立的用户资料库。高端站 Solaire Online 正在迁往同一个自有平台，他的原话是这个站「一直是稳定的获利来源，但从来没有做过行销」，接下来一个月左右会开始主动对市场投放。Bloomberry 刻意不走 GGR 分成或共用平台的路线。同一场合，同样经营综合度假村的 Hann Casino Resorts 表示，其线上产品目前由 PhilWeb 代管，没有设定类似的营收占比目标。</div>
+        <div class="detail">9 月 25 日 Maybank Securities 把 Bloomberry 评等由持有调为买进，预估 2026 年核心亏损约 ₱23 亿、2027 年转为获利约 ₱4.21 亿，并把线上平台放量列为接下来几季要观察的催化剂之一。</div>
+        <div class="detail"><b>判断：</b>一个自带实体品牌信任、从没花过钱买量的线上站，宣布一个月左右开始投放，而且底下另有一个刻意去品牌化的大众站。这对现有 9 家是新的出价者，不是新的产品。20% 这个目标说明它不是试水温；Maybank 把线上放量写进调升理由，代表资本市场会盯它的执行进度，管理层有压力要让数字动起来。两个品牌的分工也值得记。Solaire Online 接陆上 VIP 的信任，打高端；FUNaloMAX 不带名字，打法可以比母品牌激进，因为出了问题不会伤到度假村。对承接行销工作的一方，10 月到 11 月菲律宾线上的版位、KOL 与联播网报价，要预期多一个出价者；如果它要在短时间内把数字做出来，最先被抬价的会是转换效率最好的那几个版位。</div>
+        <div class="detail">⚠️ 口径提醒：「一个月左右」为受访者用语，不是公告的上线日；投放预算、渠道与首波素材都没有公开。20% 为高层口头目标，非公司公告的财测。FUNaloMAX 7 月 3 日正式上线为 7 月报导、非本窗口新事件，本卡只引作背景。Maybank 数字为券商预估。Solaire Online 与 FUNaloMAX 目前不在本报 10 家观察清单内，其价档与站内结构本期未查。</div>
+        <div class="social">⚠️ 单口径补强说明：两源（IAG 9/20 高层受访、IAG 9/25 券商报告转述），同一出版方。投放尚未开始，玩家端无可观测讯号；本期社群信号整体降级，详方法论。</div>
+        <div class="src">出处：<a href="https://asgam.com/2026/09/20/solaire-sets-online-gaming-target-at-20-of-group-wide-ggr/">Solaire sets online gaming target at 20% of group-wide GGR · IAG 9/20</a> · <a href="https://asgam.com/2026/09/25/maybank-securities-expecting-solaire-parent-bloomberry-to-return-to-profit-in-2027-on-vip-improvement-online-platform-growth/">Maybank Securities expecting Solaire parent Bloomberry to return to profit in 2027 · IAG 9/25</a> · <a href="https://www.ggrasia.com/bloomberry-confirms-official-launch-of-pure-online-gaming-platform-funalomax">Bloomberry confirms official launch of pure online gaming platform FUNaloMAX · GGRAsia</a></div>
+        <div class="impact"><span><b>提议（对客户 X）：</b>三件事。一是 10 月到 11 月的菲律宾线上媒体与 KOL 采购现在就锁，价格与档期写进合约，不要等 Solaire 开投后再议价。二是把 Solaire Online 与 FUNaloMAX 的首页主推、促销页与社群素材列进每周监看，特别看 FUNaloMAX 的素材调性。三是评估是否把 Solaire Online / FUNaloMAX 比照 OKADA PLAY 纳入观察清单。</span></div>
+      </div>
+
+      <div class="mcard" id="sig-03" style="border-top-color:#2f6b3b">
+        <div class="top"><span class="logo" style="background:#2f6b3b;width:26px;height:26px;font-size:10px">S&amp;P</span>
+          <div class="meta"><b>卡 3 · 标普 / DigiPlus</b><span>9/21-9/22</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>DigiPlus 利润率估降至 14.5%，<span class="hi">因获客变贵。</span></h4>
+        <div class="detail">标普预估 DigiPlus 2026 至 2027 年的 EBITDA 利润率为 14.5% 至 16%，低于 2024 至 2025 年平均约 18%。压缩的原因，标普归为 2025 年 8 月电子钱包与线上博彩平台断链之后，获客与留客成本上升。</div>
+        <div class="detail">同一份评等说明的其他几项：该公司在断链后已把份额拉回来，支撑未来两年维持 40% 至 50% 市占的预估；2026 年上半年 MAU 小幅回升，但未来两年内不一定回到断链前水准。标普认为更严的执法与拟议中的最低保证费会抬高进入门槛、挤压本来就承受较高成本的小型业者，「市场会整并」，DigiPlus 会从成本劣势、品牌弱、技术不足的业者退场中受益。调降的触发条件之一，是调整后负债对 EBITDA 接近 3.5 倍。</div>
+        <div class="detail"><b>判断：</b>上期卡 1 讲的是份额，这期多出来的是成本。这是第一次有第三方从获客成本端量化 2025 年 8 月那次断链；过去只有 PAGCOR 自己讲的导流率一个口径。两个数字要放在一起读：市占四到五成的龙头，利润率掉了两到三个百分点，原因是每个玩家更贵。规模小的业者没有龙头的品牌与自有支付通道，成本只会更高。MAU 回不到断链前，代表可争取的玩家池没有恢复。把这张卡跟卡 1、卡 2 叠起来：龙头资源回防本土、新买家进场、每个玩家本来就在变贵，第四季菲律宾线上的获客单价，按上涨编。</div>
+        <div class="detail">⚠️ 口径提醒：标普报告全文在付费墙后，利润率区间与成本归因依 BusinessWorld 9/22 转述（本报未能直接开启该页，内容采每日监听 9/22 读原文的纪录），MAU 与整并判断依 InsiderPH 9/21 转述。「约 18%」为 2024 至 2025 年平均，不是单一年度数字。利润率为集团口径，含陆上业务，未拆分线上与各品牌。「14.5%」为区间下缘，本卡标题取下缘、正文并列区间。</div>
+        <div class="social">⚠️ 单口径补强说明：两源（BusinessWorld 9/22、InsiderPH 9/21），另与上期卡 1 的四源评等报导同一份报告。属资本市场事件，玩家端无讨论可采；本期社群信号整体降级，详方法论。</div>
+        <div class="src">出处：<a href="https://bworldonline.com/corporate/2026/09/22/780260/digiplus-faces-margin-pressure-as-customer-costs-rise-sp-says/">DigiPlus faces margin pressure as customer costs rise, S&amp;P says · BusinessWorld 9/22</a> · <a href="https://insiderph.com/sp-sees-digiplus-gaining-as-weaker-gaming-rivals-exit">S&amp;P sees DigiPlus gaining as weaker gaming rivals exit · InsiderPH 9/21</a></div>
+        <div class="impact"><span><b>提议（对客户 X）：</b>把进场第一年的获客成本假设往上调，并拆成两段：断链前的历史单价当下限，龙头利润率下修幅度推回的成本增幅当调整项。同时向合作方要一个数字：断链前后各三个月的首储玩家获取单价，拿不到就用标普的利润率变化反推区间，写明是推估。</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Timeline · 近两周大事记</span>
+      <h2>时间轴（双周倒序）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow"><span class="d">09/28</span><span class="dot orange"></span><span class="cat">揭露</span><span class="br">DigiPlus</span><span class="desc">向 PSE 揭露巴西临时措施预期不构成重大影响；投资金额与曝险未交代</span><span class="wk">W40</span></div>
+      <div class="trow"><span class="d">09/28</span><span class="dot orange"></span><span class="cat">资本</span><span class="br">Century Entertainment</span><span class="desc">称其菲律宾线上合资业务仍合规，合作方 World Platinum Technologies 的 GSA 认证已于 4 月被取消</span><span class="wk">W40</span></div>
+      <div class="trow"><span class="d">09/25</span><span class="dot"></span><span class="cat">法规</span><span class="br">巴西总统府</span><span class="desc">签发临时措施禁固定赔率投注与线上博彩，即日生效；据转述 10/6 起封站</span><span class="wk">W40</span></div>
+      <div class="trow"><span class="d">09/25</span><span class="dot green"></span><span class="cat">评价</span><span class="br">Maybank / Bloomberry</span><span class="desc">评等调升为买进；2026 年核心亏损约 ₱23 亿、2027 年获利约 ₱4.21 亿</span><span class="wk">W40</span></div>
+      <div class="trow"><span class="d">09/23-25</span><span class="dot"></span><span class="cat">体制</span><span class="br">PAGCOR / Tengco</span><span class="desc">系列影片专访谈拆分进度与 Casino Filipino 场馆去向（无文字稿、无新程序节点）</span><span class="wk">W39→W40</span></div>
+      <div class="trow"><span class="d">09/22</span><span class="dot green"></span><span class="cat">评价</span><span class="br">标普 / DigiPlus</span><span class="desc">利润率估 14.5% 至 16%（2024 至 2025 年平均约 18%），归因断链后获客成本上升</span><span class="wk">W40</span></div>
+      <div class="trow"><span class="d">09/21</span><span class="dot blue"></span><span class="cat">海外</span><span class="br">ArenaPlus / DigiPlus</span><span class="desc">负责人称巴西计画「有点激进」、转观望；南非三张牌照准备上线</span><span class="wk">W40</span></div>
+      <div class="trow"><span class="d">09/21</span><span class="dot green"></span><span class="cat">财测</span><span class="br">PAGCOR</span><span class="desc">2025 年报：2026 年最低税后净利目标 ₱48.7 亿（2025 年实绩 ₱174.6 亿）</span><span class="wk">W40</span></div>
+      <div class="trow"><span class="d">09/20</span><span class="dot blue"></span><span class="cat">产品</span><span class="br">Solaire / Bloomberry</span><span class="desc">Solaire Online 一个月左右开始投放；线上目标 2027 年底占集团 GGR 约 20%</span><span class="wk">W40</span></div>
+      <div class="trow"><span class="d">09/20</span><span class="dot"></span><span class="cat">论述</span><span class="br">Arden Consult</span><span class="desc">警告 BSP 草案执行不慎会让银行对整个产业去风险化</span><span class="wk">W40</span></div>
+      <div class="trow"><span class="d">09/17-18</span><span class="dot green"></span><span class="cat">评价</span><span class="br">标普 / DigiPlus</span><span class="desc">首评 B+／稳定；估未来两年维持 40% 至 50% 市占</span><span class="wk">W39</span></div>
+      <div class="trow"><span class="d">09/16-17</span><span class="dot"></span><span class="cat">执法</span><span class="br">BSP / PAGCOR</span><span class="desc">关闭逾 8,000 个伪装商户账户；导流率约 50%、断链前约 75%</span><span class="wk">W39</span></div>
+      <div class="trow"><span class="d">09/15</span><span class="dot"></span><span class="cat">体制</span><span class="br">PAGCOR / GCG</span><span class="desc">拆分案仍在 GCG 审查，审毕送总统府、以行政命令实施</span><span class="wk">W39</span></div>
+      <div class="trow"><span class="d">09/15</span><span class="dot blue"></span><span class="cat">品牌</span><span class="br">DigiPlus / CasinoPlus</span><span class="desc">IAG Academy Awards：DigiPlus 双奖、CasinoPlus 五项提名</span><span class="wk">W39</span></div>
+      <div class="trow"><span class="d">09/15</span><span class="dot"></span><span class="cat">监管</span><span class="br">PAGCOR / ASC</span><span class="desc">责任博彩广告换版留存期届满（已过 13 天）；后续版本要求未公开</span><span class="wk">W25→W40</span></div>
+      <div class="trow"><span class="d">09/07</span><span class="dot"></span><span class="cat">法规</span><span class="br">BSP</span><span class="desc">支付诚信控管草案公开征询；意见截止 10/2（距今 4 天）</span><span class="wk">W38→W40</span></div>
+      <div class="trow"><span class="d">07/20</span><span class="dot"></span><span class="cat">监管</span><span class="br">PAGCOR</span><span class="desc">B2B 认证死线自 7/31 延至 9/30、强制下架改 10/1 起（距死线 2 天、本窗口未见再延期公告）</span><span class="wk">W30→W40</span></div>
+      <div class="trow"><span class="d">07/01</span><span class="dot"></span><span class="cat">监管</span><span class="br">PAGCOR</span><span class="desc">最低保证费第一阶段生效；2027/01/01 起第二阶段上调（距今 95 天）</span><span class="wk">W27→W40</span></div>
+      <div class="trow"><span class="d">06/24</span><span class="dot"></span><span class="cat">监管</span><span class="br">ASC</span><span class="desc">第 2026-008 号通函生效：任何媒体的广告素材不得出现或提及赌场游戏与器具</span><span class="wk">W26→W40</span></div>
+    </div>
+    <div class="tl-legend">
+      <span><i style="background:#8a3a33"></i>政策 / 执法 / 支付</span>
+      <span><i style="background:#2A5FAA"></i>产品 / 海外 / 品牌</span>
+      <span><i style="background:#c96442"></i>资本 / 揭露 / 集团</span>
+      <span><i style="background:#2f6b3b"></i>财测 / 评价</span>
+    </div>
+  </section>
+
+  <section class="sec" id="implications">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Implications · 威胁 / 机会</span>
+      <h2>影响推演（威胁 / 机会）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="impl-meth">
+      <h6>进场参数参考（皆为内部估算）</h6>
+      <ul>
+        <li><b>获客成本按上涨编：</b>标普估龙头 EBITDA 利润率由约 18% 降到 14.5% 至 16%，归因断链后获客与留客成本上升。进场第一年的获客单价以断链前历史单价为下限、再加调整项。<b>依据详 <a href="#sig-03">§04 卡 3</a>、各处不重复。</b></li>
+        <li><b>第四季多一个出价者：</b>Solaire Online 一个月左右开始投放，线上目标 2027 年底占集团 GGR 约 20%。10 月到 11 月的版位与 KOL 报价，按竞价上升编列。</li>
+        <li><b>龙头资源留在本土：</b>DigiPlus 巴西市场被禁、南非未上线，海外选项短期内有限。第四季排期按 BingoPlus、ArenaPlus 在本土加码编。</li>
+        <li><b>份额结构沿用标普口径：</b>龙头 40% 至 50%、第二名 15% 至 20%，其余 48 家持照者分剩下约三成多。</li>
+        <li><b>监管机关自身财务在收：</b>PAGCOR 2026 年最低税后净利目标 ₱48.7 亿，2025 年实绩 ₱174.6 亿。年报注明为最低门槛、非全年预测；与拆分后监管收入只剩规费与罚款的前提方向一致，本报不推论两者因果。</li>
+        <li><b>法规翻转的速度参考：</b>巴西临时措施从签署到封站不到两周，广告与赞助即日禁止。菲律宾两版禁广告法案（SB 2347、HB 10982）尚未进入委员会实质审查，规划时按「一旦通过、素材下架以天计」预留程序。</li>
+        <li><b>返利的天花板是监管画的：</b>现行上限为按投注额或存款计的现金返利 1.5%（赌场桌台与街机类除外）、按净损失计的现金回赠 15%。</li>
+        <li><b>素材画面层限制：</b>ASC 第 2026-008 号通函自 2026/06/24 生效，广告素材不得出现或提及轮盘、百家乐、二十一点、角子机、纸牌、筹码、骰子等赌场游戏与器具。</li>
+        <li><b>两道近期期限：</b>B2B 供应商认证死线 9/30、距死线 2 天，本窗口未见再延期公告，10/1 起未认证系统停止运行；BSP 草案意见截止 10/2、距今 4 天。</li>
+      </ul>
+    </div>
+    <div class="impl">
+      <div class="col threat"><h5><span class="dot"></span>威胁<span class="en">Threats</span></h5><ul>
+        <li><b>第四季获客单价上升，按旧单价编的预算会不够。</b>标普估龙头利润率降两到三个百分点，原因是获客与留客成本。<em>不作为的代价（内部估算）：若第四季仍用断链前单价编预算，实际获客量估约少 20-35%，或须在档期中途追加预算。</em></li>
+        <li><b>Solaire 开投后，转换效率最好的版位会先被抬价。</b>一个月左右开始投放，目标营收占比 20%。<em>不作为的代价（内部估算）：若未提前锁定 10 月到 11 月的版位与 KOL，同一版位的报价估约上涨 15-30%，或被挤到转换较差的时段。</em></li>
+        <li><b>龙头在本土加码，主推档期可能正面撞上。</b>DigiPlus 海外线归零、南非未上线。<em>不作为的代价（内部估算）：若主推档期与 BingoPlus 或 ArenaPlus 的大档重叠，同期声量份额估约被稀释三到五成。</em></li>
+        <li><b>9 月 30 日认证死线后可能出现内容断供，本期距死线 2 天且未见再延期公告。</b>10 月 1 日起未认证系统停止运行。<em>不作为的代价（内部估算）：第四季主档若还绑在未过认证的供应商游戏上，10 月 1 日起要临时换内容，素材重制与投放调整估约吃掉该档 20-40% 的预算。</em></li>
+        <li><b>法规翻转时，素材下架的时间可能以天计算。</b>巴西从签署到封站不到两周。<em>不作为的代价（内部估算）：若合约没有法规变更条款、也没有预先准备的下架流程，一旦菲律宾禁广告法案通过，已排定的档期估约有 1-2 个月的预算无法回收或须重议。</em></li>
+      </ul></div>
+      <div class="col opp"><h5><span class="dot"></span>机会<span class="en">Opportunities</span></h5><ul>
+        <li><b>现在就锁第四季的版位与 KOL</b>（内部估算 ~₱100K-₱300K 预付或订金 / 1-2 周议约）。价格与档期写死，赶在 Solaire 开投前。<em>提醒：预付条款要附退款或改期条件，特别是 9/30 认证死线后若主推游戏断供、需要换档时。</em></li>
+        <li><b>把 Solaire Online 与 FUNaloMAX 纳入每周素材监看</b>（内部估算 ~₱20K-₱60K / 月人工）。首页主推、促销页、社群素材各截一次，特别看去品牌化的 FUNaloMAX 打法有多激进。先看清楚新买家的素材语言，才知道自己的素材要往哪里拉开。<em>提醒：只看公开页面，不注册、不入金，避免触及对方的会员条款。</em></li>
+        <li><b>在 10 月 2 日前具名提交 BSP 草案意见</b>（内部估算 ~₱80K-₱200K / 剩 4 天）。可引用 Arden Consult 的论点：若执行不慎，银行对整个产业去风险化，反而把钱推进看不见的管道。重点是让支付业者的风控能辨识持照身分。<em>提醒：提交意见等同对外表明身分与业务模式，提交前先确认自身现有架构不会因此被检视。</em></li>
+        <li><b>合约补法规变更条款</b>（内部估算 ~₱30K-₱80K 法务工时 / 一次性）。约定法规禁止或限制广告时的终止方式、已执行部分的结算、素材下架的责任方与时限。巴西是现成的参考案例。<em>提醒：条款写太宽会被对方拿来当提前解约的理由，触发条件要限定在法规层级的禁止或限制。</em></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="fcard">
+      <h5>方法论 + 数据源</h5>
+      <p>10 家观察清单（9 家 PAGCOR 持照 + 进场者 OKADA PLAY）+ 产业 / 监管 / 立法动作。King.ph / Queen.ph 自 2026-05-29 起关停、不评分。本周为竞争成本周：卡 1 来自巴西政府措施的产业媒体报导、DigiPlus 向 PSE 的揭露与菲律宾财经媒体，卡 2 来自 Bloomberry 高层受访与券商报告，卡 3 来自信评机构报告的财经媒体转述；9 家运营商零新价档、价档面继续没有动静。</p>
+      <p><b>✅ Meta 广告库快照（排程跑完后补跑）：</b>以 Chrome 开 Meta Ad Library，国家选菲律宾、状态选刊登中，10 个品牌名逐一精确词组搜寻，每家读首屏约 24 则。只看得到仍在投的广告，看不到花费与触及；结果数含非本家广告主。下期起每周比对新开始刊登的广告。</p>
+      <p><b>⚠️ 站内侦察本期降级：</b>排程沙箱无外网；排程时段 Chrome 未连线，DigiPlus 三站本期未抓。Firecrawl 本期未在沙箱内执行。价档以产业媒体 + 业者发稿 + W33 baseline 为准、未经站内二验。</p>
+      <p><b>⚠️ 出处 canonical 未执行：</b>排程时段 Chrome 未连线，本期 9 条新闻出处连结未以 Chrome 逐条实开（Meta 广告库连结为补跑时以 Chrome 实开）。其中 Context.ph、InsiderPH（2 条）、IAG（2 条）共 5 条已以沙箱抓取工具读到全文，抓取时无重导向、网址与 canonical 标签一致；BusinessWorld 两条、GGRAsia、iGaming Business 共 4 条未能直接开启，网址取自每日监听纪录或搜寻结果，标题未经实际页面核对。</p>
+      <p><b>⚠️ 社群信号本期降级：</b>排程环境无法实抓 X / Reddit / Threads / Facebook 公开群组，三张卡均标「单口径」如实。</p>
+      <p>巴西临时措施条文依产业媒体转述，本报未逐字读原文；10/5 提领期限与 10/6 封站日依 iGaming Business，每日监听 9/26 读原文时记为约 10/5 下线，两者并列。DigiPlus 向 PSE 的揭露全文本期未取得，依 Context.ph 与 InsiderPH 转述；巴西投资金额与减记与否未揭露。Solaire Online 投放时程为受访者口头说法，非公告上线日；预算与渠道未公开；Solaire Online 与 FUNaloMAX 不在 10 家观察清单内。标普利润率区间与归因依 BusinessWorld 9/22 转述，本报未能直接开启该页，内容采每日监听 9/22 读原文的纪录；利润率为集团口径、含陆上业务。PAGCOR 2026 年最低净利目标依 BusinessWorld 9/21 转述（同样采每日监听纪录），来源文件为 2025 年报，年报发布日未载；上期时间轴所记 8/24「净利估 ₱16.6 亿」与本期 ₱48.7 亿最低门槛为不同文件、不同口径，本报并列、不调和。</p>
+      <p>连续状态起算日（本期锚点表口径、非上周递推）：责任博彩广告换版留存期 9/15 已过 13 天；CasinoPlus 1.5% 自 2026-07-31 到期起算、本周第 9 周；CasinoPlus 罚单自 2026-08-24 起算、本周第 6 周。B2B 认证死线 9/30 距死线 2 天、BSP 意见截止 10/2 距今 4 天、最低保证费第二阶段 2027/01/01 距今 95 天。体育档空窗自 2026-07-19 起算、本周第 11 周。价档面静默不写周数，因起算日无从考据。</p>
+      <p>每日 trigger 监听 9/21-9/26 期间与菲律宾相关的命中共 7 项：9/21 四项（Solaire Online 投放、ArenaPlus 巴西转观望、PAGCOR 年报净利门槛、Arden Consult 论述）、9/22 一项（标普利润率归因）、9/23 一项（智慧桌台，弱讯号）、9/26 一项（DigiPlus 巴西授权依临时措施消灭）。智慧桌台属陆上设备、不纳入，其余分别并入卡 1 至卡 3、§02 与 §06，沿用其原文判断。9/24、9/25 两日菲律宾侧为真空窗；9/27 与 9/28 ledger 本期读取时无纪录。</p>
+      <p>本期另有 9/28 两则未经每日监听的资料：DigiPlus 向 PSE 的揭露（并入卡 1）、Century Entertainment 年报说明（进 §05）。后者提到的合作方 World Platinum Technologies 与 King.ph / Queen.ph 所属集团同名；依 2026-05-29 定案，King / Queen 不立卡、不入 lede，本报只在时间轴记事实、不推论两者关联。B2B 认证 9/30 死线：本窗口以搜寻引擎查询，未见 PAGCOR 再延期或新备忘录的报导，需在 9/30 当日再查一次。Firecrawl 新闻索引快照最新一份为 9/26 06:46，9/27、9/28 两日执行中断未写出当日档，本期以 9/26 快照与搜寻引擎补齐。数据窗口 9/21-9/28 回顾、9/28-10/5 展望。</p>
+      <div class="srcs"><span><i class="ok"></i>Context.ph / InsiderPH / BusinessWorld / iGaming Business<em>DigiPlus 巴西线与巴西临时措施</em></span><span><i class="ok"></i>IAG ×2 / GGRAsia<em>Solaire Online 投放、Maybank 评等、FUNaloMAX 背景</em></span><span><i class="ok"></i>BusinessWorld / InsiderPH<em>标普利润率与整并判断</em></span><span><i class="ok"></i>Meta 广告库 9/28<em>10 个品牌、菲律宾、刊登中</em></span><span><i></i>Firecrawl 新闻索引快照 9/26 06:46<em>9/27、9/28 未产出</em></span><span><i></i>trigger-ledger 9/21-9/26<em>菲律宾相关命中 7 项</em></span><span><i class="warn"></i>站内侦察 / 社群信号 / 出处 canonical 本期均降级<em>PlayTime baseline 2026-05-29 沿用</em></span></div>
+    </div>
+    <div class="fcard">
+      <h5>下期（W41 · 2026-10-05）追踪清单</h5>
+      <ol><li><span class="n">1</span>9/30 B2B 认证死线：是否再延期、是否有供应商掉队、10/1 起内容是否断供</li><li><span class="n">2</span>10/2 征询期届满后，BSP 草案是否取得通函编号与签署日</li><li><span class="n">3</span>Solaire Online 首波投放是否落地：渠道、KOL、首页主推与促销结构</li><li><span class="n">4</span>FUNaloMAX 是否同步加码投放，素材调性如何</li><li><span class="n">5</span>DigiPlus 是否公布巴西投资的减记金额、GamePlus 是否正式撤出</li><li><span class="n">6</span>DigiPlus 南非上线日与首发品牌</li><li><span class="n">7</span>巴西临时措施在国会的追认进度</li><li><span class="n">8</span>GCG 是否完成 PAGCOR 拆分案审查、是否送交总统府</li><li><span class="n">9</span>9 家是否有任一家公开其收单架构或换轨计画</li><li><span class="n">10</span>HB 10982 是否付委、与参院 SB 2347 是否出现并案迹象</li><li><span class="n">11</span>NCLI × TGXI 平台的品牌名、域名与上线日</li><li><span class="n">12</span>9 家运营商是否有人在第四季前先动体育档；CasinoPlus 1.5% 续档</li></ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span><b>COMPETITOR // BRIEF</b> · 2026-W40 · PH iGaming · 10 家观察清单（King / Queen 已关停）</span>
+    <span>数据窗口 9/21-9/28 回顾 · 9/28-10/5 展望</span>
+  </div>
+
+</div>
+</div>
+
+<script>
+const RADAR_LABELS = ['品牌力','体验','内容','定价','留存','通路'];
+const RADAR_LABELS_ZH = ['','','','','',''];
+
+const BRANDS = {
+  bingoplus:  { name:'BingoPlus',           color:'#E89AAA', scores:[83,75,86,70,78,85] },
+  arenaplus:  { name:'ArenaPlus',           color:'#2A5FAA', scores:[60,70,70,65,60,75] },
+  gamezone:   { name:'GameZone',            color:'#4F8C5C', scores:[35,70,65,75,70,50] },
+  king:       { name:'King.ph · 已关停',     color:'#2D6B4D', scores:[0,0,0,0,0,0], closed:true },
+  queen:      { name:'Queen.ph · 已关停',    color:'#B6356D', scores:[0,0,0,0,0,0], closed:true },
+  casinoplus: { name:'CasinoPlus',          color:'#B89968', scores:[75,70,75,60,70,60] },
+  okbet:      { name:'OKBet / OKGames',     color:'#D86B27', scores:[50,60,60,60,60,60] },
+  bet88:      { name:'Bet88',               color:'#C2272D', scores:[50,60,65,60,65,55] },
+  playtime:   { name:'PlayTime / PT Gaming',color:'#4A4FB8', scores:[85,70,70,65,70,65] },
+  okadaplay:  { name:'OKADA PLAY',          color:'#8B7355', scores:[32,25,30,25,20,50] }
+};
+let selfId = 'playtime';
+let vsId = 'gamezone';
+const cx=160, cy=160, R=130;
+const angle = i => (Math.PI*2*i)/6 - Math.PI/2;
+
+function ringPolygon(rr){
+  return Array.from({length:6},(_,i)=>`${cx+rr*Math.cos(angle(i))},${cy+rr*Math.sin(angle(i))}`).join(' ');
+}
+function polyPoints(values){
+  return values.map((v,i)=>{const r=(v/100)*R;return `${cx+r*Math.cos(angle(i))},${cy+r*Math.sin(angle(i))}`;}).join(' ');
+}
+function labelPos(i,off=22){
+  const x = cx + (R+off)*Math.cos(angle(i));
+  const y = cy + (R+off)*Math.sin(angle(i)) + 4;
+  return {x,y};
+}
+
+function initRadar(){
+  const ringsG = document.getElementById('rings');
+  [1,.75,.5,.25].forEach((s,i)=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',ringPolygon(R*s));
+    p.setAttribute('fill', i===0 ? 'rgba(255,255,255,.04)' : 'none');
+    p.setAttribute('stroke','rgba(255,255,255,.18)');
+    ringsG.appendChild(p);
+  });
+  const axesG = document.getElementById('axes');
+  for(let i=0;i<6;i++){
+    const x=cx+R*Math.cos(angle(i)), y=cy+R*Math.sin(angle(i));
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x);l.setAttribute('y2',y);
+    l.setAttribute('stroke','rgba(255,255,255,.1)');
+    axesG.appendChild(l);
+  }
+  const labG = document.getElementById('labels');
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const p=labelPos(i,18);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',p.x);t1.setAttribute('y',p.y-6);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('fill','#fff');t1.setAttribute('font-size','11');t1.setAttribute('font-weight','800');
+    t1.textContent=lbl;
+    labG.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',p.x);t2.setAttribute('y',p.y+6);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('fill','rgba(255,255,255,.6)');t2.setAttribute('font-size','9');
+    t2.textContent=RADAR_LABELS_ZH[i];
+    labG.appendChild(t2);
+  });
+  const selfSel = document.getElementById('selfsel');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = d.name;
+    if(id===selfId) opt.selected = true;
+    selfSel.appendChild(opt);
+  });
+  selfSel.addEventListener('change', e => { selfId = e.target.value; render(); });
+
+  const vsbtns = document.getElementById('vsbtns');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const b = document.createElement('button');
+    b.dataset.id = id;
+    b.innerHTML = `<i style="background:${d.color}"></i>${d.name}`;
+    if(id===vsId) b.classList.add('active');
+    b.onclick = () => {
+      vsId = id;
+      document.querySelectorAll('#vsbtns button').forEach(x => x.classList.toggle('active', x.dataset.id===id));
+      render();
+    };
+    vsbtns.appendChild(b);
+  });
+
+  render();
+}
+function render(){
+  const self = BRANDS[selfId];
+  const vs = BRANDS[vsId];
+  const polySelf = document.getElementById('polySelf');
+  const polyVs = document.getElementById('polyVs');
+  polySelf.setAttribute('points', self.closed ? '' : polyPoints(self.scores));
+  polyVs.setAttribute('points', vs.closed ? '' : polyPoints(vs.scores));
+  polyVs.setAttribute('fill', vs.closed ? 'none' : vs.color);
+  polyVs.setAttribute('stroke', vs.closed ? 'none' : vs.color);
+  document.getElementById('legendSelf').textContent='基线 · '+self.name;
+  document.getElementById('legendVs').textContent=vs.name;
+  document.getElementById('legendVsColor').style.background=vs.closed?'#555':vs.color;
+  const grid = document.getElementById('radarGrid');
+  grid.innerHTML='';
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const sv = self.closed ? 'N/A' : self.scores[i];
+    const vv = vs.closed ? 'N/A' : vs.scores[i];
+    const lead = (!self.closed && !vs.closed && vs.scores[i] > self.scores[i]);
+    grid.innerHTML += `<span>${lbl}</span><span>${sv}</span><span>vs</span><span style="color:${lead?'var(--neg)':'var(--pos)'}">${vv}</span>`;
+  });
+}
+initRadar();
+</script>
+</body>
+</html>

@@ -27,7 +27,9 @@ from pathlib import Path
 #   lead h3 1050px / signal h4 504px / col h4 318px / x-pulse h4 504px（與 signal 同寬）
 #   EN signal 舊值 25 當量（=50 字元）比實測 65-70 字元低一倍，等於逼標題砍進 71-83 字元的孤行區
 CAP_CN = {'lead': 61, 'signal': 34, 'col': 21, 'xpulse': 34}
-CAP_EN = {'lead': 62, 'signal': 34, 'col': 18, 'xpulse': 34}
+# 2026-10-04 W40 线上实测：EN col 18→22 当量。330px 卡宽单行实测约 44 字元（38-41 字元单行占 83-90%），
+#   旧值 18（=36 字元）把 50-56 字元标题判成「两行饱满」，线上实际末行只剩 12-22%（W40 EN 5 个孤行）
+CAP_EN = {'lead': 62, 'signal': 34, 'col': 22, 'xpulse': 34}
 MAX_LINES = {'lead': 1, 'signal': 2, 'col': 2, 'xpulse': 2}
 MIN_LAST_FILL = 0.38  # 末行至少要填满这个比例，否则算孤行
 
@@ -75,8 +77,11 @@ def check(path: Path) -> int:
         last_fill = (w - (lines - 1) * cap) / cap
         if lines > MAX_LINES[kind]:
             bad.append((kind, s, w, cap, f"{lines} 行（上限 {MAX_LINES[kind]} 行）"))
-        elif lines >= 2 and last_fill < MIN_LAST_FILL:
-            bad.append((kind, s, w, cap, f"孤行：末行仅 {last_fill * 100:.0f}%（需 >= 38%）"))
+        else:
+            # §7.23：EN col 孤行下限放宽到 30%（318-330px 卡宽、英文断在单字边界，38% 实务上达不到）
+            th = 0.30 if (is_en and kind == 'col') else MIN_LAST_FILL
+            if lines >= 2 and last_fill < th:
+                bad.append((kind, s, w, cap, f"孤行：末行仅 {last_fill * 100:.0f}%（需 >= {th * 100:.0f}%）"))
 
     lang = 'EN' if is_en else 'CN'
     print(f"\n{'=' * 60}\n📏 {path.name}（{lang}·每行容量 lead/signal/col/xpulse = "

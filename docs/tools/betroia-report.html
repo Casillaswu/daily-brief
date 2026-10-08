@@ -79,8 +79,9 @@ header.top .meta { display: grid; gap: 2px; min-width: 0; }
 table { border-collapse: separate; border-spacing: 0; font: inherit; font-size: 13px; width: max-content; min-width: 100%; }
 th, td { padding: 5px 10px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); white-space: nowrap; }
 thead th { position: sticky; top: 0; z-index: 2; background: var(--head); color: var(--head-fg); font-weight: 700; font-size: 12.5px; text-align: center; }
-thead tr.group th { top: 0; background: var(--surface); color: var(--fg); }
-thead tr.group + tr th { top: 31px; }
+thead tr.group th { position: static; background: var(--surface); color: var(--fg); }
+.legend { display: inline-flex; gap: 6px; align-items: center; }
+.legend i { width: 10px; height: 10px; border-radius: 2px; background: var(--dim); display: inline-block; }
 tbody tr:nth-child(even) td { background: var(--row-alt); }
 tbody tr:hover td { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
 td { background: var(--surface); }
@@ -172,6 +173,7 @@ details.rules dd { margin: 0; min-width: 0; }
         </div>
         <label for="from">从 <input type="date" id="from"></label>
         <label for="to">到 <input type="date" id="to"></label>
+        <span class="legend note"><i></i>灰色 = 区间内消耗为 0（自然量或已停投）</span>
         <label for="hideIdle"><input type="checkbox" id="hideIdle"> 隐藏零消耗渠道</label>
       </div>
     </div>

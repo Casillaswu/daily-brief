@@ -119,12 +119,6 @@ details.rules dd { margin: 0; min-width: 0; }
           <option value="promo">推广消耗</option>
         </select>
       </label>
-      <label for="diffMode">差值方向
-        <select id="diffMode">
-          <option value="ta">TPD − A8</option>
-          <option value="at">A8 − TPD</option>
-        </select>
-      </label>
       <button class="btn" id="exportBtn" type="button" hidden>导出 Excel</button>
     </div>
   </header>
@@ -174,7 +168,6 @@ details.rules dd { margin: 0; min-width: 0; }
         <label for="from">从 <input type="date" id="from"></label>
         <label for="to">到 <input type="date" id="to"></label>
         <span class="legend note"><i></i>灰色 = 区间内消耗为 0（自然量或已停投）</span>
-        <label for="hideIdle"><input type="checkbox" id="hideIdle"> 隐藏零消耗渠道</label>
       </div>
     </div>
     <div class="grid2">
@@ -189,13 +182,13 @@ details.rules dd { margin: 0; min-width: 0; }
       <dl>
         <dt>TPD / A8 归属</dt><dd>按「总代.名称」前缀：<b>技术一_</b> 开头 → TPD；<b>A8_</b> 开头 → A8。官方总代、GooglePlay、IOS 壳包、社媒专属等其他总代不计入。</dd>
         <dt>每日汇总</dt><dd>每一行只用当天数据</dd>
-        <dt>渠道明细</dt><dd>所选日期区间按「渠道.ID」累计，按消耗降序；渠道名称取区间内最新一天的名称</dd>
+        <dt>渠道明细</dt><dd>所选日期区间按「渠道.ID」累计，全部渠道都显示（消耗为 0 的也显示），按消耗降序；渠道名称取区间内最新一天的名称</dd>
         <dt>充值数量</dt><dd>充值人数</dd>
         <dt>一级首充获客成本</dt><dd>消耗 ÷ 一级首充人数</dd>
         <dt>注册转首充</dt><dd>一级首充人数 ÷ 注册数量</dd>
         <dt>总ROAS</dt><dd>充值金额 ÷ 消耗</dd>
         <dt>一级首充ROAS</dt><dd>一级首充金额 ÷ 消耗</dd>
-        <dt>差值</dt><dd>按右上角选择（默认 TPD − A8）。比率类差值是百分点差。绿色 = 正数，红色 = 负数</dd>
+        <dt>差值</dt><dd>TPD − A8。比率类差值是百分点差。绿色 = 正数，红色 = 负数</dd>
       </dl>
     </details>
   </section>
@@ -375,14 +368,13 @@ details.rules dd { margin: 0; min-width: 0; }
       el.innerHTML = `<div class="empty"><strong>每日 TPD vs A8 对照表会出现在这里</strong><span>每上传一天的报表，这里就多一行：注册、消耗、充值、一级首充、获客成本、转化、ROAS，以及两边的差值。</span></div>`;
       return;
     }
-    const ta = state.db.prefs.diffMode !== 'at';
     let h = `<div class="scroll"><table><thead><tr class="group"><th></th><th colspan="${METRICS.length * 3}">总代数据</th></tr><tr><th>日期</th>`;
     for (const [lab, k] of METRICS) h += `<th>TPD${lab}</th><th>A8${lab}</th><th>${DIFF_NAME[k]}</th>`;
     h += '</tr></thead><tbody>';
     for (const d of [...days].reverse()) {
       const { T, A } = dayTotals(d);
       h += `<tr><td>${shortDate(d)}</td>`;
-      for (const [, k, fmt] of METRICS) h += `<td class="n">${fmt(T[k])}</td><td class="n">${fmt(A[k])}</td>${diffCell(ta ? T[k] - A[k] : A[k] - T[k], DIFF_FMT[k])}`;
+      for (const [, k, fmt] of METRICS) h += `<td class="n">${fmt(T[k])}</td><td class="n">${fmt(A[k])}</td>${diffCell(T[k] - A[k], DIFF_FMT[k])}`;
       h += '</tr>';
     }
     el.innerHTML = h + '</tbody></table></div>';
@@ -396,7 +388,6 @@ details.rules dd { margin: 0; min-width: 0; }
     }
     let list = channels(group, ds);
     const n = list.length;
-    if ($('hideIdle').checked) list = list.filter(c => c.cost !== 0);
     const tot = derive(list.reduce((a, c) => { for (const k in blank()) a[k] += c[k]; return a; }, blank()));
     const row = (c, cls = '') => `<tr class="${cls}"><td class="c">${esc(c.id)}</td><td>${esc(c.name)}</td>` +
       METRICS.map(([, k, fmt]) => `<td class="n">${fmt(c[k])}</td>`).join('') + '</tr>';
@@ -430,7 +421,6 @@ details.rules dd { margin: 0; min-width: 0; }
   function render() {
     const days = Object.keys(state.db.days).sort();
     $('costMode').value = state.db.prefs.costMode || 'cost';
-    $('diffMode').value = state.db.prefs.diffMode || 'ta';
     $('coverage').textContent = days.length
       ? `数据覆盖 ${shortDate(days[0])} – ${shortDate(days[days.length - 1])} · 共 ${days.length} 天`
       : '还没有数据 · 上传后台导出的「排名-渠道 USD」CSV 开始';
@@ -450,11 +440,10 @@ details.rules dd { margin: 0; min-width: 0; }
   // ───── 导出（在本地或 GitHub Pages 打开时可用） ─────
   function exportXlsx() {
     const days = Object.keys(state.db.days).sort(); const ds = range(days);
-    const ta = state.db.prefs.diffMode !== 'at';
     const sum = [['日期', ...METRICS.flatMap(([lab, k]) => [`TPD${lab}`, `A8${lab}`, DIFF_NAME[k]])]];
     for (const d of [...days].reverse()) {
       const { T, A } = dayTotals(d);
-      sum.push([shortDate(d), ...METRICS.flatMap(([, k]) => [T[k], A[k], ta ? T[k] - A[k] : A[k] - T[k]])]);
+      sum.push([shortDate(d), ...METRICS.flatMap(([, k]) => [T[k], A[k], T[k] - A[k]])]);
     }
     const chSheet = (g, label) => {
       const list = channels(g, ds);
@@ -484,9 +473,7 @@ details.rules dd { margin: 0; min-width: 0; }
   $('clearYes').onclick = () => { state.db.days = {}; save(); $('clearConfirm').hidden = true; $('toast').hidden = true; render(); };
   $('quick').onclick = e => { const b = e.target.closest('[data-days]'); if (!b) return; state.days = +b.dataset.days; state.from = state.to = null; render(); };
   $('from').onchange = $('to').onchange = () => { state.from = $('from').value; state.to = $('to').value; render(); };
-  $('hideIdle').onchange = render;
   $('costMode').onchange = e => { state.db.prefs.costMode = e.target.value; save(); render(); };
-  $('diffMode').onchange = e => { state.db.prefs.diffMode = e.target.value; save(); render(); };
   $('exportBtn').onclick = exportXlsx;
 
   render();

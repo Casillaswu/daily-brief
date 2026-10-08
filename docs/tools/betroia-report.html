@@ -14,6 +14,8 @@
   --line: #d5dbe4;
   --head: #1f4e79;          /* 沿用报表表头的深蓝 */
   --head-fg: #ffffff;
+  --a8-head: #7a3b5d;       /* A8 用深梅红，跟 TPD 深蓝区分 */
+  --diff-head: #555c68;     /* 差值栏用中性石板灰 */
   --accent: #2f6fb0;
   --row-alt: #f7f9fc;
   --pos-bg: #d9f2dd; --pos-fg: #17702c;
@@ -24,13 +26,13 @@
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #11161e; --surface: #18202b; --fg: #e3e8ef; --muted: #93a0b3; --line: #2c3746;
-  --head: #23486d; --head-fg: #f2f6fb; --accent: #6aa6e6; --row-alt: #1c2532;
+  --head: #23486d; --head-fg: #f2f6fb; --a8-head: #6b3452; --diff-head: #434a56; --accent: #6aa6e6; --row-alt: #1c2532;
   --pos-bg: #1d3b25; --pos-fg: #7fd894; --neg-bg: #43211f; --neg-fg: #ff8f86; --dim: #5f6b7c;
   color-scheme: dark;
 } }
 :root[data-theme="dark"] {
   --bg: #11161e; --surface: #18202b; --fg: #e3e8ef; --muted: #93a0b3; --line: #2c3746;
-  --head: #23486d; --head-fg: #f2f6fb; --accent: #6aa6e6; --row-alt: #1c2532;
+  --head: #23486d; --head-fg: #f2f6fb; --a8-head: #6b3452; --diff-head: #434a56; --accent: #6aa6e6; --row-alt: #1c2532;
   --pos-bg: #1d3b25; --pos-fg: #7fd894; --neg-bg: #43211f; --neg-fg: #ff8f86; --dim: #5f6b7c;
   color-scheme: dark;
 }
@@ -79,6 +81,9 @@ header.top .meta { display: grid; gap: 2px; min-width: 0; }
 table { border-collapse: separate; border-spacing: 0; font: inherit; font-size: 13px; width: max-content; min-width: 100%; }
 th, td { padding: 5px 10px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); white-space: nowrap; }
 thead th { position: sticky; top: 0; z-index: 2; background: var(--head); color: var(--head-fg); font-weight: 700; font-size: 12.5px; text-align: center; }
+thead th.a, .t-A thead th { background: var(--a8-head); }
+thead th.d { background: var(--diff-head); }
+.t-A tr.total td { border-top-color: var(--a8-head); }
 thead tr.group th { position: static; background: var(--surface); color: var(--fg); }
 .legend { display: inline-flex; gap: 6px; align-items: center; }
 .legend i { width: 10px; height: 10px; border-radius: 2px; background: var(--dim); display: inline-block; }
@@ -377,7 +382,7 @@ details.rules dd { margin: 0; min-width: 0; }
     }
     const ta = state.db.prefs.diffMode !== 'at';
     let h = `<div class="scroll"><table><thead><tr class="group"><th></th><th colspan="${METRICS.length * 3}">总代数据</th></tr><tr><th>日期</th>`;
-    for (const [lab, k] of METRICS) h += `<th>TPD${lab}</th><th>A8${lab}</th><th>${DIFF_NAME[k]}</th>`;
+    for (const [lab, k] of METRICS) h += `<th>TPD${lab}</th><th class="a">A8${lab}</th><th class="d">${DIFF_NAME[k]}</th>`;
     h += '</tr></thead><tbody>';
     for (const d of [...days].reverse()) {
       const { T, A } = dayTotals(d);
@@ -400,7 +405,7 @@ details.rules dd { margin: 0; min-width: 0; }
     const tot = derive(list.reduce((a, c) => { for (const k in blank()) a[k] += c[k]; return a; }, blank()));
     const row = (c, cls = '') => `<tr class="${cls}"><td class="c">${esc(c.id)}</td><td>${esc(c.name)}</td>` +
       METRICS.map(([, k, fmt]) => `<td class="n">${fmt(c[k])}</td>`).join('') + '</tr>';
-    let h = `<div class="scroll"><table><thead><tr class="group"><th colspan="${METRICS.length + 2}" style="text-align:left">${label}渠道（${n}个渠道，按消耗降序）</th></tr><tr><th>渠道ID</th><th>渠道名称</th>`;
+    let h = `<div class="scroll t-${group}"><table><thead><tr class="group"><th colspan="${METRICS.length + 2}" style="text-align:left">${label}渠道（${n}个渠道，按消耗降序）</th></tr><tr><th>渠道ID</th><th>渠道名称</th>`;
     h += METRICS.map(([lab]) => `<th>${lab}</th>`).join('') + '</tr></thead><tbody>';
     h += list.map(c => row(c, c.cost === 0 ? 'idle' : '')).join('');
     h += row({ ...tot, id: '合计', name: `${list.length} 个渠道` }, 'total');

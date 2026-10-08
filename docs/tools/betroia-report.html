@@ -292,7 +292,7 @@ details.rules dd { margin: 0; min-width: 0; }
     }
     const buf = await file.arrayBuffer();
     let text = new TextDecoder('utf-8').decode(buf);
-    if (text.includes('�')) { try { text = new TextDecoder('gb18030').decode(buf); } catch {} }
+    if (text.includes(String.fromCharCode(0xFFFD))) { try { text = new TextDecoder('gb18030').decode(buf); } catch {} }
     return parseCSV(text);
   }
 

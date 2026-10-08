@@ -1,0 +1,47 @@
+name: Deploy Betroia 渠道日报 to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ['cloudflare/betroia-daily/**', '.github/workflows/deploy-betroia-daily.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: betroia-daily-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cloudflare/betroia-daily
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fill D1 database id
+        env:
+          D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}
+        run: sed -i "s/REPLACE_WITH_D1_DATABASE_ID/$D1_DATABASE_ID/" wrangler.toml
+
+      - name: Apply D1 migrations
+        run: npx --yes wrangler@4 d1 migrations apply betroia-daily --remote
+
+      - name: Ensure Pages project exists
+        run: npx --yes wrangler@4 pages project create betroia-daily --production-branch=main || true
+
+      - name: Set APP_PASSWORD
+        env:
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+        run: |
+          if [ -z "$APP_PASSWORD" ]; then echo "APP_PASSWORD secret 未设定，跳过（API 会一律回 503）"; exit 0; fi
+          printf '%s' "$APP_PASSWORD" | npx --yes wrangler@4 pages secret put APP_PASSWORD --project-name=betroia-daily
+
+      - name: Deploy
+        run: npx --yes wrangler@4 pages deploy --project-name=betroia-daily --branch=main

@@ -1,0 +1,17 @@
+# Betroia 渠道日报 —— Cloudflare Pages（静态页 + Pages Functions）
+# 部署前把 database_id 换成 `wrangler d1 create betroia-daily` 印出来的 ID
+name = "betroia-daily"
+pages_build_output_dir = "./public"
+compatibility_date = "2026-09-01"
+
+# 解析后的每日渠道数据（一天一行）
+[[d1_databases]]
+binding = "DB"
+database_name = "betroia-daily"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+# 原始上传档（CSV / xlsx）存档
+[[r2_buckets]]
+binding = "RAW"
+bucket_name = "betroia-daily-raw"

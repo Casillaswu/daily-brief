@@ -7,6 +7,21 @@
 
 ---
 
+## 2026-10-08 · 📐 HTML 工具上 Cloudflare：Betroia 渠道日报（artifact → Pages + D1 + R2）
+
+**背景**：Betroia 渠道日报原本是 Claude artifact（claude.ai/artifact/Uy5eoWVpSCcnDL6EiFTsxS），资料只存浏览器 localStorage——换电脑、换人就看不到。Reagan 要求搬上 Cloudflare，上传档案改存云端。
+
+**决策**：
+- 程式放 `cloudflare/betroia-daily/`，**不放 `docs/`**——`docs/` 是 GitHub Pages 公开站，工具页跟营运数据不该混进去。`.gitignore` 白名单加 `cloudflare/` 与 `.github/`。
+- 解析留在前端（原版逻辑不动），上传时「原始档 → R2 存档、解析结果 → D1 一天一列」。同一天重传覆盖 D1，R2 原始档全部保留。
+- 登入用 `APP_PASSWORD`（Pages secret），**没设密码 API 一律 503**（fail-closed）。要个人账号就外层再套 Cloudflare Access。
+- 部署走 GitHub Actions（`.github/workflows/deploy-betroia-daily.yml`）：Claude 云端沙箱连不到 api.cloudflare.com、也没有 Cloudflare 凭证，所以不能从沙箱直接 deploy，要靠 repo secrets 让 Actions 推。
+- Pages secret 只对**下一次部署**生效 → workflow 里 `secret put` 必须排在 `pages deploy` 之前。
+
+**下次复用**：其他 artifact 工具要上云照抄这个结构（`public/` + `functions/` + `wrangler.toml` + `migrations/`），一次性设定步骤见 `cloudflare/betroia-daily/README.md`。
+
+---
+
 ## 2026-08-16（W33）收尾指令三连坑：zsh 不认注解、git 双锁、失败不中止 ✅ 已修
 
 **现象**：W33 产完、docs 都对，但把发布指令贴给 Reagan 之后连错三轮，最后一度**把旧版推上 GitHub**。

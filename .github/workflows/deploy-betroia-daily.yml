@@ -25,13 +25,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: Fill D1 database id
-        env:
-          D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}
-        run: sed -i "s/REPLACE_WITH_D1_DATABASE_ID/$D1_DATABASE_ID/" wrangler.toml
-
-      - name: Apply D1 migrations
-        run: npx --yes wrangler@4 d1 migrations apply betroia-daily --remote
+      - name: Ensure R2 bucket exists
+        run: npx --yes wrangler@4 r2 bucket create betroia-daily-raw || true
 
       - name: Ensure Pages project exists
         run: npx --yes wrangler@4 pages project create betroia-daily --production-branch=main || true

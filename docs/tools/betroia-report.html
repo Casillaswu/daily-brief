@@ -16,6 +16,7 @@
   --head-fg: #ffffff;
   --a8-head: #7a3b5d;       /* A8 用深梅红，跟 TPD 深蓝区分 */
   --diff-head: #555c68;     /* 差值栏用中性石板灰 */
+  --a8-row: #fbf3f7; --a8-row-alt: #f3e4ec; --a8-line: #e6d3de;
   --accent: #2f6fb0;
   --row-alt: #f7f9fc;
   --pos-bg: #d9f2dd; --pos-fg: #17702c;
@@ -26,13 +27,13 @@
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #11161e; --surface: #18202b; --fg: #e3e8ef; --muted: #93a0b3; --line: #2c3746;
-  --head: #23486d; --head-fg: #f2f6fb; --a8-head: #6b3452; --diff-head: #434a56; --accent: #6aa6e6; --row-alt: #1c2532;
+  --head: #23486d; --head-fg: #f2f6fb; --a8-head: #6b3452; --diff-head: #434a56; --a8-row: #251a24; --a8-row-alt: #30212e; --a8-line: #3d2d3a; --accent: #6aa6e6; --row-alt: #1c2532;
   --pos-bg: #1d3b25; --pos-fg: #7fd894; --neg-bg: #43211f; --neg-fg: #ff8f86; --dim: #5f6b7c;
   color-scheme: dark;
 } }
 :root[data-theme="dark"] {
   --bg: #11161e; --surface: #18202b; --fg: #e3e8ef; --muted: #93a0b3; --line: #2c3746;
-  --head: #23486d; --head-fg: #f2f6fb; --a8-head: #6b3452; --diff-head: #434a56; --accent: #6aa6e6; --row-alt: #1c2532;
+  --head: #23486d; --head-fg: #f2f6fb; --a8-head: #6b3452; --diff-head: #434a56; --a8-row: #251a24; --a8-row-alt: #30212e; --a8-line: #3d2d3a; --accent: #6aa6e6; --row-alt: #1c2532;
   --pos-bg: #1d3b25; --pos-fg: #7fd894; --neg-bg: #43211f; --neg-fg: #ff8f86; --dim: #5f6b7c;
   color-scheme: dark;
 }
@@ -84,6 +85,10 @@ thead th { position: sticky; top: 0; z-index: 2; background: var(--head); color:
 thead th.a, .t-A thead th { background: var(--a8-head); }
 thead th.d { background: var(--diff-head); }
 .t-A tr.total td { border-top-color: var(--a8-head); }
+.t-A { border-color: var(--a8-line); }
+.t-A tbody tr td { background: var(--a8-row); border-color: var(--a8-line); }
+.t-A tbody tr:nth-child(even) td { background: var(--a8-row-alt); }
+.t-A tbody tr:hover td { background: color-mix(in srgb, var(--a8-head) 22%, var(--a8-row)); }
 thead tr.group th { position: static; background: var(--surface); color: var(--fg); }
 .legend { display: inline-flex; gap: 6px; align-items: center; }
 .legend i { width: 10px; height: 10px; border-radius: 2px; background: var(--dim); display: inline-block; }

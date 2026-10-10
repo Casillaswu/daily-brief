@@ -20,3 +20,12 @@ export async function listDayKeys(bucket) {
   } while (cursor);
   return keys;
 }
+
+// Workers 同时最多 6 条未关闭的连接（R2 get/put 都算）→ 并发压在 4，且每个任务内把 body 读完
+export async function mapLimit(items, limit, fn) {
+  const out = new Array(items.length);
+  let i = 0;
+  const worker = async () => { while (i < items.length) { const k = i++; out[k] = await fn(items[k], k); } };
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));
+  return out;
+}

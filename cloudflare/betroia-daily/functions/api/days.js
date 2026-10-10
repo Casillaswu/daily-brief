@@ -1,14 +1,14 @@
-import { json, DAY_PREFIX, listDayKeys } from '../_lib.js';
+import { json, DAY_PREFIX, listDayKeys, mapLimit } from '../_lib.js';
 
 // GET /api/days → { days: { 'YYYY-MM-DD': rows[] } }
 export async function onRequestGet({ env }) {
   const keys = (await listDayKeys(env.RAW)).sort();
-  const objs = await Promise.all(keys.map(k => env.RAW.get(k)));
+  const rows = await mapLimit(keys, 4, async k => {
+    const obj = await env.RAW.get(k);
+    return obj ? obj.json() : null;
+  });
   const days = {};
-  for (let i = 0; i < keys.length; i++) {
-    if (!objs[i]) continue;
-    days[keys[i].slice(DAY_PREFIX.length, -'.json'.length)] = await objs[i].json();
-  }
+  keys.forEach((k, i) => { if (rows[i]) days[k.slice(DAY_PREFIX.length, -'.json'.length)] = rows[i]; });
   return json({ days });
 }
 

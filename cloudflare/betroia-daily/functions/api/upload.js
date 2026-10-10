@@ -1,4 +1,4 @@
-import { json, DATE_RE, dayKey } from '../_lib.js';
+import { json, DATE_RE, dayKey, mapLimit } from '../_lib.js';
 
 const MAX_FILE = 20 * 1024 * 1024;
 
@@ -30,9 +30,9 @@ export async function onRequestPost({ request, env }) {
     });
   }
 
-  await Promise.all(dates.map(d => env.RAW.put(dayKey(d), JSON.stringify(days[d]), {
+  await mapLimit(dates, 4, d => env.RAW.put(dayKey(d), JSON.stringify(days[d]), {
     httpMetadata: { contentType: 'application/json' },
     customMetadata: fileKey ? { fileKey } : {},
-  })));
+  }));
   return json({ ok: true, dates, fileKey });
 }

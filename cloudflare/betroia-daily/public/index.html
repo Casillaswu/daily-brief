@@ -130,16 +130,19 @@ details.rules dd { margin: 0; min-width: 0; }
 <body>
 
 <section class="panel login" id="login" hidden aria-labelledby="login-h">
-  <h2 id="login-h">Betroia 渠道日报 · 登录</h2>
+  <h2 id="login-h">连接云端</h2>
   <form id="loginForm">
-    <label for="pw" class="note">输入团队密码（只存在这台电脑的浏览器里）</label>
+    <label for="pw" class="note">输入团队通行码。连上后数据存在 Cloudflare 云端，团队成员看到同一份（通行码只存在这台电脑的浏览器里）</label>
     <input type="password" id="pw" autocomplete="current-password" required>
-    <button class="btn primary" type="submit">进入</button>
+    <div class="seg">
+      <button class="btn primary" type="submit" id="loginGo">连接</button>
+      <button class="btn" type="button" id="loginCancel">取消，继续用本机</button>
+    </div>
     <div id="loginErr" class="toast err" hidden></div>
   </form>
 </section>
 
-<div class="wrap" id="app" hidden>
+<div class="wrap" id="app">
   <header class="top">
     <div class="meta">
       <h1>Betroia 渠道日报</h1>
@@ -159,14 +162,14 @@ details.rules dd { margin: 0; min-width: 0; }
         </select>
       </label>
       <button class="btn" id="exportBtn" type="button" hidden>导出 Excel</button>
-      <button class="btn" id="logoutBtn" type="button">退出</button>
+      <button class="btn" id="cloudBtn" type="button">☁ 云端</button>
     </div>
   </header>
 
   <section class="panel" aria-labelledby="imp-h">
     <div class="panel-head">
       <h2 id="imp-h">导入每日报表</h2>
-      <span class="note">数据存在 Cloudflare 云端（R2：每日数据 + 原始档存档），团队成员登录后都能看到同一份</span>
+      <span class="note" id="modeNote"></span>
     </div>
     <div class="drop" id="drop">
       <p>把 CSV（或原始 .xlsx）拖到这里，可一次放多天。<br><span class="note">同一天重复上传会覆盖旧数据；渠道新增、减少都会自动重新计算。</span></p>
@@ -176,12 +179,17 @@ details.rules dd { margin: 0; min-width: 0; }
       </div>
     </div>
     <div id="toast" hidden></div>
+    <div id="syncBar" class="controls" hidden>
+      <span id="syncText"></span>
+      <button class="btn primary" type="button" id="syncYes">上传到云端</button>
+      <button class="btn" type="button" id="syncNo">不用</button>
+    </div>
     <div class="panel-head">
       <div class="chips" id="dates"></div>
       <button class="btn danger" type="button" id="clearBtn" hidden>清空全部</button>
     </div>
     <div id="clearConfirm" class="controls" hidden>
-      <span>确定删除云端全部已导入的日期？（原始档仍保留在 R2 存档）</span>
+      <span id="clearText"></span>
       <button class="btn danger" type="button" id="clearYes">删除</button>
       <button class="btn" type="button" id="clearNo">取消</button>
     </div>
@@ -249,6 +257,7 @@ details.rules dd { margin: 0; min-width: 0; }
   };
   const PREFS_KEY = 'betroia-prefs-v1';
   const AUTH_KEY = 'betroia-key';
+  const LOCAL_KEY = 'betroia-days-v1'; // 本机模式：解析后的每日数据存在浏览器
   // 每行存成紧凑数组：[group, id, name, cost, promo, reg, pay, payAmt, ftd, ftdAmt]
   // 其他（未归属）总代：[ 'O', agentName, regs ] 只用于提示
 
@@ -264,6 +273,12 @@ details.rules dd { margin: 0; min-width: 0; }
   }
   function getKey() { try { return localStorage.getItem(AUTH_KEY) || ''; } catch { return state.key || ''; } }
   function setKey(k) { state.key = k; try { k ? localStorage.setItem(AUTH_KEY, k) : localStorage.removeItem(AUTH_KEY); } catch {} }
+
+  const cloud = () => !!getKey();
+  function loadLocal() { try { return JSON.parse(localStorage.getItem(LOCAL_KEY)) || {}; } catch { return {}; } }
+  function saveLocal() {
+    try { localStorage.setItem(LOCAL_KEY, JSON.stringify(state.db.days)); return true; } catch { return false; }
+  }
 
   // ───── 云端 API ─────
   class AuthError extends Error {}
@@ -283,16 +298,49 @@ details.rules dd { margin: 0; min-width: 0; }
     $('loginErr').hidden = !msg; $('loginErr').textContent = msg || '';
     $('pw').focus();
   }
+  function showApp() { $('login').hidden = true; $('app').hidden = false; }
+  function setMode() {
+    $('cloudBtn').textContent = cloud() ? '☁ 云端已连接 · 断开' : '☁ 云端';
+    $('modeNote').textContent = cloud()
+      ? '数据存在 Cloudflare 云端（每日数据 + 原始档存档），团队成员看到同一份'
+      : '本机模式：数据只存在这台电脑的浏览器。要和团队共用，按右上角「☁ 云端」';
+    $('clearText').textContent = cloud() ? '确定删除云端全部已导入的日期？（原始档仍保留在存档）' : '确定删除这台电脑里全部已导入的日期？';
+  }
+  // 本机模式：直接用浏览器里的数据；云端模式：读云端
   async function boot() {
-    if (!getKey()) return showLogin();
+    if (!cloud()) { state.db.days = loadLocal(); setMode(); showApp(); render(); return; }
     try {
       await loadRemote();
-      $('login').hidden = true; $('app').hidden = false;
-      render();
+      setMode(); showApp(); render();
+      offerSync();
+    } catch (e) {
+      setKey('');
+      if (e instanceof AuthError) return showLogin(e.message);
+      state.db.days = loadLocal(); setMode(); showApp(); render();
+      toast(`云端连不上（${e.message}），先用本机数据`, true);
+    }
+  }
+  // 连上云端后：本机有、云端没有的日期 → 问要不要上传
+  function offerSync() {
+    const local = loadLocal();
+    const missing = Object.keys(local).filter(d => !state.db.days[d]).sort();
+    $('syncBar').hidden = !missing.length;
+    if (!missing.length) return;
+    state.pending = Object.fromEntries(missing.map(d => [d, local[d]]));
+    $('syncText').textContent = `这台电脑里有 ${missing.length} 天云端还没有（${missing[0]}${missing.length > 1 ? ' ~ ' + missing[missing.length - 1] : ''}），要上传吗？`;
+  }
+  async function syncUp() {
+    const days = state.pending || {};
+    $('syncYes').disabled = true;
+    try {
+      const fd = new FormData(); fd.append('days', JSON.stringify(days));
+      await api('/api/upload', { method: 'POST', body: fd });
+      Object.assign(state.db.days, days);
+      $('syncBar').hidden = true; toast(`已把本机 ${Object.keys(days).length} 天上传到云端`); render();
     } catch (e) {
       if (e instanceof AuthError) { setKey(''); return showLogin(e.message); }
-      showLogin(e.message);
-    }
+      toast(e.message, true);
+    } finally { $('syncYes').disabled = false; }
   }
 
   // ───── 解析 ─────
@@ -367,16 +415,18 @@ details.rules dd { margin: 0; min-width: 0; }
   // 每个文件：本地解析 → 原始档 + 解析结果一起上传到云端
   async function handleFiles(files) {
     const msgs = []; let err = false;
-    $('pick').disabled = true; toast('上传中…');
+    $('pick').disabled = true; toast(cloud() ? '上传中…' : '读取中…');
     for (const f of files) {
       try {
         const byDay = ingest(await readFile(f), f.name);
         const ds = Object.keys(byDay).sort();
         if (!ds.length) throw new Error(`${f.name}：没有读到任何日期数据`);
-        const fd = new FormData();
-        fd.append('file', f, f.name);
-        fd.append('days', JSON.stringify(byDay));
-        await api('/api/upload', { method: 'POST', body: fd });
+        if (cloud()) {
+          const fd = new FormData();
+          fd.append('file', f, f.name);
+          fd.append('days', JSON.stringify(byDay));
+          await api('/api/upload', { method: 'POST', body: fd });
+        }
         for (const d of ds) {
           state.db.days[d] = byDay[d];
           const t = byDay[d].filter(r => r[0] === 'T').length, a = byDay[d].filter(r => r[0] === 'A').length;
@@ -388,12 +438,14 @@ details.rules dd { margin: 0; min-width: 0; }
       }
     }
     $('pick').disabled = false;
+    if (!cloud() && !saveLocal()) { err = true; msgs.push('浏览器存储空间不足，这次的数据重新整理后会消失；建议连接云端'); }
     state.from = state.to = null; // 新数据进来后回到「近 N 天」
-    toast((err ? '' : '已上传到云端 ') + msgs.join('；'), err);
+    toast((err ? '' : cloud() ? '已上传到云端 ' : '已存在本机 ') + msgs.join('；'), err);
     render();
   }
 
   async function mutate(path, after) {
+    if (!cloud()) { after(); saveLocal(); render(); return; }
     try { await api(path, { method: 'DELETE' }); after(); render(); }
     catch (e) {
       if (e instanceof AuthError) { setKey(''); return showLogin(e.message); }
@@ -556,8 +608,14 @@ details.rules dd { margin: 0; min-width: 0; }
 
   // ───── 事件 ─────
   const drop = $('drop');
-  $('loginForm').onsubmit = e => { e.preventDefault(); setKey($('pw').value); $('pw').value = ''; boot(); };
-  $('logoutBtn').onclick = () => { setKey(''); state.db.days = {}; showLogin(); };
+  $('loginForm').onsubmit = e => { e.preventDefault(); setKey($('pw').value); $('pw').value = ''; $('toast').hidden = true; boot(); };
+  $('loginCancel').onclick = () => { setKey(''); boot(); };
+  $('cloudBtn').onclick = () => {
+    if (!cloud()) return showLogin();
+    setKey(''); $('syncBar').hidden = true; boot(); toast('已断开云端，改用这台电脑里的数据');
+  };
+  $('syncYes').onclick = syncUp;
+  $('syncNo').onclick = () => { $('syncBar').hidden = true; };
   $('pick').onclick = () => $('file').click();
   $('file').onchange = e => { if (e.target.files.length) handleFiles([...e.target.files]); e.target.value = ''; };
   ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));

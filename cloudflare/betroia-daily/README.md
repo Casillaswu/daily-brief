@@ -11,6 +11,8 @@
 | API | `functions/`（Pages Functions）：`GET/DELETE /api/days`、`DELETE /api/days/:date`、`POST /api/upload` |
 | 登入 | 環境變數 `APP_PASSWORD`（團隊通行碼存本機 `~/.cloudflare/betroia-daily-team-code.txt`）；沒設密碼時 API 一律拒絕（503），不會意外公開 |
 
+**預設本機模式**：打開就能用，資料存在瀏覽器（跟原版一樣）。按右上角「☁ 雲端」輸入團隊通行碼才切到雲端；連上時若本機有雲端沒有的日期，會問要不要上傳。按「斷開」回本機。
+
 CSV 解析仍在瀏覽器做（跟原版邏輯一字不差），上傳時把「原始檔 + 解析結果」一起送到 `/api/upload`。
 
 ## 部署（照遊戲盈虧分析台的做法，不用 D1）

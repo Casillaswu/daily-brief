@@ -161,6 +161,7 @@ details.rules dd { margin: 0; min-width: 0; }
           <option value="at">A8 − TPD</option>
         </select>
       </label>
+      <button class="btn primary" id="copyBtn" type="button" hidden>一键复制三个表格</button>
       <button class="btn" id="exportBtn" type="button" hidden>导出 Excel</button>
       <button class="btn" id="cloudBtn" type="button">☁ 云端</button>
     </div>
@@ -580,6 +581,7 @@ details.rules dd { margin: 0; min-width: 0; }
     for (const d of days) for (const r of state.db.days[d]) if (r[0] === 'O') other.set(r[1], (other.get(r[1]) || 0) + r[2]);
     $('excluded').textContent = other.size ? `未计入：${[...other.keys()].join('、')}` : '';
     $('exportBtn').hidden = !days.length || !window.XLSX;
+    $('copyBtn').hidden = !days.length;
   }
 
   // ───── 导出 ─────
@@ -602,6 +604,63 @@ details.rules dd { margin: 0; min-width: 0; }
     XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(chSheet('T', 'TPD')), 'TPD渠道');
     XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(chSheet('A', 'A8')), 'A8渠道');
     XLSX.writeFile(wb, `Betroia_每日渠道固定版_${days[days.length - 1].replace(/-/g, '')}.xlsx`);
+  }
+
+  // ───── 一键复制：画面上的三个表格（富文本表格 + 纯文本 TSV，贴飞书 / Excel 都是表格） ─────
+  const CELL = 'border:1px solid #c9ccd1;padding:4px 8px;white-space:nowrap;font-size:13px;';
+  function tableParts() {
+    const ds = range(Object.keys(state.db.days).sort());
+    const span = ds.length ? `${shortDate(ds[0])}–${shortDate(ds[ds.length - 1])}，${ds.length} 天` : '';
+    return [
+      ['四、推广数据 · 总代数据（每日）', $('summary').querySelector('table')],
+      [`TPD 渠道数据（${span}）`, $('tpd').querySelector('table')],
+      [`A8 渠道数据（${span}）`, $('a8').querySelector('table')],
+    ].filter(([, t]) => t);
+  }
+  function tableToTsv(t) {
+    return [...t.rows].map(r => [...r.cells].flatMap(c => [c.textContent.trim(), ...Array(c.colSpan - 1).fill('')]).join('\t')).join('\n');
+  }
+  function tableToHtml(t) {
+    const c = t.cloneNode(true);
+    c.removeAttribute('class');
+    c.setAttribute('style', 'border-collapse:collapse;font-family:sans-serif;');
+    for (const cell of c.querySelectorAll('th,td')) {
+      const tr = cell.parentElement;
+      let st = CELL;
+      if (cell.tagName === 'TH') st += 'background:#eef1f5;font-weight:bold;text-align:center;';
+      if (cell.classList.contains('n')) st += 'text-align:right;';
+      if (cell.classList.contains('pos')) st += 'color:#1a7f37;';
+      if (cell.classList.contains('neg')) st += 'color:#cf222e;';
+      if (tr.classList.contains('total')) st += 'font-weight:bold;background:#f6f8fa;';
+      if (tr.classList.contains('idle')) st += 'color:#8c959f;';
+      cell.setAttribute('style', st + (cell.getAttribute('style') || ''));
+      cell.removeAttribute('class');
+    }
+    return c.outerHTML;
+  }
+  async function copyTables() {
+    const parts = tableParts();
+    if (!parts.length) return;
+    const html = parts.map(([title, t]) => `<p style="font-weight:bold;margin:12px 0 4px">${esc(title)}</p>${tableToHtml(t)}`).join('<br>');
+    const text = parts.map(([title, t]) => `${title}\n${tableToTsv(t)}`).join('\n\n');
+    try {
+      await navigator.clipboard.write([new ClipboardItem({
+        'text/html': new Blob([html], { type: 'text/html' }),
+        'text/plain': new Blob([text], { type: 'text/plain' }),
+      })]);
+    } catch {
+      // 旧浏览器 / 没有剪贴板权限：用选取 + execCommand 复制富文本
+      const box = document.createElement('div');
+      box.contentEditable = 'true'; box.innerHTML = html;
+      box.style.cssText = 'position:fixed;left:-9999px;top:0;';
+      document.body.appendChild(box);
+      const sel = getSelection(); const rng = document.createRange(); rng.selectNodeContents(box);
+      sel.removeAllRanges(); sel.addRange(rng);
+      const ok = document.execCommand('copy');
+      sel.removeAllRanges(); box.remove();
+      if (!ok) return toast('复制失败：浏览器不允许读写剪贴板', true);
+    }
+    toast(`已复制 ${parts.length} 个表格，可直接贴到飞书 / Excel`);
   }
 
   function toast(msg, err) { const t = $('toast'); t.hidden = false; t.className = 'toast' + (err ? ' err' : ''); t.textContent = msg; }
@@ -631,6 +690,7 @@ details.rules dd { margin: 0; min-width: 0; }
   $('costMode').onchange = e => { state.db.prefs.costMode = e.target.value; savePrefs(); render(); };
   $('diffMode').onchange = e => { state.db.prefs.diffMode = e.target.value; savePrefs(); render(); };
   $('exportBtn').onclick = exportXlsx;
+  $('copyBtn').onclick = copyTables;
 
   boot();
 })();

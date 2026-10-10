@@ -1,9 +1,7 @@
 name: Deploy Betroia 渠道日报 to Cloudflare Pages
 
+# 平时用本机 bash cloudflare/betroia-daily/deploy.sh 部署；这个 workflow 只在手动触发时跑（需先设好 CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID / APP_PASSWORD secrets）
 on:
-  push:
-    branches: [main]
-    paths: ['cloudflare/betroia-daily/**', '.github/workflows/deploy-betroia-daily.yml']
   workflow_dispatch:
 
 concurrency:

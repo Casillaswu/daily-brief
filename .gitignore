@@ -16,3 +16,9 @@ docs/.DS_Store
 .vscode/
 __pycache__/
 *.pyc
+
+# Cloudflare Pages 工具（Betroia 渠道日报）+ 部署 workflow
+!cloudflare/
+!cloudflare/**
+!.github/
+!.github/**

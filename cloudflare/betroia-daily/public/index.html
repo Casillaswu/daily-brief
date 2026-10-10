@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Betroia 渠道日报</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+/* Layout: 一页式操作台 —— 顶部导入条 → 每日汇总宽表 → TPD / A8 渠道表，表格各自横向滚动 */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --fg: #1b2433;
+  --muted: #5d6b80;
+  --line: #d5dbe4;
+  --head: #1f4e79;          /* 沿用报表表头的深蓝 */
+  --head-fg: #ffffff;
+  --a8-head: #7a3b5d;       /* A8 用深梅红，跟 TPD 深蓝区分 */
+  --diff-head: #555c68;     /* 差值栏用中性石板灰 */
+  --a8-row: #fbf3f7; --a8-row-alt: #f3e4ec; --a8-line: #e6d3de;
+  --accent: #2f6fb0;
+  --row-alt: #f7f9fc;
+  --pos-bg: #d9f2dd; --pos-fg: #17702c;
+  --neg-bg: #fbd3d3; --neg-fg: #c42121;
+  --dim: #9aa5b5;
+  --font-ui: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-num: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11161e; --surface: #18202b; --fg: #e3e8ef; --muted: #93a0b3; --line: #2c3746;
+  --head: #23486d; --head-fg: #f2f6fb; --a8-head: #6b3452; --diff-head: #434a56; --a8-row: #251a24; --a8-row-alt: #30212e; --a8-line: #3d2d3a; --accent: #6aa6e6; --row-alt: #1c2532;
+  --pos-bg: #1d3b25; --pos-fg: #7fd894; --neg-bg: #43211f; --neg-fg: #ff8f86; --dim: #5f6b7c;
+  color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #11161e; --surface: #18202b; --fg: #e3e8ef; --muted: #93a0b3; --line: #2c3746;
+  --head: #23486d; --head-fg: #f2f6fb; --a8-head: #6b3452; --diff-head: #434a56; --a8-row: #251a24; --a8-row-alt: #30212e; --a8-line: #3d2d3a; --accent: #6aa6e6; --row-alt: #1c2532;
+  --pos-bg: #1d3b25; --pos-fg: #7fd894; --neg-bg: #43211f; --neg-fg: #ff8f86; --dim: #5f6b7c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 14px; line-height: 1.5; margin: 0; }
+.wrap { max-width: 1680px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 48px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.wrap > * { min-width: 0; }
+h1 { font-size: 22px; margin: 0; font-weight: 700; letter-spacing: .02em; }
+h2 { font-size: 16px; margin: 0; font-weight: 700; text-wrap: balance; }
+.sub { color: var(--muted); font-size: 13px; }
+button, select, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: progress; opacity: .6; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+header.top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between; }
+header.top .meta { display: grid; gap: 2px; min-width: 0; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; min-width: 0; }
+.panel > * { min-width: 0; }
+.panel-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
+
+.drop { border: 2px dashed var(--line); border-radius: 6px; padding: 18px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; transition: border-color .15s, background .15s; }
+.drop.over { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.drop p { margin: 0; }
+.btn { border: 1px solid var(--line); background: var(--surface); padding: 6px 14px; border-radius: 4px; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--head); color: var(--head-fg); border-color: var(--head); }
+.btn.danger:hover { border-color: var(--neg-fg); color: var(--neg-fg); }
+.btn.on { background: var(--accent); color: var(--head-fg); border-color: var(--accent); }
+
+.controls { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.controls label { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; }
+.controls select, .controls input[type=date], .controls input[type=password] { border: 1px solid var(--line); background: var(--surface); border-radius: 4px; padding: 4px 8px; }
+.seg { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+
+.login { max-width: 420px; margin: 10vh auto 0; }
+.login form { display: grid; gap: 10px; }
+.login input { border: 1px solid var(--line); background: var(--surface); border-radius: 4px; padding: 8px 10px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; gap: 6px; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 2px 6px 2px 10px; font-family: var(--font-num); font-size: 12px; }
+.chip button { border: 0; background: none; color: var(--muted); padding: 0 4px; line-height: 1; font-size: 14px; }
+.chip button:hover { color: var(--neg-fg); }
+
+.toast { font-size: 13px; padding: 8px 12px; border-radius: 4px; background: var(--pos-bg); color: var(--pos-fg); }
+.toast.err { background: var(--neg-bg); color: var(--neg-fg); }
+
+.scroll { overflow: auto; max-height: 70vh; border: 1px solid var(--line); border-radius: 4px; }
+table { border-collapse: separate; border-spacing: 0; font: inherit; font-size: 13px; width: max-content; min-width: 100%; }
+th, td { padding: 5px 10px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); white-space: nowrap; }
+thead th { position: sticky; top: 0; z-index: 2; background: var(--head); color: var(--head-fg); font-weight: 700; font-size: 12.5px; text-align: center; }
+thead th.a, .t-A thead th { background: var(--a8-head); }
+thead th.d { background: var(--diff-head); }
+.t-A tr.total td { border-top-color: var(--a8-head); }
+.t-A { border-color: var(--a8-line); }
+.t-A tbody tr td { background: var(--a8-row); border-color: var(--a8-line); }
+.t-A tbody tr:nth-child(even) td { background: var(--a8-row-alt); }
+.t-A tbody tr:hover td { background: color-mix(in srgb, var(--a8-head) 22%, var(--a8-row)); }
+thead tr.group th { position: static; background: var(--surface); color: var(--fg); }
+.legend { display: inline-flex; gap: 6px; align-items: center; }
+.legend i { width: 10px; height: 10px; border-radius: 2px; background: var(--dim); display: inline-block; }
+tbody tr:nth-child(even) td { background: var(--row-alt); }
+tbody tr:hover td { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+td { background: var(--surface); }
+td.n { text-align: right; font-family: var(--font-num); font-variant-numeric: tabular-nums; font-size: 12.5px; }
+td.c { text-align: center; }
+th:first-child, td:first-child { position: sticky; left: 0; z-index: 1; }
+thead th:first-child { z-index: 3; }
+td.pos { background: var(--pos-bg) !important; color: var(--pos-fg); font-weight: 600; }
+td.neg { background: var(--neg-bg) !important; color: var(--neg-fg); font-weight: 600; }
+tr.idle td { color: var(--dim); }
+tr.total td { font-weight: 700; border-top: 2px solid var(--head); }
+
+.empty { padding: 32px 16px; text-align: center; color: var(--muted); display: grid; gap: 6px; justify-items: center; }
+.empty strong { color: var(--fg); font-size: 15px; }
+.note { color: var(--muted); font-size: 12.5px; margin: 0; }
+details.rules summary { cursor: pointer; font-weight: 700; }
+details.rules dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 12px 0 0; font-size: 13px; }
+details.rules dt { color: var(--muted); }
+details.rules dd { margin: 0; min-width: 0; }
+.grid2 { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); }
+.grid2 > div { min-width: 0; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<section class="panel login" id="login" hidden aria-labelledby="login-h">
+  <h2 id="login-h">连接云端</h2>
+  <form id="loginForm">
+    <label for="pw" class="note">输入团队通行码。连上后数据存在 Cloudflare 云端，团队成员看到同一份（通行码只存在这台电脑的浏览器里）</label>
+    <input type="password" id="pw" autocomplete="current-password" required>
+    <div class="seg">
+      <button class="btn primary" type="submit" id="loginGo">连接</button>
+      <button class="btn" type="button" id="loginCancel">取消，继续用本机</button>
+    </div>
+    <div id="loginErr" class="toast err" hidden></div>
+  </form>
+</section>
+
+<div class="wrap" id="app">
+  <header class="top">
+    <div class="meta">
+      <h1>Betroia 渠道日报</h1>
+      <div class="sub" id="coverage">还没有数据 · 上传后台导出的「排名-渠道 USD」CSV 开始</div>
+    </div>
+    <div class="controls">
+      <label for="costMode">消耗口径
+        <select id="costMode">
+          <option value="cost">总消耗（含服务费）</option>
+          <option value="promo">推广消耗</option>
+        </select>
+      </label>
+      <label for="diffMode">差值方向
+        <select id="diffMode">
+          <option value="ta">TPD − A8</option>
+          <option value="at">A8 − TPD</option>
+        </select>
+      </label>
+      <button class="btn primary" id="copyBtn" type="button" hidden>一键复制三个表格</button>
+      <button class="btn" id="exportBtn" type="button" hidden>导出 Excel</button>
+      <button class="btn" id="cloudBtn" type="button">☁ 云端</button>
+    </div>
+  </header>
+
+  <section class="panel" aria-labelledby="imp-h">
+    <div class="panel-head">
+      <h2 id="imp-h">导入每日报表</h2>
+      <span class="note" id="modeNote"></span>
+    </div>
+    <div class="drop" id="drop">
+      <p>把 CSV（或原始 .xlsx）拖到这里，可一次放多天。<br><span class="note">同一天重复上传会覆盖旧数据；渠道新增、减少都会自动重新计算。</span></p>
+      <div class="seg">
+        <input type="file" id="file" accept=".csv,.xlsx,.xls" multiple hidden>
+        <button class="btn primary" type="button" id="pick">选择文件</button>
+      </div>
+    </div>
+    <div id="toast" hidden></div>
+    <div id="syncBar" class="controls" hidden>
+      <span id="syncText"></span>
+      <button class="btn primary" type="button" id="syncYes">上传到云端</button>
+      <button class="btn" type="button" id="syncNo">不用</button>
+    </div>
+    <div class="panel-head">
+      <div class="chips" id="dates"></div>
+      <button class="btn danger" type="button" id="clearBtn" hidden>清空全部</button>
+    </div>
+    <div id="clearConfirm" class="controls" hidden>
+      <span id="clearText"></span>
+      <button class="btn danger" type="button" id="clearYes">删除</button>
+      <button class="btn" type="button" id="clearNo">取消</button>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="sum-h">
+    <div class="panel-head">
+      <h2 id="sum-h">四、推广数据 · 总代数据（每日）</h2>
+      <span class="note" id="excluded"></span>
+    </div>
+    <div id="summary"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="ch-h">
+    <div class="panel-head">
+      <h2 id="ch-h">渠道数据 <span id="rangeLabel" class="sub"></span></h2>
+      <div class="controls">
+        <div class="seg" id="quick">
+          <button class="btn" type="button" data-days="1">最新 1 天</button>
+          <button class="btn" type="button" data-days="7">近 7 天</button>
+          <button class="btn" type="button" data-days="14">近 14 天</button>
+          <button class="btn" type="button" data-days="0">全部</button>
+        </div>
+        <label for="from">从 <input type="date" id="from"></label>
+        <label for="to">到 <input type="date" id="to"></label>
+        <span class="legend note"><i></i>灰色 = 区间内消耗为 0（自然量或已停投）</span>
+        <label for="hideIdle"><input type="checkbox" id="hideIdle"> 隐藏零消耗渠道</label>
+      </div>
+    </div>
+    <div class="grid2">
+      <div id="tpd"></div>
+      <div id="a8"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <details class="rules">
+      <summary>计算口径</summary>
+      <dl>
+        <dt>TPD / A8 归属</dt><dd>按「总代.名称」前缀：<b>技术一_</b> 开头 → TPD；<b>A8_</b> 开头 → A8。官方总代、GooglePlay、IOS 壳包、社媒专属等其他总代不计入。</dd>
+        <dt>每日汇总</dt><dd>每一行只用当天数据</dd>
+        <dt>渠道明细</dt><dd>所选日期区间按「渠道.ID」累计，按消耗降序；渠道名称取区间内最新一天的名称</dd>
+        <dt>充值数量</dt><dd>充值人数</dd>
+        <dt>一级首充获客成本</dt><dd>消耗 ÷ 一级首充人数</dd>
+        <dt>注册转首充</dt><dd>一级首充人数 ÷ 注册数量</dd>
+        <dt>总ROAS</dt><dd>充值金额 ÷ 消耗</dd>
+        <dt>一级首充ROAS</dt><dd>一级首充金额 ÷ 消耗</dd>
+        <dt>差值</dt><dd>按右上角选择（默认 TPD − A8）。比率类差值是百分点差。绿色 = 正数，红色 = 负数</dd>
+      </dl>
+    </details>
+  </section>
+</div>
+
+<script>
+(() => {
+  // ───── 规则常量 ─────
+  const GROUPS = [
+    { key: 'T', label: 'TPD', test: n => n.startsWith('技术一') },
+    { key: 'A', label: 'A8',  test: n => /^A8/i.test(n) },
+  ];
+  const COLS = {
+    date: '日期', agent: '总代.名称', id: '渠道.ID', name: '渠道.名称',
+    cost: '总消耗', promo: '推广消耗', reg: '注册人数', pay: '充值人数',
+    payAmt: '充值金额', ftd: '一级首充人数', ftdAmt: '一级首充金额',
+  };
+  const PREFS_KEY = 'betroia-prefs-v1';
+  const AUTH_KEY = 'betroia-key';
+  const LOCAL_KEY = 'betroia-days-v1'; // 本机模式：解析后的每日数据存在浏览器
+  // 每行存成紧凑数组：[group, id, name, cost, promo, reg, pay, payAmt, ftd, ftdAmt]
+  // 其他（未归属）总代：[ 'O', agentName, regs ] 只用于提示
+
+  const $ = id => document.getElementById(id);
+  const state = { db: { days: {}, prefs: loadPrefs() }, from: null, to: null, days: 7 };
+
+  // ───── 本机偏好（只是显示设定） ─────
+  function loadPrefs() {
+    try { return JSON.parse(localStorage.getItem(PREFS_KEY)) || {}; } catch { return {}; }
+  }
+  function savePrefs() {
+    try { localStorage.setItem(PREFS_KEY, JSON.stringify(state.db.prefs)); } catch {}
+  }
+  function getKey() { try { return localStorage.getItem(AUTH_KEY) || ''; } catch { return state.key || ''; } }
+  function setKey(k) { state.key = k; try { k ? localStorage.setItem(AUTH_KEY, k) : localStorage.removeItem(AUTH_KEY); } catch {} }
+
+  const cloud = () => !!getKey();
+  function loadLocal() { try { return JSON.parse(localStorage.getItem(LOCAL_KEY)) || {}; } catch { return {}; } }
+  function saveLocal() {
+    try { localStorage.setItem(LOCAL_KEY, JSON.stringify(state.db.days)); return true; } catch { return false; }
+  }
+
+  // ───── 云端 API ─────
+  class AuthError extends Error {}
+  async function api(path, opts = {}) {
+    const res = await fetch(path, { ...opts, headers: { ...(opts.headers || {}), 'X-App-Key': getKey() } });
+    const data = await res.json().catch(() => ({}));
+    if (res.status === 401) throw new AuthError(data.error || '请重新登录');
+    if (!res.ok) throw new Error(data.error || `服务器错误 ${res.status}`);
+    return data;
+  }
+  async function loadRemote() {
+    const { days } = await api('/api/days');
+    state.db.days = days || {};
+  }
+  function showLogin(msg) {
+    $('app').hidden = true; $('login').hidden = false;
+    $('loginErr').hidden = !msg; $('loginErr').textContent = msg || '';
+    $('pw').focus();
+  }
+  function showApp() { $('login').hidden = true; $('app').hidden = false; }
+  function setMode() {
+    $('cloudBtn').textContent = cloud() ? '☁ 云端已连接 · 断开' : '☁ 云端';
+    $('modeNote').textContent = cloud()
+      ? '数据存在 Cloudflare 云端（每日数据 + 原始档存档），团队成员看到同一份'
+      : '本机模式：数据只存在这台电脑的浏览器。要和团队共用，按右上角「☁ 云端」';
+    $('clearText').textContent = cloud() ? '确定删除云端全部已导入的日期？（原始档仍保留在存档）' : '确定删除这台电脑里全部已导入的日期？';
+  }
+  // 本机模式：直接用浏览器里的数据；云端模式：读云端
+  async function boot() {
+    if (!cloud()) { state.db.days = loadLocal(); setMode(); showApp(); render(); return; }
+    try {
+      await loadRemote();
+      setMode(); showApp(); render();
+      offerSync();
+    } catch (e) {
+      setKey('');
+      if (e instanceof AuthError) return showLogin(e.message);
+      state.db.days = loadLocal(); setMode(); showApp(); render();
+      toast(`云端连不上（${e.message}），先用本机数据`, true);
+    }
+  }
+  // 连上云端后：本机有、云端没有的日期 → 问要不要上传
+  function offerSync() {
+    const local = loadLocal();
+    const missing = Object.keys(local).filter(d => !state.db.days[d]).sort();
+    $('syncBar').hidden = !missing.length;
+    if (!missing.length) return;
+    state.pending = Object.fromEntries(missing.map(d => [d, local[d]]));
+    $('syncText').textContent = `这台电脑里有 ${missing.length} 天云端还没有（${missing[0]}${missing.length > 1 ? ' ~ ' + missing[missing.length - 1] : ''}），要上传吗？`;
+  }
+  async function syncUp() {
+    const days = state.pending || {};
+    $('syncYes').disabled = true;
+    try {
+      const fd = new FormData(); fd.append('days', JSON.stringify(days));
+      await api('/api/upload', { method: 'POST', body: fd });
+      Object.assign(state.db.days, days);
+      $('syncBar').hidden = true; toast(`已把本机 ${Object.keys(days).length} 天上传到云端`); render();
+    } catch (e) {
+      if (e instanceof AuthError) { setKey(''); return showLogin(e.message); }
+      toast(e.message, true);
+    } finally { $('syncYes').disabled = false; }
+  }
+
+  // ───── 解析 ─────
+  function parseCSV(text) {
+    text = text.replace(/^﻿/, '');
+    const rows = []; let row = [], f = '', q = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (q) {
+        if (c === '"') { if (text[i + 1] === '"') { f += '"'; i++; } else q = false; }
+        else f += c;
+      } else if (c === '"') q = true;
+      else if (c === ',') { row.push(f); f = ''; }
+      else if (c === '\n' || c === '\r') {
+        if (c === '\r' && text[i + 1] === '\n') i++;
+        row.push(f); f = ''; if (row.some(v => v !== '')) rows.push(row); row = [];
+      } else f += c;
+    }
+    row.push(f); if (row.some(v => v !== '')) rows.push(row);
+    return rows;
+  }
+  const num = v => {
+    if (typeof v === 'number') return v;
+    const s = String(v ?? '').replace(/[,\s%]/g, '');
+    const n = parseFloat(s); return isFinite(n) ? n : 0;
+  };
+  function normDate(v) {
+    if (typeof v === 'number') { // Excel 序列日期或 20261006
+      if (v > 19000000) { const s = String(v); return `${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`; }
+      const d = new Date(Math.round((v - 25569) * 864e5)); return d.toISOString().slice(0, 10);
+    }
+    const m = String(v).trim().match(/(\d{4})\D?(\d{1,2})\D?(\d{1,2})/);
+    return m ? `${m[1]}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}` : null;
+  }
+
+  function ingest(rows, fileName) {
+    const hi = rows.findIndex(r => r.map(x => String(x).trim()).includes(COLS.id));
+    if (hi < 0) throw new Error(`${fileName}：找不到「渠道.ID」表头，确认是后台导出的渠道报表`);
+    const head = rows[hi].map(x => String(x).trim());
+    const idx = {};
+    for (const [k, h] of Object.entries(COLS)) {
+      idx[k] = head.indexOf(h);
+      if (idx[k] < 0 && k !== 'promo') throw new Error(`${fileName}：缺少「${h}」栏位`);
+    }
+    const byDay = {};
+    for (const r of rows.slice(hi + 1)) {
+      const d = normDate(r[idx.date]); if (!d) continue;
+      const agent = String(r[idx.agent] ?? '').trim();
+      const g = GROUPS.find(g => g.test(agent));
+      (byDay[d] ||= []).push(g
+        ? [g.key, String(r[idx.id]).trim(), String(r[idx.name] ?? '').trim(),
+           num(r[idx.cost]), idx.promo >= 0 ? num(r[idx.promo]) : num(r[idx.cost]),
+           num(r[idx.reg]), num(r[idx.pay]), num(r[idx.payAmt]), num(r[idx.ftd]), num(r[idx.ftdAmt])]
+        : ['O', agent, num(r[idx.reg])]);
+    }
+    return byDay;
+  }
+
+  async function readFile(file) {
+    if (/\.xlsx?$/i.test(file.name)) {
+      if (!window.XLSX) throw new Error('Excel 解析库没载入，请改传 CSV');
+      const wb = XLSX.read(await file.arrayBuffer(), { type: 'array' });
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      return XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: '' });
+    }
+    const buf = await file.arrayBuffer();
+    let text = new TextDecoder('utf-8').decode(buf);
+    if (text.includes(String.fromCharCode(0xFFFD))) { try { text = new TextDecoder('gb18030').decode(buf); } catch {} }
+    return parseCSV(text);
+  }
+
+  // 每个文件：本地解析 → 原始档 + 解析结果一起上传到云端
+  async function handleFiles(files) {
+    const msgs = []; let err = false;
+    $('pick').disabled = true; toast(cloud() ? '上传中…' : '读取中…');
+    for (const f of files) {
+      try {
+        const byDay = ingest(await readFile(f), f.name);
+        const ds = Object.keys(byDay).sort();
+        if (!ds.length) throw new Error(`${f.name}：没有读到任何日期数据`);
+        if (cloud()) {
+          const fd = new FormData();
+          fd.append('file', f, f.name);
+          fd.append('days', JSON.stringify(byDay));
+          await api('/api/upload', { method: 'POST', body: fd });
+        }
+        for (const d of ds) {
+          state.db.days[d] = byDay[d];
+          const t = byDay[d].filter(r => r[0] === 'T').length, a = byDay[d].filter(r => r[0] === 'A').length;
+          msgs.push(`${d}：TPD ${t} 个渠道 / A8 ${a} 个渠道`);
+        }
+      } catch (e) {
+        if (e instanceof AuthError) { setKey(''); $('pick').disabled = false; return showLogin(e.message); }
+        err = true; msgs.push(`${f.name}：${e.message}`);
+      }
+    }
+    $('pick').disabled = false;
+    if (!cloud() && !saveLocal()) { err = true; msgs.push('浏览器存储空间不足，这次的数据重新整理后会消失；建议连接云端'); }
+    state.from = state.to = null; // 新数据进来后回到「近 N 天」
+    toast((err ? '' : cloud() ? '已上传到云端 ' : '已存在本机 ') + msgs.join('；'), err);
+    render();
+  }
+
+  async function mutate(path, after) {
+    if (!cloud()) { after(); saveLocal(); render(); return; }
+    try { await api(path, { method: 'DELETE' }); after(); render(); }
+    catch (e) {
+      if (e instanceof AuthError) { setKey(''); return showLogin(e.message); }
+      toast(e.message, true);
+    }
+  }
+
+  // ───── 计算 ─────
+  const blank = () => ({ reg: 0, cost: 0, pay: 0, payAmt: 0, ftd: 0, ftdAmt: 0 });
+  function add(acc, r) {
+    acc.cost += state.db.prefs.costMode === 'promo' ? r[4] : r[3];
+    acc.reg += r[5]; acc.pay += r[6]; acc.payAmt += r[7]; acc.ftd += r[8]; acc.ftdAmt += r[9];
+    return acc;
+  }
+  const derive = a => ({
+    ...a,
+    cpa: a.ftd ? a.cost / a.ftd : 0,
+    conv: a.reg ? a.ftd / a.reg : 0,
+    roas: a.cost ? a.payAmt / a.cost : 0,
+    ftdRoas: a.cost ? a.ftdAmt / a.cost : 0,
+  });
+  function dayTotals(d) {
+    const out = { T: blank(), A: blank() };
+    for (const r of state.db.days[d]) if (r[0] !== 'O') add(out[r[0]], r);
+    return { T: derive(out.T), A: derive(out.A) };
+  }
+  function channels(group, ds) {
+    const m = new Map();
+    for (const d of ds) for (const r of state.db.days[d]) {
+      if (r[0] !== group) continue;
+      let c = m.get(r[1]);
+      if (!c) m.set(r[1], c = { id: r[1], name: r[2], ...blank() });
+      c.name = r[2]; // ds 升序，保留最新名称
+      add(c, r);
+    }
+    return [...m.values()].map(derive).sort((a, b) => b.cost - a.cost || b.reg - a.reg);
+  }
+
+  // ───── 格式 ─────
+  const fInt = v => Math.round(v).toLocaleString('en-US');
+  const fMoney = v => v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fPct = v => (v * 100).toFixed(2) + '%';
+  const shortDate = d => d.replace(/-0?/g, '/');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const diffCell = (v, fmt) => {
+    const cls = Math.abs(v) < 1e-9 ? '' : v > 0 ? 'pos' : 'neg';
+    return `<td class="n ${cls}">${fmt(v)}</td>`;
+  };
+
+  // ───── 渲染 ─────
+  const METRICS = [
+    ['注册数量', 'reg', fInt], ['消耗', 'cost', fMoney], ['充值数量', 'pay', fInt],
+    ['一级首充人数', 'ftd', fInt], ['一级首充获客成本', 'cpa', fMoney, 'cpa'],
+    ['注册转首充', 'conv', fPct], ['总ROAS', 'roas', fPct], ['一级首充ROAS', 'ftdRoas', fPct],
+  ];
+  const DIFF_NAME = { reg: '注册差值', cost: '消耗差值', pay: '充值差值', ftd: '一级首充人数差值', cpa: '成本差值', conv: '转化差值', roas: '总ROAS差值', ftdRoas: '一级首充ROAS差值' };
+  const DIFF_FMT = { reg: fInt, cost: fInt, pay: fInt, ftd: fInt, cpa: v => v.toFixed(2), conv: fPct, roas: fPct, ftdRoas: fPct };
+
+  function renderSummary(days) {
+    const el = $('summary');
+    if (!days.length) {
+      el.innerHTML = `<div class="empty"><strong>每日 TPD vs A8 对照表会出现在这里</strong><span>每上传一天的报表，这里就多一行：注册、消耗、充值、一级首充、获客成本、转化、ROAS，以及两边的差值。</span></div>`;
+      return;
+    }
+    const ta = state.db.prefs.diffMode !== 'at';
+    let h = `<div class="scroll"><table><thead><tr class="group"><th></th><th colspan="${METRICS.length * 3}">总代数据</th></tr><tr><th>日期</th>`;
+    for (const [lab, k] of METRICS) h += `<th>TPD${lab}</th><th class="a">A8${lab}</th><th class="d">${DIFF_NAME[k]}</th>`;
+    h += '</tr></thead><tbody>';
+    for (const d of [...days].reverse()) {
+      const { T, A } = dayTotals(d);
+      h += `<tr><td>${shortDate(d)}</td>`;
+      for (const [, k, fmt] of METRICS) h += `<td class="n">${fmt(T[k])}</td><td class="n">${fmt(A[k])}</td>${diffCell(ta ? T[k] - A[k] : A[k] - T[k], DIFF_FMT[k])}`;
+      h += '</tr>';
+    }
+    el.innerHTML = h + '</tbody></table></div>';
+  }
+
+  function renderChannels(elId, label, group, ds) {
+    const el = $(elId);
+    if (!ds.length) {
+      el.innerHTML = `<div class="empty"><strong>${label} 渠道表</strong><span>导入报表后，按渠道 ID 汇总所选区间并按消耗排序。</span></div>`;
+      return;
+    }
+    let list = channels(group, ds);
+    const n = list.length;
+    if ($('hideIdle').checked) list = list.filter(c => c.cost !== 0);
+    const tot = derive(list.reduce((a, c) => { for (const k in blank()) a[k] += c[k]; return a; }, blank()));
+    const row = (c, cls = '') => `<tr class="${cls}"><td class="c">${esc(c.id)}</td><td>${esc(c.name)}</td>` +
+      METRICS.map(([, k, fmt]) => `<td class="n">${fmt(c[k])}</td>`).join('') + '</tr>';
+    let h = `<div class="scroll t-${group}"><table><thead><tr class="group"><th colspan="${METRICS.length + 2}" style="text-align:left">${label}渠道（${n}个渠道，按消耗降序）</th></tr><tr><th>渠道ID</th><th>渠道名称</th>`;
+    h += METRICS.map(([lab]) => `<th>${lab}</th>`).join('') + '</tr></thead><tbody>';
+    h += list.map(c => row(c, c.cost === 0 ? 'idle' : '')).join('');
+    h += row({ ...tot, id: '合计', name: `${list.length} 个渠道` }, 'total');
+    el.innerHTML = h + '</tbody></table></div>';
+  }
+
+  function renderDates(days) {
+    $('dates').innerHTML = days.map(d => `<span class="chip">${d}<button type="button" aria-label="删除 ${d}" data-del="${d}">×</button></span>`).join('');
+    $('clearBtn').hidden = !days.length;
+  }
+
+  function range(days) {
+    if (!days.length) return [];
+    const last = days[days.length - 1];
+    let from = state.from, to = state.to;
+    if (!from || !to) {
+      to = last;
+      if (state.days === 0) from = days[0];
+      else { const t = new Date(to + 'T00:00:00Z'); t.setUTCDate(t.getUTCDate() - state.days + 1); from = t.toISOString().slice(0, 10); }
+    }
+    if (from > to) [from, to] = [to, from];
+    $('from').value = from; $('to').value = to;
+    $('from').min = $('to').min = days[0]; $('from').max = $('to').max = last;
+    return days.filter(d => d >= from && d <= to);
+  }
+
+  function render() {
+    const days = Object.keys(state.db.days).sort();
+    $('costMode').value = state.db.prefs.costMode || 'cost';
+    $('diffMode').value = state.db.prefs.diffMode || 'ta';
+    $('coverage').textContent = days.length
+      ? `数据覆盖 ${shortDate(days[0])} – ${shortDate(days[days.length - 1])} · 共 ${days.length} 天`
+      : '还没有数据 · 上传后台导出的「排名-渠道 USD」CSV 开始';
+    renderDates(days);
+    renderSummary(days);
+    const ds = range(days);
+    for (const b of $('quick').children) b.classList.toggle('on', !state.from && +b.dataset.days === state.days);
+    $('rangeLabel').textContent = ds.length ? `（${shortDate(ds[0]).slice(5)}–${shortDate(ds[ds.length - 1]).slice(5)}，${ds.length} 天）` : '';
+    renderChannels('tpd', 'TPD', 'T', ds);
+    renderChannels('a8', 'A8', 'A', ds);
+    const other = new Map();
+    for (const d of days) for (const r of state.db.days[d]) if (r[0] === 'O') other.set(r[1], (other.get(r[1]) || 0) + r[2]);
+    $('excluded').textContent = other.size ? `未计入：${[...other.keys()].join('、')}` : '';
+    $('exportBtn').hidden = !days.length || !window.XLSX;
+    $('copyBtn').hidden = !days.length;
+  }
+
+  // ───── 导出 ─────
+  function exportXlsx() {
+    const days = Object.keys(state.db.days).sort(); const ds = range(days);
+    const ta = state.db.prefs.diffMode !== 'at';
+    const sum = [['日期', ...METRICS.flatMap(([lab, k]) => [`TPD${lab}`, `A8${lab}`, DIFF_NAME[k]])]];
+    for (const d of [...days].reverse()) {
+      const { T, A } = dayTotals(d);
+      sum.push([shortDate(d), ...METRICS.flatMap(([, k]) => [T[k], A[k], ta ? T[k] - A[k] : A[k] - T[k]])]);
+    }
+    const chSheet = (g, label) => {
+      const list = channels(g, ds);
+      return [[`${label}渠道｜${shortDate(ds[0])}–${shortDate(ds[ds.length - 1])}累计｜${list.length}个不重复渠道ID｜按消耗降序`],
+        ['渠道ID', '渠道名称', ...METRICS.map(m => m[0])],
+        ...list.map(c => [c.id, c.name, ...METRICS.map(([, k]) => c[k])])];
+    };
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(sum), '每日汇总');
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(chSheet('T', 'TPD')), 'TPD渠道');
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(chSheet('A', 'A8')), 'A8渠道');
+    XLSX.writeFile(wb, `Betroia_每日渠道固定版_${days[days.length - 1].replace(/-/g, '')}.xlsx`);
+  }
+
+  // ───── 一键复制：画面上的三个表格（富文本表格 + 纯文本 TSV，贴飞书 / Excel 都是表格） ─────
+  const CELL = 'border:1px solid #c9ccd1;padding:4px 8px;white-space:nowrap;font-size:13px;';
+  function tableParts() {
+    const ds = range(Object.keys(state.db.days).sort());
+    const span = ds.length ? `${shortDate(ds[0])}–${shortDate(ds[ds.length - 1])}，${ds.length} 天` : '';
+    return [
+      ['四、推广数据 · 总代数据（每日）', $('summary').querySelector('table')],
+      [`TPD 渠道数据（${span}）`, $('tpd').querySelector('table')],
+      [`A8 渠道数据（${span}）`, $('a8').querySelector('table')],
+    ].filter(([, t]) => t);
+  }
+  function tableToTsv(t) {
+    return [...t.rows].map(r => [...r.cells].flatMap(c => [c.textContent.trim(), ...Array(c.colSpan - 1).fill('')]).join('\t')).join('\n');
+  }
+  function tableToHtml(t) {
+    const c = t.cloneNode(true);
+    c.removeAttribute('class');
+    c.setAttribute('style', 'border-collapse:collapse;font-family:sans-serif;');
+    for (const cell of c.querySelectorAll('th,td')) {
+      const tr = cell.parentElement;
+      let st = CELL;
+      if (cell.tagName === 'TH') st += 'background:#eef1f5;font-weight:bold;text-align:center;';
+      if (cell.classList.contains('n')) st += 'text-align:right;';
+      if (cell.classList.contains('pos')) st += 'color:#1a7f37;';
+      if (cell.classList.contains('neg')) st += 'color:#cf222e;';
+      if (tr.classList.contains('total')) st += 'font-weight:bold;background:#f6f8fa;';
+      if (tr.classList.contains('idle')) st += 'color:#8c959f;';
+      cell.setAttribute('style', st + (cell.getAttribute('style') || ''));
+      cell.removeAttribute('class');
+    }
+    return c.outerHTML;
+  }
+  async function copyTables() {
+    const parts = tableParts();
+    if (!parts.length) return;
+    const html = parts.map(([title, t]) => `<p style="font-weight:bold;margin:12px 0 4px">${esc(title)}</p>${tableToHtml(t)}`).join('<br>');
+    const text = parts.map(([title, t]) => `${title}\n${tableToTsv(t)}`).join('\n\n');
+    try {
+      await navigator.clipboard.write([new ClipboardItem({
+        'text/html': new Blob([html], { type: 'text/html' }),
+        'text/plain': new Blob([text], { type: 'text/plain' }),
+      })]);
+    } catch {
+      // 旧浏览器 / 没有剪贴板权限：用选取 + execCommand 复制富文本
+      const box = document.createElement('div');
+      box.contentEditable = 'true'; box.innerHTML = html;
+      box.style.cssText = 'position:fixed;left:-9999px;top:0;';
+      document.body.appendChild(box);
+      const sel = getSelection(); const rng = document.createRange(); rng.selectNodeContents(box);
+      sel.removeAllRanges(); sel.addRange(rng);
+      const ok = document.execCommand('copy');
+      sel.removeAllRanges(); box.remove();
+      if (!ok) return toast('复制失败：浏览器不允许读写剪贴板', true);
+    }
+    toast(`已复制 ${parts.length} 个表格，可直接贴到飞书 / Excel`);
+  }
+
+  function toast(msg, err) { const t = $('toast'); t.hidden = false; t.className = 'toast' + (err ? ' err' : ''); t.textContent = msg; }
+
+  // ───── 事件 ─────
+  const drop = $('drop');
+  $('loginForm').onsubmit = e => { e.preventDefault(); setKey($('pw').value); $('pw').value = ''; $('toast').hidden = true; boot(); };
+  $('loginCancel').onclick = () => { setKey(''); boot(); };
+  $('cloudBtn').onclick = () => {
+    if (!cloud()) return showLogin();
+    setKey(''); $('syncBar').hidden = true; boot(); toast('已断开云端，改用这台电脑里的数据');
+  };
+  $('syncYes').onclick = syncUp;
+  $('syncNo').onclick = () => { $('syncBar').hidden = true; };
+  $('pick').onclick = () => $('file').click();
+  $('file').onchange = e => { if (e.target.files.length) handleFiles([...e.target.files]); e.target.value = ''; };
+  ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+  ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+  drop.addEventListener('drop', e => { if (e.dataTransfer.files.length) handleFiles([...e.dataTransfer.files]); });
+  $('dates').onclick = e => { const d = e.target.dataset.del; if (d) mutate(`/api/days/${d}`, () => { delete state.db.days[d]; }); };
+  $('clearBtn').onclick = () => { $('clearConfirm').hidden = false; };
+  $('clearNo').onclick = () => { $('clearConfirm').hidden = true; };
+  $('clearYes').onclick = () => mutate('/api/days', () => { state.db.days = {}; $('clearConfirm').hidden = true; $('toast').hidden = true; });
+  $('quick').onclick = e => { const b = e.target.closest('[data-days]'); if (!b) return; state.days = +b.dataset.days; state.from = state.to = null; render(); };
+  $('from').onchange = $('to').onchange = () => { state.from = $('from').value; state.to = $('to').value; render(); };
+  $('hideIdle').onchange = render;
+  $('costMode').onchange = e => { state.db.prefs.costMode = e.target.value; savePrefs(); render(); };
+  $('diffMode').onchange = e => { state.db.prefs.diffMode = e.target.value; savePrefs(); render(); };
+  $('exportBtn').onclick = exportXlsx;
+  $('copyBtn').onclick = copyTables;
+
+  boot();
+})();
+</script>
+</body>
+</html>

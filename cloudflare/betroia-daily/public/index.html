@@ -197,11 +197,11 @@ details.rules dd { margin: 0; min-width: 0; }
         <dt>红灯</dt><dd>一级首充ROAS 近7日比前7日跌 ≥ 25%；或跌 15–25% 且近3日比前3日也跌 ≥ 15%（两个窗口同向）</dd>
         <dt>黄灯</dt><dd>近7日跌 15–25%；或跌 ≥ 25% 但近3日比前3日回升 ≥ 10% 且近3日首充 ≥ 20 人（标「回升中」）</dd>
         <dt>大盘同步</dt><dd>全站（两总代合计）近7日平均首充客单比前7日跌 > 10% 时，主因是「首充客单」的红灯降为黄灯并注明「大盘同步」——问题在活动/档位/营运端，不在投手</dd>
-        <dt>顶部红条</dt><dd>任一总代近7日 总ROAS 升 > 5% 且一级首充ROAS 跌 > 3% 时出现：总ROAS 是老客复充撑出来的，不代表新买进来的量</dd>
+        <dt>顶部红条</dt><dd>任一总代近7日 总ROAS 升 > 5% 且一级首充ROAS 跌 > 3% 时出现：总ROAS 的上升来自复充（现有数据分不出老客与新客的复充），不代表新买进来的量的首充回收</dd>
         <dt>主因</dt><dd>一级首充ROAS =（注册 ÷ 消耗）×（首充 ÷ 注册）×（首充金额 ÷ 首充），拆成「注册成本 / 注册转首充 / 首充客单」三段，跌最多的那段就是主因；第二段的跌幅达第一段的 80% 以上时标「混合」</dd>
         <dt>排序与影响金额</dt><dd>同灯号内按影响金额排序：近7日消耗 ×（前7日一级首充ROAS − 近7日一级首充ROAS），即按原本效率估算这段时间少收的一级首充金额</dd>
         <dt>2日 / 3日 / 7日</dt><dd>最近 N 个数据日 vs 再往前 N 个数据日；2日只当早期信号，不触发灯号</dd>
-        <dt>为什么不用总ROAS</dt><dd>总ROAS 含渠道老用户复充，会随时间自然变好看；两者方向相反时，总结会特别标出「老客撑盘」</dd>
+        <dt>为什么不用总ROAS</dt><dd>总ROAS 含渠道老用户复充，会随时间自然变好看；两者方向相反时，顶部红条会特别标出</dd>
         <dt>包型</dt><dd>取渠道名称第一段（原生包 / 轻量包 / H5 / PWA）</dd>
         <dt>媒体</dt><dd>按渠道名称关键字判断：FB/Facebook → Facebook；GG/GGS/谷歌/SEM → Google；TT/TikTok → TikTok；Kwai → Kwai；Mobflyer、Nativex、Liftoff、Moloco、Unity、PropellerAds、Moboost、Mobupps、Tec-Do、iClick、AD- 开头等 → 程序化/网盟；商店包/OPPO → 应用商店；其余 → 未标注（A8 多数渠道名称只有代理代号，会落在这里）</dd>
       </dl>
@@ -659,11 +659,11 @@ details.rules dd { margin: 0; min-width: 0; }
   const gName = g => (g === 'T' ? 'TPD' : 'A8');
   const MEDIA = [
     ['Facebook', /(^|[^a-z])(fb|facebook)([^a-z]|$)/i],
-    ['Google', /(^|[^a-z])(gg|ggs|google)([^a-z]|$)|谷歌|sem/i],
+    ['Google', /(^|[^a-z])(gg|ggs|google|sem)([^a-z]|$)|谷歌/i],
     ['TikTok', /(^|[^a-z])(tt|tiktok)([^a-z]|$)/i],
     ['Kwai', /kwai/i],
-    ['程序化/网盟', /mobflyer|hiitech|iclick|nativex|liftoff|moloco|unity|propeller|moboost|mobupps|tec-do|iaa|nvmob|pikumob|supply media|all in media|(^|[^a-z])nx([^a-z]|$)|(^|_)ad[-_]/i],
-    ['应用商店', /oppo|vivo|xiaomi|huawei|商店包/i],
+    ['程序化/网盟', /(^|[^a-z])(mobflyer|hiitech|iclick|nativex|liftoff|moloco|unity|propeller(ads)?|moboost|mobupps|tec-do|iaa|nvmob|pikumob|supply media|all in media|nx)([^a-z]|$)|(^|_)ad[-_]/i],
+    ['应用商店', /(^|[^a-z])(oppo|vivo|xiaomi|huawei)([^a-z]|$)|商店包/i],
   ];
   const mediaOf = name => { for (const [m, re] of MEDIA) if (re.test(name)) return m; return '未标注'; };
   const pkgOf = name => { const p = String(name).split('_')[0].trim().toUpperCase(); return p || '其他'; };
@@ -683,6 +683,11 @@ details.rules dd { margin: 0; min-width: 0; }
 
   // 一级首充ROAS 变化拆成三段（对数分解），回传按影响排序
   function causes(c, p) {
+    // 某段归零无法做对数分解：直接点名归零的那段
+    if (c.ftdAmt <= 0 || c.ftd <= 0 || c.reg <= 0) {
+      const t = c.reg <= 0 ? '注册归零' : c.ftd <= 0 ? '一级首充人数归零' : '一级首充金额归零';
+      return [{ k: t, v: -Infinity, t }, { k: '', v: 0, t: '' }, { k: '', v: 0, t: '' }];
+    }
     const ln = (a, b) => (a > 0 && b > 0 ? Math.log(a / b) : 0);
     return [
       { k: '注册成本', v: -ln(c.cpr, p.cpr), t: `注册成本 $${p.cpr.toFixed(1)}→$${c.cpr.toFixed(1)}` },
@@ -691,7 +696,7 @@ details.rules dd { margin: 0; min-width: 0; }
     ].sort((a, b) => a.v - b.v);
   }
 
-  const causeText = cs => (cs[0].v < 0 && cs[1].v < 0 && cs[1].v <= cs[0].v * 0.8 ? `混合：${cs[0].t}；${cs[1].t}` : cs[0].t);
+  const causeText = cs => (isFinite(cs[0].v) && cs[0].v < 0 && cs[1].v < 0 && cs[1].v <= cs[0].v * 0.8 ? `混合：${cs[0].t}；${cs[1].t}` : cs[0].t);
 
   function computeInsights(days) {
     const w = n => win(days, n), pw = n => win(days, n, n);
@@ -736,24 +741,23 @@ details.rules dd { margin: 0; min-width: 0; }
     }
 
     // 包型对照（近7日）
-    const pk = new Map();
-    for (const g of ['T', 'A']) for (const c of (w(7) ? channels(g, w(7)) : [])) {
-      const k = pkgOf(c.name);
-      if (!pk.has(k)) pk.set(k, { T: blank(), A: blank() });
-      const t = pk.get(k)[g];
-      for (const f in t) t[f] += c[f];
-    }
+    // 逐行分类后再加总（渠道改名时，每天的消耗归到当天名称对应的包型/媒体）
+    const bucket = (keyOf) => {
+      const mp = new Map();
+      for (const d of (w(7) || [])) for (const r of state.db.days[d]) {
+        if (r[0] !== 'T' && r[0] !== 'A') continue;
+        const k = keyOf(r[2]);
+        if (!mp.has(k)) mp.set(k, { T: blank(), A: blank() });
+        add(mp.get(k)[r[0]], r);
+      }
+      return mp;
+    };
+    const pk = bucket(pkgOf);
     const pkgs = [...pk.entries()].map(([k, v]) => ({ k, T: derive(v.T), A: derive(v.A) }))
       .sort((a, b) => (b.T.cost + b.A.cost) - (a.T.cost + a.A.cost));
 
     // 媒体对照（近7日）
-    const md = new Map();
-    for (const g of ['T', 'A']) for (const c of (w(7) ? channels(g, w(7)) : [])) {
-      const k = mediaOf(c.name);
-      if (!md.has(k)) md.set(k, { T: blank(), A: blank() });
-      const t = md.get(k)[g];
-      for (const f in t) t[f] += c[f];
-    }
+    const md = bucket(mediaOf);
     const order = ['Facebook', 'Google', 'TikTok', 'Kwai', '程序化/网盟', '应用商店', '未标注'];
     const medias = [...md.entries()].map(([k, v]) => ({ k, T: derive(v.T), A: derive(v.A) })).sort((a, b) => order.indexOf(a.k) - order.indexOf(b.k));
 
@@ -780,7 +784,7 @@ details.rules dd { margin: 0; min-width: 0; }
       const tot = I.trend.filter(t => t.n === 7).reduce((s, t) => s + t.cur.cost, 0);
       L.push(`<b>预警</b>：红灯 ${reds.length} 个、黄灯 ${yels.length} 个（共占近7日消耗 ${tot ? Math.round(covered / tot * 100) : 0}%；纳入预警的渠道 ${I.eligible} 个）`);
       for (const a of reds.slice(0, 3))
-        L.push(`🔴 ${gName(a.g)} ${esc(a.c.name)}（${a.c.id}）：近7日消耗 ${fK(a.c.cost)}，一级首充ROAS ${fPct(a.p.ftdRoas)}→${fPct(a.c.ftdRoas)}，少收约 ${fK(a.loss)}，主因 ${causeText(a.cs)}${a.note ? '，' + a.note : ''}`);
+        L.push(`🔴 ${gName(a.g)} ${esc(a.c.name)}（${esc(a.c.id)}）：近7日消耗 ${fK(a.c.cost)}，一级首充ROAS ${fPct(a.p.ftdRoas)}→${fPct(a.c.ftdRoas)}，少收约 ${fK(a.loss)}，主因 ${causeText(a.cs)}${a.note ? '，' + a.note : ''}`);
       const flagged = I.alerts.filter(a => a.lv);
       if (flagged.length >= 3) {
         const cnt = {}; flagged.forEach(a => { const k = causeText(a.cs).startsWith('混合') ? '混合' : a.cs[0].k; cnt[k] = (cnt[k] || 0) + 1; });
@@ -806,7 +810,8 @@ details.rules dd { margin: 0; min-width: 0; }
     $('insAsOf').textContent = `（数据日 ${shortDate(I.asOf)}）`;
     const lines = insightLines(I);
     $('banner').hidden = !I.bannerGroups.length;
-    $('banner').textContent = I.bannerGroups.length ? `⚠️ 新客质量在下滑：${I.bannerGroups.join('；')}。总ROAS 是老客复充撑出来的，今天加预算买到的新客不会有这个回收。` : '';
+    $('banner').textContent = I.bannerGroups.length ? `⚠️ 新客质量在下滑：${I.bannerGroups.join('；')}。总ROAS 的上升来自复充、不是首充——不能拿总ROAS 估算今天加预算买进来的新客回收。` : '';
+    if (days.length < 14) lines.push(`<b>数据天数</b>：目前 ${days.length} 个数据日；7日 vs 前7日 的预警与对比需要至少 14 个数据日，在那之前预警清单不作判断`);
     $('insights').innerHTML = (lines.length ? lines : ['数据不足 2 天，还无法比较变化']).map(l => `<li>${l}</li>`).join('');
 
     let h = '<div class="scroll"><table><thead><tr><th>总代</th><th>窗口</th><th>消耗</th><th>变化</th><th>注册</th><th>变化</th><th>一级首充</th><th>变化</th><th>注册转首充</th><th>变化</th><th>CPA</th><th>变化</th><th>一级首充ROAS</th><th>变化</th><th>总ROAS</th><th>变化</th></tr></thead><tbody>';
@@ -824,7 +829,8 @@ details.rules dd { margin: 0; min-width: 0; }
     $('trend').innerHTML = h + '</tbody></table></div>';
 
     const flagged = I.alerts.filter(a => a.lv);
-    if (!flagged.length) $('alerts').innerHTML = `<div class="empty"><strong>没有亮灯的渠道</strong><span>纳入预警的 ${I.eligible} 个渠道，近7日一级首充ROAS 都没有明显下滑</span></div>`;
+    if (days.length < 14) $('alerts').innerHTML = `<div class="empty"><strong>还无法评估</strong><span>需要至少 14 个数据日（目前 ${days.length} 天）才能比较近7日与前7日</span></div>`;
+    else if (!flagged.length) $('alerts').innerHTML = `<div class="empty"><strong>没有亮灯的渠道</strong><span>纳入预警的 ${I.eligible} 个渠道，近7日一级首充ROAS 都没有明显下滑</span></div>`;
     else {
       let a = '<div class="scroll"><table><thead><tr><th>灯号</th><th>总代</th><th>渠道ID</th><th>渠道名称</th><th>包型</th><th>近7日消耗</th><th>影响金额</th><th>一级首充ROAS<br>前7日→近7日</th><th>7日变化</th><th>3日变化</th><th>2日变化</th><th>注册 7日变化</th><th>首充人数 7日变化</th><th>主因</th></tr></thead><tbody>';
       for (const x of flagged) {
@@ -880,7 +886,7 @@ details.rules dd { margin: 0; min-width: 0; }
     ].filter(([, t]) => t);
   }
   function tableToTsv(t) {
-    return [...t.rows].map(r => [...r.cells].flatMap(c => [c.textContent.trim(), ...Array(c.colSpan - 1).fill('')]).join('\t')).join('\n');
+    return [...t.rows].map(r => [...r.cells].flatMap(c => [c.textContent.replace(/[\t\r\n]+/g, ' ').trim(), ...Array(c.colSpan - 1).fill('')]).join('\t')).join('\n');
   }
   function tableToHtml(t) {
     const c = t.cloneNode(true);

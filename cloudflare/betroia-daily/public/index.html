@@ -115,6 +115,7 @@ td.neg { background: var(--neg-bg) !important; color: var(--neg-fg); font-weight
 tr.idle td { color: var(--dim); }
 tr.total td { font-weight: 700; border-top: 2px solid var(--head); }
 
+.banner { background: var(--neg-bg); color: var(--neg-fg); border-radius: 4px; padding: 10px 12px; font-weight: 700; line-height: 1.5; }
 .insights { margin: 0; padding-left: 20px; display: grid; gap: 6px; line-height: 1.6; }
 .insights b { font-weight: 700; }
 .panel h3 { margin: 4px 0 0; font-size: 14px; }
@@ -179,6 +180,7 @@ details.rules dd { margin: 0; min-width: 0; }
       <h2 id="ins-h">今日总结 <span class="sub" id="insAsOf"></span></h2>
       <span class="note">按最新数据日往回算，不受下方日期区间影响；ROAS 以一级首充ROAS（新客质量）为准</span>
     </div>
+    <div class="banner" id="banner" hidden></div>
     <ul class="insights" id="insights"></ul>
     <h3>大盘变化（本期 vs 前一同长度期间）</h3>
     <div id="trend"></div>
@@ -186,17 +188,22 @@ details.rules dd { margin: 0; min-width: 0; }
     <div id="alerts"></div>
     <h3>TPD vs A8 同包型对照（近7日）</h3>
     <div id="pkg"></div>
+    <h3>TPD vs A8 同媒体对照（近7日 · 按渠道名称关键字判断）</h3>
+    <div id="media"></div>
     <details class="rules">
       <summary>预警规则</summary>
       <dl>
         <dt>纳入条件</dt><dd>近7日消耗 ≥ $3,000 且一级首充 ≥ 30 人，且前7日有一级首充金额（小渠道百分比噪音太大，不进预警）</dd>
         <dt>红灯</dt><dd>一级首充ROAS 近7日比前7日跌 ≥ 25%；或跌 15–25% 且近3日比前3日也跌 ≥ 15%（两个窗口同向）</dd>
-        <dt>黄灯</dt><dd>近7日跌 15–25%；或跌 ≥ 25% 但近3日已回升（标「回升中」）</dd>
-        <dt>主因</dt><dd>一级首充ROAS =（注册 ÷ 消耗）×（首充 ÷ 注册）×（首充金额 ÷ 首充），拆成「注册成本 / 注册转首充 / 首充客单」三段，跌最多的那段就是主因</dd>
+        <dt>黄灯</dt><dd>近7日跌 15–25%；或跌 ≥ 25% 但近3日比前3日回升 ≥ 10% 且近3日首充 ≥ 20 人（标「回升中」）</dd>
+        <dt>大盘同步</dt><dd>全站（两总代合计）近7日平均首充客单比前7日跌 > 10% 时，主因是「首充客单」的红灯降为黄灯并注明「大盘同步」——问题在活动/档位/营运端，不在投手</dd>
+        <dt>顶部红条</dt><dd>任一总代近7日 总ROAS 升 > 5% 且一级首充ROAS 跌 > 3% 时出现：总ROAS 是老客复充撑出来的，不代表新买进来的量</dd>
+        <dt>主因</dt><dd>一级首充ROAS =（注册 ÷ 消耗）×（首充 ÷ 注册）×（首充金额 ÷ 首充），拆成「注册成本 / 注册转首充 / 首充客单」三段，跌最多的那段就是主因；第二段的跌幅达第一段的 80% 以上时标「混合」</dd>
         <dt>排序与影响金额</dt><dd>同灯号内按影响金额排序：近7日消耗 ×（前7日一级首充ROAS − 近7日一级首充ROAS），即按原本效率估算这段时间少收的一级首充金额</dd>
         <dt>2日 / 3日 / 7日</dt><dd>最近 N 个数据日 vs 再往前 N 个数据日；2日只当早期信号，不触发灯号</dd>
         <dt>为什么不用总ROAS</dt><dd>总ROAS 含渠道老用户复充，会随时间自然变好看；两者方向相反时，总结会特别标出「老客撑盘」</dd>
-        <dt>包型</dt><dd>取渠道名称第一段（原生包 / 轻量包 / H5 / PWA）；名称里没有可靠的媒体栏位，所以 TPD vs A8 只按包型比</dd>
+        <dt>包型</dt><dd>取渠道名称第一段（原生包 / 轻量包 / H5 / PWA）</dd>
+        <dt>媒体</dt><dd>按渠道名称关键字判断：FB/Facebook → Facebook；GG/GGS/谷歌/SEM → Google；TT/TikTok → TikTok；Kwai → Kwai；Mobflyer、Nativex、Liftoff、Moloco、Unity、PropellerAds、Moboost、iClick 等 → 程序化/网盟；其余 → 未标注（A8 多数渠道名称只有代理代号，会落在这里）</dd>
       </dl>
     </details>
   </section>
@@ -650,6 +657,14 @@ details.rules dd { margin: 0; min-width: 0; }
   const fChg = v => v == null ? '—' : (v >= 0 ? '+' : '') + (v * 100).toFixed(0) + '%';
   const fK = v => v >= 10000 ? '$' + (v / 1000).toFixed(1) + 'k' : '$' + fInt(v);
   const gName = g => (g === 'T' ? 'TPD' : 'A8');
+  const MEDIA = [
+    ['Facebook', /(^|[^a-z])(fb|facebook)([^a-z]|$)/i],
+    ['Google', /(^|[^a-z])(gg|ggs|google)([^a-z]|$)|谷歌|sem/i],
+    ['TikTok', /(^|[^a-z])(tt|tiktok)([^a-z]|$)/i],
+    ['Kwai', /kwai/i],
+    ['程序化/网盟', /mobflyer|hiitech|iclick|nativex|liftoff|moloco|unity|propeller|moboost|nvmob|pikumob|supply media|all in media|(^|[^a-z])nx([^a-z]|$)/i],
+  ];
+  const mediaOf = name => { for (const [m, re] of MEDIA) if (re.test(name)) return m; return '未标注'; };
   const pkgOf = name => { const p = String(name).split('_')[0].trim().toUpperCase(); return p || '其他'; };
   // 好坏方向：成本类上升 = 坏
   const chgTd = (v, badWhenUp) => {
@@ -675,6 +690,8 @@ details.rules dd { margin: 0; min-width: 0; }
     ].sort((a, b) => a.v - b.v);
   }
 
+  const causeText = cs => (cs[0].v < 0 && cs[1].v < 0 && cs[1].v <= cs[0].v * 0.8 ? `混合：${cs[0].t}；${cs[1].t}` : cs[0].t);
+
   function computeInsights(days) {
     const w = n => win(days, n), pw = n => win(days, n, n);
     const alerts = [];
@@ -689,12 +706,21 @@ details.rules dd { margin: 0; min-width: 0; }
         const ch2 = r2 && q2 ? chg(r2.ftdRoas, q2.ftdRoas) : null;
         let lv = ch7 <= -0.25 ? 'red' : ch7 <= -0.15 ? 'yel' : '';
         let note = '';
-        if (lv === 'red' && ch3 != null && ch3 >= 0) { lv = 'yel'; note = '近3日回升中'; }
+        if (lv === 'red' && ch3 != null && ch3 >= 0.10 && r3 && r3.ftd >= 20) { lv = 'yel'; note = '近3日回升中'; }
         else if (lv === 'yel' && ch3 != null && ch3 <= -0.15) { lv = 'red'; note = '3日/7日同向下滑'; }
         const cs = causes(c, p);
         // 影响金额：按前7日的一级首充ROAS，本期这笔消耗少收的一级首充金额
         const loss = c.cost * (p.ftdRoas - c.ftdRoas);
         alerts.push({ g, c, p, ch7, ch3, ch2, lv, note, cs, loss, regChg: chg(c.reg, p.reg), ftdChg: chg(c.ftd, p.ftd) });
+      }
+    }
+    // 全站首充客单（两总代合计）：大盘跌 > 10% 时，主因=首充客单 的红灯降黄
+    const site = (ds => { if (!ds) return null; const t = groupTotals(ds); return derive(['reg', 'cost', 'pay', 'payAmt', 'ftd', 'ftdAmt'].reduce((o, k) => (o[k] = t.T[k] + t.A[k], o), {})); });
+    const siteCur = site(w(7)), sitePrev = site(pw(7));
+    const siteArppuChg = siteCur && sitePrev ? chg(siteCur.arppu, sitePrev.arppu) : null;
+    for (const a of alerts) {
+      if (a.lv === 'red' && a.cs[0].k === '首充客单' && siteArppuChg != null && siteArppuChg < -0.10) {
+        a.lv = 'yel'; a.note = (a.note ? a.note + '；' : '') + `大盘同步 ${fChg(siteArppuChg)}`;
       }
     }
     const lvRank = { red: 0, yel: 1, '': 2 };
@@ -719,30 +745,44 @@ details.rules dd { margin: 0; min-width: 0; }
     const pkgs = [...pk.entries()].map(([k, v]) => ({ k, T: derive(v.T), A: derive(v.A) }))
       .sort((a, b) => (b.T.cost + b.A.cost) - (a.T.cost + a.A.cost));
 
-    return { asOf: days[days.length - 1], alerts, trend, pkgs, eligible: alerts.length };
+    // 媒体对照（近7日）
+    const md = new Map();
+    for (const g of ['T', 'A']) for (const c of (w(7) ? channels(g, w(7)) : [])) {
+      const k = mediaOf(c.name);
+      if (!md.has(k)) md.set(k, { T: blank(), A: blank() });
+      const t = md.get(k)[g];
+      for (const f in t) t[f] += c[f];
+    }
+    const order = ['Facebook', 'Google', 'TikTok', 'Kwai', '程序化/网盟', '未标注'];
+    const medias = [...md.entries()].map(([k, v]) => ({ k, T: derive(v.T), A: derive(v.A) })).sort((a, b) => order.indexOf(a.k) - order.indexOf(b.k));
+
+    return { asOf: days[days.length - 1], alerts, trend, pkgs, medias, siteCur, sitePrev, siteArppuChg, eligible: alerts.length };
   }
 
   function insightLines(I) {
     const L = [];
+    I.bannerGroups = [];
     const t7 = g => I.trend.find(t => t.g === g && t.n === 7);
     for (const g of ['T', 'A']) {
       const t = t7(g);
       if (!t || !t.prev) continue;
       const fr = chg(t.cur.ftdRoas, t.prev.ftdRoas), tr = chg(t.cur.roas, t.prev.roas), fc = chg(t.cur.ftd, t.prev.ftd), cc = chg(t.cur.cost, t.prev.cost);
       L.push(`<b>${gName(g)} 近7日</b>：消耗 ${fK(t.cur.cost)}（${fChg(cc)}），一级首充 ${fInt(t.cur.ftd)} 人（${fChg(fc)}），CPA $${t.cur.cpa.toFixed(1)}，一级首充ROAS ${fPct(t.cur.ftdRoas)}（${fChg(fr)}）`);
-      if (fr != null && tr != null && tr > 0.05 && fr < -0.03)
-        L.push(`<b>${gName(g)} 老客撑盘</b>：总ROAS ${fChg(tr)} 但一级首充ROAS ${fChg(fr)}，增长来自老用户复充，新客获客质量在降`);
+      if (fr != null && tr != null && tr > 0.05 && fr < -0.03) I.bannerGroups.push(`${gName(g)} 总ROAS ${fChg(tr)}、一级首充ROAS ${fChg(fr)}`);
     }
+    if (I.siteArppuChg != null)
+      L.push(`<b>全站首充客单</b>：近7日 $${I.siteCur.arppu.toFixed(2)}，前7日 $${I.sitePrev.arppu.toFixed(2)}（${fChg(I.siteArppuChg)}）` +
+        (I.siteArppuChg < -0.10 ? '——大盘同步下滑，客单类预警已降为黄灯，先查活动/档位/营运端' : '——大盘变化不大，渠道的客单下滑是渠道自己的问题'));
     const reds = I.alerts.filter(a => a.lv === 'red'), yels = I.alerts.filter(a => a.lv === 'yel');
     if (I.eligible) {
       const covered = I.alerts.filter(a => a.lv).reduce((s, a) => s + a.c.cost, 0);
       const tot = I.trend.filter(t => t.n === 7).reduce((s, t) => s + t.cur.cost, 0);
       L.push(`<b>预警</b>：红灯 ${reds.length} 个、黄灯 ${yels.length} 个（共占近7日消耗 ${tot ? Math.round(covered / tot * 100) : 0}%；纳入预警的渠道 ${I.eligible} 个）`);
       for (const a of reds.slice(0, 3))
-        L.push(`🔴 ${gName(a.g)} ${esc(a.c.name)}（${a.c.id}）：近7日消耗 ${fK(a.c.cost)}，一级首充ROAS ${fPct(a.p.ftdRoas)}→${fPct(a.c.ftdRoas)}，少收约 ${fK(a.loss)}，主因 ${a.cs[0].t}${a.note ? '，' + a.note : ''}`);
+        L.push(`🔴 ${gName(a.g)} ${esc(a.c.name)}（${a.c.id}）：近7日消耗 ${fK(a.c.cost)}，一级首充ROAS ${fPct(a.p.ftdRoas)}→${fPct(a.c.ftdRoas)}，少收约 ${fK(a.loss)}，主因 ${causeText(a.cs)}${a.note ? '，' + a.note : ''}`);
       const flagged = I.alerts.filter(a => a.lv);
       if (flagged.length >= 3) {
-        const cnt = {}; flagged.forEach(a => { cnt[a.cs[0].k] = (cnt[a.cs[0].k] || 0) + 1; });
+        const cnt = {}; flagged.forEach(a => { const k = causeText(a.cs).startsWith('混合') ? '混合' : a.cs[0].k; cnt[k] = (cnt[k] || 0) + 1; });
         const top = Object.entries(cnt).sort((a, b) => b[1] - a[1])[0];
         L.push(`<b>共同问题</b>：${flagged.length} 个亮灯渠道中 ${top[1]} 个主因是「${top[0]}」`);
       }
@@ -764,6 +804,8 @@ details.rules dd { margin: 0; min-width: 0; }
     const I = computeInsights(days);
     $('insAsOf').textContent = `（数据日 ${shortDate(I.asOf)}）`;
     const lines = insightLines(I);
+    $('banner').hidden = !I.bannerGroups.length;
+    $('banner').textContent = I.bannerGroups.length ? `⚠️ 新客质量在下滑：${I.bannerGroups.join('；')}。总ROAS 是老客复充撑出来的，今天加预算买到的新客不会有这个回收。` : '';
     $('insights').innerHTML = (lines.length ? lines : ['数据不足 2 天，还无法比较变化']).map(l => `<li>${l}</li>`).join('');
 
     let h = '<div class="scroll"><table><thead><tr><th>总代</th><th>窗口</th><th>消耗</th><th>变化</th><th>注册</th><th>变化</th><th>一级首充</th><th>变化</th><th>注册转首充</th><th>变化</th><th>CPA</th><th>变化</th><th>一级首充ROAS</th><th>变化</th><th>总ROAS</th><th>变化</th></tr></thead><tbody>';
@@ -785,11 +827,12 @@ details.rules dd { margin: 0; min-width: 0; }
     else {
       let a = '<div class="scroll"><table><thead><tr><th>灯号</th><th>总代</th><th>渠道ID</th><th>渠道名称</th><th>包型</th><th>近7日消耗</th><th>影响金额</th><th>一级首充ROAS<br>前7日→近7日</th><th>7日变化</th><th>3日变化</th><th>2日变化</th><th>注册 7日变化</th><th>首充人数 7日变化</th><th>主因</th></tr></thead><tbody>';
       for (const x of flagged) {
-        const second = x.cs[1].v < -0.1 ? `；其次 ${x.cs[1].t}` : '';
+        const mixed = causeText(x.cs) !== x.cs[0].t;
+        const second = !mixed && x.cs[1].v < -0.1 ? `；其次 ${x.cs[1].t}` : '';
         a += `<tr><td><span class="lv lv-${x.lv}">${x.lv === 'red' ? '红' : '黄'}</span></td><td>${gName(x.g)}</td><td class="c">${esc(x.c.id)}</td><td>${esc(x.c.name)}</td><td>${esc(pkgOf(x.c.name))}</td>` +
           `<td class="n">${fMoney(x.c.cost)}</td><td class="n">-${fMoney(Math.max(0, x.loss))}</td><td class="n">${fPct(x.p.ftdRoas)} → ${fPct(x.c.ftdRoas)}</td>` +
           `${chgTd(x.ch7)}${chgTd(x.ch3)}${chgTd(x.ch2)}${chgTd(x.regChg)}${chgTd(x.ftdChg)}` +
-          `<td>${x.cs[0].t}${second}${x.note ? `（${x.note}）` : ''}</td></tr>`;
+          `<td>${causeText(x.cs)}${second}${x.note ? `（${x.note}）` : ''}</td></tr>`;
       }
       $('alerts').innerHTML = a + '</tbody></table></div>';
     }
@@ -806,6 +849,18 @@ details.rules dd { margin: 0; min-width: 0; }
         `<td class="n">${v(p.T, x => fPct(x.roas))}</td><td class="n">${v(p.A, x => fPct(x.roas))}</td></tr>`;
     }
     $('pkg').innerHTML = k + '</tbody></table></div><p class="note">消耗低于 $300 的格子显示「—」（样本太小）</p>';
+
+    let mh = '<div class="scroll"><table><thead><tr><th>媒体</th><th>TPD 消耗</th><th class="a">A8 消耗</th><th>TPD CPA</th><th class="a">A8 CPA</th><th>TPD 注册转首充</th><th class="a">A8 注册转首充</th><th>TPD 一级首充ROAS</th><th class="a">A8 一级首充ROAS</th></tr></thead><tbody>';
+    let unA = 0, totA = 0;
+    for (const m of I.medias) {
+      totA += m.A.cost; if (m.k === '未标注') unA = m.A.cost;
+      if (m.T.cost + m.A.cost < 300) continue;
+      mh += `<tr><td>${esc(m.k)}</td><td class="n">${fMoney(m.T.cost)}</td><td class="n">${fMoney(m.A.cost)}</td>` +
+        `<td class="n">${v(m.T, x => fMoney(x.cpa))}</td><td class="n">${v(m.A, x => fMoney(x.cpa))}</td>` +
+        `<td class="n">${v(m.T, x => fPct(x.conv))}</td><td class="n">${v(m.A, x => fPct(x.conv))}</td>` +
+        `<td class="n">${v(m.T, x => fPct(x.ftdRoas))}</td><td class="n">${v(m.A, x => fPct(x.ftdRoas))}</td></tr>`;
+    }
+    $('media').innerHTML = mh + `</tbody></table></div><p class="note">A8 近7日消耗中 ${totA ? Math.round(unA / totA * 100) : 0}% 的渠道名称没有媒体关键字（归「未标注」），A8 的媒体对比只代表有标注的那部分</p>`;
   }
 
   // ───── 一键复制：画面上的三个表格（富文本表格 + 纯文本 TSV，贴飞书 / Excel 都是表格） ─────
@@ -817,6 +872,7 @@ details.rules dd { margin: 0; min-width: 0; }
       ['大盘变化（本期 vs 前一同长度期间）', $('trend').querySelector('table')],
       ['预警清单（一级首充ROAS · 近7日 vs 前7日）', $('alerts').querySelector('table')],
       ['TPD vs A8 同包型对照（近7日）', $('pkg').querySelector('table')],
+      ['TPD vs A8 同媒体对照（近7日）', $('media').querySelector('table')],
       ['四、推广数据 · 总代数据（每日）', $('summary').querySelector('table')],
       [`TPD 渠道数据（${span}）`, $('tpd').querySelector('table')],
       [`A8 渠道数据（${span}）`, $('a8').querySelector('table')],
@@ -849,8 +905,9 @@ details.rules dd { margin: 0; min-width: 0; }
     const parts = tableParts();
     if (!parts.length) return;
     const lis = [...$('insights').children];
-    const head = lis.length ? `<p style="font-weight:bold;margin:0 0 4px">Betroia 渠道日报 · 今日总结${esc($('insAsOf').textContent)}</p><ul>${lis.map(li => `<li>${li.innerHTML}</li>`).join('')}</ul>` : '';
-    const headText = lis.length ? `Betroia 渠道日报 · 今日总结${$('insAsOf').textContent}\n${lis.map(li => '• ' + li.textContent).join('\n')}\n\n` : '';
+    const bn = $('banner').hidden ? '' : $('banner').textContent;
+    const head = lis.length ? `<p style="font-weight:bold;margin:0 0 4px">Betroia 渠道日报 · 今日总结${esc($('insAsOf').textContent)}</p>${bn ? `<p style="font-weight:bold;color:#cf222e">${esc(bn)}</p>` : ''}<ul>${lis.map(li => `<li>${li.innerHTML}</li>`).join('')}</ul>` : '';
+    const headText = lis.length ? `Betroia 渠道日报 · 今日总结${$('insAsOf').textContent}\n${bn ? bn + '\n' : ''}${lis.map(li => '• ' + li.textContent).join('\n')}\n\n` : '';
     const html = head + parts.map(([title, t]) => `<p style="font-weight:bold;margin:12px 0 4px">${esc(title)}</p>${tableToHtml(t)}`).join('<br>');
     const text = headText + parts.map(([title, t]) => `${title}\n${tableToTsv(t)}`).join('\n\n');
     try {

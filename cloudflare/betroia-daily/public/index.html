@@ -203,7 +203,7 @@ details.rules dd { margin: 0; min-width: 0; }
         <dt>2日 / 3日 / 7日</dt><dd>最近 N 个数据日 vs 再往前 N 个数据日；2日只当早期信号，不触发灯号</dd>
         <dt>为什么不用总ROAS</dt><dd>总ROAS 含渠道老用户复充，会随时间自然变好看；两者方向相反时，总结会特别标出「老客撑盘」</dd>
         <dt>包型</dt><dd>取渠道名称第一段（原生包 / 轻量包 / H5 / PWA）</dd>
-        <dt>媒体</dt><dd>按渠道名称关键字判断：FB/Facebook → Facebook；GG/GGS/谷歌/SEM → Google；TT/TikTok → TikTok；Kwai → Kwai；Mobflyer、Nativex、Liftoff、Moloco、Unity、PropellerAds、Moboost、iClick 等 → 程序化/网盟；其余 → 未标注（A8 多数渠道名称只有代理代号，会落在这里）</dd>
+        <dt>媒体</dt><dd>按渠道名称关键字判断：FB/Facebook → Facebook；GG/GGS/谷歌/SEM → Google；TT/TikTok → TikTok；Kwai → Kwai；Mobflyer、Nativex、Liftoff、Moloco、Unity、PropellerAds、Moboost、Mobupps、Tec-Do、iClick、AD- 开头等 → 程序化/网盟；商店包/OPPO → 应用商店；其余 → 未标注（A8 多数渠道名称只有代理代号，会落在这里）</dd>
       </dl>
     </details>
   </section>
@@ -662,7 +662,8 @@ details.rules dd { margin: 0; min-width: 0; }
     ['Google', /(^|[^a-z])(gg|ggs|google)([^a-z]|$)|谷歌|sem/i],
     ['TikTok', /(^|[^a-z])(tt|tiktok)([^a-z]|$)/i],
     ['Kwai', /kwai/i],
-    ['程序化/网盟', /mobflyer|hiitech|iclick|nativex|liftoff|moloco|unity|propeller|moboost|nvmob|pikumob|supply media|all in media|(^|[^a-z])nx([^a-z]|$)/i],
+    ['程序化/网盟', /mobflyer|hiitech|iclick|nativex|liftoff|moloco|unity|propeller|moboost|mobupps|tec-do|iaa|nvmob|pikumob|supply media|all in media|(^|[^a-z])nx([^a-z]|$)|(^|_)ad[-_]/i],
+    ['应用商店', /oppo|vivo|xiaomi|huawei|商店包/i],
   ];
   const mediaOf = name => { for (const [m, re] of MEDIA) if (re.test(name)) return m; return '未标注'; };
   const pkgOf = name => { const p = String(name).split('_')[0].trim().toUpperCase(); return p || '其他'; };
@@ -753,7 +754,7 @@ details.rules dd { margin: 0; min-width: 0; }
       const t = md.get(k)[g];
       for (const f in t) t[f] += c[f];
     }
-    const order = ['Facebook', 'Google', 'TikTok', 'Kwai', '程序化/网盟', '未标注'];
+    const order = ['Facebook', 'Google', 'TikTok', 'Kwai', '程序化/网盟', '应用商店', '未标注'];
     const medias = [...md.entries()].map(([k, v]) => ({ k, T: derive(v.T), A: derive(v.A) })).sort((a, b) => order.indexOf(a.k) - order.indexOf(b.k));
 
     return { asOf: days[days.length - 1], alerts, trend, pkgs, medias, siteCur, sitePrev, siteArppuChg, eligible: alerts.length };

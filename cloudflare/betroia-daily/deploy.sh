@@ -3,6 +3,9 @@
 # 用法：bash deploy.sh   （token 用 ~/.cloudflare/game-pnl.env：Pages + R2；团队通行码在 ~/.cloudflare/betroia-daily-team-code.txt）
 set -euo pipefail
 cd "$(dirname "$0")"
+# 只允许 index.html 进公开目录：任何其他档案（例如 QC 用的真实数据）一律拒绝部署
+extra=$(find public -type f ! -name index.html)
+if [ -n "$extra" ]; then echo "✖ public/ 里有不该公开的档案，已中止部署："; echo "$extra"; exit 1; fi
 set -a; source ~/.cloudflare/game-pnl.env >/dev/null 2>&1; set +a
 export CLOUDFLARE_ACCOUNT_ID=0b01ecfddc37c9dc08e614a87e2337ce
 W="npx --yes wrangler@4"

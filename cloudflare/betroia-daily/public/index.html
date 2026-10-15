@@ -189,7 +189,7 @@ details.rules dd { margin: 0; min-width: 0; }
     <div id="alerts"></div>
     <h3>TPD vs A8 同包型对照（近7日）</h3>
     <div id="pkg"></div>
-    <h3>TPD vs A8 同媒体对照（近7日 · 按渠道名称关键字判断）</h3>
+    <h3>TPD vs A8 同媒体对照（近7日）</h3>
     <div id="media"></div>
     <details class="rules">
       <summary>预警规则</summary>
@@ -207,7 +207,7 @@ details.rules dd { margin: 0; min-width: 0; }
         <dt>2日 / 3日 / 7日</dt><dd>一级首充ROAS 最近 N 个数据日 vs 再往前 N 个数据日，只作参考，不决定灯号</dd>
         <dt>为什么不用总ROAS</dt><dd>总ROAS 含渠道老用户复充，会随时间自然变好看；两者方向相反时，顶部红条会特别标出</dd>
         <dt>包型</dt><dd>取渠道名称第一段（原生包 / 轻量包 / H5 / PWA）</dd>
-        <dt>媒体</dt><dd>按渠道名称关键字判断：FB/Facebook → Facebook；GG/GGS/谷歌/SEM → Google；TT/TikTok → TikTok；Kwai → Kwai；Mobflyer、Nativex、Liftoff、Moloco、Unity、PropellerAds、Moboost、Mobupps、Tec-Do、iClick、AD- 开头等 → 程序化/网盟；商店包/OPPO → 应用商店；其余 → 未标注（A8 多数渠道名称只有代理代号，会落在这里）</dd>
+        <dt>媒体</dt><dd>优先按「渠道管理列表」：渠道 ID → 所属总代「X_投放_媒体_包体_短名」的媒体段（Tiktok / Facebook / Google / GoogleSearch / DSP / Kwai / Microsoft / 网红）。没导入或新渠道不在表里时，才按渠道名称关键字推断：FB/Facebook → Facebook；GG/GGS/谷歌/SEM → Google；TT/TikTok → TikTok；Kwai → Kwai；Mobflyer、Nativex、Liftoff、Moloco、Unity、PropellerAds、Moboost、Mobupps、Tec-Do、iClick、AD- 开头等 → DSP/网盟；商店包/OPPO → 应用商店；其余 → 未标注（A8 多数渠道名称只有代理代号，会落在这里）</dd>
       </dl>
     </details>
   </section>
@@ -218,7 +218,7 @@ details.rules dd { margin: 0; min-width: 0; }
       <span class="note" id="modeNote"></span>
     </div>
     <div class="drop" id="drop">
-      <p>把 CSV（或原始 .xlsx）拖到这里，可一次放多天。<br><span class="note">同一天重复上传会覆盖旧数据；渠道新增、减少都会自动重新计算。</span></p>
+      <p>把 CSV（或原始 .xlsx）拖到这里，可一次放多天。也可以拖入后台「渠道管理列表」导出档，用来对照每个渠道的媒体。<br><span class="note">同一天重复上传会覆盖旧数据；渠道新增、减少都会自动重新计算。</span></p>
       <div class="seg">
         <input type="file" id="file" accept=".csv,.xlsx,.xls" multiple hidden>
         <button class="btn primary" type="button" id="pick">选择文件</button>
@@ -304,11 +304,12 @@ details.rules dd { margin: 0; min-width: 0; }
   const PREFS_KEY = 'betroia-prefs-v1';
   const AUTH_KEY = 'betroia-key';
   const LOCAL_KEY = 'betroia-days-v1'; // 本机模式：解析后的每日数据存在浏览器
+  const MEDIA_KEY = 'betroia-channel-media-v1'; // 本机模式：渠道 → 媒体对照
   // 每行存成紧凑数组：[group, id, name, cost, promo, reg, pay, payAmt, ftd, ftdAmt]
   // 其他（未归属）总代：[ 'O', agentName, regs ] 只用于提示
 
   const $ = id => document.getElementById(id);
-  const state = { db: { days: {}, prefs: loadPrefs() }, from: null, to: null, days: 7 };
+  const state = { db: { days: {}, prefs: loadPrefs() }, media: {}, from: null, to: null, days: 7 };
 
   // ───── 本机偏好（只是显示设定） ─────
   function loadPrefs() {
@@ -325,6 +326,8 @@ details.rules dd { margin: 0; min-width: 0; }
   function saveLocal() {
     try { localStorage.setItem(LOCAL_KEY, JSON.stringify(state.db.days)); return true; } catch { return false; }
   }
+  function loadLocalMedia() { try { return JSON.parse(localStorage.getItem(MEDIA_KEY)) || {}; } catch { return {}; } }
+  function saveLocalMedia() { try { localStorage.setItem(MEDIA_KEY, JSON.stringify(state.media)); return true; } catch { return false; } }
 
   // ───── 云端 API ─────
   class AuthError extends Error {}
@@ -338,6 +341,9 @@ details.rules dd { margin: 0; min-width: 0; }
   async function loadRemote() {
     const { days } = await api('/api/days');
     state.db.days = days || {};
+    // 读取失败时标记，禁止之后写入（不能把「读不到」当成「云端没有」再整份覆盖）
+    try { state.media = (await api('/api/meta')).media || {}; state.mediaOk = true; }
+    catch (e) { if (e instanceof AuthError) throw e; state.media = {}; state.mediaOk = false; }
   }
   function showLogin(msg) {
     $('app').hidden = true; $('login').hidden = false;
@@ -354,7 +360,7 @@ details.rules dd { margin: 0; min-width: 0; }
   }
   // 本机模式：直接用浏览器里的数据；云端模式：读云端
   async function boot() {
-    if (!cloud()) { state.db.days = loadLocal(); setMode(); showApp(); render(); return; }
+    if (!cloud()) { state.db.days = loadLocal(); state.media = loadLocalMedia(); state.mediaOk = true; setMode(); showApp(); render(); return; }
     try {
       await loadRemote();
       setMode(); showApp(); render();
@@ -362,27 +368,36 @@ details.rules dd { margin: 0; min-width: 0; }
     } catch (e) {
       setKey('');
       if (e instanceof AuthError) return showLogin(e.message);
-      state.db.days = loadLocal(); setMode(); showApp(); render();
+      state.db.days = loadLocal(); state.media = loadLocalMedia(); state.mediaOk = true; setMode(); showApp(); render();
       toast(`云端连不上（${e.message}），先用本机数据`, true);
     }
   }
   // 连上云端后：本机有、云端没有的日期 → 问要不要上传
   function offerSync() {
-    const local = loadLocal();
+    const local = loadLocal(), lm = loadLocalMedia();
     const missing = Object.keys(local).filter(d => !state.db.days[d]).sort();
-    $('syncBar').hidden = !missing.length;
-    if (!missing.length) return;
+    const mm = state.mediaOk ? Object.keys(lm).filter(id => /^\d{1,12}$/.test(id) && lm[id] && typeof lm[id].m === 'string' && lm[id].m.trim() && !mappedMedia(id)) : [];
+    $('syncBar').hidden = !missing.length && !mm.length;
+    if (!missing.length && !mm.length) return;
     state.pending = Object.fromEntries(missing.map(d => [d, local[d]]));
-    $('syncText').textContent = `这台电脑里有 ${missing.length} 天云端还没有（${missing[0]}${missing.length > 1 ? ' ~ ' + missing[missing.length - 1] : ''}），要上传吗？`;
+    state.pendingMedia = Object.fromEntries(mm.map(id => [id, { m: lm[id].m, a: lm[id].a || '' }]));
+    const parts = [];
+    if (missing.length) parts.push(`${missing.length} 天数据（${missing[0]}${missing.length > 1 ? ' ~ ' + missing[missing.length - 1] : ''}）`);
+    if (mm.length) parts.push(`${mm.length} 个渠道的媒体对照`);
+    $('syncText').textContent = `这台电脑里有 ${parts.join('、')} 云端还没有，要上传吗？`;
   }
   async function syncUp() {
-    const days = state.pending || {};
+    const days = state.pending || {}, media = state.pendingMedia || {};
+    const nd = Object.keys(days).length, nm = Object.keys(media).length;
     $('syncYes').disabled = true;
     try {
-      const fd = new FormData(); fd.append('days', JSON.stringify(days));
-      await api('/api/upload', { method: 'POST', body: fd });
-      Object.assign(state.db.days, days);
-      $('syncBar').hidden = true; toast(`已把本机 ${Object.keys(days).length} 天上传到云端`); render();
+      if (nd) {
+        const fd = new FormData(); fd.append('days', JSON.stringify(days));
+        await api('/api/upload', { method: 'POST', body: fd });
+        Object.assign(state.db.days, days);
+      }
+      if (nm) await saveMedia(media);
+      $('syncBar').hidden = true; toast(`已把本机 ${[nd ? nd + ' 天数据' : '', nm ? nm + ' 个渠道的媒体对照' : ''].filter(Boolean).join('、')} 上传到云端`); render();
     } catch (e) {
       if (e instanceof AuthError) { setKey(''); return showLogin(e.message); }
       toast(e.message, true);
@@ -445,6 +460,38 @@ details.rules dd { margin: 0; min-width: 0; }
     return byDay;
   }
 
+  // 后台「渠道管理列表」导出：所属总代 = 「X_投放_媒体_包体_短名」，媒体在第三段（买A 这类取最后一段）
+  const MEDIA_NAME = { tiktok: 'TikTok', facebook: 'Facebook', google: 'Google', googlesearch: 'Google搜索', dsp: 'DSP/网盟', kwai: 'Kwai', microsoft: 'Microsoft', '网红': '网红', whatsapp: 'WhatsApp' };
+  const isChannelList = rows => rows.slice(0, 20).some(r => { const h = r.map(x => String(x).trim()); return h.includes('所属总代') && h.includes('渠道名称'); });
+  function parseChannelList(rows) {
+    const hi = rows.findIndex(r => { const h = r.map(x => String(x).trim()); return h.includes('所属总代') && h.includes('渠道名称'); });
+    const head = rows[hi].map(x => String(x).trim()), ia = head.indexOf('所属总代'), iname = head.indexOf('渠道名称');
+    const out = {};
+    for (const r of rows.slice(hi + 1)) {
+      const id = (String(r[iname] ?? '').match(/^\s*\[(\d+)\]/) || [])[1];
+      const agent = String(r[ia] ?? '').trim().replace(/^\[\d+\]\s*/, '');
+      if (!id || !agent) continue;
+      const segs = agent.split('_').map(x => x.trim());
+      const known = x => x && Object.prototype.hasOwnProperty.call(MEDIA_NAME, x.toLowerCase());
+      const pick = [segs[2], segs[segs.length - 1]].find(known);
+      // 官方总代这类没有「投放」格式的：只认得出 WhatsApp（如「官方_ WhatsApp群发」），其余标未标注
+      const wa = !pick && [segs[2], segs[segs.length - 1]].some(x => x && /^whatsapp/i.test(x));
+      out[id] = { m: pick ? MEDIA_NAME[pick.toLowerCase()] : wa ? 'WhatsApp' : (segs[2] || '未标注').slice(0, 40), a: agent.slice(0, 120) };
+    }
+    return out;
+  }
+  async function saveMedia(incoming) {
+    if (cloud()) {
+      if (!state.mediaOk) throw new Error('云端对照表刚才没读到，为避免覆盖，请重新整理页面后再导入');
+      // 只送这次的渠道，合并在服务端做（避免不同人先后上传互相覆盖）
+      const r = await api('/api/meta', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ media: incoming }) });
+      state.media = r.media || { ...state.media, ...incoming };
+      return;
+    }
+    state.media = { ...state.media, ...incoming };
+    if (!saveLocalMedia()) throw new Error('浏览器存储空间不足，对照表没存进去');
+  }
+
   async function readFile(file) {
     if (/\.xlsx?$/i.test(file.name)) {
       if (!window.XLSX) throw new Error('Excel 解析库没载入，请改传 CSV');
@@ -464,7 +511,16 @@ details.rules dd { margin: 0; min-width: 0; }
     $('pick').disabled = true; toast(cloud() ? '上传中…' : '读取中…');
     for (const f of files) {
       try {
-        const byDay = ingest(await readFile(f), f.name);
+        const rows = await readFile(f);
+        if (isChannelList(rows)) {
+          const mp = parseChannelList(rows), n = Object.keys(mp).length;
+          if (!n) throw new Error(`${f.name}：渠道管理列表里没有读到渠道 ID`);
+          await saveMedia(mp);
+          const cnt = new Map(); Object.values(mp).forEach(v => cnt.set(v.m, (cnt.get(v.m) || 0) + 1));
+          msgs.push(`渠道管理列表：${n} 个渠道的媒体已更新（${[...cnt.entries()].sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join('、')}）`);
+          continue;
+        }
+        const byDay = ingest(rows, f.name);
         const ds = Object.keys(byDay).sort();
         if (!ds.length) throw new Error(`${f.name}：没有读到任何日期数据`);
         if (cloud()) {
@@ -666,10 +722,13 @@ details.rules dd { margin: 0; min-width: 0; }
     ['Google', /(^|[^a-z])(gg|ggs|google|sem)([^a-z]|$)|谷歌/i],
     ['TikTok', /(^|[^a-z])(tt|tiktok)([^a-z]|$)/i],
     ['Kwai', /kwai/i],
-    ['程序化/网盟', /(^|[^a-z])(mobflyer|hiitech|iclick|nativex|liftoff|moloco|unity|propeller(ads)?|moboost|mobupps|tec-do|iaa|nvmob|pikumob|supply media|all in media|nx)([^a-z]|$)|(^|_)ad[-_]/i],
+    ['DSP/网盟', /(^|[^a-z])(mobflyer|hiitech|iclick|nativex|liftoff|moloco|unity|propeller(ads)?|moboost|mobupps|tec-do|iaa|nvmob|pikumob|supply media|all in media|nx)([^a-z]|$)|(^|_)ad[-_]/i],
     ['应用商店', /(^|[^a-z])(oppo|vivo|xiaomi|huawei)([^a-z]|$)|商店包/i],
   ];
   const mediaOf = name => { for (const [m, re] of MEDIA) if (re.test(name)) return m; return '未标注'; };
+  // 优先用渠道管理列表的对照（按渠道 ID），没有才按名称关键字推断
+  const mappedMedia = id => { const v = Object.prototype.hasOwnProperty.call(state.media, id) ? state.media[id] : null; return v && typeof v.m === 'string' && v.m.trim() ? v.m : ''; };
+  const mediaOfRow = r => mappedMedia(r[1]) || mediaOf(r[2]);
   const pkgOf = name => { const p = String(name).split('_')[0].trim().toUpperCase(); return p || '其他'; };
   // 好坏方向：成本类上升 = 坏
   const chgTd = (v, badWhenUp) => {
@@ -710,13 +769,13 @@ details.rules dd { margin: 0; min-width: 0; }
       const mp = new Map();
       for (const d of (w(7) || [])) for (const r of state.db.days[d]) {
         if (r[0] !== 'T' && r[0] !== 'A') continue;
-        const k = keyOf(r[2]);
+        const k = keyOf(r);
         if (!mp.has(k)) mp.set(k, { T: blank(), A: blank() });
         add(mp.get(k)[r[0]], r);
       }
       return mp;
     };
-    const pk = bucket(pkgOf);
+    const pk = bucket(r => pkgOf(r[2]));
     // 正常线：同包型（TPD + A8 合并）近7日一级首充ROAS，按消耗加权
     const lineOf = new Map([...pk.entries()].map(([k, v]) => {
       const t = blank(); for (const f in t) t[f] = v.T[f] + v.A[f];
@@ -800,11 +859,20 @@ details.rules dd { margin: 0; min-width: 0; }
       .sort((a, b) => (b.T.cost + b.A.cost) - (a.T.cost + a.A.cost));
 
     // 媒体对照（近7日）
-    const md = bucket(mediaOf);
-    const order = ['Facebook', 'Google', 'TikTok', 'Kwai', '程序化/网盟', '应用商店', '未标注'];
-    const medias = [...md.entries()].map(([k, v]) => ({ k, T: derive(v.T), A: derive(v.A) })).sort((a, b) => order.indexOf(a.k) - order.indexOf(b.k));
+    const md = bucket(mediaOfRow);
+    const order = ['Facebook', 'Google', 'Google搜索', 'TikTok', 'Kwai', 'Microsoft', 'DSP/网盟', '网红', '应用商店', '未标注'];
+    const ord = k => { const i = order.indexOf(k); return i < 0 ? order.length - 1 : i; };
+    const medias = [...md.entries()].map(([k, v]) => ({ k, T: derive(v.T), A: derive(v.A) })).sort((a, b) => ord(a.k) - ord(b.k) || a.k.localeCompare(b.k));
+    // 对照覆盖率：近7日消耗中，按渠道管理列表对照到媒体的比例
+    let mapped = 0, allCost = 0;
+    for (const d of (w(7) || [])) for (const r of state.db.days[d]) {
+      if (r[0] !== 'T' && r[0] !== 'A') continue;
+      const c = state.db.prefs.costMode === 'promo' ? r[4] : r[3];
+      allCost += c; if (mappedMedia(r[1])) mapped += c;
+    }
+    const mediaCover = allCost ? mapped / allCost : 0;
 
-    return { enough, asOf: days[days.length - 1], alerts, trend, pkgs, medias, lineOf, siteCur, sitePrev, siteArppuChg, eligible: alerts.length };
+    return { enough, asOf: days[days.length - 1], alerts, trend, pkgs, medias, lineOf, mediaCover, siteCur, sitePrev, siteArppuChg, eligible: alerts.length };
   }
 
   function insightLines(I) {
@@ -901,16 +969,16 @@ details.rules dd { margin: 0; min-width: 0; }
     $('pkg').innerHTML = k + '</tbody></table></div><p class="note">消耗低于 $300 的格子显示「—」（样本太小）</p>';
 
     let mh = '<div class="scroll"><table><thead><tr><th>媒体</th><th>TPD 消耗</th><th class="a">A8 消耗</th><th>TPD CPA</th><th class="a">A8 CPA</th><th>TPD 注册转首充</th><th class="a">A8 注册转首充</th><th>TPD 一级首充ROAS</th><th class="a">A8 一级首充ROAS</th></tr></thead><tbody>';
-    let unA = 0, totA = 0;
     for (const m of I.medias) {
-      totA += m.A.cost; if (m.k === '未标注') unA = m.A.cost;
       if (m.T.cost + m.A.cost < 300) continue;
       mh += `<tr><td>${esc(m.k)}</td><td class="n">${fMoney(m.T.cost)}</td><td class="n">${fMoney(m.A.cost)}</td>` +
         `<td class="n">${v(m.T, x => fMoney(x.cpa))}</td><td class="n">${v(m.A, x => fMoney(x.cpa))}</td>` +
         `<td class="n">${v(m.T, x => fPct(x.conv))}</td><td class="n">${v(m.A, x => fPct(x.conv))}</td>` +
         `<td class="n">${v(m.T, x => fPct(x.ftdRoas))}</td><td class="n">${v(m.A, x => fPct(x.ftdRoas))}</td></tr>`;
     }
-    $('media').innerHTML = mh + `</tbody></table></div><p class="note">A8 近7日消耗中 ${totA ? Math.round(unA / totA * 100) : 0}% 的渠道名称没有媒体关键字（归「未标注」），A8 的媒体对比只代表有标注的那部分</p>`;
+    $('media').innerHTML = mh + `</tbody></table></div><p class="note">${I.mediaCover > 0
+      ? `近7日消耗中 ${Math.round(I.mediaCover * 100)}% 按「渠道管理列表」对照媒体，其余按渠道名称关键字推断。新增渠道后，把后台「渠道管理列表」重新导出、拖进上方导入区即可更新`
+      : '还没有导入「渠道管理列表」，媒体按渠道名称关键字推断（A8 多数渠道名称没有媒体，会归「未标注」）。把后台「渠道管理列表」导出的 CSV 拖进上方导入区即可按渠道 ID 准确对照'}</p>`;
   }
 
   // ───── 一键复制：画面上的三个表格（富文本表格 + 纯文本 TSV，贴飞书 / Excel 都是表格） ─────

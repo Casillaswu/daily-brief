@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>竞品周报 · MX-W42 · 墨西哥 iGaming</title>
+<style>
+:root{
+  --ink:#1f1d1a; --ink-2:#4a4742; --ink-3:#8a857d;
+  --paper:#fff; --paper-2:#f7f5f1;
+  --rule:#d9d4cb; --rule-2:#ebe6dd;
+  --hi:#fff3a6;
+  --pos:#c9e4cf; --pos-ink:#2f6b3b;
+  --neu:#e1dfd9; --neu-ink:#5b574e;
+  --neg:#f1c9c5; --neg-ink:#8a3a33;
+  --warn:#fce8c2; --warn-ink:#8a5f1a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+body{
+  background:#f0eee9;
+  font-family:Arial,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);min-height:100vh;font-size:13px;line-height:1.65;
+}
+a{color:inherit;}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.hi{background:var(--hi);padding:0 2px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.shell{max-width:1320px;margin:0 auto;background:#fff;}
+
+.mast{background:#1f1d1a;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.mast .mark{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;border:1px solid rgba(255,255,255,.4);padding:6px 10px;flex:none;}
+.mast .ttl{flex:1;min-width:200px;}
+.mast .ttl h1{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+.mast .ttl .sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;}
+.mast .logos{display:flex;gap:5px;flex:none;flex-wrap:wrap;}
+.mast .lang{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:2px;flex:none;}
+.mast .lang a,.mast .lang button{border:none;background:none;cursor:pointer;padding:5px 12px;border-radius:99px;color:rgba(255,255,255,.7);font:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;line-height:1;}
+.mast .lang .active{background:#fff;color:var(--ink);}
+.logo{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(0,0,0,.06);flex:none;}
+.logo.closed{opacity:.4;text-decoration:line-through;}
+
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+.body{padding:8px 32px 32px;}
+
+.sec{margin-top:32px;scroll-margin-top:60px;}
+.sec-lbl{margin-bottom:10px;}
+.sec-lbl .chip{background:var(--ink);color:#fff;font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.06em;margin-right:8px;}
+.sec-lbl .en{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+.sec-lbl h2{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-top:8px;}
+.sec-lbl .rule{height:2px;background:var(--ink);margin-top:10px;}
+.sec-deck{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.exec{margin-top:24px;}
+.exec h3{font-size:30px;font-weight:800;letter-spacing:-.015em;line-height:1.4;max-width:90%;}
+.exec h3 .line{display:block;}
+.exec h3 .line + .line{margin-top:6px;}
+.exec p.deck{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin-top:18px;max-width:80%;}
+.exec p.deck b{color:var(--ink);}
+.exec p.deck + p.deck{margin-top:12px;}
+.exec p.deck em{font-style:normal;color:var(--ink-3);font-size:11.5px;}
+.exec .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.exec .axis{border-left:3px solid var(--ink);padding:8px 14px;font-size:12px;color:var(--ink-2);line-height:1.7;}
+.exec .axis b{color:var(--ink);display:block;margin-bottom:2px;}
+
+.kpi{margin-top:14px;border:1px solid var(--ink);display:grid;grid-template-columns:minmax(170px,1.2fr) .8fr .8fr 1.1fr 1fr 1.5fr;}
+.kpi .head{background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);text-transform:uppercase;font-weight:800;border-bottom:2px solid var(--ink);padding:12px;}
+.kpi .cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px;font-size:12px;line-height:1.6;}
+.kpi .cell:nth-child(6n){border-right:none;}
+.kpi .name{display:flex;align-items:flex-start;gap:10px;flex-direction:column;}
+.kpi .name b{font-size:13px;display:block;}
+.kpi .name .grp{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;letter-spacing:.05em;display:block;margin-top:1px;}
+.kpi .name .status{padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace;display:inline-block;margin-top:5px;}
+.kpi .name .status-hot{background:#1f1d1a;color:#fff;}
+.kpi .name .status-active{background:#fbe3b3;color:#8a5f1a;}
+.kpi .name .status-alert{background:var(--neg);color:var(--neg-ink);}
+.kpi .name .status-cold{background:#d6e4f0;color:#2A5FAA;}
+.kpi .name .status-closed{background:#2b2b2b;color:#bbb;}
+.kpi .cell.closed{color:var(--ink-3);font-style:italic;}
+.kpi .big{font-weight:800;font-size:16px;}
+.trend{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:3px;font-size:10.5px;font-weight:700;}
+.trend.up{background:var(--pos);color:var(--pos-ink);}
+.trend.down{background:var(--neg);color:var(--neg-ink);}
+.trend.flat{background:var(--neu);color:var(--neu-ink);}
+.trend.new{background:#1f1d1a;color:#fff;}
+.bar{height:8px;background:var(--rule-2);border-radius:2px;overflow:hidden;margin-top:6px;}
+.bar > i{display:block;height:100%;}
+.sev{padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;}
+.sev.high{background:var(--neg);color:var(--neg-ink);}
+.sev.mid{background:var(--neu);color:var(--neu-ink);}
+.sev.low{background:var(--pos);color:var(--pos-ink);}
+
+.strat{margin-top:14px;background:#1f1d1a;color:#fff;padding:26px 30px;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);}
+.qa.full{grid-column:1/-1;}
+.qa .q{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.qa .q .qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+.qa .a{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.92);}
+.qa .a b{color:#fff;}
+.qa .a p{margin-bottom:6px;}
+.qa .src{display:block;color:rgba(255,255,255,.45);font-size:10.5px;margin-top:6px;}
+.qa .src a{color:rgba(255,255,255,.6);}
+
+.radar{margin-top:14px;background:#1f1d1a;color:#fff;padding:24px;}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.radar-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.radar-head .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:800;margin-bottom:4px;}
+.radar-head .sub{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.radar-head .self-pick{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.radar-head .self-pick .pick-lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:800;}
+.vssel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 32px 9px 14px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4 L5 7 L8 4' fill='none' stroke='white' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 10px center;}
+.vssel option{background:#1f1d1a;color:#fff;}
+.vsbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.vsbtns button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.vsbtns button:hover{background:rgba(255,255,255,.18);}
+.vsbtns button.active{background:#fff;color:var(--ink);}
+.vsbtns button i{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.radar-body{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;}
+.radar-body .grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px 16px;font-size:12.5px;}
+.radar-body .grid span:nth-child(4n+1),.radar-body .grid span:nth-child(4n+3){color:rgba(255,255,255,.55);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;}
+.radar-body .grid span:nth-child(4n+2),.radar-body .grid span:nth-child(4n+0){font-weight:700;}
+.radar-body .legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;}
+.radar-body .legend span{display:inline-flex;align-items:center;gap:6px;}
+.radar-body .legend i{width:12px;height:12px;display:inline-block;border-radius:2px;}
+.radar svg{width:100%;max-width:380px;display:block;margin:0 auto;}
+.radar-note{margin-top:12px;background:rgba(255,255,255,.05);border-left:3px solid rgba(255,255,255,.4);padding:10px 14px;font-size:11.5px;color:rgba(255,255,255,.8);line-height:1.65;}
+.radar-note b{color:#fff;}
+
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px;margin-top:14px;}
+.mcard{border:1px solid var(--rule);border-top-width:4px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:9px;scroll-margin-top:60px;}
+.mcard .top{display:flex;align-items:center;gap:8px;}
+.mcard .top .meta{flex:1;}
+.mcard .top .meta b{font-size:12px;font-weight:700;display:block;}
+.mcard .top .meta span{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;}
+.mcard h4{font-size:14px;font-weight:700;line-height:1.5;}
+.mcard .detail{font-size:12px;line-height:1.7;color:var(--ink-2);}
+.mcard table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px;}
+.mcard table th{text-align:left;padding:4px 6px;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--rule);}
+.mcard table td{padding:5px 6px;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.mcard .warn{padding:8px 12px;background:var(--warn);border-left:3px solid var(--warn-ink);font-size:11.5px;color:var(--warn-ink);line-height:1.6;}
+.mcard .warn b{color:var(--warn-ink);}
+.mcard .social{padding:7px 12px;background:var(--paper-2);border-left:3px solid var(--ink-3);font-size:11px;color:var(--ink-2);line-height:1.6;}
+.mcard .src{font-size:11px;color:var(--ink-3);line-height:1.6;}
+.mcard .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-3);}
+.mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;}
+.mcard .impact b{color:var(--ink);font-weight:700;}
+
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:80px 18px 90px 130px 1fr 60px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--ink-2);}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+.impl-meth{margin-top:14px;background:var(--paper-2);border-left:3px solid var(--ink);padding:14px 18px;font-size:12px;line-height:1.75;color:var(--ink-2);}
+.impl-meth h6{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.06em;margin-bottom:6px;}
+.impl-meth b{color:var(--ink);}
+.impl-meth ul{list-style:none;padding:0;margin-top:6px;display:flex;flex-direction:column;gap:6px;}
+.impl-meth li{padding-left:14px;position:relative;}
+.impl-meth li::before{content:"·";position:absolute;left:2px;color:var(--ink-3);font-weight:800;}
+.impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
+.impl .col.threat{border-top-color:var(--neg-ink);}
+.impl .col.opp{border-top-color:var(--pos-ink);}
+.impl .col h5{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:18px;}
+.impl .col h5 .dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none;}
+.impl .col.threat h5 .dot{background:var(--neg-ink);}
+.impl .col.opp h5 .dot{background:var(--pos-ink);}
+.impl .col h5 .en{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);font-weight:800;text-transform:uppercase;}
+.impl .col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.impl .col li{display:block;padding:14px 16px;background:var(--paper-2);border-left:3px solid;font-size:12.5px;line-height:1.8;color:var(--ink-2);}
+.impl .col.threat li{border-left-color:var(--neg-ink);}
+.impl .col.opp li{border-left-color:var(--pos-ink);}
+.impl .col li b{color:var(--ink);}
+.impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
+
+.footer{margin-top:32px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;}
+.fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
+.fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
+.fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px 22px;align-items:start;}
+.srcs span{position:relative;display:block;padding-left:16px;font-size:11.5px;line-height:1.6;color:var(--ink-2);text-wrap:pretty;}
+.srcs i{position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;}
+.srcs i.ok{background:var(--pos-ink);}
+.srcs i.partial{background:#c96442;}
+.srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
+.fcard ol{padding:0;list-style:none;}
+.fcard ol li{font-size:12px;line-height:1.75;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;}
+.fcard ol li .n{color:#c96442;font-weight:700;font-family:ui-monospace,Menlo,monospace;flex:none;}
+.colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
+.colophon b{color:var(--ink);letter-spacing:.16em;}
+
+@media (max-width:1023px){
+  .body{padding:8px 24px 28px;}
+  .mast{padding:18px 24px;}
+  .subnav{padding:8px 24px;font-size:10.5px;}
+  .kpi{grid-template-columns:1fr;}
+  .kpi .head{display:none;}
+  .kpi .cell{border-right:none;display:grid;grid-template-columns:120px 1fr;gap:8px;}
+  .kpi .cell::before{content:attr(data-lbl);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;}
+  .kpi .cell:nth-child(6n+1)::before{display:none;}
+  .kpi .name{grid-column:1/-1;}
+  .radar-body{grid-template-columns:1fr;}
+  .impl{grid-template-columns:1fr;gap:18px;}
+  .footer{grid-template-columns:1fr;}
+  .qa-grid{grid-template-columns:1fr;}
+  .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:60px 14px 80px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
+  .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
+  .exec .axes{grid-template-columns:1fr;}
+  .sec-lbl h2{font-size:18px;}
+}
+@media (max-width:767px){
+  .body{padding:6px 16px 24px;}
+  .mast{padding:16px;gap:12px;}
+  .mast .ttl h1{font-size:18px;}
+  .subnav{padding:6px 16px;}
+  .strat{padding:18px 16px;}
+  .exec h3{font-size:19px;}
+}
+@media print{
+  body{background:#fff;}
+  .shell{max-width:none;}
+  .vssel,.vsbtns,.subnav{display:none;}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+  .mast .mark{border-color:#000;}
+  .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
+  .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+
+/* wrap-fix v1 */
+.nbk{white-space:nowrap;}
+/* 标题：自动平衡各行长度，避免末行只剩一两个字 */
+h1,h2,h3,h4,h5,h6,.mast .ttl h1,.sec-lbl h2,.mcard h4,.fcard h5,.radar-head .lbl,.wk .id{
+  text-wrap:balance;
+}
+/* 正文：避免寡行（末行孤字），并允许超长 URL / 英文词在容器内换行 */
+p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .social,
+.mcard .impact,.trow .desc,.kpi .cell,.strat .a p,.radar-note,.radar-formula td,
+.fcard p,.fcard ol li,.impl li,.impl-meth li,.srcs em,.wk .sum .ax{
+  text-wrap:pretty;
+  overflow-wrap:break-word;
+}
+/* 数据源说明独占一行，不与来源名单抢断点 */
+.srcs em{display:block;margin-top:1px;line-height:1.55;}
+/* 出处链接列：长标题在容器内断，不撑破卡片 */
+.mcard .src a,.strat .a .src a{overflow-wrap:break-word;}
+@media (max-width:767px){
+  .srcs{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="mast">
+  <div class="mark">COMPETITOR // BRIEF</div>
+  <div class="ttl">
+    <h1>MX-W42 · 墨西哥 iGaming 竞品周报</h1>
+    <div class="sub">期号日 2026/10/17 周六 · 数据窗口：10/10-10/17 回顾、10/17-10/24 展望 · 10 家观察清单 + 离岸组 · 客户 X = Betroia</div>
+  </div>
+  <div class="lang" aria-label="Language">
+    <button class="active" aria-current="page">中</button>
+    <a href="2026-mxW42-en.html">EN</a>
+  </div>
+  <div class="logos">
+    <span class="logo" style="background:#D7192D" title="Caliente">CA</span>
+    <span class="logo" style="background:#6A2C91" title="Playdoit">PD</span>
+    <span class="logo" style="background:#8C6D1F" title="Winner">WN</span>
+    <span class="logo" style="background:#1E5E34" title="Brazino777">B7</span>
+    <span class="logo" style="background:#F26B21" title="Betmaster">BM</span>
+    <span class="logo" style="background:#2E9E5B" title="BetMexico">BX</span>
+    <span class="logo" style="background:#7B3FE4" title="Jugabet">JB</span>
+    <span class="logo" style="background:#E0A800" title="Winpot">WP</span>
+    <span class="logo" style="background:#006847" title="teammexico">TM</span>
+    <span class="logo" style="background:#0055A4" title="Sportiumbet">SP</span>
+  </div>
+</header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>跳到</b>
+  <a href="#briefing">▲ 简报</a>
+  <a href="#kpi">§01 KPI</a>
+  <a href="#strategic">§02 5Q</a>
+  <a href="#radar">§03 雷达</a>
+  <a href="#moves-sec">§04 动向</a>
+  <a href="#timeline">§05 时间轴</a>
+  <a href="#implications">§06 威胁/机会</a>
+</nav>
+
+<div class="body">
+
+  <section class="sec exec" id="briefing">
+    <div class="sec-lbl">
+      <span class="chip">▲</span><span class="en">Executive Briefing · 主管简报</span>
+      <h2>本周摘要</h2>
+      <div class="rule"></div>
+    </div>
+    <h3>
+      Caliente 系新开 77 则，疑为周末赛程前上新。<br>
+      Brazino777 页首回升到约 87 则，新开 37 则。<br>
+      BC.Game 等三家新开 122 则，疑为抢装机。
+    </h3>
+    <p class="deck"><b>1. Caliente 系新开 77 则，疑为周末赛程前上新。</b><br>Caliente Sports 页首在投由约 54 增至约 84，已载入的 82 则中 44 则开刊日落在 10 月 10 日至 16 日，10 月 15 日与 16 日各 18 则。Playdoit 两个帐号新开 29 则，Playdoit México 10 月 16 日一天 14 则，题材转向串关「Super Pago Anticipado」、Necaxa vs Atlas 与 MLB。Caliente 系合计 77 则，上期 36 则。<b>判断：</b>新开集中在周四、周五，像是为周末赛程集中补素材。详 <a href="#sig-01">§04 卡 1</a>。<em>（Meta 广告库 10/17）</em></p>
+    <p class="deck"><b>2. Brazino777 页首回升到约 87 则，新开 37 则。</b><br>上期页首由约 300 降到约 69，本期回升到约 87，已载入 64 则中 37 则新开，新增优惠码 JAGKAT 与新游戏 Fortune Gems 2。<b>判断：</b>投放没有停，但只回到 10 月 3 日水位的约 29%，更像换新后以较小规模续投；原因仍无法确认。详 <a href="#sig-02">§04 卡 2</a>。<em>（Meta 广告库 10/17）</em></p>
+    <p class="deck"><b>3. BC.Game 等三家新开 122 则，疑为抢装机。</b><br>BC.Game Mexico（D 组）新开 78 则，页首由约 58 增至约 100；Jugabet 新开 20 则，其中 19 则在 10 月 15 日，新增摔角主题；teammexico 新开 24 则，10 月 11 日一天 18 则，主题含 Raiders 墨西哥官方赞助与 NFL 周一夜。详 <a href="#sig-03">§04 卡 3</a>。<em>（Meta 广告库 10/17）</em></p>
+    <div class="axes">
+      <div class="axis"><b>体育品类</b>Caliente 系新开从上期 36 则增至 77 则，题材转向墨西哥联赛与串关。Liga MX 季后赛 11 月 25 日开打（距 39 天），NFL 墨西哥城赛 11 月 22 日（距 36 天）。判断：体育版位的竞价可能在赛事周前就上涨，以娱乐场为主的业者若 11 月才买体育流量，成本会高于现在。</div>
+      <div class="axis"><b>素材换新</b>Brazino777 与 Jugabet 都出现「页首量下降或偏低、同时一天大量新开」的形态，像是整批换素材。判断：换新期间同受众的竞价压力会短暂变化，是否持续要看下期的页首数字。</div>
+      <div class="axis"><b>监管方向</b>Segob 称新博彩法草案已完成内部审查，CDMX 另有提案拟禁欢迎奖金与限制艺人代言（皆为单一来源报导，未生效）。判断：本期各家素材仍以欢迎奖金与 KOL 为主轴，方向若落地，影响面很广。</div>
+    </div>
+    <div class="impl-meth" style="margin-top:14px">
+      <h6>lede 入选推导</h6>
+      <ul>
+        <li><b>✓ Lede #1 / 卡 1 ·</b> Caliente 系新开 77 则，Caliente Sports 页首约 54 增至约 84（10/10-10/16）· B2 · 本期新开量最大的集团，距 Liga MX 季后赛 39 天</li>
+        <li><b>✓ Lede #2 / 卡 2 ·</b> Brazino777 页首约 69 回升到约 87，新开 37 则（10/12-10/16）· B2 · 回答上期遗留的「收缩还是换新」</li>
+        <li><b>✓ Lede #3 / 卡 3 ·</b> BC.Game 78、Jugabet 20、teammexico 24，合计 122 则（10/10-10/16）· B2 · 装机导向与 NFL 题材，BC.Game 单家新开量为全表最高</li>
+        <li><b>✗ 排除、进 §04 卡 4 ·</b> Segob 新博彩法草案与 CDMX 欢迎奖金提案（10/13）· C1 · 单一来源、未生效，不入 lede，但方向与各家素材重叠，立卡提醒</li>
+        <li><b>✗ 排除 ·</b> Sportiumbet 官网恢复 · 进 §01 与 §03，调分触发条件解除；Winpot、BetMexico、Betmaster、Winner 载入样本无明显新动作 · 进 §01；众议院 10/14 通过收入法一般性表决（La Razón 标题）· C1 · 进 §05；Betroia 负面声量 · 窗口内零笔</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="kpi">
+    <div class="sec-lbl">
+      <span class="chip">§01</span><span class="en">KPI 比较矩阵 · 10 家</span>
+      <h2>KPI 比较矩阵（10 家观察清单）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">状态色：🔴 HOT（监管点名 / 处分）· 🟠 ACTIVE（本周有新动作）· 🟡 ALERT（异常 / 待查）· 🔵 COLD（静默）。D 组离岸品牌不列。<b>「本周动作」为 Meta 广告库已载入样本中开刊日落在 10/10-10/17 的广告则数（下限），箭头为对上期的变化。SOV 本期以 Meta 广告库页首在投则数占比代理（10 家合计约 2,761 则，上期约 2,576 则），不含电视、球衣赞助与联盟站；属内部估算。</b></div>
+    <div class="kpi">
+<div class="head">公司</div><div class="head">本周动作</div><div class="head">SOV%</div><div class="head">主推价档</div><div class="head">Jackpot 看板</div><div class="head">本周高影响</div>
+
+      <div class="cell name"><b>Betmaster</b><span class="grp">P-06</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ 0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">62%</span><div class="bar"><i style="width:62%;background:#F26B21"></i></div></div>
+      <div class="cell" data-lbl="主推价档">首存 100% 至 MXN 20,000 + 100 次免费旋转；Plinko；Videobingo MXN 600；体育 100% + MXN 200 免费投注</div>
+      <div class="cell" data-lbl="Jackpot 看板">—</div>
+      <div class="cell" data-lbl="本周高影响">低 — 页首在投约 1,700 则（上期约 1,600），已载入 118 则无新开</div>
+
+      <div class="cell name"><b>Caliente</b><span class="grp">Caliente 系</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">48</span> <span class="trend up">▲ +33</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">16%</span><div class="bar"><i style="width:16%;background:#D7192D"></i></div></div>
+      <div class="cell" data-lbl="主推价档">注册送 MXN 1,000「Bienvenidos al Juego」；Liga MX 主题；Giveaways；门将 Carlos Acevedo 内容</div>
+      <div class="cell" data-lbl="Jackpot 看板">—</div>
+      <div class="cell" data-lbl="本周高影响">高 — Caliente Sports 页首约 54 增至约 84，10/15-10/16 两天新开 36 则，详 <a href="#sig-01">§04 卡 1</a></div>
+
+      <div class="cell name"><b>Winner</b><span class="grp">Caliente 系</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ 0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">5%</span><div class="bar"><i style="width:5%;background:#8C6D1F"></i></div></div>
+      <div class="cell" data-lbl="主推价档">注册送 MXN 700</div>
+      <div class="cell" data-lbl="Jackpot 看板">—</div>
+      <div class="cell" data-lbl="本周高影响">低 — 已载入 87 则无新开</div>
+
+      <div class="cell name"><b>teammexico</b><span class="grp">C 组</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">24</span> <span class="trend up">▲ +23</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">5%</span><div class="bar"><i style="width:5%;background:#006847"></i></div></div>
+      <div class="cell" data-lbl="主推价档">30 次免费旋转（Gold Koi Fortune）；存 MXN 200 得 MXN 4,000（RAPU4000、WEREVER4000）；MAQUINITAS 送 MXN 2,000</div>
+      <div class="cell" data-lbl="Jackpot 看板">—</div>
+      <div class="cell" data-lbl="本周高影响">中 — 10/11 一天新开 18 则，主题含 Raiders 墨西哥官方赞助，详 <a href="#sig-03">§04 卡 3</a></div>
+
+      <div class="cell name"><b>Winpot</b><span class="grp">C 组</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">4</span> <span class="trend up">▲ +1</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#E0A800"></i></div></div>
+      <div class="cell" data-lbl="主推价档">装 App 送 MXN 500 免存款</div>
+      <div class="cell" data-lbl="Jackpot 看板">本期未复查</div>
+      <div class="cell" data-lbl="本周高影响">低 — 新开 4 则皆为 Instagram 足球内容</div>
+
+      <div class="cell name"><b>Jugabet</b><span class="grp">P-06</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">20</span> <span class="trend up">▲ +9</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#7B3FE4"></i></div></div>
+      <div class="cell" data-lbl="主推价档">500% 奖金 + 125 次免费旋转；摔角「¡Sube al ring!」主题</div>
+      <div class="cell" data-lbl="Jackpot 看板">—</div>
+      <div class="cell" data-lbl="本周高影响">中 — 页首约 78 降到约 52，10/15 一天新开 19 则，详 <a href="#sig-03">§04 卡 3</a></div>
+
+      <div class="cell name"><b>Brazino777</b><span class="grp">P-06</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">37</span> <span class="trend down">▼ -24</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#1E5E34"></i></div></div>
+      <div class="cell" data-lbl="主推价档">迎宾最高 MXN 15,500 + 200 次；优惠码 JAGKAT（50 次 Lucky Jaguar）；Fortune Gems 2</div>
+      <div class="cell" data-lbl="Jackpot 看板">—</div>
+      <div class="cell" data-lbl="本周高影响">中 — 页首由约 69 回升到约 87，新开 37 则，详 <a href="#sig-02">§04 卡 2</a></div>
+
+      <div class="cell name"><b>BetMexico</b><span class="grp">P-06</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ 0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#2E9E5B"></i></div></div>
+      <div class="cell" data-lbl="主推价档">验证帐户送 MXN 50，免存款；存提款分钟级</div>
+      <div class="cell" data-lbl="Jackpot 看板">—</div>
+      <div class="cell" data-lbl="本周高影响">低 — 已载入 31 则无新开，连续两期</div>
+
+      <div class="cell name"><b>Playdoit</b><span class="grp">Caliente 系</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">29</span> <span class="trend up">▲ +8</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#6A2C91"></i></div></div>
+      <div class="cell" data-lbl="主推价档">Parlay「Super Pago Anticipado」（MXN 1,000 可得 MXN 6,330）；Props；Necaxa vs Atlas；「最快付款」</div>
+      <div class="cell" data-lbl="Jackpot 看板">—</div>
+      <div class="cell" data-lbl="本周高影响">高 — 两帐号新开 29 则，Playdoit México 10/16 一天 14 则，详 <a href="#sig-01">§04 卡 1</a></div>
+
+      <div class="cell name"><b>Sportiumbet</b><span class="grp">C 组</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">—</span> <span class="trend flat">▬ —</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">0%</span><div class="bar"><i style="width:0%;background:#0055A4"></i></div></div>
+      <div class="cell" data-lbl="主推价档">官网 10/17 已可开启；价档本期未取得</div>
+      <div class="cell" data-lbl="Jackpot 看板">—</div>
+      <div class="cell" data-lbl="本周高影响">低 — 官网恢复，「连续两期无法开启」的调分触发条件解除，基线不动</div>
+
+    </div>
+    <div class="sec-deck"><b>Meta 广告库快照。</b>10/17 以官方广告主 ID 锁定、国家选墨西哥、状态选刊登中。每个帐号以滚轮载入 2 至 4 屏，默认按曝光排序，Betmaster（约 1,700 则在投、载入 118 则）与 Casino Caliente（约 320 则在投、载入 119 则）载入比例低，「本周动作」只反映已载入样本，是下限，不代表全部广告。广告在投不等于促销仍有效，优惠以广告文案为准，条款仍待从墨西哥出口 IP 复核。Sportiumbet 在 Meta 没有投放，本渠道不适用；Codere 为候补名单，本期未跑。<em>（<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX">Meta Ad Library</a> 10/17）</em></div>
+    <div class="sec-deck"><b>官网可见度。</b>本期以浏览器页面载入做首页检查，未从墨西哥出口 IP 开启，促销条款页未逐一读取；Playdoit 与 Jugabet 的官网从本环境显示地区限制页，记为「地区限制」，不是抓取失败。Sportiumbet 官网 10/17 已可开启。</div>
+  </section>
+
+  <section class="sec" id="strategic">
+    <div class="sec-lbl">
+      <span class="chip">§02</span><span class="en">Strategic Read · 5Q</span>
+      <h2>战略解读 · 五问（中性陈述）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="strat">
+      <div class="qa-grid">
+        <div class="qa"><div class="q"><span class="qchip">Q1</span><br>市场空间</div><div class="a"><p>本周的变化仍在供给端：Caliente 系新开 77 则，上期 36 则；Brazino777 页首回升到约 87 则；D 组 BC.Game 页首由约 58 增至约 100。10 家页首在投合计约 2,761 则，上期约 2,576 则，增幅主要来自 Caliente 系。</p><p>监管方面，El Imparcial 10 月 13 日报导 Segob 已完成新博彩法的内部审查并送安全内阁评估，约 20 家赌场因刑事与税务调查被关（单一来源）。众议院 10 月 14 日一般性表决通过 2027 年收入法（La Razón 标题，内文未读），10 月 20 日期限距 3 天；博彩 IEPS（特别生产与服务税）现行 50%，自 2026 年 1 月 1 日起、本周进入第 42 周，本报未见调整。</p><p><b>判断：</b>新法与反洗钱新规（11 月 30 日，距 44 天）都在同一时间窗，业者面对的是同时变紧的合规与广告环境。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q2</span><br>玩家关注焦点</div><div class="a"><p>本期没有可量化的玩家端数据。素材透露的关注点：串关与高回报（Playdoit「MXN 1,000 可得 MXN 6,330」）、提款速度（Playdoit「最快付款」、Brazino777「提款快」、BetMexico「存提款几分钟」），以及 NFL 与 Liga MX 的赛事绑定。</p><p><b>判断：</b>赛事题材比上期更密集，玩家关注已随赛季转到体育。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q3</span><br>未被满足的缺口</div><div class="a"><p>已载入样本中，未见：白话说明如何查证业者是否取得 DGJS（墨西哥内政部下的博彩与抽奖总局）许可；亡灵节（11 月 1 日至 2 日）主题素材；反洗钱新规上路前的实名认证说明（11 月 30 日起业者的识别与申报义务加重）。</p><p><b>判断：</b>Segob 新法与 CDMX 提案都把广告中的许可标示与未成年人保护推到前台，「怎么查持牌」的白话素材仍是空白。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q4</span><br>价档结构</div><div class="a"><p>优惠方案仍分两类。买量型主打「免存款送一笔」：BetMexico MXN 50、Winpot MXN 500、Winner MXN 700、teammexico 30 次旋转。存款型主打高倍奖金：Jugabet 500% 加 125 次、Betmaster 100% 至 MXN 20,000、Brazino777 最高 MXN 15,500 加 200 次。Caliente 系注册送 MXN 1,000。</p><p>本期新增：Playdoit 的串关高回报「MXN 1,000 可得 MXN 6,330」，Brazino777 的 JAGKAT，teammexico 的 RAPU4000 与 WEREVER4000。本期没有出现新的最高金额。</p><p><b>判断：</b>CDMX 提案若涉及禁止欢迎奖金，会冲击上述几乎所有价档，但目前仍是提案。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q5</span><br>差异化结论</div><div class="a"><p>10 家路线：Caliente 系三品牌分工，Caliente 主站与 Playdoit 同步放量、Winner 无新素材；P-06 网络四家里，Brazino777 续投、Jugabet 换新、Betmaster 与 BetMexico 载入样本无新开；C 组 Winpot 少量更新，teammexico 以 NFL 与优惠码放量，Sportiumbet 官网恢复。</p><p><b>结论：</b>差异不在优惠金额，而在谁能把体育档期与装机转化做得更早、更稳，以及面对新法与实名新规时谁先把说明做在素材里。</p><p><b>提议：</b>三件事。一是 10 月内谈好 11 月体育版位。二是做一组「怎么查持牌」白话素材。三是列出依赖欢迎奖金与 KOL 的投放清单备用。以上为建议、非结论。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="radar">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">Capability Radar · 6 axes · 10 brands + baseline</span>
+      <h2>六轴能力雷达（基线 Betroia + 10 家）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="radar">
+      <div class="radar-formula">
+        <h6>评分公式（每轴 100 分、子项加权）</h6>
+        <table><tr><td>BRAND 品牌力</td><td><b>市场份额（流量量级排序）45%</b> + 代言 / IP 20% + 玩家提及率 25% + 本周 PR 声量 10%</td></tr><tr><td>UX 体验</td><td>官网可访问性 30% + 注册 / 登入顺畅 25% + 支付 / 提现讯号 25% + UI 清晰度 20%</td></tr><tr><td>CONTENT 内容</td><td>独家游戏 / IP 35% + 本土化内容 25% + 活动丰富度 25% + 更新频率 15%</td></tr><tr><td>PRICING 定价</td><td>奖励吸引力 30% + <b>合规安全度 30%</b> + 条款透明度 25% + 玩家实际可领价值 15%</td></tr><tr><td>RETENTION 留存</td><td>持续型促销 30% + VIP / 回流机制 25% + 客服 / 信任 25% + 社群活跃 20%</td></tr><tr><td>REACH 通路</td><td>TV / 媒体 30% + 社群声量 25% + KOL / 艺人 20% + 线下 / 支付触点 15% + SEO / 官网可见度 10%</td></tr></table>
+      </div>
+      <div class="radar-head">
+        <div>
+          <div class="lbl">六轴对比（基线 + 10 家）</div>
+          <div class="sub">右上下拉选评分基线（默认 Betroia）、下方按钮选对标竞品。<br><em style="color:rgba(255,255,255,.6);font-style:normal;">MX-W42，分数沿用 W40 冻结的基线。</em></div>
+        </div>
+        <div class="self-pick">
+          <span class="pick-lbl">基线品牌</span>
+          <select class="vssel" id="selfsel" aria-label="基线品牌"></select>
+        </div>
+      </div>
+      <div class="vsbtns" id="vsbtns" aria-label="vs"></div>
+      <div class="radar-body">
+        <div class="left">
+          <div class="grid" id="radarGrid"></div>
+          <div class="legend">
+            <span><i style="background:#fff3a6"></i><b id="legendSelf">基线 · Betroia</b></span>
+            <span><i id="legendVsColor" style="background:#1E5E34"></i><b id="legendVs">Brazino777</b></span>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 320" id="radarSvg" aria-label="6-axis capability radar">
+          <g id="rings"></g>
+          <g id="axes"></g>
+          <polygon id="polyVs" fill-opacity="0.35" stroke-width="2"></polygon>
+          <polygon id="polySelf" fill="#fff3a6" fill-opacity="0.42" stroke="#fff3a6" stroke-width="2.2"></polygon>
+          <g id="labels"></g>
+        </svg>
+      </div>
+      <div class="radar-note"><b>声明：</b>六轴评分为内部相对模型，依公开资料、Meta 广告库与官网侦察估算，用于方向判断，不代表官方经营数据或市场份额。本期（MX-W42）分数沿用 MX-W40 冻结的基线，未调整。<br><br><b>调分触发条件状态。</b>Sportiumbet 官网 10/17 已恢复开启，「官网连续两期无法开启」的触发条件解除，其 UX 与 REACH 子项不下调。其余触发条件本期未满足：DGJS 对 P-06 许可无新公告；无人签下 Liga MX 或 NFL 新赞助（teammexico 绑 Raiders 墨西哥官方赞助，属广告自述，未据此调分）；收入法仍待最终表决；无业者公开 11 月 30 日新规的实名流程调整。<br><br><b>BRAND 子项回算示范（沿用基线）。</b>Caliente BRAND 90 ＝ 市场份额 100 × 45% ＋ 代言 / IP 90 × 20% ＋ 玩家提及率 95 × 25% ＋ 本周 PR 55 × 10% ＝ 92.25，取 90。Brazino777 BRAND 65 ＝ 80 × 45% ＋ 40 × 20% ＋ 65 × 25% ＋ 50 × 10% ＝ 65.25，取 65。Betroia BRAND 25 ＝ 25 × 45% ＋ 10 × 20% ＋ 20 × 25% ＋ 50 × 10% ＝ 23.25，取 25。</div>
+    </div>
+  </section>
+
+  <section class="sec" id="moves-sec">
+    <div class="sec-lbl">
+      <span class="chip">§04</span><span class="en">Weekly Moves</span>
+      <h2>本周动向（MX-W42）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">本期 4 张：3 张来自 Meta 广告库（官方 ID 锁定），1 张为监管报导（单一来源）。与上期相比：Caliente 系新开 36 增至 77，Brazino777 61 降至 37，Jugabet 11 增至 20，teammexico 1 增至 24，BetMexico 仍为 0。</div>
+    <div class="moves" id="moveCards">
+
+      <div class="mcard" id="sig-01" style="border-top-color:#D7192D">
+        <div class="top"><span class="logo" style="background:#D7192D;width:26px;height:26px;font-size:10px">CA</span>
+          <div class="meta"><b>卡 1 · Caliente 系 / Playdoit</b><span>10/10-10/16</span></div>
+          <span class="sev high">高影响</span>
+        </div>
+        <h4>Caliente 系新开 77 则，<span class="hi">疑为周末赛程前上新。</span></h4>
+        <div class="detail">Meta 广告库页首显示 Caliente Sports 在投约 84 则，上期约 54 则。已载入 82 则中 44 则开刊日落在 10 月 10 日至 16 日，其中 10 月 15 日与 16 日各 18 则；Casino Caliente（页首约 320 则）已载入 119 则中 4 则新开；CalienteCasino.mx 无新开。Caliente 主帐号三个合计新开 48 则，上期 15 则。</div>
+        <div class="detail">Playdoit México（页首约 32 则，上期约 28 则）已载入 25 则中 21 则新开，10 月 16 日一天 14 则。素材主题转向串关：「Super Pago Anticipado」（MXN 1,000 可得 MXN 6,330）、Props、Necaxa vs Atlas、MLB，并保留「最快付款」。Playdoit Casino（页首约 18 则）已载入 16 则中 8 则新开，主题为真人桌 Baccarat、新 VIP 桌与 Blackjack。两个 Playdoit 帐号合计新开 29 则，上期 21 则。</div>
+        <div class="detail">Caliente Sports 的主文案仍是注册送 MXN 1,000「Bienvenidos al Juego」，另有 #LigaMx 标签、Giveaways 与门将 Carlos Acevedo 的内容。</div>
+        <div class="detail"><b>判断：</b>新开集中在 10 月 15 日与 16 日（周四、周五），像是为周末的联赛赛程集中补素材；Playdoit 把重心从上期的美式足球移到墨西哥联赛与串关。Caliente 系合计 77 则，是本期新开量最大的集团。Liga MX 季后赛 11 月 25 日开打，距 39 天。</div>
+        <div class="detail">⚠️ 口径提醒：新开则数只计已载入样本，是下限；Casino Caliente 页首约 320 则只载入 119 则。「最快付款」与可得金额为广告自述，本报未验证。</div>
+        <div class="social">⚠️ 单口径：本期仅 Meta 广告库，玩家端反应待补。</div>
+        <div class="src">出处：<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=193707530772179">Meta Ad Library · Caliente Sports</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=1805313696358661">Meta Ad Library · Playdoit México</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=104858785028921">Meta Ad Library · Playdoit Casino</a></div>
+        <div class="impact"><span><b>提议（对 Betroia）：</b>Caliente 系把体育素材按周滚动，赛事周的版位竞价会提前被推高。建议 10 月内先谈好 11 月的版位，并避开 11 月 22 日至 25 日最贵的几天。</span></div>
+      </div>
+
+      <div class="mcard" id="sig-02" style="border-top-color:#1E5E34">
+        <div class="top"><span class="logo" style="background:#1E5E34;width:26px;height:26px;font-size:10px">B7</span>
+          <div class="meta"><b>卡 2 · Brazino777 / P-06</b><span>10/10-10/16</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>Brazino777 回升到约 87 则，<span class="hi">新开 37 则。</span></h4>
+        <div class="detail">Meta 广告库页首显示 Brazino777 Mexico 在投约 87 则，上期约 69 则，10 月 3 日约 300 则。已载入 64 则中 37 则新开：10 月 12 日 10 则、13 日 7 则、15 日 12 则、16 日 6 则、10 日 2 则。上期新开为 61 则。</div>
+        <div class="detail">主轴仍是迎宾最高 MXN 15,500 加 200 次免费旋转；新增优惠码 JAGKAT（50 次 Lucky Jaguar、最低存 MXN 100、流水 40 倍），新游戏 Fortune Gems 2，文案仍自称「持牌、提款快」。</div>
+        <div class="detail"><b>判断：</b>上期的问题是约 300 降到约 69 是收缩还是换新。本期页首回升到约 87、新开 37 则，说明投放没有停，但只回到 10 月 3 日水位的约 29%。更像是素材换新后以较小规模续投，而不是回到原先量级；原因本报仍无法确认。</div>
+        <div class="detail">⚠️ 口径提醒：新开则数只计已载入样本，是下限；页首「约 N 则」是 Meta 的显示值，会随载入时点浮动。流水倍数取自广告文案，未在官网条款页核对。</div>
+        <div class="social">⚠️ 单口径：本期仅 Meta 广告库，玩家端与社群信号待补。</div>
+        <div class="src">出处：<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=113103278521842">Meta Ad Library · Brazino777 Mexico</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX">Meta Ad Library</a></div>
+        <div class="impact"><span><b>提议（对 Betroia）：</b>Brazino777 的同受众竞价压力小于 10 月 3 日以前，但已非谷底；下期继续追页首数字即可，不需要调整本月的预算。</span></div>
+      </div>
+
+      <div class="mcard" id="sig-03" style="border-top-color:#555555">
+        <div class="top"><span class="logo" style="background:#555555;width:26px;height:26px;font-size:10px">BC</span>
+          <div class="meta"><b>卡 3 · BC.Game / Jugabet / teammexico</b><span>10/10-10/16</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>BC.Game 等三家新开 122 则，<span class="hi">疑为抢装机。</span></h4>
+        <div class="detail">BC.Game Mexico（D 组，页首约 100 则，上期约 58 则）已载入 99 则中 78 则新开，10 月 10 至 14 日每天 10 至 21 则，其中 10 月 14 日 21 则。素材主打「迎宾奖金最高 60,000」与「Zombie Carnival 赢至 x500,000」，导向 App Store 与 Google Play。</div>
+        <div class="detail">Jugabet Mexico（页首约 52 则，上期约 78 则）已载入 32 则中 20 则新开，19 则在 10 月 15 日。素材统一为「500% 奖金加 125 次免费旋转」，新增摔角主题「¡Sube al ring!」，导向 Google Play 与 track.jugabet.mx 追踪连结。</div>
+        <div class="detail">teammexico（页首约 150 则，上期约 140 则）已载入 94 则中 24 则新开，10 月 11 日一天 18 则，主题含 Raiders 墨西哥官方赞助与 NFL 周一夜；另有 30 次免费旋转（Gold Koi Fortune）、存 MXN 200 得 MXN 4,000（RAPU4000、WEREVER4000）。</div>
+        <div class="detail"><b>判断：</b>三家的素材都以 App 安装或 NFL 题材为主。BC.Game 一周新开量比 10 家观察对象任何一家都多，但它属 D 组，只观察、不评分。Jugabet 的页首由约 78 降到约 52，同时 10 月 15 日大量新开，形态与上期的 Brazino777 相近，是换新而不是加量。</div>
+        <div class="detail">⚠️ 口径提醒：新开则数只计已载入样本，是下限；500% 与 4,000 的流水、提领条件，本期都没有在官网读到。</div>
+        <div class="social">⚠️ 单口径：本期仅 Meta 广告库，玩家端反应待补。</div>
+        <div class="src">出处：<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=1113189271881470">Meta Ad Library · BC.Game Mexico</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=683743811487419">Meta Ad Library · JugaBet Mexico</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX">Meta Ad Library</a></div>
+        <div class="impact"><span><b>提议（对 Betroia）：</b>NFL 墨西哥城赛 11 月 22 日，距 36 天，teammexico 已绑 Raiders 赞助。每周一并查看 App 商店页的素材与评分，因为这三家都靠商店页或追踪连结完成转化。</span></div>
+      </div>
+
+      <div class="mcard" id="sig-04" style="border-top-color:#8a3a33">
+        <div class="top"><span class="logo" style="background:#8a3a33;width:26px;height:26px;font-size:10px">SG</span>
+          <div class="meta"><b>卡 4 · Segob / 联邦与 CDMX</b><span>10/13</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>Segob 称新法草案审完，<span class="hi">CDMX 拟禁欢迎奖金。</span></h4>
+        <div class="detail">El Imparcial 10 月 13 日报导：Segob 部长 Rosa Icela Rodríguez 表示，更新 1947 年 Ley Federal de Juegos y Sorteos 的内部审查已完成，草案将送安全内阁评估后才正式提出；目标是打击逃税与洗钱。她同时说明约 20 家赌场被关闭，缘于 FGR 与 UIF 协调的刑事与税务调查，不只是行政缺失。</div>
+        <div class="detail">同篇提到 CDMX 议员 Alberto Martínez Urincho（Morena）的提案：限制网红、艺人与运动员参与此类推广，取消体育转播中的广告，实施生物辨识挡未成年人，并拟禁止欢迎奖金等诱因。该提案是否已进入表决，文中未说明。</div>
+        <div class="detail"><b>判断：</b>两件事都还在草案或提案阶段，目前没有生效日期；但方向同时指向广告与欢迎奖金，而本期各家素材仍以欢迎奖金与 KOL 为主轴（Caliente 系、Jugabet、Brazino777 皆是）。</div>
+        <div class="detail">⚠️ 口径提醒：本卡仅依 El Imparcial 一篇，该页无 canonical 标记，本报未取得 Segob 公告或议会文件原文，细节以报导为准。</div>
+        <div class="social">⚠️ 单一来源：未见官方文件或第二家媒体核实。</div>
+        <div class="src">出处：<a href="https://www.elimparcial.com/dinero/2026/10/13/la-reforma-a-la-ley-federal-de-juegos-y-sorteos-un-obstaculo-para-el-sector-del-juego-y-las-apuestas-deportivas-onlinep/">El Imparcial 10/13 · Segob 与 Ley de Juegos</a></div>
+        <div class="impact"><span><b>提议（对 Betroia）：</b>先不改素材，但把依赖欢迎奖金与 KOL 的投放列出清单，万一提案或新法落地，能当场知道要换哪些。下期追 Segob 是否正式送出草案。</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Timeline · 近两周大事记</span>
+      <h2>时间轴（倒序）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow"><span class="d">10/17</span><span class="dot"></span><span class="cat">异常</span><span class="br">Sportiumbet</span><span class="desc">官网恢复可开启（前两期无法开启）；Meta 仍无投放</span><span class="wk">MX-W42</span></div>
+      <div class="trow"><span class="d">10/16</span><span class="dot blue"></span><span class="cat">投放</span><span class="br">Caliente Sports / Playdoit México</span><span class="desc">单日各新开 18、14 则，题材含 Liga MX 与 Parlay</span><span class="wk">MX-W42</span></div>
+      <div class="trow"><span class="d">10/15</span><span class="dot blue"></span><span class="cat">投放</span><span class="br">Jugabet / Caliente Sports</span><span class="desc">Jugabet 单日新开 19 则（摔角主题）；Caliente Sports 同日 18 则</span><span class="wk">MX-W42</span></div>
+      <div class="trow"><span class="d">10/14</span><span class="dot"></span><span class="cat">预算</span><span class="br">联邦政府</span><span class="desc">La Razón 标题称众议院一般性表决通过 2027 年收入法（内文未读，是否含博彩条款未核）</span><span class="wk">MX-W42</span></div>
+      <div class="trow"><span class="d">10/13</span><span class="dot"></span><span class="cat">政策</span><span class="br">Segob</span><span class="desc">El Imparcial：Segob 完成新 Ley de Juegos y Sorteos 内部审查，送安全内阁评估（单一来源）</span><span class="wk">MX-W42</span></div>
+      <div class="trow"><span class="d">10/10-10/14</span><span class="dot blue"></span><span class="cat">投放</span><span class="br">BC.Game</span><span class="desc">新开 78 则，页首在投由约 58 增至约 100，导向 App 商店</span><span class="wk">MX-W42</span></div>
+      <div class="trow"><span class="d">10/11</span><span class="dot blue"></span><span class="cat">投放</span><span class="br">teammexico</span><span class="desc">单日新开 18 则，主题含 NFL 周一夜</span><span class="wk">MX-W42</span></div>
+      <div class="trow"><span class="d">10/12-10/16</span><span class="dot blue"></span><span class="cat">投放</span><span class="br">Brazino777</span><span class="desc">新开 37 则，页首由约 69 回升到约 87</span><span class="wk">MX-W42</span></div>
+      <div class="trow"><span class="d">10/07</span><span class="dot"></span><span class="cat">税务</span><span class="br">Estado de México</span><span class="desc">Yogonet 报导：2024-2026 年赌场、抽奖与彩券缴税合计 USD 65.2 百万</span><span class="wk">MX-W41</span></div>
+      <div class="trow"><span class="d">10/07</span><span class="dot"></span><span class="cat">预算</span><span class="br">联邦政府</span><span class="desc">Expansión 报导 2027 年 IEPS 方案；博彩 IEPS 维持 50%</span><span class="wk">MX-W41</span></div>
+    </div>
+    <div class="tl-legend">
+      <span><i style="background:#8a3a33"></i>政策 / 许可 / 预算 / 税务</span>
+      <span><i style="background:#2A5FAA"></i>投放 / 品牌</span>
+      <span><i style="background:#c96442"></i>异常</span>
+      <span><i style="background:#2f6b3b"></i>赞助</span>
+    </div>
+  </section>
+
+  <section class="sec" id="implications">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Implications · 威胁 / 机会</span>
+      <h2>影响推演（Betroia 在位者视角）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="impl-meth">
+      <h6>参数参考（皆为内部估算）</h6>
+      <ul>
+        <li><b>在投量：</b>10 家页首在投合计约 2,761 则，上期约 2,576 则；Caliente 系新开 77 则，BC.Game（D 组）新开 78 则。</li>
+        <li><b>体育档期：</b>NFL 墨西哥城赛 11/22，距 36 天；Liga MX 季后赛 11/25 开打，距 39 天；决赛次回合 12/13，距 57 天。</li>
+        <li><b>反洗钱新规：</b>LFPIORPI（墨西哥反洗钱法）新规适应期限 11/30，距 44 天。</li>
+        <li><b>税与预算：</b>博彩 IEPS 50% 自 2026/01/01 生效、进入第 42 周；收入法 10/20 期限，距 3 天。</li>
+        <li><b>监管草案：</b>Segob 新博彩法草案送安全内阁评估，CDMX 欢迎奖金提案；皆未生效。</li>
+      </ul>
+    </div>
+    <div class="impl">
+      <div class="col threat"><h5><span class="dot"></span>威胁<span class="en">Threats</span></h5><ul>
+        <li><b>Caliente 系赛事周前集中放量，抢同一批体育与娱乐场版位。</b>新开 77 则，页首约 84 则。<em>不作为的代价（内部估算）：若同受众竞价随其放量上升而未调整，第四季同受众千次曝光成本估约上升 10-20%。方法：以 Caliente 系新开量约为上期两倍对照推估，未取得实际竞价数据。</em></li>
+        <li><b>装机导向的竞品增多，商店页成为玩家比较的重点。</b>BC.Game 78 则、Jugabet 20 则皆导向商店或追踪连结。<em>不作为的代价（内部估算）：若商店页首屏未说明持牌与提款速度，点击后装机转化估约低 5-15%。方法：以对手把转化押在商店页的做法对照推估，无自有商店页实测。</em></li>
+        <li><b>11 月体育档期涨价外溢到娱乐场版位。</b>NFL 与 Liga MX 同月上场。<em>不作为的代价（内部估算）：若 11 月中下旬才定投放，赛事周前后版位估约贵 15-30%。方法：参照大型赛事周社群版位溢价区间，属行业经验值、非本市场实测。</em></li>
+        <li><b>新博彩法与 CDMX 提案若落地，欢迎奖金与 KOL 素材须整批替换。</b>两项皆为单一来源、未生效。<em>不作为的代价（内部估算）：若无备案素材，规则生效后换素材的空窗期估约 1-2 周。方法：以过往素材送审与重制周期推估，无本市场先例。</em></li>
+        <li><b>反洗钱新规 11/30 上路，实名流程不顺可能流失玩家。</b>识别与申报义务加重。<em>不作为的代价（内部估算）：若 11 月前没有先改实名流程与玩家说明，认证环节流失估约增加 5-15%。方法：以须补资料的玩家比例乘既有认证流失率推估，无本市场实测。</em></li>
+      </ul></div>
+      <div class="col opp"><h5><span class="dot"></span>机会<span class="en">Opportunities</span></h5><ul>
+        <li><b>10 月先谈妥 11 月版位</b>（内部估算 ~MXN 50K-150K 订金 / 1-2 周议约）。避开 11/22 至 11/25 最贵的几天，或改投赛后档。<em>提醒：订金条款附改期条件，以防新法或 DGJS 公告改变投放节奏。</em></li>
+        <li><b>做「怎么查持牌」白话素材</b>（内部估算 ~MXN 20K-50K 制作 / 1 周）。样本中无人教玩家查证；补上查证可把「Licencia oficial」做实，也贴合 Segob 对广告许可标示的方向。<em>提醒：素材中的许可资讯必须与 DGJS 名单一致，文号未核实前不要放截图或号码。</em></li>
+        <li><b>建立「欢迎奖金 / KOL 依赖」备案清单</b>（内部估算 ~MXN 10K-30K 整理与备案素材 / 1-2 周）。预先备一套不依赖欢迎奖金的素材，规则落地时可直接切换。<em>提醒：备案素材同样要通过合规审阅，不要在规则明确前对外使用。</em></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="fcard">
+      <h5>方法论 + 数据源</h5>
+      <p>10 家观察清单（A 组 Caliente 系 3 家、B 组 P-06 共用许可网络 4 家、C 组同渠道 / 同内容 3 家）+ D 组离岸与加密（只观察、不评分）+ 监管与立法动作。客户 X = Betroia（在场业者）。本期为 MX-W42，雷达分数沿用 MX-W40 基线、不调整。</p>
+      <p><b>✅ Meta 广告库快照：</b>以官方广告主 ID 锁定、国家选墨西哥、状态选刊登中；每个帐号以滚轮载入 2 至 4 屏，默认按曝光排序，新开广告曝光少、可能未载入，「本周动作」为下限；快照已存档于 snapshots/MX-W42。Codere（候补）本期未跑。</p>
+      <p><b>⚠️ 官网促销页未从墨西哥出口 IP 检查：</b>本期为排程执行，没有墨西哥出口 IP，促销条款页未逐一开启；Playdoit 与 Jugabet 官网显示地区限制页。价档依广告文案，状态为「未执行」。</p>
+      <p><b>⚠️ 出处 canonical：</b>卡 4 所引 El Imparcial 10/13 页面无 canonical 标记，属单一来源；La Razón 10/14 仅引用标题层级的事实，内文未读。</p>
+      <p><b>⚠️ 社群信号本期降级：</b>未抓 X / Reddit / Threads / Facebook 公开群组。四张卡均标「单口径」或「单一来源」如实。</p>
+      <p><b>⚠️ 待核（二手来源）：</b>gamblingmaps.org 的 Betroia 观察页将 betroia.com 列在 P-06 许可网络下；与 Betroia 自述的许可归属不符，本报未在 DGJS 持牌名单核对，沿用上期标记，不据此改动任何评分。</p>
+      <p>每日监听对墨西哥法规与竞品的覆盖仍薄，本报以每周搜寻补足。窗口内与墨西哥线上博彩直接相关、可确认日期的新闻是 El Imparcial 10/13 的 Segob 报导与 La Razón 10/14 的收入法标题；本期检索未见 DGJS 停权、反洗钱调查与 10 家品牌新进展。Betroia 负面声量专查：窗口内未见相关结果。</p>
+      <p>连续状态起算日（锚点表口径）：IEPS 50% 自 2026-01-01 起算、本周进入第 42 周；LFPIORPI 适应期限 11/30 距 44 天；收入法期限 10/20 距 3 天；Liguilla 11/25 距 39 天；决赛次回合 12/13 距 57 天。数据窗口 10/10-10/17 回顾、10/17-10/24 展望。</p>
+      <div class="srcs"><span><i class="ok"></i>Meta 广告库 10/17<em>官方 ID 锁定、墨西哥、刊登中</em></span><span><i class="warn"></i>El Imparcial 10/13<em>Segob 新法 · 单一来源 · 无 canonical</em></span><span><i class="warn"></i>La Razón 10/14<em>收入法 · 仅标题</em></span><span><i class="warn"></i>gamblingmaps.org<em>二手来源 · 待核</em></span><span><i class="warn"></i>墨西哥 IP 促销页 / 社群信号 / 完整载入<em>未执行，下期补</em></span></div>
+    </div>
+    <div class="fcard">
+      <h5>下期（MX-W43 · 2026-10-24）追踪清单</h5>
+      <ol><li><span class="n">1</span>Caliente 系放量是否延续到 Liga MX 季后赛前</li><li><span class="n">2</span>Brazino777 页首数字：约 87 是否继续回升</li><li><span class="n">3</span>Segob 新博彩法是否正式送出，CDMX 提案是否进入表决</li><li><span class="n">4</span>10/20 收入法最终表决：有无博彩相关条款</li><li><span class="n">5</span>BC.Game、Jugabet 的 App 商店页与落地页内容</li><li><span class="n">6</span>从墨西哥出口 IP 开启各家促销条款页，核 Playdoit 页首数字</li><li><span class="n">7</span>P-06 许可：DGJS 持牌名单逐笔核对，含 Betroia 归属的二手说法</li><li><span class="n">8</span>补跑 Codere 与 Meta 广告库完整载入，建立新开广告完整基线</li></ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span><b>COMPETITOR // BRIEF</b> · MX-W42 · MX iGaming · 10 家观察清单 + 离岸组 · 客户 X = Betroia</span>
+    <span>数据窗口 10/10-10/17 回顾 · 10/17-10/24 展望</span>
+  </div>
+
+</div>
+</div>
+
+<script>
+const RADAR_LABELS = ['品牌力','体验','内容','定价','留存','通路'];
+const RADAR_LABELS_ZH = ['','','','','',''];
+
+const BRANDS = {
+  betroia:    { name:'Betroia（基线）',  color:'#3B3B98', scores:[25,55,50,50,55,55] },
+  caliente:   { name:'Caliente',        color:'#D7192D', scores:[90,80,80,65,80,90] },
+  playdoit:   { name:'Playdoit',        color:'#6A2C91', scores:[60,70,70,65,70,70] },
+  winner:     { name:'Winner',          color:'#8C6D1F', scores:[35,65,55,60,55,55] },
+  brazino:    { name:'Brazino777',      color:'#1E5E34', scores:[65,65,60,60,60,70] },
+  betmaster:  { name:'Betmaster',       color:'#F26B21', scores:[55,65,60,55,55,75] },
+  betmexico:  { name:'BetMexico',       color:'#2E9E5B', scores:[55,65,55,50,55,50] },
+  jugabet:    { name:'Jugabet',         color:'#7B3FE4', scores:[40,55,50,50,50,50] },
+  winpot:     { name:'Winpot',          color:'#E0A800', scores:[45,65,60,60,60,55] },
+  teammexico: { name:'teammexico',      color:'#006847', scores:[40,60,55,55,50,55] },
+  sportium:   { name:'Sportiumbet',     color:'#0055A4', scores:[50,55,60,60,55,55] }
+};
+let selfId = 'betroia';
+let vsId = 'brazino';
+const cx=160, cy=160, R=130;
+const angle = i => (Math.PI*2*i)/6 - Math.PI/2;
+
+function ringPolygon(rr){
+  return Array.from({length:6},(_,i)=>`${cx+rr*Math.cos(angle(i))},${cy+rr*Math.sin(angle(i))}`).join(' ');
+}
+function polyPoints(values){
+  return values.map((v,i)=>{const r=(v/100)*R;return `${cx+r*Math.cos(angle(i))},${cy+r*Math.sin(angle(i))}`;}).join(' ');
+}
+function labelPos(i,off=22){
+  const x = cx + (R+off)*Math.cos(angle(i));
+  const y = cy + (R+off)*Math.sin(angle(i)) + 4;
+  return {x,y};
+}
+
+function initRadar(){
+  const ringsG = document.getElementById('rings');
+  [1,.75,.5,.25].forEach((s,i)=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',ringPolygon(R*s));
+    p.setAttribute('fill', i===0 ? 'rgba(255,255,255,.04)' : 'none');
+    p.setAttribute('stroke','rgba(255,255,255,.18)');
+    ringsG.appendChild(p);
+  });
+  const axesG = document.getElementById('axes');
+  for(let i=0;i<6;i++){
+    const x=cx+R*Math.cos(angle(i)), y=cy+R*Math.sin(angle(i));
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x);l.setAttribute('y2',y);
+    l.setAttribute('stroke','rgba(255,255,255,.1)');
+    axesG.appendChild(l);
+  }
+  const labG = document.getElementById('labels');
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const p=labelPos(i,18);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',p.x);t1.setAttribute('y',p.y-6);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('fill','#fff');t1.setAttribute('font-size','11');t1.setAttribute('font-weight','800');
+    t1.textContent=lbl;
+    labG.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',p.x);t2.setAttribute('y',p.y+6);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('fill','rgba(255,255,255,.6)');t2.setAttribute('font-size','9');
+    t2.textContent=RADAR_LABELS_ZH[i];
+    labG.appendChild(t2);
+  });
+  const selfSel = document.getElementById('selfsel');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = d.name;
+    if(id===selfId) opt.selected = true;
+    selfSel.appendChild(opt);
+  });
+  selfSel.addEventListener('change', e => { selfId = e.target.value; render(); });
+
+  const vsbtns = document.getElementById('vsbtns');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const b = document.createElement('button');
+    b.dataset.id = id;
+    b.innerHTML = `<i style="background:${d.color}"></i>${d.name}`;
+    if(id===vsId) b.classList.add('active');
+    b.onclick = () => {
+      vsId = id;
+      document.querySelectorAll('#vsbtns button').forEach(x => x.classList.toggle('active', x.dataset.id===id));
+      render();
+    };
+    vsbtns.appendChild(b);
+  });
+
+  render();
+}
+function render(){
+  const self = BRANDS[selfId];
+  const vs = BRANDS[vsId];
+  const polySelf = document.getElementById('polySelf');
+  const polyVs = document.getElementById('polyVs');
+  polySelf.setAttribute('points', self.closed ? '' : polyPoints(self.scores));
+  polyVs.setAttribute('points', vs.closed ? '' : polyPoints(vs.scores));
+  polyVs.setAttribute('fill', vs.closed ? 'none' : vs.color);
+  polyVs.setAttribute('stroke', vs.closed ? 'none' : vs.color);
+  document.getElementById('legendSelf').textContent='基线 · '+self.name;
+  document.getElementById('legendVs').textContent=vs.name;
+  document.getElementById('legendVsColor').style.background=vs.closed?'#555':vs.color;
+  const grid = document.getElementById('radarGrid');
+  grid.innerHTML='';
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const sv = self.closed ? 'N/A' : self.scores[i];
+    const vv = vs.closed ? 'N/A' : vs.scores[i];
+    const lead = (!self.closed && !vs.closed && vs.scores[i] > self.scores[i]);
+    grid.innerHTML += `<span>${lbl}</span><span>${sv}</span><span>vs</span><span style="color:${lead?'var(--neg)':'var(--pos)'}">${vv}</span>`;
+  });
+}
+initRadar();
+</script>
+</body>
+</html>

@@ -119,6 +119,10 @@ tr.total td { font-weight: 700; border-top: 2px solid var(--head); }
 .headline { margin: 0; font-size: 15px; line-height: 1.7; font-weight: 600; }
 .notice { font-size: 13px; color: var(--neg-fg); border-left: 3px solid var(--neg-fg); padding: 4px 10px; }
 .pcards { display: grid; gap: 12px; }
+#dOverview tr.mgrp td { background: var(--row-alt); font-weight: 700; }
+#dOverview tr.total td { font-weight: 700; }
+#dOverview tr.child td { font-size: 12px; color: var(--muted); }
+#dOverview button.tg { border: 0; background: none; color: var(--accent); cursor: pointer; padding: 0 4px; font: inherit; }
 .pcard { border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; }
 .pcard .pt { margin: 0 0 6px; font-weight: 700; }
 .pcard .tag { font-weight: 600; font-size: 12px; color: var(--neg-fg); margin-left: 6px; }
@@ -191,6 +195,8 @@ details.rules dd { margin: 0; min-width: 0; }
     </div>
     <p class="headline" id="dHead"></p>
     <div class="notice" id="dNotice"></div>
+    <h3>子总代一览 <span class="note" id="dOvNote"></span></h3>
+    <div id="dOverview"></div>
     <h3>问题清单（本周 · 按子总代）</h3>
     <div id="dCards"></div>
     <h3>符合加量规则</h3>
@@ -201,12 +207,14 @@ details.rules dd { margin: 0; min-width: 0; }
       <summary>日报规则</summary>
       <dl>
         <dt>子总代</dt><dd>按「渠道管理列表」的所属总代分组（媒体 × 包型，例如 A8 · Tiktok · 原生包）；没导入对照表时用总代 + 媒体 + 包型代替</dd>
+        <dt>子总代一览</dt><dd>按媒体分组，列出全部子总代。「昨天」= 最新一个数据日；「比前7日均」= 跟它之前 7 个数据日的日均比；本周消耗 < $3,000 的标「样本小」不判断质量（单日自然波动约 ±20–30%，所以不跟前一天比）。「本周」= 最近 7 个数据日。一句话：本周质量（偏低 / 正常 / 优于同包型）+ 昨天的明显变化（消耗暴增或明显缩量 = 1.5 倍 / 一半；首充ROAS 大幅转好或腰斩 = 1.5 倍 / 一半，昨天消耗 ≥ $500 才判断）。点 ▸ 可展开看底下的渠道。最新一天全站消耗不到前 7 日日均的 60% 时，会提醒可能不是完整一天，并且暂停所有「昨天」的判断</dd>
+        <dt>非投放总代</dt><dd>官方、商店包、社媒等不在 TPD / A8 下的总代，只看注册与首充人数（看自然量有没有变化）。首充栏位是改版后新增的，之前上传的日期要重新拖一次原档才会有</dd>
         <dt>问题清单</dt><dd>本周（最近 7 个数据日）消耗 ≥ $3,000，且一级首充ROAS 比「同包型其他花费」低 15% 以上（可比部分不到一半不判断）。按少回收金额排序；标签看最近 4 周：连续偏低标「连续 N 周」，不连续标「近 4 周有 N 周偏低」，没有历史标「历史不足」；缺数据的周显示「—」。没有可比同包型花费的子总代另列「无法判断」</dd>
         <dt>差在哪段</dt><dd>跟同包型其他花费比（对照组按自己的包型比例重新加权）：注册成本、注册转首充、首充客单三段，比别人差 5% 以上的就列出，并对应要找谁、要求什么；某段归零时直接点名</dd>
         <dt>预算分布</dt><dd>子总代里近7日消耗 ≥ $1,000 的渠道，各自跟「自己包型的其他花费」比（跟灯号、加量规则同一条正常线）：低 15% 以上的算「差」，其余算「不偏低」。差渠道占子总代消耗 ≥ 40% 且有不偏低的渠道时，建议在子总代内把预算从差渠道转过去；没有可接的渠道且差渠道占 ≥ 70% 时，建议先降回测试预算</dd>
         <dt>为什么不只是减量</dt><dd>历史回测：被判偏低的子总代减量后，下周仍偏低的约 3/4。减量只是少亏，要改善得处理差的那一段</dd>
         <dt>加量规则</dt><dd>D7 数据接上前：渠道最近 3 个数据日，每天一级首充ROAS 都高于正常线 15% 以上（且每天消耗 ≥ $100），才可加量，单次 ≤ +20%。本周质量判为差、亮红灯、「质量好但在下滑」或在问题卡里被点名为差的渠道不列入；「加量后质量下滑」的黄灯会注明，近 3 日真的回升才写回升</dd>
-        <dt>紧急异常</dt><dd>最新一天、消耗 ≥ $2,000 的子总代：消耗是前 7 日日均的 1.5 倍以上，或一级首充ROAS 不到前 7 日的一半。日波动本来就有 ±20–30%，没到这个程度不报</dd>
+        <dt>紧急异常</dt><dd>最新一天可能不完整时暂停。最新一天、消耗 ≥ $2,000 的子总代：消耗是前 7 日日均的 1.5 倍以上，或一级首充ROAS 不到前 7 日的一半。日波动本来就有 ±20–30%，没到这个程度不报</dd>
       </dl>
     </details>
   </section>
@@ -349,7 +357,7 @@ details.rules dd { margin: 0; min-width: 0; }
   const LOCAL_KEY = 'betroia-days-v1'; // 本机模式：解析后的每日数据存在浏览器
   const MEDIA_KEY = 'betroia-channel-media-v1'; // 本机模式：渠道 → 媒体对照
   // 每行存成紧凑数组：[group, id, name, cost, promo, reg, pay, payAmt, ftd, ftdAmt]
-  // 其他（未归属）总代：[ 'O', agentName, regs ] 只用于提示
+  // 其他（未归属 / 不投放）总代：[ 'O', agentName, regs, ftd, ftdAmt ]（ftd / ftdAmt 是后来加的，旧数据只有 regs）
 
   const $ = id => document.getElementById(id);
   const state = { db: { days: {}, prefs: loadPrefs() }, media: {}, from: null, to: null, days: 7 };
@@ -498,7 +506,7 @@ details.rules dd { margin: 0; min-width: 0; }
         ? [g.key, String(r[idx.id]).trim(), String(r[idx.name] ?? '').trim(),
            num(r[idx.cost]), idx.promo >= 0 ? num(r[idx.promo]) : num(r[idx.cost]),
            num(r[idx.reg]), num(r[idx.pay]), num(r[idx.payAmt]), num(r[idx.ftd]), num(r[idx.ftdAmt])]
-        : ['O', agent, num(r[idx.reg])]);
+        : ['O', agent, num(r[idx.reg]), num(r[idx.ftd]), num(r[idx.ftdAmt])]);
     }
     return byDay;
   }
@@ -1180,9 +1188,13 @@ details.rules dd { margin: 0; min-width: 0; }
       opps.sort((x, y) => y.a.rel - x.a.rel);
     }
 
+    // 最新一天是否可能不完整（全站投放消耗 < 前 7 日日均的 60%）：是的话所有「昨天」判断都暂停
+    const paidCost = ds => { let c = 0; for (const d of ds) for (const r of state.db.days[d]) if (r[0] === 'T' || r[0] === 'A') c += state.db.prefs.costMode === 'promo' ? r[4] : r[3]; return c; };
+    const prevDaysP = n >= 8 ? days.slice(n - 8, n - 1) : days.slice(0, n - 1);
+    const partial = prevDaysP.length > 0 && paidCost(prevDaysP) > 0 && paidCost([days[n - 1]]) < paidCost(prevDaysP) / prevDaysP.length * 0.6;
     // 紧急异常：最新一天 vs 前 7 日（子总代层级）
     const emerg = [];
-    if (n >= 8) {
+    if (n >= 8 && !partial) {
       const day = days[n - 1], prev = days.slice(n - 8, n - 1);
       const agg = ds => { const m = new Map(); for (const d of ds) for (const r of state.db.days[d]) { if (r[0] !== 'T' && r[0] !== 'A') continue; const k = r[0] + '|' + subOf(r); if (!m.has(k)) m.set(k, { g: r[0], sub: subOf(r), x: blank() }); add(m.get(k).x, r); } return m; };
       const D = agg([day]), Pv = agg(prev);
@@ -1196,7 +1208,77 @@ details.rules dd { margin: 0; min-width: 0; }
       }
       emerg.sort((a, b) => b.cost - a.cost);
     }
-    return { ready: true, n, asOf: days[n - 1], from: wk(0)[0], cards, allCost, opps, emerg, unjudged };
+    // 子总代一览：昨天 vs 前 7 日日均，本周质量来自 cur
+    const dayK = days[n - 1], prev7 = n >= 8 ? days.slice(n - 8, n - 1) : days.slice(0, n - 1);
+    const subAgg = ds => {
+      const m = new Map();
+      for (const d of ds) for (const r of state.db.days[d]) {
+        if (r[0] !== 'T' && r[0] !== 'A') continue;
+        const key = r[0] + '|' + subOf(r);
+        if (!m.has(key)) m.set(key, { x: blank(), ch: new Map(), med: new Map() });
+        const v = m.get(key);
+        add(v.x, r);
+        if (!v.ch.has(r[1])) v.ch.set(r[1], { name: r[2], ...blank() });
+        const c = v.ch.get(r[1]); c.name = r[2]; add(c, r);
+        const c0 = state.db.prefs.costMode === 'promo' ? r[4] : r[3];
+        const md = mediaOfRow(r); v.med.set(md, (v.med.get(md) || 0) + c0 + 1e-9);
+      }
+      return m;
+    };
+    const Dd = subAgg([dayK]), Dp = subAgg(prev7), Dw = subAgg(wk(0));
+    const pd = prev7.length || 1;
+    const totDay = blank(), totPrev = blank();
+    for (const v of Dd.values()) for (const f in totDay) totDay[f] += v.x[f];
+    for (const v of Dp.values()) for (const f in totPrev) totPrev[f] += v.x[f] / pd;
+    const alertOf = new Map(I ? I.alerts.map(a => [a.g + '|' + a.c.id, a]) : []);
+    const ovRows = [];
+    for (const [key, w] of Dw) {
+      const t = derive(w.x);
+      if (t.cost < 300) continue;
+      const day = Dd.get(key), prv = Dp.get(key);
+      const dx = day ? derive(day.x) : derive(blank());
+      const px = prv ? derive(Object.fromEntries(Object.entries(prv.x).map(([k, v]) => [k, v / pd]))) : null;
+      const j = cur.get(key);
+      const [g, sub] = [key.split('|')[0], key.slice(2)];
+      const media = [...w.med.entries()].sort((a, b) => b[1] - a[1])[0][0];
+      const flags = [];
+      // 最新一天可能不完整时，所有「昨天」判断都暂停
+      if (!partial && px && px.cost > 0) {
+        if (dx.cost >= 1000 && dx.cost >= px.cost * 1.5) flags.push('昨天消耗暴增');
+        if (px.cost >= 300 && dx.cost <= px.cost * 0.5) flags.push(dx.cost === 0 ? '昨天没有消耗' : '昨天明显缩量');
+        const pr = prv ? derive(prv.x).ftdRoas : 0;
+        if (dx.cost >= 500 && pr > 0 && dx.ftdRoas >= pr * 1.5) flags.push('昨天首充ROAS 大幅转好');
+        if (dx.cost >= 500 && pr > 0 && dx.ftdRoas <= pr * 0.5) flags.push('昨天首充ROAS 腰斩');
+      }
+      const card = cards.find(c => c.s.key === key);
+      const q = t.cost < ALERT_MIN_COST ? { lv: '', t: '样本小（本周 < $3,000）' }
+        : !j || j.tier === '—' ? { lv: '', t: '无可比' }
+        : j.tier === '差' ? { lv: 'red', t: !card ? '本周偏低' : card.tag === '本周新出现' ? '本周偏低（新出现）' : card.tag }
+        : j.tier === '优' ? { lv: 'grn', t: '本周优于同包型' } : { lv: '', t: '本周正常' };
+      const chans = [...w.ch.entries()].map(([id, c]) => {
+        const cw = derive(c), cdRaw = day && day.ch.get(id), cd = cdRaw ? derive(cdRaw) : derive(blank());
+        const cpRaw = prv && prv.ch.get(id), cp = cpRaw ? derive(Object.fromEntries(Object.entries(cpRaw).filter(([k]) => k !== 'name').map(([k, v]) => [k, v / pd]))) : null;
+        const al = alertOf.get(g + '|' + id);
+        return { id, name: c.name, w: cw, d: cd, p: cp, act: al && al.lv ? al.act : '', lv: al ? al.lv : '' };
+      }).filter(c => c.w.cost >= 100).sort((a, b) => b.w.cost - a.w.cost);
+      ovRows.push({ key, g, sub, media, t, dx, px, j, q, flags, chans });
+    }
+    // 显示名称重复时（同媒体同包型、不同短名），把短名放进可见文字
+    const labCount = new Map(); ovRows.forEach(r => { const l = subLabel(r.sub); labCount.set(l, (labCount.get(l) || 0) + 1); });
+    ovRows.forEach(r => { const l = subLabel(r.sub); r.label = labCount.get(l) > 1 ? `${l} · ${String(r.sub).split('_').slice(4).join('_') || r.sub}` : l; });
+    const order = ['TikTok', 'Facebook', 'Google', 'Google搜索', 'Kwai', 'Microsoft', 'DSP/网盟', '网红', '应用商店', 'WhatsApp', '未标注'];
+    const ord = m => { const i = order.indexOf(m); return i < 0 ? order.length : i; };
+    const mCost = new Map(); ovRows.forEach(r => mCost.set(r.media, (mCost.get(r.media) || 0) + r.t.cost));
+    ovRows.sort((a, b) => (mCost.get(b.media) - mCost.get(a.media)) || ord(a.media) - ord(b.media) || a.media.localeCompare(b.media) || b.t.cost - a.t.cost);
+    // 非投放总代（'O'）：注册 / 首充（首充是新增栏位，旧数据没有）
+    // 首充栏位是新加的：只用「有首充数据」的日期算平均，不到 3 天就不比
+    const oDayOf = d => { const x = { reg: 0, ftd: 0, has: false }; for (const r of state.db.days[d]) if (r[0] === 'O') { x.reg += r[2] || 0; if (r.length > 3) { x.ftd += r[3] || 0; x.has = true; } } return x; };
+    const oDay = oDayOf(dayK), oPrevDays = prev7.map(oDayOf), ftdDays = oPrevDays.filter(x => x.has);
+    const nonPaid = { day: oDay, prevReg: oPrevDays.reduce((a, x) => a + x.reg, 0) / pd,
+      prevFtd: ftdDays.length >= 3 ? ftdDays.reduce((a, x) => a + x.ftd, 0) / ftdDays.length : null };
+    const totW = blank(); for (const v of Dw.values()) for (const f in totW) totW[f] += v.x[f];
+    return { ready: true, n, asOf: days[n - 1], from: wk(0)[0], cards, allCost, opps, emerg, unjudged,
+      ov: { rows: ovRows, partial, totDay: derive(totDay), totPrev: derive(totPrev), totW: derive(totW), nonPaid, prevDays: prev7.length } };
   }
 
   function renderDaily(days, I) {
@@ -1209,7 +1291,7 @@ details.rules dd { margin: 0; min-width: 0; }
     if (!R.ready) {
       $('dAsOf').textContent = '';
       $('dHead').textContent = `目前 ${R.n} 个数据日，至少需要 7 个数据日才能出日报`;
-      $('dCards').innerHTML = $('dOpps').innerHTML = $('dEmerg').innerHTML = '';
+      $('dCards').innerHTML = $('dOpps').innerHTML = $('dEmerg').innerHTML = $('dOverview').innerHTML = $('dOvNote').textContent = '';
       return;
     }
     $('dAsOf').textContent = `（本周 ${shortDate(R.from)}–${shortDate(R.asOf)}）`;
@@ -1220,8 +1302,35 @@ details.rules dd { margin: 0; min-width: 0; }
       ? `本周 ${R.cards.length} 个子总代质量偏低，占消耗 ${R.allCost ? Math.round(badCost / R.allCost * 100) : 0}%，比同包型其他少回收约 ${fK(-badGap)}。最大问题：${esc(subLabel(top.s.sub))}（${esc(top.tag)}${top.drivers.length ? '，差在' + top.drivers.map(x => x.k).join('、') : ''}）。`
       : '本周没有可判断为偏低的子总代。';
     head += unj;
-    head += `符合加量规则 ${R.opps.length} 个；今日紧急异常 ${R.emerg.length} 个。`;
+    if (R.ov.partial) head += `⚠️ 昨天（${shortDate(R.asOf)}）全站消耗只有前 7 日日均的 ${Math.round(R.ov.totDay.cost / R.ov.totPrev.cost * 100)}%，可能不是完整一天，「昨天」栏位仅供参考。`;
+    head += `符合加量规则 ${R.opps.length} 个；今日紧急异常${R.ov.partial ? '暂停判断' : ` ${R.emerg.length} 个`}。`;
     $('dHead').innerHTML = head;
+
+    // 子总代一览
+    const O = R.ov, cg = (a, b) => (b > 0 ? chgTd(chg(a, b)) : '<td class="n">—</td>');
+    const pctTxt = (a, b) => (b > 0 ? fChg(chg(a, b)) : '—');
+    $('dOvNote').textContent = `（昨天 = ${shortDate(R.asOf)}，比前 ${O.prevDays} 日日均；本周 = ${shortDate(R.from)}–${shortDate(R.asOf)}）`;
+    let ov = '<div class="scroll"><table><thead><tr><th>媒体</th><th>子总代</th><th>昨天消耗</th><th>比前7日均</th><th>昨天注册</th><th>比前7日均</th><th>昨天首充</th><th>比前7日均</th><th>昨天首充ROAS</th><th>本周消耗</th><th>本周首充ROAS</th><th>同包型其他</th><th>一句话</th></tr></thead><tbody>';
+    const T0 = O.totDay, TP = O.totPrev;
+    ov += `<tr class="total"><td colspan="2">全站投放合计</td><td class="n">${fMoney(T0.cost)}</td>${cg(T0.cost, TP.cost)}<td class="n">${fInt(T0.reg)}</td>${cg(T0.reg, TP.reg)}<td class="n">${fInt(T0.ftd)}</td>${cg(T0.ftd, TP.ftd)}<td class="n">${fPct(T0.ftdRoas)}</td><td class="n">${fMoney(O.totW.cost)}</td><td class="n">${fPct(O.totW.ftdRoas)}</td><td></td><td>${O.partial ? '⚠️ 昨天全站消耗只有前7日日均的 ' + Math.round(T0.cost / TP.cost * 100) + '%，可能不是完整一天' : ''}</td></tr>`;
+    let lastMedia = null;
+    O.rows.forEach((r, i) => {
+      if (r.media !== lastMedia) { ov += `<tr class="mgrp"><td colspan="13">${esc(r.media)}</td></tr>`; lastMedia = r.media; }
+      const lab = esc(r.label);
+      const one = [r.q.lv === 'red' ? '🔴 ' + r.q.t : r.q.lv === 'grn' ? '🟢 ' + r.q.t : r.q.t, ...r.flags].join('；');
+      const p = r.px || {};
+      ov += `<tr><td></td><td>${r.chans.length ? `<button type="button" class="tg" data-k="${i}" aria-label="展开渠道">▸</button>` : ''}${lab} <span class="note" title="${esc(r.sub)}">${r.chans.length} 个渠道</span></td>` +
+        `<td class="n">${fMoney(r.dx.cost)}</td>${cg(r.dx.cost, p.cost)}<td class="n">${fInt(r.dx.reg)}</td>${cg(r.dx.reg, p.reg)}<td class="n">${fInt(r.dx.ftd)}</td>${cg(r.dx.ftd, p.ftd)}` +
+        `<td class="n">${r.dx.cost > 0 ? fPct(r.dx.ftdRoas) : '—'}</td><td class="n">${fMoney(r.t.cost)}</td><td class="n">${fPct(r.t.ftdRoas)}${r.j && r.j.actual != null && r.j.cover < 0.999 ? `<br><span class="note">可比部分 ${fPct(r.j.actual)}（占 ${Math.round(r.j.cover * 100)}%）</span>` : ''}</td><td class="n">${r.j && r.j.expect != null ? fPct(r.j.expect) : '—'}</td><td>${esc(one)}</td></tr>`;
+      for (const c of r.chans) {
+        const cp = c.p || {};
+        ov += `<tr class="child" data-p="${i}" hidden><td></td><td>　${esc(c.name)}（${esc(c.id)}）</td><td class="n">${fMoney(c.d.cost)}</td>${cg(c.d.cost, cp.cost)}<td class="n">${fInt(c.d.reg)}</td>${cg(c.d.reg, cp.reg)}<td class="n">${fInt(c.d.ftd)}</td>${cg(c.d.ftd, cp.ftd)}` +
+          `<td class="n">${c.d.cost > 0 ? fPct(c.d.ftdRoas) : '—'}</td><td class="n">${fMoney(c.w.cost)}</td><td class="n">${fPct(c.w.ftdRoas)}</td><td></td><td>${c.lv ? `<span class="lv lv-${c.lv}">${{ red: '红', yel: '黄', grn: '绿' }[c.lv]}</span> ${esc(c.act)}` : ''}</td></tr>`;
+      }
+    });
+    const NP = O.nonPaid;
+    ov += `<tr class="mgrp"><td colspan="13">非投放（官方 / 商店包 / 社媒等）</td></tr><tr><td></td><td>非投放合计</td><td class="n">—</td><td class="n">—</td><td class="n">${fInt(NP.day.reg)}</td>${cg(NP.day.reg, NP.prevReg)}<td class="n">${NP.day.has ? fInt(NP.day.ftd) : '—'}</td>${NP.day.has && NP.prevFtd != null ? cg(NP.day.ftd, NP.prevFtd) : '<td class="n">—</td>'}<td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td>${NP.day.has ? '' : '首充需重新上传原档才有'}</td></tr>`;
+    $('dOverview').innerHTML = ov + '</tbody></table></div>';
 
     const who = c => `${esc(c.name)}（${esc(c.id)}）`;
     const cardHtml = R.cards.map(c => {
@@ -1245,14 +1354,19 @@ details.rules dd { margin: 0; min-width: 0; }
     const oppItems = R.opps.slice(0, 5).map(o => `<li>${gName(o.a.g)} ${who(o.a.c)}：近 3 日一级首充ROAS ${o.daily.map(x => fPct(x.ftdRoas)).join(' / ')}，正常线 ${fPct(o.a.line)} → 可加量，单次 ≤ +20%${o.a.lv === 'yel' ? `（注意：本周灯号「${esc(o.a.act)}」${o.a.ch3 != null && o.a.ch3 > 0 ? `，近 3 日比前 3 日回升 ${fChg(o.a.ch3)}` : ''}，加量后要盯）` : ''}</li>`);
     $('dOpps').innerHTML = oppItems.length ? `<ul class="insights">${oppItems.join('')}</ul>` : '<p class="note">今天没有渠道符合加量规则</p>';
     const emItems = R.emerg.map(e => `<li>${gName(e.g)} · ${esc(subLabel(e.sub).replace(/^(TPD|A8) · /, ''))}（${esc(e.sub)}）：${e.why.join('；')}</li>`);
-    $('dEmerg').innerHTML = emItems.length ? `<ul class="insights">${emItems.join('')}</ul>` : '<p class="note">今日无紧急异常</p>';
+    $('dEmerg').innerHTML = emItems.length ? `<ul class="insights">${emItems.join('')}</ul>` : `<p class="note">${R.ov.partial ? '最新一天可能不是完整一天，暂停判断' : '今日无紧急异常'}</p>`;
 
-    // 复制用（飞书）
+    // 复制用（飞书）：一览只带子总代层，不带展开的渠道
+    const ovTable = $('dOverview').querySelector('table').cloneNode(true);
+    ovTable.querySelectorAll('tr.child').forEach(tr => tr.remove());
+    ovTable.querySelectorAll('button.tg').forEach(b => b.remove());
+    const ovCopy = { html: tableToHtml(ovTable), text: tableToTsv(ovTable) };
     const html = `<p style="font-weight:bold;margin:0 0 4px">Betroia 渠道日报${esc($('dAsOf').textContent)}</p><p>${head}</p><p style="color:#cf222e">${esc(notice)}</p>` +
+      `<p style="font-weight:bold;margin:8px 0 4px">子总代一览${esc($('dOvNote').textContent)}</p>${ovCopy.html}` +
       `<p style="font-weight:bold;margin:8px 0 4px">问题清单（本周 · 按子总代）</p>` + $('dCards').innerHTML +
       `<p style="font-weight:bold;margin:8px 0 4px">符合加量规则</p>${$('dOpps').innerHTML}<p style="font-weight:bold;margin:8px 0 4px">今日紧急异常</p>${$('dEmerg').innerHTML}`;
     const txt = el => [...el.querySelectorAll('.pt, li, p.note')].map(x => (x.tagName === 'LI' ? '  • ' : '') + x.textContent).join('\n');
-    const text = `Betroia 渠道日报${$('dAsOf').textContent}\n${$('dHead').textContent}\n${notice}\n\n问题清单（本周 · 按子总代）\n${txt($('dCards'))}\n\n符合加量规则\n${txt($('dOpps'))}\n\n今日紧急异常\n${txt($('dEmerg'))}\n\n`;
+    const text = `Betroia 渠道日报${$('dAsOf').textContent}\n${$('dHead').textContent}\n${notice}\n\n子总代一览${$('dOvNote').textContent}\n${ovCopy.text}\n\n问题清单（本周 · 按子总代）\n${txt($('dCards'))}\n\n符合加量规则\n${txt($('dOpps'))}\n\n今日紧急异常\n${txt($('dEmerg'))}\n\n`;
     state.dailyCopy = { html: html.replace(/ class="[^"]*"/g, ''), text };
   }
 
@@ -1432,6 +1546,12 @@ details.rules dd { margin: 0; min-width: 0; }
   $('diffMode').onchange = e => { state.db.prefs.diffMode = e.target.value; savePrefs(); render(); };
   $('exportBtn').onclick = exportXlsx;
   $('copyBtn').onclick = copyTables;
+  $('dOverview').onclick = e => {
+    const b = e.target.closest('button.tg'); if (!b) return;
+    const open = b.textContent === '▸';
+    b.textContent = open ? '▾' : '▸';
+    $('dOverview').querySelectorAll(`tr.child[data-p="${b.dataset.k}"]`).forEach(tr => { tr.hidden = !open; });
+  };
 
   boot();
 })();

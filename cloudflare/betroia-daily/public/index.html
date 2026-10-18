@@ -116,6 +116,14 @@ tr.idle td { color: var(--dim); }
 tr.total td { font-weight: 700; border-top: 2px solid var(--head); }
 
 .banner { background: var(--neg-bg); color: var(--neg-fg); border-radius: 4px; padding: 10px 12px; font-weight: 700; line-height: 1.5; }
+.headline { margin: 0; font-size: 15px; line-height: 1.7; font-weight: 600; }
+.notice { font-size: 13px; color: var(--neg-fg); border-left: 3px solid var(--neg-fg); padding: 4px 10px; }
+.pcards { display: grid; gap: 12px; }
+.pcard { border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; }
+.pcard .pt { margin: 0 0 6px; font-weight: 700; }
+.pcard .tag { font-weight: 600; font-size: 12px; color: var(--neg-fg); margin-left: 6px; }
+.pcard ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; line-height: 1.6; font-size: 13px; }
+details.detail > summary { cursor: pointer; font-weight: 700; padding: 4px 0; }
 .insights { margin: 0; padding-left: 20px; display: grid; gap: 6px; line-height: 1.6; }
 .insights b { font-weight: 700; }
 .panel h3 { margin: 4px 0 0; font-size: 14px; }
@@ -176,11 +184,36 @@ details.rules dd { margin: 0; min-width: 0; }
     </div>
   </header>
 
-  <section class="panel" aria-labelledby="ins-h" id="insightPanel" hidden>
+  <section class="panel" aria-labelledby="day-h" id="dailyPanel" hidden>
     <div class="panel-head">
-      <h2 id="ins-h">今日总结 <span class="sub" id="insAsOf"></span></h2>
-      <span class="note">按最新数据日往回算，不受下方日期区间影响；ROAS 以一级首充ROAS（新客质量）为准</span>
+      <h2 id="day-h">渠道日报 <span class="sub" id="dAsOf"></span></h2>
+      <span class="note">给投放部门的协调清单：哪里有问题、差在哪段、要请他们做什么。「一键复制日报」只带这一块和下方两张基本表</span>
     </div>
+    <p class="headline" id="dHead"></p>
+    <div class="notice" id="dNotice"></div>
+    <h3>问题清单（本周 · 按子总代）</h3>
+    <div id="dCards"></div>
+    <h3>符合加量规则</h3>
+    <div id="dOpps"></div>
+    <h3>今日紧急异常</h3>
+    <div id="dEmerg"></div>
+    <details class="rules">
+      <summary>日报规则</summary>
+      <dl>
+        <dt>子总代</dt><dd>按「渠道管理列表」的所属总代分组（媒体 × 包型，例如 A8 · Tiktok · 原生包）；没导入对照表时用总代 + 媒体 + 包型代替</dd>
+        <dt>问题清单</dt><dd>本周（最近 7 个数据日）消耗 ≥ $3,000，且一级首充ROAS 比「同包型其他花费」低 15% 以上（可比部分不到一半不判断）。按少回收金额排序；标签看最近 4 周：连续偏低标「连续 N 周」，不连续标「近 4 周有 N 周偏低」，没有历史标「历史不足」；缺数据的周显示「—」。没有可比同包型花费的子总代另列「无法判断」</dd>
+        <dt>差在哪段</dt><dd>跟同包型其他花费比（对照组按自己的包型比例重新加权）：注册成本、注册转首充、首充客单三段，比别人差 5% 以上的就列出，并对应要找谁、要求什么；某段归零时直接点名</dd>
+        <dt>预算分布</dt><dd>子总代里近7日消耗 ≥ $1,000 的渠道，各自跟「自己包型的其他花费」比（跟灯号、加量规则同一条正常线）：低 15% 以上的算「差」，其余算「不偏低」。差渠道占子总代消耗 ≥ 40% 且有不偏低的渠道时，建议在子总代内把预算从差渠道转过去；没有可接的渠道且差渠道占 ≥ 70% 时，建议先降回测试预算</dd>
+        <dt>为什么不只是减量</dt><dd>历史回测：被判偏低的子总代减量后，下周仍偏低的约 3/4。减量只是少亏，要改善得处理差的那一段</dd>
+        <dt>加量规则</dt><dd>D7 数据接上前：渠道最近 3 个数据日，每天一级首充ROAS 都高于正常线 15% 以上（且每天消耗 ≥ $100），才可加量，单次 ≤ +20%。本周质量判为差、亮红灯、「质量好但在下滑」或在问题卡里被点名为差的渠道不列入；「加量后质量下滑」的黄灯会注明，近 3 日真的回升才写回升</dd>
+        <dt>紧急异常</dt><dd>最新一天、消耗 ≥ $2,000 的子总代：消耗是前 7 日日均的 1.5 倍以上，或一级首充ROAS 不到前 7 日的一半。日波动本来就有 ±20–30%，没到这个程度不报</dd>
+      </dl>
+    </details>
+  </section>
+
+  <section class="panel" aria-labelledby="ins-h" id="insightPanel" hidden>
+    <details class="detail">
+    <summary id="ins-h">分析明细（灯号、媒体判断、TPD vs A8 对照；不贴飞书）<span class="sub" id="insAsOf"></span></summary>
     <div class="banner" id="banner" hidden></div>
     <ul class="insights" id="insights"></ul>
     <div id="actionsWrap" hidden>
@@ -218,6 +251,7 @@ details.rules dd { margin: 0; min-width: 0; }
         <dt>包型</dt><dd>取渠道名称第一段（原生包 / 轻量包 / H5 / PWA）</dd>
         <dt>媒体</dt><dd>优先按「渠道管理列表」：渠道 ID → 所属总代「X_投放_媒体_包体_短名」的媒体段（Tiktok / Facebook / Google / GoogleSearch / DSP / Kwai / Microsoft / 网红）。没导入或新渠道不在表里时，才按渠道名称关键字推断：FB/Facebook → Facebook；GG/GGS/谷歌/SEM → Google；TT/TikTok → TikTok；Kwai → Kwai；Mobflyer、Nativex、Liftoff、Moloco、Unity、PropellerAds、Moboost、Mobupps、Tec-Do、iClick、AD- 开头等 → DSP/网盟；商店包/OPPO → 应用商店；其余 → 未标注（A8 多数渠道名称只有代理代号，会落在这里）</dd>
       </dl>
+    </details>
     </details>
   </section>
 
@@ -684,6 +718,7 @@ details.rules dd { margin: 0; min-width: 0; }
       : '还没有数据 · 上传后台导出的「排名-渠道 USD」CSV 开始';
     renderDates(days);
     renderInsights(days);
+    renderDaily(days, state.lastI);
     renderSummary(days);
     const ds = range(days);
     for (const b of $('quick').children) b.classList.toggle('on', !state.from && +b.dataset.days === state.days);
@@ -1027,10 +1062,206 @@ details.rules dd { margin: 0; min-width: 0; }
     return A;
   }
 
+  // ───── 渠道日报：给投放部门的协调清单 ─────
+  const subOf = r => {
+    const v = Object.prototype.hasOwnProperty.call(state.media, r[1]) ? state.media[r[1]] : null;
+    if (v && typeof v.a === 'string' && v.a.trim()) return v.a.trim();
+    return `${r[0] === 'T' ? '技术一' : 'A8'}_投放_${mediaOfRow(r)}_${pkgOf(r[2])}`;
+  };
+  const subLabel = a => { const s = String(a).split('_').map(x => x.trim()); return [/^技术一/.test(s[0]) ? 'TPD' : s[0], s[2], s[3]].filter(Boolean).join(' · ') || String(a); };
+  const PLAYBOOK = {
+    '注册成本': '找投放部门：调出价、素材、定向；目标两周内把注册成本降到同包型的 1.15 倍以内，做不到就降回测试预算',
+    '注册转首充': '找投放部门查流量来源（假量 / 误点）；请产品检查落地页与注册→首充流程',
+    '首充客单': '找投放部门换更高价值的受众；营运端检查首充档位与首充活动引导',
+  };
+  // 一段期间内，每个子总代 vs 同包型其他花费（排除自己）
+  function judgeSubs(dsW) {
+    const P = new Map(), S = new Map();
+    for (const d of dsW) for (const r of state.db.days[d]) {
+      if (r[0] !== 'T' && r[0] !== 'A') continue;
+      const k = pkgOf(r[2]), sub = subOf(r), key = r[0] + '|' + sub;
+      if (!P.has(k)) P.set(k, blank());
+      add(P.get(k), r);
+      if (!S.has(key)) S.set(key, { g: r[0], sub, tot: blank(), pk: new Map(), ch: new Map() });
+      const b = S.get(key);
+      add(b.tot, r);
+      if (!b.pk.has(k)) b.pk.set(k, blank());
+      add(b.pk.get(k), r);
+      if (!b.ch.has(r[1])) b.ch.set(r[1], { id: r[1], name: r[2], ...blank(), pk: new Map() });
+      const c = b.ch.get(r[1]); c.name = r[2]; add(c, r);
+      if (!c.pk.has(k)) c.pk.set(k, blank());
+      add(c.pk.get(k), r);
+    }
+    // 渠道各自跟「自己包型的其他花费」比（跟灯号、加量规则同一套正常线）
+    const chanJudge = c => {
+      const [k, own] = [...c.pk.entries()].sort((x, y) => y[1].cost - x[1].cost)[0];
+      const Pk = P.get(k), oc = Pk.cost - own.cost, oa = Pk.ftdAmt - own.ftdAmt;
+      const line = oc >= LINE_MIN_COST ? oa / oc : null;
+      const roas = own.cost > 0 ? own.ftdAmt / own.cost : 0;
+      return { ...derive({ ...c }), id: c.id, name: c.name, line, inRoas: roas, low: line > 0 ? roas <= line * (1 - Q_BAND) + EPS : null };
+    };
+    const out = new Map();
+    for (const [key, b] of S) {
+      const t = derive(b.tot);
+      let ec = 0, ea = 0, ca = 0;
+      const mine = blank(), oth = blank();
+      for (const [k, own] of b.pk) {
+        const Pk = P.get(k), o = blank();
+        for (const f in o) o[f] = Pk[f] - own[f];
+        if (o.cost < LINE_MIN_COST) continue;
+        ec += own.cost; ea += own.cost * (o.ftdAmt / o.cost); ca += own.ftdAmt;
+        // 对照组按「自己的包型比例」重新加权：把其他花费缩放到跟自己一样的消耗
+        const f = own.cost / o.cost;
+        for (const x in mine) { mine[x] += own[x]; oth[x] += o[x] * f; }
+      }
+      const cover = t.cost > 0 ? ec / t.cost : 0;
+      const expect = ec > 0 ? ea / ec : null, actual = ec > 0 ? ca / ec : null;
+      const rel = expect > 0 && cover >= 0.5 ? actual / expect : null;
+      const tier = rel == null ? '—' : rel >= 1 + Q_BAND - EPS ? '优' : rel <= 1 - Q_BAND + EPS ? '差' : '中';
+      out.set(key, { key, g: b.g, sub: b.sub, t, expect, actual, cover, rel, tier, gap: rel != null ? ec * (actual - expect) : 0,
+        mine: derive(mine), oth: derive(oth), ch: [...b.ch.values()].map(chanJudge) });
+    }
+    return out;
+  }
+
+  function computeDaily(days, I) {
+    const n = days.length;
+    const wk = k => (n >= 7 * (k + 1) ? days.slice(n - 7 * (k + 1), n - 7 * k) : null);
+    if (!wk(0)) return { ready: false, n };
+    const cur = judgeSubs(wk(0));
+    const hist = [1, 2, 3].map(k => (wk(k) ? judgeSubs(wk(k)) : null));
+    const weeksAvail = 1 + hist.filter(Boolean).length;
+    const ln = (a, b) => (a > 0 && b > 0 ? Math.log(a / b) : 0);
+    const cards = [];
+    for (const s of cur.values()) {
+      if (s.tier !== '差' || s.t.cost < ALERT_MIN_COST) continue;
+      const seq = [s, ...hist.slice(0, weeksAvail - 1).map(h => h.get(s.key) || null)]; // 最新在前；缺席的周保留为 null
+      let streak = 0;
+      for (const x of seq) { if (x && x.tier === '差') streak++; else break; }
+      const weeksBad = seq.filter(x => x && x.tier === '差').length;
+      const tag = streak >= 2 ? `连续 ${streak} 周偏低` : weeksBad >= 2 ? `近 ${seq.length} 周有 ${weeksBad} 周偏低` : weeksAvail < 2 ? '本周偏低（历史不足）' : '本周新出现';
+      const parts = [
+        { k: '注册成本', v: -ln(s.mine.cpr, s.oth.cpr), t: `注册成本 $${s.mine.cpr.toFixed(1)}（同包型其他 $${s.oth.cpr.toFixed(1)}）` },
+        { k: '注册转首充', v: ln(s.mine.conv, s.oth.conv), t: `注册转首充 ${fPct(s.mine.conv)}（其他 ${fPct(s.oth.conv)}）` },
+        { k: '首充客单', v: ln(s.mine.arppu, s.oth.arppu), t: `首充客单 $${s.mine.arppu.toFixed(1)}（其他 $${s.oth.arppu.toFixed(1)}）` },
+      ];
+      // 某段归零无法取对数：直接点名
+      let drivers, fine;
+      if (s.mine.reg <= 0 || s.mine.ftd <= 0 || s.mine.ftdAmt <= 0) {
+        const z = s.mine.reg <= 0 ? { k: '注册成本', t: '注册数为 0（有消耗没有注册）' } : s.mine.ftd <= 0 ? { k: '注册转首充', t: '一级首充人数为 0（有注册没有首充）' } : { k: '首充客单', t: '一级首充金额为 0' };
+        drivers = [z]; fine = [];
+      } else {
+        drivers = parts.filter(x => x.v <= -0.05).sort((a, b) => a.v - b.v);
+        fine = parts.filter(x => x.v > -0.05).map(x => x.k);
+      }
+      const chs = s.ch.filter(c => c.cost >= 1000 && c.low != null);
+      const good = chs.filter(c => !c.low).sort((a, b) => b.inRoas / b.line - a.inRoas / a.line);
+      const bad = chs.filter(c => c.low).sort((a, b) => b.cost - a.cost);
+      const badCost = bad.reduce((x, c) => x + c.cost, 0), goodCost = good.reduce((x, c) => x + c.cost, 0);
+      const trend = seq.slice().reverse().map(x => (x && x.actual != null ? fPct(x.actual) : '—'));
+      cards.push({ s, streak, tag, drivers, fine, good, bad, badCost, goodCost, trend });
+    }
+    cards.sort((a, b) => a.s.gap - b.s.gap);
+    const allCost = [...cur.values()].reduce((x, v) => x + v.t.cost, 0);
+    const unjudged = [...cur.values()].filter(v => v.tier === '—' && v.t.cost >= ALERT_MIN_COST).sort((a, b) => b.t.cost - a.t.cost);
+    // 问题卡里被点名为差的渠道，不能同时出现在加量清单
+    const badIds = new Set(cards.flatMap(c => c.bad.map(x => c.s.g + '|' + x.id)));
+
+    // 加量规则：最近 3 个数据日，每天一级首充ROAS ≥ 正常线 × 1.15 且每天消耗 ≥ $100
+    const opps = [];
+    if (n >= 7 && I) {
+      const last3 = days.slice(n - 3);
+      for (const a of I.alerts) {
+        // 本周质量差 / 红灯 / 「先别加量」/ 问题卡点名的差渠道，都不列入加量
+        if (a.line == null || !(a.line > 0) || a.tier === '差' || a.lv === 'red' || /先别加量/.test(a.act) || badIds.has(a.g + '|' + a.c.id)) continue;
+        const daily = last3.map(d => { const x = blank(); for (const r of state.db.days[d]) if (r[0] === a.g && r[1] === a.c.id) add(x, r); return derive(x); });
+        if (daily.every(x => x.cost >= 100 && x.ftdRoas >= a.line * (1 + Q_BAND) - EPS)) opps.push({ a, daily });
+      }
+      opps.sort((x, y) => y.a.rel - x.a.rel);
+    }
+
+    // 紧急异常：最新一天 vs 前 7 日（子总代层级）
+    const emerg = [];
+    if (n >= 8) {
+      const day = days[n - 1], prev = days.slice(n - 8, n - 1);
+      const agg = ds => { const m = new Map(); for (const d of ds) for (const r of state.db.days[d]) { if (r[0] !== 'T' && r[0] !== 'A') continue; const k = r[0] + '|' + subOf(r); if (!m.has(k)) m.set(k, { g: r[0], sub: subOf(r), x: blank() }); add(m.get(k).x, r); } return m; };
+      const D = agg([day]), Pv = agg(prev);
+      for (const [k, v] of D) {
+        const t = derive(v.x), p = Pv.get(k) ? derive(Pv.get(k).x) : null;
+        if (t.cost < 2000 || !p || !(p.cost > 0)) continue;
+        const avg = p.cost / 7, why = [];
+        if (t.cost >= avg * 1.5) why.push(`消耗 ${fK(t.cost)}，是前 7 日日均 ${fK(avg)} 的 ${(t.cost / avg).toFixed(1)} 倍`);
+        if (p.ftdRoas > 0 && t.ftdRoas <= p.ftdRoas * 0.5) why.push(`一级首充ROAS ${fPct(t.ftdRoas)}，不到前 7 日 ${fPct(p.ftdRoas)} 的一半`);
+        if (why.length) emerg.push({ g: v.g, sub: v.sub, why, cost: t.cost });
+      }
+      emerg.sort((a, b) => b.cost - a.cost);
+    }
+    return { ready: true, n, asOf: days[n - 1], from: wk(0)[0], cards, allCost, opps, emerg, unjudged };
+  }
+
+  function renderDaily(days, I) {
+    $('dailyPanel').hidden = !days.length;
+    state.dailyCopy = null;
+    if (!days.length) return;
+    const R = computeDaily(days, I);
+    const notice = '本报只看一级首充（当期），未含 D7 留存与复充。加量规则：渠道一级首充ROAS 连续 3 个数据日都高于正常线 15% 以上才可加量，单次 ≤ +20%。';
+    $('dNotice').textContent = notice;
+    if (!R.ready) {
+      $('dAsOf').textContent = '';
+      $('dHead').textContent = `目前 ${R.n} 个数据日，至少需要 7 个数据日才能出日报`;
+      $('dCards').innerHTML = $('dOpps').innerHTML = $('dEmerg').innerHTML = '';
+      return;
+    }
+    $('dAsOf').textContent = `（本周 ${shortDate(R.from)}–${shortDate(R.asOf)}）`;
+    const badCost = R.cards.reduce((x, c) => x + c.s.t.cost, 0), badGap = R.cards.reduce((x, c) => x + c.s.gap, 0);
+    const top = R.cards[0];
+    const unj = R.unjudged.length ? `另有 ${R.unjudged.length} 个子总代（${fK(R.unjudged.reduce((x, v) => x + v.t.cost, 0))}）没有可比的同包型花费（或同包型其他花费的首充为 0），无法判断。` : '';
+    let head = R.cards.length
+      ? `本周 ${R.cards.length} 个子总代质量偏低，占消耗 ${R.allCost ? Math.round(badCost / R.allCost * 100) : 0}%，比同包型其他少回收约 ${fK(-badGap)}。最大问题：${esc(subLabel(top.s.sub))}（${esc(top.tag)}${top.drivers.length ? '，差在' + top.drivers.map(x => x.k).join('、') : ''}）。`
+      : '本周没有可判断为偏低的子总代。';
+    head += unj;
+    head += `符合加量规则 ${R.opps.length} 个；今日紧急异常 ${R.emerg.length} 个。`;
+    $('dHead').innerHTML = head;
+
+    const who = c => `${esc(c.name)}（${esc(c.id)}）`;
+    const cardHtml = R.cards.map(c => {
+      const s = c.s, items = [];
+      items.push(`本周 ${fK(s.t.cost)}，一级首充ROAS ${fPct(s.actual)}，同包型其他 ${fPct(s.expect)} → 每周少回收约 ${fK(-s.gap)}${s.cover < 0.999 ? `（可比部分占 ${Math.round(s.cover * 100)}%）` : ''}`);
+      if (c.trend.length > 1) items.push(`近 ${c.trend.length} 周一级首充ROAS：${c.trend.join(' → ')}`);
+      items.push(c.drivers.length
+        ? `差在：${c.drivers.map(x => x.t).join('；')}${c.fine.length ? `。${c.fine.join('、')}正常` : ''}`
+        : '三段都没有明显偏低，差距主要来自渠道组合（见预算分布）');
+      c.drivers.forEach((x, i) => items.push(`要求${c.drivers.length > 1 ? '（' + (i + 1) + '）' : ''}：${PLAYBOOK[x.k]}`));
+      const sc = s.t.cost;
+      if (c.bad.length && c.badCost / sc >= 0.4 && c.good.length)
+        items.push(`预算：${c.bad.length} 个差渠道吃掉 ${fK(c.badCost)}（${Math.round(c.badCost / sc * 100)}%），${c.good.length} 个不偏低的渠道只有 ${fK(c.goodCost)} → 请投放部门在子总代内把预算从差渠道转到不偏低的渠道。差：${c.bad.slice(0, 3).map(who).join('、')}；可接预算：${c.good.slice(0, 3).map(who).join('、')}`);
+      else if (c.bad.length && c.badCost / sc >= 0.7)
+        items.push(`预算：${Math.round(c.badCost / sc * 100)}% 的钱在差渠道、没有不偏低的渠道可转 → 先降回测试预算，等投放部门给改善方案`);
+      return `<div class="pcard"><p class="pt">🔴 ${gName(s.g)} · ${esc(subLabel(s.sub).replace(/^(TPD|A8) · /, ''))}<span class="tag"> ${esc(c.tag)}</span> <span class="note">（总代：${esc(s.sub)}）</span></p><ul>${items.map(x => `<li>${x}</li>`).join('')}</ul></div>`;
+    }).join('');
+    const unjHtml = R.unjudged.length ? `<p class="note">无法判断（没有可比的同包型花费，或其他花费的首充为 0）：${R.unjudged.map(v => `${esc(v.sub)} ${fK(v.t.cost)}`).join('、')}</p>` : '';
+    $('dCards').innerHTML = (R.cards.length ? `<div class="pcards">${cardHtml}</div>` : '<p class="note">本周没有可判断为偏低的子总代</p>') + unjHtml;
+
+    const oppItems = R.opps.slice(0, 5).map(o => `<li>${gName(o.a.g)} ${who(o.a.c)}：近 3 日一级首充ROAS ${o.daily.map(x => fPct(x.ftdRoas)).join(' / ')}，正常线 ${fPct(o.a.line)} → 可加量，单次 ≤ +20%${o.a.lv === 'yel' ? `（注意：本周灯号「${esc(o.a.act)}」${o.a.ch3 != null && o.a.ch3 > 0 ? `，近 3 日比前 3 日回升 ${fChg(o.a.ch3)}` : ''}，加量后要盯）` : ''}</li>`);
+    $('dOpps').innerHTML = oppItems.length ? `<ul class="insights">${oppItems.join('')}</ul>` : '<p class="note">今天没有渠道符合加量规则</p>';
+    const emItems = R.emerg.map(e => `<li>${gName(e.g)} · ${esc(subLabel(e.sub).replace(/^(TPD|A8) · /, ''))}（${esc(e.sub)}）：${e.why.join('；')}</li>`);
+    $('dEmerg').innerHTML = emItems.length ? `<ul class="insights">${emItems.join('')}</ul>` : '<p class="note">今日无紧急异常</p>';
+
+    // 复制用（飞书）
+    const html = `<p style="font-weight:bold;margin:0 0 4px">Betroia 渠道日报${esc($('dAsOf').textContent)}</p><p>${head}</p><p style="color:#cf222e">${esc(notice)}</p>` +
+      `<p style="font-weight:bold;margin:8px 0 4px">问题清单（本周 · 按子总代）</p>` + $('dCards').innerHTML +
+      `<p style="font-weight:bold;margin:8px 0 4px">符合加量规则</p>${$('dOpps').innerHTML}<p style="font-weight:bold;margin:8px 0 4px">今日紧急异常</p>${$('dEmerg').innerHTML}`;
+    const txt = el => [...el.querySelectorAll('.pt, li, p.note')].map(x => (x.tagName === 'LI' ? '  • ' : '') + x.textContent).join('\n');
+    const text = `Betroia 渠道日报${$('dAsOf').textContent}\n${$('dHead').textContent}\n${notice}\n\n问题清单（本周 · 按子总代）\n${txt($('dCards'))}\n\n符合加量规则\n${txt($('dOpps'))}\n\n今日紧急异常\n${txt($('dEmerg'))}\n\n`;
+    state.dailyCopy = { html: html.replace(/ class="[^"]*"/g, ''), text };
+  }
+
   function renderInsights(days) {
     $('insightPanel').hidden = !days.length;
+    state.lastI = null;
     if (!days.length) return;
     const I = computeInsights(days);
+    state.lastI = I;
     $('insAsOf').textContent = `（数据日 ${shortDate(I.asOf)}）`;
     const lines = insightLines(I);
     $('banner').hidden = !I.bannerGroups.length;
@@ -1117,11 +1348,6 @@ details.rules dd { margin: 0; min-width: 0; }
     const ds = range(Object.keys(state.db.days).sort());
     const span = ds.length ? `${shortDate(ds[0])}–${shortDate(ds[ds.length - 1])}，${ds.length} 天` : '';
     return [
-      ['大盘变化（本期 vs 前一同长度期间）', $('trend').querySelector('table')],
-      ['渠道灯号（质量 × 加减量 · 近7日）', $('alerts').querySelector('table')],
-      ['媒体 × 总代 判断（近7日）', $('mjudge').querySelector('table')],
-      ['TPD vs A8 同包型对照（近7日）', $('pkg').querySelector('table')],
-      ['TPD vs A8 同媒体对照（近7日）', $('media').querySelector('table')],
       ['四、推广数据 · 总代数据（每日）', $('summary').querySelector('table')],
       [`TPD 渠道数据（${span}）`, $('tpd').querySelector('table')],
       [`A8 渠道数据（${span}）`, $('a8').querySelector('table')],
@@ -1153,10 +1379,9 @@ details.rules dd { margin: 0; min-width: 0; }
   async function copyTables() {
     const parts = tableParts();
     if (!parts.length) return;
-    const lis = [...$('insights').children], acts = $('actionsWrap').hidden ? [] : [...$('actions').children];
-    const bn = $('banner').hidden ? '' : $('banner').textContent;
-    const head = lis.length ? `<p style="font-weight:bold;margin:0 0 4px">Betroia 渠道日报 · 今日总结${esc($('insAsOf').textContent)}</p>${bn ? `<p style="font-weight:bold;color:#cf222e">${esc(bn)}</p>` : ''}<ul>${lis.map(li => `<li>${li.innerHTML}</li>`).join('')}</ul>${acts.length ? `<p style="font-weight:bold;margin:8px 0 4px">本周建议动作（依规则自动汇总）</p><ul>${acts.map(li => `<li>${li.innerHTML}</li>`).join('')}</ul>` : ''}` : '';
-    const headText = lis.length ? `Betroia 渠道日报 · 今日总结${$('insAsOf').textContent}\n${bn ? bn + '\n' : ''}${lis.map(li => '• ' + li.textContent).join('\n')}\n${acts.length ? '\n本周建议动作（依规则自动汇总）\n' + acts.map(li => '• ' + li.textContent).join('\n') + '\n' : ''}\n` : '';
+    const dc = state.dailyCopy;
+    const head = dc ? dc.html : '';
+    const headText = dc ? dc.text : '';
     const html = head + parts.map(([title, t]) => `<p style="font-weight:bold;margin:12px 0 4px">${esc(title)}</p>${tableToHtml(t)}`).join('<br>');
     const text = headText + parts.map(([title, t]) => `${title}\n${tableToTsv(t)}`).join('\n\n');
     try {
@@ -1176,7 +1401,7 @@ details.rules dd { margin: 0; min-width: 0; }
       sel.removeAllRanges(); box.remove();
       if (!ok) return toast('复制失败：浏览器不允许读写剪贴板', true);
     }
-    toast(`已复制今日总结 + ${parts.length} 个表格，可直接贴到飞书 / Excel`);
+    toast(`已复制渠道日报 + ${parts.length} 个基本表格，可直接贴到飞书 / Excel`);
   }
 
   function toast(msg, err) { const t = $('toast'); t.hidden = false; t.className = 'toast' + (err ? ' err' : ''); t.textContent = msg; }

@@ -197,17 +197,17 @@ details.rules dd { margin: 0; min-width: 0; }
     <div class="notice" id="dNotice"></div>
     <h3>子总代一览 <span class="note" id="dOvNote"></span></h3>
     <div id="dOverview"></div>
-    <h3>问题清单（本周 · 按子总代）</h3>
+    <h3 id="dCardsH">问题清单（按子总代）</h3>
     <div id="dCards"></div>
     <h3>符合加量规则</h3>
     <div id="dOpps"></div>
-    <h3>今日紧急异常</h3>
+    <h3>紧急异常（最新数据日）</h3>
     <div id="dEmerg"></div>
     <details class="rules">
       <summary>日报规则</summary>
       <dl>
         <dt>子总代</dt><dd>按「渠道管理列表」的所属总代分组（媒体 × 包型，例如 A8 · Tiktok · 原生包）；没导入对照表时用总代 + 媒体 + 包型代替</dd>
-        <dt>子总代一览</dt><dd>按媒体分组，列出全部子总代。「昨天」= 最新一个数据日；「比前7日均」= 跟它之前 7 个数据日的日均比；本周消耗 < $3,000 的标「样本小」不判断质量（单日自然波动约 ±20–30%，所以不跟前一天比）。「本周」= 最近 7 个数据日。一句话：本周质量（偏低 / 正常 / 优于同包型）+ 昨天的明显变化（消耗暴增或明显缩量 = 1.5 倍 / 一半；首充ROAS 大幅转好或腰斩 = 1.5 倍 / 一半，昨天消耗 ≥ $500 才判断）。点 ▸ 可展开看底下的渠道。最新一天全站消耗不到前 7 日日均的 60% 时，会提醒可能不是完整一天，并且暂停所有「昨天」的判断</dd>
+        <dt>子总代一览</dt><dd>按媒体分组，列出全部子总代。栏位上的日期：单日 = 最新一个数据日；「比 X–Y 日均」= 跟它之前最多 7 个数据日的日均比（不足 7 天时用现有的数据日）；区间 = 最近 7 个数据日；本周消耗 < $3,000 的标「样本小」不判断质量（单日自然波动约 ±20–30%，所以不跟前一天比）。「本周」= 最近 7 个数据日。一句话：本周质量（偏低 / 正常 / 优于同包型）+ 昨天的明显变化（消耗暴增或明显缩量 = 1.5 倍 / 一半；首充ROAS 大幅转好或腰斩 = 1.5 倍 / 一半，昨天消耗 ≥ $500 才判断）。点 ▸ 可展开看底下的渠道。最新一天全站消耗不到前 7 日日均的 60% 时，会提醒可能不是完整一天，并且暂停所有「昨天」的判断</dd>
         <dt>非投放总代</dt><dd>官方、商店包、社媒等不在 TPD / A8 下的总代，只看注册与首充人数（看自然量有没有变化）。首充栏位是改版后新增的，之前上传的日期要重新拖一次原档才会有</dd>
         <dt>问题清单</dt><dd>本周（最近 7 个数据日）消耗 ≥ $3,000，且一级首充ROAS 比「同包型其他花费」低 15% 以上（可比部分不到一半不判断）。按少回收金额排序；标签看最近 4 周：连续偏低标「连续 N 周」，不连续标「近 4 周有 N 周偏低」，没有历史标「历史不足」；缺数据的周显示「—」。没有可比同包型花费的子总代另列「无法判断」</dd>
         <dt>差在哪段</dt><dd>跟同包型其他花费比（对照组按自己的包型比例重新加权）：注册成本、注册转首充、首充客单三段，比别人差 5% 以上的就列出，并对应要找谁、要求什么；某段归零时直接点名</dd>
@@ -1226,6 +1226,8 @@ details.rules dd { margin: 0; min-width: 0; }
       return m;
     };
     const Dd = subAgg([dayK]), Dp = subAgg(prev7), Dw = subAgg(wk(0));
+    const md = d => shortDate(d).slice(5); // 10/16
+    const DL = md(dayK);
     const pd = prev7.length || 1;
     const totDay = blank(), totPrev = blank();
     for (const v of Dd.values()) for (const f in totDay) totDay[f] += v.x[f];
@@ -1244,11 +1246,11 @@ details.rules dd { margin: 0; min-width: 0; }
       const flags = [];
       // 最新一天可能不完整时，所有「昨天」判断都暂停
       if (!partial && px && px.cost > 0) {
-        if (dx.cost >= 1000 && dx.cost >= px.cost * 1.5) flags.push('昨天消耗暴增');
-        if (px.cost >= 300 && dx.cost <= px.cost * 0.5) flags.push(dx.cost === 0 ? '昨天没有消耗' : '昨天明显缩量');
+        if (dx.cost >= 1000 && dx.cost >= px.cost * 1.5) flags.push(`${DL} 消耗暴增`);
+        if (px.cost >= 300 && dx.cost <= px.cost * 0.5) flags.push(dx.cost === 0 ? `${DL} 没有消耗` : `${DL} 明显缩量`);
         const pr = prv ? derive(prv.x).ftdRoas : 0;
-        if (dx.cost >= 500 && pr > 0 && dx.ftdRoas >= pr * 1.5) flags.push('昨天首充ROAS 大幅转好');
-        if (dx.cost >= 500 && pr > 0 && dx.ftdRoas <= pr * 0.5) flags.push('昨天首充ROAS 腰斩');
+        if (dx.cost >= 500 && pr > 0 && dx.ftdRoas >= pr * 1.5) flags.push(`${DL} 首充ROAS 大幅转好`);
+        if (dx.cost >= 500 && pr > 0 && dx.ftdRoas <= pr * 0.5) flags.push(`${DL} 首充ROAS 腰斩`);
       }
       const card = cards.find(c => c.s.key === key);
       const q = t.cost < ALERT_MIN_COST ? { lv: '', t: '样本小（本周 < $3,000）' }
@@ -1278,7 +1280,8 @@ details.rules dd { margin: 0; min-width: 0; }
       prevFtd: ftdDays.length >= 3 ? ftdDays.reduce((a, x) => a + x.ftd, 0) / ftdDays.length : null };
     const totW = blank(); for (const v of Dw.values()) for (const f in totW) totW[f] += v.x[f];
     return { ready: true, n, asOf: days[n - 1], from: wk(0)[0], cards, allCost, opps, emerg, unjudged,
-      ov: { rows: ovRows, partial, totDay: derive(totDay), totPrev: derive(totPrev), totW: derive(totW), nonPaid, prevDays: prev7.length } };
+      ov: { rows: ovRows, partial, totDay: derive(totDay), totPrev: derive(totPrev), totW: derive(totW), nonPaid, prevDays: prev7.length,
+        lab: { day: DL, prev: prev7.length ? `${md(prev7[0])}–${md(prev7[prev7.length - 1])}` : '—', week: `${md(wk(0)[0])}–${DL}` } } };
   }
 
   function renderDaily(days, I) {
@@ -1302,17 +1305,19 @@ details.rules dd { margin: 0; min-width: 0; }
       ? `本周 ${R.cards.length} 个子总代质量偏低，占消耗 ${R.allCost ? Math.round(badCost / R.allCost * 100) : 0}%，比同包型其他少回收约 ${fK(-badGap)}。最大问题：${esc(subLabel(top.s.sub))}（${esc(top.tag)}${top.drivers.length ? '，差在' + top.drivers.map(x => x.k).join('、') : ''}）。`
       : '本周没有可判断为偏低的子总代。';
     head += unj;
-    if (R.ov.partial) head += `⚠️ 昨天（${shortDate(R.asOf)}）全站消耗只有前 7 日日均的 ${Math.round(R.ov.totDay.cost / R.ov.totPrev.cost * 100)}%，可能不是完整一天，「昨天」栏位仅供参考。`;
-    head += `符合加量规则 ${R.opps.length} 个；今日紧急异常${R.ov.partial ? '暂停判断' : ` ${R.emerg.length} 个`}。`;
+    if (R.ov.partial) head += `⚠️ ${R.ov.lab.day} 全站消耗只有 ${R.ov.lab.prev} 日均的 ${Math.round(R.ov.totDay.cost / R.ov.totPrev.cost * 100)}%，可能不是完整一天，${R.ov.lab.day} 的栏位仅供参考、当天的变化判断暂停。`;
+    head += `符合加量规则 ${R.opps.length} 个；${R.ov.lab.day} 紧急异常${R.ov.partial ? '暂停判断' : ` ${R.emerg.length} 个`}。`;
     $('dHead').innerHTML = head;
 
     // 子总代一览
     const O = R.ov, cg = (a, b) => (b > 0 ? chgTd(chg(a, b)) : '<td class="n">—</td>');
     const pctTxt = (a, b) => (b > 0 ? fChg(chg(a, b)) : '—');
-    $('dOvNote').textContent = `（昨天 = ${shortDate(R.asOf)}，比前 ${O.prevDays} 日日均；本周 = ${shortDate(R.from)}–${shortDate(R.asOf)}）`;
-    let ov = '<div class="scroll"><table><thead><tr><th>媒体</th><th>子总代</th><th>昨天消耗</th><th>比前7日均</th><th>昨天注册</th><th>比前7日均</th><th>昨天首充</th><th>比前7日均</th><th>昨天首充ROAS</th><th>本周消耗</th><th>本周首充ROAS</th><th>同包型其他</th><th>一句话</th></tr></thead><tbody>';
+    $('dOvNote').textContent = `（数据日 ${shortDate(R.asOf)}）`;
+    $('dCardsH').textContent = `问题清单（${O.lab.week} · 按子总代）`;
+    const L = O.lab, vs = `比 ${L.prev}<br> 日均`;
+    let ov = `<div class="scroll"><table><thead><tr><th>媒体</th><th>子总代</th><th>${L.day} 消耗</th><th>${vs}</th><th>${L.day} 注册</th><th>${vs}</th><th>${L.day} 首充</th><th>${vs}</th><th>${L.day} 首充ROAS</th><th>${L.week} 消耗</th><th>${L.week} 首充ROAS</th><th>同包型其他<br>（${L.week}）</th><th>一句话</th></tr></thead><tbody>`;
     const T0 = O.totDay, TP = O.totPrev;
-    ov += `<tr class="total"><td colspan="2">全站投放合计</td><td class="n">${fMoney(T0.cost)}</td>${cg(T0.cost, TP.cost)}<td class="n">${fInt(T0.reg)}</td>${cg(T0.reg, TP.reg)}<td class="n">${fInt(T0.ftd)}</td>${cg(T0.ftd, TP.ftd)}<td class="n">${fPct(T0.ftdRoas)}</td><td class="n">${fMoney(O.totW.cost)}</td><td class="n">${fPct(O.totW.ftdRoas)}</td><td></td><td>${O.partial ? '⚠️ 昨天全站消耗只有前7日日均的 ' + Math.round(T0.cost / TP.cost * 100) + '%，可能不是完整一天' : ''}</td></tr>`;
+    ov += `<tr class="total"><td colspan="2">全站投放合计</td><td class="n">${fMoney(T0.cost)}</td>${cg(T0.cost, TP.cost)}<td class="n">${fInt(T0.reg)}</td>${cg(T0.reg, TP.reg)}<td class="n">${fInt(T0.ftd)}</td>${cg(T0.ftd, TP.ftd)}<td class="n">${fPct(T0.ftdRoas)}</td><td class="n">${fMoney(O.totW.cost)}</td><td class="n">${fPct(O.totW.ftdRoas)}</td><td></td><td>${O.partial ? `⚠️ ${L.day} 全站消耗只有 ${L.prev} 日均的 ${Math.round(T0.cost / TP.cost * 100)}%，可能不是完整一天` : ''}</td></tr>`;
     let lastMedia = null;
     O.rows.forEach((r, i) => {
       if (r.media !== lastMedia) { ov += `<tr class="mgrp"><td colspan="13">${esc(r.media)}</td></tr>`; lastMedia = r.media; }
@@ -1352,9 +1357,9 @@ details.rules dd { margin: 0; min-width: 0; }
     $('dCards').innerHTML = (R.cards.length ? `<div class="pcards">${cardHtml}</div>` : '<p class="note">本周没有可判断为偏低的子总代</p>') + unjHtml;
 
     const oppItems = R.opps.slice(0, 5).map(o => `<li>${gName(o.a.g)} ${who(o.a.c)}：近 3 日一级首充ROAS ${o.daily.map(x => fPct(x.ftdRoas)).join(' / ')}，正常线 ${fPct(o.a.line)} → 可加量，单次 ≤ +20%${o.a.lv === 'yel' ? `（注意：本周灯号「${esc(o.a.act)}」${o.a.ch3 != null && o.a.ch3 > 0 ? `，近 3 日比前 3 日回升 ${fChg(o.a.ch3)}` : ''}，加量后要盯）` : ''}</li>`);
-    $('dOpps').innerHTML = oppItems.length ? `<ul class="insights">${oppItems.join('')}</ul>` : '<p class="note">今天没有渠道符合加量规则</p>';
+    $('dOpps').innerHTML = oppItems.length ? `<ul class="insights">${oppItems.join('')}</ul>` : `<p class="note">截至 ${R.ov.lab.day} 没有渠道符合加量规则</p>`;
     const emItems = R.emerg.map(e => `<li>${gName(e.g)} · ${esc(subLabel(e.sub).replace(/^(TPD|A8) · /, ''))}（${esc(e.sub)}）：${e.why.join('；')}</li>`);
-    $('dEmerg').innerHTML = emItems.length ? `<ul class="insights">${emItems.join('')}</ul>` : `<p class="note">${R.ov.partial ? '最新一天可能不是完整一天，暂停判断' : '今日无紧急异常'}</p>`;
+    $('dEmerg').innerHTML = emItems.length ? `<ul class="insights">${emItems.join('')}</ul>` : `<p class="note">${R.ov.partial ? `${R.ov.lab.day} 可能不是完整一天，暂停判断` : `${R.ov.lab.day} 无紧急异常`}</p>`;
 
     // 复制用（飞书）：一览只带子总代层，不带展开的渠道
     const ovTable = $('dOverview').querySelector('table').cloneNode(true);
@@ -1363,10 +1368,10 @@ details.rules dd { margin: 0; min-width: 0; }
     const ovCopy = { html: tableToHtml(ovTable), text: tableToTsv(ovTable) };
     const html = `<p style="font-weight:bold;margin:0 0 4px">Betroia 渠道日报${esc($('dAsOf').textContent)}</p><p>${head}</p><p style="color:#cf222e">${esc(notice)}</p>` +
       `<p style="font-weight:bold;margin:8px 0 4px">子总代一览${esc($('dOvNote').textContent)}</p>${ovCopy.html}` +
-      `<p style="font-weight:bold;margin:8px 0 4px">问题清单（本周 · 按子总代）</p>` + $('dCards').innerHTML +
-      `<p style="font-weight:bold;margin:8px 0 4px">符合加量规则</p>${$('dOpps').innerHTML}<p style="font-weight:bold;margin:8px 0 4px">今日紧急异常</p>${$('dEmerg').innerHTML}`;
+      `<p style="font-weight:bold;margin:8px 0 4px">${esc($('dCardsH').textContent)}</p>` + $('dCards').innerHTML +
+      `<p style="font-weight:bold;margin:8px 0 4px">符合加量规则</p>${$('dOpps').innerHTML}<p style="font-weight:bold;margin:8px 0 4px">${R.ov.lab.day} 紧急异常</p>${$('dEmerg').innerHTML}`;
     const txt = el => [...el.querySelectorAll('.pt, li, p.note')].map(x => (x.tagName === 'LI' ? '  • ' : '') + x.textContent).join('\n');
-    const text = `Betroia 渠道日报${$('dAsOf').textContent}\n${$('dHead').textContent}\n${notice}\n\n子总代一览${$('dOvNote').textContent}\n${ovCopy.text}\n\n问题清单（本周 · 按子总代）\n${txt($('dCards'))}\n\n符合加量规则\n${txt($('dOpps'))}\n\n今日紧急异常\n${txt($('dEmerg'))}\n\n`;
+    const text = `Betroia 渠道日报${$('dAsOf').textContent}\n${$('dHead').textContent}\n${notice}\n\n子总代一览${$('dOvNote').textContent}\n${ovCopy.text}\n\n${$('dCardsH').textContent}\n${txt($('dCards'))}\n\n符合加量规则\n${txt($('dOpps'))}\n\n${R.ov.lab.day} 紧急异常\n${txt($('dEmerg'))}\n\n`;
     state.dailyCopy = { html: html.replace(/ class="[^"]*"/g, ''), text };
   }
 

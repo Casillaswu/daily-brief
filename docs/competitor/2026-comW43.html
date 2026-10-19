@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>竞品周报 · 2026-W43 · 菲律宾 iGaming</title>
+<style>
+:root{
+  --ink:#1f1d1a; --ink-2:#4a4742; --ink-3:#8a857d;
+  --paper:#fff; --paper-2:#f7f5f1;
+  --rule:#d9d4cb; --rule-2:#ebe6dd;
+  --hi:#fff3a6;
+  --pos:#c9e4cf; --pos-ink:#2f6b3b;
+  --neu:#e1dfd9; --neu-ink:#5b574e;
+  --neg:#f1c9c5; --neg-ink:#8a3a33;
+  --warn:#fce8c2; --warn-ink:#8a5f1a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+body{
+  background:#f0eee9;
+  font-family:Arial,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);min-height:100vh;font-size:13px;line-height:1.65;
+}
+a{color:inherit;}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.hi{background:var(--hi);padding:0 2px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.shell{max-width:1320px;margin:0 auto;background:#fff;}
+
+.mast{background:#1f1d1a;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.mast .mark{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;border:1px solid rgba(255,255,255,.4);padding:6px 10px;flex:none;}
+.mast .ttl{flex:1;min-width:200px;}
+.mast .ttl h1{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+.mast .ttl .sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;}
+.mast .logos{display:flex;gap:5px;flex:none;flex-wrap:wrap;}
+.mast .lang{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:2px;flex:none;}
+.mast .lang a,.mast .lang button{border:none;background:none;cursor:pointer;padding:5px 12px;border-radius:99px;color:rgba(255,255,255,.7);font:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;line-height:1;}
+.mast .lang .active{background:#fff;color:var(--ink);}
+.logo{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(0,0,0,.06);flex:none;}
+.logo.closed{opacity:.4;text-decoration:line-through;}
+
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+.body{padding:8px 32px 32px;}
+
+.sec{margin-top:32px;scroll-margin-top:60px;}
+.sec-lbl{margin-bottom:10px;}
+.sec-lbl .chip{background:var(--ink);color:#fff;font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.06em;margin-right:8px;}
+.sec-lbl .en{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+.sec-lbl h2{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-top:8px;}
+.sec-lbl .rule{height:2px;background:var(--ink);margin-top:10px;}
+.sec-deck{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.exec{margin-top:24px;}
+.exec h3{font-size:30px;font-weight:800;letter-spacing:-.015em;line-height:1.4;max-width:90%;}
+.exec h3 .line{display:block;}
+.exec h3 .line + .line{margin-top:6px;}
+.exec p.deck{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin-top:18px;max-width:80%;}
+.exec p.deck b{color:var(--ink);}
+.exec p.deck + p.deck{margin-top:12px;}
+.exec p.deck em{font-style:normal;color:var(--ink-3);font-size:11.5px;}
+.exec .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.exec .axis{border-left:3px solid var(--ink);padding:8px 14px;font-size:12px;color:var(--ink-2);line-height:1.7;}
+.exec .axis b{color:var(--ink);display:block;margin-bottom:2px;}
+
+.kpi{margin-top:14px;border:1px solid var(--ink);display:grid;grid-template-columns:minmax(170px,1.2fr) .8fr .8fr 1.1fr 1fr 1.5fr;}
+.kpi .head{background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);text-transform:uppercase;font-weight:800;border-bottom:2px solid var(--ink);padding:12px;}
+.kpi .cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px;font-size:12px;line-height:1.6;}
+.kpi .cell:nth-child(6n){border-right:none;}
+.kpi .name{display:flex;align-items:flex-start;gap:10px;flex-direction:column;}
+.kpi .name b{font-size:13px;display:block;}
+.kpi .name .grp{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;letter-spacing:.05em;display:block;margin-top:1px;}
+.kpi .name .status{padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace;display:inline-block;margin-top:5px;}
+.kpi .name .status-hot{background:#1f1d1a;color:#fff;}
+.kpi .name .status-active{background:#fbe3b3;color:#8a5f1a;}
+.kpi .name .status-alert{background:var(--neg);color:var(--neg-ink);}
+.kpi .name .status-cold{background:#d6e4f0;color:#2A5FAA;}
+.kpi .name .status-closed{background:#2b2b2b;color:#bbb;}
+.kpi .cell.closed{color:var(--ink-3);font-style:italic;}
+.kpi .big{font-weight:800;font-size:16px;}
+.trend{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:3px;font-size:10.5px;font-weight:700;}
+.trend.up{background:var(--pos);color:var(--pos-ink);}
+.trend.down{background:var(--neg);color:var(--neg-ink);}
+.trend.flat{background:var(--neu);color:var(--neu-ink);}
+.trend.new{background:#1f1d1a;color:#fff;}
+.bar{height:8px;background:var(--rule-2);border-radius:2px;overflow:hidden;margin-top:6px;}
+.bar > i{display:block;height:100%;}
+.sev{padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;}
+.sev.high{background:var(--neg);color:var(--neg-ink);}
+.sev.mid{background:var(--neu);color:var(--neu-ink);}
+.sev.low{background:var(--pos);color:var(--pos-ink);}
+
+.strat{margin-top:14px;background:#1f1d1a;color:#fff;padding:26px 30px;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);}
+.qa.full{grid-column:1/-1;}
+.qa .q{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.qa .q .qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+.qa .a{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.92);}
+.qa .a b{color:#fff;}
+.qa .a p{margin-bottom:6px;}
+.qa .src{display:block;color:rgba(255,255,255,.45);font-size:10.5px;margin-top:6px;}
+.qa .src a{color:rgba(255,255,255,.6);}
+
+.radar{margin-top:14px;background:#1f1d1a;color:#fff;padding:24px;}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.radar-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.radar-head .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:800;margin-bottom:4px;}
+.radar-head .sub{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.radar-head .self-pick{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.radar-head .self-pick .pick-lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:800;}
+.vssel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 32px 9px 14px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4 L5 7 L8 4' fill='none' stroke='white' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 10px center;}
+.vssel option{background:#1f1d1a;color:#fff;}
+.vsbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.vsbtns button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.vsbtns button:hover{background:rgba(255,255,255,.18);}
+.vsbtns button.active{background:#fff;color:var(--ink);}
+.vsbtns button i{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.radar-body{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;}
+.radar-body .grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px 16px;font-size:12.5px;}
+.radar-body .grid span:nth-child(4n+1),.radar-body .grid span:nth-child(4n+3){color:rgba(255,255,255,.55);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;}
+.radar-body .grid span:nth-child(4n+2),.radar-body .grid span:nth-child(4n+0){font-weight:700;}
+.radar-body .legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;}
+.radar-body .legend span{display:inline-flex;align-items:center;gap:6px;}
+.radar-body .legend i{width:12px;height:12px;display:inline-block;border-radius:2px;}
+.radar svg{width:100%;max-width:380px;display:block;margin:0 auto;}
+.radar-note{margin-top:12px;background:rgba(255,255,255,.05);border-left:3px solid rgba(255,255,255,.4);padding:10px 14px;font-size:11.5px;color:rgba(255,255,255,.8);line-height:1.65;}
+.radar-note b{color:#fff;}
+
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px;margin-top:14px;}
+.mcard{border:1px solid var(--rule);border-top-width:4px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:9px;scroll-margin-top:60px;}
+.mcard .top{display:flex;align-items:center;gap:8px;}
+.mcard .top .meta{flex:1;}
+.mcard .top .meta b{font-size:12px;font-weight:700;display:block;}
+.mcard .top .meta span{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;}
+.mcard h4{font-size:14px;font-weight:700;line-height:1.5;}
+.mcard .detail{font-size:12px;line-height:1.7;color:var(--ink-2);}
+.mcard table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px;}
+.mcard table th{text-align:left;padding:4px 6px;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--rule);}
+.mcard table td{padding:5px 6px;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.mcard .warn{padding:8px 12px;background:var(--warn);border-left:3px solid var(--warn-ink);font-size:11.5px;color:var(--warn-ink);line-height:1.6;}
+.mcard .warn b{color:var(--warn-ink);}
+.mcard .social{padding:7px 12px;background:var(--paper-2);border-left:3px solid var(--ink-3);font-size:11px;color:var(--ink-2);line-height:1.6;}
+.mcard .src{font-size:11px;color:var(--ink-3);line-height:1.6;}
+.mcard .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-3);}
+.mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;}
+.mcard .impact b{color:var(--ink);font-weight:700;}
+
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:80px 18px 90px 130px 1fr 60px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--ink-2);}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+.impl-meth{margin-top:14px;background:var(--paper-2);border-left:3px solid var(--ink);padding:14px 18px;font-size:12px;line-height:1.75;color:var(--ink-2);}
+.impl-meth h6{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.06em;margin-bottom:6px;}
+.impl-meth b{color:var(--ink);}
+.impl-meth ul{list-style:none;padding:0;margin-top:6px;display:flex;flex-direction:column;gap:6px;}
+.impl-meth li{padding-left:14px;position:relative;}
+.impl-meth li::before{content:"·";position:absolute;left:2px;color:var(--ink-3);font-weight:800;}
+.impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
+.impl .col.threat{border-top-color:var(--neg-ink);}
+.impl .col.opp{border-top-color:var(--pos-ink);}
+.impl .col h5{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:18px;}
+.impl .col h5 .dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none;}
+.impl .col.threat h5 .dot{background:var(--neg-ink);}
+.impl .col.opp h5 .dot{background:var(--pos-ink);}
+.impl .col h5 .en{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);font-weight:800;text-transform:uppercase;}
+.impl .col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.impl .col li{display:block;padding:14px 16px;background:var(--paper-2);border-left:3px solid;font-size:12.5px;line-height:1.8;color:var(--ink-2);}
+.impl .col.threat li{border-left-color:var(--neg-ink);}
+.impl .col.opp li{border-left-color:var(--pos-ink);}
+.impl .col li b{color:var(--ink);}
+.impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
+
+.footer{margin-top:32px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;}
+.fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
+.fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
+.fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px 22px;align-items:start;}
+.srcs span{position:relative;display:block;padding-left:16px;font-size:11.5px;line-height:1.6;color:var(--ink-2);text-wrap:pretty;}
+.srcs i{position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;}
+.srcs i.ok{background:var(--pos-ink);}
+.srcs i.partial{background:#c96442;}
+.srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
+.fcard ol{padding:0;list-style:none;}
+.fcard ol li{font-size:12px;line-height:1.75;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;}
+.fcard ol li .n{color:#c96442;font-weight:700;font-family:ui-monospace,Menlo,monospace;flex:none;}
+.colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
+.colophon b{color:var(--ink);letter-spacing:.16em;}
+
+@media (max-width:1023px){
+  .body{padding:8px 24px 28px;}
+  .mast{padding:18px 24px;}
+  .subnav{padding:8px 24px;font-size:10.5px;}
+  .kpi{grid-template-columns:1fr;}
+  .kpi .head{display:none;}
+  .kpi .cell{border-right:none;display:grid;grid-template-columns:120px 1fr;gap:8px;}
+  .kpi .cell::before{content:attr(data-lbl);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;}
+  .kpi .cell:nth-child(6n+1)::before{display:none;}
+  .kpi .name{grid-column:1/-1;}
+  .radar-body{grid-template-columns:1fr;}
+  .impl{grid-template-columns:1fr;gap:18px;}
+  .footer{grid-template-columns:1fr;}
+  .qa-grid{grid-template-columns:1fr;}
+  .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:60px 14px 80px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
+  .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
+  .exec .axes{grid-template-columns:1fr;}
+  .sec-lbl h2{font-size:18px;}
+}
+@media (max-width:767px){
+  .body{padding:6px 16px 24px;}
+  .mast{padding:16px;gap:12px;}
+  .mast .ttl h1{font-size:18px;}
+  .subnav{padding:6px 16px;}
+  .strat{padding:18px 16px;}
+  .exec h3{font-size:19px;}
+}
+@media print{
+  body{background:#fff;}
+  .shell{max-width:none;}
+  .vssel,.vsbtns,.subnav{display:none;}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+  .mast .mark{border-color:#000;}
+  .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
+  .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+
+/* wrap-fix v1 */
+.nbk{white-space:nowrap;}
+/* 标题：自动平衡各行长度，避免末行只剩一两个字 */
+h1,h2,h3,h4,h5,h6,.mast .ttl h1,.sec-lbl h2,.mcard h4,.fcard h5,.radar-head .lbl,.wk .id{
+  text-wrap:balance;
+}
+/* 正文：避免寡行（末行孤字），并允许超长 URL / 英文词在容器内换行 */
+p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .social,
+.mcard .impact,.trow .desc,.kpi .cell,.strat .a p,.radar-note,.radar-formula td,
+.fcard p,.fcard ol li,.impl li,.impl-meth li,.srcs em,.wk .sum .ax{
+  text-wrap:pretty;
+  overflow-wrap:break-word;
+}
+/* 数据源说明独占一行，不与来源名单抢断点 */
+.srcs em{display:block;margin-top:1px;line-height:1.55;}
+/* 出处链接列：长标题在容器内断，不撑破卡片 */
+.mcard .src a,.strat .a .src a{overflow-wrap:break-word;}
+@media (max-width:767px){
+  .srcs{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="mast">
+  <div class="mark">COMPETITOR // BRIEF</div>
+  <div class="ttl">
+    <h1>2026-W43 · 菲律宾 iGaming 竞品周报</h1>
+    <div class="sub">数据窗口：10/12-10/19 回顾、10/19-10/26 展望 · 10 家观察清单（8 家评分、2 家关停；King / Queen 不评分）</div>
+  </div>
+  <div class="lang" aria-label="Language">
+    <button class="active" aria-current="page">中</button>
+    <a href="2026-comW43-en.html">EN</a>
+  </div>
+  <div class="logos">
+    <span class="logo" style="background:#E89AAA" title="BingoPlus">BP</span>
+    <span class="logo" style="background:#2A5FAA" title="ArenaPlus">AP</span>
+    <span class="logo" style="background:#4F8C5C" title="GameZone">GZ</span>
+    <span class="logo closed" style="background:#2D6B4D" title="King.ph">K</span>
+    <span class="logo closed" style="background:#B6356D" title="Queen.ph">Q</span>
+    <span class="logo" style="background:#B89968" title="CasinoPlus">C+</span>
+    <span class="logo" style="background:#D86B27" title="OKBet/OKGames">OK</span>
+    <span class="logo" style="background:#C2272D" title="Bet88">88</span>
+    <span class="logo" style="background:#4A4FB8" title="PlayTime/PT Gaming">PT</span>
+    <span class="logo" style="background:#8B7355" title="OKADA PLAY">OP</span>
+  </div>
+</header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>跳到</b>
+  <a href="#briefing">▲ 简报</a>
+  <a href="#kpi">§01 KPI</a>
+  <a href="#strategic">§02 5Q</a>
+  <a href="#radar">§03 雷达</a>
+  <a href="#moves-sec">§04 动向</a>
+  <a href="#timeline">§05 时间轴</a>
+  <a href="#implications">§06 威胁/机会</a>
+</nav>
+
+<div class="body">
+
+  <section class="sec exec" id="briefing">
+    <div class="sec-lbl">
+      <span class="chip">▲</span><span class="en">Executive Briefing · 主管简报</span>
+      <h2>本周摘要</h2>
+      <div class="rule"></div>
+    </div>
+    <h3>
+      BingoPlus 取款延迟，改发最高 ₱5,000 补偿。<br>
+      ArenaPlus 一周新开约 80 则，再多一个域名。<br>
+      PAGCOR 订 2027 下半年退出赌场业务。
+    </h3>
+    <p class="deck"><b>1. BingoPlus 取款延迟，改发最高 ₱5,000 补偿。</b><br>BingoPlus 官方广告主 10/12 起在 Meta 新开 12 则广告，其中 6 则涉及促销与取款。10/15 的广告写明：快速取款延迟时，补偿取款金额的 100%、每笔最高 ₱5,000，玩家在 App 看通知、点领取。这回答了上期的问题：10/9 的「100% BACK UP TO ₱5,000」指延迟补偿，不是存款保护。同日起另有 10/15-10/20 的限期档（₱100 登入奖、每日免费旋转、首储 20% 奖励）。补偿归类与适用的返利上限，素材没写。详 <a href="#sig-01">§04 卡 1</a>。<em>（<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=100332105816384">Meta 广告库 10/19</a>）</em></p>
+    <p class="deck"><b>2. ArenaPlus 一周新开约 80 则，再多一个域名。</b><br>ArenaPlus 官方广告主 10/13 至 10/17 新开约 80 则（人工逐项数、下限），约为上期 63 则的 1.3 倍。字样与奖池金额沿用，换的是游戏名与按钮字样。10/14 起出现第三个导向网域 arenaplussport.online，另有体育内容短片以广告形式投放。落地页条款仍读不到。详 <a href="#sig-02">§04 卡 2</a>。<em>（<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=257670834093707">Meta 广告库 10/19</a>）</em></p>
+    <p class="deck"><b>3. PAGCOR 订 2027 下半年退出赌场业务。</b><br>PAGCOR（菲律宾娱乐博彩公司，兼线上博彩监管机关）主席 Tengco 10/13 至 10/14 受访称，GCG（政府拥有及控制公司管理委员会）预计 10 月内把拆分建议送交总统府，目标 2027 年第三或第四季完成退出赌场经营，预期募资 ₱200 亿至 ₱300 亿，Casino Filipino 2026 年亏损至少 ₱70 亿。这是赌场实体的重组，对线上持照业者没有直接的合规变化；时点取决于总统府批准，尚未发生。详 <a href="#sig-03">§04 卡 3</a>。<em>（<a href="https://www.philstar.com/business/2026/10/14/2562962/pagcor-targets-casino-exit-2027">Philstar 10/14</a>）</em></p>
+    <div class="axes">
+      <div class="axis"><b>取款慢变成可领的补偿</b>BingoPlus 把玩家对取款的顾虑做成一个产品，写明额度与领取方式。判断：其他品牌只喊「快」而没有延迟补偿，会被拿来跟它比。进场者要不要设补偿，先量出实际到账分钟数。</div>
+      <div class="axis"><b>素材量与域名数一起涨</b>ArenaPlus 一周约 80 则、域名到至少四个，字样不变、只换游戏名。判断：重点不在数量，在玩家更难分清官方域名。官方域名清单要放在显眼处。</div>
+      <div class="axis"><b>监管者退出赌场的时点出来了</b>PAGCOR 把退出写成 2027 年第三或第四季、拆分建议 10 月内送出。判断：对线上业者是间接影响，要看总统府是否批准，以及有没有配套的线上规则公告。</div>
+    </div>
+    <div class="impl-meth" style="margin-top:14px">
+      <h6>lede 入选推导</h6>
+      <ul>
+        <li><b>✓ Lede #1 / 卡 1 ·</b> BingoPlus 取款延迟补偿与限期档（10/12-10/15）· B5 跨周新结论 · 首次读到补偿额度、领取方式，回答上期「100% BACK UP」的问题</li>
+        <li><b>✓ Lede #2 / 卡 2 ·</b> ArenaPlus 一周约 80 则、第三个导向网域、内容型投放（10/13-10/17）· B5 跨周新数据 · 域名数与素材类型变化为首次量化</li>
+        <li><b>✓ Lede #3 / 卡 3 ·</b> PAGCOR 退出赌场的时点、募资区间与建议递交时限（10/13-10/14）· B1 政策 · 首次出现可核对的时间表与金额</li>
+        <li><b>✗ 排除 ·</b> BingoPlus FMA 后续内容（10/12-10/15）· C3 持续型赞助；Interblock 获 PAGCOR 批准（产品审批、非运营商动作）；DigiPlus 退出纽西兰牌照程序（10/15、弱讯号）；Okada 第三季财报（非大动作）；BSP 通函、PAGCOR 认证名单 · 窗口内无新事实</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="kpi">
+    <div class="sec-lbl">
+      <span class="chip">§01</span><span class="en">KPI 比较矩阵 · 10 家</span>
+      <h2>KPI 比较矩阵（10 家观察清单）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">状态色：🔴 HOT（监管点名 / 处分）· 🟠 ACTIVE（仍在动）· 🟡 ALERT（异常 / 倒数）· 🔵 COLD（静默）· ⚫ CLOSED（已关停 / 不评分）。SOV 为内部估算（媒体版面 + 社群声量），本期沿用上期估算、未调整，8 家可评分者加总约 43%，其余 57% 为 PAGCOR 拆分、BSP 议息、巴西禁令后续与其他动态。King.ph / Queen.ph 自 2026-05-29 起关停、不评分。BingoPlus 维持 🟠（取款补偿升为本期高影响）；ArenaPlus 维持 🟠（素材量再加）；其余六家 🔵，本期未重查其官方促销页与广告，价档数字沿用上期记录，详方法论。</div>
+    <div class="kpi">
+<div class="head">公司</div><div class="head">本周动作</div><div class="head">SOV%</div><div class="head">主推价档</div><div class="head">Jackpot 看板</div><div class="head">本周高影响</div>
+
+      <div class="cell name"><b>BingoPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">3</span> <span class="trend up">▲ +3</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">20%</span><div class="bar"><i style="width:20%;background:#E89AAA"></i></div></div>
+      <div class="cell" data-lbl="主推价档">10/15 起限期档（至 10/20）：₱100 登入奖、每日免费旋转、投注返现、首储 20% 奖励；取款延迟补偿 100%、每笔最高 ₱5,000；VIP 四奖励 10/14 重新刊登</div>
+      <div class="cell" data-lbl="Jackpot 看板">百家乐大赛 ₱4,130 万（-11/28，沿用）</div>
+      <div class="cell" data-lbl="本周高影响">高 — 取款延迟补偿首次写进广告，详 <a href="#sig-01">§04 卡 1</a></div>
+
+      <div class="cell name"><b>ArenaPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">2</span> <span class="trend up">▲ +2</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">9%</span><div class="bar"><i style="width:9%;background:#2A5FAA"></i></div></div>
+      <div class="cell" data-lbl="主推价档">10/13-10/17 新开约 80 则；迎宾 ₱8,100 加「Up to P888 Cashback」；日返利、日续储、返现三字样 10/16 再刊登；10/14 起新导向网域 arenaplussport.online</div>
+      <div class="cell" data-lbl="Jackpot 看板">₱88,888,888 / ₱1,000,000 奖池字样</div>
+      <div class="cell" data-lbl="本周高影响">中 — 素材量与域名数同步上升，详 <a href="#sig-02">§04 卡 2</a></div>
+
+      <div class="cell name"><b>CasinoPlus</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">4%</span><div class="bar"><i style="width:4%;background:#B89968"></i></div></div>
+      <div class="cell" data-lbl="主推价档">1.5% Cashrebate 7/31 到期、续档未公布；本期未重查（沿用上期记录）</div>
+      <div class="cell" data-lbl="Jackpot 看板">头奖 ₱1.224 亿已派付（颁奖 9/9）</div>
+      <div class="cell" data-lbl="本周高影响">低 — 本期未见新动作</div>
+
+      <div class="cell name"><b>PlayTime / PT Gaming</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#4A4FB8"></i></div></div>
+      <div class="cell" data-lbl="主推价档">₱8,080 迎宾 + 1.5% 返利（锁址、沿用 5/29 baseline）</div>
+      <div class="cell" data-lbl="Jackpot 看板">Evolution Perya Fiesta（待查）</div>
+      <div class="cell" data-lbl="本周高影响">低 — 页锁址，未确认新动作</div>
+
+      <div class="cell name"><b>GameZone</b><span class="grp">DigiPlus</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#4F8C5C"></i></div></div>
+      <div class="cell" data-lbl="主推价档">Newcomer / VIP / Long-term 分级档；本期未重查（沿用上期记录）</div>
+      <div class="cell" data-lbl="Jackpot 看板">— 走日赛</div>
+      <div class="cell" data-lbl="本周高影响">低 — 本期未见新动作</div>
+
+      <div class="cell name"><b>OKBet / OKGames</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#D86B27"></i></div></div>
+      <div class="cell" data-lbl="主推价档">主站 1.5% 日返 + Welcome Bundle；体育 35% 首存；本期未重查（沿用上期记录）</div>
+      <div class="cell" data-lbl="Jackpot 看板">FIFA 2026 Spin for Glory ₱15,888,888</div>
+      <div class="cell" data-lbl="本周高影响">低 — 本期未查（记录 0）</div>
+
+      <div class="cell name"><b>Bet88</b><span class="grp">独立</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#C2272D"></i></div></div>
+      <div class="cell" data-lbl="主推价档">100% 首存 ₱8,888 + 30% 每日（图片化、无金额）；本期未重查（沿用上期记录）</div>
+      <div class="cell" data-lbl="Jackpot 看板">World Cup Prize Pool ₱4,900,000</div>
+      <div class="cell" data-lbl="本周高影响">低 — 本期未查（记录 0）</div>
+
+      <div class="cell name"><b>OKADA PLAY</b><span class="grp">PhilWeb × Okada Manila</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="本周动作"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">1%</span><div class="bar"><i style="width:1%;background:#8B7355"></i></div></div>
+      <div class="cell" data-lbl="主推价档">上线初期价档未完整公开</div>
+      <div class="cell" data-lbl="Jackpot 看板">— 待披露</div>
+      <div class="cell" data-lbl="本周高影响">低 — 未见新动作</div>
+
+      <div class="cell name"><b>King.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="本周动作">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="主推价档">已关停（2026-05-29 确认）· 不评分</div>
+      <div class="cell closed" data-lbl="Jackpot 看板">—</div>
+      <div class="cell closed" data-lbl="本周高影响">已关停 · 不评分</div>
+
+      <div class="cell name"><b>Queen.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="本周动作">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="主推价档">已关停（2026-05-29 确认）· 不评分</div>
+      <div class="cell closed" data-lbl="Jackpot 看板">—</div>
+      <div class="cell closed" data-lbl="本周高影响">已关停 · 不评分</div>
+
+    </div>
+    <div class="sec-deck"><b>价档面。</b>官方页可证的新档仍停在 7 月。BingoPlus 的限期档与补偿、ArenaPlus 的返利字样都只出现在广告，落地页条款读不到。CasinoPlus 1.5% 自 7/31 到期起算、本周进入第 12 周，没有接续方案；体育档自 7/19 到期起算、本周进入第 14 周，两家 DigiPlus 品牌这周新开的仍是游戏类与取款类字样，不是体育档。</div>
+    <div class="sec-deck"><b>Meta 广告库快照。</b>本期照正式抓法，以两个官方广告主 ID 锁定、真实滚轮载入到页底。BingoPlus 页首标示约 32 笔、已载入全部，10/12 起新开 12 则：6 则为 FMA 后续内容，6 则为促销与取款素材，详 <a href="#sig-01">§04 卡 1</a>。ArenaPlus 页首标示约 160 笔，10/13 至 10/17 开刊约 80 则，详 <a href="#sig-02">§04 卡 2</a>。本期仅核对 BingoPlus 与 ArenaPlus 两个官方广告主 ID；其他品牌未查，无法据此判断其有无 Meta 投放。快照存 snapshots/2026-W43/meta-adlib-2026-10-19.md。<em>（<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=100332105816384">Meta 广告库 · BingoPlus</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=257670834093707">ArenaPlus</a> 10/19）</em></div>
+  </section>
+
+  <section class="sec" id="strategic">
+    <div class="sec-lbl">
+      <span class="chip">§02</span><span class="en">Strategic Read · 5Q</span>
+      <h2>战略解读 · 五问（中性陈述）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="strat">
+      <div class="qa-grid">
+        <div class="qa"><div class="q"><span class="qchip">Q1</span><br>市场空间</div><div class="a"><p>PAGCOR 把退出赌场经营的时点写成 2027 年第三或第四季，GCG 的拆分建议预计 10 月内送交总统府。PAGCOR 现有 35 间赌场，预期出售募资 ₱200 亿至 ₱300 亿，已有持照业者表达兴趣；Casino Filipino 2026 年亏损预计至少 ₱70 亿。<em>（<a href="https://www.philstar.com/business/2026/10/14/2562962/pagcor-targets-casino-exit-2027">Philstar 10/14</a>，全文仅此一家）</em></p><p><b>判断：</b>这是赌场实体的重组，线上牌照、返利上限与广告规则本期都没有变动。对线上市场的影响是间接的，且要等总统府批准。9 月通膨 7.2% 与 BSP 10/22 议息的压力（上期已述）本期没有新数据。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q2</span><br>玩家关注焦点</div><div class="a"><p>BingoPlus 这周把焦点放在取款：查看取款时间、追踪状态、延迟可领补偿。ArenaPlus 的体育内容短片，主题是 PVL 规则解说、女性运动员话题与篮球教学。</p><p><b>判断：</b>龙头认定取款体验是玩家的顾虑。这是不是玩家端实际的抱怨，本期没有社群数据可验，不下结论。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q3</span><br>未被满足的缺口</div><div class="a"><p>上期补上的两个缺口是流水倍数与取款时效。取款时效这格被 BingoPlus 先占了一部分：延迟补偿有了，但「快速取款」仍没有写明几分钟。流水倍数这格，本期新素材里没有看到任何一家写明几倍。</p><p><b>判断：</b>谁先把到账分钟数与流水倍数写成可核对的数字，谁就占住「透明」这一格。另一个新缺口是官方域名：ArenaPlus 域名增加后，玩家要分清官方站更难。</p><p>广告画面的限制仍适用。ASC 第 2026-008 号通函自 6 月 24 日生效，广告素材在任何媒体都不能出现或提到轮盘、百家乐、二十一点、角子机、纸牌、筹码、骰子这类赌场游戏与器具。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q4</span><br>价档结构</div><div class="a"><p>档型仍是两套：DigiPlus 打活动与 VIP 奖励、其余打返利。本周 BingoPlus 多了一种写法：写明日期的短档期（10/15-10/20）、₱100 登入奖与首储 20% 奖励；ArenaPlus 在迎宾素材上加了「Up to P888 Cashback」按钮字样。</p><p>PAGCOR 现行规定，电子游戏业者按投注额或存款给的现金返利上限为 1.5%（赌场桌台与街机类除外），按净损失给的现金回赠上限为 15%。「按取款金额 100% 补偿」归在哪一类，素材没写。</p><p><b>判断：</b>补偿、限期奖励与返利三种写法并存，玩家更难比较。是否合规目前没有公开解释（详 §06 威胁 2）。</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q5</span><br>差异化结论</div><div class="a"><p>本周各家路线：BingoPlus 从奖励档转到取款补偿与限期档，ArenaPlus 在原有字样上加量、加域名、加内容型投放，PAGCOR 公布退出赌场的时间表。本期资料未记录 CasinoPlus、PlayTime、GameZone、OKBet、Bet88、OKADA PLAY 的新动作，覆盖有限。</p><p><b>结论：</b>龙头比的是取款这类条款的可核对程度，另一家 DigiPlus 品牌比的是素材量。第四季的竞争落在两件事：取款与流水的数字写不写得出来，以及官方域名辨识度。</p><p><b>提议：</b>两件事。一是取款时效若要当卖点，先量出实际分钟数，再决定补偿机制。二是官方域名清单先写在素材与官网显眼处。以上为建议、非结论。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="radar">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">Capability Radar · 6 axes · 10 brands</span>
+      <h2>六轴能力雷达（10 家、King / Queen 已关停不评分）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="radar">
+      <div class="radar-formula">
+        <h6>评分公式（每轴 100 分、子项加权）</h6>
+        <table><tr><td>BRAND 品牌力</td><td><b>市场份额（营收 / 流量）45%</b> + 代言 / IP 20% + 玩家提及率 25% + 本周 PR 声量 10%</td></tr><tr><td>UX 体验</td><td>官网可访问性 30% + 注册 / 登入顺畅 25% + 支付 / 提现讯号 25% + UI 清晰度 20%</td></tr><tr><td>CONTENT 内容</td><td>独家游戏 / IP 35% + 本土化内容 25% + 活动丰富度 25% + 更新频率 15%</td></tr><tr><td>PRICING 定价</td><td>奖励吸引力 30% + <b>合规安全度 30%</b> + 条款透明度 25% + 玩家实际可领价值 15%</td></tr><tr><td>RETENTION 留存</td><td>持续型促销 30% + VIP / 回流机制 25% + 客服 / 信任 25% + 社群活跃 20%</td></tr><tr><td>REACH 通路</td><td>TV / 媒体 30% + 社群声量 25% + KOL / 艺人 20% + 线下 / 支付触点 15% + SEO / 官网可见度 10%</td></tr></table>
+      </div>
+      <div class="radar-head">
+        <div>
+          <div class="lbl">六轴对比（10 家）</div>
+          <div class="sub">右上下拉选评分基线（默认 PlayTime）、下方按钮选对标竞品。<br><em style="color:rgba(255,255,255,.6);font-style:normal;">基线沿用 W22 SimilarWeb 锚定。本周 8 家全部维持、无调分；King / Queen 已关停、不画图。</em></div>
+        </div>
+        <div class="self-pick">
+          <span class="pick-lbl">基线品牌</span>
+          <select class="vssel" id="selfsel" aria-label="基线品牌"></select>
+        </div>
+      </div>
+      <div class="vsbtns" id="vsbtns" aria-label="vs"></div>
+      <div class="radar-body">
+        <div class="left">
+          <div class="grid" id="radarGrid"></div>
+          <div class="legend">
+            <span><i style="background:#fff3a6"></i><b id="legendSelf">基线 · PlayTime</b></span>
+            <span><i id="legendVsColor" style="background:#4F8C5C"></i><b id="legendVs">GameZone</b></span>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 320" id="radarSvg" aria-label="6-axis capability radar">
+          <g id="rings"></g>
+          <g id="axes"></g>
+          <polygon id="polyVs" fill-opacity="0.35" stroke-width="2"></polygon>
+          <polygon id="polySelf" fill="#fff3a6" fill-opacity="0.42" stroke="#fff3a6" stroke-width="2.2"></polygon>
+          <g id="labels"></g>
+        </svg>
+      </div>
+      <div class="radar-note"><b>本周 8 家全部维持、无调分。</b>BingoPlus 的取款补偿与限期档、ArenaPlus 的返利字样都只在广告上，条款读不到，PRICING 的合规安全度与条款透明度两个子项（合计 55%）无法评分；补偿的归类也未说明。奖励吸引力单项变动不足以推动 5 分级距，待站内二验后再评。BingoPlus 的取款补偿属自我陈述、无第三方验证，不计入 UX 的支付 / 提现讯号。其余六家本期未重查。本周 PR 子项：BingoPlus 因取款补偿、ArenaPlus 因素材量，各有拉抬，权重 10%，不足以推动级距。<br><br><b>BRAND 子项回算示范。</b>PlayTime BRAND 85 ＝ 市场份额 100 × 45% ＋ 代言 / IP 80 × 20% ＋ 玩家提及率 80 × 25% ＋ 本周 PR 55 × 10% ＝ 86.5，取 85。BingoPlus BRAND 83 ＝ 市场份额 75 × 45% ＋ 代言 / IP 95 × 20% ＋ 玩家提及率 85 × 25% ＋ 本周 PR 85 × 10% ＝ 82.5，与维持值差距未满 5 分级距、维持。ArenaPlus BRAND 60 ＝ 市场份额 50 × 45% ＋ 代言 / IP 80 × 20% ＋ 玩家提及率 55 × 25% ＋ 本周 PR 80 × 10% ＝ 60.25，取 60。<br><br><b>下次调分的触发条件：</b>BingoPlus 的补偿与限期档条款经站内二验（影响 PRICING）；补偿取得 PAGCOR 解释；人工决定是否以 MAU 口径调整 GameZone / ArenaPlus 的市场份额排序；其他品牌跟进取款补偿；ArenaPlus 的新域名归属确认；总统府批示 PAGCOR 拆分建议。</div>
+    </div>
+  </section>
+
+  <section class="sec" id="moves-sec">
+    <div class="sec-lbl">
+      <span class="chip">§04</span><span class="en">Weekly Moves</span>
+      <h2>本周动向（W43）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">本周 3 张（W42 3 张 / W41 3 张）。卡 1、卡 2 来自 Meta 广告库实抓，卡 3 来自 Philstar 对 PAGCOR 主席受访的报导。OnlyFun.PH、通膨与 BSP 议息本期无新事实，不立卡；Interblock 产品获批、DigiPlus 退出纽西兰牌照程序，属弱讯号，不立卡。</div>
+    <div class="moves" id="moveCards">
+
+      <div class="mcard" id="sig-01" style="border-top-color:#E89AAA">
+        <div class="top"><span class="logo" style="background:#E89AAA;width:26px;height:26px;font-size:10px">BP</span>
+          <div class="meta"><b>卡 1 · BingoPlus</b><span>10/12-10/17</span></div>
+          <span class="sev high">高影响</span>
+        </div>
+        <h4>BingoPlus 取款延迟，<span class="hi">改发最高 ₱5,000 补偿。</span></h4>
+        <div class="detail">BingoPlus 官方广告主在 Meta 菲律宾刊登中的广告共约 32 则（页首标示约 32 笔，已滚到页底）。10/12 起新开 12 则：6 则是 FMA（菲律宾音乐颁奖典礼）后续内容，另 6 则是促销与取款类素材。这 6 则按开刊日是：10/12「Your BingoPlus experience is getting an upgrade!」，文案要玩家查看取款时间、追踪状态、看延迟的快速取款是否符合补偿；10/14 VIP 四奖励重新刊登；10/15 两则补偿广告；10/15 的限期登入奖与每日首储奖励。</div>
+        <div class="detail">读图所得：（1）10/15「Claim 100% compensation of your withdrawal amount, up to ₱5,000 per transaction on eligible Fast Withdrawal delays」，要玩家在 App 看通知、点「Claim」申请，注明 T&Cs apply；另一则 10/15 的教学图分四步，从快速取款、出现延迟补偿通知、点领取到等待确认；（2）10/15「OCT 15-20 Exclusive Rewards」，每日惊喜包含 ₱100 登入奖、每日免费旋转、达投注目标的投注返现；（3）10/15「Exclusive Daily Deposit Bonus Unlocked!」，图上读到首储 20% 奖励、最高 ₱200、奖池字样与 10/15-10/20 的期间，其余小字读不清。</div>
+        <div class="detail">上期卡 1 留下的问题是 10/9 广告上的「100% BACK UP TO ₱5,000」指什么。这周的答案是：指快速取款延迟时的补偿，不是存款保护。补偿额度是取款金额的 100%、每笔最高 ₱5,000；是否另计流水、是否算入 1.5% 返利上限、一天可领几笔，广告与文案都没写。</div>
+        <div class="detail"><b>判断：</b>BingoPlus 把「取款慢」这个玩家顾虑做成了一个能领取的产品，比上期只说「取款快」多走了一步。这条线的比较标准变了：之后其他品牌只喊「快速取款」而没有延迟补偿，会被拿来跟它比。另一个变化是促销写法，从上期的「最高 ₱X」VIP 奖励档，加上了写明日期的短档期（10/15-10/20）和小额登入奖，这在上期没有出现。</div>
+        <div class="detail">⚠️ 合规提醒：「按取款金额 100% 补偿」归在哪一类（促销奖励、客服补偿或其他），是否适用 PAGCOR 现行 1.5% 现金返利与 15% 现金回赠上限，素材没有说明，条款在落地页、受地区限制读不到。本卡为编辑观察，不构成合规结论。</div>
+        <div class="detail">⚠️ 口径提醒：广告在投不等于促销有效；本期载入的约 32 则与上期 15 则不同口径（上期是页首约 20 笔中载入 15 则），不推论投放增加。「Fast Withdrawal」是否有分钟数承诺，广告文字没有给。</div>
+        <div class="social">⚠️ 单口径：本期仅 Meta 广告库（官方投放面证据，不算社群信号）；玩家端反应待补。每日监听 10/13 已见补偿字样、判为 MORE CONFIDENCE 延伸而不命中 [trigger-2026-10-13]；周报采用，因本期首次读到补偿额度、领取方式与限期档，足以回答上期留下的问题。</div>
+        <div class="src">出处：<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=100332105816384">Meta 广告库 · BingoPlus（官方广告主）</a></div>
+        <div class="impact"><span><b>提议（对客户 X）：</b>取款时效若要当卖点，先量出实际到账分钟数，再决定是否设延迟补偿。补偿额度、笔数上限与是否另计流水，在写进素材前先对 PAGCOR 现行返利上限。</span></div>
+      </div>
+
+      <div class="mcard" id="sig-02" style="border-top-color:#2A5FAA">
+        <div class="top"><span class="logo" style="background:#2A5FAA;width:26px;height:26px;font-size:10px">AP</span>
+          <div class="meta"><b>卡 2 · ArenaPlus</b><span>10/13-10/17</span></div>
+          <span class="sev mid">中影响</span>
+        </div>
+        <h4>ArenaPlus 一周新开约 80 则，<span class="hi">再多一个域名。</span></h4>
+        <div class="detail">ArenaPlus 官方广告主页首标示约 160 笔，本期滚到页底。开刊日落在 10/13 至 10/17 的约 80 则（人工逐项数、±5）：10/13、10/14 各约 10 则，10/15 与 10/16 各约 30 则，10/17 有 4 则。上期同一口径记 10/6 起新开 63 则。</div>
+        <div class="detail">素材主轴没有换：「Welcome bonus up to ₱8,100」「Chance to hit 50000x & win up to ₱88,888,888」，以及日返利最高 ₱2,888、日续储最高 ₱3,235、返现最高 ₱888 三字样，后者 10/16 一天再刊登约 12 则。新增的是游戏名（Piñata Beat 1000、Super Gems 1000、Gates of Olympus）和迎宾素材上的按钮字样「Up to P888 Cashback」。</div>
+        <div class="detail">两个新现象：一是 10/14 起出现第三个导向网域 arenaplussport.online，素材带「Adv」标记，此前已知 arenaplus.ph、arenaplus.app（每日监听 10/9）与 arenaplus.net（每日监听 10/1）；这个域名是否为官网体系，本期未核实。二是 10/15、10/16 出现几则体育内容短片以广告形式投放（PVL 规则解说、女性运动员话题、篮球教学），不带促销数字，链接到 Facebook 或 Instagram 个人页。10/10 起的 KOL 招募广告仍在投。</div>
+        <div class="detail"><b>判断：</b>这周是上期那条路线继续加量：同一套字样与奖池金额换新编号、换游戏名，体量约是上期的 1.3 倍。域名从两个增加到至少四个，玩家要分清哪个是官网更难；体育内容短片则表示 ArenaPlus 仍在保留体育站的调性，同时把赌场素材放大。三者是否出自同一个投放团队，没有证据，不推论。</div>
+        <div class="detail">⚠️ 合规提醒：沿用上期，披索上限写法的归类边界，与老虎机画面和 ASC（菲律宾广告标准委员会）第 2026-008 号通函的适用关系，仍待解释；本期未见 PAGCOR 或 ASC 的反应。本卡为编辑观察，不构成合规结论。</div>
+        <div class="detail">⚠️ 口径提醒：新开数为人工逐项数的下限，同一素材多个版本可能重复计；广告在投不等于促销有效；条款、流水倍数与截止日都在受地区限制的落地页。</div>
+        <div class="social">⚠️ 单口径：本期仅 Meta 广告库（官方投放面证据，不算社群信号）；玩家端反应待补。每日监听 10/15、10/16、10/19 已记 ₱8,100 同轴沿用 [trigger-2026-10-15]，本卡补上周内全量、新域名与内容型投放。</div>
+        <div class="src">出处：<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=257670834093707">Meta 广告库 · ArenaPlus PH（官方广告主）</a></div>
+        <div class="impact"><span><b>提议（对客户 X）：</b>进场前把官方域名清单写在素材与官网显眼处，并监测品牌词搜索里的仿冒与镜像站。素材若走赌场游戏路线，先把画面与字眼过一轮 ASC 通函的器具清单。</span></div>
+      </div>
+
+      <div class="mcard" id="sig-03" style="border-top-color:#c96442">
+        <div class="top"><span class="logo" style="background:#c96442;width:26px;height:26px;font-size:10px">PG</span>
+          <div class="meta"><b>卡 3 · PAGCOR</b><span>10/13-10/14</span></div>
+          <span class="sev mid">中影响（间接）</span>
+        </div>
+        <h4>PAGCOR 订 2027 下半年<span class="hi">退出赌场业务。</span></h4>
+        <div class="detail">PAGCOR（菲律宾娱乐博彩公司，兼线上博彩监管机关）主席兼执行长 Alejandro Tengco 10 月 13 日至 14 日在长滩岛受访，称 GCG（政府拥有及控制公司管理委员会）预计在 10 月内把「拆分」建议送交总统府；拆分指把 PAGCOR 的赌场商业经营与监管职能分开，让它专注监管、不再与自己监管的业者竞争。目标是 2027 年第三或第四季完成退出赌场经营；获批后「就执行」。</div>
+        <div class="detail">PAGCOR 现有 35 间赌场，其中 12 间自营、23 间与私营伙伴分成。预期募资 ₱200 亿至 ₱300 亿，估值尚未定；已有持照业者表达兴趣，含马尼拉湾娱乐城（Entertainment City）的大型业者，Tengco 预期现有分成伙伴会竞标自己经营的赌场。自营赌场中，宿务营收最高，其次是 Tagaytay、Angeles、Davao 与 Malabon。Casino Filipino 2026 年亏损预计至少 ₱70 亿，2025 年约 ₱60 亿，Tengco 称主因是人事费用。</div>
+        <div class="detail">IAG 同日标题给出的数字是 2026 年亏损约 US$1.11 亿，正文本期未读到；Manila Bulletin 与 GGRAsia 同题报导本期读到的是验证页，只见标题。</div>
+        <div class="detail"><b>判断：</b>这是赌场实体的重组，对线上持照业者没有直接的合规变化，也没有触及线上牌照、返利上限或广告规则。间接面有两处：PAGCOR 退出后只做监管，线上业者的对口与规则解释，可能比现在更少受「裁判兼球员」的质疑；持照业者若转去竞标赌场，资本配置会被分流，对线上预算的影响没有证据，不下结论。时点全部取决于总统府是否批准，目前尚未发生。</div>
+        <div class="detail">⚠️ 口径提醒：时间表、募资区间与亏损数字，全文仅 Philstar 一家读到；Tengco 的说法属受访陈述，未见 PAGCOR 书面公告或总统府文件。</div>
+        <div class="social">⚠️ 单口径：全文仅 Philstar；IAG、Manila Bulletin、GGRAsia 为标题级。玩家端无相关讨论可验，社群信号本期 N/A。每日监听 10/14 已记 decoupling 标题 [trigger-2026-10-14]，判为弱讯号；周报采用，因本期首次读到退出时点、拆分建议的递交时限与募资区间。</div>
+        <div class="src">出处：<a href="https://www.philstar.com/business/2026/10/14/2562962/pagcor-targets-casino-exit-2027">PAGCOR targets casino exit by 2027 · Philstar 10/14</a> · <a href="https://asgam.com/2026/10/14/decoupling-high-on-pagcor-agenda-as-casino-filipino-losses-projected-to-hit-us111-million-in-2026/">Decoupling high on PAGCOR agenda as Casino Filipino losses projected to hit US$111 million in 2026 · IAG 10/14</a></div>
+        <div class="impact"><span><b>提议（对客户 X）：</b>不为这条改动进场计划。保留一个观察点：GCG 建议在 10 月内送出之后，总统府的批示，以及 PAGCOR 对线上业者的任何配套公告。</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Timeline · 近两周大事记</span>
+      <h2>时间轴（双周倒序）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow"><span class="d">10/17</span><span class="dot blue"></span><span class="cat">广告</span><span class="br">ArenaPlus</span><span class="desc">Meta 新开 4 则迎宾 ₱8,100 素材，按钮字样「Up to P888 Cashback」</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/16</span><span class="dot blue"></span><span class="cat">广告</span><span class="br">ArenaPlus</span><span class="desc">当日新开约 30 则，其中日返利、日续储、返现三字样约 12 则；新增游戏名 Piñata Beat 1000</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/15</span><span class="dot blue"></span><span class="cat">广告</span><span class="br">BingoPlus</span><span class="desc">Meta 新开取款延迟补偿广告：100%、每笔最高 ₱5,000；同日起 10/15-10/20 限期档</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/15</span><span class="dot blue"></span><span class="cat">广告</span><span class="br">ArenaPlus</span><span class="desc">体育内容短片（PVL 解说等）以广告形式投放，不带促销数字</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/14</span><span class="dot orange"></span><span class="cat">监管</span><span class="br">PAGCOR</span><span class="desc">Tengco 称 GCG 十月内向总统府递交拆分建议，目标 2027 年第三或第四季退出赌场业务</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/14</span><span class="dot blue"></span><span class="cat">广告</span><span class="br">ArenaPlus</span><span class="desc">出现第三个导向网域 arenaplussport.online</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/12</span><span class="dot blue"></span><span class="cat">广告</span><span class="br">BingoPlus</span><span class="desc">Meta 新开「查看取款时间与状态」广告，预告延迟补偿</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/10</span><span class="dot blue"></span><span class="cat">广告</span><span class="br">BingoPlus</span><span class="desc">Meta 新开 VIP 四奖励（最高 ₱12,000 存款奖励、3.5% 游戏返利）</span><span class="wk">W42</span></div>
+      <div class="trow"><span class="d">10/08</span><span class="dot green"></span><span class="cat">品牌</span><span class="br">Bloomberry</span><span class="desc">推出直播互动平台 OnlyFun.PH，隶属 FUNaloMAX</span><span class="wk">W42</span></div>
+      <div class="trow"><span class="d">10/05</span><span class="dot green"></span><span class="cat">评价</span><span class="br">Maybank / DigiPlus</span><span class="desc">核心净利预估 2026 年降 43%、2027 年降 48%</span><span class="wk">W41</span></div>
+      <div class="trow"><span class="d">10/02</span><span class="dot"></span><span class="cat">法规</span><span class="br">BSP</span><span class="desc">支付诚信草案意见截止（已过 17 天），未见正式通函</span><span class="wk">W38→W43</span></div>
+      <div class="trow"><span class="d">09/30</span><span class="dot"></span><span class="cat">监管</span><span class="br">PAGCOR</span><span class="desc">B2B 认证宽限到期（已过 19 天）；未见再延期、未见停用名单</span><span class="wk">W30→W43</span></div>
+      <div class="trow"><span class="d">07/01</span><span class="dot"></span><span class="cat">监管</span><span class="br">PAGCOR</span><span class="desc">最低保证费第一阶段生效；2027/01/01 起第二阶段上调（距今 74 天）</span><span class="wk">W27→W43</span></div>
+    </div>
+    <div class="tl-legend">
+      <span><i style="background:#8a3a33"></i>政策 / 执法 / 支付</span>
+      <span><i style="background:#2A5FAA"></i>产品 / 海外 / 品牌</span>
+      <span><i style="background:#c96442"></i>资本 / 揭露 / 集团</span>
+      <span><i style="background:#2f6b3b"></i>财测 / 评价</span>
+    </div>
+  </section>
+
+  <section class="sec" id="implications">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Implications · 威胁 / 机会</span>
+      <h2>影响推演（威胁 / 机会）</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="impl-meth">
+      <h6>进场参数参考（皆为内部估算）</h6>
+      <ul>
+        <li><b>ARPU 以 ₱805 为基准，另留下修空间：</b>Maybank 估 DigiPlus 每位活跃用户每月花费约 ₱805，原假设 ₱1,250；9 月通膨 7.2% 之后，₱805 可能仍偏高。进场模型以 ₱805 为基准、₱1,250 为乐观情境，再加一档 ₱725（再降 10%）当保守情境。本期无新的 ARPU 数据。</li>
+        <li><b>获客成本按上涨估算：</b>标普估龙头 EBITDA（税息折旧摊销前获利）利润率由约 18% 降到 14.5% 至 16%，归因断链后获客与留客成本上升；Maybank 引述上半年实绩 16.7%。</li>
+        <li><b>玩家规模参考：</b>DigiPlus 第二季 MAU（月活跃用户数）约 575 万（BingoPlus 约 335 万、GameZone 约 183 万、ArenaPlus 约 57 万）。</li>
+        <li><b>返利上限依监管规定：</b>按投注额或存款计的现金返利 1.5%（赌场桌台与街机类除外）、按净损失计的现金回赠 15%；BingoPlus 的取款延迟补偿归类未说明。</li>
+        <li><b>素材画面层限制：</b>ASC 第 2026-008 号通函自 2026/06/24 生效，广告不得出现或提及赌场游戏与器具。</li>
+        <li><b>期限：</b>B2B 认证宽限 9/30 已过 19 天，停用名单仍未见公开；BSP 意见截止 10/2 已过 17 天、未见正式通函，BSP 货币政策会议 10/22；GCG 拆分建议预计 10 月内送交总统府；最低保证费第二阶段 2027/01/01、距今 74 天。</li>
+      </ul>
+    </div>
+    <div class="impl">
+      <div class="col threat"><h5><span class="dot"></span>威胁<span class="en">Threats</span></h5><ul>
+        <li><b>取款体验被拿来比较，没有对应机制就吃亏。</b>BingoPlus 已把延迟补偿写进广告，额度为取款金额的 100%、每笔最高 ₱5,000。<em>不作为的代价（内部估算）：进场者取款到账没有承诺，信任类素材的转化估约低 10-20%。</em></li>
+        <li><b>补偿类字样归类不明，照抄可能有合规风险。</b>「按取款金额 100% 补偿」是否适用现行返利上限，素材没说明，PAGCOR 也没有公开解释。<em>不作为的代价（内部估算）：素材照抄后若被要求整改或下架，重制与重新送审约 1-2 周，档期空转。</em></li>
+        <li><b>DigiPlus 两个品牌同时放量，休闲客群的版位更挤。</b>ArenaPlus 一周约 80 则、BingoPlus 开限期档，GameZone 约 183 万 MAU 同属休闲客群。<em>不作为的代价（内部估算）：进场主档若撞上同期投放，休闲类版位的点击成本估约升 10-20%。</em></li>
+        <li><b>多个导向网域让官方站更难辨识，仿冒站更容易混入。</b>ArenaPlus 已知至少四个域名。<em>不作为的代价（内部估算）：进场后品牌词搜索里若出现镜像或仿冒站，需要额外的监测与下架处理，约每月 ₱30K-₱80K。</em></li>
+        <li><b>通膨把玩家可支配所得再往下压。</b>9 月通膨 7.2%，BSP 10/22 可能升息。<em>不作为的代价（内部估算）：ARPU 每再降 10%，回本期约拉长 11%（不计留存差异）。</em></li>
+      </ul></div>
+      <div class="col opp"><h5><span class="dot"></span>机会<span class="en">Opportunities</span></h5><ul>
+        <li><b>以可核对的数字说明取款时效</b>（内部估算 ~₱40K-₱100K 测试与素材 / 1 个月）。龙头有延迟补偿、没有分钟数；先量出实际到账时间，再写进素材。<em>提醒：支付与提现系统得先稳定达标，数字写出去就要兑现。</em></li>
+        <li><b>以数字说明流水倍数，便于核对</b>（内部估算 ~₱30K-₱80K / 一次性）。本期新素材里没有任何一家写明几倍；素材直接标倍数与算例，补上这格。<em>提醒：算例要与条款逐字一致，否则透明会变成新的申诉来源。</em></li>
+        <li><b>官方域名清单与品牌词监测当信任卖点</b>（内部估算 ~₱20K-₱60K 一次性 + 每月监测）。在素材、官网与社群置顶写明官方域名。<em>提醒：域名清单要与 PAGCOR 持照信息一致，不自行扩写。</em></li>
+        <li><b>供应商认证核对当服务卖点</b>（内部估算 ~₱20K-₱60K 人工 / 一次性）。B2B 宽限已过、停用名单仍未见，替合作平台整理主推游戏的认证状态清单。<em>提醒：认证状态以平台方书面确认为准，不自行判定。</em></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="fcard">
+      <h5>方法论 + 数据源</h5>
+      <p>10 家观察清单（8 家评分、2 家关停）+ 产业 / 监管 / 立法动作。King.ph / Queen.ph 自 2026-05-29 起关停、不评分。本周卡 1、卡 2 来自 Meta 广告库实抓，卡 3 来自 Philstar 对 PAGCOR 主席受访的报导。</p>
+      <p><b>✅ Meta 广告库快照：</b>本期排程时段 Claude in Chrome 已连线，照正式抓法以 BingoPlus、ArenaPlus 两个官方广告主 ID 锁定、真实滚轮载入到页底。页面内的脚本抽取被浏览器拦截，改以页面文字全文读取：BingoPlus 全部载入（页首约 32 笔）；ArenaPlus 载入到页底，新开数为人工逐项数的下限（±5），未逐则核对总数。图上文字为读图所得，小字读不清处已标明。最新开刊日为 10/17，10/18 至 10/19 未见新开。GameZone、CasinoPlus、OKBet 等其他品牌的广告本期未查。只看得到仍在投的广告，看不到花费与触及。</p>
+      <p><b>⚠️ 站内侦察未执行：</b>本期未重开各家官方促销页；DigiPlus 三站在浏览器出口 IP 非菲律宾时回地区限制页（上期实测），CasinoPlus 同属地区限制，OKBet 与 Bet88 的促销为图像与脚本渲染、无文字层；PlayTime 锁址沿用 5/29 baseline。Firecrawl 本期未执行（排程沙箱无外网）。价档数字沿用上期记录。</p>
+      <p><b>✅ 出处 canonical：</b>IAG（10/14）以 Chrome 实开：网址与 canonical 一致、无重导向，显示文字取自实际标题，正文只读到摘录。Philstar（10/14）实开：网址未被改写，标题与全文读取一致。Manila Bulletin（10/13）与 GGRAsia 本期读到安全验证页，未读到内文，不作为出处。</p>
+      <p><b>⚠️ 社群信号本期 N/A：</b>X / Reddit / Threads / Facebook 公开群组本期未取样。三张卡均标「单口径」。</p>
+      <p>连续状态起算日（本期锚点表口径）：B2B 认证宽限 9/30 已过 19 天；BSP 意见截止 10/2 已过 17 天；最低保证费第二阶段 2027/01/01 距今 74 天；CasinoPlus 1.5% 自 2026-07-31 到期起算、本周进入第 12 周；体育档空窗自 2026-07-19 起算、本周进入第 14 周；CasinoPlus 罚单自 2026-08-24 起算、本周进入第 9 周，窗口内无新进展。官方页价档静默不写周数。</p>
+      <p>每日 trigger 监听 10/12-10/19 期间与菲律宾相关的命中：10/14 Q1 PH 法规弱讯号（PAGCOR decoupling，仅标题）并入卡 3；10/13 Q5c BingoPlus 取款补偿广告（判为 MORE CONFIDENCE 延伸）并入卡 1；10/15、10/16、10/19 Q5c ArenaPlus ₱8,100 同轴并入卡 2。每日监听判为不命中或弱讯号的三项，周报仍采用，原因是周报看的是改变判断基准的新数据：卡 1 首次读到补偿额度与领取方式，卡 2 首次量化全周素材量与域名数，卡 3 首次读到退出时点、递交时限与募资区间。ledger 10/12 至 10/19 无 Q3 PH 竞品 HIT 与 Q5 节庆 HIT。</p>
+      <p>本期新增未经每日监听的资料：BingoPlus 10/15 的限期登入奖与首储 20% 奖励广告（卡 1）、ArenaPlus 的周内全量统计、arenaplussport.online 与内容型投放（卡 2）、Philstar 全文细节（卡 3）。</p>
+      <p>排除：BingoPlus FMA 后续内容（持续型赞助）、Interblock 获 PAGCOR 批准（产品审批）、DigiPlus 退出纽西兰牌照程序（10/15，弱）、Okada 第三季财报（非大动作）。本期网络搜寻未找到窗口内其他菲律宾运营商新闻；B 轨新闻索引本期未读取。</p>
+      <p>数据窗口 10/12-10/19 回顾、10/19-10/26 展望。</p>
+      <div class="srcs"><span><i class="ok"></i>Meta 广告库 10/19<em>BingoPlus、ArenaPlus 官方广告主</em></span><span><i class="ok"></i>Philstar<em>PAGCOR 拆分与退出赌场时点</em></span><span><i class="ok"></i>IAG<em>decoupling 报导（摘录与标题）</em></span><span><i></i>trigger-ledger 10/12-10/19<em>本地共享源</em></span><span><i></i>⚠️ 社群信号本期 N/A；站内侦察未执行；PlayTime baseline 2026-05-29 沿用</span></div>
+    </div>
+    <div class="fcard">
+      <h5>下期（W44 · 2026-10-26）追踪清单</h5>
+      <ol><li><span class="n">1</span>BingoPlus 取款延迟补偿的条款原文：笔数上限、是否另计流水、是否算入返利上限</li><li><span class="n">2</span>BingoPlus 10/20 限期档到期后是否续档</li><li><span class="n">3</span>其他品牌是否跟进取款补偿或写出到账分钟数、流水倍数</li><li><span class="n">4</span>ArenaPlus arenaplussport.online 的归属，以及各域名占比变化</li><li><span class="n">5</span>GCG 拆分建议是否在 10 月内送交总统府、总统府是否批示</li><li><span class="n">6</span>BSP 10/22 货币政策会议结果；支付诚信草案是否取得通函编号</li><li><span class="n">7</span>PAGCOR 是否公告认证名单或停用名单；平台是否出现游戏下架</li><li><span class="n">8</span>OnlyFun.PH 是否出现创作者招募或 Meta 投放</li><li><span class="n">9</span>DigiPlus 是否公布第三季数字、是否回应 Maybank 下调</li><li><span class="n">10</span>CasinoPlus 1.5% 续档；任一家是否先动体育档</li><li><span class="n">11</span>ArenaPlus KOL 招募是否转成签约公布</li><li><span class="n">12</span>巴西 MPV 1394：10/25 联邦授权失效、11/09 起议程锁定，与 DigiPlus 巴西投资减记</li></ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span><b>COMPETITOR // BRIEF</b> · 2026-W43 · PH iGaming · 10 家观察清单（King / Queen 已关停）</span>
+    <span>数据窗口 10/12-10/19 回顾 · 10/19-10/26 展望</span>
+  </div>
+
+</div>
+</div>
+
+<script>
+const RADAR_LABELS = ['品牌力','体验','内容','定价','留存','通路'];
+const RADAR_LABELS_ZH = ['','','','','',''];
+
+const BRANDS = {
+  bingoplus:  { name:'BingoPlus',           color:'#E89AAA', scores:[83,75,86,70,78,85] },
+  arenaplus:  { name:'ArenaPlus',           color:'#2A5FAA', scores:[60,70,70,65,60,75] },
+  gamezone:   { name:'GameZone',            color:'#4F8C5C', scores:[35,70,65,75,70,50] },
+  king:       { name:'King.ph · 已关停',     color:'#2D6B4D', scores:[0,0,0,0,0,0], closed:true },
+  queen:      { name:'Queen.ph · 已关停',    color:'#B6356D', scores:[0,0,0,0,0,0], closed:true },
+  casinoplus: { name:'CasinoPlus',          color:'#B89968', scores:[75,70,75,60,70,60] },
+  okbet:      { name:'OKBet / OKGames',     color:'#D86B27', scores:[50,60,60,60,60,60] },
+  bet88:      { name:'Bet88',               color:'#C2272D', scores:[50,60,65,60,65,55] },
+  playtime:   { name:'PlayTime / PT Gaming',color:'#4A4FB8', scores:[85,70,70,65,70,65] },
+  okadaplay:  { name:'OKADA PLAY',          color:'#8B7355', scores:[32,25,30,25,20,50] }
+};
+let selfId = 'playtime';
+let vsId = 'gamezone';
+const cx=160, cy=160, R=130;
+const angle = i => (Math.PI*2*i)/6 - Math.PI/2;
+
+function ringPolygon(rr){
+  return Array.from({length:6},(_,i)=>`${cx+rr*Math.cos(angle(i))},${cy+rr*Math.sin(angle(i))}`).join(' ');
+}
+function polyPoints(values){
+  return values.map((v,i)=>{const r=(v/100)*R;return `${cx+r*Math.cos(angle(i))},${cy+r*Math.sin(angle(i))}`;}).join(' ');
+}
+function labelPos(i,off=22){
+  const x = cx + (R+off)*Math.cos(angle(i));
+  const y = cy + (R+off)*Math.sin(angle(i)) + 4;
+  return {x,y};
+}
+
+function initRadar(){
+  const ringsG = document.getElementById('rings');
+  [1,.75,.5,.25].forEach((s,i)=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',ringPolygon(R*s));
+    p.setAttribute('fill', i===0 ? 'rgba(255,255,255,.04)' : 'none');
+    p.setAttribute('stroke','rgba(255,255,255,.18)');
+    ringsG.appendChild(p);
+  });
+  const axesG = document.getElementById('axes');
+  for(let i=0;i<6;i++){
+    const x=cx+R*Math.cos(angle(i)), y=cy+R*Math.sin(angle(i));
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x);l.setAttribute('y2',y);
+    l.setAttribute('stroke','rgba(255,255,255,.1)');
+    axesG.appendChild(l);
+  }
+  const labG = document.getElementById('labels');
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const p=labelPos(i,18);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',p.x);t1.setAttribute('y',p.y-6);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('fill','#fff');t1.setAttribute('font-size','11');t1.setAttribute('font-weight','800');
+    t1.textContent=lbl;
+    labG.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',p.x);t2.setAttribute('y',p.y+6);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('fill','rgba(255,255,255,.6)');t2.setAttribute('font-size','9');
+    t2.textContent=RADAR_LABELS_ZH[i];
+    labG.appendChild(t2);
+  });
+  const selfSel = document.getElementById('selfsel');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = d.name;
+    if(id===selfId) opt.selected = true;
+    selfSel.appendChild(opt);
+  });
+  selfSel.addEventListener('change', e => { selfId = e.target.value; render(); });
+
+  const vsbtns = document.getElementById('vsbtns');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const b = document.createElement('button');
+    b.dataset.id = id;
+    b.innerHTML = `<i style="background:${d.color}"></i>${d.name}`;
+    if(id===vsId) b.classList.add('active');
+    b.onclick = () => {
+      vsId = id;
+      document.querySelectorAll('#vsbtns button').forEach(x => x.classList.toggle('active', x.dataset.id===id));
+      render();
+    };
+    vsbtns.appendChild(b);
+  });
+
+  render();
+}
+function render(){
+  const self = BRANDS[selfId];
+  const vs = BRANDS[vsId];
+  const polySelf = document.getElementById('polySelf');
+  const polyVs = document.getElementById('polyVs');
+  polySelf.setAttribute('points', self.closed ? '' : polyPoints(self.scores));
+  polyVs.setAttribute('points', vs.closed ? '' : polyPoints(vs.scores));
+  polyVs.setAttribute('fill', vs.closed ? 'none' : vs.color);
+  polyVs.setAttribute('stroke', vs.closed ? 'none' : vs.color);
+  document.getElementById('legendSelf').textContent='基线 · '+self.name;
+  document.getElementById('legendVs').textContent=vs.name;
+  document.getElementById('legendVsColor').style.background=vs.closed?'#555':vs.color;
+  const grid = document.getElementById('radarGrid');
+  grid.innerHTML='';
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const sv = self.closed ? 'N/A' : self.scores[i];
+    const vv = vs.closed ? 'N/A' : vs.scores[i];
+    const lead = (!self.closed && !vs.closed && vs.scores[i] > self.scores[i]);
+    grid.innerHTML += `<span>${lbl}</span><span>${sv}</span><span>vs</span><span style="color:${lead?'var(--neg)':'var(--pos)'}">${vv}</span>`;
+  });
+}
+initRadar();
+</script>
+</body>
+</html>

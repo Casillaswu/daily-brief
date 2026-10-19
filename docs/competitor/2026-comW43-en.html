@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Competitor Weekly · 2026-W43 · PH iGaming</title>
+<style>
+:root{
+  --ink:#1f1d1a; --ink-2:#4a4742; --ink-3:#8a857d;
+  --paper:#fff; --paper-2:#f7f5f1;
+  --rule:#d9d4cb; --rule-2:#ebe6dd;
+  --hi:#fff3a6;
+  --pos:#c9e4cf; --pos-ink:#2f6b3b;
+  --neu:#e1dfd9; --neu-ink:#5b574e;
+  --neg:#f1c9c5; --neg-ink:#8a3a33;
+  --warn:#fce8c2; --warn-ink:#8a5f1a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+body{
+  background:#f0eee9;
+  font-family:Arial,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);min-height:100vh;font-size:13px;line-height:1.65;
+}
+a{color:inherit;}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.hi{background:var(--hi);padding:0 2px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.shell{max-width:1320px;margin:0 auto;background:#fff;}
+
+.mast{background:#1f1d1a;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.mast .mark{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;border:1px solid rgba(255,255,255,.4);padding:6px 10px;flex:none;}
+.mast .ttl{flex:1;min-width:200px;}
+.mast .ttl h1{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+.mast .ttl .sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;}
+.mast .logos{display:flex;gap:5px;flex:none;flex-wrap:wrap;}
+.mast .lang{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:2px;flex:none;}
+.mast .lang a,.mast .lang button{border:none;background:none;cursor:pointer;padding:5px 12px;border-radius:99px;color:rgba(255,255,255,.7);font:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;line-height:1;}
+.mast .lang .active{background:#fff;color:var(--ink);}
+.logo{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(0,0,0,.06);flex:none;}
+.logo.closed{opacity:.4;text-decoration:line-through;}
+
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+.body{padding:8px 32px 32px;}
+
+.sec{margin-top:32px;scroll-margin-top:60px;}
+.sec-lbl{margin-bottom:10px;}
+.sec-lbl .chip{background:var(--ink);color:#fff;font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.06em;margin-right:8px;}
+.sec-lbl .en{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+.sec-lbl h2{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-top:8px;}
+.sec-lbl .rule{height:2px;background:var(--ink);margin-top:10px;}
+.sec-deck{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.exec{margin-top:24px;}
+.exec h3{font-size:30px;font-weight:800;letter-spacing:-.015em;line-height:1.4;max-width:90%;}
+.exec h3 .line{display:block;}
+.exec h3 .line + .line{margin-top:6px;}
+.exec p.deck{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin-top:18px;max-width:80%;}
+.exec p.deck b{color:var(--ink);}
+.exec p.deck + p.deck{margin-top:12px;}
+.exec p.deck em{font-style:normal;color:var(--ink-3);font-size:11.5px;}
+.exec .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.exec .axis{border-left:3px solid var(--ink);padding:8px 14px;font-size:12px;color:var(--ink-2);line-height:1.7;}
+.exec .axis b{color:var(--ink);display:block;margin-bottom:2px;}
+
+.kpi{margin-top:14px;border:1px solid var(--ink);display:grid;grid-template-columns:minmax(170px,1.2fr) .8fr .8fr 1.1fr 1fr 1.5fr;}
+.kpi .head{background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);text-transform:uppercase;font-weight:800;border-bottom:2px solid var(--ink);padding:12px;}
+.kpi .cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px;font-size:12px;line-height:1.6;}
+.kpi .cell:nth-child(6n){border-right:none;}
+.kpi .name{display:flex;align-items:flex-start;gap:10px;flex-direction:column;}
+.kpi .name b{font-size:13px;display:block;}
+.kpi .name .grp{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;letter-spacing:.05em;display:block;margin-top:1px;}
+.kpi .name .status{padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace;display:inline-block;margin-top:5px;}
+.kpi .name .status-hot{background:#1f1d1a;color:#fff;}
+.kpi .name .status-active{background:#fbe3b3;color:#8a5f1a;}
+.kpi .name .status-alert{background:var(--neg);color:var(--neg-ink);}
+.kpi .name .status-cold{background:#d6e4f0;color:#2A5FAA;}
+.kpi .name .status-closed{background:#2b2b2b;color:#bbb;}
+.kpi .cell.closed{color:var(--ink-3);font-style:italic;}
+.kpi .big{font-weight:800;font-size:16px;}
+.trend{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:3px;font-size:10.5px;font-weight:700;}
+.trend.up{background:var(--pos);color:var(--pos-ink);}
+.trend.down{background:var(--neg);color:var(--neg-ink);}
+.trend.flat{background:var(--neu);color:var(--neu-ink);}
+.trend.new{background:#1f1d1a;color:#fff;}
+.bar{height:8px;background:var(--rule-2);border-radius:2px;overflow:hidden;margin-top:6px;}
+.bar > i{display:block;height:100%;}
+.sev{padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;}
+.sev.high{background:var(--neg);color:var(--neg-ink);}
+.sev.mid{background:var(--neu);color:var(--neu-ink);}
+.sev.low{background:var(--pos);color:var(--pos-ink);}
+
+.strat{margin-top:14px;background:#1f1d1a;color:#fff;padding:26px 30px;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);}
+.qa.full{grid-column:1/-1;}
+.qa .q{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.qa .q .qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+.qa .a{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.92);}
+.qa .a b{color:#fff;}
+.qa .a p{margin-bottom:6px;}
+.qa .src{display:block;color:rgba(255,255,255,.45);font-size:10.5px;margin-top:6px;}
+.qa .src a{color:rgba(255,255,255,.6);}
+
+.radar{margin-top:14px;background:#1f1d1a;color:#fff;padding:24px;}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.radar-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.radar-head .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:800;margin-bottom:4px;}
+.radar-head .sub{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.radar-head .self-pick{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.radar-head .self-pick .pick-lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:800;}
+.vssel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 32px 9px 14px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4 L5 7 L8 4' fill='none' stroke='white' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 10px center;}
+.vssel option{background:#1f1d1a;color:#fff;}
+.vsbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.vsbtns button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.vsbtns button:hover{background:rgba(255,255,255,.18);}
+.vsbtns button.active{background:#fff;color:var(--ink);}
+.vsbtns button i{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.radar-body{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;}
+.radar-body .grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px 16px;font-size:12.5px;}
+.radar-body .grid span:nth-child(4n+1),.radar-body .grid span:nth-child(4n+3){color:rgba(255,255,255,.55);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;}
+.radar-body .grid span:nth-child(4n+2),.radar-body .grid span:nth-child(4n+0){font-weight:700;}
+.radar-body .legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;}
+.radar-body .legend span{display:inline-flex;align-items:center;gap:6px;}
+.radar-body .legend i{width:12px;height:12px;display:inline-block;border-radius:2px;}
+.radar svg{width:100%;max-width:380px;display:block;margin:0 auto;}
+.radar-note{margin-top:12px;background:rgba(255,255,255,.05);border-left:3px solid rgba(255,255,255,.4);padding:10px 14px;font-size:11.5px;color:rgba(255,255,255,.8);line-height:1.65;}
+.radar-note b{color:#fff;}
+
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px;margin-top:14px;}
+.mcard{border:1px solid var(--rule);border-top-width:4px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:9px;scroll-margin-top:60px;}
+.mcard .top{display:flex;align-items:center;gap:8px;}
+.mcard .top .meta{flex:1;}
+.mcard .top .meta b{font-size:12px;font-weight:700;display:block;}
+.mcard .top .meta span{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;}
+.mcard h4{font-size:14px;font-weight:700;line-height:1.5;}
+.mcard .detail{font-size:12px;line-height:1.7;color:var(--ink-2);}
+.mcard table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px;}
+.mcard table th{text-align:left;padding:4px 6px;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--rule);}
+.mcard table td{padding:5px 6px;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.mcard .warn{padding:8px 12px;background:var(--warn);border-left:3px solid var(--warn-ink);font-size:11.5px;color:var(--warn-ink);line-height:1.6;}
+.mcard .warn b{color:var(--warn-ink);}
+.mcard .social{padding:7px 12px;background:var(--paper-2);border-left:3px solid var(--ink-3);font-size:11px;color:var(--ink-2);line-height:1.6;}
+.mcard .src{font-size:11px;color:var(--ink-3);line-height:1.6;}
+.mcard .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-3);}
+.mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;}
+.mcard .impact b{color:var(--ink);font-weight:700;}
+
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:80px 18px 90px 130px 1fr 60px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--ink-2);}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+.impl-meth{margin-top:14px;background:var(--paper-2);border-left:3px solid var(--ink);padding:14px 18px;font-size:12px;line-height:1.75;color:var(--ink-2);}
+.impl-meth h6{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.06em;margin-bottom:6px;}
+.impl-meth b{color:var(--ink);}
+.impl-meth ul{list-style:none;padding:0;margin-top:6px;display:flex;flex-direction:column;gap:6px;}
+.impl-meth li{padding-left:14px;position:relative;}
+.impl-meth li::before{content:"·";position:absolute;left:2px;color:var(--ink-3);font-weight:800;}
+.impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
+.impl .col.threat{border-top-color:var(--neg-ink);}
+.impl .col.opp{border-top-color:var(--pos-ink);}
+.impl .col h5{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:18px;}
+.impl .col h5 .dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none;}
+.impl .col.threat h5 .dot{background:var(--neg-ink);}
+.impl .col.opp h5 .dot{background:var(--pos-ink);}
+.impl .col h5 .en{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);font-weight:800;text-transform:uppercase;}
+.impl .col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.impl .col li{display:block;padding:14px 16px;background:var(--paper-2);border-left:3px solid;font-size:12.5px;line-height:1.8;color:var(--ink-2);}
+.impl .col.threat li{border-left-color:var(--neg-ink);}
+.impl .col.opp li{border-left-color:var(--pos-ink);}
+.impl .col li b{color:var(--ink);}
+.impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
+
+.footer{margin-top:32px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;}
+.fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
+.fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
+.fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px 22px;align-items:start;}
+.srcs span{position:relative;display:block;padding-left:16px;font-size:11.5px;line-height:1.6;color:var(--ink-2);text-wrap:pretty;}
+.srcs i{position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;}
+.srcs i.ok{background:var(--pos-ink);}
+.srcs i.partial{background:#c96442;}
+.srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
+.fcard ol{padding:0;list-style:none;}
+.fcard ol li{font-size:12px;line-height:1.75;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;}
+.fcard ol li .n{color:#c96442;font-weight:700;font-family:ui-monospace,Menlo,monospace;flex:none;}
+.colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
+.colophon b{color:var(--ink);letter-spacing:.16em;}
+
+@media (max-width:1023px){
+  .body{padding:8px 24px 28px;}
+  .mast{padding:18px 24px;}
+  .subnav{padding:8px 24px;font-size:10.5px;}
+  .kpi{grid-template-columns:1fr;}
+  .kpi .head{display:none;}
+  .kpi .cell{border-right:none;display:grid;grid-template-columns:120px 1fr;gap:8px;}
+  .kpi .cell::before{content:attr(data-lbl);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;}
+  .kpi .cell:nth-child(6n+1)::before{display:none;}
+  .kpi .name{grid-column:1/-1;}
+  .radar-body{grid-template-columns:1fr;}
+  .impl{grid-template-columns:1fr;gap:18px;}
+  .footer{grid-template-columns:1fr;}
+  .qa-grid{grid-template-columns:1fr;}
+  .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:60px 14px 80px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
+  .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
+  .exec .axes{grid-template-columns:1fr;}
+  .sec-lbl h2{font-size:18px;}
+}
+@media (max-width:767px){
+  .body{padding:6px 16px 24px;}
+  .mast{padding:16px;gap:12px;}
+  .mast .ttl h1{font-size:18px;}
+  .subnav{padding:6px 16px;}
+  .strat{padding:18px 16px;}
+  .exec h3{font-size:19px;}
+}
+@media print{
+  body{background:#fff;}
+  .shell{max-width:none;}
+  .vssel,.vsbtns,.subnav{display:none;}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+  .mast .mark{border-color:#000;}
+  .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
+  .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+
+/* wrap-fix v1 */
+.nbk{white-space:nowrap;}
+/* 标题：自动平衡各行长度，避免末行只剩一两个字 */
+h1,h2,h3,h4,h5,h6,.mast .ttl h1,.sec-lbl h2,.mcard h4,.fcard h5,.radar-head .lbl,.wk .id{
+  text-wrap:balance;
+}
+/* 正文：避免寡行（末行孤字），并允许超长 URL / 英文词在容器内换行 */
+p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .social,
+.mcard .impact,.trow .desc,.kpi .cell,.strat .a p,.radar-note,.radar-formula td,
+.fcard p,.fcard ol li,.impl li,.impl-meth li,.srcs em,.wk .sum .ax{
+  text-wrap:pretty;
+  overflow-wrap:break-word;
+}
+/* 数据源说明独占一行，不与来源名单抢断点 */
+.srcs em{display:block;margin-top:1px;line-height:1.55;}
+/* 出处链接列：长标题在容器内断，不撑破卡片 */
+.mcard .src a,.strat .a .src a{overflow-wrap:break-word;}
+@media (max-width:767px){
+  .srcs{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="mast">
+  <div class="mark">COMPETITOR // BRIEF</div>
+  <div class="ttl">
+    <h1>2026-W43 · Philippine iGaming Competitor Weekly</h1>
+    <div class="sub">Data window: 10/12-10/19 look-back, 10/19-10/26 look-ahead · 10-brand watchlist (8 scored, 2 closed; King / Queen not scored)</div>
+  </div>
+  <div class="lang" aria-label="Language">
+    <a href="2026-comW43.html">中</a>
+    <button class="active" aria-current="page">EN</button>
+  </div>
+  <div class="logos">
+    <span class="logo" style="background:#E89AAA" title="BingoPlus">BP</span>
+    <span class="logo" style="background:#2A5FAA" title="ArenaPlus">AP</span>
+    <span class="logo" style="background:#4F8C5C" title="GameZone">GZ</span>
+    <span class="logo closed" style="background:#2D6B4D" title="King.ph">K</span>
+    <span class="logo closed" style="background:#B6356D" title="Queen.ph">Q</span>
+    <span class="logo" style="background:#B89968" title="CasinoPlus">C+</span>
+    <span class="logo" style="background:#D86B27" title="OKBet/OKGames">OK</span>
+    <span class="logo" style="background:#C2272D" title="Bet88">88</span>
+    <span class="logo" style="background:#4A4FB8" title="PlayTime/PT Gaming">PT</span>
+    <span class="logo" style="background:#8B7355" title="OKADA PLAY">OP</span>
+  </div>
+</header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>Jump to</b>
+  <a href="#briefing">▲ Briefing</a>
+  <a href="#kpi">§01 KPI</a>
+  <a href="#strategic">§02 5Q</a>
+  <a href="#radar">§03 Radar</a>
+  <a href="#moves-sec">§04 Moves</a>
+  <a href="#timeline">§05 Timeline</a>
+  <a href="#implications">§06 Threats / Opportunities</a>
+</nav>
+
+<div class="body">
+
+  <section class="sec exec" id="briefing">
+    <div class="sec-lbl">
+      <span class="chip">▲</span><span class="en">Executive Briefing</span>
+      <h2>This week in brief</h2>
+      <div class="rule"></div>
+    </div>
+    <h3>
+      BingoPlus pays up to ₱5,000 for delayed withdrawals.<br>
+      ArenaPlus adds about 80 ads and a new domain in a week.<br>
+      PAGCOR sets H2 2027 for exiting casino operations.
+    </h3>
+    <p class="deck"><b>1. BingoPlus pays up to ₱5,000 for delayed withdrawals.</b><br>BingoPlus's official advertiser opened 12 new Meta ads from 10/12, six of them on promos and withdrawals. The 10/15 ads say that when a Fast Withdrawal is delayed, 100% of the withdrawal is compensated, up to ₱5,000 per transaction, claimed by tapping a notice in the app. That answers last issue's question: the 10/9 "100% BACK UP TO ₱5,000" meant delay compensation, not deposit protection. From the same day there are also dated 10/15-10/20 offers (₱100 login bonus, daily free spins, 20% first-deposit bonus). How the compensation is classed and which rebate cap applies is not stated. See <a href="#sig-01">§04 card 1</a>. <em>(<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=100332105816384">Meta Ad Library 10/19</a>)</em></p>
+    <p class="deck"><b>2. ArenaPlus adds about 80 ads and a new domain in a week.</b><br>ArenaPlus's official advertiser opened about 80 ads from 10/13 to 10/17 (hand-counted, a lower bound), roughly 1.3 times last issue's 63. Wording and prize amounts carry over; game names and button lines change. A third landing domain, arenaplussport.online, appears from 10/14, and sports content clips now run as ads. Landing-page terms still cannot be read. See <a href="#sig-02">§04 card 2</a>. <em>(<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=257670834093707">Meta Ad Library 10/19</a>)</em></p>
+    <p class="deck"><b>3. PAGCOR sets H2 2027 for exiting casino operations.</b><br>PAGCOR (Philippine Amusement and Gaming Corp., also the online gaming regulator) chairman Tengco said on 10/13-10/14 that the GCG (Governance Commission for GOCCs) should send its decoupling recommendation to the Palace within October, with the exit from casino operations targeted for Q3 or Q4 2027, expected proceeds of ₱20-30 billion, and a 2026 Casino Filipino loss of at least ₱7 billion. This restructures the casino business and changes nothing directly for online licensees; timing depends on Palace approval, which has not happened. See <a href="#sig-03">§04 card 3</a>. <em>(<a href="https://www.philstar.com/business/2026/10/14/2562962/pagcor-targets-casino-exit-2027">Philstar 10/14</a>)</em></p>
+    <div class="axes">
+      <div class="axis"><b>Slow withdrawals become a claimable payout</b>BingoPlus turns the player worry about withdrawals into a product with a stated amount and claim steps. Judgment: brands that only say "fast" with no delay compensation will be compared against it. Whether an entrant offers compensation depends on first measuring real payout minutes.</div>
+      <div class="axis"><b>Creative volume and domain count rise together</b>ArenaPlus runs about 80 ads a week and at least four domains, same wording, new game names. Judgment: the point is not volume but that players find it harder to tell which domain is official. Put the official domain list where it is seen.</div>
+      <div class="axis"><b>The regulator's casino exit now has a date</b>PAGCOR puts the exit at Q3 or Q4 2027 with the recommendation due in October. Judgment: the effect on online operators is indirect, depending on Palace approval and on whether any online rule notice comes with it.</div>
+    </div>
+    <div class="impl-meth" style="margin-top:14px">
+      <h6>Lede selection</h6>
+      <ul>
+        <li><b>✓ Lede #1 / card 1 ·</b> BingoPlus withdrawal-delay compensation and dated offers (10/12-10/15) · B5 new conclusion · first read of the amount and claim steps, answering last issue's "100% BACK UP" question</li>
+        <li><b>✓ Lede #2 / card 2 ·</b> ArenaPlus about 80 ads, a third landing domain, content-style ads (10/13-10/17) · B5 new data · domain count and creative type first quantified</li>
+        <li><b>✓ Lede #3 / card 3 ·</b> PAGCOR casino-exit timing, proceeds range and recommendation deadline (10/13-10/14) · B1 policy · first checkable timetable and amounts</li>
+        <li><b>✗ Excluded ·</b> BingoPlus FMA follow-up content (10/12-10/15) · C3 ongoing sponsorship; Interblock approval by PAGCOR (product approval, not an operator move); DigiPlus leaving the New Zealand licence process (10/15, weak); Okada Q3 results (not a major move); BSP circular, PAGCOR accreditation list · no new facts in the window</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="kpi">
+    <div class="sec-lbl">
+      <span class="chip">§01</span><span class="en">KPI matrix · 10 brands</span>
+      <h2>KPI matrix (10-brand watchlist)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">Status colours: 🔴 HOT (regulator named / sanctioned) · 🟠 ACTIVE (still moving) · 🟡 ALERT (anomaly / countdown) · 🔵 COLD (quiet) · ⚫ CLOSED (closed / not scored). SOV is an internal estimate (media space + community volume), carried from last issue without change; the 8 scored brands sum to about 43%, the other 57% being the PAGCOR decoupling, BSP rate talk, the Brazil ban aftermath and other news. King.ph / Queen.ph have been closed since 2026-05-29 and are not scored. BingoPlus stays 🟠 (withdrawal compensation is this issue's high impact); ArenaPlus stays 🟠 (creative volume up again); the other six stay 🔵, with their official promo pages and ads not rechecked this issue and offer figures carried from the last issue; see methodology.</div>
+    <div class="kpi">
+<div class="head">Brand</div><div class="head">Moves</div><div class="head">SOV%</div><div class="head">Lead offer</div><div class="head">Jackpot</div><div class="head">Impact</div>
+
+      <div class="cell name"><b>BingoPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">3</span> <span class="trend up">▲ +3</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">20%</span><div class="bar"><i style="width:20%;background:#E89AAA"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">From 10/15, dated offers (to 10/20): ₱100 login bonus, daily free spins, betting cashback, 20% first-deposit bonus; withdrawal-delay compensation of 100%, up to ₱5,000 per transaction; VIP four rewards re-listed 10/14</div>
+      <div class="cell" data-lbl="Jackpot">Baccarat tournament ₱41.3M (to 11/28, carried)</div>
+      <div class="cell" data-lbl="Impact">High — withdrawal-delay compensation appears in ads for the first time, see <a href="#sig-01">§04 card 1</a></div>
+
+      <div class="cell name"><b>ArenaPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">2</span> <span class="trend up">▲ +2</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">9%</span><div class="bar"><i style="width:9%;background:#2A5FAA"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">About 80 new ads 10/13-10/17; ₱8,100 welcome plus an "Up to P888 Cashback" line; daily rebate / reload / cashback lines re-listed 10/16; new landing domain arenaplussport.online from 10/14</div>
+      <div class="cell" data-lbl="Jackpot">₱88,888,888 / ₱1,000,000 prize wording</div>
+      <div class="cell" data-lbl="Impact">Mid — creative volume and domain count both up, see <a href="#sig-02">§04 card 2</a></div>
+
+      <div class="cell name"><b>CasinoPlus</b><span class="grp">Independent</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">4%</span><div class="bar"><i style="width:4%;background:#B89968"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">1.5% cash rebate expired 7/31, no renewal announced; Not rechecked this issue (carried from last issue)</div>
+      <div class="cell" data-lbl="Jackpot">₱122.4M jackpot paid (handed over 9/9)</div>
+      <div class="cell" data-lbl="Impact">Low — no new move seen this issue</div>
+
+      <div class="cell name"><b>PlayTime / PT Gaming</b><span class="grp">Independent</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#4A4FB8"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">₱8,080 welcome + 1.5% rebate (geo-locked, 5/29 baseline)</div>
+      <div class="cell" data-lbl="Jackpot">Evolution Perya Fiesta (TBC)</div>
+      <div class="cell" data-lbl="Impact">Low — page locked, no new move confirmed</div>
+
+      <div class="cell name"><b>GameZone</b><span class="grp">DigiPlus</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#4F8C5C"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Newcomer / VIP / Long-term tiers; Not rechecked this issue (carried from last issue)</div>
+      <div class="cell" data-lbl="Jackpot">— daily tournaments</div>
+      <div class="cell" data-lbl="Impact">Low — no new move seen this issue</div>
+
+      <div class="cell name"><b>OKBet / OKGames</b><span class="grp">Independent</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#D86B27"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">1.5% daily rebate + Welcome Bundle; sports 35% first deposit; Not rechecked this issue (carried from last issue)</div>
+      <div class="cell" data-lbl="Jackpot">FIFA 2026 Spin for Glory ₱15,888,888</div>
+      <div class="cell" data-lbl="Impact">Low — not checked this issue (record 0)</div>
+
+      <div class="cell name"><b>Bet88</b><span class="grp">Independent</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#C2272D"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">100% first deposit ₱8,888 + 30% daily (image-only); Not rechecked this issue (carried from last issue)</div>
+      <div class="cell" data-lbl="Jackpot">World Cup Prize Pool ₱4,900,000</div>
+      <div class="cell" data-lbl="Impact">Low — not checked this issue (record 0)</div>
+
+      <div class="cell name"><b>OKADA PLAY</b><span class="grp">PhilWeb × Okada Manila</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">1%</span><div class="bar"><i style="width:1%;background:#8B7355"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Launch pricing not fully disclosed</div>
+      <div class="cell" data-lbl="Jackpot">— TBD</div>
+      <div class="cell" data-lbl="Impact">Low — no new move seen</div>
+
+      <div class="cell name"><b>King.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="Moves">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="Lead offer">Closed (confirmed 2026-05-29) · not scored</div>
+      <div class="cell closed" data-lbl="Jackpot">—</div>
+      <div class="cell closed" data-lbl="Impact">Closed · not scored</div>
+
+      <div class="cell name"><b>Queen.ph</b><span class="grp">World Platinum</span><span class="status status-closed">⚫ CLOSED</span></div>
+      <div class="cell closed" data-lbl="Moves">—</div>
+      <div class="cell closed" data-lbl="SOV%">—</div>
+      <div class="cell closed" data-lbl="Lead offer">Closed (confirmed 2026-05-29) · not scored</div>
+      <div class="cell closed" data-lbl="Jackpot">—</div>
+      <div class="cell closed" data-lbl="Impact">Closed · not scored</div>
+
+    </div>
+    <div class="sec-deck"><b>Offer layer.</b> The last new offer provable from an official page is still from July. BingoPlus's dated offers and compensation, and ArenaPlus's rebate lines, appear only in ads; landing-page terms cannot be read. CasinoPlus's 1.5% counts from its 7/31 expiry and enters week 12 with no successor; the sports-offer gap counts from 7/19 and enters week 14, and the two DigiPlus brands' new ads are still game and withdrawal wording, not sports offers.</div>
+    <div class="sec-deck"><b>Meta Ad Library snapshot.</b> Taken by the official method: the two official advertiser IDs, real scrolling to the page bottom. BingoPlus's header reads about 32 results, all loaded; 12 new from 10/12: six FMA follow-up posts and six promo or withdrawal creatives, see <a href="#sig-01">§04 card 1</a>. ArenaPlus's header reads about 160; about 80 started from 10/13 to 10/17, see <a href="#sig-02">§04 card 2</a>. Only these two official IDs were checked; other brands were not, so nothing can be inferred about their Meta activity. Snapshot saved at snapshots/2026-W43/meta-adlib-2026-10-19.md. <em>(<a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=100332105816384">Meta Ad Library · BingoPlus</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=257670834093707">ArenaPlus</a> 10/19)</em></div>
+  </section>
+
+  <section class="sec" id="strategic">
+    <div class="sec-lbl">
+      <span class="chip">§02</span><span class="en">Strategic Read · 5Q</span>
+      <h2>Strategic read · five questions (neutral statements)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="strat">
+      <div class="qa-grid">
+        <div class="qa"><div class="q"><span class="qchip">Q1</span><br>Market space</div><div class="a"><p>PAGCOR puts its exit from casino operations at Q3 or Q4 2027, with the GCG's decoupling recommendation due at the Palace within October. It has 35 casinos, expects ₱20-30 billion from the sale, and licensees have shown interest; Casino Filipino's 2026 loss is expected to be at least ₱7 billion. <em>(<a href="https://www.philstar.com/business/2026/10/14/2562962/pagcor-targets-casino-exit-2027">Philstar 10/14</a>, single full source)</em></p><p><b>Judgment:</b> This restructures the casino business; online licences, rebate caps and ad rules did not change this week. The effect on the online market is indirect and waits on Palace approval. The pressure from September's 7.2% inflation and the BSP 10/22 meeting (covered last issue) has no new data this issue.</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q2</span><br>Player focus</div><div class="a"><p>BingoPlus's focus this week is withdrawals: check withdrawal time, follow its status, claim compensation for a delay. ArenaPlus's sports clips cover a PVL rules explainer, a women-in-sport topic and a basketball tutorial.</p><p><b>Judgment:</b> The leader treats the withdrawal experience as a player worry. Whether players actually complain about it, this issue has no community data to check, so no conclusion.</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q3</span><br>Unmet gaps</div><div class="a"><p>Last issue added two gaps: turnover multiples and withdrawal speed. BingoPlus has partly taken the withdrawal-speed one: there is delay compensation, but "Fast Withdrawal" still carries no minutes figure. On turnover multiples, no brand's new creative this issue states a multiple.</p><p><b>Judgment:</b> Whoever first writes payout minutes and turnover multiples as checkable numbers takes the "transparency" slot. A new gap is the official domain: with ArenaPlus's added domains, players find it harder to tell the official site.</p><p>The creative limit still applies. ASC Circular 2026-008, in force since June 24, bars ad material in any medium from showing or mentioning roulette, baccarat, blackjack, slot machines, cards, chips or dice and similar casino games and devices.</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q4</span><br>Offer structure</div><div class="a"><p>Still two types: DigiPlus leads with campaigns and VIP rewards, the rest with rebates. This week BingoPlus adds a format: dated short windows (10/15-10/20), a ₱100 login bonus and a 20% first-deposit bonus; ArenaPlus adds an "Up to P888 Cashback" button line to the welcome creative.</p><p>Under PAGCOR's current rules, e-games operators' cash rebates on turnover or deposits are capped at 1.5% (casino tables and arcade-type games excepted), and cash back on net losses at 15%. How "100% compensation of the withdrawal amount" is classed is not stated in the creative.</p><p><b>Judgment:</b> Compensation, dated rewards and rebates coexist, so players find them harder to compare. Whether this is compliant has no public explanation (see §06 threat 2).</p></div></div>
+        <div class="qa"><div class="q"><span class="qchip">Q5</span><br>Differentiation</div><div class="a"><p>This week's routes: BingoPlus moves from reward tiers to withdrawal compensation and dated windows, ArenaPlus adds volume, domains and content-style ads on its existing lines, PAGCOR publishes a casino-exit timetable. This issue's data records no new moves for CasinoPlus, PlayTime, GameZone, OKBet, Bet88 or OKADA PLAY; coverage is limited.</p><p><b>Conclusion:</b> The leader competes on how checkable withdrawal-type terms are, the other DigiPlus brand on creative volume. Q4 competition comes down to whether withdrawal and turnover numbers can be written down, and how recognisable the official domain is.</p><p><b>Proposal:</b> Two things. First, if withdrawal speed is a selling point, measure real minutes before deciding on a compensation scheme. Second, put the official domain list where creative and the site show it. These are suggestions, not conclusions.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="radar">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">Capability Radar · 6 axes · 10 brands</span>
+      <h2>Six-axis capability radar (10 brands; King / Queen closed, not scored)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="radar">
+      <div class="radar-formula">
+        <h6>Scoring formula (100 per axis, weighted sub-items)</h6>
+        <table><tr><td>BRAND</td><td><b>Market share (revenue / traffic) 45%</b> + endorsers / IP 20% + player mentions 25% + weekly PR 10%</td></tr><tr><td>UX</td><td>Site access 30% + sign-up / login 25% + payment / withdrawal signals 25% + UI clarity 20%</td></tr><tr><td>CONTENT</td><td>Exclusive games / IP 35% + localization 25% + events 25% + update cadence 15%</td></tr><tr><td>PRICING</td><td>Bonus appeal 30% + <b>compliance safety 30%</b> + terms clarity 25% + value players actually receive 15%</td></tr><tr><td>RETENTION</td><td>Ongoing promos 30% + VIP / win-back 25% + support / trust 25% + community 20%</td></tr><tr><td>REACH</td><td>TV / media 30% + social 25% + KOL / celebrities 20% + offline / payment touchpoints 15% + SEO / visibility 10%</td></tr></table>
+      </div>
+      <div class="radar-head">
+        <div>
+          <div class="lbl">Six-axis comparison (10 brands)</div>
+          <div class="sub">Pick the baseline at top right (default PlayTime) and a comparison brand below.<br><em style="color:rgba(255,255,255,.6);font-style:normal;">Baseline anchored to W22 SimilarWeb. All eight unchanged this week; King / Queen closed, not drawn.</em></div>
+        </div>
+        <div class="self-pick">
+          <span class="pick-lbl">Baseline</span>
+          <select class="vssel" id="selfsel" aria-label="Baseline"></select>
+        </div>
+      </div>
+      <div class="vsbtns" id="vsbtns" aria-label="vs"></div>
+      <div class="radar-body">
+        <div class="left">
+          <div class="grid" id="radarGrid"></div>
+          <div class="legend">
+            <span><i style="background:#fff3a6"></i><b id="legendSelf">Baseline · PlayTime</b></span>
+            <span><i id="legendVsColor" style="background:#4F8C5C"></i><b id="legendVs">GameZone</b></span>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 320" id="radarSvg" aria-label="6-axis capability radar">
+          <g id="rings"></g>
+          <g id="axes"></g>
+          <polygon id="polyVs" fill-opacity="0.35" stroke-width="2"></polygon>
+          <polygon id="polySelf" fill="#fff3a6" fill-opacity="0.42" stroke="#fff3a6" stroke-width="2.2"></polygon>
+          <g id="labels"></g>
+        </svg>
+      </div>
+      <div class="radar-note"><b>All eight brands unchanged this week, no re-scoring.</b> BingoPlus's compensation and dated offers and ArenaPlus's rebate lines appear only in ads and their terms cannot be read, so two PRICING sub-items (compliance safety and term transparency, 55% combined) cannot be scored; how the compensation is classed is also unstated. A change in reward attractiveness alone does not move a 5-point step, pending an on-site recheck. BingoPlus's withdrawal compensation is self-reported with no third-party check and does not count toward UX payment / withdrawal signals. The other six were not rechecked. PR sub-item this week: BingoPlus for the compensation and ArenaPlus for creative volume each get a lift, at 10% weight not enough to move a step.<br><br><b>BRAND sub-item worked check.</b> PlayTime BRAND 85 = market share 100 × 45% + endorsement / IP 80 × 20% + player mention rate 80 × 25% + this week's PR 55 × 10% = 86.5, rounded to 85. BingoPlus BRAND 83 = market share 75 × 45% + endorsement / IP 95 × 20% + mention rate 85 × 25% + PR 85 × 10% = 82.5, within one 5-point step of the held value, held. ArenaPlus BRAND 60 = market share 50 × 45% + endorsement / IP 80 × 20% + mention rate 55 × 25% + PR 80 × 10% = 60.25, rounded to 60.<br><br><b>Triggers for the next re-score:</b> BingoPlus's compensation and dated-offer terms verified on site (affects PRICING); a PAGCOR explanation of the compensation; a manual decision on whether to re-rank GameZone / ArenaPlus market share on an MAU basis; other brands following with withdrawal compensation; confirmation of who owns ArenaPlus's new domain; the Palace acting on the PAGCOR decoupling recommendation.</div>
+    </div>
+  </section>
+
+  <section class="sec" id="moves-sec">
+    <div class="sec-lbl">
+      <span class="chip">§04</span><span class="en">Weekly Moves</span>
+      <h2>This week's moves (W43)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">Three cards this week (W42 three / W41 three). Cards 1 and 2 come from the Meta Ad Library, card 3 from Philstar's report of the PAGCOR chairman's remarks. OnlyFun.PH, inflation and BSP rate talk have no new facts this issue and get no card; Interblock's product approval and DigiPlus leaving the New Zealand licence process are weak signals and get no card.</div>
+    <div class="moves" id="moveCards">
+
+      <div class="mcard" id="sig-01" style="border-top-color:#E89AAA">
+        <div class="top"><span class="logo" style="background:#E89AAA;width:26px;height:26px;font-size:10px">BP</span>
+          <div class="meta"><b>Card 1 · BingoPlus</b><span>10/12-10/17</span></div>
+          <span class="sev high">High</span>
+        </div>
+        <h4>BingoPlus pays up to ₱5,000 <span class="hi">for delayed withdrawals.</span></h4>
+        <div class="detail">BingoPlus's official Meta advertiser shows about 32 active ads in the Philippines (header reads ~32 results; scrolled to the bottom). 12 started from 10/12: six are follow-up content for the Filipino Music Awards (FMA), six are promo or withdrawal creative. By start date: 10/12 "Your BingoPlus experience is getting an upgrade!", copy asking players to check withdrawal time, follow its status and see whether a delayed Fast Withdrawal qualifies for compensation; 10/14 the VIP four rewards re-listed; two compensation ads on 10/15; and a dated login prize and a daily deposit bonus on 10/15.</div>
+        <div class="detail">Read from the creative: (1) 10/15 "Claim 100% compensation of your withdrawal amount, up to ₱5,000 per transaction on eligible Fast Withdrawal delays", telling players to check the app notice and tap Claim, with "T&Cs apply"; a second 10/15 how-to image runs four steps, from a Fast Withdrawal, to a delay compensation notice, to tapping Claim, to waiting for confirmation; (2) 10/15 "OCT 15-20 Exclusive Rewards", a daily surprise pack with a ₱100 login bonus, daily free spins and betting cashback once a wagering target is met; (3) 10/15 "Exclusive Daily Deposit Bonus Unlocked!", where the image shows a 20% first-deposit bonus, up to ₱200, prize-pool wording and the 10/15-10/20 period; the small print is unreadable.</div>
+        <div class="detail">Last issue's card 1 left one question open: what "100% BACK UP TO ₱5,000" on the 10/9 ad meant. This week's answer: compensation when a Fast Withdrawal is delayed, not deposit protection. The amount is 100% of the withdrawal, up to ₱5,000 per transaction; whether turnover applies, whether it counts toward the 1.5% rebate cap, and how many claims a day are allowed are not stated in the ads or copy.</div>
+        <div class="detail"><b>Judgment:</b> BingoPlus has turned the "slow withdrawal" worry into something a player can claim, a step beyond last issue's "fast withdrawal" line. The yardstick moves with it: other brands that only say "fast withdrawal" with no delay compensation will be compared against this. The promo format also changed, from last issue's "up to ₱X" VIP tier to short dated windows (10/15-10/20) and a small login prize, which last issue did not show.</div>
+        <div class="detail">⚠️ Compliance note: how "100% compensation of the withdrawal amount" is classed (promo reward, service compensation or something else), and whether PAGCOR's current 1.5% cash rebate and 15% cash back caps apply, is not stated in the creative; terms sit on geo-restricted landing pages. This is an editorial observation, not a compliance conclusion.</div>
+        <div class="detail">⚠️ Basis note: an ad running is not proof the promo is valid. This issue's ~32 ads and last issue's 15 are different bases (last issue loaded 15 of ~20), so no increase in spend is inferred. The ads give no minutes figure for "Fast Withdrawal".</div>
+        <div class="social">⚠️ Single source: Meta Ad Library only this issue (official delivery-side evidence, not a community signal); player reaction still to add. The daily monitor saw compensation wording on 10/13 and filed it as an extension of MORE CONFIDENCE, below threshold [trigger-2026-10-13]; the weekly uses it because this issue is the first to read the amount, the claim steps and the dated offers, enough to answer last issue's open question.</div>
+        <div class="src">Source: <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=100332105816384">Meta Ad Library · BingoPlus (official advertiser)</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> If withdrawal speed is to be a selling point, measure the real minutes to payout first, then decide whether to offer delay compensation. Check the compensation amount, per-transaction cap and turnover treatment against PAGCOR's current rebate caps before they go into creative.</span></div>
+      </div>
+
+      <div class="mcard" id="sig-02" style="border-top-color:#2A5FAA">
+        <div class="top"><span class="logo" style="background:#2A5FAA;width:26px;height:26px;font-size:10px">AP</span>
+          <div class="meta"><b>Card 2 · ArenaPlus</b><span>10/13-10/17</span></div>
+          <span class="sev mid">Mid impact</span>
+        </div>
+        <h4>ArenaPlus adds about 80 ads <span class="hi">and a new domain in a week.</span></h4>
+        <div class="detail">ArenaPlus's official advertiser header reads ~160 results; this issue scrolled to the bottom. About 80 started between 10/13 and 10/17 (counted by hand, ±5): about 10 each on 10/13 and 10/14, about 30 each on 10/15 and 10/16, and 4 on 10/17. Last issue, on the same basis, recorded 63 new from 10/6.</div>
+        <div class="detail">The creative axis did not change: "Welcome bonus up to ₱8,100", "Chance to hit 50000x & win up to ₱88,888,888", and the daily rebate up to ₱2,888, daily reload up to ₱3,235 and cashback up to ₱888 lines, which were re-listed about 12 times on 10/16 alone. New are game names (Piñata Beat 1000, Super Gems 1000, Gates of Olympus) and an "Up to P888 Cashback" button line on the welcome creative.</div>
+        <div class="detail">Two new things. First, a third landing domain, arenaplussport.online, appears from 10/14 with an "Adv" marker; arenaplus.ph, arenaplus.app (daily monitor 10/9) and arenaplus.net (daily monitor 10/1) were already known; whether the new domain belongs to the official estate was not verified this issue. Second, a few sports content clips run as ads on 10/15 and 10/16 (a PVL rules explainer, a women-in-sport topic, a basketball tutorial), with no promo figures, linking to Facebook or Instagram profiles. The KOL recruitment ads from 10/10 are still running.</div>
+        <div class="detail"><b>Judgment:</b> The route from last issue gets more volume: the same wording and prize amounts under new IDs and new game names, roughly 1.3 times last issue's count. Domains go from two to at least four, so players find it harder to tell which is official; the sports clips suggest ArenaPlus is keeping its sportsbook tone while scaling casino creative. Whether one team runs all three, there is no evidence, so none is inferred.</div>
+        <div class="detail">⚠️ Compliance note: as last issue, the classing of the peso-cap wording, and how slot imagery relates to ASC (Ad Standards Council) Circular 2026-008, are still unexplained; no PAGCOR or ASC reaction seen. This is an editorial observation, not a compliance conclusion.</div>
+        <div class="detail">⚠️ Basis note: the new-ad count is a hand-counted lower bound, and multiple versions of one creative may be double counted; an ad running is not proof the promo is valid; terms, turnover and end dates sit on geo-restricted landing pages.</div>
+        <div class="social">⚠️ Single source: Meta Ad Library only this issue (official delivery-side evidence, not a community signal); player reaction still to add. The daily monitor logged the ₱8,100 axis as carried over on 10/15, 10/16 and 10/19 [trigger-2026-10-15]; this card adds the full-week volume, the new domain and the content-style ads.</div>
+        <div class="src">Source: <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=257670834093707">Meta Ad Library · ArenaPlus PH (official advertiser)</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> Before entry, put the official domain list prominently on creative and the site, and watch brand-term search for look-alike and mirror sites. If creative goes down the casino-game route, run visuals and wording through the ASC circular's list of devices first.</span></div>
+      </div>
+
+      <div class="mcard" id="sig-03" style="border-top-color:#c96442">
+        <div class="top"><span class="logo" style="background:#c96442;width:26px;height:26px;font-size:10px">PG</span>
+          <div class="meta"><b>Card 3 · PAGCOR</b><span>10/13-10/14</span></div>
+          <span class="sev mid">Mid impact (indirect)</span>
+        </div>
+        <h4>PAGCOR sets H2 2027 <span class="hi">for its exit from casino operations.</span></h4>
+        <div class="detail">PAGCOR (Philippine Amusement and Gaming Corp., also the online gaming regulator) chairman and CEO Alejandro Tengco, speaking in Boracay on 10/13-10/14, said the GCG (Governance Commission for GOCCs) is expected to send its decoupling recommendation to the Office of the President within October. Decoupling separates PAGCOR's commercial casino business from its regulatory role so it focuses on oversight and stops competing with the operators it regulates. The target is to complete the exit from casino operations in Q3 or Q4 2027; after approval, "then we execute".</div>
+        <div class="detail">PAGCOR has 35 casinos, 12 run outright and 23 under revenue-sharing with private partners. It expects ₱20 billion to ₱30 billion from the sale, with no valuation fixed; several licensees have shown interest, including large Entertainment City operators, and Tengco expects current revenue-sharing partners to bid for the casinos they already run. Among wholly owned casinos Cebu earns the most, followed by Tagaytay, Angeles, Davao and Malabon. Casino Filipino's 2026 loss is expected to reach at least ₱7 billion, from about ₱6 billion in 2025, which Tengco attributes mainly to personnel costs.</div>
+        <div class="detail">IAG's headline the same day gives a 2026 loss of about US$111 million; its body was not read this issue. Manila Bulletin and GGRAsia ran the same story, but this issue only reached a verification page and saw headlines.</div>
+        <div class="detail"><b>Judgment:</b> This restructures the casino business; it changes nothing directly for online licensees, and does not touch online licences, rebate caps or ad rules. Two indirect points: with PAGCOR regulating only, online operators' counterpart and rule interpretation may face fewer "referee and player" doubts; and licensees that bid for casinos would divert capital, with no evidence of any effect on online budgets, so no conclusion. Every timing depends on Palace approval, which has not happened.</div>
+        <div class="detail">⚠️ Basis note: the timetable, price range and loss figures were read in full from Philstar only; Tengco's remarks are interview statements, with no written PAGCOR notice or Palace document seen.</div>
+        <div class="social">⚠️ Single source: Philstar in full; IAG, Manila Bulletin and GGRAsia are headline-only. No player discussion to check; community signal N/A this issue. The daily monitor logged the decoupling headline on 10/14 as a weak signal [trigger-2026-10-14]; the weekly uses it because this issue is the first to read the exit timing, the recommendation deadline and the proceeds range.</div>
+        <div class="src">Source: <a href="https://www.philstar.com/business/2026/10/14/2562962/pagcor-targets-casino-exit-2027">PAGCOR targets casino exit by 2027 · Philstar 10/14</a> · <a href="https://asgam.com/2026/10/14/decoupling-high-on-pagcor-agenda-as-casino-filipino-losses-projected-to-hit-us111-million-in-2026/">Decoupling high on PAGCOR agenda as Casino Filipino losses projected to hit US$111 million in 2026 · IAG 10/14</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> Do not change the entry plan for this. Keep one watch point: the Palace's decision after the GCG recommendation goes out in October, and any accompanying PAGCOR notice for online operators.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Timeline · last two weeks</span>
+      <h2>Timeline (two weeks, newest first)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow"><span class="d">10/17</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">ArenaPlus</span><span class="desc">4 new Meta ads for the ₱8,100 welcome offer with an "Up to P888 Cashback" button line</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/16</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">ArenaPlus</span><span class="desc">About 30 new ads that day, about 12 of them the daily rebate / reload / cashback lines; new game name Piñata Beat 1000</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/15</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">BingoPlus</span><span class="desc">New Meta ads for withdrawal-delay compensation: 100%, up to ₱5,000 per transaction; dated 10/15-10/20 offers start the same day</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/15</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">ArenaPlus</span><span class="desc">Sports content clips (PVL explainer etc.) run as ads, no promo figures</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/14</span><span class="dot orange"></span><span class="cat">Regulation</span><span class="br">PAGCOR</span><span class="desc">Tengco says the GCG will send its decoupling recommendation to the Palace within October; target exit from casino operations in Q3 or Q4 2027</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/14</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">ArenaPlus</span><span class="desc">Third landing domain appears: arenaplussport.online</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/12</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">BingoPlus</span><span class="desc">New Meta ad "check your withdrawal time and status", ahead of the delay compensation</span><span class="wk">W43</span></div>
+      <div class="trow"><span class="d">10/10</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">BingoPlus</span><span class="desc">New Meta ads: VIP four rewards (deposit reward up to ₱12,000, 3.5% game rebate)</span><span class="wk">W42</span></div>
+      <div class="trow"><span class="d">10/08</span><span class="dot green"></span><span class="cat">Brand</span><span class="br">Bloomberry</span><span class="desc">Launches live interactive platform OnlyFun.PH under FUNaloMAX</span><span class="wk">W42</span></div>
+      <div class="trow"><span class="d">10/05</span><span class="dot green"></span><span class="cat">Rating</span><span class="br">Maybank / DigiPlus</span><span class="desc">Core net income forecast cut 43% (2026) and 48% (2027)</span><span class="wk">W41</span></div>
+      <div class="trow"><span class="d">10/02</span><span class="dot"></span><span class="cat">Law</span><span class="br">BSP</span><span class="desc">Payment integrity draft comments closed (17 days ago); no final circular seen</span><span class="wk">W38→W43</span></div>
+      <div class="trow"><span class="d">09/30</span><span class="dot"></span><span class="cat">Regulation</span><span class="br">PAGCOR</span><span class="desc">B2B accreditation grace ended (19 days ago); no extension or decommission list seen</span><span class="wk">W30→W43</span></div>
+      <div class="trow"><span class="d">07/01</span><span class="dot"></span><span class="cat">Regulation</span><span class="br">PAGCOR</span><span class="desc">MGF phase 1 live; phase 2 increase from 2027/01/01 (74 days out)</span><span class="wk">W27→W43</span></div>
+    </div>
+    <div class="tl-legend">
+      <span><i style="background:#8a3a33"></i>Policy / enforcement / payments</span>
+      <span><i style="background:#2A5FAA"></i>Product / overseas / brand</span>
+      <span><i style="background:#c96442"></i>Capital / filings / group</span>
+      <span><i style="background:#2f6b3b"></i>Outlook / ratings</span>
+    </div>
+  </section>
+
+  <section class="sec" id="implications">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Implications · Threats / Opportunities</span>
+      <h2>Implications (threats / opportunities)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="impl-meth">
+      <h6>Entry parameters (all internal estimates)</h6>
+      <ul>
+        <li><b>ARPU based on ₱805, with room to fall:</b> Maybank puts DigiPlus monthly spend per active user at about ₱805 against an earlier assumption of ₱1,250; after September's 7.2% inflation ₱805 may still be high. The entry model uses ₱805 as base, ₱1,250 as the optimistic case and ₱725 (another 10% lower) as the conservative case. No new ARPU data this issue.</li>
+        <li><b>Acquisition cost assumed to rise:</b> S&amp;P puts the leader's EBITDA margin falling from about 18% to 14.5%-16% as broken attribution raises acquisition and retention costs; Maybank cites a first-half actual of 16.7%.</li>
+        <li><b>Player scale:</b> DigiPlus Q2 MAU (monthly active users) about 5.75 million (BingoPlus about 3.35 million, GameZone about 1.83 million, ArenaPlus about 0.57 million).</li>
+        <li><b>Rebate caps follow the regulation:</b> cash rebates on turnover or deposits 1.5% (casino tables and arcade-type games excepted), cash back on net losses 15%; how BingoPlus's withdrawal-delay compensation is classed is not stated.</li>
+        <li><b>Creative-level limit:</b> ASC Circular 2026-008, in force since 2026/06/24, bars ads from showing or mentioning casino games and devices.</li>
+        <li><b>Deadlines:</b> the B2B accreditation grace ended 9/30 (19 days ago) with no decommission list public; BSP comments closed 10/2 (17 days ago) with no final circular; BSP monetary policy meeting 10/22; the GCG decoupling recommendation is due at the Palace within October; the second minimum guaranteed fee step is 2027/01/01, 74 days out.</li>
+      </ul>
+    </div>
+    <div class="impl">
+      <div class="col threat"><h5><span class="dot"></span>Threats<span class="en">Threats</span></h5><ul>
+        <li><b>Withdrawal experience becomes the yardstick; no matching mechanism is a handicap.</b> BingoPlus now advertises delay compensation of 100% of the withdrawal, up to ₱5,000 per transaction. <em>Cost of inaction (internal estimate): an entrant with no payout promise sees trust-style creative convert roughly 10-20% lower.</em></li>
+        <li><b>Compensation wording is unclassed; copying it may carry compliance risk.</b> Whether "100% compensation of the withdrawal" falls under current rebate caps is not stated in creative and PAGCOR has not explained it. <em>Cost of inaction (internal estimate): if copied creative is told to be amended or pulled, re-making and re-filing takes about 1-2 weeks and the slot idles.</em></li>
+        <li><b>Both DigiPlus brands ramping at once crowd casual-player placements.</b> ArenaPlus runs about 80 ads a week and BingoPlus opens dated offers; GameZone's about 1.83 million MAU sits in the same casual segment. <em>Cost of inaction (internal estimate): a main launch colliding with the same flight sees casual-segment click costs rise roughly 10-20%.</em></li>
+        <li><b>Several landing domains make the official site harder to recognise and let look-alikes in.</b> ArenaPlus uses at least four known domains. <em>Cost of inaction (internal estimate): after entry, mirror or look-alike sites in brand-term search need extra monitoring and takedown work, about ₱30K-₱80K a month.</em></li>
+        <li><b>Inflation pushes disposable income down further.</b> September inflation 7.2%, a BSP hike possible on 10/22. <em>Cost of inaction (internal estimate): every further 10% fall in ARPU lengthens payback by about 11% (retention differences excluded).</em></li>
+      </ul></div>
+      <div class="col opp"><h5><span class="dot"></span>Opportunities<span class="en">Opportunities</span></h5><ul>
+        <li><b>State withdrawal speed as a checkable number</b> (internal estimate ~₱40K-₱100K for tests and creative / 1 month). The leader has delay compensation but no minutes figure; measure real payout times first, then put them in creative. <em>Caution: payments and withdrawals must hit the number reliably first; once printed it has to be honoured.</em></li>
+        <li><b>State turnover multiples as numbers, for easy checking</b> (internal estimate ~₱30K-₱80K / one-off). No brand's new creative states a multiple this issue; put the multiple and a worked example straight into creative. <em>Caution: the worked example must match the terms word for word, or transparency becomes a new source of complaints.</em></li>
+        <li><b>Official domain list and brand-term monitoring as a trust selling point</b> (internal estimate ~₱20K-₱60K one-off plus monthly monitoring). Pin the official domains on creative, the site and social. <em>Caution: the domain list must match PAGCOR licence information; do not extend it on your own.</em></li>
+        <li><b>Supplier accreditation checks as a service selling point</b> (internal estimate ~₱20K-₱60K labour / one-off). The B2B grace has ended and no decommission list is visible; compile an accreditation-status list for partner platforms' featured games. <em>Caution: status is whatever the platform confirms in writing; do not decide it yourself.</em></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="fcard">
+      <h5>Methodology + sources</h5>
+      <p>10-brand watchlist (8 scored, 2 closed) plus industry / regulatory / legislative moves. King.ph / Queen.ph closed since 2026-05-29, not scored. This week's cards 1 and 2 come from the Meta Ad Library, card 3 from Philstar's report of the PAGCOR chairman's remarks.</p>
+      <p><b>✅ Meta Ad Library snapshot:</b> Claude in Chrome was connected during this scheduled run; the official method was followed, locking on the BingoPlus and ArenaPlus official advertiser IDs and scrolling for real to the page bottom. In-page script extraction was blocked by the browser, so the full page text was read instead: BingoPlus fully loaded (header about 32); ArenaPlus loaded to the bottom, with new-ad counts hand-counted as lower bounds (±5) and the total not checked ad by ad. Text in creative is read from images, with unreadable small print marked. The latest start date is 10/17; nothing new was seen for 10/18-10/19. Other brands' ads (GameZone, CasinoPlus, OKBet and others) were not checked this issue. Only ads still running are visible, not spend or reach.</p>
+      <p><b>⚠️ On-site recon not run:</b> official promo pages were not reopened this issue. The three DigiPlus sites return a geo-restriction page when the browser exit IP is not in the Philippines (last issue's test), CasinoPlus likewise; OKBet and Bet88 promos are image and script rendered with no text layer; PlayTime stays locked and uses the 5/29 baseline. Firecrawl was not run (the scheduled sandbox has no outside network). Offer figures carry over from the last issue.</p>
+      <p><b>✅ Source canonical:</b> IAG (10/14) was opened in Chrome: the URL matches its canonical with no redirect, the display text comes from the actual title, and only an excerpt of the body was readable. Philstar (10/14) was opened: the URL was not rewritten and the title matches the full text read. Manila Bulletin (10/13) and GGRAsia returned a security check page this issue, so their text was not read and they are not cited as sources.</p>
+      <p><b>⚠️ Community signal N/A this issue:</b> X / Reddit / Threads / public Facebook groups were not sampled. All three cards are marked single-source.</p>
+      <p>Running-state anchors (this issue's anchor table): B2B accreditation grace 9/30, 19 days ago; BSP comments close 10/2, 17 days ago; minimum guaranteed fee phase 2 on 2027/01/01, 74 days out; CasinoPlus 1.5% counted from its 2026-07-31 expiry, entering week 12; sports-offer gap counted from 2026-07-19, entering week 14; CasinoPlus fine counted from 2026-08-24, entering week 9, no new development in the window. Official-page offer silence is not given a week count.</p>
+      <p>Philippines-related hits from the daily trigger monitor, 10/12-10/19: 10/14 Q1 PH regulation weak signal (PAGCOR decoupling, headline only) folded into card 3; 10/13 Q5c BingoPlus withdrawal compensation ads (judged an extension of MORE CONFIDENCE) folded into card 1; 10/15, 10/16, 10/19 Q5c ArenaPlus ₱8,100 axis folded into card 2. Three items the daily monitor judged below threshold or weak are still used here because the weekly looks for data that changes the judgment baseline: card 1 is the first read of the compensation amount and claim steps, card 2 the first quantification of full-week creative volume and domain count, card 3 the first read of the exit timing, recommendation deadline and proceeds range. The ledger shows no Q3 PH competitor HIT and no Q5 holiday HIT for 10/12-10/19.</p>
+      <p>New this issue and not in the daily monitor: BingoPlus's 10/15 dated login-bonus and 20% first-deposit ads (card 1), ArenaPlus's full-week count, arenaplussport.online and content-style ads (card 2), and the full Philstar detail (card 3).</p>
+      <p>Excluded: BingoPlus FMA follow-up content (ongoing sponsorship), Interblock approved by PAGCOR (product approval), DigiPlus leaving the New Zealand licence process (10/15, weak), Okada Q3 results (not a major move). A web search found no other Philippine operator news in the window; the B-track news index was not read this issue.</p>
+      <p>Data window 10/12-10/19 look-back, 10/19-10/26 look-ahead.</p>
+      <div class="srcs"><span><i class="ok"></i>Meta Ad Library 10/19<em>BingoPlus, ArenaPlus official advertisers</em></span><span><i class="ok"></i>Philstar<em>PAGCOR decoupling and casino-exit timing</em></span><span><i class="ok"></i>IAG<em>decoupling report (excerpt and headline)</em></span><span><i></i>trigger-ledger 10/12-10/19<em>local shared source</em></span><span><i></i>⚠️ Community signal N/A; on-site recon not run; PlayTime baseline 2026-05-29 carried</span></div>
+    </div>
+    <div class="fcard">
+      <h5>Next issue (W44 · 2026-10-26) watch list</h5>
+      <ol><li><span class="n">1</span>BingoPlus withdrawal-delay compensation terms: per-claim cap, whether turnover applies, whether it counts toward the rebate cap</li><li><span class="n">2</span>Whether BingoPlus renews its dated offers after they end on 10/20</li><li><span class="n">3</span>Whether other brands follow with withdrawal compensation or state payout minutes and turnover multiples</li><li><span class="n">4</span>Who owns ArenaPlus's arenaplussport.online, and how each domain's share shifts</li><li><span class="n">5</span>Whether the GCG sends its decoupling recommendation to the Palace within October, and whether the Palace acts</li><li><span class="n">6</span>BSP's 10/22 policy meeting result; whether the payment integrity draft gets a circular number</li><li><span class="n">7</span>Whether PAGCOR publishes the accreditation list or a decommission list; whether platforms pull games</li><li><span class="n">8</span>Whether OnlyFun.PH shows creator recruiting or Meta ads</li><li><span class="n">9</span>Whether DigiPlus reports Q3 figures or answers Maybank's cut</li><li><span class="n">10</span>CasinoPlus 1.5% renewal; whether any brand moves on a sports offer first</li><li><span class="n">11</span>Whether ArenaPlus's KOL recruitment turns into announced signings</li><li><span class="n">12</span>Brazil MPV 1394: the federal authorisations lapse on 10/25 and the agenda locks from 11/09; DigiPlus's Brazil write-down</li></ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span><b>COMPETITOR // BRIEF</b> · 2026-W43 · PH iGaming · 10-brand watchlist (King / Queen closed)</span>
+    <span>Data window 10/12-10/19 look-back · 10/19-10/26 look-ahead</span>
+  </div>
+
+</div>
+</div>
+
+<script>
+const RADAR_LABELS = ['BRAND','UX','CONTENT','PRICING','RETENTION','REACH'];
+const RADAR_LABELS_ZH = ['','','','','',''];
+
+const BRANDS = {
+  bingoplus:  { name:'BingoPlus',           color:'#E89AAA', scores:[83,75,86,70,78,85] },
+  arenaplus:  { name:'ArenaPlus',           color:'#2A5FAA', scores:[60,70,70,65,60,75] },
+  gamezone:   { name:'GameZone',            color:'#4F8C5C', scores:[35,70,65,75,70,50] },
+  king:       { name:'King.ph · closed',     color:'#2D6B4D', scores:[0,0,0,0,0,0], closed:true },
+  queen:      { name:'Queen.ph · closed',    color:'#B6356D', scores:[0,0,0,0,0,0], closed:true },
+  casinoplus: { name:'CasinoPlus',          color:'#B89968', scores:[75,70,75,60,70,60] },
+  okbet:      { name:'OKBet / OKGames',     color:'#D86B27', scores:[50,60,60,60,60,60] },
+  bet88:      { name:'Bet88',               color:'#C2272D', scores:[50,60,65,60,65,55] },
+  playtime:   { name:'PlayTime / PT Gaming',color:'#4A4FB8', scores:[85,70,70,65,70,65] },
+  okadaplay:  { name:'OKADA PLAY',          color:'#8B7355', scores:[32,25,30,25,20,50] }
+};
+let selfId = 'playtime';
+let vsId = 'gamezone';
+const cx=160, cy=160, R=130;
+const angle = i => (Math.PI*2*i)/6 - Math.PI/2;
+
+function ringPolygon(rr){
+  return Array.from({length:6},(_,i)=>`${cx+rr*Math.cos(angle(i))},${cy+rr*Math.sin(angle(i))}`).join(' ');
+}
+function polyPoints(values){
+  return values.map((v,i)=>{const r=(v/100)*R;return `${cx+r*Math.cos(angle(i))},${cy+r*Math.sin(angle(i))}`;}).join(' ');
+}
+function labelPos(i,off=22){
+  const x = cx + (R+off)*Math.cos(angle(i));
+  const y = cy + (R+off)*Math.sin(angle(i)) + 4;
+  return {x,y};
+}
+
+function initRadar(){
+  const ringsG = document.getElementById('rings');
+  [1,.75,.5,.25].forEach((s,i)=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',ringPolygon(R*s));
+    p.setAttribute('fill', i===0 ? 'rgba(255,255,255,.04)' : 'none');
+    p.setAttribute('stroke','rgba(255,255,255,.18)');
+    ringsG.appendChild(p);
+  });
+  const axesG = document.getElementById('axes');
+  for(let i=0;i<6;i++){
+    const x=cx+R*Math.cos(angle(i)), y=cy+R*Math.sin(angle(i));
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x);l.setAttribute('y2',y);
+    l.setAttribute('stroke','rgba(255,255,255,.1)');
+    axesG.appendChild(l);
+  }
+  const labG = document.getElementById('labels');
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const p=labelPos(i,18);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',p.x);t1.setAttribute('y',p.y-6);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('fill','#fff');t1.setAttribute('font-size','11');t1.setAttribute('font-weight','800');
+    t1.textContent=lbl;
+    labG.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',p.x);t2.setAttribute('y',p.y+6);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('fill','rgba(255,255,255,.6)');t2.setAttribute('font-size','9');
+    t2.textContent=RADAR_LABELS_ZH[i];
+    labG.appendChild(t2);
+  });
+  const selfSel = document.getElementById('selfsel');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = d.name;
+    if(id===selfId) opt.selected = true;
+    selfSel.appendChild(opt);
+  });
+  selfSel.addEventListener('change', e => { selfId = e.target.value; render(); });
+
+  const vsbtns = document.getElementById('vsbtns');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const b = document.createElement('button');
+    b.dataset.id = id;
+    b.innerHTML = `<i style="background:${d.color}"></i>${d.name}`;
+    if(id===vsId) b.classList.add('active');
+    b.onclick = () => {
+      vsId = id;
+      document.querySelectorAll('#vsbtns button').forEach(x => x.classList.toggle('active', x.dataset.id===id));
+      render();
+    };
+    vsbtns.appendChild(b);
+  });
+
+  render();
+}
+function render(){
+  const self = BRANDS[selfId];
+  const vs = BRANDS[vsId];
+  const polySelf = document.getElementById('polySelf');
+  const polyVs = document.getElementById('polyVs');
+  polySelf.setAttribute('points', self.closed ? '' : polyPoints(self.scores));
+  polyVs.setAttribute('points', vs.closed ? '' : polyPoints(vs.scores));
+  polyVs.setAttribute('fill', vs.closed ? 'none' : vs.color);
+  polyVs.setAttribute('stroke', vs.closed ? 'none' : vs.color);
+  document.getElementById('legendSelf').textContent='Baseline · '+self.name;
+  document.getElementById('legendVs').textContent=vs.name;
+  document.getElementById('legendVsColor').style.background=vs.closed?'#555':vs.color;
+  const grid = document.getElementById('radarGrid');
+  grid.innerHTML='';
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const sv = self.closed ? 'N/A' : self.scores[i];
+    const vv = vs.closed ? 'N/A' : vs.scores[i];
+    const lead = (!self.closed && !vs.closed && vs.scores[i] > self.scores[i]);
+    grid.innerHTML += `<span>${lbl}</span><span>${sv}</span><span>vs</span><span style="color:${lead?'var(--neg)':'var(--pos)'}">${vv}</span>`;
+  });
+}
+initRadar();
+</script>
+</body>
+</html>

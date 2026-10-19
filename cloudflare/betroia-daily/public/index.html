@@ -207,13 +207,14 @@ details.rules dd { margin: 0; min-width: 0; }
       <summary>日报规则</summary>
       <dl>
         <dt>子总代</dt><dd>按「渠道管理列表」的所属总代分组（媒体 × 包型，例如 A8 · Tiktok · 原生包）；没导入对照表时用总代 + 媒体 + 包型代替</dd>
-        <dt>子总代一览</dt><dd>按媒体分组，列出全部子总代。栏位上的日期：单日 = 最新一个数据日；「比 X–Y 日均」= 跟它之前最多 7 个数据日的日均比（不足 7 天时用现有的数据日）；区间 = 最近 7 个数据日；本周消耗 < $3,000 的标「样本小」不判断质量（单日自然波动约 ±20–30%，所以不跟前一天比）。「本周」= 最近 7 个数据日。一句话：本周质量（偏低 / 正常 / 优于同包型）+ 昨天的明显变化（消耗暴增或明显缩量 = 1.5 倍 / 一半；首充ROAS 大幅转好或腰斩 = 1.5 倍 / 一半，昨天消耗 ≥ $500 才判断）。点 ▸ 可展开看底下的渠道。最新一天全站消耗不到前 7 日日均的 60% 时，会提醒可能不是完整一天，并且暂停所有「昨天」的判断</dd>
+        <dt>子总代一览</dt><dd>按媒体分组，列出全部子总代。栏位上的日期：单日 = 最新一个数据日；「比 X–Y 日均」= 跟它之前最多 7 个数据日的日均比（不足 7 天时用现有的数据日）；区间 = 最近 7 个数据日；本周消耗 < $3,000 的标「样本小」不判断效率（单日自然波动约 ±20–30%，所以不跟前一天比）。「本周」= 最近 7 个数据日。一句话：本周效率（偏低 / 正常 / 优于同包型）+ 昨天的明显变化（消耗暴增或明显缩量 = 1.5 倍 / 一半；首充ROAS 大幅转好或腰斩 = 1.5 倍 / 一半，昨天消耗 ≥ $500 才判断）。点 ▸ 可展开看底下的渠道。最新一天全站消耗不到前 7 日日均的 60% 时，会提醒可能不是完整一天，并且暂停所有「昨天」的判断</dd>
         <dt>非投放总代</dt><dd>官方、商店包、社媒等不在 TPD / A8 下的总代，只看注册与首充人数（看自然量有没有变化）。首充栏位是改版后新增的，之前上传的日期要重新拖一次原档才会有</dd>
+        <dt>成本 / 质量 / 效率</dt><dd>三个词各有意思：<b>效率</b> = 一级首充ROAS（灯号、偏低判断都看它）＝ 质量 ÷ 成本。一级首充ROAS = 首充客单 ÷ CPA。<b>成本</b> = CPA（买一个一级首充花多少钱），<b>质量</b> = 首充客单（每个新客首充多少钱），各自跟同包型其他花费比（按自己的包型比例加权，渠道则跟自己包型的其他花费比）。CPA 高 15% 以上 = 成本过高；首充客单低 15% 以上 = 质量过差；两个都中 = 又贵又差；CPA 低 15% 以上且客单高 15% 以上 = 又便宜又好。CPA 高但客单也高 15% 以上时：整体一级首充ROAS 没有偏低 = 「贵但人好，整体不吃亏」（不算问题）；偏低 = 「成本过高，客单也抵不过」。本周消耗 < $3,000 的子总代、< $1,000 的渠道不判断；子总代的 CPA / 客单只算有同包型可比的部分（栏位会标「可比部分」），可比部分不到一半时不给结论</dd>
         <dt>问题清单</dt><dd>本周（最近 7 个数据日）消耗 ≥ $3,000，且一级首充ROAS 比「同包型其他花费」低 15% 以上（可比部分不到一半不判断）。按少回收金额排序；标签看最近 4 周：连续偏低标「连续 N 周」，不连续标「近 4 周有 N 周偏低」，没有历史标「历史不足」；缺数据的周显示「—」。没有可比同包型花费的子总代另列「无法判断」</dd>
         <dt>差在哪段</dt><dd>跟同包型其他花费比（对照组按自己的包型比例重新加权）：注册成本、注册转首充、首充客单三段，比别人差 5% 以上的就列出，并对应要找谁、要求什么；某段归零时直接点名</dd>
         <dt>预算分布</dt><dd>子总代里近7日消耗 ≥ $1,000 的渠道，各自跟「自己包型的其他花费」比（跟灯号、加量规则同一条正常线）：低 15% 以上的算「差」，其余算「不偏低」。差渠道占子总代消耗 ≥ 40% 且有不偏低的渠道时，建议在子总代内把预算从差渠道转过去；没有可接的渠道且差渠道占 ≥ 70% 时，建议先降回测试预算</dd>
         <dt>为什么不只是减量</dt><dd>历史回测：被判偏低的子总代减量后，下周仍偏低的约 3/4。减量只是少亏，要改善得处理差的那一段</dd>
-        <dt>加量规则</dt><dd>D7 数据接上前：渠道最近 3 个数据日，每天一级首充ROAS 都高于正常线 15% 以上（且每天消耗 ≥ $100），才可加量，单次 ≤ +20%。本周质量判为差、亮红灯、「质量好但在下滑」或在问题卡里被点名为差的渠道不列入；「加量后质量下滑」的黄灯会注明，近 3 日真的回升才写回升</dd>
+        <dt>加量规则</dt><dd>D7 数据接上前：渠道最近 3 个数据日，每天一级首充ROAS 都高于正常线 15% 以上（且每天消耗 ≥ $100），才可加量，单次 ≤ +20%。本周效率判为差、亮红灯、「效率好但在下滑」或在问题卡里被点名为差的渠道不列入；「加量后效率下滑」的黄灯会注明，近 3 日真的回升才写回升</dd>
         <dt>紧急异常</dt><dd>最新一天可能不完整时暂停。最新一天、消耗 ≥ $2,000 的子总代：消耗是前 7 日日均的 1.5 倍以上，或一级首充ROAS 不到前 7 日的一半。日波动本来就有 ±20–30%，没到这个程度不报</dd>
       </dl>
     </details>
@@ -230,7 +231,7 @@ details.rules dd { margin: 0; min-width: 0; }
     </div>
     <h3>大盘变化（本期 vs 前一同长度期间）</h3>
     <div id="trend"></div>
-    <h3>渠道灯号（质量 × 加减量 · 近7日）</h3>
+    <h3>渠道灯号（效率 × 加减量 · 近7日）</h3>
     <div id="alerts"></div>
     <h3>媒体 × 总代 判断（近7日）</h3>
     <div id="mjudge"></div>
@@ -243,17 +244,17 @@ details.rules dd { margin: 0; min-width: 0; }
       <dl>
         <dt>纳入条件</dt><dd>近7日消耗 ≥ $3,000 且一级首充 ≥ 30 人（小渠道样本太小，不判断）；数据不满 14 个数据日时不给任何灯号</dd>
         <dt>正常线</dt><dd>同包型（TPD + A8 合并）里<b>除了这个渠道自己以外</b>的所有渠道，近7日一级首充ROAS（按消耗加权）。排除自己，避免大渠道把标准拉向自己；其他渠道近7日消耗不足 $1,000 时不比较。渠道的包型取近7日花费最多的那个，只拿它在该包型下的表现来比。大盘一起涨跌时正常线也跟着变，不会误伤单一渠道</dd>
-        <dt>质量</dt><dd>渠道近7日一级首充ROAS 高于正常线 15% 以上 = 优；低于 15% 以上 = 差；其余 = 中</dd>
+        <dt>效率</dt><dd>渠道近7日一级首充ROAS 高于正常线 15% 以上 = 优；低于 15% 以上 = 差；其余 = 中</dd>
         <dt>加减量</dt><dd>近7日消耗比前7日 +15% 以上 = 加量；−15% 以下 = 减量；其余 = 持平；前7日没有消耗 = 新投</dd>
-        <dt>🔴 红灯</dt><dd>质量差，却在加量、持平或新投 → 该减量</dd>
-        <dt>🟡 黄灯</dt><dd>① 质量差、已在减量 → 追踪首充ROAS 有没有回到正常线（减量后反而再跌 15% 以上 → 考虑停投）；② 质量不差但加量后首充ROAS 比前7日跌 15% 以上 → 加量后质量下滑；③ 质量优但首充ROAS 比前7日跌 15% 以上 → 质量好但在下滑，先别加量</dd>
-        <dt>🟢 绿灯</dt><dd>质量优且首充ROAS 没有比前7日跌 15% 以上 → 可加量；已在加量且质量维持 → 加量有效</dd>
+        <dt>🔴 红灯</dt><dd>效率差，却在加量、持平或新投 → 该减量</dd>
+        <dt>🟡 黄灯</dt><dd>① 效率差、已在减量 → 追踪首充ROAS 有没有回到正常线（减量后反而再跌 15% 以上 → 考虑停投）；② 效率不差但加量后首充ROAS 比前7日跌 15% 以上 → 加量后效率下滑；③ 效率优但首充ROAS 比前7日跌 15% 以上 → 效率好但在下滑，先别加量</dd>
+        <dt>🟢 绿灯</dt><dd>效率优且首充ROAS 没有比前7日跌 15% 以上 → 可加量；已在加量且效率维持 → 加量有效</dd>
         <dt>顶部红条</dt><dd>任一总代近7日 总ROAS 升 > 5% 且一级首充ROAS 跌 > 3% 时出现：总ROAS 的上升来自复充（现有数据分不出老客与新客的复充），不代表新买进来的量的首充回收</dd>
         <dt>主因</dt><dd>一级首充ROAS（近7日 vs 前7日）的变化拆成「注册成本 / 注册转首充 / 首充客单」三段，跌最多的那段就是主因；第二段的跌幅达第一段的 80% 以上时标「混合」。只解释变化，不决定灯号</dd>
         <dt>媒体 × 总代 判断</dt><dd>同一总代、同一媒体近7日消耗 ≥ $3,000 才判断。「应有水平」= 按它在各包型的花费比例，套用各包型「其他花费」的一级首充ROAS 加权算出（同样排除自己）；某包型其他花费不足 $1,000 时那部分不比，实际值与差额也只算可比部分，可比部分不到一半就不下判断。主力渠道的状态按它实际的灯号原因描述（亮红灯 / 正在下滑 / 减量追踪中）。差 = 低于应有水平 15% 以上 → 该检讨；花最多的渠道占 ≥ 40% 且亮黄/红灯 → 看起来好但先别加量；优 → 可加量候选</dd>
         <dt>TPD vs A8</dt><dd>同媒体 / 同包型两边近7日都 ≥ $3,000 才比较；一级首充ROAS 相差不到 10% 视为打平；有一边首充为 0 时照样比胜负与差额，只是不拆原因。差距拆成注册成本、注册转首充、首充客单三段，列出让赢的一边领先的那几段</dd>
-        <dt>本周建议动作</dt><dd>减量 = 红灯渠道；考虑停投 = 减量后首充ROAS 反而再跌；冻结 = 加量后下滑或质量好但在下滑；小步加量 = 绿灯；检讨整个媒体 = 媒体判断为差且少回收 ≥ $1,000。都只看一级首充（当期），还没有 D7 留存与复充，执行前请看渠道明细</dd>
-        <dt>回收差额</dt><dd>近7日消耗 ×（渠道一级首充ROAS − 正常线）。负数 = 同样的钱放在正常线水平的渠道，能多回收这么多一级首充金额。红灯按它排序（差最多的在前）；黄灯中「加量后质量下滑」改用「比加量前效率少回收的金额」（近7日消耗 × 首充ROAS 下降幅度）一起排序；绿灯按质量排序</dd>
+        <dt>本周建议动作</dt><dd>减量 = 红灯渠道；考虑停投 = 减量后首充ROAS 反而再跌；冻结 = 加量后下滑或效率好但在下滑；小步加量 = 绿灯；检讨整个媒体 = 媒体判断为差且少回收 ≥ $1,000。都只看一级首充（当期），还没有 D7 留存与复充，执行前请看渠道明细</dd>
+        <dt>回收差额</dt><dd>近7日消耗 ×（渠道一级首充ROAS − 正常线）。负数 = 同样的钱放在正常线水平的渠道，能多回收这么多一级首充金额。红灯按它排序（差最多的在前）；黄灯中「加量后效率下滑」改用「比加量前效率少回收的金额」（近7日消耗 × 首充ROAS 下降幅度）一起排序；绿灯按效率排序</dd>
         <dt>2日 / 3日 / 7日</dt><dd>一级首充ROAS 最近 N 个数据日 vs 再往前 N 个数据日，只作参考，不决定灯号</dd>
         <dt>为什么不用总ROAS</dt><dd>总ROAS 含渠道老用户复充，会随时间自然变好看；两者方向相反时，顶部红条会特别标出</dd>
         <dt>包型</dt><dd>取渠道名称第一段（原生包 / 轻量包 / H5 / PWA）</dd>
@@ -872,20 +873,20 @@ details.rules dd { margin: 0; min-width: 0; }
             lv = 'yel'; act = '减量中，未回正常线';
             if (ch7 != null && ch7 <= -Q_BAND + EPS) note = '减量后首充ROAS 反而再跌，考虑停投';
             else if (rel3 != null && rel3 > 1 - Q_BAND) note = `近3日 ${fPct(r3.ftdRoas)}，已回到正常线附近`;
-          } else { lv = 'red'; act = dir === '加量' ? '质量差还在加量' : '质量差，该减量'; }
+          } else { lv = 'red'; act = dir === '加量' ? '效率差还在加量' : '效率差，该减量'; }
         } else if (dir === '加量' && ch7 != null && ch7 <= -Q_BAND + EPS) {
-          lv = 'yel'; act = '加量后质量下滑';
+          lv = 'yel'; act = '加量后效率下滑';
           if (r3) note = `近3日 ${fPct(r3.ftdRoas)}`;
         } else if (tier === '优' && ch7 != null && ch7 <= -Q_BAND + EPS) {
-          // 质量仍高于正常线，但正在快速下滑：先别加量
-          lv = 'yel'; act = '质量好但在下滑，先别加量';
+          // 效率仍高于正常线，但正在快速下滑：先别加量
+          lv = 'yel'; act = '效率好但在下滑，先别加量';
           if (r3) note = `近3日 ${fPct(r3.ftdRoas)}`;
-        } else if (tier === '优') { lv = 'grn'; act = dir === '加量' ? '加量有效' : '质量好，可加量'; }
+        } else if (tier === '优') { lv = 'grn'; act = dir === '加量' ? '加量有效' : '效率好，可加量'; }
         const cs = p ? causes(c, p) : null;
         // 对比正常线回收差额：同样的钱放在正常线水平，能多（负）/少（正）回收的一级首充金额
         const gap = line != null ? c.cost * (mineIn.ftdRoas - line) : 0;
         // 黄灯排序用的关注金额：加量后下滑 = 比加量前效率少回收的金额；其余 = 比正常线少回收的金额
-        const falling = act === '加量后质量下滑' || act === '质量好但在下滑，先别加量';
+        const falling = act === '加量后效率下滑' || act === '效率好但在下滑，先别加量';
         const drop = falling ? c.cost * (p.ftdRoas - c.ftdRoas) : 0;
         const risk = falling ? drop : -gap;
         if (!enough) { lv = ''; act = ''; }
@@ -960,7 +961,7 @@ details.rules dd { margin: 0; min-width: 0; }
       const top = { id: topId, share: topCost / t.cost, a: topA, name: topA ? topA.c.name : topId };
       const bad = [...b.ch.keys()].map(id => alertOf.get(b.g + '|' + id)).filter(a => a && a.lv === 'red').sort((x, y) => y.c.cost - x.c.cost);
       // 主力渠道状态按它的实际灯号原因描述（黄灯不一定是下滑）
-      const topState = !top.a || !top.a.lv ? '' : top.a.lv === 'red' ? '亮红灯（质量差）' : top.a.drop > 0 ? '正在下滑' : top.a.lv === 'yel' ? '质量偏低（减量追踪中）' : '';
+      const topState = !top.a || !top.a.lv ? '' : top.a.lv === 'red' ? '亮红灯（效率差）' : top.a.drop > 0 ? '正在下滑' : top.a.lv === 'yel' ? '效率偏低（减量追踪中）' : '';
       let verdict = '正常', vlv = '';
       if (tier === '—') verdict = expect == null ? '没有可比的正常线' : cover < 0.5 ? `可比部分只占 ${Math.round(cover * 100)}%，不下判断` : '同包型其他花费的一级首充为 0，无法比较';
       else if (tier === '差') { verdict = '效率偏低，该检讨'; vlv = 'red'; }
@@ -1062,7 +1063,7 @@ details.rules dd { margin: 0; min-width: 0; }
     const freeze = I.alerts.filter(a => a.lv === 'yel' && a.drop > 0);
     const grow = I.alerts.filter(a => a.lv === 'grn');
     const review = I.mediaJudge.filter(j => j.tier === '差' && -j.gap >= 1000);
-    if (reds.length) A.push(`<b>减量</b>（质量差还在花钱）：${list(reds)}`);
+    if (reds.length) A.push(`<b>减量</b>（效率差还在花钱）：${list(reds)}`);
     if (stop.length) A.push(`<b>考虑停投</b>（减量后首充ROAS 反而再跌）：${list(stop)}`);
     if (freeze.length) A.push(`<b>预算冻结、等首充ROAS 回升再说</b>：${list(freeze)}`);
     if (grow.length) A.push(`<b>小步加量测试（+20–30%）</b>：${list(grow)}`);
@@ -1082,6 +1083,31 @@ details.rules dd { margin: 0; min-width: 0; }
     '注册转首充': '找投放部门查流量来源（假量 / 误点）；请产品检查落地页与注册→首充流程',
     '首充客单': '找投放部门换更高价值的受众；营运端检查首充档位与首充活动引导',
   };
+  // 成本 / 质量拆分：一级首充ROAS = 首充客单 ÷ CPA。成本 = CPA，质量 = 首充客单，各自跟同包型其他比（±15%）
+  function costQual(m, o) {
+    if (!(m && o && m.ftd > 0 && o.ftd > 0 && m.cost > 0 && o.cost > 0)) return null;
+    const cpa = m.cost / m.ftd, ocpa = o.cost / o.ftd, arp = m.ftdAmt / m.ftd, oarp = o.ftdAmt / o.ftd;
+    const cRel = cpa / ocpa - 1, qRel = oarp > 0 ? arp / oarp - 1 : null;
+    const cost = cRel >= Q_BAND - EPS ? '过高' : cRel <= -Q_BAND + EPS ? '低' : '正常';
+    const qual = qRel == null ? '—' : qRel <= -Q_BAND + EPS ? '过差' : qRel >= Q_BAND - EPS ? '好' : '正常';
+    return { cpa, ocpa, arp, oarp, cRel, qRel, cost, qual };
+  }
+  // tier = 整体一级首充ROAS 跟同包型比的结果；贵但人好时，靠它判断「抵不抵得过」
+  const quadKind = (q, tier) => !q ? '' : q.cost === '过高' && q.qual === '过差' ? 'both'
+    : q.cost === '过高' && q.qual === '好' ? (tier === '差' ? 'cost' : tier === '中' || tier === '优' ? 'worth' : 'costq')
+    : q.cost === '过高' ? 'cost' : q.qual === '过差' ? 'qual' : q.cost === '低' && q.qual === '好' ? 'best' : '';
+  const quadText = (q, tier) => {
+    const k = quadKind(q, tier);
+    return k === 'both' ? `又贵又差（CPA ${fChg(q.cRel)}，首充客单 ${fChg(q.qRel)}）`
+      : k === 'cost' ? `成本过高（CPA ${fChg(q.cRel)}${q.qual === '好' ? `，首充客单 ${fChg(q.qRel)} 也抵不过` : ''}）`
+      : k === 'worth' ? `贵但人好（CPA ${fChg(q.cRel)}，首充客单 ${fChg(q.qRel)}，整体不吃亏）`
+      : k === 'costq' ? `CPA 偏高 ${fChg(q.cRel)}、首充客单也高 ${fChg(q.qRel)}（整体是否打平无法判断）`
+      : k === 'qual' ? `质量过差（首充客单 ${fChg(q.qRel)}）`
+      : k === 'best' ? '又便宜又好' : '';
+  };
+  const quadLong = q => !q ? '' : `成本：CPA $${q.cpa.toFixed(1)}，同包型 $${q.ocpa.toFixed(1)}（${fChg(q.cRel)}，${q.cost}）；质量：首充客单 $${q.arp.toFixed(1)}，同包型 $${q.oarp.toFixed(1)}（${q.qRel == null ? '—' : fChg(q.qRel)}，${q.qual}）`;
+  const cqCell = (rel, badUp, a, b) => rel == null ? '<td class="n">—</td>' : `<td class="n ${Math.abs(rel) < Q_BAND - EPS ? '' : (badUp ? rel > 0 : rel < 0) ? 'chg-dn' : 'chg-up'}">${fChg(rel)}<br><span class="note">$${a.toFixed(1)} / $${b.toFixed(1)}</span></td>`;
+
   // 一段期间内，每个子总代 vs 同包型其他花费（排除自己）
   function judgeSubs(dsW) {
     const P = new Map(), S = new Map();
@@ -1106,7 +1132,9 @@ details.rules dd { margin: 0; min-width: 0; }
       const Pk = P.get(k), oc = Pk.cost - own.cost, oa = Pk.ftdAmt - own.ftdAmt;
       const line = oc >= LINE_MIN_COST ? oa / oc : null;
       const roas = own.cost > 0 ? own.ftdAmt / own.cost : 0;
-      return { ...derive({ ...c }), id: c.id, name: c.name, line, inRoas: roas, low: line > 0 ? roas <= line * (1 - Q_BAND) + EPS : null };
+      const o = blank(); for (const f in o) o[f] = Pk[f] - own[f];
+      return { ...derive({ ...c }), id: c.id, name: c.name, line, inRoas: roas, low: line > 0 ? roas <= line * (1 - Q_BAND) + EPS : null,
+        cq: oc >= LINE_MIN_COST ? costQual(own, o) : null };
     };
     const out = new Map();
     for (const [key, b] of S) {
@@ -1127,7 +1155,7 @@ details.rules dd { margin: 0; min-width: 0; }
       const rel = expect > 0 && cover >= 0.5 ? actual / expect : null;
       const tier = rel == null ? '—' : rel >= 1 + Q_BAND - EPS ? '优' : rel <= 1 - Q_BAND + EPS ? '差' : '中';
       out.set(key, { key, g: b.g, sub: b.sub, t, expect, actual, cover, rel, tier, gap: rel != null ? ec * (actual - expect) : 0,
-        mine: derive(mine), oth: derive(oth), ch: [...b.ch.values()].map(chanJudge) });
+        mine: derive(mine), oth: derive(oth), cq: ec > 0 ? costQual(mine, oth) : null, ch: [...b.ch.values()].map(chanJudge) });
     }
     return out;
   }
@@ -1180,7 +1208,7 @@ details.rules dd { margin: 0; min-width: 0; }
     if (n >= 7 && I) {
       const last3 = days.slice(n - 3);
       for (const a of I.alerts) {
-        // 本周质量差 / 红灯 / 「先别加量」/ 问题卡点名的差渠道，都不列入加量
+        // 本周效率差 / 红灯 / 「先别加量」/ 问题卡点名的差渠道，都不列入加量
         if (a.line == null || !(a.line > 0) || a.tier === '差' || a.lv === 'red' || /先别加量/.test(a.act) || badIds.has(a.g + '|' + a.c.id)) continue;
         const daily = last3.map(d => { const x = blank(); for (const r of state.db.days[d]) if (r[0] === a.g && r[1] === a.c.id) add(x, r); return derive(x); });
         if (daily.every(x => x.cost >= 100 && x.ftdRoas >= a.line * (1 + Q_BAND) - EPS)) opps.push({ a, daily });
@@ -1208,7 +1236,7 @@ details.rules dd { margin: 0; min-width: 0; }
       }
       emerg.sort((a, b) => b.cost - a.cost);
     }
-    // 子总代一览：昨天 vs 前 7 日日均，本周质量来自 cur
+    // 子总代一览：昨天 vs 前 7 日日均，本周效率来自 cur
     const dayK = days[n - 1], prev7 = n >= 8 ? days.slice(n - 8, n - 1) : days.slice(0, n - 1);
     const subAgg = ds => {
       const m = new Map();
@@ -1257,13 +1285,17 @@ details.rules dd { margin: 0; min-width: 0; }
         : !j || j.tier === '—' ? { lv: '', t: '无可比' }
         : j.tier === '差' ? { lv: 'red', t: !card ? '本周偏低' : card.tag === '本周新出现' ? '本周偏低（新出现）' : card.tag }
         : j.tier === '优' ? { lv: 'grn', t: '本周优于同包型' } : { lv: '', t: '本周正常' };
+      // 可比部分不足、无法判断效率的子总代，不给成本 / 质量结论
+      const cqSub = j && t.cost >= ALERT_MIN_COST && j.tier !== '—' ? j.cq : null;
+      const chJ = new Map(j ? j.ch.map(c => [c.id, c]) : []);
       const chans = [...w.ch.entries()].map(([id, c]) => {
         const cw = derive(c), cdRaw = day && day.ch.get(id), cd = cdRaw ? derive(cdRaw) : derive(blank());
         const cpRaw = prv && prv.ch.get(id), cp = cpRaw ? derive(Object.fromEntries(Object.entries(cpRaw).filter(([k]) => k !== 'name').map(([k, v]) => [k, v / pd]))) : null;
         const al = alertOf.get(g + '|' + id);
-        return { id, name: c.name, w: cw, d: cd, p: cp, act: al && al.lv ? al.act : '', lv: al ? al.lv : '' };
+        return { id, name: c.name, w: cw, d: cd, p: cp, act: al && al.lv ? al.act : '', lv: al ? al.lv : '', cq: cw.cost >= 1000 && chJ.get(id) ? chJ.get(id).cq : null,
+          tier: chJ.get(id) && chJ.get(id).low != null ? (chJ.get(id).low ? '差' : '中') : '—' };
       }).filter(c => c.w.cost >= 100).sort((a, b) => b.w.cost - a.w.cost);
-      ovRows.push({ key, g, sub, media, t, dx, px, j, q, flags, chans });
+      ovRows.push({ key, g, sub, media, t, dx, px, j, q, flags, chans, cq: cqSub });
     }
     // 显示名称重复时（同媒体同包型、不同短名），把短名放进可见文字
     const labCount = new Map(); ovRows.forEach(r => { const l = subLabel(r.sub); labCount.set(l, (labCount.get(l) || 0) + 1); });
@@ -1302,9 +1334,17 @@ details.rules dd { margin: 0; min-width: 0; }
     const top = R.cards[0];
     const unj = R.unjudged.length ? `另有 ${R.unjudged.length} 个子总代（${fK(R.unjudged.reduce((x, v) => x + v.t.cost, 0))}）没有可比的同包型花费（或同包型其他花费的首充为 0），无法判断。` : '';
     let head = R.cards.length
-      ? `本周 ${R.cards.length} 个子总代质量偏低，占消耗 ${R.allCost ? Math.round(badCost / R.allCost * 100) : 0}%，比同包型其他少回收约 ${fK(-badGap)}。最大问题：${esc(subLabel(top.s.sub))}（${esc(top.tag)}${top.drivers.length ? '，差在' + top.drivers.map(x => x.k).join('、') : ''}）。`
+      ? `本周 ${R.cards.length} 个子总代效率偏低，占消耗 ${R.allCost ? Math.round(badCost / R.allCost * 100) : 0}%，比同包型其他少回收约 ${fK(-badGap)}。最大问题：${esc(subLabel(top.s.sub))}（${esc(top.tag)}${top.drivers.length ? '，差在' + top.drivers.map(x => x.k).join('、') : ''}）。`
       : '本周没有可判断为偏低的子总代。';
     head += unj;
+    {
+      const subs = R.ov.rows.filter(r => r.cq);
+      const sum = arr => fK(arr.reduce((x, r) => x + r.t.cost, 0));
+      const kind = k => subs.filter(r => quadKind(r.cq, r.j && r.j.tier) === k);
+      const both = kind('both'), hi = kind('cost'), bad = kind('qual'), worth = kind('worth');
+      const nm = arr => arr.slice(0, 3).map(r => esc(r.label)).join('、') + (arr.length > 3 ? ' 等' : '');
+      head += `成本 / 质量：${both.length ? `又贵又差 ${both.length} 个（${sum(both)}：${nm(both)}）；` : ''}成本过高 ${hi.length} 个${hi.length ? `（${sum(hi)}：${nm(hi)}）` : ''}；质量过差 ${bad.length} 个${bad.length ? `（${sum(bad)}：${nm(bad)}）` : ''}${worth.length ? `；贵但人好、整体不吃亏 ${worth.length} 个（${nm(worth)}）` : ''}。`;
+    }
     if (R.ov.partial) head += `⚠️ ${R.ov.lab.day} 全站消耗只有 ${R.ov.lab.prev} 日均的 ${Math.round(R.ov.totDay.cost / R.ov.totPrev.cost * 100)}%，可能不是完整一天，${R.ov.lab.day} 的栏位仅供参考、当天的变化判断暂停。`;
     head += `符合加量规则 ${R.opps.length} 个；${R.ov.lab.day} 紧急异常${R.ov.partial ? '暂停判断' : ` ${R.emerg.length} 个`}。`;
     $('dHead').innerHTML = head;
@@ -1315,26 +1355,26 @@ details.rules dd { margin: 0; min-width: 0; }
     $('dOvNote').textContent = `（数据日 ${shortDate(R.asOf)}）`;
     $('dCardsH').textContent = `问题清单（${O.lab.week} · 按子总代）`;
     const L = O.lab, vs = `比 ${L.prev}<br> 日均`;
-    let ov = `<div class="scroll"><table><thead><tr><th>媒体</th><th>子总代</th><th>${L.day} 消耗</th><th>${vs}</th><th>${L.day} 注册</th><th>${vs}</th><th>${L.day} 首充</th><th>${vs}</th><th>${L.day} 首充ROAS</th><th>${L.week} 消耗</th><th>${L.week} 首充ROAS</th><th>同包型其他<br>（${L.week}）</th><th>一句话</th></tr></thead><tbody>`;
+    let ov = `<div class="scroll"><table><thead><tr><th>媒体</th><th>子总代</th><th>${L.day} 消耗</th><th>${vs}</th><th>${L.day} 注册</th><th>${vs}</th><th>${L.day} 首充</th><th>${vs}</th><th>${L.day} 首充ROAS</th><th>${L.week} 消耗</th><th>${L.week} 首充ROAS</th><th>同包型其他<br>（${L.week}）</th><th>成本：CPA<br>比同包型</th><th>质量：首充客单<br>比同包型</th><th>一句话</th></tr></thead><tbody>`;
     const T0 = O.totDay, TP = O.totPrev;
-    ov += `<tr class="total"><td colspan="2">全站投放合计</td><td class="n">${fMoney(T0.cost)}</td>${cg(T0.cost, TP.cost)}<td class="n">${fInt(T0.reg)}</td>${cg(T0.reg, TP.reg)}<td class="n">${fInt(T0.ftd)}</td>${cg(T0.ftd, TP.ftd)}<td class="n">${fPct(T0.ftdRoas)}</td><td class="n">${fMoney(O.totW.cost)}</td><td class="n">${fPct(O.totW.ftdRoas)}</td><td></td><td>${O.partial ? `⚠️ ${L.day} 全站消耗只有 ${L.prev} 日均的 ${Math.round(T0.cost / TP.cost * 100)}%，可能不是完整一天` : ''}</td></tr>`;
+    ov += `<tr class="total"><td colspan="2">全站投放合计</td><td class="n">${fMoney(T0.cost)}</td>${cg(T0.cost, TP.cost)}<td class="n">${fInt(T0.reg)}</td>${cg(T0.reg, TP.reg)}<td class="n">${fInt(T0.ftd)}</td>${cg(T0.ftd, TP.ftd)}<td class="n">${fPct(T0.ftdRoas)}</td><td class="n">${fMoney(O.totW.cost)}</td><td class="n">${fPct(O.totW.ftdRoas)}</td><td></td><td></td><td></td><td>${O.partial ? `⚠️ ${L.day} 全站消耗只有 ${L.prev} 日均的 ${Math.round(T0.cost / TP.cost * 100)}%，可能不是完整一天` : ''}</td></tr>`;
     let lastMedia = null;
     O.rows.forEach((r, i) => {
-      if (r.media !== lastMedia) { ov += `<tr class="mgrp"><td colspan="13">${esc(r.media)}</td></tr>`; lastMedia = r.media; }
+      if (r.media !== lastMedia) { ov += `<tr class="mgrp"><td colspan="15">${esc(r.media)}</td></tr>`; lastMedia = r.media; }
       const lab = esc(r.label);
-      const one = [r.q.lv === 'red' ? '🔴 ' + r.q.t : r.q.lv === 'grn' ? '🟢 ' + r.q.t : r.q.t, ...r.flags].join('；');
+      const one = [quadText(r.cq, r.j && r.j.tier), r.q.lv === 'red' ? '🔴 ' + r.q.t : r.q.lv === 'grn' ? '🟢 ' + r.q.t : r.q.t, ...r.flags].filter(Boolean).join('；');
       const p = r.px || {};
       ov += `<tr><td></td><td>${r.chans.length ? `<button type="button" class="tg" data-k="${i}" aria-label="展开渠道">▸</button>` : ''}${lab} <span class="note" title="${esc(r.sub)}">${r.chans.length} 个渠道</span></td>` +
         `<td class="n">${fMoney(r.dx.cost)}</td>${cg(r.dx.cost, p.cost)}<td class="n">${fInt(r.dx.reg)}</td>${cg(r.dx.reg, p.reg)}<td class="n">${fInt(r.dx.ftd)}</td>${cg(r.dx.ftd, p.ftd)}` +
-        `<td class="n">${r.dx.cost > 0 ? fPct(r.dx.ftdRoas) : '—'}</td><td class="n">${fMoney(r.t.cost)}</td><td class="n">${fPct(r.t.ftdRoas)}${r.j && r.j.actual != null && r.j.cover < 0.999 ? `<br><span class="note">可比部分 ${fPct(r.j.actual)}（占 ${Math.round(r.j.cover * 100)}%）</span>` : ''}</td><td class="n">${r.j && r.j.expect != null ? fPct(r.j.expect) : '—'}</td><td>${esc(one)}</td></tr>`;
+        `<td class="n">${r.dx.cost > 0 ? fPct(r.dx.ftdRoas) : '—'}</td><td class="n">${fMoney(r.t.cost)}</td><td class="n">${fPct(r.t.ftdRoas)}${r.j && r.j.actual != null && r.j.cover < 0.999 ? `<br><span class="note">可比部分 ${fPct(r.j.actual)}（占 ${Math.round(r.j.cover * 100)}%）</span>` : ''}</td><td class="n">${r.j && r.j.expect != null ? fPct(r.j.expect) : '—'}</td>${r.cq ? (cqCell(r.cq.cRel, true, r.cq.cpa, r.cq.ocpa) + cqCell(r.cq.qRel, false, r.cq.arp, r.cq.oarp)).replace(/<\/td>/g, r.j.cover < 0.999 ? '<br><span class="note">（可比部分）</span></td>' : '</td>') : '<td class="n">—</td><td class="n">—</td>'}<td>${esc(one)}</td></tr>`;
       for (const c of r.chans) {
         const cp = c.p || {};
         ov += `<tr class="child" data-p="${i}" hidden><td></td><td>　${esc(c.name)}（${esc(c.id)}）</td><td class="n">${fMoney(c.d.cost)}</td>${cg(c.d.cost, cp.cost)}<td class="n">${fInt(c.d.reg)}</td>${cg(c.d.reg, cp.reg)}<td class="n">${fInt(c.d.ftd)}</td>${cg(c.d.ftd, cp.ftd)}` +
-          `<td class="n">${c.d.cost > 0 ? fPct(c.d.ftdRoas) : '—'}</td><td class="n">${fMoney(c.w.cost)}</td><td class="n">${fPct(c.w.ftdRoas)}</td><td></td><td>${c.lv ? `<span class="lv lv-${c.lv}">${{ red: '红', yel: '黄', grn: '绿' }[c.lv]}</span> ${esc(c.act)}` : ''}</td></tr>`;
+          `<td class="n">${c.d.cost > 0 ? fPct(c.d.ftdRoas) : '—'}</td><td class="n">${fMoney(c.w.cost)}</td><td class="n">${fPct(c.w.ftdRoas)}</td><td></td>${c.cq ? cqCell(c.cq.cRel, true, c.cq.cpa, c.cq.ocpa) + cqCell(c.cq.qRel, false, c.cq.arp, c.cq.oarp) : '<td class="n">—</td><td class="n">—</td>'}<td>${[quadText(c.cq, c.tier) ? esc(quadText(c.cq, c.tier)) : '', c.lv ? `<span class="lv lv-${c.lv}">${{ red: '红', yel: '黄', grn: '绿' }[c.lv]}</span> ${esc(c.act)}` : ''].filter(Boolean).join('；')}</td></tr>`;
       }
     });
     const NP = O.nonPaid;
-    ov += `<tr class="mgrp"><td colspan="13">非投放（官方 / 商店包 / 社媒等）</td></tr><tr><td></td><td>非投放合计</td><td class="n">—</td><td class="n">—</td><td class="n">${fInt(NP.day.reg)}</td>${cg(NP.day.reg, NP.prevReg)}<td class="n">${NP.day.has ? fInt(NP.day.ftd) : '—'}</td>${NP.day.has && NP.prevFtd != null ? cg(NP.day.ftd, NP.prevFtd) : '<td class="n">—</td>'}<td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td>${NP.day.has ? '' : '首充需重新上传原档才有'}</td></tr>`;
+    ov += `<tr class="mgrp"><td colspan="15">非投放（官方 / 商店包 / 社媒等）</td></tr><tr><td></td><td>非投放合计</td><td class="n">—</td><td class="n">—</td><td class="n">${fInt(NP.day.reg)}</td>${cg(NP.day.reg, NP.prevReg)}<td class="n">${NP.day.has ? fInt(NP.day.ftd) : '—'}</td>${NP.day.has && NP.prevFtd != null ? cg(NP.day.ftd, NP.prevFtd) : '<td class="n">—</td>'}<td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td>${NP.day.has ? '' : '首充需重新上传原档才有'}</td></tr>`;
     $('dOverview').innerHTML = ov + '</tbody></table></div>';
 
     const who = c => `${esc(c.name)}（${esc(c.id)}）`;
@@ -1342,8 +1382,9 @@ details.rules dd { margin: 0; min-width: 0; }
       const s = c.s, items = [];
       items.push(`本周 ${fK(s.t.cost)}，一级首充ROAS ${fPct(s.actual)}，同包型其他 ${fPct(s.expect)} → 每周少回收约 ${fK(-s.gap)}${s.cover < 0.999 ? `（可比部分占 ${Math.round(s.cover * 100)}%）` : ''}`);
       if (c.trend.length > 1) items.push(`近 ${c.trend.length} 周一级首充ROAS：${c.trend.join(' → ')}`);
+      if (s.cq) items.push(`问题类型：<b>${esc(quadText(s.cq, s.tier) || '成本、质量各自都没超过 15% 门槛，但合起来让一级首充ROAS 偏低')}</b>。${quadLong(s.cq)}`);
       items.push(c.drivers.length
-        ? `差在：${c.drivers.map(x => x.t).join('；')}${c.fine.length ? `。${c.fine.join('、')}正常` : ''}`
+        ? `细拆：${c.drivers.map(x => x.t).join('；')}${c.fine.length ? `。${c.fine.join('、')}正常` : ''}`
         : '三段都没有明显偏低，差距主要来自渠道组合（见预算分布）');
       c.drivers.forEach((x, i) => items.push(`要求${c.drivers.length > 1 ? '（' + (i + 1) + '）' : ''}：${PLAYBOOK[x.k]}`));
       const sc = s.t.cost;
@@ -1384,7 +1425,7 @@ details.rules dd { margin: 0; min-width: 0; }
     $('insAsOf').textContent = `（数据日 ${shortDate(I.asOf)}）`;
     const lines = insightLines(I);
     $('banner').hidden = !I.bannerGroups.length;
-    $('banner').textContent = I.bannerGroups.length ? `⚠️ 新客质量在下滑：${I.bannerGroups.join('；')}。总ROAS 的上升来自复充、不是首充——不能拿总ROAS 估算今天加预算买进来的新客回收。` : '';
+    $('banner').textContent = I.bannerGroups.length ? `⚠️ 新客效率在下滑：${I.bannerGroups.join('；')}。总ROAS 的上升来自复充、不是首充——不能拿总ROAS 估算今天加预算买进来的新客回收。` : '';
     if (days.length < 14) lines.push(`<b>数据天数</b>：目前 ${days.length} 个数据日；7日 vs 前7日 的灯号与对比需要至少 14 个数据日，在那之前不作判断`);
     $('insights').innerHTML = (lines.length ? lines : ['数据不足 2 天，还无法比较变化']).map(l => `<li>${l}</li>`).join('');
     const acts = actionLines(I);
@@ -1407,10 +1448,10 @@ details.rules dd { margin: 0; min-width: 0; }
 
     const flagged = I.alerts.filter(a => a.lv);
     if (days.length < 14) $('alerts').innerHTML = `<div class="empty"><strong>还无法评估</strong><span>需要至少 14 个数据日（目前 ${days.length} 天）才能比较近7日与前7日</span></div>`;
-    else if (!flagged.length) $('alerts').innerHTML = `<div class="empty"><strong>没有亮灯的渠道</strong><span>纳入判断的 ${I.eligible} 个渠道都没有触发红黄绿灯（质量在正常线 ±15% 内、或同包型无其他渠道可比，且没有明显下滑）</span></div>`;
+    else if (!flagged.length) $('alerts').innerHTML = `<div class="empty"><strong>没有亮灯的渠道</strong><span>纳入判断的 ${I.eligible} 个渠道都没有触发红黄绿灯（效率在正常线 ±15% 内、或同包型无其他渠道可比，且没有明显下滑）</span></div>`;
     else {
       const LV = { red: '红', yel: '黄', grn: '绿' };
-      let a = '<div class="scroll"><table><thead><tr><th>灯号</th><th>判断</th><th>总代</th><th>渠道ID</th><th>渠道名称</th><th>包型</th><th>近7日消耗</th><th>消耗变化</th><th>一级首充ROAS<br>近7日</th><th>正常线<br>（同包型其他渠道）</th><th>质量</th><th>对比正常线<br>回收差额</th><th>首充ROAS<br>7日变化</th><th>3日变化</th><th>2日变化</th><th>首充人数<br>7日变化</th><th>首充ROAS 变化主因</th><th>备注</th></tr></thead><tbody>';
+      let a = '<div class="scroll"><table><thead><tr><th>灯号</th><th>判断</th><th>总代</th><th>渠道ID</th><th>渠道名称</th><th>包型</th><th>近7日消耗</th><th>消耗变化</th><th>一级首充ROAS<br>近7日</th><th>正常线<br>（同包型其他渠道）</th><th>效率</th><th>对比正常线<br>回收差额</th><th>首充ROAS<br>7日变化</th><th>3日变化</th><th>2日变化</th><th>首充人数<br>7日变化</th><th>首充ROAS 变化主因</th><th>备注</th></tr></thead><tbody>';
       for (const x of flagged) {
         a += `<tr><td><span class="lv lv-${x.lv}">${LV[x.lv]}</span></td><td>${esc(x.act)}</td><td>${gName(x.g)}</td><td class="c">${esc(x.c.id)}</td><td>${esc(x.c.name)}</td><td>${esc(x.pkg)}</td>` +
           `<td class="n">${fMoney(x.c.cost)}</td><td class="n">${x.sc == null ? '新投' : `${x.dir} ${fChg(x.sc)}`}</td>` +
@@ -1438,7 +1479,7 @@ details.rules dd { margin: 0; min-width: 0; }
     if (!I.enough || !I.mediaJudge.length) $('mjudge').innerHTML = `<div class="empty"><strong>还无法评估</strong><span>需要至少 14 个数据日，且媒体 × 总代 近7日消耗 ≥ $3,000</span></div>`;
     else {
       const LV = { red: '<span class="lv lv-red">差</span>', yel: '<span class="lv lv-yel">注意</span>', grn: '<span class="lv lv-grn">好</span>', '': '' };
-      let j = '<div class="scroll"><table><thead><tr><th></th><th>总代</th><th>媒体</th><th>近7日消耗</th><th>一级首充ROAS</th><th>按包型组合<br>应有水平</th><th>质量</th><th>对比应有水平<br>回收差额</th><th>花最多的渠道（占比 · 灯号）</th><th>判断</th></tr></thead><tbody>';
+      let j = '<div class="scroll"><table><thead><tr><th></th><th>总代</th><th>媒体</th><th>近7日消耗</th><th>一级首充ROAS</th><th>按包型组合<br>应有水平</th><th>效率</th><th>对比应有水平<br>回收差额</th><th>花最多的渠道（占比 · 灯号）</th><th>判断</th></tr></thead><tbody>';
       for (const x of I.mediaJudge) {
         const top = `${esc(x.top.name)}（${esc(x.top.id)}，${Math.round(x.top.share * 100)}%${x.top.a && x.top.a.act ? ' · ' + esc(x.top.a.act) : ''}）`;
         j += `<tr><td>${LV[x.vlv]}</td><td>${gName(x.g)}</td><td>${esc(x.m)}</td><td class="n">${fMoney(x.t.cost)}</td><td class="n">${fPct(x.t.ftdRoas)}${x.cover < 0.999 && x.actual != null ? `<br><span class="note">可比部分 ${fPct(x.actual)}（占 ${Math.round(x.cover * 100)}%）</span>` : ''}</td>` +

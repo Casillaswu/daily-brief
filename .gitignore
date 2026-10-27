@@ -6,6 +6,7 @@
 
 # 白名單：只發佈 docs/（GitHub Pages 只支援 /(root) 或 /docs）
 !.gitignore
+!CLAUDE.md
 !docs/
 !docs/**
 

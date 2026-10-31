@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Competitor Weekly · MX-W44 · Mexico iGaming</title>
+<style>
+:root{
+  --ink:#1f1d1a; --ink-2:#4a4742; --ink-3:#8a857d;
+  --paper:#fff; --paper-2:#f7f5f1;
+  --rule:#d9d4cb; --rule-2:#ebe6dd;
+  --hi:#fff3a6;
+  --pos:#c9e4cf; --pos-ink:#2f6b3b;
+  --neu:#e1dfd9; --neu-ink:#5b574e;
+  --neg:#f1c9c5; --neg-ink:#8a3a33;
+  --warn:#fce8c2; --warn-ink:#8a5f1a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+body{
+  background:#f0eee9;
+  font-family:Arial,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);min-height:100vh;font-size:13px;line-height:1.65;
+}
+a{color:inherit;}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.hi{background:var(--hi);padding:0 2px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.shell{max-width:1320px;margin:0 auto;background:#fff;}
+
+.mast{background:#1f1d1a;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.mast .mark{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;border:1px solid rgba(255,255,255,.4);padding:6px 10px;flex:none;}
+.mast .ttl{flex:1;min-width:200px;}
+.mast .ttl h1{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+.mast .ttl .sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;}
+.mast .logos{display:flex;gap:5px;flex:none;flex-wrap:wrap;}
+.mast .lang{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:2px;flex:none;}
+.mast .lang a,.mast .lang button{border:none;background:none;cursor:pointer;padding:5px 12px;border-radius:99px;color:rgba(255,255,255,.7);font:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;line-height:1;}
+.mast .lang .active{background:#fff;color:var(--ink);}
+.logo{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(0,0,0,.06);flex:none;}
+.logo.closed{opacity:.4;text-decoration:line-through;}
+
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+.body{padding:8px 32px 32px;}
+
+.sec{margin-top:32px;scroll-margin-top:60px;}
+.sec-lbl{margin-bottom:10px;}
+.sec-lbl .chip{background:var(--ink);color:#fff;font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.06em;margin-right:8px;}
+.sec-lbl .en{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+.sec-lbl h2{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-top:8px;}
+.sec-lbl .rule{height:2px;background:var(--ink);margin-top:10px;}
+.sec-deck{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.exec{margin-top:24px;}
+.exec h3{font-size:30px;font-weight:800;letter-spacing:-.015em;line-height:1.4;max-width:90%;}
+.exec h3 .line{display:block;}
+.exec h3 .line + .line{margin-top:6px;}
+.exec p.deck{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin-top:18px;max-width:80%;}
+.exec p.deck b{color:var(--ink);}
+.exec p.deck + p.deck{margin-top:12px;}
+.exec p.deck em{font-style:normal;color:var(--ink-3);font-size:11.5px;}
+.exec .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.exec .axis{border-left:3px solid var(--ink);padding:8px 14px;font-size:12px;color:var(--ink-2);line-height:1.7;}
+.exec .axis b{color:var(--ink);display:block;margin-bottom:2px;}
+
+.kpi{margin-top:14px;border:1px solid var(--ink);display:grid;grid-template-columns:minmax(170px,1.2fr) .8fr .8fr 1.1fr 1fr 1.5fr;}
+.kpi .head{background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);text-transform:uppercase;font-weight:800;border-bottom:2px solid var(--ink);padding:12px;}
+.kpi .cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px;font-size:12px;line-height:1.6;}
+.kpi .cell:nth-child(6n){border-right:none;}
+.kpi .name{display:flex;align-items:flex-start;gap:10px;flex-direction:column;}
+.kpi .name b{font-size:13px;display:block;}
+.kpi .name .grp{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;letter-spacing:.05em;display:block;margin-top:1px;}
+.kpi .name .status{padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace;display:inline-block;margin-top:5px;}
+.kpi .name .status-hot{background:#1f1d1a;color:#fff;}
+.kpi .name .status-active{background:#fbe3b3;color:#8a5f1a;}
+.kpi .name .status-alert{background:var(--neg);color:var(--neg-ink);}
+.kpi .name .status-cold{background:#d6e4f0;color:#2A5FAA;}
+.kpi .name .status-closed{background:#2b2b2b;color:#bbb;}
+.kpi .cell.closed{color:var(--ink-3);font-style:italic;}
+.kpi .big{font-weight:800;font-size:16px;}
+.trend{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:3px;font-size:10.5px;font-weight:700;}
+.trend.up{background:var(--pos);color:var(--pos-ink);}
+.trend.down{background:var(--neg);color:var(--neg-ink);}
+.trend.flat{background:var(--neu);color:var(--neu-ink);}
+.trend.new{background:#1f1d1a;color:#fff;}
+.bar{height:8px;background:var(--rule-2);border-radius:2px;overflow:hidden;margin-top:6px;}
+.bar > i{display:block;height:100%;}
+.sev{padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;}
+.sev.high{background:var(--neg);color:var(--neg-ink);}
+.sev.mid{background:var(--neu);color:var(--neu-ink);}
+.sev.low{background:var(--pos);color:var(--pos-ink);}
+
+.strat{margin-top:14px;background:#1f1d1a;color:#fff;padding:26px 30px;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);}
+.qa.full{grid-column:1/-1;}
+.qa .q{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.qa .q .qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+.qa .a{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.92);}
+.qa .a b{color:#fff;}
+.qa .a p{margin-bottom:6px;}
+.qa .src{display:block;color:rgba(255,255,255,.45);font-size:10.5px;margin-top:6px;}
+.qa .src a{color:rgba(255,255,255,.6);}
+
+.radar{margin-top:14px;background:#1f1d1a;color:#fff;padding:24px;}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.radar-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.radar-head .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:800;margin-bottom:4px;}
+.radar-head .sub{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.radar-head .self-pick{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.radar-head .self-pick .pick-lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:800;}
+.vssel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 32px 9px 14px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4 L5 7 L8 4' fill='none' stroke='white' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 10px center;}
+.vssel option{background:#1f1d1a;color:#fff;}
+.vsbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.vsbtns button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.vsbtns button:hover{background:rgba(255,255,255,.18);}
+.vsbtns button.active{background:#fff;color:var(--ink);}
+.vsbtns button i{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.radar-body{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;}
+.radar-body .grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px 16px;font-size:12.5px;}
+.radar-body .grid span:nth-child(4n+1),.radar-body .grid span:nth-child(4n+3){color:rgba(255,255,255,.55);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;}
+.radar-body .grid span:nth-child(4n+2),.radar-body .grid span:nth-child(4n+0){font-weight:700;}
+.radar-body .legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;}
+.radar-body .legend span{display:inline-flex;align-items:center;gap:6px;}
+.radar-body .legend i{width:12px;height:12px;display:inline-block;border-radius:2px;}
+.radar svg{width:100%;max-width:380px;display:block;margin:0 auto;}
+.radar-note{margin-top:12px;background:rgba(255,255,255,.05);border-left:3px solid rgba(255,255,255,.4);padding:10px 14px;font-size:11.5px;color:rgba(255,255,255,.8);line-height:1.65;}
+.radar-note b{color:#fff;}
+
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px;margin-top:14px;}
+.mcard{border:1px solid var(--rule);border-top-width:4px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:9px;scroll-margin-top:60px;}
+.mcard .top{display:flex;align-items:center;gap:8px;}
+.mcard .top .meta{flex:1;}
+.mcard .top .meta b{font-size:12px;font-weight:700;display:block;}
+.mcard .top .meta span{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;}
+.mcard h4{font-size:14px;font-weight:700;line-height:1.5;}
+.mcard .detail{font-size:12px;line-height:1.7;color:var(--ink-2);}
+.mcard table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px;}
+.mcard table th{text-align:left;padding:4px 6px;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--rule);}
+.mcard table td{padding:5px 6px;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.mcard .warn{padding:8px 12px;background:var(--warn);border-left:3px solid var(--warn-ink);font-size:11.5px;color:var(--warn-ink);line-height:1.6;}
+.mcard .warn b{color:var(--warn-ink);}
+.mcard .social{padding:7px 12px;background:var(--paper-2);border-left:3px solid var(--ink-3);font-size:11px;color:var(--ink-2);line-height:1.6;}
+.mcard .src{font-size:11px;color:var(--ink-3);line-height:1.6;}
+.mcard .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-3);}
+.mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;}
+.mcard .impact b{color:var(--ink);font-weight:700;}
+
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:80px 18px 90px 130px 1fr 60px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--ink-2);}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+.impl-meth{margin-top:14px;background:var(--paper-2);border-left:3px solid var(--ink);padding:14px 18px;font-size:12px;line-height:1.75;color:var(--ink-2);}
+.impl-meth h6{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.06em;margin-bottom:6px;}
+.impl-meth b{color:var(--ink);}
+.impl-meth ul{list-style:none;padding:0;margin-top:6px;display:flex;flex-direction:column;gap:6px;}
+.impl-meth li{padding-left:14px;position:relative;}
+.impl-meth li::before{content:"·";position:absolute;left:2px;color:var(--ink-3);font-weight:800;}
+.impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
+.impl .col.threat{border-top-color:var(--neg-ink);}
+.impl .col.opp{border-top-color:var(--pos-ink);}
+.impl .col h5{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:18px;}
+.impl .col h5 .dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none;}
+.impl .col.threat h5 .dot{background:var(--neg-ink);}
+.impl .col.opp h5 .dot{background:var(--pos-ink);}
+.impl .col h5 .en{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);font-weight:800;text-transform:uppercase;}
+.impl .col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.impl .col li{display:block;padding:14px 16px;background:var(--paper-2);border-left:3px solid;font-size:12.5px;line-height:1.8;color:var(--ink-2);}
+.impl .col.threat li{border-left-color:var(--neg-ink);}
+.impl .col.opp li{border-left-color:var(--pos-ink);}
+.impl .col li b{color:var(--ink);}
+.impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
+
+.footer{margin-top:32px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;}
+.fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
+.fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
+.fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px 22px;align-items:start;}
+.srcs span{position:relative;display:block;padding-left:16px;font-size:11.5px;line-height:1.6;color:var(--ink-2);text-wrap:pretty;}
+.srcs i{position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;}
+.srcs i.ok{background:var(--pos-ink);}
+.srcs i.partial{background:#c96442;}
+.srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
+.fcard ol{padding:0;list-style:none;}
+.fcard ol li{font-size:12px;line-height:1.75;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;}
+.fcard ol li .n{color:#c96442;font-weight:700;font-family:ui-monospace,Menlo,monospace;flex:none;}
+.colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
+.colophon b{color:var(--ink);letter-spacing:.16em;}
+
+@media (max-width:1023px){
+  .body{padding:8px 24px 28px;}
+  .mast{padding:18px 24px;}
+  .subnav{padding:8px 24px;font-size:10.5px;}
+  .kpi{grid-template-columns:1fr;}
+  .kpi .head{display:none;}
+  .kpi .cell{border-right:none;display:grid;grid-template-columns:120px 1fr;gap:8px;}
+  .kpi .cell::before{content:attr(data-lbl);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;}
+  .kpi .cell:nth-child(6n+1)::before{display:none;}
+  .kpi .name{grid-column:1/-1;}
+  .radar-body{grid-template-columns:1fr;}
+  .impl{grid-template-columns:1fr;gap:18px;}
+  .footer{grid-template-columns:1fr;}
+  .qa-grid{grid-template-columns:1fr;}
+  .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:60px 14px 80px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
+  .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
+  .exec .axes{grid-template-columns:1fr;}
+  .sec-lbl h2{font-size:18px;}
+}
+@media (max-width:767px){
+  .body{padding:6px 16px 24px;}
+  .mast{padding:16px;gap:12px;}
+  .mast .ttl h1{font-size:18px;}
+  .subnav{padding:6px 16px;}
+  .strat{padding:18px 16px;}
+  .exec h3{font-size:19px;}
+}
+@media print{
+  body{background:#fff;}
+  .shell{max-width:none;}
+  .vssel,.vsbtns,.subnav{display:none;}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+  .mast .mark{border-color:#000;}
+  .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
+  .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+
+/* wrap-fix v1 */
+.nbk{white-space:nowrap;}
+/* 标题：自动平衡各行长度，避免末行只剩一两个字 */
+h1,h2,h3,h4,h5,h6,.mast .ttl h1,.sec-lbl h2,.mcard h4,.fcard h5,.radar-head .lbl,.wk .id{
+  text-wrap:balance;
+}
+/* 正文：避免寡行（末行孤字），并允许超长 URL / 英文词在容器内换行 */
+p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .social,
+.mcard .impact,.trow .desc,.kpi .cell,.strat .a p,.radar-note,.radar-formula td,
+.fcard p,.fcard ol li,.impl li,.impl-meth li,.srcs em,.wk .sum .ax{
+  text-wrap:pretty;
+  overflow-wrap:break-word;
+}
+/* 数据源说明独占一行，不与来源名单抢断点 */
+.srcs em{display:block;margin-top:1px;line-height:1.55;}
+/* 出处链接列：长标题在容器内断，不撑破卡片 */
+.mcard .src a,.strat .a .src a{overflow-wrap:break-word;}
+@media (max-width:767px){
+  .srcs{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="mast">
+  <div class="mark">COMPETITOR // BRIEF</div>
+  <div class="ttl">
+    <h1>MX-W44 · Mexico iGaming Competitor Weekly</h1>
+    <div class="sub">Issue date Sat 2026/10/31 · Window: 10/25-10/31 review, 11/1-11/7 outlook · 10-brand watch list + offshore group · Client X = Betroia</div>
+  </div>
+  <div class="lang" aria-label="Language">
+    <a href="2026-mxW44.html">中</a>
+    <button class="active" aria-current="page">EN</button>
+  </div>
+  <div class="logos">
+    <span class="logo" style="background:#D7192D" title="Caliente">CA</span>
+    <span class="logo" style="background:#6A2C91" title="Playdoit">PD</span>
+    <span class="logo" style="background:#8C6D1F" title="Winner">WN</span>
+    <span class="logo" style="background:#1E5E34" title="Brazino777">B7</span>
+    <span class="logo" style="background:#F26B21" title="Betmaster">BM</span>
+    <span class="logo" style="background:#2E9E5B" title="BetMexico">BX</span>
+    <span class="logo" style="background:#7B3FE4" title="Jugabet">JB</span>
+    <span class="logo" style="background:#E0A800" title="Winpot">WP</span>
+    <span class="logo" style="background:#006847" title="teammexico">TM</span>
+    <span class="logo" style="background:#0055A4" title="Sportiumbet">SP</span>
+  </div>
+</header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>Jump to</b>
+  <a href="#briefing">▲ TOP 5</a>
+  <a href="#promo">§02 Promos</a>
+  <a href="#pr">§03 PR</a>
+  <a href="#product">§04 Product</a>
+  <a href="#marketing">§05 Marketing</a>
+  <a href="#voice">§06 Risk</a>
+  <a href="#strategic">§07 Insights</a>
+  <a href="#radar">App. Radar</a>
+  <a href="#timeline">App. Timeline</a>
+  <a href="#implications">App. Scenarios</a>
+</nav>
+
+<div class="body">
+
+  <section class="sec exec" id="briefing">
+    <div class="sec-lbl">
+      <span class="chip">▲</span><span class="en">Executive Briefing</span>
+      <h2>Top 3 this week</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="deck"><b>1. Betmaster's deposit bonus climbs to 150%.</b> Deposits one to five pay 10%, 20%, 30%, 50% and 150%, each capped at $18,000, minimum deposit $900 each time, wagering x10, x20, x30, x45 and x50; the page gives no start or end date. Evidence A. <b>Read:</b> the richer bonus and the higher wagering both sit on later deposits, so it targets players who keep depositing, not players who claim and leave. Whether this is new this week cannot be told: there is no earlier reading of the same page. Source: <a href="https://betmaster.com.mx/es-mx/offers">Betmaster offers page (read 10/31)</a></p>
+    <p class="deck"><b>2. The Senate passed the 2027 revenue law; IEPS stays at 50%.</b> The vote was 79 to 34, and neither Expansión nor Excélsior mentions gambling. Expansión (10/7) says the 2027 law projects this IEPS falling from 8,486 to 4,318 million pesos because the 40% Lotería Nacional stimulus is expected to continue. Evidence B. <b>Read:</b> no tax change and no new cost reaches online operators. The law text was not read. Sources: <a href="https://expansion.mx/economia/2026/10/27/senado-aprueba-ley-ingresos-derechos">Expansión 10/27</a> · <a href="https://www.excelsior.com.mx/nacional/senado-aprueba-ley-ingresos-2027-preve-captar-mas-10-billones-pesos">Excélsior 10/27</a> · <a href="https://expansion.mx/economia/2026/10/07/ieps-videojuegos-violencia-sorteos-estimulo-2027">Expansión 10/7</a></p>
+    <p class="deck"><b>3. No new regulatory or relaunch news this week.</b> Segob's new gambling law is still with the Security Cabinet and about 20 casinos remain under investigation, with nothing newer since 10/13; after the 10/22 ruling for bet365 and Betano, no judgment text or relaunch date was found. Evidence B. Sources: <a href="https://www.elimparcial.com/dinero/2026/10/13/la-reforma-a-la-ley-federal-de-juegos-y-sorteos-un-obstaculo-para-el-sector-del-juego-y-las-apuestas-deportivas-onlinep/">El Imparcial 10/13</a> · <a href="https://focusgn.com/latinoamerica/panorama-semanal-2026-10-09">Focus 10/9</a> · <a href="https://elceo.com/negocios/bet365-betano-ganador-azteca-ganan-amparo-tribunal-colegiado-para-reanudar-actividades/">El CEO 10/23</a></p>
+    <div class="impl-meth" style="margin-top:14px">
+      <h6>Five business questions (facts and inference apart)</h6>
+      <ul>
+        <li><b>Who is competing for new players:</b> Fact: Betmaster's five-step deposit bonus (see 1); BetMexico's promotions page lists a welcome bonus, with amount and wagering not shown. Inference: Caliente, Betmaster, Brazino777 and Jugabet all push welcome-offer copy on Meta, but their current terms were not read this week, so no conclusion is drawn.</li>
+        <li><b>Who is raising value of existing players:</b> BetMexico lists Combo Boost and early-payout offers across several sports; terms not read.</li>
+        <li><b>Who is strengthening brand and product:</b> No new endorsement, sponsorship or product notice found in the window. Yogonet (10/29) reports a multi-brand Pragmatic Play and Logrand deal; headline only.</li>
+        <li><b>Who is repositioning:</b> No new evidence this week.</li>
+        <li><b>Next market shifts:</b> Liguilla opens 11/25, the anti-money-laundering deadline is 11/30, whether Segob sends the new law, and whether bet365 and Betano return.</li>
+      </ul>
+    </div>
+    <div class="impl-meth">
+      <h6>Not read this issue</h6>
+      <ul>
+        <li>Site terms for Caliente, Winner and teammexico; Winpot, Playdoit, Sportiumbet; Jugabet (Mexican IPs only); Brazino777 returned a region-block page. These are logged as not checked, which is not the same as no new activity.</li>
+        <li>Official X accounts (last pulled 10/17), Instagram, TikTok, Facebook and Reddit were not obtained.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="promo">
+    <div class="sec-lbl">
+      <span class="chip">§02</span><span class="en">Promotions & CRM</span>
+      <h2>Promotions and membership</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">Each card records one event with the terms actually read, a judgment and the evidence limits. Only terms read on a brand's own page count as terms; ad copy does not.</div>
+    <div class="moves">
+      <div class="mcard" style="border-top-color:#F26B21">
+        <div class="top"><div class="meta"><b>Betmaster · Casino</b><span>Promotions · deposit ladder</span></div><span class="sev mid">New or not unknown</span></div>
+        <div class="detail"><b>Date:</b> No start or end date on the page; read 10/31</div>
+        <div class="detail"><b>Terms read:</b> 'Competición de Bonos de Depósito Diario de Casino': deposits one to five pay 10%, 20%, 30%, 50% and 150%, each capped at $18,000; minimum deposit $900 each time; wagering x10, x20, x30, x45 and x50.</div>
+        <div class="detail"><b>Purpose (judgment):</b> Turn one-time claimers into repeat depositors; the wagering rises with the percentage and absorbs part of the cost.</div>
+        <div class="detail"><b>Operating meaning (judgment):</b> Paid traffic from the same audience can be pulled by a ladder like this; Betroia's first response is to check its own retention rather than chase the percentage.</div>
+        <div class="detail"><b>Follow-up:</b> Re-read the page next week for changes in tiers, amounts and dates; confirm the wagering base on a logged-in page.</div>
+        <div class="detail"><b>Evidence grade:</b> A (site offers page, read from a Mexican exit)</div>
+        <div class="detail"><b>Evidence limits:</b> No dates or eligible games on the page; no earlier reading, so new-or-not is open.</div>
+        <div class="detail"><b>Source:</b> <a href="https://betmaster.com.mx/es-mx/offers">Betmaster offers page</a></div>
+      </div>
+      <div class="mcard" style="border-top-color:#2E9E5B">
+        <div class="top"><div class="meta"><b>BetMexico · Sports</b><span>Promotions · existing players</span></div><span class="sev low">Terms not read</span></div>
+        <div class="detail"><b>Date:</b> Not stated; read 10/31</div>
+        <div class="detail"><b>Terms read:</b> The page lists a welcome bonus, Combo Boost (football, tennis, American sports, UFC, boxing, F1) and early payout (football, basketball, American football, baseball, hockey). Amounts, wagering and dates are not on the page.</div>
+        <div class="detail"><b>Purpose (judgment):</b> Keep sports regulars with parlay boosts and early cash-out.</div>
+        <div class="detail"><b>Operating meaning (judgment):</b> It shows the features exist but cannot be used to compare strength.</div>
+        <div class="detail"><b>Follow-up:</b> Read each feature's terms before comparing; on Meta BetMexico has had no new ads for a fourth issue.</div>
+        <div class="detail"><b>Evidence grade:</b> C (names only)</div>
+        <div class="detail"><b>Evidence limits:</b> Terms not read.</div>
+        <div class="detail"><b>Source:</b> <a href="https://betmexico.mx/promociones">BetMexico promotions page</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" id="pr">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">PR, Brand & Partnerships</span>
+      <h2>Brand, PR and partnerships</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">No new endorsement, sponsorship or tie-up notice was found in the window (from 10/25).</div>
+    <div class="impl-meth">
+      <ul>
+        <li>Caliente headlining the AffPapa Cancún conference was a 10/23 item reported last issue; background only.</li>
+        <li>Yogonet (10/30): the industry body AIEJA promotes casinos as leisure and social spaces (headline only, evidence C): <a href="https://www.yogonet.com/latinoamerica/noticias/2026/10/30/111316-aieja-impulsa-el-rol-de-los-casinos-como-espacios-de-recreacion-y-convivencia-social">Yogonet 10/30</a>.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="sec" id="product">
+    <div class="sec-lbl">
+      <span class="chip">§04</span><span class="en">Product, Games & Platform</span>
+      <h2>Product, games and platform</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">One supplier item this week, headline only.</div>
+    <div class="impl-meth">
+      <ul>
+        <li>Yogonet (10/29): Pragmatic Play signs a multi-brand deal with Logrand Entertainment covering online slots and live casino (evidence C, body not read): <a href="https://www.yogonet.com/latinoamerica/noticias/2026/10/29/111301-pragmatic-play-amplia-su-presencia-en-mexico-tras-firmar-un-acuerdo-multimarca-con-logrand-entertainment">Yogonet 10/29</a>.</li>
+        <li>Codere's 99 Royale is a 10/21 item reported last issue and is not new this week.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="sec" id="marketing">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Marketing & Media</span>
+      <h2>Marketing and media trends (ads as support)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck"><b>Method:</b> logged-in Chrome, country MX, active ads, advertiser ID locked, newest first, loaded until the oldest start date was before 10/24; read once in daytime on 10/31. The unit is ad cards merged by version, active ads only. <b>No per-ad Library ID list was exported this time</b>, so the figures below are unlisted readings; they are not subtracted from last issue and do not enter the top items.</div>
+    <div class="impl-meth">
+      <h6>New ad cards since 10/25 (live count in brackets, 10/24 reading after)</h6>
+      <ul>
+        <li><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=193707530772179">Caliente Sports</a>: 116 new (76 on 10/27), live about 170 (77 last time). A boxing-fight series, some with 'sign up and get $1,000', sending to Google Play and caliente.mx.</li>
+        <li><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=105734202291852">Betmaster México</a>: 129 new (54 on 10/30), live about 1,600 (about 1,400). '100% up to $20,000 + 100 free spins', with creative shifting to basketball and football.</li>
+        <li><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=170625256922730">Codere (candidate)</a>: 46 new, live about 430 (about 350). Boxing-themed sign-up bonus, 99 Royale, racing and crash-style games.</li>
+        <li><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=108126324888878">teammexico</a>: 34 new (20 on 10/30), live about 160. 'Regresa la emoción del Americano', $2,000 for sports, 30 slot spins (code SLOTS).</li>
+        <li><a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=1113189271881470">BC.Game (group D)</a>: 24 new, to the App Store; <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=113103278521842">Brazino777</a>: 16 new; <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=683743811487419">Jugabet</a>: 7 new, '500% + 125 spins'; <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=105312608911491">Winpot</a>: 3 new; <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=MX&amp;view_all_page_id=741267179318835">Casino Caliente</a>: 7 new.</li>
+        <li>No new ads: both Playdoit advertisers, Winner, BetMexico (fourth issue running) and CalienteCasino.mx.</li>
+      </ul>
+    </div>
+    <div class="impl-meth">
+      <h6>Read</h6>
+      <ul><li>The market leader and Betmaster both stepped up volume in the window, which points to tougher competition for paid traffic, but volume alone, with no verifiable new terms, stays out of the top items. Meta shows only ads still running.</li></ul>
+    </div>
+  </section>
+  <section class="sec" id="voice">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Voice & Risk</span>
+      <h2>Player voice and competitor risk</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">Community and regulation.</div>
+    <div class="impl-meth">
+      <ul>
+        <li><b>Betroia:</b> a web search for 'Betroia' returned nothing relevant; no negative-voice hit.</li>
+        <li><b>Community:</b> X, Reddit and Facebook groups were not obtained this issue; that is not the same as no chatter.</li>
+        <li><b>Regulation:</b> see top items 2 and 3. The anti-money-laundering deadline is 11/30, 30 days out; UIF certification slipped to 2027 (idconline 10/7, read last issue). The Mexico City Congress proposal (ban welcome bonuses and sports ads) is still only a proposal.</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section class="sec" id="strategic">
+    <div class="sec-lbl">
+      <span class="chip">§07</span><span class="en">Insights &amp; Tracking</span>
+      <h2>Insights and next week</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="axes">
+      <div class="axis"><b>Insight 1</b> Betmaster's deposit ladder is the only new item with terms read. For Betroia: watch, do not copy yet. Reason: there is no cost data behind a 150% tier with x50 wagering, and the Mexico City proposal, if it passes, would limit welcome bonuses directly. Next week's check: whether tiers or dates on the same page change.</div>
+      <div class="axis"><b>Insight 2</b> Caliente and Betmaster both stepped up in the window. For Betroia: watch. Next week's check: whether a per-ad list can be exported and whether verifiable new terms come with it.</div>
+      <div class="axis"><b>Insight 3</b> Regulation is still. For Betroia: watch. Next week's check: whether Segob sends the new law and whether bet365 and Betano return.</div>
+      <div class="axis"><b>Next week:</b> re-read Betmaster's offers page; terms for Caliente, Winner and teammexico (read access to be confirmed); the per-ad Meta list; official X accounts; Segob's new law; a bet365 and Betano relaunch; ad timing ahead of the 11/22 NFL game in Mexico City and the 11/25 Liguilla.</div>
+    </div>
+  </section>
+
+  <section class="sec" id="radar">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">Capability Radar · 6 axes · 10 brands + baseline</span>
+      <h2>Six-axis capability radar (baseline Betroia + 10 brands)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="radar">
+      <div class="radar-formula">
+        <h6>Scoring formula (100 per axis, weighted sub-items)</h6>
+        <table><tr><td>BRAND</td><td><b>Market share (traffic rank) 45%</b> + endorsers / IP 20% + player mentions 25% + weekly PR 10%</td></tr><tr><td>UX</td><td>Site access 30% + sign-up / login 25% + payment / withdrawal signals 25% + UI clarity 20%</td></tr><tr><td>CONTENT</td><td>Exclusive games / IP 35% + localization 25% + events 25% + update cadence 15%</td></tr><tr><td>PRICING</td><td>Bonus appeal 30% + <b>compliance safety 30%</b> + terms clarity 25% + value players actually receive 15%</td></tr><tr><td>RETENTION</td><td>Ongoing promos 30% + VIP / win-back 25% + support / trust 25% + community 20%</td></tr><tr><td>REACH</td><td>TV / media 30% + social 25% + KOL / celebrities 20% + offline / payment touchpoints 15% + SEO / visibility 10%</td></tr></table>
+      </div>
+      <div class="radar-head">
+        <div>
+          <div class="lbl">Six-axis comparison (baseline + 10 brands)</div>
+          <div class="sub">Pick the baseline top right (default Betroia) and a competitor below.<br><em style="color:rgba(255,255,255,.6);font-style:normal;">MX-W44; scores follow the W40 frozen baseline.</em></div>
+        </div>
+        <div class="self-pick">
+          <span class="pick-lbl">Baseline</span>
+          <select class="vssel" id="selfsel" aria-label="Baseline"></select>
+        </div>
+      </div>
+      <div class="vsbtns" id="vsbtns" aria-label="vs"></div>
+      <div class="radar-body">
+        <div class="left">
+          <div class="grid" id="radarGrid"></div>
+          <div class="legend">
+            <span><i style="background:#fff3a6"></i><b id="legendSelf">Baseline · Betroia</b></span>
+            <span><i id="legendVsColor" style="background:#1E5E34"></i><b id="legendVs">Brazino777</b></span>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 320" id="radarSvg" aria-label="6-axis capability radar">
+          <g id="rings"></g>
+          <g id="axes"></g>
+          <polygon id="polyVs" fill-opacity="0.35" stroke-width="2"></polygon>
+          <polygon id="polySelf" fill="#fff3a6" fill-opacity="0.42" stroke="#fff3a6" stroke-width="2.2"></polygon>
+          <g id="labels"></g>
+        </svg>
+      </div>
+      <div class="radar-note"><b>Disclaimer:</b> the six-axis scores are an internal relative model estimated from public information, the Meta Ad Library and site scouting; they indicate direction, not official operating data or market share. This issue (MX-W44) keeps the baseline frozen at MX-W40, unchanged; no new evidence this week was strong enough to move a score.</div>
+    </div>
+  </section>
+
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Timeline · last two weeks</span>
+      <h2>Timeline (newest first)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow"><span class="d">10/30</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">Betmaster</span><span class="desc">54 new ad cards in one day, "100% up to $20,000 + 100 free spins"</span><span class="wk">MX-W44</span></div>
+      <div class="trow"><span class="d">10/30</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">teammexico</span><span class="desc">20 new in one day, American football theme, $2,000 for sports</span><span class="wk">MX-W44</span></div>
+      <div class="trow"><span class="d">10/29</span><span class="dot"></span><span class="cat">Supplier</span><span class="br">Pragmatic Play · Logrand</span><span class="desc">Yogonet: multi-brand deal signed (headline only)</span><span class="wk">MX-W44</span></div>
+      <div class="trow"><span class="d">10/27</span><span class="dot"></span><span class="cat">Budget</span><span class="br">Federal government</span><span class="desc">Senate passes the 2027 revenue law 79 to 34; no gambling clause in the coverage (Expansión, Excélsior)</span><span class="wk">MX-W44</span></div>
+      <div class="trow"><span class="d">10/27</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">Caliente Sports</span><span class="desc">76 new in one day, boxing-fight series</span><span class="wk">MX-W44</span></div>
+      <div class="trow"><span class="d">10/22</span><span class="dot"></span><span class="cat">Anomaly</span><span class="br">bet365 · Betano</span><span class="desc">Twenty-third collegiate tribunal rules for Ganador Azteca on the denied suspension against the site blocks; the ruling is not yet public and Segob has not complied; user balances stay frozen (per Expansión; El CEO does not mention it) (El CEO, Expansión 10/23)</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">10/23</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">Betmaster</span><span class="desc">Per the evening list of 10/24: 294 new ad cards 10/18-10/24, 141 on 10/22 and 63 on 10/23</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">10/23</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">Caliente Sports</span><span class="desc">17 new ads in one day: Premier League and Liga MX odds cards with "MXN 1,000 on sign-up"</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">10/23</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">Brazino777 · Jugabet · teammexico</span><span class="desc">9, 7 and 12 new ads the same day; 12 of Jugabet's 13 go through a tracking link</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">10/21</span><span class="dot"></span><span class="cat">Anomaly</span><span class="br">bet365</span><span class="desc">Crónica: still blocked after almost a year, yet emailing users an inactivity fee of £2 or 5% of balance, first charge in 35 days; users say they complained to Profeco</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">10/21</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">Casino Caliente</span><span class="desc">25 new ads that day, "Empieza a jugar" casino videos; another 26 on 10/18</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">10/20</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">teammexico</span><span class="desc">24 new ads; another 15 on 10/18</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">10/15</span><span class="dot"></span><span class="cat">Budget</span><span class="br">Federal government</span><span class="desc">Chamber passes the 2027 revenue law 340 to 109 and sends it to the Senate (PorEsto); no gambling clause in the coverage</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">10/13</span><span class="dot"></span><span class="cat">Policy</span><span class="br">Segob</span><span class="desc">El Imparcial: Segob finished its internal review of the new gambling law and sent it to the Security Cabinet; nothing newer found</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">10/07</span><span class="dot"></span><span class="cat">Regulation</span><span class="br">UIF</span><span class="desc">idconline (body read): certification of vulnerable-activity operators will happen in 2027, not 2026</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">10/07</span><span class="dot"></span><span class="cat">Tax</span><span class="br">Federal government</span><span class="desc">Expansión: gambling IEPS stays at 50% for 2027; the 12/31 decree gives Lotería Nacional a 40% stimulus</span><span class="wk">MX-W43</span></div>
+      <div class="trow"><span class="d">08/05</span><span class="dot"></span><span class="cat">Policy</span><span class="br">Mexico City Congress</span><span class="desc">Martínez Urincho proposal to amend the federal gambling law: ban welcome bonuses and sports ads (text read, not in force)</span><span class="wk">MX-W43</span></div>
+    </div>
+    <div class="tl-legend">
+      <span><i style="background:#8a3a33"></i>Policy / permits / budget / tax</span>
+      <span><i style="background:#2A5FAA"></i>Offers / social / ads</span>
+      <span><i style="background:#c96442"></i>Anomaly</span>
+      <span><i style="background:#2f6b3b"></i>Sponsorship</span>
+    </div>
+  </section>
+
+  <section class="sec" id="implications">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Implications · Threats / Opportunities</span>
+      <h2>Implications (Betroia, incumbent view)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="impl-meth">
+      <h6>Parameters: observed values, calendar anchors and unverified scenarios kept apart</h6>
+      <ul>
+        <li><b>Observed · new ads:</b> since 10/25, Caliente Sports 116, Betmaster 129, Codere 46, teammexico 34 (unlisted readings; unit: cards).</li>
+        <li><b>Calendar anchor · sports:</b> Liga MX Liguilla opens 11/25, 25 days out; final second leg 12/13, 43 days out.</li>
+        <li><b>Calendar anchor · anti-money-laundering:</b> LFPIORPI adaptation deadline 11/30, 30 days out.</li>
+        <li><b>Calendar anchor · tax and budget:</b> gambling IEPS of 50% in force since 2026/01/01, now week 44; the Chamber's 10/20 deadline for the revenue law passed 11 days ago and the Senate passed it on 10/27.</li>
+      </ul>
+    </div>
+    <div class="impl">
+      <div class="col threat"><h5><span class="dot"></span>Threats<span class="en">Threats</span></h5><ul>
+        <li><b>The leader and Betmaster are both adding volume against the same mobile paid traffic.</b> Caliente Sports live ads rose from about 77 to about 170; Betmaster is near 1,600. <em>Unverified planning scenario / stress range: test tolerance against a 10-20% rise in cost per thousand impressions for the same audience; not measured, not a forecast; no bidding data or reviewable inputs, so do not adjust budgets on it.</em></li>
+        <li><b>Betmaster's deposit ladder aims at high-value players.</b> A 150% tier with x50 wagering can hold repeat depositors. <em>Unverified planning scenario / stress range: test tolerance against a 5-15% rise in cost per click for the same audience; not measured, not a forecast; no own funnel, control or reviewable inputs, so do not adjust budgets on it.</em></li>
+        <li><b>The anti-money-laundering rules start 11/30; a clumsy identity flow can lose players.</b> Identification and reporting duties grow. <em>Unverified planning scenario / stress range: if the identity flow and player notice are not changed first, test tolerance against 5-15% more drop-off at verification; not measured, not a forecast; no share of players needing documents and no own verification funnel, so do not adjust budgets on it.</em></li>
+      </ul></div>
+      <div class="col opp"><h5><span class="dot"></span>Opportunities<span class="en">Opportunities</span></h5><ul>
+        <li><b>Price inventory before the 11/25 Liguilla</b> (unverified planning scenario: ~MXN 50K-150K deposit / 1-2 weeks to agree; no supplier quote, scope and timing to confirm). Compare same-spec quotes before and after the matches; no quote was obtained, so which days cost most is unknown. <em>Note: deposit terms carry reschedule conditions; whether regulatory text affects them needs a separate check.</em></li>
+        <li><b>No new regulatory cost this week.</b> The preparation window before 11/30 is still open, so the identity and reporting flow can be checked first (unverified planning scenario: ~MXN 20K-50K to tidy / 1 week; no supplier quote, scope to confirm). <em>Note: any licence detail in public copy must match the DGJS list; do not show screenshots or numbers until the licence number is verified.</em></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="fcard">
+      <h5>Method and sources</h5>
+      <p>A 10-brand watch list (group A Caliente family 3, group B P-06 shared-licence network 4, group C same channel / same content 3), plus group D offshore and crypto (watched, not scored), plus regulatory and legislative moves. Client X = Betroia (incumbent). This is MX-W44; radar scores keep the MX-W40 baseline and are not changed.</p>
+      <p><b>✅ Meta Ad Library:</b> read once in daytime on 10/31, logged-in Chrome, official advertiser IDs, country Mexico, active ads, newest first, loaded until the oldest start date was before 10/24. <b>No per-ad Library ID list was exported</b>, so the figures are unlisted readings and are not subtracted from last issue. Meta shows only ads still running. Advertisers read: three Caliente accounts, two Playdoit, Winner, Brazino777, Betmaster, BetMexico, Jugabet, Winpot, teammexico, plus BC.Game (group D) and Codere (candidate) for reference.</p>
+      <p><b>✅ Site promotion pages:</b> Betmaster and BetMexico read (Mexican exit, standard fetch). Brazino777 returned a region-block page.</p>
+      <p><b>⚠️ Not read this issue:</b> site terms for Caliente, Winner, teammexico, Winpot, Playdoit, Sportiumbet and Jugabet; official X accounts (last 10/17), Instagram, TikTok, Facebook and Reddit; Caliente tournaments (login needed). These are logged as not checked.</p>
+      <p><b>⚠️ Source check:</b> news links this week were read through search and summaries; canonical links and dates were not opened one by one. Two Yogonet items are headline only. The revenue-law text was not read.</p>
+      <p>Daily monitoring still covers Mexican regulation and competitors thinly (zero Q7 and Q8 ledger entries in the last 7 days), so this report fills the gap with weekly searches. The Betroia negative-voice query returned nothing relevant.</p>
+      <p>Running counters (anchor-table basis): IEPS 50% from 2026-01-01, now week 44; LFPIORPI deadline 11/30, 30 days out; Chamber deadline for the revenue law 10/20, passed 11 days ago; Liguilla 11/25, 25 days out; final second leg 12/13, 43 days out. Window: 10/25-10/31 review, 11/1-11/7 outlook.</p>
+      <div class="srcs"><span><i class="ok"></i>Meta Ad Library 10/31<em>official IDs · no per-ad list</em></span><span><i class="ok"></i>Betmaster offers · BetMexico promotions<em>read from a Mexican exit</em></span><span><i class="warn"></i>Expansión · Excélsior · El Imparcial · Focus<em>summary read · canonical not checked</em></span><span><i class="warn"></i>Yogonet 10/29, 10/30<em>headline only</em></span><span><i class="warn"></i>Official X accounts<em>last 10/17 · not refreshed</em></span><span><i class="warn"></i>Other site promo pages / Reddit / Caliente tournaments<em>not obtained · next issue</em></span></div>
+    </div>
+    <div class="fcard">
+      <h5>Next issue (MX-W45 · 2026-11-07) checklist</h5>
+      <ol><li><span class="n">1</span>Re-read Betmaster's offers page for changes in tiers, amounts and dates</li><li><span class="n">2</span>Read site terms for Caliente, Winner and teammexico</li><li><span class="n">3</span>Export the per-ad Meta Library ID list to back the unlisted figures</li><li><span class="n">4</span>Whether Segob sends the new gambling law; whether the Mexico City proposal clears committee</li><li><span class="n">5</span>Whether the bet365 and Betano ruling is published and a relaunch date appears</li><li><span class="n">6</span>Ad timing ahead of the 11/22 NFL game in Mexico City and the 11/25 Liguilla</li><li><span class="n">7</span>Re-run the official X account pull on the Mac on Saturday</li></ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span><b>COMPETITOR // BRIEF</b> · MX-W44 · MX iGaming · 10-brand watch list + offshore group · Client X = Betroia</span>
+    <span>Window 10/25-10/31 review · 11/1-11/7 outlook</span>
+  </div>
+
+</div>
+</div>
+
+<script>
+const RADAR_LABELS = ['BRAND','UX','CONTENT','PRICING','RETENTION','REACH'];
+const RADAR_LABELS_ZH = ['','','','','',''];
+
+const BRANDS = {
+  betroia:    { name:'Betroia (baseline)',  color:'#3B3B98', scores:[25,55,50,50,55,55] },
+  caliente:   { name:'Caliente',        color:'#D7192D', scores:[90,80,80,65,80,90] },
+  playdoit:   { name:'Playdoit',        color:'#6A2C91', scores:[60,70,70,65,70,70] },
+  winner:     { name:'Winner',          color:'#8C6D1F', scores:[35,65,55,60,55,55] },
+  brazino:    { name:'Brazino777',      color:'#1E5E34', scores:[65,65,60,60,60,70] },
+  betmaster:  { name:'Betmaster',       color:'#F26B21', scores:[55,65,60,55,55,75] },
+  betmexico:  { name:'BetMexico',       color:'#2E9E5B', scores:[55,65,55,50,55,50] },
+  jugabet:    { name:'Jugabet',         color:'#7B3FE4', scores:[40,55,50,50,50,50] },
+  winpot:     { name:'Winpot',          color:'#E0A800', scores:[45,65,60,60,60,55] },
+  teammexico: { name:'teammexico',      color:'#006847', scores:[40,60,55,55,50,55] },
+  sportium:   { name:'Sportiumbet',     color:'#0055A4', scores:[50,55,60,60,55,55] }
+};
+let selfId = 'betroia';
+let vsId = 'brazino';
+const cx=160, cy=160, R=130;
+const angle = i => (Math.PI*2*i)/6 - Math.PI/2;
+
+function ringPolygon(rr){
+  return Array.from({length:6},(_,i)=>`${cx+rr*Math.cos(angle(i))},${cy+rr*Math.sin(angle(i))}`).join(' ');
+}
+function polyPoints(values){
+  return values.map((v,i)=>{const r=(v/100)*R;return `${cx+r*Math.cos(angle(i))},${cy+r*Math.sin(angle(i))}`;}).join(' ');
+}
+function labelPos(i,off=22){
+  const x = cx + (R+off)*Math.cos(angle(i));
+  const y = cy + (R+off)*Math.sin(angle(i)) + 4;
+  return {x,y};
+}
+
+function initRadar(){
+  const ringsG = document.getElementById('rings');
+  [1,.75,.5,.25].forEach((s,i)=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',ringPolygon(R*s));
+    p.setAttribute('fill', i===0 ? 'rgba(255,255,255,.04)' : 'none');
+    p.setAttribute('stroke','rgba(255,255,255,.18)');
+    ringsG.appendChild(p);
+  });
+  const axesG = document.getElementById('axes');
+  for(let i=0;i<6;i++){
+    const x=cx+R*Math.cos(angle(i)), y=cy+R*Math.sin(angle(i));
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x);l.setAttribute('y2',y);
+    l.setAttribute('stroke','rgba(255,255,255,.1)');
+    axesG.appendChild(l);
+  }
+  const labG = document.getElementById('labels');
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const p=labelPos(i,18);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',p.x);t1.setAttribute('y',p.y-6);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('fill','#fff');t1.setAttribute('font-size','11');t1.setAttribute('font-weight','800');
+    t1.textContent=lbl;
+    labG.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',p.x);t2.setAttribute('y',p.y+6);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('fill','rgba(255,255,255,.6)');t2.setAttribute('font-size','9');
+    t2.textContent=RADAR_LABELS_ZH[i];
+    labG.appendChild(t2);
+  });
+  const selfSel = document.getElementById('selfsel');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = d.name;
+    if(id===selfId) opt.selected = true;
+    selfSel.appendChild(opt);
+  });
+  selfSel.addEventListener('change', e => { selfId = e.target.value; render(); });
+
+  const vsbtns = document.getElementById('vsbtns');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const b = document.createElement('button');
+    b.dataset.id = id;
+    b.innerHTML = `<i style="background:${d.color}"></i>${d.name}`;
+    if(id===vsId) b.classList.add('active');
+    b.onclick = () => {
+      vsId = id;
+      document.querySelectorAll('#vsbtns button').forEach(x => x.classList.toggle('active', x.dataset.id===id));
+      render();
+    };
+    vsbtns.appendChild(b);
+  });
+
+  render();
+}
+function render(){
+  const self = BRANDS[selfId];
+  const vs = BRANDS[vsId];
+  const polySelf = document.getElementById('polySelf');
+  const polyVs = document.getElementById('polyVs');
+  polySelf.setAttribute('points', self.closed ? '' : polyPoints(self.scores));
+  polyVs.setAttribute('points', vs.closed ? '' : polyPoints(vs.scores));
+  polyVs.setAttribute('fill', vs.closed ? 'none' : vs.color);
+  polyVs.setAttribute('stroke', vs.closed ? 'none' : vs.color);
+  document.getElementById('legendSelf').textContent='Baseline · '+self.name;
+  document.getElementById('legendVs').textContent=vs.name;
+  document.getElementById('legendVsColor').style.background=vs.closed?'#555':vs.color;
+  const grid = document.getElementById('radarGrid');
+  grid.innerHTML='';
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const sv = self.closed ? 'N/A' : self.scores[i];
+    const vv = vs.closed ? 'N/A' : vs.scores[i];
+    const lead = (!self.closed && !vs.closed && vs.scores[i] > self.scores[i]);
+    grid.innerHTML += `<span>${lbl}</span><span>${sv}</span><span>vs</span><span style="color:${lead?'var(--neg)':'var(--pos)'}">${vv}</span>`;
+  });
+}
+initRadar();
+</script>
+</body>
+</html>

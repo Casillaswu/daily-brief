@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>博彩产业周深度 Brief · W44 · 2026-10-26 ~ 2026-11-01</title>
+<meta name="description" content="W44 产业视角周报：PAGCOR 前九个月收入减 23.4%、电子游戏减 37%，马尼拉实体赌场加速做线上；巴西最高法院 11 月 3 日开博彩禁令公听会；犹他州对 Kalshi 与创办人提刑事指控；NBA 与 CFTC 签备忘录并选 Kalshi、Polymarket 为伙伴；英国机台游戏税调到 25%" />
+<link rel="alternate" hreflang="zh-Hans" href="2026-W44.html" /><link rel="alternate" hreflang="en" href="2026-W44-en.html" /><link rel="alternate" hreflang="x-default" href="2026-W44.html" />
+
+<style>
+  :root {
+    --ink: #1f1d1a;
+    --ink-2: #4a4742;
+    --ink-3: #8a857d;
+    --paper: #ffffff;
+    --paper-2: #f7f5f1;
+    --rule: #d9d4cb;
+    --rule-2: #ebe6dd;
+    --hi: #fff3a6;
+    --pos: #c9e4cf; --pos-ink: #2f6b3b;
+    --neu: #e1dfd9; --neu-ink: #5b574e;
+    --neg: #f1c9c5; --neg-ink: #8a3a33;
+    --cat-a: #d6e2ee;
+    --cat-b: #e8dcec;
+    --cat-c: #efe1c9;
+    --cat-d: #d9e8d6;
+    --cat-e: #f1d9d5;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #f0eee9; color: var(--ink);
+               font-family: Arial, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "PingFang TC", "Microsoft JhengHei", sans-serif;
+               -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  a { color: var(--ink); text-decoration: underline; }
+  a:hover { color: #000; }
+  u { text-decoration: underline; text-underline-offset: 2px; }
+  mark, .hi { background: var(--hi); padding: 0 2px; border-radius: 2px;
+              -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  ul { padding-left: 18px; margin: 6px 0; }
+  ul li { margin: 3px 0; }
+
+  .page { max-width: 1200px; margin: 0 auto; padding: 28px 32px;
+          background: var(--paper); min-height: 100vh; position: relative; }
+
+  .lang-toggle { display: inline-flex; background: var(--paper-2); border: 1px solid var(--rule);
+                 border-radius: 999px; overflow: hidden; font-size: 11px; font-weight: 700;
+                 margin-bottom: 12px; }
+  .lang-toggle a { padding: 6px 16px; text-decoration: none; color: var(--ink-3);
+                   transition: all .15s ease; letter-spacing: .05em; }
+  .lang-toggle a.active { background: var(--ink); color: #fff; }
+  .lang-toggle a:not(.active):hover { background: var(--paper); color: var(--ink); }
+  .lang-toggle-row { display: flex; justify-content: flex-end; }
+
+  .masthead { border-bottom: 1px solid var(--rule); padding-bottom: 12px; }
+  .masthead .kicker { font-size: 11px; letter-spacing: .22em; color: var(--ink-3);
+                      font-weight: 700; text-transform: uppercase; }
+  .masthead .row { display: flex; justify-content: space-between; align-items: baseline;
+                   gap: 18px; margin-top: 4px; flex-wrap: wrap; }
+  .masthead h1 { margin: 0; font-size: 22px; font-weight: 800; line-height: 1.2; color: var(--ink); }
+  .masthead .meta-stats { display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+                          font-size: 11px; color: var(--ink-3); }
+
+  .pill { display: inline-flex; align-items: center; gap: 4px;
+          padding: 2px 8px; border-radius: 999px; font-size: 10px;
+          border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); }
+  .pill.pos { background: var(--pos); color: var(--pos-ink); border-color: transparent; }
+  .pill.neu { background: var(--neu); color: var(--neu-ink); border-color: transparent; }
+  .pill.neg { background: var(--neg); color: var(--neg-ink); border-color: transparent; }
+  .pill.hot { background: var(--ink); color: #fff; border-color: transparent; font-weight: 700; }
+  .pill.rank { font-weight: 700; }
+  .pill .dot { font-weight: 700; }
+  .cat { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 3px;
+         color: var(--ink); font-weight: 600; }
+  .cat.a { background: var(--cat-a); }
+  .cat.b { background: var(--cat-b); }
+  .cat.c { background: var(--cat-c); }
+  .cat.d { background: var(--cat-d); }
+  .cat.e { background: var(--cat-e); }
+
+  .nav-anchors { display: flex; gap: 8px; margin: 18px 0 14px; flex-wrap: wrap;
+                 padding-bottom: 14px; border-bottom: 1px dashed var(--rule); }
+  .nav-anchors a {
+    display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap; padding: 7px 14px;
+    border-radius: 6px; font-size: 11.5px; font-weight: 600;
+    color: var(--ink-2); background: var(--paper);
+    border: 1px solid var(--rule); text-decoration: none;
+    transition: all .18s ease;
+    box-shadow: 0 1px 2px rgba(31,29,26,.04);
+  }
+  .nav-anchors a::before {
+    content: ''; display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--dot, var(--ink-3));
+    flex-shrink: 0;
+    transition: all .18s ease;
+  }
+  .nav-anchors a:hover {
+    background: var(--ink); color: #fff; border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(31,29,26,.15);
+  }
+  .nav-anchors a:hover::before { background: #fff; transform: scale(1.2); }
+  .nav-anchors a.lead {
+    background: var(--ink); color: #fff; border-color: transparent;
+    font-weight: 700;
+  }
+  .nav-anchors a.lead::before {
+    background: var(--hi); width: 7px; height: 7px;
+    box-shadow: 0 0 6px rgba(255,243,166,.6);
+  }
+
+  .section { margin: 32px 0 0; scroll-margin-top: 12px; }
+  .signal-card, .lead, article[id^="sig-"], div[id^="sig-"] { scroll-margin-top: 24px; }
+  .section-head { display: flex; align-items: baseline; gap: 10px;
+                  border-bottom: 2px solid var(--ink); padding-bottom: 6px; margin-bottom: 14px; }
+  .section-head .num { font-family: ui-monospace, Menlo, monospace; font-size: 13px;
+                       font-weight: 700; color: var(--ink); background: var(--hi);
+                       padding: 1px 8px; border-radius: 2px; }
+  .section-head h2 { margin: 0; font-size: 17px; font-weight: 800; color: var(--ink); }
+  .section-head .h2-en { font-size: 10px; letter-spacing: .22em; color: var(--ink-3);
+                         text-transform: uppercase; font-weight: 700; margin-left: auto; }
+
+  .subsection-head { margin: 22px 0 10px; font-size: 13.5px; font-weight: 800; color: var(--ink);
+                     border-left: 4px solid var(--ink); padding-left: 10px; }
+  .sec-note { font-size: 12px; color: var(--ink-3); line-height: 1.7; margin: 0 0 14px; }
+
+  .signals-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px;
+  }
+  .lead { background: var(--paper-2); border-left: 5px solid var(--ink);
+          padding: 18px 22px; grid-column: 1 / -1; margin-bottom: 4px; }
+  .lead .meta-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+  .lead h3 { margin: 0 0 8px; font-size: 17px; font-weight: 800; color: var(--ink); line-height: 1.35; }
+  .lead .src-meta { font-size: 11px; color: var(--ink-3); margin: 0 0 10px; letter-spacing: .05em; }
+  .lead p { font-size: 13px; color: var(--ink-2); line-height: 1.75; margin: 0 0 10px; }
+  .lead .cta { display:inline-block; background: var(--ink); color: #fff; padding: 6px 14px;
+               font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 2px;
+               margin-top: 4px; }
+  .signal-card {
+    background: var(--paper-2); border-left: 3px solid var(--ink);
+    padding: 16px 18px;
+  }
+  .signal-card .label { font-size: 10px; letter-spacing: .2em; color: var(--ink-3);
+                        font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+  .signal-card h4 { margin: 0 0 8px; font-size: 14.5px; font-weight: 800; color: var(--ink); line-height: 1.4; }
+  .signal-card .signal-key { font-size: 12px; color: var(--ink-2); line-height: 1.7;
+                              margin: 0 0 8px; padding: 8px 10px; background: var(--paper);
+                              border: 1px solid var(--rule-2); border-radius: 2px; }
+  .signal-card .signal-judge { font-size: 12px; color: var(--ink-2); line-height: 1.75;
+                                margin: 6px 0 8px; }
+  .signal-card .signal-judge u { font-weight: 600; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+
+  .card { background: var(--paper); border: 1px solid var(--rule); padding: 16px 18px; }
+  .card.hilite { background: var(--paper-2); border-left: 3px solid var(--ink); }
+  .card .meta-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+  .card h4 { margin: 0 0 8px; font-size: 14.5px; font-weight: 700; color: var(--ink); line-height: 1.5; }
+  .card .src-date, .card .src { font-size: 11px; color: var(--ink-3); margin: 0 0 10px; letter-spacing: .05em; }
+  .card p { font-size: 12.5px; color: var(--ink-2); line-height: 1.75; margin: 0 0 10px; }
+  .card .judge { font-size: 12.5px; color: var(--ink-2); line-height: 1.8;
+                 background: var(--paper-2); padding: 10px 12px; margin: 10px 0;
+                 border-left: 3px solid var(--ink); }
+  .card .judge u { font-weight: 700; color: var(--ink); }
+  .card .judge .lead-in { font-weight: 700; color: var(--ink); }
+
+  .news-sources {
+    border-top: 1px dashed var(--rule);
+    padding-top: 8px;
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--ink-3);
+  }
+  .news-sources .label {
+    color: var(--ink-2); font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase;
+    margin-bottom: 4px; font-size: 10px;
+  }
+  .news-sources ul { padding-left: 14px; margin: 0; list-style: none; }
+  .news-sources li {
+    margin: 2px 0; line-height: 1.6;
+    position: relative;
+  }
+  .news-sources li::before {
+    content: '·'; color: var(--ink-3); margin-right: 6px;
+    position: absolute; left: -10px;
+  }
+  .news-sources a { color: var(--ink-2); }
+
+  .x-pulse { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .x-pulse .card { background: var(--paper-2); }
+  .x-pulse .card.hilite-na { background: var(--ink); color: var(--paper-2); border: none; }
+  .x-pulse .card.hilite-na h4 { color: #fff; }
+  .x-pulse .card.hilite-na p { color: var(--rule-2); }
+  .x-pulse .card.hilite-na a { color: var(--hi); }
+  .x-pulse .card.hilite-na .judge { background: rgba(255,255,255,.08); color: var(--rule-2);
+                                     border-left-color: var(--hi); }
+  .x-pulse .card.hilite-na .judge u { color: #fff; }
+  .x-pulse .card.hilite-na .news-sources { border-top-color: var(--ink-3); }
+  .x-pulse .card.hilite-na .news-sources a,
+  .x-pulse .card.hilite-na .news-sources .label { color: var(--hi); }
+
+  .colophon { display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+              border-top: 2px solid var(--ink); padding-top: 18px; margin-top: 28px; }
+  .colophon h5 { margin: 0 0 8px; font-size: 11px; letter-spacing: .22em; color: var(--ink);
+                 font-weight: 800; text-transform: uppercase; }
+  .colophon p { font-size: 12px; color: var(--ink-2); line-height: 1.7; margin: 0 0 6px; }
+  .colophon .source-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px;
+                            margin-top: 6px; font-size: 11px; color: var(--ink-2); }
+  .colophon .source-grid .ok { color: var(--pos-ink); font-weight: 700; }
+  .colophon .source-grid .warn { color: var(--neu-ink); font-weight: 700; }
+  .colophon .next-list { font-size: 12px; line-height: 1.85; color: var(--ink-2); }
+  .colophon .next-list b { color: var(--ink); }
+  .colophon .next-list .urgent { color: var(--neg-ink); font-weight: 700; }
+
+  .footer-bottom { border-top: 1px solid var(--rule); margin-top: 22px; padding-top: 12px;
+                   font-size: 11px; color: var(--ink-3); line-height: 1.7; }
+  .footer-bottom .label { font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+                          font-weight: 700; color: var(--ink-2); margin-bottom: 4px; }
+
+  @media (max-width: 1023px) {
+    .page { padding: 24px 24px; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .signals-grid { grid-template-columns: 1fr; }
+    .colophon { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 767px) {
+    .page { padding: 20px 16px; }
+    .masthead h1 { font-size: 17px; }
+    .masthead .row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .nav-anchors { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    .grid-3, .grid-2, .grid-auto, .x-pulse { grid-template-columns: 1fr; gap: 12px; }
+    .section-head h2 { font-size: 15.5px; }
+    .section-head .h2-en { display: none; }
+  }
+  @media print {
+    body { background: #fff; }
+    .nav-anchors { display: none; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+<style>.lead p,.card p,.card .judge,.signal-card .signal-key,.signal-card .signal-judge,.next-list{text-wrap:pretty;}</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="masthead">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap;">
+      <div>
+        <div class="kicker">Weekly Gambling Brief · W44 · 2026-10-26 ~ 2026-11-01</div>
+        <h1 style="margin:4px 0 0;font-size:22px;font-weight:800;line-height:1.2;color:var(--ink);">博彩产业视角周报 · 全球博彩产业</h1>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="lang-toggle">
+          <a href="2026-W44.html" class="active" aria-current="page">中</a>
+          <a href="2026-W44-en.html" >EN</a>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:11px;">
+          <span class="pill pos"><span class="dot">＋</span>利好</span>
+          <span class="pill neu"><span class="dot">○</span>中立</span>
+          <span class="pill neg"><span class="dot">−</span>不利</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-anchors">
+    <a class="lead" href="#highlights">🔥 本周亮点</a>
+    <a href="#s1" style="--dot:#d6e2ee;">§1 法规</a>
+    <a href="#s2" style="--dot:#efe1c9;">§2 M&amp;A</a>
+    <a href="#s3" style="--dot:#e8dcec;">§3 产品</a>
+    <a href="#s4" style="--dot:#efe1c9;">§4 运营商</a>
+    <a href="#s5" style="--dot:#d9e8d6;">§5 亚洲</a>
+    <a href="#s6" style="--dot:#d9e8d6;">§6 拉美</a>
+    <a href="#s7" style="--dot:#d9e8d6;">§7 北美</a>
+    <a href="#s8" style="--dot:#f1d9d5;">§8 体博</a>
+    <a href="#s9" style="--dot:#8a857d;">§9 X</a>
+    <a href="#s10" style="--dot:#8a857d;">§10 建议</a>
+  </nav>
+
+  <section class="section" id="highlights">
+    <div class="section-head">
+      <span class="num">🔥</span>
+      <h2>本周 5 个值得注意的讯号</h2>
+      <span class="h2-en">Five Headline Signals</span>
+    </div>
+
+    <div class="signals-grid">
+
+      <article class="lead">
+        <div class="meta-row">
+          <span class="pill hot rank">01 · 头条</span>
+          <span class="cat d">市场</span>
+          <span class="pill neg"><span class="dot">−</span>不利</span>
+          <span class="pill hot">菲律宾 · PAGCOR 九个月</span>
+        </div>
+        <h3>PAGCOR 前九个月收入年减 <span class="hi">23.4%</span>，电子游戏收入减少 37%，主因是电子钱包停止直连博彩网站。</h3>
+        <p class="src-meta">Inside Asian Gaming · BusinessWorld · GGRAsia · 10/29</p>
+        <p>菲律宾博彩监管局（PAGCOR）10 月 29 日公布，2026 年前九个月总收入 644 亿披索（约 322 亿台币），年减 23.4%。跌幅主要来自电子游戏（eGames，即持牌线上赌场类产品）：收入从 440 亿降到 276 亿披索，少了 37.2%。Inside Asian Gaming 把原因归于央行去年要求支付业者切断电子钱包与博彩网站的直接连结，加上监管收紧。持牌实体赌场收入只减 3.22%，为 231 亿披索；PAGCOR 自营的 Casino Filipino 减 8%，为 72.8 亿披索。净利年减 84.9% 至 21.7 亿披索，另一个原因是最高法院判 PAGCOR 须按毛收入 5% 拨给体育委员会（PSC），约为过去的两倍。PAGCOR 上半年收入减 26.6%，前九个月跌幅收窄，推算第三季单季约减 16%。收入减少，但 PAGCOR 同期仍缴出 453 亿披索的法定拨款与国家建设经费，其中 276 亿披索作为政府 50% 分成缴国库、30.1 亿给体育委员会、29 亿为特许经营税。董事长 Alejandro Tengco 表示会继续加强营运与监管，确保受监管博彩的收入持续支持政府计划。</p>
+        <p>同一周，马尼拉实体赌场拓展线上业务的动作也增多。Solaire 母公司 Bloomberry 10 月 29 日在旗下线上平台 OnlyFun.PH 推出艺人主持的直播下注（见 §3）；香港上市的 IEC 宣布旗下 LaVie 赌场 11 月中下旬开自营线上平台（见 §5）。总体环境也在变差：据 Inquirer 与 BusinessWorld 报导，披索兑美元 10 月 27 日首度跌破 64，央行估 10 月通膨可能超过 8%。</p>
+        <p><br><u>综合判断</u>：线上收入跌 37%、实体只跌 3%，说明下滑集中在入金渠道被切断的线上产品，不是玩家整体不玩。由此推论：短期内入金步骤多的持牌线上平台转换率仍会偏低，对纯线上持牌业者 −EV；能从实体赌场导流、自己掌握真人桌台的业者（Solaire、LaVie）相对 +EV。PAGCOR 净利只剩 21.7 亿披索，监管机关比过去更依赖线上收入回升，后续政策会往「开合规入金渠道」还是「加大打击无照平台」走，仍需验证。对巴西业者，这是禁令之外的另一种降温方式：不禁产品、改卡支付，线上收入一样会掉近四成。运营商可先从入金流程着手：把合规电子钱包的入金教学放进落地页与素材，并为 12 月 PAGCOR 查验 App 上线准备「持牌可查」的素材。</p>
+        <a class="cta" href="https://asgam.com/2026/10/29/pagcor-revenues-fall-23-4-to-us1-billion-in-first-nine-months-of-2026/" target="_blank" rel="noopener">阅读原文 →</a>
+      </article>
+
+      <div class="signal-card">
+        <div class="label">SIGNAL 02 · 巴西 · 最高法院公听会</div>
+        <h4>巴西最高法院 11 月 3 日就博彩禁令开公听会，<span class="hi">28 个单位</span>各讲十分钟，Lula 连任后授权已失效、尚无复业时间表。</h4>
+        <p class="signal-key">Lula 10 月 25 日以 51.78% 有效票连任，同一天 85 家公司、188 个品牌的联邦博彩授权依第 1.394 号临时措施令（MPV 1394）失效，规费不退。主审法官 Fux 10 月 28 日公布公听会名单：28 个单位，包括 Flamengo、Fluminense、Botafogo、Cruzeiro、São Paulo、Corinthians 等俱乐部，巴西足协 CBF、奥委会 COB，联邦总检察署 AGU、财政部、体育部、联邦检察长 PGR，业者协会 ANJL、负责任博彩协会 IBJR 与广电协会 Abert。公听会 11 月 3 日上午 10 点在 STF 第二庭举行，每个单位十分钟，电视与 YouTube 直播；案由是 ANJL 提的违宪诉讼 ADI 8027，要求立即暂停临时措施令。IBJR 执行长 Carlos Lima 10 月 30 日对 Poder360 说，禁令后非法市场估计成长 101%，每年非法流水逾 281 亿雷亚尔（约 1,600 亿台币），多个原持牌品牌被仿冒，消费者误以为业者已复业。这不是 STF 第一次就博彩开公听会：2024 年 11 月曾就 2023 年的博彩法（Lei 14.790）听取逾 50 名专家意见；这次是 AGU 以禁令后累积的新证据为由要求重开。同一件临时措施令另有 ADI 8024、8028、8035 三件诉讼，都由 Fux 承办。国会两院联合委员会截稿时仍未开会。</p>
+        <p class="signal-judge"><br><u>综合判断</u>：公听会是听取意见的程序，不是判决；Fux 听完才会决定是否暂停临时措施令，最快也要 11 月中旬以后（推论）。28 个单位里俱乐部、足协与奥委会占多数，讨论重点会落在赞助与体育收入，对「体育投注留下、线上赌场禁止」的折衷方案有利。若折衷成形，对以体育投注为主的巴西持牌业者中期 +EV，对以线上赌场为主的业者 −EV。非法市场与仿冒品牌扩大是业界最有力的论点，也是品牌方当下的风险：品牌方值得监测仿冒网域，并公开声明「目前未营运」。巴西预算维持冻结，11 月 3 日后依 Fux 是否表态再重估。
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://noticias.stf.jus.br/postsnoticias/stf-divulga-cronograma-de-audiencia-publica-sobre-proibicao-das-bets/" target="_blank" rel="noopener">阅读原文 →</a></p>
+      </div>
+
+      <div class="signal-card">
+        <div class="label">SIGNAL 03 · 美国 · 预测市场</div>
+        <h4>犹他州对 Kalshi 与两名创办人提 <span class="hi">14 项刑事指控</span>，CFTC 前一天起诉犹他州，州与联邦的冲突进入刑事程序。</h4>
+        <p class="signal-key">犹他州检察长 Derek Brown 10 月 28 日在盐湖城州法院起诉 KalshiEX 与创办人 Tarek Mansour、Luana Lopes Lara：二级重罪「不法活动模式」1 项、三级重罪「线上赌博推广」12 项、A 级轻罪「一般赌博推广」1 项，证据是调查员卧底在 Kalshi 下的 12 笔体育投注。前一天，美国商品期货交易委员会（CFTC）起诉犹他州，主张联邦对交易所上的事件合约有专属管辖权，这是 CFTC 第十次对州政府提告。Kalshi 称起诉是「疯狂的越权」，会像在亚利桑那一样在法庭胜诉。同一周还有两件事：Kalshi 对路易斯安那州官员提联邦诉讼，要阻止州博彩监管机关执法；Polymarket 与密西根博彩管理局（MGCB）达成法院核准的协议，停止在密西根提供新的体育事件合约、11 月 25 日前结清所有既有合约，换取州政府不执法。Polymarket 3 月在密西根提告后，临时禁制令与初步禁制令都被驳回。犹他州的刑事起诉之前，州政府 10 月中旬已提民事诉讼，指 Kalshi 规避州内实施 130 年的赌博禁令、构成公共滋扰；CFTC 主席 Selig 回应说，事件合约「也为大众提供对未来事件结果的资讯」，国会把监管权交给 CFTC。</p>
+        <p class="signal-judge"><br><u>综合判断</u>：州政府的手段从民事禁令升到对创办人个人提刑事指控，CFTC 以联邦诉讼回应，双方都在加码，最终要等联邦上诉法院或最高法院定调。Polymarket 在密西根让步，表示预测市场在官司失利的州会选择撤出体育合约、保住其他品类。对美国持牌 sportsbook +EV（替代品在部分州被挤出）；对 Kalshi、Polymarket −EV。美国认定「体育事件合约就是赌博」的州越来越多，菲律宾业者若评估与预测市场类产品合作，先按博彩产品处理合规与牌照。
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.deseret.com/sports/2026/10/28/utah-files-criminal-charges-kalshi-illegal-gambling-promotion-cftc-sues-utah-block-laws/" target="_blank" rel="noopener">阅读原文 →</a></p>
+      </div>
+
+      <div class="signal-card">
+        <div class="label">SIGNAL 04 · 美国 · NBA</div>
+        <h4>NBA 与 CFTC 签资讯分享备忘录，并选 Kalshi、Polymarket 为合作伙伴，联盟可限制两家开的 NBA 盘口。</h4>
+        <p class="signal-key">NBA 10 月 26 日宣布与 CFTC 签资讯分享备忘录（MOU），同时把 Kalshi 与 Polymarket 列为「首选预测市场交易所」。协议内容包括：联盟可限制能开的盘口类型、禁止联盟与球队人员交易、可疑交易与调查资料互相通报。CFTC 主席 Michael Selig 说，NBA 是继 MLB、NHL 之后签署备忘录的联盟。iGamingExpress 指 NBA 是第四个与预测市场合作的北美联盟；NFL 两项都没签，正请求最高法院让各州可以用州法管理。Kalshi 体育合作负责人 Adam Barrick 称，数百万人在 Kalshi 交易、受全国一致的消费者保护；Polymarket 体育业务总裁 Ari Borod 说合作会让用户「更深入参与篮球」。NBA 宣布合作的同一周，犹他州对 Kalshi 提刑事指控（见讯号 03）。</p>
+        <p class="signal-judge"><br><u>综合判断</u>：联盟同时跟监管机关与平台签约，拿到「哪些盘口能开」的决定权与交易资料，等于把预测市场接进既有的诚信监控体系，削弱了州政府「预测市场缺乏诚信保护」的论点。对 Kalshi、Polymarket +EV（拿到联盟背书）；对依赖 NBA 流量的美国持牌 sportsbook −EV（多一个有官方背书的竞争者）。NFL 立场相反，联盟之间的分歧会持续。菲律宾体博品牌的 NBA 素材不受直接影响；与联盟或数据商谈授权时，可参考这套「盘口限制加资讯分享」的条款。
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamingintelligence.com/legal/237840-nba-signs-integrity-agreement-with-cftc-and-partners-kalshi-and-polymarket/" target="_blank" rel="noopener">阅读原文 →</a></p>
+      </div>
+
+      <div class="signal-card">
+        <div class="label">SIGNAL 05 · 英国 · 预算案</div>
+        <h4>英国预算案把机台游戏税从 20% 调到 <span class="hi">25%</span>，2027 年 4 月起适用高额机台，财政部估每年多收 1 亿英镑。</h4>
+        <p class="signal-key">上周 Flutter 宣布裁员时，业界担心机台游戏税（MGD）会加倍到 40%。10 月 28 日财政大臣 John Healey 公布秋季预算，结果是从 20% 调到 25%，2027 年 4 月 1 日生效，只适用 B 类高额机台（赌场、投注店、宾果厅，单注超过 1 英镑或奖金超过 100 英镑），酒吧与海滨游乐场的低额机台不变。增收用来支应商街营业税减免：零售与餐饮业减免门槛从 1.2 万英镑升到 1.8 万英镑，成人游戏中心与电子烟店排除在外。预算责任办公室（OBR）估计调整后从 2027-28 年度起每年多收约 1 亿英镑（约 42 亿台币）；博彩税收 2026-27 年度预估 50 亿英镑，比前一年多 31%，主因是远端博彩税（RGD，课线上赌场与老虎机）今年 4 月从 21% 升到 40%，而且线上活动减少得比预期慢。业者协会 BGC 称这是「极具破坏性」的决定，Entain 证实旗下 Ladbrokes、Coral 门店成本增加。Healey 在演说中称，向博彩加税是为了「支持每条商街的良性成长」；预算公布前，Rank 与 Genting UK 都曾警告加税会让部分赌场转为亏损。</p>
+        <p class="signal-judge"><br><u>综合判断</u>：这次新增税负落在实体机台，线上税率没有再调高；OBR 也指出线上赌场加税后营收掉得比预期少，等于官方确认线上业者还能承受。对实体门店比重高的 Entain、evoke −EV（门店关闭风险上升）；对纯线上业者中性。「税率翻倍、税收仍增 31%」这组数字会被各国财政部引用，PH 业者与 PAGCOR 讨论费率时，要准备菲律宾本地的玩家流向无照平台数据，不能只引用英国的情况。
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.intergameonline.com/land-based-gaming/news/machine-games-duty-rises-uk-budget" target="_blank" rel="noopener">阅读原文 →</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §01 -->
+  <section class="section" id="s1">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>法规动态</h2>
+      <span class="h2-en">Regulation</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">澳洲 · Star 反洗钱</span></div>
+        <h4>澳洲联邦法院判 Star 付 <span class="hi">2.6 亿澳元</span>反洗钱罚款，分 19 个月四期缴清。</h4>
+        <p class="src">Inside Asian Gaming · 10/28–10/30</p>
+        <p>澳洲联邦法院法官 Cameron Moore 10 月 28 日结束反洗钱机关 AUSTRAC 2022 年提起的民事案：Star 须付 2.6 亿澳元（约 55 亿台币），其中 The Star Sydney 1.95 亿、Gold Coast 6,500 万，分四期、19 个月付清。AUSTRAC 求处 4 亿澳元，Star 则说超过 1 亿就会危及公司存续；法官认为两个数字都不合适，并指 Star「把利润放在合规之前」。2023 年 Crown 与 AUSTRAC 的和解金是 4.5 亿澳元。罚款宣判前一天，Star 公布 9 月季度两年多来首次营运盈利与现金流同时转正，新管理层也承认过去「过度合规」把 VIP 客人赶走；宣判后 Star 与贷方 WhiteHawk 洽谈，因为罚款触发了贷款合约的审查条款。据 iGamingExpress 报导，Star 的大股东 Bally’s 表示罚款不会让 Star 陷入破产。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：法院没有因为业者财务困难免罚，只调整了缴款方式。Star 被罚 2.6 亿澳元的同时，也承认过度合规赶走 VIP，说明反洗钱成本只能靠 KYC（客户身份验证）流程的效率去省，不能靠放低标准。对澳洲持牌赌场中性；对菲律宾综合度假村的 VIP 与中介业务 −EV：PAGCOR 与反洗钱委员会（AMLC）检查 VIP 资金来源时，澳洲判决会被当成参照。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://asgam.com/2026/10/28/australias-federal-court-hits-star-with-combined-au260-million-in-penalties-in-austrac-civil-case/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §02 -->
+  <section class="section" id="s2">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>M&amp;A 与资本动作</h2>
+      <span class="h2-en">M&amp;A &amp; Capital</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">市场</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">澳门 · 金沙中国</span></div>
+        <h4>金沙中国发 <span class="hi">10 亿美元</span>票据，提前赎回 2027 年到期的 7 亿美元旧债，新债利率约 6.5%。</h4>
+        <p class="src">Inside Asian Gaming · 10/27–10/28</p>
+        <p>金沙中国 10 月 28 日完成两档优先票据定价：7 亿美元 2032 年 1 月 8 日到期、年利率 6.4%；3 亿美元 2033 年 11 月 8 日到期、年利率 6.7%。所得加上手上现金，用来全额赎回 2027 年 3 月到期、利率 2.3% 的 7 亿美元票据，偿还 2024 年循环信贷的余额，并支应资本支出。同一周，信评研究机构 CreditSights 表示，澳门博彩收入走弱现在还不能认定是长期现象。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：新债利率约是旧债的三倍，金沙中国每年的利息支出会明显增加，澳门博企在收入下滑期还要承担更高的资金成本（澳门 10 月数据见 §5）。对金沙中国中性偏 −EV。对正在找营运伙伴、准备举债兴建的菲律宾新综合度假村案（如 Belle 的 Clark 案，见 §5）−EV：同区域大型业者的发债利率已在 6% 以上，新案的融资条件不会更好。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://asgam.com/2026/10/28/sands-china-to-raise-us1-billion-through-new-senior-notes-offering/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">市场</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">美国 · 赌场房地产</span></div>
+        <h4>赌场房东 GLPI 第三季营收增 <span class="hi">9.5%</span>，首次投资博彩以外的物流地产。</h4>
+        <p class="src">Gaming Intelligence · 10/30</p>
+        <p>持有赌场物业、再租给营运商的不动产投资信托 Gaming and Leisure Properties（GLPI）第三季营收年增 9.5% 至 4.354 亿美元（约 139 亿台币），创纪录；同时与物流地产商 Prologis 成立合资公司，开发原 Hollywood Casino Joliet 的旧址，这是 GLPI 第一次投资博彩以外的产业。同业 VICI Properties 第三季营收增 6%、上调全年预测，但净利减 55%。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：美国赌场房东开始把资金投到物流地产，代表美国本土新增赌场开发案变少，房东得在博彩以外寻找成长机会（推论）。对美国赌场业者中性。对亚洲新综合度假村案，美国不动产信托的资金短期不会往这里流，融资仍要靠当地银行与营运商自有资金。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamingintelligence.com/finance/237956-glpi-enters-jv-with-prologis-to-develop-former-hollywood-casino-joliet-site/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §03 -->
+  <section class="section" id="s3">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>产品与技术发布</h2>
+      <span class="h2-en">Product &amp; Tech</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat b">产品</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">🆕 菲律宾 · 直播下注</span></div>
+        <h4>Bloomberry 在 OnlyFun.PH 推出<span class="hi">艺人主持的直播下注</span>，Viva 旗下两名艺人担任代言与主持。</h4>
+        <p class="src">BusinessWorld · GGRAsia · 10/26–10/29</p>
+        <p>Solaire 母公司 Bloomberry 10 月 29 日宣布与 Viva Communications 合作，在线上平台 OnlyFun.PH 推出「FollowBet x VMX Live」：Viva 旗下 VMX 娱乐平台的艺人按排程开直播，用户可以和主持人互动，同时下注。首批代言兼主持是 Angeli Khang 与 Robb Guinto，后续几周还会加人。Solaire 线上博彩负责人 Kelvin Kuan 说，OnlyFun.PH 是 FUNaloMAX 品牌往「互动娱乐」扩张的主力。FUNaloMAX 另在 10 月 17 日至 12 月 27 日办总奖额 3,000 万披索（约 1,500 万台币）的年终活动。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：直播主持加即时下注，把内容与下注放进同一个画面，是菲律宾线上市场新的获客形式。VMX 以成人向内容为主，PAGCOR 广告规范对代言人与目标受众的限制，会是这类合作要先过的关卡（推论，需对照 PAGCOR 广告规范原文）。对 Bloomberry +EV（有别于国际供应商标准游戏的内容）。品牌方若要做自有 KOL 直播，先把三件事写进流程：主持人资格、观众年龄验证、直播中的负责任博彩提示。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://bworldonline.com/corporate/2026/10/29/790208/bloomberry-taps-viva-for-celebrity-hosted-livestream-betting/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat b">产品</span><span class="pill pos"><span class="dot">＋</span>利好</span><span class="pill hot">Konami · 赌场系统</span></div>
+        <h4>Konami 博彩部门上半财年营收增 41%，赌场管理系统连线机台达 <span class="hi">15 万台</span>。</h4>
+        <p class="src">Gaming Intelligence · Inside Asian Gaming · 10/30</p>
+        <p>日本 Konami 集团 2027 财年上半年（4 月至 9 月）合并营收年增 37% 至 3,079.8 亿日圆，并上调全年预测至营收 5,830 亿日圆、税前利润 1,930 亿日圆。博彩与系统部门营收增 41.3% 至 251.1 亿日圆（约 53 亿台币），部门营业利益增 154.5% 至 24.1 亿日圆，动力来自 Solstice 系列机台、Synkros 赌场管理系统与 Class II 机台（美国部落赌场用的宾果型机台）。IAG 报导 Synkros 全球连线机台达 15 万台。按地区，日本占合并营收 81.7%、美国 11.3%、亚洲与大洋洲 3.7%。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：赌场管理系统一旦投入使用，会员、点数、机台资料都绑在同一套系统里，换供应商成本很高，所以连线机台数是比卖出几台机器更稳的收入指标。对 Konami +EV。马尼拉综合度假村若要把实体会员导到线上（LaVie、Solaire 正在做），管理系统能否串接线上帐户会是选型重点（推论）。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamingintelligence.com/finance/238046-konami-group-shares-surge-on-strong-revenue-and-profit-growth/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §04 -->
+  <section class="section" id="s4">
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2>大运营商动向</h2>
+      <span class="h2-en">Operators</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat c">运营商</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">Caesars · 第三季</span></div>
+        <h4>Caesars 第三季净亏损扩大到 <span class="hi">1.23 亿美元</span>，数位部门营运盈利年增 57%。</h4>
+        <p class="src">Covers · Yogonet · NEXT.io · 10/27–10/28</p>
+        <p>Caesars 10 月 28 日公布第三季：营收年增 2.5% 至 29.4 亿美元（约 940 亿台币），低于分析师预期；调整后营运盈利减 2.1% 至 8.65 亿美元；归属公司的净亏损从 5,500 万扩大到 1.23 亿美元。拖累来自拉斯维加斯，区域赌场与数位业务成长。数位部门 Caesars Digital 净营收年增 4.8% 至 3.26 亿美元，调整后营运盈利从 2,800 万增到 4,400 万美元，净利 400 万美元，去年同期亏 2,100 万。市占则在下滑：Citizens 数据显示 Caesars 美国线上赌场市占从 7.1% 降到 6.4%，体育投注保留率从 7.6% 降到 6.9%。Fertitta Entertainment 5 月宣布以 176 亿美元（含承接债务）收购 Caesars，案子仍在进行，Caesars 寻求其他买方的「go-shop」期已在 7 月 11 日结束。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：数位部门开始赚钱，靠的是压成本，市占反而在掉。大型实体集团把线上业务当利润来源，不再当扩张引擎；马尼拉的 Bloomberry、LaVie 仍在加码线上，双方处于不同的发展阶段。对 Caesars 中性。对菲律宾实体业者，Caesars 的数字说明线上业务要赚钱，得先接受市占不再扩大、把预算集中在留存高价值玩家。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.covers.com/industry/caesars-digital-reports-4-percent-net-revenue-increase-in-q3-oct-28-2026" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat c">运营商</span><span class="pill pos"><span class="dot">＋</span>利好</span><span class="pill hot">Rush Street · 第三季</span></div>
+        <h4>Rush Street 第三季营收年增 <span class="hi">39%</span> 至 3.86 亿美元，北美月活跃用户创新高。</h4>
+        <p class="src">Gaming Intelligence · Gambling Insider · NEXT.io · 10/27–10/29</p>
+        <p>BetRivers 品牌的营运商 Rush Street Interactive（RSI）公布第三季营收 3.859 亿美元（约 123 亿台币），年增 39%，北美月活跃用户创纪录；Gambling Insider 报导调整后营运盈利年增 73%，但营收低于市场预期。Citizens 数据显示，RSI 在美国线上赌场的市占从 6.8% 升到 7.4%，是同季市占成长的少数业者之一，另外两家是 Fanatics 与 bet365。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：美国线上赌场整体增速掉到纪录低点（见 §7），中型纯线上业者还能靠抢份额成长，代表市场成熟后的成长主要来自既有玩家在品牌之间移动。对 RSI +EV。菲律宾线上市场正处在收入下滑期，成长同样要靠争取其他品牌的玩家，产品体验与出金速度比加码彩金更能留住玩家。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamingintelligence.com/finance/237984-rush-street-interactive-delivers-strong-revenue-and-profit-growth-in-q3/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat c">运营商</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">美高梅 · 第三季</span></div>
+        <h4>美高梅集团第三季调整后营运盈利减 <span class="hi">20%</span>，澳门创纪录抵不过拉斯维加斯。</h4>
+        <p class="src">Inside Asian Gaming · Gaming Intelligence · NEXT.io · 10/28–10/30</p>
+        <p>美高梅集团（MGM Resorts）第三季合并营收 42.1 亿美元（约 1,350 亿台币），年减 1%；调整后营运盈利 4.03 亿美元，比去年同期的 5.06 亿减 20.4%；归属公司净亏损 1,700 万美元，去年同期亏 2.85 亿。拖累来自美国本土：拉斯维加斯客房价格走低，执行长 Bill Hornbuckle 称 10 月已明显回升。澳门子公司美高梅中国则创单季营收纪录（见 §5）。线上合资 BetMGM 的营收有成长，但 Citizens 数据显示其美国线上赌场市占从 20.7% 降到 18.6%，连六季下滑。同期内华达州 9 月博彩收入 12.8 亿美元、与去年持平，体育投注收入 5,410 万美元、同样持平。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：同一家公司里，澳门靠赢率创纪录、美国本土靠房价撑不住，集团整体盈利掉两成，说明拉斯维加斯这一季的疲弱不是单一业者的问题（Caesars 同样受拖累）。BetMGM 营收成长但市占下滑，代表它在一个仍成长的市场里跑输对手。对美高梅集团 −EV。对菲律宾综合度假村，美国大型集团的资本支出会更保守，马尼拉新案若要找美系营运伙伴，谈判空间可能变大（推论）。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://asgam.com/2026/10/29/strong-gaming-hold-drives-mgm-china-to-record-quarterly-revenue-and-all-time-high-macau-market-share-of-17-1-in-3q26/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat c">运营商</span><span class="pill pos"><span class="dot">＋</span>利好</span><span class="pill hot">云顶 · 纽约</span></div>
+        <h4>云顶纽约赌场 9 月收入 1.27 亿美元，带动纽约实体赌场收入年增 <span class="hi">220%</span>。</h4>
+        <p class="src">Gaming Intelligence · Inside Asian Gaming · 10/26–10/30</p>
+        <p>纽约州实体赌场 9 月博彩收入 1.843 亿美元（约 59 亿台币），年增 220%，增幅来自云顶集团的 Resorts World New York City 从电子游戏厅改为可开真人桌台的完整赌场。Resorts World NYC 单月收入 1.267 亿美元，远高于第二名 Rivers Casino 的 2,010 万与 del Lago 的 1,500 万；全州桌台收入 5,360 万、老虎机 1.293 亿美元。Resorts World NYC 10 月下旬再开一个高额厅，设 48 张桌台与三个私人包厢。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：纽约市区第一家完整赌场开张，一个月就拿下全州约七成的实体博彩收入，表示大城市里的赌场需求原本被电子游戏厅的产品限制压着。对云顶 +EV，对纽约州郊区赌场 −EV。纽约市另有两张赌场牌照在筹建，开幕后会分走这批客人（推论）。马尼拉综合度假村的启示是：城市型赌场的营收高度依赖桌台产品与高额厅。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://asgam.com/2026/10/26/gentings-resorts-world-new-york-city-launches-vip-gaming-room-with-48-gaming-tables-and-three-private-salons/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §05 -->
+  <section class="section" id="s5">
+    <div class="section-head">
+      <span class="num">05</span>
+      <h2>亚洲市场</h2>
+      <span class="h2-en">Asia · PH / Macau / SEA</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat c">运营商</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">菲律宾 · LaVie 线上</span></div>
+        <h4>马尼拉 LaVie 赌场 11 月中下旬开<span class="hi">自营线上平台</span>，提供远端真人桌台、RNG 游戏与体育投注。</h4>
+        <p class="src">Inside Asian Gaming · 10/31</p>
+        <p>香港上市的 International Entertainment Corp（IEC）10 月 30 日公告，旗下马尼拉 Malate 区的 LaVie Resort & Casino 将在 11 月中下旬开自营线上平台，名称为 LaVie Resort & Casino Manila。内容有三类：远端游玩赌场内指定区域的实体桌台与老虎机，包括佣金百家乐、Super 6、Tiger 百家乐等；RNG（随机数产生器）类的线上老虎机、桌游、扑克、宾果与街机游戏；以及由持有线上牌照的子公司 New Coast Leisure 安排的体育投注。系统由 GLI 或 PAGCOR 认可的测试机构认证。这是 IEC 的第二阶段；第一阶段今年稍早与 DigiPlus 合作上线。IAG 指 LaVie 是继 Solaire 之后，第二家自建线上平台的马尼拉实体赌场。IEC 第一阶段上线时曾说，做线上是为了扩大营收基础、提高营运规模的弹性，并创造新的成长来源。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：第一阶段找 DigiPlus 合作、第二阶段改自营，代表实体业者想自己掌握玩家资料与营收（推论）。真人桌台直接从赌场现场串流，会跟纯线上业者抢真人百家乐的玩家。对纯线上持牌业者 −EV，真人类产品的供给增加、获客成本被推高。11 月上线后，值得对照它的欢迎彩金与返水是否在 PAGCOR 上限内（返水 1.5%、回馈 15%）。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://asgam.com/2026/10/31/manilas-lavie-resort-casino-to-launch-self-run-igaming-platform-offering-remote-gaming-online-casino-games-and-sports-betting/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat c">运营商</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">菲律宾 · City of Dreams</span></div>
+        <h4>Belle 第三季从 City of Dreams Manila 分得的博彩收入年减 <span class="hi">2.8%</span>，前九个月仍增 12.5%。</h4>
+        <p class="src">GGRAsia · 10/30</p>
+        <p>Belle Corp 透过子公司 Premium Leisure 分得 City of Dreams Manila（由 Melco 营运）的博彩收入，第三季约 5.3 亿披索（约 2.7 亿台币），年减 2.8%，比第二季增 13.4%；前九个月累计 14.8 亿披索，年增 12.5%。Belle 同时是土地与建物的出租方，第三季租金收入 5.917 亿披索、年增 0.7%。集团第三季净利 6.846 亿披索、年增 31.5%，主要来自彩券设备租赁；负债从去年底 52.8 亿披索降到 31 亿。Belle 已取得 Clark 综合度假村的暂定牌照，计划投资至少 3 亿美元，正在找营运伙伴，找到后两到三年开幕。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：实体赌场的博彩分成只小跌 2.8%，跟 PAGCOR 线上收入减 37% 对照（见讯号 01），说明菲律宾这一轮下滑集中在线上。对马尼拉实体综合度假村中性。Clark 新案仍在找营运商，在线上收入下滑、融资利率偏高的环境下，开幕时程可能往后推（推论）。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.ggrasia.com/belle-says-3q-share-of-gaming-from-city-of-dreams-manila-down-2-8pct-y-o-y" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat c">运营商</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">菲律宾 · PlayTime</span></div>
+        <h4>PlayTime 成为马尼拉影展官方娱乐伙伴，续约影评人协会颁奖礼，9 月已赞助大学体育联赛。</h4>
+        <p class="src">BusinessWorld · 10/25</p>
+        <p>菲律宾线上博彩业者 PlayTime Entertainment 10 月 25 日宣布，签约成为第 52 届马尼拉影展（MMFF）的官方娱乐伙伴，并续约菲律宾电影记者俱乐部（PMPC）第 42 届 Star Awards 电影奖。PlayTime 9 月已成为全国大学体育协会（NCAA）第 102 季的官方娱乐伙伴与冠名赞助。总裁 Roy Alcid 说，这些合作是为了提高品牌能见度、与观众互动。马尼拉影展在每年 12 月底举行，是菲律宾全年票房最集中的档期。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：菲律宾持牌业者正同时往本土电影与体育内容靠拢：DigiPlus 做本土恐怖片 IP 游戏、Bloomberry 找艺人直播、PlayTime 赞助影展与大学联赛。这些合作的风险在于受众年龄：大学联赛的观众有相当比例是未成年人，PAGCOR 广告规范禁止以未成年人为对象，赞助曝光的呈现方式需人工确认。目前只有业者新闻稿，本卡不下 EV 判断。品牌方若评估同类赞助，先确认活动受众年龄结构与曝光位置。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://bworldonline.com/corporate/2026/10/25/789088/playtime-deepens-ties-with-film-sports-groups-to-reach-customers/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">越南 · 赌场新规</span></div>
+        <h4>越南赌场 11 月 15 日起可用国民电子身份 App 核验客人，新罚则 <span class="hi">12 月 5 日</span>生效。</h4>
+        <p class="src">SiGMA · 10/28</p>
+        <p>越南政府发布两项命令。第 392/2026/ND-CP 号更新赌场营运规定：从 11 月 15 日起，赌场可以用国民电子身份 App（VNeID）核验客人，作为既有方式之外的选项；同时禁止雇用曾因非法赌博、组织赌博、提供赌博场所或放高利贷被判刑、且前科未消除的人。第 391/2026/ND-CP 号 10 月 20 日发布、12 月 5 日生效，取代 2021 年的第 137 号罚则命令：组织最高罚 2 亿越南盾（约 24 万台币），让不符资格的客人入场罚 1.6 亿至 1.8 亿越南盾，未完整登记客人资料罚 1.3 亿至 1.5 亿越南盾，涉及反洗钱的违规罚 4,000 万至 2 亿越南盾。目前开放越南本国人入场的是富国岛 Corona 与胡志明市附近的 The Grand Ho Tram；广宁省云屯（Van Don）赌场案拿到营运执照后，也有五年本国人试点。本国人入场试点在 2025 年 11 月经决议延长，这两项命令是延长后第一次把核验与罚则写细。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：越南对本国人入场的试点正在补齐执行细节：电子身份核验降低入场门槛，罚则则把登记、资格审查与反洗钱的责任压在业者身上。已开放本国人的两家赌场核验会更快、客量可能上升，但合规成本也上升；命令原文未读、只有单一转述，本卡不下 EV 判断。越南境内线上博彩仍属非法，这两项命令不涉及线上；对菲律宾线上业者没有直接影响。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://sigma.world/news/vietnam-casinos-verify-customers-national-e-id-app/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">市场</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">澳门 · 10 月赌收</span></div>
+        <h4>澳门 10 月赌收年减 <span class="hi">10%</span>、连五个月下滑，美高梅中国市占创新高 17.1%。</h4>
+        <p class="src">Inside Asian Gaming · GGRAsia · 11/01</p>
+        <p>澳门博彩监察协调局（DICJ）11 月 1 日公布，10 月赌收 216.8 亿澳门元（约 870 亿台币），年减 10%，连续第五个月下滑；虽然比 9 月的 180.6 亿多两成，国庆黄金周旅客增加仍抵不过高端客消费变弱。前十个月累计约 2,088 亿，年增 1.6%，仍比 2019 年疫情前同期的 2,467 亿低约 15%。政府全年 2,360 亿的预测维持不变，CreditSights 认为仍能达标：前十个月月均 208.8 亿，高于全年达标所需的每月 196.7 亿。业者端，美高梅中国第三季营收 89.3 亿港元（约 366 亿台币）创单季纪录、年增 5%，市占 17.1% 创新高，主要靠赢率提高：美狮美高梅中场赢率 28.4%，去年同期 26.2%；但调整后营运盈利减 7% 至 2.64 亿美元，部分原因是母公司多收 2,200 万美元品牌授权费。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：大盘下滑、单一业者市占上升又是靠赢率，表示澳门整体客量没有回来，业者在争同一批客人。对美高梅中国短期 +EV，但赢率回到常态后市占可能回落；对澳门整体 −EV。菲律宾综合度假村争取中国旅客时，要预期澳门业者为保客量加大回馈（推论）。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://asgam.com/2026/11/01/octoberggr_falls_to_mop21b/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §06 -->
+  <section class="section" id="s6">
+    <div class="section-head">
+      <span class="num">06</span>
+      <h2>拉美市场</h2>
+      <span class="h2-en">LatAm · Brazil Focus</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat e">体博</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">巴西 · 代理品牌赞助</span></div>
+        <h4>Vasco 球衣主赞助改印 AI 网站 <span class="hi">SportingBot</span>，品牌属 Sportingbet，合约在禁令后照旧。</h4>
+        <p class="src">Poder360 · 10/30</p>
+        <p>Poder360 10 月 30 日报导，里约俱乐部 Vasco 球衣胸前主赞助改印一个人工智慧网站 SportingBot，取代原本的会员计划标志；该品牌属于 Sportingbet，Sportingbet 在巴西限制博彩广告后仍维持与俱乐部的合约。报导说，改版是对第 1.394 号临时措施令的回应：这项命令 9 月 25 日由 Lula 签署，禁止固定赔率投注的经营、提供、中介与广告，并订了撤除广告与赞助素材的过渡期。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：用名称相近、但本身不是博彩的关联品牌保住球衣版位，是禁令下延续曝光的做法；风险是监管机关可能认定为间接广告。目前只有单一媒体报导、未见监管机关表态，本卡不下 EV 判断。菲律宾若收紧代言与广告规范，同样的做法也会被检视；品牌方若考虑用代理品牌维持赞助，先取得法务意见。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.poder360.com.br/poder-sportsmkt/vasco-estampa-site-de-ia-como-patrocinio-master/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">Trigger 1 · Lula 连任</span></div>
+        <h4>Lula 10 月 25 日决选连任，「等选举」的前提解除，禁令进入最高法院与国会的对决阶段。</h4>
+        <p class="src">trigger-2026-10-26.md · iGaming Business Brasil · 10/26</p>
+        <p>Lula 以约 52% 对 48% 连任，领先 Flávio Bolsonaro 约 430 万票。iGaming Business Brasil 报导，两院联合委员会已指派 12 名参议员与 13 名众议员，主席与报告人未定、尚未成立；11 月 9 日起锁住国会议程，内规表决期限 11 月 25 日、可延 60 天；国会可能让体育投注回来、但不含线上游戏。iGB 另称营运商授权 10 月 25 日失效，当时只有单一来源、待验。（详见本期 Trigger 1 至 Trigger 4 与讯号 02）</p>
+        <div class="judge"><br><span class="lead-in"><u>当时判断</u></span>：选举不确定性消失，Lula 公开表态 bets 不回来，禁令路径风险上升；实际分水岭是 Fux 裁决与 11-09、11-25 国会节点，而非选举本身。巴西侧素材与 BR 合作提案先假设「体育投注可能保留、线上游戏被禁」两套情境并行，待 Fux 裁决后定案。</div>
+        <div class="judge"><br><span class="lead-in"><u>一周后 follow-up</u></span>：Fux 截稿时尚未裁决，改以 11 月 3 日公听会听取 28 个单位意见（见讯号 02）。授权 10 月 25 日失效一事，iGamingExpress 报导为 85 家公司、188 个品牌、规费不退，仍未读到财政部一手公告。判断维持。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://x.com/iGamingBusiness/status/2114694193344036974" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">Trigger 2 · 公听会排定</span></div>
+        <h4>Fux 排定 11 月 3 日就博彩规则开公听会，听取政府、团体、俱乐部与足协意见。</h4>
+        <p class="src">trigger-2026-10-27.md · Poder360 · 10/26</p>
+        <p>Poder360 10 月 26 日报导，主审法官 Fux 排定 11 月 3 日开公听会。当时只读到标题与副标，内文抓取失败；STF 官网长期无法读取。这是 Lula 连任、Fux 据报选后才裁决之后的第一个具体时程。</p>
+        <div class="judge"><br><span class="lead-in"><u>当时判断</u></span>：Lula 连任后禁令战场移到 STF 与国会双线，11-03 公听会是第一个可验证的时间点，且俱乐部与 CBF 入场代表赞助生态会被拉进辩论。单源标题不足以下结论，先当时程讯号：把 11-03 与国会 11-09 议程、11-25 表决期限放同一条时间轴，11-03 前补读 Poder360 内文与 STF 公告，再决定巴西素材与合规话术是否要调整。</div>
+        <div class="judge"><br><span class="lead-in"><u>一周后 follow-up</u></span>：STF 10 月 28 日官网公告已证实：11 月 3 日上午 10 点、28 个单位、每单位十分钟（一手已读），单一来源的问题已解决。判断维持。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.poder360.com.br/poder-justica/fux-marca-audiencia-publica-sobre-bets-para-3-de-novembro/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">Trigger 3 · 政府排优先议程</span></div>
+        <h4>巴西政府把博彩临时措施令列入年底前国会优先议程，但没说是否接受修改。</h4>
+        <p class="src">trigger-2026-10-28.md · BolhaBet（转述 Correio、Estadão）· 10/28</p>
+        <p>府际关系部长 José Guimarães 10 月 27 日表示，政府年底前把公共安全宪法修正案、免费公交、博彩临时措施令与 2027 年预算列为国会优先议程。Correio 版引述「这三项若能表决就满意」，Estadão 版只说「讨论」博彩临时措施令。BolhaBet 称两院联合委员会至 10 月 27 日仍未成立，临时措施令须在 11 月 23 日前通过委员会与两院；先前 iGB 写的是 25 日，两个日期并存。</p>
+        <div class="judge"><br><span class="lead-in"><u>当时判断</u></span>：这是政治表态，不是新规则或裁决，只证明「选后 MP 有人推」，尚无委员会与表决日程。真正的硬事件仍是 11-03 STF 公听会与 11-23 或 11-25 期限。动作：不改既有判断，维持观察；一手日期矛盾待 Correio 或国会公报厘清。</div>
+        <div class="judge"><br><span class="lead-in"><u>一周后 follow-up</u></span>：截稿时联合委员会仍未开会，表决期限 23 日或 25 日仍未读到国会一手公报。判断维持。</div>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">Trigger 4 · 公听会名单</span></div>
+        <h4>Fux 把体育部与奥委会加入公听会，与会名单公开，俱乐部、足协与业者协会都列名。</h4>
+        <p class="src">trigger-2026-10-29.md · Poder360 · 10/28</p>
+        <p>Fux 10 月 27 日裁定把体育部与奥委会 COB 加入公听会，名单同步公开：联邦检察长、总检察署、财政部、体育部、COB、全国商业联合会、全国工业联合会；Flamengo、Corinthians 等 10 家俱乐部与足协 CBF；ANJL、IBJR 等业者协会；广电协会与大学研究室。</p>
+        <div class="judge"><br><span class="lead-in"><u>当时判断</u></span>：问题是 MPV 1394 在 11-03 公听会前，战场已从「等选举」转到「谁有发言权」；体育端（Esporte、COB、俱乐部、CBF）入列，代表赞助与广告收入的利害会被放到台面，业界协会则为牌照存续说话。判断：11-03 前不会有最终裁决，但公听会发言将决定 MP 是否被软化或转为法律。动作：11-03 当天盯与会者发言与俱乐部立场，BR 侧素材与赞助谈判维持保守，暂不押注固定赔率品类的长期投放。</div>
+        <div class="judge"><br><span class="lead-in"><u>一周后 follow-up</u></span>：STF 官方名单另列 Cruzeiro，总数 28 个单位；IBJR 10 月 30 日公开非法市场成长 101% 的估计，业界论点开始以非法市场为主轴（见讯号 02）。11 月 3 日的发言内容下期跟进。判断维持。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.poder360.com.br/poder-justica/fux-inclui-cob-e-ministerio-do-esporte-em-audiencia-sobre-bets/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §07 -->
+  <section class="section" id="s7">
+    <div class="section-head">
+      <span class="num">07</span>
+      <h2>北美市场</h2>
+      <span class="h2-en">North America</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">扫奖型赌场 · 俄克拉荷马</span></div>
+        <h4>俄克拉荷马扫奖型赌场禁令 11 月 1 日生效，<span class="hi">逾 20 个平台</span>退出或停扫奖币。</h4>
+        <p class="src">Gambling Insider · 10/29</p>
+        <p>扫奖型赌场用双币制运作：娱乐币可以买，扫奖币只能免费取得、可兑换现金。10 月中旬起已有 ACE、Baba、Coin Wizard、Stake.us 宣布退出俄克拉荷马；生效前一周又多一批：B-Two 旗下 McLuck、Hello Millions、SpinBlitz、PlayFame 11 月 1 日起停止营运；High 5 Casino 10 月 29 日关闭；A1 Development 的 Funrize 等 6 个平台改为只提供娱乐币；Blazesoft 的 Fortune Wins、Zula、Sportzino 10 月 27 日起排除当地居民。GiddyUp 10 月 19 日宣布暂时收摊，11 月 2 日前可申请兑换。怀俄明博彩特别委员会 10 月 5 至 6 日审议草案 27LSO-0098，把经营线上赌场与扫奖游戏列为非法职业赌博，支付处理、地理定位、平台代管与广告服务都在范围内，最高可判 3 年徒刑或罚 3,000 美元，预计 2027 年 1 月会期审议。宾州 HB 2801 9 月 24 日提出后没有进展，会期 11 月 30 日结束。佛州检察长要求 Google、Meta 等五家平台 10 月 23 日前说明如何挡广告，截至 10 月 29 日双方都未公开回应。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：业者退州有两种做法：全退，或只留娱乐币模式。只留娱乐币等于放弃营收、保住用户名单，等法规再变（推论）。怀俄明草案把广告与支付服务也列进去，跟俄克拉荷马同一个方向；俄克拉荷马生效后，明文禁止的州有 10 个，目前尚无其他州确定禁令生效日，最近的节点是怀俄明 1 月会期。对美国持牌线上赌场 +EV；对扫奖型业者与替它们投放广告、处理支付的服务商 −EV。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/197677/sweepstakes-casinos-monthly-update-october-2026-oklahoma" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">市场</span><span class="pill pos"><span class="dot">＋</span>利好</span><span class="pill hot">美国 · 内布拉斯加公投</span></div>
+        <h4>内布拉斯加 11 月 3 日公投线上体育投注，两项提案须同时过，4 月民调支持 <span class="hi">58%</span>。</h4>
+        <p class="src">Ballotpedia · SBC Americas · 10/31</p>
+        <p>内布拉斯加选民 11 月 3 日表决两项相连的提案：第 440 号让线上体育投注合法，但只能透过州内六个持牌赛马场的合作业者经营；第 441 号定义线上体育投注，并要求州赛马与博彩委员会在 2027 年 6 月 1 日前订好规则。发起方是当地赛马场与赌场业者 WarHorse，联合线上体博业者与在地投资人。内布拉斯加大学 4 月民调：支持 58%、反对 31%、未决定 11%。目前州内只能在持牌赛马场的柜台或机台下注。Ballotpedia 与 SBC Americas 对两项提案的法律性质说法不一（一说宪法修正、一说州法），但都确认两项须同时通过才能实施。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：如果两项提案都通过，线上体博业者进入内布拉斯加时，必须先与赛马场谈合作；赛马场因此掌握合作入口。对已在当地有赛马场关系的业者 +EV。州人口约 200 万，规模不大，但这是本届期中选举唯一的线上博彩公投，结果会被其他州的推动方引用（推论）。11 月 3 日开票后更新。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://ballotpedia.org/Nebraska_Online_Sports_Betting_Amendment_(2026)" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">市场</span><span class="pill pos"><span class="dot">＋</span>利好</span><span class="pill hot">加拿大 · Alberta 与安大略</span></div>
+        <h4>Alberta 开放后首季线上投注 <span class="hi">28.9 亿加元</span>，线上赌场占近八成。</h4>
+        <p class="src">Gaming Intelligence · 10/30</p>
+        <p>Alberta 公布开放民营线上博彩后的第一份季度数据：三类产品总投注 28.9 亿加元（约 660 亿台币），其中线上赌场 22.8 亿、占 79%，线上体育投注 3.258 亿，真人赌场 2.841 亿。安大略 9 月线上赌场与体育投注合计 97.1 亿加元、年增 14%：线上赌场 85 亿、增 16%、占 88%；体育投注 10.7 亿、只增 1%；当月营收 4.163 亿加元、年增 26%，是今年最高。新不伦瑞克省政府已提出法案，授权并规范真人赌场游戏；安大略省另公布计划，在 Niagara 地区开放竞争性的实体赌场市场，初期最多三家新业者。业者端，Betty Canada 第三季营收 1.11 亿加元创纪录，来自 Alberta 开站；BetMGM 续约成为 NFL 在加拿大的官方体育投注伙伴。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：加拿大两个开放市场里，线上赌场都占投注近八成，体育投注只占一成左右，而且体育投注成长停在个位数。体育投注负责拉新客、线上赌场负责营收，这个分工在新开放市场同样成立。对以赌场产品为主、已在 Alberta 持牌的业者 +EV。菲律宾持牌业者的营收结构同样以线上赌场为主，体博素材可以更明确地以获客为目标。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamingintelligence.com/finance/237777-alberta-igaming-wagering-nears-c3-billion-in-first-three-months/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">市场</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">美国 · 线上赌场市占</span></div>
+        <h4>美国线上赌场第三季年增 <span class="hi">12%</span>，是有纪录以来最慢，Fanatics 等挑战者抢到份额。</h4>
+        <p class="src">NEXT.io（引述 Citizens）· 10/27</p>
+        <p>投资银行 Citizens 的数据显示，美国线上赌场第三季营收年增 12%，是有纪录以来最低，上半年两季都是 16%。FanDuel 仍居第一，但市占从 26.6% 降到 25.1%，今年每季都在降；DraftKings 从 24.3% 降到 22.2%，但比第二季的 20.9% 回升，是两年来第一次季增；BetMGM 从 20.7% 降到 18.6%，连六季下滑；Caesars 从 7.1% 降到 6.4%。成长的是 Fanatics（3.9% 到 5.2%）、Rush Street（6.8% 到 7.4%）、bet365（0.4% 到 1.7%，受惠于密西根与西维吉尼亚开站）。体育投注方面，第三季保留率持平在 9.6%，DraftKings 投注量市占 37.6%、FanDuel 32.8%；FanDuel 保留率 10.4%，高于 DraftKings 的 9.5%。Fanatics 投注量市占从 11.2% 降到 9.9%，毛收入市占却从 7.3% 升到 8.8%；BetMGM 保留率从 9.6% 升到 10.2%。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：只有少数州开放线上赌场，新州不够多，成熟州的增速自然往下走；前三大的份额正在流向 Fanatics、RSI、bet365。对挑战者品牌 +EV，对前三大 −EV。市场饱和后，挑战者是靠产品与交叉导流（Fanatics 的电商会员）拿份额，不是靠加码彩金。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://next.io/news/results/citizens-us-igaming-growth-q3/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §08 -->
+  <section class="section" id="s8">
+    <div class="section-head">
+      <span class="num">08</span>
+      <h2>体育博彩专区</h2>
+      <span class="h2-en">Sports Betting</span>
+    </div>
+    <div class="grid-auto">
+
+      <div class="card">
+        <div class="meta-row"><span class="cat e">体博</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">美国 · 纽约 9 月</span></div>
+        <h4>纽约 9 月手机体育投注年增 5%，保留率仅 <span class="hi">6.6%</span> 使营收减 18%，FanDuel 投注量居首。</h4>
+        <p class="src">Gaming Intelligence · 10/30</p>
+        <p>纽约 9 月手机体育投注 24 亿美元（约 770 亿台币），年增 5%。FanDuel 投注 9.047 亿美元、增 14%，居第一；DraftKings 8.401 亿美元、减 4%，居第二。保留率只有 6.6%，是今年第二低，使当月手机投注毛收入减 18% 至 1.594 亿美元。同月其他州：密西根线上体育投注营收增 27% 至 5,550 万美元，麻州投注减 3%、但保留率 9.4% 使毛收入增 34%。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：投注量稳定、营收随赛果大幅波动，9 月 NFL 开季热门球队多胜，业者保留率被压低。DraftKings 在纽约投注量下滑，与它在全美线上赌场市占下滑（见 §7）是两个独立的警讯。对 DraftKings −EV。体博营收的月度波动大，按季度评估预算与 KPI，比只看单月表现更合理。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamingintelligence.com/finance/237880-new-york-posts-2-4-billion-in-mobile-sports-bets-in-september/" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat e">体博</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">预测市场 · 巴西决选</span></div>
+        <h4>Kalshi 与 Polymarket 投票日中午只给 Lula 约 <span class="hi">两成</span>胜率，Lula 最后以 51.78% 连任。</h4>
+        <p class="src">Semafor · iGamingExpress · 10/27–10/30</p>
+        <p>巴西决选当天美东时间中午，Polymarket 给 Lula 的胜选价格是 20.5 美分，Kalshi 为 20.2%；投票前最后几份登记民调 Flávio Bolsonaro 小幅领先，Lula 最后以 51.78% 有效票胜选。Semafor 10 月 30 日报导，预测市场本周在三场选举都押错，另一场是塞尔维亚，Kalshi 给现任者 75% 胜率、结果落败。参议员 Elizabeth Warren 与 John Curtis 同时去函 Kalshi、Polymarket 执行长，询问选举市场防范内线交易的措施。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：预测市场的价格反映下注者的看法，不保证准确；巴西决选是民调接近的大型选举，市场集体押错方向。这对预测市场「价格就是资讯」的宣传论点不利，州政府在诉讼中可以引用（推论）。博彩品牌做选举相关内容时，不宜把预测市场赔率当成「准确预测」引用。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.semafor.com/article/10/30/2026/prediction-markets-flop-on-recent-elections" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat e">体博</span><span class="pill neu"><span class="dot">○</span>中立</span><span class="pill hot">预测市场 · 网红业配</span></div>
+        <h4>前议员 Santos 指控 Kalshi 要求付费政治网红不揭露业配，Kalshi 未回应。</h4>
+        <p class="src">Gambling Insider · 10/29</p>
+        <p>Gambling Insider 10 月 29 日报导，前国会议员 George Santos 称看过讯息纪录，显示 Kalshi 员工要求在 X 上收费发文的政治网红不要揭露赞助关系；另一名受访者 Mark Moran 指 Kalshi 以每千次曝光 8 美元的价格，付钱请网红散布与平台惩处有关的影片。同篇报导提到，Polymarket 行销长 Matthew Modabber 在 2025 年 1 月至 2026 年 2 月间汇给内容创作者共 35 万美元。这些贴文距 11 月 3 日期中选举只剩几天。Santos 认为这些安排应由联邦贸易委员会（FTC）与联邦选举委员会（FEC）调查；是否违法要看谁付钱、发了什么、内容算不算政治广告。截稿时 Kalshi 未回应。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：目前只有指控与单一媒体报导，本卡不下 EV 判断。从执法方向看：预测市场被检视的不只是产品是否属于赌博，还包括网红业配是否揭露。博彩品牌在菲律宾与巴西做 KOL 合作时，「付费内容须标示」是最容易被监管机关与竞争对手抓住的环节，合约里要写明揭露义务。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://www.gamblinginsider.com/news/197681/george-santos-claims-kalshi-paid-influencers-conceal-political-promotions" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §9 -->
+  <section class="section" id="s9">
+    <div class="section-head">
+      <span class="num">09</span>
+      <h2>X 社交脉动</h2>
+      <span class="h2-en">X / Social Pulse</span>
+    </div>
+    <div class="x-pulse">
+
+      <div class="card hilite-na">
+        <div class="meta-row"><span class="cat a">法规</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">NORTH AMERICA</span></div>
+        <h4>北美律师帐号集中追踪 Kalshi 案件进度，犹他案 11 月 6 日开庭审联邦禁制令，最高法院给 Kalshi 延到 12 月 7 日答辩。</h4>
+        <p class="src">X · @WALLACHLEGAL · @MikeVorkunov · 10/27–10/31</p>
+        <p>@WALLACHLEGAL 贴文：CFTC 与司法部向联邦法院申请临时与初步禁制令，阻止犹他对 Kalshi 与创办人的刑事程序，11 月 6 日开庭；最高法院准 Kalshi 延长 28 天、到 12 月 7 日回应新泽西的调卷申请，代理律师是 Paul Clement；伊利诺伊联邦法院 10 月 30 日签发初步禁制令，禁止州政府对 CFTC 监管的交易所执法体育事件合约，州政府已上诉第七巡回法院，该院相关上诉共 5 件；Kalshi 另提联邦诉讼，要挡纽约州检察长的调查传票；据 @iGamingExpress，纽约博彩委员会也已请曼哈顿法院强制 Kalshi 交出传票要求的资料，联邦法官 Torres 7 月已驳回 Kalshi 对该委员会的初步禁制令申请。@MikeVorkunov 指 NBA 合作宣布与犹他刑事指控在同一周，CFTC 并在调查 Polymarket 是否违反 2022 年和解协议。以上为律师与记者贴文，法院文件原文未读。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：预测市场的官司同时在州刑事、州民事、联邦上诉与最高法院四个层级进行，12 月 7 日是最高法院是否受理新泽西案的下一个节点。伊利诺伊与威斯康辛的联邦法院判决方向相反，第七巡回法院的判决会是关键（推论）。贴文内容待法院文件证实，本卡不下 EV 判断。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://x.com/i/status/2116275609051517356" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+      <div class="card">
+        <div class="meta-row"><span class="cat d">市场</span><span class="pill neg"><span class="dot">−</span>不利</span><span class="pill hot">BRAZIL</span></div>
+        <h4>X 上本周巴西贴文集中在禁令后的业者动作，ANJL 要求与 Lula 重启谈判，Flávio 在洗钱调查中离开巴西。</h4>
+        <p class="src">X · @iGamingExpress · @iGamingBusiness · 10/26–10/30</p>
+        <p>@iGamingExpress 10 月 26 日：Lula 以 51.78% 有效票击败 Flávio Bolsonaro，同一天 85 家公司、188 个品牌的联邦授权失效，规费不退。10 月 28 日：业者协会 ANJL 在授权终止后要求与 Lula 重启谈判，诉求恢复牌照、加强打击非法业者；Flávio 错过交出护照的期限后离开巴西，他正受洗钱调查。10 月 27 日：投票日中午 Polymarket 给 Lula 20.5 美分（见 §8）。@iGamingBusiness 10 月 26 日称，选后业界会在最高法院与国会两线挑战临时措施令。</p>
+        <div class="judge"><br><span class="lead-in"><u>综合判断</u></span>：业者的诉求从「等选举结果」转为谈判与诉讼两条线。Flávio 离境，代表「靠反对派在国会重开市场」这条路更难走（推论）。本卡为媒体帐号贴文汇整，不下 EV 判断；巴西相关判断见讯号 02。</div>
+        <a class="cta" style="display:inline-block;font-size:11px;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-top:6px;" href="https://x.com/iGamingExpress/status/2115420820239426023" target="_blank" rel="noopener">阅读原文 →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §10 -->
+  <section class="section" id="s10">
+    <div class="section-head">
+      <span class="num">10</span>
+      <h2>来源覆盖与动作建议</h2>
+      <span class="h2-en">Sources &amp; Next</span>
+    </div>
+    <div class="colophon">
+      <div>
+        <h5>📊 来源覆盖</h5>
+        <div class="source-grid">
+          <span><span class="ok">✓</span> Inside Asian Gaming（asgam）</span>
+          <span><span class="ok">✓</span> BusinessWorld</span>
+          <span><span class="ok">✓</span> GGRAsia</span>
+          <span><span class="ok">✓</span> STF（巴西最高法院）</span>
+          <span><span class="ok">✓</span> Poder360</span>
+          <span><span class="ok">✓</span> Gaming Intelligence</span>
+          <span><span class="ok">✓</span> Deseret News</span>
+          <span><span class="ok">✓</span> Gambling Insider</span>
+          <span><span class="ok">✓</span> InterGame</span>
+          <span><span class="ok">✓</span> NEXT.io</span>
+          <span><span class="ok">✓</span> Covers</span>
+          <span><span class="ok">✓</span> Semafor</span>
+          <span><span class="ok">✓</span> Ballotpedia</span>
+          <span><span class="ok">✓</span> Inquirer</span>
+          <span><span class="ok">✓</span> X 平台高信号贴文（北美 · 巴西）</span>
+        </div>
+      </div>
+      <div>
+        <h5>📌 下周建议关注</h5>
+        <p class="next-list">
+          ·&nbsp;<b class="urgent">🔴</b> 11 月 3 日 巴西最高法院博彩禁令公听会；美国期中选举、内布拉斯加线上体育投注公投<br>
+          ·&nbsp;<b>11 月 6 日</b> 犹他州 Kalshi 刑事案的联邦禁制令开庭<br>
+          ·&nbsp;<b>11 月 9 日</b> 巴西临时措施令开始锁住国会议程<br>
+          ·&nbsp;<b>11 月中下旬</b> 马尼拉 LaVie 自营线上平台上线<br>
+          ·&nbsp;<b class="urgent">🔴</b> 11 月 23 日 巴西临时措施令表决期限（另有 25 日一说，待国会公报）<br>
+          ·&nbsp;<b>11 月 25 日</b> Polymarket 结清密西根全部体育合约<br>
+          ·&nbsp;<b>11 月 30 日</b> 宾州会期结束，扫奖型赌场禁令 HB 2801 今年大概率不过<br>
+          ·&nbsp;<b>12 月 7 日</b> Kalshi 对新泽西最高法院调卷申请的答辩期限<br>
+          ·&nbsp;<b>12 月</b> PAGCOR 持牌平台查验 App 上线；马尼拉影展档期<br>
+          ·&nbsp;<b>2027 年 1 月</b> 怀俄明会期审扫奖型赌场禁令草案
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer-bottom">
+      <div class="label">博彩产业周深度 Brief · W44</div>
+      <p style="margin:0">编辑：Reagan · W44 / 2026-11-01 ｜ 涵盖期间 2026-10-26 ~ 2026-11-01 ｜ For internal circulation</p>
+    </footer>
+  </section>
+
+</main>
+
+</body>
+</html>

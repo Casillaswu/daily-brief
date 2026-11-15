@@ -35,8 +35,11 @@
 
 ## 2. 11 個 Section（固定結構，順序不可換）
 
+> 2026-11-02 起（W45 首用）：`highlights` 前面加一段 `markets`「🌍 本週市場變化」，共 12 段。用 `.grid-3` + 一般 `.card`，1–3 張，每張 cta 必須是 `_sources-S.md` 的 S 級原文（監管機構、法院、政府公報、上市公司 IR），沒有就整段寫一句「本週無 S 級市場變化」。卡片寫法：標題寫哪個市場、發生了什麼；body 先寫「這代表什麼」（誰能進、何時能做、多少錢），再給數字；最後一行「下一個觀察點：日期 · 事件」。section-head 的 num 用 🌍，英文副標 `Market Moves`。nav-anchors 在 🔥 前加「🌍 市場變化」。
+
 | # | id | 標題（h2） | grid layout | 必備元素 |
 |---|---|---|---|---|
+| — | `markets` | 本週市場變化 | `.grid-3` | 1-3 cards（S 級原文 cta） |
 | — | `highlights` | 本週 5 個值得注意的訊號 | `.lead` + `.signals-grid`(2x2) | 1 lead + 4 signal-card |
 | 01 | `s1` | 法規動態 — 美 / 巴 / 菲 / 英四線同步加壓 | `.grid-3` | 8-9 cards (含 1 hilite) |
 | 02 | `s2` | M&A 與資本動作 | `.grid-3` + `.stat-strip-top` | 6 cards + 4 統計格 |
@@ -822,3 +825,14 @@ W40 推上线后实测（viewport 1286px、col 卡宽 330px）：EN 5 个 col �
 | 区块 | EN 单行 | EN 两行饱满 |
 |---|---|---|
 | col（330px） | ≤ 44 字元（建议 ≤ 41 留余量） | 60–88 字元 |
+
+### 7.26 卡片配图（2026-11-15 W46 起，Reagan 同意）
+
+1. **新闻卡**：用原文的 og:image，存成 480×270 WebP（品质 55–72），放 `assets/YYYY-Www/` 与 `docs/assets/YYYY-Www/`，相对路径引用；图下标「图：媒体名」（EN：`Image: 媒体名`）。build 脚本的 `IMGS`（url → 档名、来源）负责接卡。
+2. **Meta 广告卡**：抓官方广告主 ID、窗内开刊的素材，直式 240px／横式 320px；图说写开刊日、档案库编号、画面重点。
+3. **真实人物照片**：新闻头图是真实人物（球员、法官、官员等）时，Claude 不下载、不放；需要时由 Reagan 自行存图到 `assets/YYYY-Www/<档名>.<任意副档名>`，build 脚本的 `MANUAL` 表有档就自动转 WebP、同步 docs/ 并接卡，没档就不显示。
+4. **抓不到的站**（GGRAsia 等跳 Cloudflare 验证页）：不绕过验证；列出原文链接与目标档名给 Reagan，由他在本机浏览器存图，走第 3 条同一个 `MANUAL` 流程。
+5. **不配图**：一手文件页（国会、财政部、PAGCOR、SEC）没有头图就留白，不硬找。
+6. **抓法**：在 Chrome 页面上用覆盖层（fixed div）放原图，`computer` 的 `zoom` + `save_to_disk:true` + **`scale:1`**（scale 0.1 会存成 64px 糊图）；`browser_batch` 里的 zoom 不会存档，必须单独呼叫。存档落在 outputs/，再用 PIL 转 WebP。
+7. **禁止**：base64 塞进 HTML（会撑爆 85–115KB 上限）；直接 hotlink 原站或 Meta 图片网址（会失效、部分站挡防盗链）。
+8. 公开性提醒：docs/ 推上 GitHub Pages 是公开页面。

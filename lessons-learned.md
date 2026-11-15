@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-11-15（W46）· 📐 週報卡片配圖（Reagan 偏好）
+
+**偏好**：週報卡片要配圖。產業新聞卡用新聞原文頭圖（og:image），Meta 廣告卡用素材截圖。Reagan 看了 Playdoit México 的廣告卡後確認：有圖比純文字更能一眼看懂重點，也更容易抓出合規風險（例：BingoPlus 素材出現「領 BMW、奢華購物」，只讀文案看不出來）。
+
+**做法**：規則寫在 `_design-notes §7.26`、廣告縮圖抓法在 `scripts/meta_adlib_chrome.md`、排程 prompt SOP 第 7 步。圖存 `assets/YYYY-Www/` 與 `docs/assets/YYYY-Www/`，build 腳本 `IMGS`（自動抓）／`MANUAL`（Reagan 自存）兩張表接卡。
+
+**邊界**：真實人物照片 Claude 不下載不放，需要時 Reagan 自行存圖；跳驗證頁的站不繞過。W46 Reagan 看過後決定 GGRAsia 那 6 張卡不補圖也可以。
+
+**順帶修正**：收尾指令改 `git pull --rebase --autostash`（W46 裸 `pull --rebase` 因 `_design-notes.md` 未提交被拒）。
+
+---
+
 ## 2026-10-08 · 📐 HTML 工具上 Cloudflare：Betroia 渠道日报（artifact → Pages + R2）
 
 **背景**：Betroia 渠道日报原本是 Claude artifact（claude.ai/artifact/Uy5eoWVpSCcnDL6EiFTsxS），资料只存浏览器 localStorage——换电脑、换人就看不到。Reagan 要求搬上 Cloudflare，上传档案改存云端。

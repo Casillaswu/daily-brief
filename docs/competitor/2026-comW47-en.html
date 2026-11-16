@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Competitor Weekly · 2026-W47 · PH iGaming</title>
+<style>
+:root{
+  --ink:#1f1d1a; --ink-2:#4a4742; --ink-3:#8a857d;
+  --paper:#fff; --paper-2:#f7f5f1;
+  --rule:#d9d4cb; --rule-2:#ebe6dd;
+  --hi:#fff3a6;
+  --pos:#c9e4cf; --pos-ink:#2f6b3b;
+  --neu:#e1dfd9; --neu-ink:#5b574e;
+  --neg:#f1c9c5; --neg-ink:#8a3a33;
+  --warn:#fce8c2; --warn-ink:#8a5f1a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{-webkit-text-size-adjust:100%;}
+html{scroll-behavior:smooth;}
+body{
+  background:#f0eee9;
+  font-family:Arial,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);min-height:100vh;font-size:13px;line-height:1.65;
+}
+a{color:inherit;}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+.hi{background:var(--hi);padding:0 2px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.shell{max-width:1320px;margin:0 auto;background:#fff;}
+
+.mast{background:#1f1d1a;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.mast .mark{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.3em;border:1px solid rgba(255,255,255,.4);padding:6px 10px;flex:none;}
+.mast .ttl{flex:1;min-width:200px;}
+.mast .ttl h1{font-size:22px;font-weight:800;letter-spacing:-.01em;}
+.mast .ttl .sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;}
+.mast .logos{display:flex;gap:5px;flex:none;flex-wrap:wrap;}
+.mast .lang{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:2px;flex:none;}
+.mast .lang a,.mast .lang button{border:none;background:none;cursor:pointer;padding:5px 12px;border-radius:99px;color:rgba(255,255,255,.7);font:inherit;font-size:11px;font-weight:800;letter-spacing:.04em;text-decoration:none;line-height:1;}
+.mast .lang .active{background:#fff;color:var(--ink);}
+.logo{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;border:1px solid rgba(0,0,0,.06);flex:none;}
+.logo.closed{opacity:.4;text-decoration:line-through;}
+
+.subnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px 28px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;}
+.subnav b{color:var(--ink-3);letter-spacing:.16em;margin-right:6px;}
+.subnav a{color:var(--ink-2);text-decoration:none;padding:4px 10px;border:1px solid var(--rule);border-radius:99px;transition:all .15s;}
+.subnav a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+.body{padding:8px 32px 32px;}
+
+.sec{margin-top:32px;scroll-margin-top:60px;}
+.sec-lbl{margin-bottom:10px;}
+.sec-lbl .chip{background:var(--ink);color:#fff;font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.06em;margin-right:8px;}
+.sec-lbl .en{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+.sec-lbl h2{font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-top:8px;}
+.sec-lbl .rule{height:2px;background:var(--ink);margin-top:10px;}
+.sec-deck{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.7;}
+
+.exec{margin-top:24px;}
+.exec h3{font-size:30px;font-weight:800;letter-spacing:-.015em;line-height:1.4;max-width:90%;}
+.exec h3 .line{display:block;}
+.exec h3 .line + .line{margin-top:6px;}
+.exec p.deck{font-size:13.5px;line-height:1.85;color:var(--ink-2);margin-top:18px;max-width:80%;}
+.exec p.deck b{color:var(--ink);}
+.exec p.deck + p.deck{margin-top:12px;}
+.exec p.deck em{font-style:normal;color:var(--ink-3);font-size:11.5px;}
+.exec .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;}
+.exec .axis{border-left:3px solid var(--ink);padding:8px 14px;font-size:12px;color:var(--ink-2);line-height:1.7;}
+.exec .axis b{color:var(--ink);display:block;margin-bottom:2px;}
+
+.kpi{margin-top:14px;border:1px solid var(--ink);display:grid;grid-template-columns:minmax(170px,1.2fr) .8fr .8fr 1.1fr 1fr 1.5fr;}
+.kpi .head{background:var(--paper-2);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-3);text-transform:uppercase;font-weight:800;border-bottom:2px solid var(--ink);padding:12px;}
+.kpi .cell{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 12px;font-size:12px;line-height:1.6;}
+.kpi .cell:nth-child(6n){border-right:none;}
+.kpi .name{display:flex;align-items:flex-start;gap:10px;flex-direction:column;}
+.kpi .name b{font-size:13px;display:block;}
+.kpi .name .grp{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;letter-spacing:.05em;display:block;margin-top:1px;}
+.kpi .name .status{padding:2px 7px;border-radius:3px;font-size:9.5px;font-weight:800;letter-spacing:.12em;font-family:ui-monospace,Menlo,monospace;display:inline-block;margin-top:5px;}
+.kpi .name .status-hot{background:#1f1d1a;color:#fff;}
+.kpi .name .status-active{background:#fbe3b3;color:#8a5f1a;}
+.kpi .name .status-alert{background:var(--neg);color:var(--neg-ink);}
+.kpi .name .status-cold{background:#d6e4f0;color:#2A5FAA;}
+.kpi .name .status-closed{background:#2b2b2b;color:#bbb;}
+.kpi .cell.closed{color:var(--ink-3);font-style:italic;}
+.kpi .big{font-weight:800;font-size:16px;}
+.trend{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:3px;font-size:10.5px;font-weight:700;}
+.trend.up{background:var(--pos);color:var(--pos-ink);}
+.trend.down{background:var(--neg);color:var(--neg-ink);}
+.trend.flat{background:var(--neu);color:var(--neu-ink);}
+.trend.new{background:#1f1d1a;color:#fff;}
+.bar{height:8px;background:var(--rule-2);border-radius:2px;overflow:hidden;margin-top:6px;}
+.bar > i{display:block;height:100%;}
+.sev{padding:2px 7px;border-radius:999px;font-size:10px;font-weight:700;}
+.sev.high{background:var(--neg);color:var(--neg-ink);}
+.sev.mid{background:var(--neu);color:var(--neu-ink);}
+.sev.low{background:var(--pos);color:var(--pos-ink);}
+
+.strat{margin-top:14px;background:#1f1d1a;color:#fff;padding:26px 30px;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);}
+.qa.full{grid-column:1/-1;}
+.qa .q{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55);font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.qa .q .qchip{display:inline-block;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:3px;font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:11.5px;letter-spacing:.06em;margin-bottom:5px;}
+.qa .a{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.92);}
+.qa .a b{color:#fff;}
+.qa .a p{margin-bottom:6px;}
+.qa .src{display:block;color:rgba(255,255,255,.45);font-size:10.5px;margin-top:6px;}
+.qa .src a{color:rgba(255,255,255,.6);}
+
+.radar{margin-top:14px;background:#1f1d1a;color:#fff;padding:24px;}
+.radar-formula{background:rgba(255,255,255,.05);padding:14px 16px;margin-bottom:14px;border-radius:4px;}
+.radar-formula h6{font-size:11px;color:rgba(255,255,255,.7);font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.radar-formula table{width:100%;font-size:11.5px;color:rgba(255,255,255,.85);border-collapse:collapse;}
+.radar-formula td{padding:4px 8px;vertical-align:top;}
+.radar-formula td:first-child{font-weight:800;font-family:ui-monospace,Menlo,monospace;color:#fff;white-space:nowrap;width:130px;}
+.radar-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
+.radar-head .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:800;margin-bottom:4px;}
+.radar-head .sub{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;}
+.radar-head .self-pick{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.radar-head .self-pick .pick-lbl{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:800;}
+.vssel{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 32px 9px 14px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4 L5 7 L8 4' fill='none' stroke='white' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 10px center;}
+.vssel option{background:#1f1d1a;color:#fff;}
+.vsbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.vsbtns button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+.vsbtns button:hover{background:rgba(255,255,255,.18);}
+.vsbtns button.active{background:#fff;color:var(--ink);}
+.vsbtns button i{display:inline-block;width:10px;height:10px;border-radius:50%;}
+.radar-body{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;}
+.radar-body .grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px 16px;font-size:12.5px;}
+.radar-body .grid span:nth-child(4n+1),.radar-body .grid span:nth-child(4n+3){color:rgba(255,255,255,.55);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.1em;}
+.radar-body .grid span:nth-child(4n+2),.radar-body .grid span:nth-child(4n+0){font-weight:700;}
+.radar-body .legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;}
+.radar-body .legend span{display:inline-flex;align-items:center;gap:6px;}
+.radar-body .legend i{width:12px;height:12px;display:inline-block;border-radius:2px;}
+.radar svg{width:100%;max-width:380px;display:block;margin:0 auto;}
+.radar-note{margin-top:12px;background:rgba(255,255,255,.05);border-left:3px solid rgba(255,255,255,.4);padding:10px 14px;font-size:11.5px;color:rgba(255,255,255,.8);line-height:1.65;}
+.radar-note b{color:#fff;}
+
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:10px;margin-top:14px;}
+.mcard{border:1px solid var(--rule);border-top-width:4px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:9px;scroll-margin-top:60px;}
+.mcard .top{display:flex;align-items:center;gap:8px;}
+.mcard .top .meta{flex:1;}
+.mcard .top .meta b{font-size:12px;font-weight:700;display:block;}
+.mcard .top .meta span{font-size:10px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;}
+.mcard h4{font-size:14px;font-weight:700;line-height:1.5;}
+.mcard .detail{font-size:12px;line-height:1.7;color:var(--ink-2);}
+.mcard table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px;}
+.mcard table th{text-align:left;padding:4px 6px;font-weight:800;color:var(--ink-3);border-bottom:1px solid var(--rule);}
+.mcard table td{padding:5px 6px;border-bottom:1px solid var(--rule-2);vertical-align:top;}
+.mcard .warn{padding:8px 12px;background:var(--warn);border-left:3px solid var(--warn-ink);font-size:11.5px;color:var(--warn-ink);line-height:1.6;}
+.mcard .warn b{color:var(--warn-ink);}
+.mcard .social{padding:7px 12px;background:var(--paper-2);border-left:3px solid var(--ink-3);font-size:11px;color:var(--ink-2);line-height:1.6;}
+.mcard .src{font-size:11px;color:var(--ink-3);line-height:1.6;}
+.mcard .src a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-3);}
+.mcard .impact{margin-top:auto;padding-top:8px;border-top:1px dashed var(--rule);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;}
+.mcard .impact b{color:var(--ink);font-weight:700;}
+
+.tl{background:#fff;border:1px solid var(--rule);padding:4px 22px;margin-top:14px;}
+.trow{display:grid;grid-template-columns:80px 18px 90px 130px 1fr 60px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2);font-size:12.5px;}
+.trow:last-child{border-bottom:none;}
+.trow .d{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink-2);font-weight:700;}
+.trow .dot{width:10px;height:10px;border-radius:50%;justify-self:center;box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.trow .dot.warn{background:var(--neg-ink);}
+.trow .dot.pink{background:#c96442;}
+.trow .dot.blue{background:#2A5FAA;}
+.trow .dot.green{background:var(--pos-ink);}
+.trow .cat{font-family:ui-monospace,Menlo,monospace;background:var(--rule-2);color:var(--ink-2);padding:3px 8px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;}
+.trow .br{font-weight:800;font-size:12.5px;color:var(--ink);}
+.trow .desc{color:var(--ink-2);line-height:1.55;}
+.trow .wk{font-family:ui-monospace,Menlo,monospace;color:var(--ink-3);font-size:10.5px;text-align:right;}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--ink-2);}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+.tl-legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+.impl-meth{margin-top:14px;background:var(--paper-2);border-left:3px solid var(--ink);padding:14px 18px;font-size:12px;line-height:1.75;color:var(--ink-2);}
+.impl-meth h6{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.06em;margin-bottom:6px;}
+.impl-meth b{color:var(--ink);}
+.impl-meth ul{list-style:none;padding:0;margin-top:6px;display:flex;flex-direction:column;gap:6px;}
+.impl-meth li{padding-left:14px;position:relative;}
+.impl-meth li::before{content:"·";position:absolute;left:2px;color:var(--ink-3);font-weight:800;}
+.impl{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.impl .col{background:#fff;border:1px solid var(--rule);border-top:4px solid;padding:22px 24px 24px;}
+.impl .col.threat{border-top-color:var(--neg-ink);}
+.impl .col.opp{border-top-color:var(--pos-ink);}
+.impl .col h5{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;color:var(--ink);margin-bottom:18px;}
+.impl .col h5 .dot{width:10px;height:10px;border-radius:2px;display:inline-block;flex:none;}
+.impl .col.threat h5 .dot{background:var(--neg-ink);}
+.impl .col.opp h5 .dot{background:var(--pos-ink);}
+.impl .col h5 .en{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);font-weight:800;text-transform:uppercase;}
+.impl .col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.impl .col li{display:block;padding:14px 16px;background:var(--paper-2);border-left:3px solid;font-size:12.5px;line-height:1.8;color:var(--ink-2);}
+.impl .col.threat li{border-left-color:var(--neg-ink);}
+.impl .col.opp li{border-left-color:var(--pos-ink);}
+.impl .col li b{color:var(--ink);}
+.impl .col li em{display:block;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-style:normal;font-family:ui-monospace,Menlo,monospace;letter-spacing:.02em;}
+
+.footer{margin-top:32px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px;}
+.fcard{background:#fff;border:1px solid var(--rule);padding:20px 22px;}
+.fcard h5{font-size:13px;font-weight:800;margin-bottom:8px;}
+.fcard p{font-size:12px;line-height:1.75;color:var(--ink-2);margin-bottom:10px;}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px 22px;align-items:start;}
+.srcs span{position:relative;display:block;padding-left:16px;font-size:11.5px;line-height:1.6;color:var(--ink-2);text-wrap:pretty;}
+.srcs i{position:absolute;left:0;top:5px;width:8px;height:8px;border-radius:50%;}
+.srcs i.ok{background:var(--pos-ink);}
+.srcs i.partial{background:#c96442;}
+.srcs em{color:var(--ink-3);font-size:10px;font-style:normal;}
+.fcard ol{padding:0;list-style:none;}
+.fcard ol li{font-size:12px;line-height:1.75;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;}
+.fcard ol li .n{color:#c96442;font-weight:700;font-family:ui-monospace,Menlo,monospace;flex:none;}
+.colophon{margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;flex-wrap:wrap;gap:8px;}
+.colophon b{color:var(--ink);letter-spacing:.16em;}
+
+@media (max-width:1023px){
+  .body{padding:8px 24px 28px;}
+  .mast{padding:18px 24px;}
+  .subnav{padding:8px 24px;font-size:10.5px;}
+  .kpi{grid-template-columns:1fr;}
+  .kpi .head{display:none;}
+  .kpi .cell{border-right:none;display:grid;grid-template-columns:120px 1fr;gap:8px;}
+  .kpi .cell::before{content:attr(data-lbl);font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:800;}
+  .kpi .cell:nth-child(6n+1)::before{display:none;}
+  .kpi .name{grid-column:1/-1;}
+  .radar-body{grid-template-columns:1fr;}
+  .impl{grid-template-columns:1fr;gap:18px;}
+  .footer{grid-template-columns:1fr;}
+  .qa-grid{grid-template-columns:1fr;}
+  .qa.full{grid-column:auto;}
+  .trow{grid-template-columns:60px 14px 80px 1fr;grid-template-areas:"d dot cat br" "d dot cat desc";gap:6px 10px;}
+  .trow .d{grid-area:d;} .trow .dot{grid-area:dot;} .trow .cat{grid-area:cat;}
+  .trow .br{grid-area:br;font-size:12px;} .trow .desc{grid-area:desc;font-size:11.5px;}
+  .trow .wk{display:none;}
+  .exec h3{font-size:22px;max-width:100%;line-height:1.45;} .exec p.deck{max-width:100%;font-size:13px;}
+  .exec .axes{grid-template-columns:1fr;}
+  .sec-lbl h2{font-size:18px;}
+}
+@media (max-width:767px){
+  .body{padding:6px 16px 24px;}
+  .mast{padding:16px;gap:12px;}
+  .mast .ttl h1{font-size:18px;}
+  .subnav{padding:6px 16px;}
+  .strat{padding:18px 16px;}
+  .exec h3{font-size:19px;}
+}
+@media print{
+  body{background:#fff;}
+  .shell{max-width:none;}
+  .vssel,.vsbtns,.subnav{display:none;}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;}
+  .mast .mark{border-color:#000;}
+  .strat,.radar{background:#fff;color:#000;border:1px solid #000;}
+  .strat .qa .a,.radar-head .lbl,.radar-head .sub,.radar-body .grid span,.radar-formula td,.radar-note{color:#000;}
+}
+
+/* wrap-fix v1 */
+.nbk{white-space:nowrap;}
+/* 标题：自动平衡各行长度，避免末行只剩一两个字 */
+h1,h2,h3,h4,h5,h6,.mast .ttl h1,.sec-lbl h2,.mcard h4,.fcard h5,.radar-head .lbl,.wk .id{
+  text-wrap:balance;
+}
+/* 正文：避免寡行（末行孤字），并允许超长 URL / 英文词在容器内换行 */
+p,li,em,.sec-deck,.exec p.deck,.exec .axis,.mcard .detail,.mcard .src,.mcard .social,
+.mcard .impact,.trow .desc,.kpi .cell,.strat .a p,.radar-note,.radar-formula td,
+.fcard p,.fcard ol li,.impl li,.impl-meth li,.srcs em,.wk .sum .ax{
+  text-wrap:pretty;
+  overflow-wrap:break-word;
+}
+/* 数据源说明独占一行，不与来源名单抢断点 */
+.srcs em{display:block;margin-top:1px;line-height:1.55;}
+/* 出处链接列：长标题在容器内断，不撑破卡片 */
+.mcard .src a,.strat .a .src a{overflow-wrap:break-word;}
+@media (max-width:767px){
+  .srcs{grid-template-columns:1fr;}
+}
+
+/* W46: 说明与五个商业问题字级与摘要区一致 */
+.sec-deck,#briefing .impl-meth{font-size:13.5px;line-height:1.85;}
+#briefing .impl-meth h6{font-size:13px;}
+@media (max-width:767px){.sec-deck,#briefing .impl-meth{font-size:13px;}}
+.shots{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;}
+.shot{margin:0;max-width:260px;}
+.shot img{display:block;width:100%;height:auto;border:1px solid var(--rule);}
+.adcopy{max-width:320px;border:1px solid var(--rule);padding:12px 14px;background:#fff;}
+.adcopy .ac-h{font-size:12px;color:var(--ink-3);margin-bottom:8px;}
+.adcopy .ac-b{font-size:13px;line-height:1.7;color:var(--ink);}
+.adcopy .ac-f{font-size:11.5px;color:var(--ink-3);margin-top:8px;border-top:1px dashed var(--rule);padding-top:6px;}
+.shot figcaption{font-size:11.5px;color:var(--ink-3);line-height:1.5;margin-top:4px;}
+
+/* W46: 孤行修正 */
+p,li,td,th,.sec-deck,.impl-meth,figcaption{text-wrap:pretty;}
+.deck,.ac-f,.shot figcaption,#briefing h4,#briefing h3{text-wrap:balance;}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="mast">
+  <div class="mark">COMPETITOR // BRIEF</div>
+  <div class="ttl">
+    <h1>2026-W47 · Philippine iGaming Competitor Weekly</h1>
+    <div class="sub">Data window: 11/09-11/16 look-back, 11/16-11/23 look-ahead · 8-brand watchlist</div>
+  </div>
+  <div class="lang" aria-label="Language">
+    <a href="2026-comW47.html">中</a>
+    <button class="active" aria-current="page">EN</button>
+  </div>
+  <div class="logos">
+    <span class="logo" style="background:#E89AAA" title="BingoPlus">BP</span>
+    <span class="logo" style="background:#2A5FAA" title="ArenaPlus">AP</span>
+    <span class="logo" style="background:#4F8C5C" title="GameZone">GZ</span>
+    <span class="logo" style="background:#B89968" title="CasinoPlus">C+</span>
+    <span class="logo" style="background:#D86B27" title="OKBet/OKGames">OK</span>
+    <span class="logo" style="background:#C2272D" title="Bet88">88</span>
+    <span class="logo" style="background:#4A4FB8" title="PlayTime/PT Gaming">PT</span>
+    <span class="logo" style="background:#8B7355" title="OKADA PLAY">OP</span>
+  </div>
+</header>
+
+<nav class="subnav" aria-label="Section navigation">
+  <b>Jump to</b>
+  <a href="#briefing">▲ TOP 5</a>
+  <a href="#promo">§02 Promo</a>
+  <a href="#pr">§03 Partners</a>
+  <a href="#product">§04 Product</a>
+  <a href="#marketing">§05 Media</a>
+  <a href="#voice">§06 Risk</a>
+  <a href="#strategic">§07 Insights</a>
+  <a href="#radar">App Radar</a>
+  <a href="#kpi">App Brand status</a>
+  <a href="#moves-sec">App Ad cards</a>
+  <a href="#timeline">App Timeline</a>
+  <a href="#implications">App Implications</a>
+</nav>
+
+<div class="body">
+
+  <section class="sec exec" id="briefing">
+    <div class="sec-lbl">
+      <span class="chip">▲</span><span class="en">Executive Briefing</span>
+      <h2>This week's competitive TOP 5</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="deck"><b>1. ArenaPlus readings return; ~290 loaded ads are recent.</b> About 310 at the top, 292 loaded, all started 11/8-11/15; welcome ₱8,100, daily up to ₱2,888, weekly up to ₱60,000; one ad says "5% Daily rebate". <b>Inference:</b> Three reward layers run together; whether the 5% applies to sports or is a typo is unverified, so no compliance conclusion. W46's zero reading is resolved. Source: <a href="https://www.facebook.com/ads/library/?id=1799881754496337">Meta ad 1799881754496337</a> · <a href="#sig-01">§02 card 1</a></p>
+    <p class="deck"><b>2. BingoPlus becomes ALEX EALA LIVE entertainment partner.</b> Meta partner ad and tennis trivia for tickets started 11/14 (event 12/8); six winner-story videos started 11/11; no reward amounts in the creatives. <b>Inference:</b> An endorsement extends into event partnership, with tickets rather than reward size driving engagement; fee and trivia rules unread. Source: <a href="https://www.facebook.com/ads/library/?id=1140989565082098">Meta ad 1140989565082098</a> · <a href="#sig-02">§03 card 2</a></p>
+    <p class="deck"><b>3. Auditors say licensed sites took bets from abroad.</b> PAGCOR's 2025 audit report: GSA and licensed-casino domains were reachable or took bets from outside the Philippines, breaching the domestic-only rule; no operators named. <b>Inference:</b> Geo-fencing enforcement is likely to become a focus; this is W46 background added late. Source: <a href="https://bworldonline.com/the-nation/2026/11/05/791855/coa-says-pagcor-linked-sites-took-bets-from-users-outside-philippines/">BusinessWorld 11/05</a> · <a href="#sig-06">§06 card 6</a></p>
+    <p class="deck"><b>4. PAGCOR warns over an alleged restricted-list leak.</b> Official advisory 11/11: PAGCOR-CERT is verifying; no evidence yet of a new intrusion; the public is warned about phishing and fraud. <b>Inference:</b> If genuine, impersonation fraud and trust risk rise; whether the leak is real is unconfirmed. Source: <a href="https://www.pagcor.ph/headlines/public-advisory-for-publication-and-display-on-pagcor-website.html">PAGCOR 11/11</a> · <a href="#sig-05">§06 card 5</a></p>
+    <p class="deck"><b>5. PhilWeb Q3 revenue up 153%, back to profit.</b> Q3 revenue ₱443.0M, net income ₱64.2M; platform business 63.5% of revenue, clients include Okada Manila, Newport and NUSTAR. <b>Inference:</b> Casino-backed online platforms are expanding through one provider; no per-platform split. Source: <a href="https://www.ggrasia.com/philweb-swings-to-us1mln-profit-in-3q-as-revenue-more-than-doubles">GGRAsia 11/13</a> · <a href="#sig-04">§04 card 4</a></p>
+    <div class="impl-meth" style="margin-top:14px">
+      <h6>Five business questions (fact and inference apart)</h6>
+      <ul>
+        <li><b>Who is winning new players?</b> Fact: ArenaPlus has a refreshed sample of ~290 loaded ads, pairing the ₱8,100 welcome with a 40% first deposit; PT Gaming's site claims 3.5% unlimited cashback and a daily iPhone; GameZone keeps three ₱8,800 welcome ads; casino-backed platforms expand through PhilWeb. <b>Inference: </b>Acquisition still runs mainly on reward size, with ArenaPlus spending the most visibly; OKBet and Bet88 are not on this channel or were not checked, so no conclusion.</li>
+        <li><b>Who is raising value from existing players?</b> Fact: ArenaPlus runs daily rebate, reload, cashback and weekly rewards together; BingoPlus's creatives this week switch to winner stories and event tickets. <b>Inference: </b>ArenaPlus retains with frequent small rewards; no BingoPlus reward-amount creatives were read this week, so its retention leans on brand and events.</li>
+        <li><b>Who is building a moat?</b> Fact: BingoPlus becomes ALEX EALA LIVE entertainment partner; GameZone takes the Gloc-9 song to a music video; PhilWeb serves Okada, Newport and NUSTAR online platforms. <b>Inference: </b>The DigiPlus brands rely on endorsement and content assets, casino groups on land-based brands plus a shared platform; exclusivity and fees are undisclosed for both.</li>
+        <li><b>Who is changing brand positioning?</b> Fact: ArenaPlus (Luis Manzano, "SET A LIMIT"), BingoPlus ("Enjoy within your limits") and CasinoPlus ("Enjoy the Moment, But Stay in Control") put responsible-gambling lines into main creatives. <b>Inference: </b>Responsible gambling moves from footer warning to headline; possibly a response to regulatory and audit pressure, which is inference.</li>
+        <li><b>What is the next Philippine market change?</b> Fact: CoA found licensed sites reachable and taking bets from abroad; PAGCOR is verifying an alleged restricted-list leak; the licensed-platform ID app targets December with no new item this week; MGF phase 2 starts 2027/01/01 (46 days away). <b>Inference: </b>The regulatory focus is moving from fees to geo-fencing and data security; landing pages and customer-service flows should be checked first.</li>
+      </ul>
+    </div>
+    <div class="impl-meth">
+      <h6>Not read this issue</h6>
+      <ul>
+        <li>Onsite promo pages of the three DigiPlus brands (BingoPlus, ArenaPlus, GameZone): restrict access or blank on follow-up; they need a Philippine IP, check not completed.</li>
+        <li>CasinoPlus returns Access Restricted and Bet88 redirects to a region-block page: neither Firecrawl nor Chrome exits from the Philippines, check not completed. OKBet's rewards centre shows no promotions.</li>
+        <li>The CoA audit report and PhilWeb's filing: only media relays were read.</li>
+        <li>BingoPlus New Perya Happy Hour (11/12-11/18) and the #BingoPlusOne teaser: seen only in the daily monitor's digest, originals not opened.</li>
+        <li>Terms behind PT Gaming's 3.5% cashback and iPhone draw: the site is an app launch screen and terms were not read.</li>
+      </ul>
+    </div>
+  </section>
+
+    <section class="sec" id="promo">
+    <div class="sec-lbl">
+      <span class="chip">§02</span><span class="en">Promotions & CRM</span>
+      <h2>Promotions & membership</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">Each card records one event: terms read, operating judgement and evidence limits, with new-versus-background marked.</div>
+    <div class="moves">
+
+      <div class="mcard" id="sig-01" style="border-top-color:#2A5FAA">
+        <div class="top"><div class="meta"><b>ArenaPlus</b><span>Promotions & CRM · layered rewards</span></div><span class="sev high">High impact</span></div>
+        <div class="detail"><b>Date: </b>11/08-11/15</div>
+        <div class="detail"><b>Headline: </b>ArenaPlus ad-library readings return: ~290 loaded ads are recent.</div>
+        <div class="detail"><b>New this week (Meta start dates 11/8-11/15).</b> Official advertiser page read twice on 11/16, loaded to the end on the second pass: about 310 ads at the top, 292 loaded, all started 11/8-11/15 (2 on 11/8, 117 on 11/9, 47 on 11/10, 44 on 11/11, 45 on 11/12, 33 on 11/14, 4 on 11/15), so all loaded ads started within those dates; no inference is made about the unloaded ads. Copy groups (an ad can fall in several): (1) welcome "up to ₱8,100", 66; (2) NBA creatives, 41, including 13 NBA Cup ads with "Daily Reload up to ₱3,235"; (3) daily offers "Daily Rebate up to ₱2,888, Daily Reload up to ₱3,252, Cashback up to ₱888", 14; (4) weekly offers "Weekly Bonus up to ₱60,000, Weekly Rebate up to ₱1,920", 8, whose copy reads "Chance to Win ₱10,0000,000" (as written, likely meaning ₱10,000,000); (5) "40% First deposit bonus", 8, of which 7 pair it with "1.5% daily rebate" and 1 (1799881754496337) says "5% Daily rebate"; (6) horror-themed slots, 13. Slot creatives still say 50000x and ₱88,888,888, and many video covers show slot reels.</div>
+        <div class="detail"><b>Responsible-gambling creatives.</b> Four ArenaPlus Sportsbook ads started 11/11-11/12 feature Luis Manzano with "SET A LIMIT, STICK TO IT" on the image and copy about setting a budget and keeping to it.</div>
+        <div class="detail"><b>Versus last week.</b> W46 read 0 ads on this page three times; daily monitoring read about 340 on 11/11-11/13 and this issue reads about 310, so W46's zero was a reading fault or a transient state, cause still unverified. The ₱8,100 welcome and daily rebate/reload wording recorded in W45 continue; the ₱60,000 weekly offer, 40% first deposit and NBA Cup ₱3,235 appear this issue, but were not compared ad by ad with last issue, so they are not called new offers.</div>
+        <div class="detail"><b>Operating meaning (judgement): </b>ArenaPlus runs welcome, daily and weekly rewards at once to cover acquisition and retention, with the NBA season as the main setting. PAGCOR caps cash rebates on bets or deposits at 1.5% for e-games operators; whether the single 5% creative falls under a sports offer or is a typo is unverified, so no compliance conclusion.</div>
+        <div class="detail"><b>Evidence grade: </b>A (Meta ad text, per-ad Library IDs)</div>
+        <div class="detail"><b>Evidence limits: </b>Whether the 5% wording is a typo, a sports-only offer or a separate tier; rollover and eligibility for the weekly and daily offers; about 18 of the ~310 not loaded; whether slot-reel imagery fits ASC Circular 2026-008 (no conclusion here).</div>
+        <div class="detail"><b>Sources: </b><a href="https://www.facebook.com/ads/library/?id=1799881754496337">Meta Ad Library · ArenaPlus 40% + 5% ad 1799881754496337</a> · <a href="https://www.facebook.com/ads/library/?id=1513158944204308">Meta Ad Library · ArenaPlus 40% + 1.5% ad 1513158944204308</a> · <a href="https://www.facebook.com/ads/library/?id=1713582970287744">Meta Ad Library · ArenaPlus weekly ad 1713582970287744</a> · <a href="https://www.facebook.com/ads/library/?id=1657516486102372">Meta Ad Library · ArenaPlus Luis Manzano RG ad 1657516486102372</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=257670834093707">Meta Ad Library · ArenaPlus (official advertiser)</a></div>
+        <div class="social">⚠️ Single-channel: official Meta advertiser only; the site promo page needs a Philippine IP and was not read; no media or player sampling.</div>
+        <div class="impact"><span><b>Proposal (for Client X): </b>Observe: Do not follow percentage claims like the 5%; next week check whether the 5% creative keeps running or is replaced, and read eligibility for the ₱60,000 weekly offer (needs a Philippine IP).</span></div>
+        <div class="shots">
+        <figure class="shot"><a href="img/W47/ap-5pct-1799881754496337.webp" target="_blank"><img src="img/W47/ap-5pct-1799881754496337.webp" alt="ArenaPlus Meta ad card (from 11/9): 40% first deposit + 5% Daily rebate" loading="lazy"></a><figcaption>ArenaPlus Meta ad card (from 11/9): 40% first deposit + 5% Daily rebate · <a href="https://www.facebook.com/ads/library/?id=1799881754496337">source 1799881754496337</a></figcaption></figure>
+        <figure class="shot"><a href="img/W47/ap-weekly-1713582970287744.webp" target="_blank"><img src="img/W47/ap-weekly-1713582970287744.webp" alt="ArenaPlus Meta ad card (from 11/8): weekly ₱60,000, copy reads ₱10,0000,000" loading="lazy"></a><figcaption>ArenaPlus Meta ad card (from 11/8): weekly ₱60,000, copy reads ₱10,0000,000 · <a href="https://www.facebook.com/ads/library/?id=1713582970287744">source 1713582970287744</a></figcaption></figure></div>
+      </div>
+
+      <div class="mcard" id="sig-07" style="border-top-color:#4A4FB8">
+        <div class="top"><div class="meta"><b>PlayTime / PT Gaming</b><span>Promotions & CRM · cashback rate</span></div><span class="sev low">Low impact</span></div>
+        <div class="detail"><b>Date: </b>11/15-11/16</div>
+        <div class="detail"><b>Headline: </b>PT Gaming's site lists 3.5% cashback; X shows different figures.</div>
+        <div class="detail"><b>New this week (site read 11/16).</b> The ptgaming.ph page description says: PT Gaming (formerly Playtime) gives one iPhone 18 Pro a day in November; newcomer bonus ₱2,980 and "3.5% Unlimited Cashback, highest in PH"; Deposit Rush Bonus ₱2M and a 100% first-deposit bonus; 3,000+ games and 500+ exclusives. The page itself is an app launch screen; terms were not read.</div>
+        <div class="detail"><b>Official X, same period.</b> An 11/15 post still says "₱2,980 new player bonus, 1.5% unlimited cashback, 2% slot return" and the bio still says ₱2,980; the same day carried a maths quiz and a Speed Baccarat poll; the 10/29 pinned post is a ₱10,000 PT Credits giveaway.</div>
+        <div class="detail"><b>Versus last week.</b> W45 and W46 recorded the official X offer as 1.5% unlimited cashback + 2% slot return; the site's 3.5% equals the two added together, so it may be a combined figure or a new tier; we do not pick. The daily iPhone and Deposit Rush ₱2M are first read this issue.</div>
+        <div class="detail"><b>Operating meaning (judgement): </b>PT Gaming leads with cashback rate and physical prizes and calls itself the highest in the Philippines; if 3.5% is a single cashback rate it would exceed PAGCOR's 1.5% cap on bet-based rebates for e-games operators, but the basis is unverified, so no compliance conclusion.</div>
+        <div class="detail"><b>Evidence grade: </b>A (site page description and official X text)</div>
+        <div class="detail"><b>Evidence limits: </b>Whether 3.5% combines 1.5% + 2%; iPhone draw eligibility and numbers; Deposit Rush ₱2M terms; relationship to the 5/29 baseline ₱8,080.</div>
+        <div class="detail"><b>Sources: </b><a href="https://www.ptgaming.ph/">PT Gaming - No.1 Legit Gaming in PH · ptgaming.ph (read 11/16)</a> · <a href="https://x.com/PTGamingph">PT Gaming (@PTGamingph) · X</a></div>
+        <div class="social">⚠️ The site and official X give conflicting official figures; no media or player-side sampling.</div>
+        <div class="impact"><span><b>Proposal (for Client X): </b>Observe: Do not follow "highest in PH" comparison claims; next week read the terms behind 3.5% and the iPhone draw rules.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+    <section class="sec" id="pr">
+    <div class="sec-lbl">
+      <span class="chip">§03</span><span class="en">PR & Partnerships</span>
+      <h2>Brand, PR & partnerships</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">New this week and follow-ups kept apart.</div>
+    <div class="moves">
+
+      <div class="mcard" id="sig-02" style="border-top-color:#E89AAA">
+        <div class="top"><div class="meta"><b>BingoPlus</b><span>PR & partnerships · event partner</span></div><span class="sev high">High impact</span></div>
+        <div class="detail"><b>Date: </b>11/11-11/14</div>
+        <div class="detail"><b>Headline: </b>BingoPlus joins ALEX EALA LIVE; tickets via trivia.</div>
+        <div class="detail"><b>New this week (Meta start date 11/14).</b> Official advertiser page read 11/16: about 8 ads at the top, all 8 started 11/11-11/14. Two started 11/14: one says BingoPlus is an Official Entertainment Partner of "ALEX EALA LIVE" under the line "GAME. SET. CELEBRATE", themed on tennis player Alex Eala's homecoming; the other is a tennis trivia post saying the event is on 12/8 in the Philippines and that commenting an answer with set hashtags and sharing gives a chance to win free tickets via the BingoPlus event.</div>
+        <div class="detail"><b>Same-period creatives.</b> Six "winner story" videos started 11/11 (#BPWinnerStory, #RealWinnersRealStories): players from Mandaluyong, Siargao and Metro Manila describe family and career changes after winning, with the line "Enjoy within your limits".</div>
+        <div class="detail"><b>Versus last week.</b> W46 read about 6 ads at the top with no starts after 10/25; daily monitoring on 11/12 noted the "ALEX EALA LIVE" partner post on X and filed it as an extension of the existing Eala endorsement, no case. This issue reads the partner role and the ticket mechanic in Meta, so the weekly opens a card on brand assets tied to a live event.</div>
+        <div class="detail"><b>Operating meaning (judgement): </b>BingoPlus extends an athlete endorsement into entertainment partnership of a homecoming event and uses trivia-for-tickets for engagement; winner stories frame wins as family narratives. The cost sits in endorsement and tickets, with no reward amount up front.</div>
+        <div class="detail"><b>Evidence grade: </b>A (Meta ad text)</div>
+        <div class="detail"><b>Evidence limits: </b>Partnership fee and term; official trivia rules and ticket numbers; source and size of the winner-story prizes; what the #BingoPlusOne teaser was.</div>
+        <div class="detail"><b>Sources: </b><a href="https://www.facebook.com/ads/library/?id=1140989565082098">Meta Ad Library · BingoPlus ALEX EALA LIVE partner ad 1140989565082098</a> · <a href="https://www.facebook.com/ads/library/?id=1514462617190576">Meta Ad Library · BingoPlus tennis trivia ticket ad 1514462617190576</a> · <a href="https://www.facebook.com/ads/library/?id=1117613524598820">Meta Ad Library · BingoPlus winner-story ad 1117613524598820</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=100332105816384">Meta Ad Library · BingoPlus (official advertiser)</a></div>
+        <div class="social">⚠️ Single-channel: official Meta ads plus the daily monitor's X digest; no media report found; the organiser's announcement not read.</div>
+        <div class="impact"><span><b>Proposal (for Client X): </b>Observe: Low-cost trivia-for-tickets could be a later option, but first see whether BingoPlus reports participation after the 12/8 event; winner stories risk inflating win expectations, so we do not copy that framing.</span></div>
+        <div class="shots"><figure class="shot adcopy"><div class="ac-h"><b>BingoPlus</b> · Sponsored · started 2026-11-14</div><div class="ac-b">GAME. SET. KNOW!<br>The hottest sporting event is coming to the Philippines this December 8!<br>WANT TO WATCH ALEX EALA LIVE? Here's how to join:<br>1. Check out our trivia post.<br>2. Drop your answer in the comment section …<br>3. Share the trivia with your friends … for a chance to win FREE tickets</div><div class="ac-f">#BPTennisTalk #BPSupportsQueenAlex #WelcomeHomeAlex</div><figcaption>Ad copy excerpt (Meta Ad Library text) · <a href="https://www.facebook.com/ads/library/?id=1514462617190576">source 1514462617190576</a></figcaption></figure></div>
+      </div>
+
+      <div class="mcard" id="sig-03" style="border-top-color:#4F8C5C">
+        <div class="top"><div class="meta"><b>GameZone</b><span>PR & partnerships · artist collaboration (follow-up)</span></div><span class="sev low">Low impact</span></div>
+        <div class="detail"><b>Date: </b>11/13-11/15</div>
+        <div class="detail"><b>Headline: </b>GameZone releases the "Tara G!" MV; event ad absent from the sample.</div>
+        <div class="detail"><b>Progress on last week (Meta start dates 11/13, 11/15).</b> Official advertiser page read 11/16: about 26 ads at the top (about 51 in W46), 26 loaded, 5 started in the window, all for the Gloc-9 "Tara G!" music video (one on 11/13, four on 11/15); 3 of them land on the music link page LNK.FUGA.COM, not GZONE.PH.</div>
+        <div class="detail"><b>Still running.</b> Three dance-challenge ads (Apple products worth ₱300,000) and three Vice Ganda / Welcome Bonus 8800 ads (started 11/2-11/4) are still live; the 11/13 meet-and-greet ad read in W46 no longer appears.</div>
+        <div class="detail"><b>Versus last week.</b> The thread moves from song, dance challenge and meet-and-greet to the music video; live ads are about half of W46's. Meta shows only running ads, so a lower count does not establish a budget cut.</div>
+        <div class="detail"><b>Operating meaning (judgement): </b>GameZone carries the song campaign into the music video and sends traffic to music platforms, so the creatives read as entertainment placement; Welcome-offer ads remain, with a smaller share of the reviewed sample.</div>
+        <div class="detail"><b>Evidence grade: </b>A (Meta ad text)</div>
+        <div class="detail"><b>Evidence limits: </b>Whether the event took place; dance-challenge entries and results; ₱8,800 welcome terms.</div>
+        <div class="detail"><b>Sources: </b><a href="https://www.facebook.com/ads/library/?id=1838082503878083">Meta Ad Library · GameZone MV ad 1838082503878083</a> · <a href="https://www.facebook.com/ads/library/?id=1850045869527111">Meta Ad Library · GameZone MV ad 1850045869527111</a> · <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=872328479505097">Meta Ad Library · GameZone (official advertiser)</a></div>
+        <div class="social">⚠️ Single-channel: official Meta ads only; no report found on whether the 11/13 event took place or attendance.</div>
+        <div class="impact"><span><b>Proposal (for Client X): </b>Observe: The UGC challenge test suggested in W46 stays as framed; once dance-challenge results are out, check whether entry numbers are usable as a benchmark.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+    <section class="sec" id="product">
+    <div class="sec-lbl">
+      <span class="chip">§04</span><span class="en">Product & Gaming</span>
+      <h2>Product, games & platform</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="moves">
+
+      <div class="mcard" id="sig-04" style="border-top-color:#8B7355">
+        <div class="top"><div class="meta"><b>PhilWeb (OKADA PLAY platform)</b><span>Product & platform · platform provider scale</span></div><span class="sev mid">Mid impact</span></div>
+        <div class="detail"><b>Date: </b>11/13</div>
+        <div class="detail"><b>Headline: </b>PhilWeb Q3 revenue up 153%, back to profit.</div>
+        <div class="detail"><b>New this week (Q3 filing, reported by GGRAsia 11/13).</b> PhilWeb's Q3 revenue was ₱443.0M, up 152.9% year on year and 25.7% quarter on quarter; net income ₱64.2M against a ₱19.2M loss a year earlier. The core digital solutions business (online platform technology, systems integration, content distribution and operating support for licensed operators) made ₱281.3M in Q3, 63.5% of revenue, up 40.5% quarter on quarter, with no such revenue a year earlier.</div>
+        <div class="detail"><b>Nine months.</b> asgam on 11/16, citing the results release: nine-month net income ₱125.2M against a ₱61M loss; revenue ₱1.03B (+92.7%), costs and expenses ₱899.0M (+55.0%). Clients include Newport World Resorts, Okada Manila, Hann Casino Resort and NUSTAR Resort Cebu.</div>
+        <div class="detail"><b>Versus last week.</b> W46 card 4 recorded OKADA PLAY's October GGR above ₱100M, with PhilWeb saying other platforms it supports could each reach ₱100M monthly GGR by year-end. This issue reads the platform provider's own quarterly figures, pointing the same way; the filing gives no per-platform split.</div>
+        <div class="detail"><b>Operating meaning (judgement): </b>Okada, Newport and NUSTAR use a shared B2B provider for their online platforms. The provider's doubled revenue reflects expansion through this route; new entrants include casino-backed platforms as well as independents outside DigiPlus.</div>
+        <div class="detail"><b>Evidence grade: </b>B (trade media relaying the filing)</div>
+        <div class="detail"><b>Evidence limits: </b>OKADA PLAY's share of digital-solutions revenue; progress of the JKS cross-investment; whether each platform reaches ₱100M monthly GGR.</div>
+        <div class="detail"><b>Sources: </b><a href="https://www.ggrasia.com/philweb-swings-to-us1mln-profit-in-3q-as-revenue-more-than-doubles">PhilWeb swings to US$1mln profit in 3Q as revenue more than doubles · GGRAsia 11/13</a> · <a href="https://asgam.com/2026/11/16/philweb-swings-to-us2-million-profit-in-first-three-quarters-of-2026-as-revenues-surge-93/">PhilWeb swings to US$2 million profit in first three quarters of 2026 as revenues surge 93% · asgam 11/16</a></div>
+        <div class="social">⚠️ Two media pieces (GGRAsia, asgam) relay the same filing; PhilWeb's original filing not read; no player-side sampling.</div>
+        <div class="impact"><span><b>Proposal (for Client X): </b>Observe: No change yet; next week check whether Newport or NUSTAR online platforms start Meta ads and whether PhilWeb discloses per-platform figures.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+    <section class="sec" id="marketing">
+    <div class="sec-lbl">
+      <span class="chip">§05</span><span class="en">Media & Acquisition</span>
+      <h2>Marketing & communication trends (ads as evidence)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">This section uses ad-library data as supporting evidence. Meta Ad Library read 11/16, locked to official advertiser IDs, country Philippines, active ads, ArenaPlus loaded to the end, 292 (about 310 at the top), BingoPlus 8, GameZone 26, CasinoPlus 27. Per-ad IDs are in the appendix ad cards.</div>
+    <div class="moves">
+
+      <div class="mcard" style="border-top-color:#2A5FAA">
+        <div class="top"><div class="meta"><b>ArenaPlus · BingoPlus · CasinoPlus</b><span>Media &amp; communication trends · responsible gambling in main creatives</span></div><span class="sev mid">New</span></div>
+        <div class="detail"><b>Observation:</b> Three brands put responsible-gambling lines into main creatives in the same week: ArenaPlus Sportsbook started 4 Luis Manzano ads on 11/11-11/12 reading "SET A LIMIT, STICK TO IT"; BingoPlus's 6 winner stories from 11/11 carry "Enjoy within your limits"; CasinoPlus's live creatives are headlined "Enjoy the Moment, But Stay in Control", with 7 new on 11/14 (5 still saying color game and real cash rewards).</div>
+        <div class="detail"><b>Operating meaning (judgement):</b> Responsible gambling moves from footer warning to headline, possibly in response to regulatory and audit pressure; but CasinoPlus's same creatives still say "real cash rewards", so the line sits beside a payout implication. This is inference from Meta-only samples.</div>
+        <div class="detail"><b>Evidence grade:</b> A (Meta per-ad Library IDs, see appendix ad cards)</div>
+        <div class="shots">
+        <figure class="shot"><a href="img/W47/cp-rg-1072074812516432.webp" target="_blank"><img src="img/W47/cp-rg-1072074812516432.webp" alt="CasinoPlus Meta ad card (from 11/14): headline Enjoy the Moment, But Stay in Control" loading="lazy"></a><figcaption>CasinoPlus Meta ad card (from 11/14): headline Enjoy the Moment, But Stay in Control · <a href="https://www.facebook.com/ads/library/?id=1072074812516432">source 1072074812516432</a></figcaption></figure></div>
+        <div class="detail"><b>Evidence limits:</b> single channel; whether CasinoPlus's headline dates from the 11/4 batch was not compared image by image with W46; whether a shared regulatory requirement lies behind it is unverified.</div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> test — add a responsible-gambling line to our main creatives alongside the PAGCOR-required warnings; change only the copy, not the placement, and compare clicks and sign-up conversion over two weeks.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+    <section class="sec" id="voice">
+    <div class="sec-lbl">
+      <span class="chip">§06</span><span class="en">Player Voice & Risk</span>
+      <h2>Player voice & competitor risk</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">No player-side data was sampled this week (social and forums not read); this section holds two regulatory-side risks.</div>
+    <div class="moves">
+
+      <div class="mcard" id="sig-06" style="border-top-color:#6B6B6B">
+        <div class="top"><div class="meta"><b>PAGCOR / Commission on Audit</b><span>Player voice & risk · geo-fencing</span></div><span class="sev high">High impact (compliance risk)</span></div>
+        <div class="detail"><b>Date: </b>11/05</div>
+        <div class="detail"><b>Headline: </b>CoA: licensed sites took bets from abroad.</div>
+        <div class="detail"><b>Background, added late (reported 11/05, missed in W46).</b> BusinessWorld: the Commission on Audit (CoA), in PAGCOR's 2025 audit report, found that domains registered under PAGCOR-accredited gaming system administrators (GSAs) and licensed casinos were accessible from, or accepted bets placed, outside the Philippines, breaching the GSA accreditation framework in force since 2025/10/02, which limits online gaming to domestic players. No operators were named.</div>
+        <div class="detail"><b>Other findings in the piece.</b> PAGCOR accounting issues: ₱3.14B of transactions booked under accounts payable instead of the proper liability accounts; a ₱310.37M discrepancy in a ₱1.38B inventory account; ₱305.76M of payables inactive for at least 10 years; ₱407.41M of receivables uncollected for over a decade.</div>
+        <div class="detail"><b>Versus last week.</b> W46 missed this piece (published inside its window; BusinessWorld's nation section was not checked). It is added as background and carded because it changes the baseline: geo-fencing enforcement is likely to become a regulatory focus.</div>
+        <div class="detail"><b>Operating meaning (judgement): </b>With offshore access flagged by auditors, PAGCOR may require tighter IP and geolocation blocking; that affects offshore marketing traffic and agent channels, and fits Bet88's block page for non-Philippine IPs.</div>
+        <div class="detail"><b>Evidence grade: </b>B (media relaying the audit report)</div>
+        <div class="detail"><b>Evidence limits: </b>Which domains and operators are involved; PAGCOR's response and remediation deadline; whether it becomes sanctions on operators.</div>
+        <div class="detail"><b>Sources: </b><a href="https://bworldonline.com/the-nation/2026/11/05/791855/coa-says-pagcor-linked-sites-took-bets-from-users-outside-philippines/">CoA says PAGCOR-linked sites took bets from users outside Philippines · BusinessWorld 11/05</a></div>
+        <div class="social">⚠️ Single-channel: one BusinessWorld piece; the CoA report and PAGCOR's response were not read.</div>
+        <div class="impact"><span><b>Proposal (for Client X): </b>Test: Check our landing pages and app for blocking and messaging on non-Philippine IPs; do not route offshore ad traffic to betting pages.</span></div>
+      </div>
+
+      <div class="mcard" id="sig-05" style="border-top-color:#6B6B6B">
+        <div class="top"><div class="meta"><b>PAGCOR</b><span>Player voice & risk · data security</span></div><span class="sev mid">Mid impact (compliance risk)</span></div>
+        <div class="detail"><b>Date: </b>11/11</div>
+        <div class="detail"><b>Headline: </b>PAGCOR warns over an alleged restricted-list leak.</div>
+        <div class="detail"><b>New this week (PAGCOR advisory 11/11, 6 PM Philippine time; relayed by media 11/12).</b> PAGCOR advisory on its site: after an online post allegedly containing data from PAGCOR's National Database of Restricted Persons (NDRP), PAGCOR said its Computer Emergency Response Team (PAGCOR-CERT) is verifying authenticity, source and extent, and whether it relates to an earlier incident; there is no verified evidence of a new intrusion and the assessment continues. PAGCOR advised the public to watch for phishing, identity theft and fraud and not to open or share related files; privacy concerns go to its Data Privacy Office and updates will come through official channels.</div>
+        <div class="detail"><b>Background.</b> The NDRP was breached in September 2025; reports then said over 560,000 names were involved, and PAGCOR said the list was not a list of problem gamblers.</div>
+        <div class="detail"><b>Versus last week.</b> Not covered in W46. This is a new regulatory-side event, not directly tied to operator promotions, but the NDRP underpins licensed operators' exclusion and self-exclusion checks.</div>
+        <div class="detail"><b>Operating meaning (judgement): </b>If the leak is genuine, phishing that impersonates PAGCOR or operators may rise and player trust in the "licensed" label could suffer; not confirmed.</div>
+        <div class="detail"><b>Evidence grade: </b>A (PAGCOR official advisory)</div>
+        <div class="detail"><b>Evidence limits: </b>Whether the posted data is genuine or 2025 material; any new requirement for operator KYC and exclusion checks.</div>
+        <div class="detail"><b>Sources: </b><a href="https://www.pagcor.ph/headlines/public-advisory-for-publication-and-display-on-pagcor-website.html">PUBLIC ADVISORY On the Alleged Online Disclosure of NDRP Information · PAGCOR 11/11</a> · <a href="https://igamingexpert.com/regions/asia/pagcor-alleged-restricted-persons-leak/">PAGCOR warns public after alleged restricted persons leak · iGamingExpert 11/12</a> · <a href="https://asgam.com/2025/09/03/hacked-pagcor-list-of-restricted-persons-contains-over-560000-names-but-not-a-list-of-gamblers-agency-says/">Hacked PAGCOR list of restricted persons contains over 560,000 names but not a list of gamblers, agency says · asgam 2025/09/03 (background)</a></div>
+        <div class="social">PAGCOR's original advisory read on follow-up; the iGamingExpert relay matches; no player-side sampling.</div>
+        <div class="impact"><span><b>Proposal (for Client X): </b>Observe: Prepare a customer-service and social line saying official channels never ask for data by private message; decide on publishing once PAGCOR concludes.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec" id="strategic">
+    <div class="sec-lbl">
+      <span class="chip">§07</span><span class="en">Insights &amp; Tracking</span>
+      <h2>Strategic insights & next-week tracking</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="axes">
+      <div class="axis"><b>Insight 1 · Market size：</b>No new industry GGR data this issue; W46's Q3 industry GGR of ₱83.72B (-11.41%) remains the latest baseline. PhilWeb's Q3 revenue +152.9% shows casino-backed online platforms expanding. <br>The market is shrinking overall while share spreads to new platforms; a provider's growth cannot be turned directly into player growth.</div>
+      <div class="axis"><b>Insight 2 · What players care about：</b>ArenaPlus creatives centre on the new NBA season; BingoPlus on a tennis player's homecoming event and winner stories; GameZone on a music video.<br>No player-side data was obtained this week; in the reviewed creatives, sports events and local stars remain the main attention entry points.</div>
+      <div class="axis"><b>Insight 3 · Unmet gaps：</b>None of the ArenaPlus or CasinoPlus creatives read this issue state rollover multiples or withdrawal times. ASC Circular 2026-008, in force since June 24, bars ads from showing or mentioning casino games and equipment such as roulette, baccarat, blackjack, slots, cards, chips and dice.<br>Publishing verifiable terms and payout times sets us apart more than raising reward size.</div>
+      <div class="axis"><b>Insight 4 · Offer structure：</b>Read this issue: ArenaPlus welcome ₱8,100, 40% first deposit, daily up to ₱2,888, weekly up to ₱60,000; GameZone ₱8,800; BingoPlus and CasinoPlus main creatives carry no amounts. Under current PAGCOR rules, cash rebates on bets or deposits for e-games operators are capped at 1.5% (casino tables and arcade-type games excluded), and cash back on net losses at 15%.<br>Price competition is concentrated in ArenaPlus; the single 5% creative needs tracking to see if it is replaced.</div>
+      <div class="axis"><b>Insight 5 · Differentiation：</b>ArenaPlus runs layered rewards plus NBA; BingoPlus event partnership and winner stories; GameZone music content; CasinoPlus a responsible-gambling headline; casino-backed platforms a shared provider.<br>The visible differences this week are mainly reward layers, event partnerships and responsible-gambling wording.<br><b>Proposal:</b> add a responsible-gambling line to our main creatives and check our geo-blocking first; both are low cost and in line with regulation.</div>
+      <div class="axis"><b>Next week: </b>Whether ArenaPlus's single 5% daily-rebate creative keeps running; eligibility for the ₱60,000 weekly offer; BingoPlus × ALEX EALA LIVE follow-up and trivia ticket rules; New Perya Happy Hour original; PAGCOR's finding on the alleged restricted-list leak; PAGCOR's response to the CoA finding, remediation deadline and whether operators are named; PhilWeb per-platform figures; whether Newport or NUSTAR online platforms start advertising; Whether CasinoPlus's 1.5% was renewed; the basis of PT Gaming's 3.5% cashback; DigiPlus, CasinoPlus and Bet88 onsite pages (Philippine IP needed).</div>
+    </div>
+  </section>
+
+  <section class="sec" id="radar">
+    <div class="sec-lbl">
+      <span class="chip">附</span><span class="en">Capability Radar · 6 axes · 8 brands</span>
+      <h2>Six-axis capability radar (8 brands)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="radar">
+      <div class="radar-formula">
+        <h6>Scoring formula (100 per axis, weighted sub-items)</h6>
+        <table><tr><td>BRAND</td><td><b>Market share (revenue / traffic) 45%</b> + endorsers / IP 20% + player mentions 25% + historical-model PR 10%</td></tr><tr><td>UX</td><td>Site access 30% + sign-up / login 25% + payment / withdrawal signals 25% + UI clarity 20%</td></tr><tr><td>CONTENT</td><td>Exclusive games / IP 35% + localization 25% + events 25% + update cadence 15%</td></tr><tr><td>PRICING</td><td>Bonus appeal 30% + <b>compliance safety 30%</b> + terms clarity 25% + value players actually receive 15%</td></tr><tr><td>RETENTION</td><td>Ongoing promos 30% + VIP / win-back 25% + support / trust 25% + community 20%</td></tr><tr><td>REACH</td><td>TV / media 30% + social 25% + KOL / celebrities 20% + offline / payment touchpoints 15% + SEO / visibility 10%</td></tr></table>
+      </div>
+      <div class="radar-head">
+        <div>
+          <div class="lbl">Six-axis comparison (8 brands)</div>
+          <div class="sub">Pick the baseline at top right (default PlayTime) and a comparison brand below.<br><em style="color:rgba(255,255,255,.6);font-style:normal;">Baseline anchored to W22 SimilarWeb. All eight unchanged this week;</em></div>
+        </div>
+        <div class="self-pick">
+          <span class="pick-lbl">Baseline</span>
+          <select class="vssel" id="selfsel" aria-label="Baseline"></select>
+        </div>
+      </div>
+      <div class="vsbtns" id="vsbtns" aria-label="vs"></div>
+      <div class="radar-body">
+        <div class="left">
+          <div class="grid" id="radarGrid"></div>
+          <div class="legend">
+            <span><i style="background:#fff3a6"></i><b id="legendSelf">Baseline · PlayTime</b></span>
+            <span><i id="legendVsColor" style="background:#4F8C5C"></i><b id="legendVs">GameZone</b></span>
+          </div>
+        </div>
+        <svg viewBox="0 0 320 320" id="radarSvg" aria-label="6-axis capability radar">
+          <g id="rings"></g>
+          <g id="axes"></g>
+          <polygon id="polyVs" fill-opacity="0.35" stroke-width="2"></polygon>
+          <polygon id="polySelf" fill="#fff3a6" fill-opacity="0.42" stroke="#fff3a6" stroke-width="2.2"></polygon>
+          <g id="labels"></g>
+        </svg>
+      </div>
+      <div class="radar-note"><b>Historical frozen scores retained for all eight brands; not remeasured or re-scored this issue.</b> ArenaPlus's layered rewards and BingoPlus's event partnership bear on the PROMO and BRAND axes, but with no terms or independent data a single item is not enough to move a 5-point step; OKBet, Bet88 and OKADA PLAY were incompletely read or not rechecked, so their axes read "insufficient evidence" with no guessed score. A baseline rebuild (stage C) needs Reagan's approval and is not done in the weekly.<br><br><b>BRAND sub-item worked check.</b> PlayTime BRAND 85 = market share 100 × 45% + endorsement / IP 80 × 20% + player mention rate 80 × 25% + historical-model PR 55 × 10% = 86.5, rounded to 85. BingoPlus BRAND 83 = market share 75 × 45% + endorsement / IP 95 × 20% + mention rate 85 × 25% + PR 85 × 10% = 82.5, within one 5-point step of the held value, held. ArenaPlus BRAND 60 = market share 50 × 45% + endorsement / IP 80 × 20% + mention rate 55 × 25% + PR 80 × 10% = 60.25, rounded to 60.<br><br><b>Triggers for the next re-score:</b> BingoPlus's compensation and dated-offer terms verified on site (affects PRICING); a PAGCOR explanation of the compensation; a manual decision on whether to re-rank GameZone / ArenaPlus market share on an MAU basis; other brands following with withdrawal compensation; confirmation of who owns ArenaPlus's new domain; the Palace acting on the PAGCOR decoupling recommendation.</div>
+    </div>
+  </section>
+
+  <section class="sec" id="kpi">
+    <div class="sec-lbl">
+      <span class="chip">附</span><span class="en">KPI matrix · 8 brands</span>
+      <h2>KPI matrix (8-brand watchlist)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">Status colours: 🔴 HOT (named / sanctioned by regulator) · 🟠 ACTIVE · 🟡 ALERT (anomaly / countdown) · 🔵 COLD (quiet). SOV retains historical internal estimates without a verified common denominator or calculation record. The eight entries sum to 43%, which is not a current voice or market-share finding, nor a share of this Meta sample. No status changes this issue.</div>
+    <div class="kpi">
+<div class="head">Brand</div><div class="head">Moves</div><div class="head">Historic SOV%<br>(unverified)</div><div class="head">Lead offer</div><div class="head">Jackpot</div><div class="head">Impact</div>
+
+
+
+      <div class="cell name"><b>BingoPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">1</span> <span class="trend up">▲ +1</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">20%</span><div class="bar"><i style="width:20%;background:#E89AAA"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Read 11/16: about 8 ads at the top, all 8 started 11/11-11/14: ALEX EALA LIVE entertainment partner and tennis trivia for tickets (11/14), 6 winner-story videos (11/11); no reward amounts in the creatives. Daily monitoring on 11/12 noted New Perya Happy Hour on X (11/12-11/18, ₱8.4M pool); original not opened</div>
+      <div class="cell" data-lbl="Jackpot">Baccarat tournament ₱41.3M (to 11/28, carried)</div>
+      <div class="cell" data-lbl="Impact">High — see <a href="#sig-02">§03 card 2</a></div>
+
+      <div class="cell name"><b>ArenaPlus</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">1</span> <span class="trend up">▲ +1</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">9%</span><div class="bar"><i style="width:9%;background:#2A5FAA"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Read 11/16: about 310 at the top, 292 loaded, all started 11/8-11/15 (full refresh); welcome ₱8,100, daily rebate up to ₱2,888, NBA Cup reload up to ₱3,235, weekly bonus up to ₱60,000, 40% first deposit with 1.5% daily rebate (one ad says 5%). Site promo page returns restrict access (needs a Philippine IP)</div>
+      <div class="cell" data-lbl="Jackpot">Chance to Win "₱10,0000,000" (as written); slots up to 50000x and ₱88,888,888 (ad claims)</div>
+      <div class="cell" data-lbl="Impact">High — see <a href="#sig-01">§02 card 1</a>; W46 zero reading resolved</div>
+
+      <div class="cell name"><b>CasinoPlus</b><span class="grp">Independent</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">1</span> <span class="trend up">▲ +1</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">4%</span><div class="bar"><i style="width:4%;background:#B89968"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Read 11/16: about 29 at the top, 27 loaded; 7 new on 11/14 (5 say color game and real cash rewards, 2 point to the app); image line "Enjoy the Moment, But Stay in Control"; still no 1.5% wording. Site promo page returned Access Restricted (403) on 11/16</div>
+      <div class="cell" data-lbl="Jackpot">₱122.4M jackpot paid (handed over 9/9, carried)</div>
+      <div class="cell" data-lbl="Impact">Low — see <a href="#marketing">§05</a>; the 1.5% renewal still needs an official-page check</div>
+
+      <div class="cell name"><b>PlayTime / PT Gaming</b><span class="grp">Independent</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">1</span> <span class="trend up">▲ +1</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">3%</span><div class="bar"><i style="width:3%;background:#4A4FB8"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Follow-up 11/16: the site description says new-player ₱2,980, "3.5% Unlimited Cashback", one iPhone 18 Pro a day in November, Deposit Rush ₱2M and 100% first deposit; official X on 11/15 still says 1.5% unlimited cashback + 2% slot return, so the two disagree. Relationship to the 5/29 baseline ₱8,080 still unverified</div>
+      <div class="cell" data-lbl="Jackpot">Deposit Rush ₱2M; daily iPhone 18 Pro in November (site claim)</div>
+      <div class="cell" data-lbl="Impact">Low — see <a href="#sig-07">§02 card 7</a></div>
+
+      <div class="cell name"><b>GameZone</b><span class="grp">DigiPlus</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">1</span> <span class="trend up">▲ +1</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#4F8C5C"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Read 11/16: about 26 at the top (about 51 in W46), 5 new in the window, all for the "Tara G!" MV; the meet-and-greet ad is gone; 3 Vice Ganda ₱8,800 welcome ads still live</div>
+      <div class="cell" data-lbl="Jackpot">— daily free Tongits tournaments (carried)</div>
+      <div class="cell" data-lbl="Impact">Low — see <a href="#sig-03">§03 card 3</a></div>
+
+      <div class="cell name"><b>OKBet / OKGames</b><span class="grp">Independent</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#D86B27"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Follow-up 11/16 (Firecrawl): the rewards centre shows "There does not have any content." and says the app is only for use in the Philippines; the sidebar shows Payday reward ₱120,000. Carried: main site 1.5% daily rebate + Welcome Bundle; sports 35% first deposit. Meta channel not applicable (no ads)</div>
+      <div class="cell" data-lbl="Jackpot">FIFA 2026 Spin for Glory ₱15,888,888 (carried)</div>
+      <div class="cell" data-lbl="Impact">Low — empty promo area is a region limit, not an activity finding</div>
+
+      <div class="cell name"><b>Bet88</b><span class="grp">Independent</span><span class="status status-cold">🔵 COLD</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">2%</span><div class="bar"><i style="width:2%;background:#C2272D"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">Carried: 100% first deposit ₱8,888 + 30% daily (image-based, no amounts); follow-up 11/16: Firecrawl (US exit) and Chrome (Armenia exit) were both redirected to a region-block page</div>
+      <div class="cell" data-lbl="Jackpot">World Cup Prize Pool ₱4,900,000 (carried)</div>
+      <div class="cell" data-lbl="Impact">Low — not checked (0 is a record, not an activity finding)</div>
+
+      <div class="cell name"><b>OKADA PLAY</b><span class="grp">PhilWeb × Okada Manila</span><span class="status status-active">🟠 ACTIVE</span></div>
+      <div class="cell" data-lbl="Moves"><span class="big">0</span> <span class="trend flat">▬ ±0</span></div>
+      <div class="cell" data-lbl="SOV%"><span class="big">1%</span><div class="bar"><i style="width:1%;background:#8B7355"></i></div></div>
+      <div class="cell" data-lbl="Lead offer">No new brand-level data this issue; platform provider PhilWeb Q3 revenue +152.9% and back to profit (see <a href="#sig-04">§04 card 4</a>); promo page and Meta advertiser not checked</div>
+      <div class="cell" data-lbl="Jackpot">— to be disclosed</div>
+      <div class="cell" data-lbl="Impact">Mid — platform provider expanding; no per-platform figures</div>
+</div>
+    <div class="sec-deck"><b>Offer layer.</b> Welcome figures read this issue: ArenaPlus ₱8,100 and a 40% first deposit (daily up to ₱2,888, weekly up to ₱60,000), GameZone ₱8,800 (3 ads still live). BingoPlus and CasinoPlus main creatives carry no amounts; PT Gaming's site says ₱2,980 + 3.5% unlimited cashback (its X says 1.5% + 2%); OKBet's rewards centre is empty; Bet88, CasinoPlus and the three DigiPlus sites are region-blocked. No terms pages were read.</div>
+    <div class="sec-deck"><b>Meta Ad Library snapshot.</b> Read 11/16, locked to official advertiser IDs, country PH, active: ArenaPlus about 310 at the top, 292 loaded; GameZone about 26, 26 loaded; CasinoPlus about 29, 27 loaded; BingoPlus about 8, 8 loaded. Partial loads, so figures are floors and totals are not compared with W46. Per-ad IDs are in the appendix ad cards and snapshots/2026-W47.</div>
+  </section>
+
+  <section class="sec" id="moves-sec">
+    <div class="sec-lbl">
+      <span class="chip">附</span><span class="en">Weekly Moves</span>
+      <h2>Weekly ad cards (W47)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="sec-deck">Appendix: 4 ad cards backing §02-§05; Meta figures are evidenced by per-ad Library IDs; ArenaPlus loaded to the end and the other three fit on the first screen; totals not compared with last issue.</div>
+    <div class="moves" id="moveCards">
+
+      <div class="mcard" id="ad-01" style="border-top-color:#2A5FAA">
+        <div class="top"><span class="logo" style="background:#2A5FAA;width:26px;height:26px;font-size:10px">AP</span>
+          <div class="meta"><b>ArenaPlus</b><span>11/8-11/15</span></div>
+          <span class="sev high">High impact</span>
+        </div>
+        <h4>ArenaPlus refreshed ~290 live ads, <span class="hi">three reward layers.</span></h4>
+        <div class="detail">About 310 at the top, 292 loaded, all started 11/8-11/15. Groups: welcome ₱8,100 66, NBA 41 (13 NBA Cup ₱3,235), daily offers 14, weekly offers 8, 40% first deposit 8 (one says 5%), horror slots 13, Luis Manzano responsible gambling 4.</div>
+        <div class="detail"><b>Library IDs (292 stored samples):</b> <a href="https://www.facebook.com/ads/library/?id=1513158944204308">1513158944204308</a> · <a href="https://www.facebook.com/ads/library/?id=1559421542618238">1559421542618238</a> · <a href="https://www.facebook.com/ads/library/?id=1474365011424409">1474365011424409</a> · <a href="https://www.facebook.com/ads/library/?id=1597769931653162">1597769931653162</a> · <a href="https://www.facebook.com/ads/library/?id=954387244423157">954387244423157</a> · <a href="https://www.facebook.com/ads/library/?id=1799881754496337">1799881754496337</a> · <a href="https://www.facebook.com/ads/library/?id=2197785284431885">2197785284431885</a> · <a href="https://www.facebook.com/ads/library/?id=29032626406394114">29032626406394114</a> · <a href="https://www.facebook.com/ads/library/?id=1715350533541671">1715350533541671</a> · <a href="https://www.facebook.com/ads/library/?id=2177204419546130">2177204419546130</a> · <a href="https://www.facebook.com/ads/library/?id=1165529142709239">1165529142709239</a> · <a href="https://www.facebook.com/ads/library/?id=1762758608348489">1762758608348489</a> · <a href="https://www.facebook.com/ads/library/?id=1007086199108566">1007086199108566</a> · <a href="https://www.facebook.com/ads/library/?id=2578877315925394">2578877315925394</a> · <a href="https://www.facebook.com/ads/library/?id=1450396440628491">1450396440628491</a> · <a href="https://www.facebook.com/ads/library/?id=1713582970287744">1713582970287744</a> · <a href="https://www.facebook.com/ads/library/?id=1501446468493415">1501446468493415</a> · <a href="https://www.facebook.com/ads/library/?id=1632323758672330">1632323758672330</a> · <a href="https://www.facebook.com/ads/library/?id=1452178660463866">1452178660463866</a> · <a href="https://www.facebook.com/ads/library/?id=1445522927795117">1445522927795117</a> · <a href="https://www.facebook.com/ads/library/?id=1131313799373476">1131313799373476</a> · <a href="https://www.facebook.com/ads/library/?id=1136038238819423">1136038238819423</a> · <a href="https://www.facebook.com/ads/library/?id=990527913516785">990527913516785</a> · <a href="https://www.facebook.com/ads/library/?id=1832932567964657">1832932567964657</a> · <a href="https://www.facebook.com/ads/library/?id=3193937110960175">3193937110960175</a> · <a href="https://www.facebook.com/ads/library/?id=2974095259618982">2974095259618982</a> · <a href="https://www.facebook.com/ads/library/?id=1082121921556069">1082121921556069</a> · <a href="https://www.facebook.com/ads/library/?id=4487077051549160">4487077051549160</a> · <a href="https://www.facebook.com/ads/library/?id=2657273888122517">2657273888122517</a> · <a href="https://www.facebook.com/ads/library/?id=1155968913478935">1155968913478935</a> · <a href="https://www.facebook.com/ads/library/?id=1064453946607269">1064453946607269</a> · <a href="https://www.facebook.com/ads/library/?id=1625621736028633">1625621736028633</a> · <a href="https://www.facebook.com/ads/library/?id=1784448869524161">1784448869524161</a> · <a href="https://www.facebook.com/ads/library/?id=1636484291587573">1636484291587573</a> · <a href="https://www.facebook.com/ads/library/?id=28981055638217876">28981055638217876</a> · <a href="https://www.facebook.com/ads/library/?id=1548400187096331">1548400187096331</a> · <a href="https://www.facebook.com/ads/library/?id=4471175159764045">4471175159764045</a> · <a href="https://www.facebook.com/ads/library/?id=1489494183277909">1489494183277909</a> · <a href="https://www.facebook.com/ads/library/?id=1801189527819938">1801189527819938</a> · <a href="https://www.facebook.com/ads/library/?id=2070731080302936">2070731080302936</a> · <a href="https://www.facebook.com/ads/library/?id=1167987548982960">1167987548982960</a> · <a href="https://www.facebook.com/ads/library/?id=1445947186987777">1445947186987777</a> · <a href="https://www.facebook.com/ads/library/?id=1879469479886620">1879469479886620</a> · <a href="https://www.facebook.com/ads/library/?id=1424595303164030">1424595303164030</a> · <a href="https://www.facebook.com/ads/library/?id=1119679800777030">1119679800777030</a> · <a href="https://www.facebook.com/ads/library/?id=1095602003306734">1095602003306734</a> · <a href="https://www.facebook.com/ads/library/?id=1019862071128910">1019862071128910</a> · <a href="https://www.facebook.com/ads/library/?id=1502515798462349">1502515798462349</a> · <a href="https://www.facebook.com/ads/library/?id=907250199044621">907250199044621</a> · <a href="https://www.facebook.com/ads/library/?id=3830239767116325">3830239767116325</a> · <a href="https://www.facebook.com/ads/library/?id=1692588685610941">1692588685610941</a> · <a href="https://www.facebook.com/ads/library/?id=931095533273192">931095533273192</a> · <a href="https://www.facebook.com/ads/library/?id=1498432808798096">1498432808798096</a> · <a href="https://www.facebook.com/ads/library/?id=1170940975590627">1170940975590627</a> · <a href="https://www.facebook.com/ads/library/?id=1157511603521703">1157511603521703</a> · <a href="https://www.facebook.com/ads/library/?id=1652475946574163">1652475946574163</a> · <a href="https://www.facebook.com/ads/library/?id=1115963018028534">1115963018028534</a> · <a href="https://www.facebook.com/ads/library/?id=1136272609224002">1136272609224002</a> · <a href="https://www.facebook.com/ads/library/?id=1559468092868623">1559468092868623</a> · <a href="https://www.facebook.com/ads/library/?id=1487578203306202">1487578203306202</a> · <a href="https://www.facebook.com/ads/library/?id=2771779489941797">2771779489941797</a> · <a href="https://www.facebook.com/ads/library/?id=1756377209831310">1756377209831310</a> · <a href="https://www.facebook.com/ads/library/?id=1159198069876999">1159198069876999</a> · <a href="https://www.facebook.com/ads/library/?id=2256352418244352">2256352418244352</a> · <a href="https://www.facebook.com/ads/library/?id=4632888953654699">4632888953654699</a> · <a href="https://www.facebook.com/ads/library/?id=1172075208505529">1172075208505529</a> · <a href="https://www.facebook.com/ads/library/?id=2224147181477179">2224147181477179</a> · <a href="https://www.facebook.com/ads/library/?id=1657516486102372">1657516486102372</a> · <a href="https://www.facebook.com/ads/library/?id=1163323672890384">1163323672890384</a> · <a href="https://www.facebook.com/ads/library/?id=1915060839904977">1915060839904977</a> · <a href="https://www.facebook.com/ads/library/?id=982874721037072">982874721037072</a> · <a href="https://www.facebook.com/ads/library/?id=2153523555488008">2153523555488008</a> · <a href="https://www.facebook.com/ads/library/?id=1188189370532004">1188189370532004</a> · <a href="https://www.facebook.com/ads/library/?id=1655902849451562">1655902849451562</a> · <a href="https://www.facebook.com/ads/library/?id=2225854844641450">2225854844641450</a> · <a href="https://www.facebook.com/ads/library/?id=1695082165347938">1695082165347938</a> · <a href="https://www.facebook.com/ads/library/?id=1180892544885738">1180892544885738</a> · <a href="https://www.facebook.com/ads/library/?id=1862408841845520">1862408841845520</a> · <a href="https://www.facebook.com/ads/library/?id=2267952903778444">2267952903778444</a> · <a href="https://www.facebook.com/ads/library/?id=2012138122789415">2012138122789415</a> · <a href="https://www.facebook.com/ads/library/?id=1618828469992912">1618828469992912</a> · <a href="https://www.facebook.com/ads/library/?id=1611250780737826">1611250780737826</a> · <a href="https://www.facebook.com/ads/library/?id=1096521076584934">1096521076584934</a> · <a href="https://www.facebook.com/ads/library/?id=1162265582912455">1162265582912455</a> · <a href="https://www.facebook.com/ads/library/?id=2356982771778206">2356982771778206</a> · <a href="https://www.facebook.com/ads/library/?id=999443489215094">999443489215094</a> · <a href="https://www.facebook.com/ads/library/?id=2335721890520794">2335721890520794</a> · <a href="https://www.facebook.com/ads/library/?id=2683340895435783">2683340895435783</a> · <a href="https://www.facebook.com/ads/library/?id=1907765523937439">1907765523937439</a> · <a href="https://www.facebook.com/ads/library/?id=2689867154778497">2689867154778497</a> · <a href="https://www.facebook.com/ads/library/?id=1125576923162819">1125576923162819</a> · <a href="https://www.facebook.com/ads/library/?id=1781318450669945">1781318450669945</a> · <a href="https://www.facebook.com/ads/library/?id=4317256175189720">4317256175189720</a> · <a href="https://www.facebook.com/ads/library/?id=1404041664832507">1404041664832507</a> · <a href="https://www.facebook.com/ads/library/?id=1675014114260997">1675014114260997</a> · <a href="https://www.facebook.com/ads/library/?id=1131212602614139">1131212602614139</a> · <a href="https://www.facebook.com/ads/library/?id=1799742194667352">1799742194667352</a> · <a href="https://www.facebook.com/ads/library/?id=4686611084953432">4686611084953432</a> · <a href="https://www.facebook.com/ads/library/?id=1492506656099328">1492506656099328</a> · <a href="https://www.facebook.com/ads/library/?id=1542454861250614">1542454861250614</a> · <a href="https://www.facebook.com/ads/library/?id=1159345040373939">1159345040373939</a> · <a href="https://www.facebook.com/ads/library/?id=29518117594473608">29518117594473608</a> · <a href="https://www.facebook.com/ads/library/?id=39768566759456477">39768566759456477</a> · <a href="https://www.facebook.com/ads/library/?id=1696902578523904">1696902578523904</a> · <a href="https://www.facebook.com/ads/library/?id=1609648070327315">1609648070327315</a> · <a href="https://www.facebook.com/ads/library/?id=1462286836018685">1462286836018685</a> · <a href="https://www.facebook.com/ads/library/?id=889787300826742">889787300826742</a> · <a href="https://www.facebook.com/ads/library/?id=2201018730448166">2201018730448166</a> · <a href="https://www.facebook.com/ads/library/?id=2333451390764489">2333451390764489</a> · <a href="https://www.facebook.com/ads/library/?id=3534764260016583">3534764260016583</a> · <a href="https://www.facebook.com/ads/library/?id=2624726274708389">2624726274708389</a> · <a href="https://www.facebook.com/ads/library/?id=2641099593300667">2641099593300667</a> · <a href="https://www.facebook.com/ads/library/?id=1113617154905386">1113617154905386</a> · <a href="https://www.facebook.com/ads/library/?id=1503791278295846">1503791278295846</a> · <a href="https://www.facebook.com/ads/library/?id=2173873349865488">2173873349865488</a> · <a href="https://www.facebook.com/ads/library/?id=1156437376730321">1156437376730321</a> · <a href="https://www.facebook.com/ads/library/?id=1604405450919720">1604405450919720</a> · <a href="https://www.facebook.com/ads/library/?id=1130661006427278">1130661006427278</a> · <a href="https://www.facebook.com/ads/library/?id=1128781666365488">1128781666365488</a> · <a href="https://www.facebook.com/ads/library/?id=29529321730025356">29529321730025356</a> · <a href="https://www.facebook.com/ads/library/?id=1129052020097055">1129052020097055</a> · <a href="https://www.facebook.com/ads/library/?id=2609440982893117">2609440982893117</a> · <a href="https://www.facebook.com/ads/library/?id=2239744186572035">2239744186572035</a> · <a href="https://www.facebook.com/ads/library/?id=1104097859084129">1104097859084129</a> · <a href="https://www.facebook.com/ads/library/?id=4169208256704946">4169208256704946</a> · <a href="https://www.facebook.com/ads/library/?id=1102487242655927">1102487242655927</a> · <a href="https://www.facebook.com/ads/library/?id=1421631880053553">1421631880053553</a> · <a href="https://www.facebook.com/ads/library/?id=1145621314907363">1145621314907363</a> · <a href="https://www.facebook.com/ads/library/?id=1105482728787805">1105482728787805</a> · <a href="https://www.facebook.com/ads/library/?id=1755306972924855">1755306972924855</a> · <a href="https://www.facebook.com/ads/library/?id=1583252583571882">1583252583571882</a> · <a href="https://www.facebook.com/ads/library/?id=2751898705206813">2751898705206813</a> · <a href="https://www.facebook.com/ads/library/?id=1584483080390227">1584483080390227</a> · <a href="https://www.facebook.com/ads/library/?id=1734135895380728">1734135895380728</a> · <a href="https://www.facebook.com/ads/library/?id=1078003048629300">1078003048629300</a> · <a href="https://www.facebook.com/ads/library/?id=1767773267852268">1767773267852268</a> · <a href="https://www.facebook.com/ads/library/?id=2428214458009074">2428214458009074</a> · <a href="https://www.facebook.com/ads/library/?id=2109217016374053">2109217016374053</a> · <a href="https://www.facebook.com/ads/library/?id=1135854308994660">1135854308994660</a> · <a href="https://www.facebook.com/ads/library/?id=1123999823883057">1123999823883057</a> · <a href="https://www.facebook.com/ads/library/?id=1500042135272539">1500042135272539</a> · <a href="https://www.facebook.com/ads/library/?id=1687072686276240">1687072686276240</a> · <a href="https://www.facebook.com/ads/library/?id=2162822577939953">2162822577939953</a> · <a href="https://www.facebook.com/ads/library/?id=1639002974374960">1639002974374960</a> · <a href="https://www.facebook.com/ads/library/?id=2354391795354709">2354391795354709</a> · <a href="https://www.facebook.com/ads/library/?id=1013064501841004">1013064501841004</a> · <a href="https://www.facebook.com/ads/library/?id=1350000893841524">1350000893841524</a> · <a href="https://www.facebook.com/ads/library/?id=2224930134727023">2224930134727023</a> · <a href="https://www.facebook.com/ads/library/?id=1581975420426558">1581975420426558</a> · <a href="https://www.facebook.com/ads/library/?id=1838887727419742">1838887727419742</a> · <a href="https://www.facebook.com/ads/library/?id=1141845395061111">1141845395061111</a> · <a href="https://www.facebook.com/ads/library/?id=2975909556088186">2975909556088186</a> · <a href="https://www.facebook.com/ads/library/?id=2679363472488544">2679363472488544</a> · <a href="https://www.facebook.com/ads/library/?id=1308735034712364">1308735034712364</a> · <a href="https://www.facebook.com/ads/library/?id=1399467808924634">1399467808924634</a> · <a href="https://www.facebook.com/ads/library/?id=1609192307093514">1609192307093514</a> · <a href="https://www.facebook.com/ads/library/?id=1303214285278954">1303214285278954</a> · <a href="https://www.facebook.com/ads/library/?id=29316771994602014">29316771994602014</a> · <a href="https://www.facebook.com/ads/library/?id=1669932318089435">1669932318089435</a> · <a href="https://www.facebook.com/ads/library/?id=1665035998538774">1665035998538774</a> · <a href="https://www.facebook.com/ads/library/?id=1645386010394245">1645386010394245</a> · <a href="https://www.facebook.com/ads/library/?id=2057711064889211">2057711064889211</a> · <a href="https://www.facebook.com/ads/library/?id=2298646797642078">2298646797642078</a> · <a href="https://www.facebook.com/ads/library/?id=1750636076008255">1750636076008255</a> · <a href="https://www.facebook.com/ads/library/?id=4226020904366203">4226020904366203</a> · <a href="https://www.facebook.com/ads/library/?id=28662644170072838">28662644170072838</a> · <a href="https://www.facebook.com/ads/library/?id=1106235128854211">1106235128854211</a> · <a href="https://www.facebook.com/ads/library/?id=3723176581173890">3723176581173890</a> · <a href="https://www.facebook.com/ads/library/?id=1183952390860617">1183952390860617</a> · <a href="https://www.facebook.com/ads/library/?id=2648652345580302">2648652345580302</a> · <a href="https://www.facebook.com/ads/library/?id=2210176146204605">2210176146204605</a> · <a href="https://www.facebook.com/ads/library/?id=1638996841026915">1638996841026915</a> · <a href="https://www.facebook.com/ads/library/?id=1487876299897500">1487876299897500</a> · <a href="https://www.facebook.com/ads/library/?id=1126244183381649">1126244183381649</a> · <a href="https://www.facebook.com/ads/library/?id=1344894160966837">1344894160966837</a> · <a href="https://www.facebook.com/ads/library/?id=2684850885297377">2684850885297377</a> · <a href="https://www.facebook.com/ads/library/?id=4752761011633916">4752761011633916</a> · <a href="https://www.facebook.com/ads/library/?id=1709113790930089">1709113790930089</a> · <a href="https://www.facebook.com/ads/library/?id=2129201577986804">2129201577986804</a> · <a href="https://www.facebook.com/ads/library/?id=922423037504239">922423037504239</a> · <a href="https://www.facebook.com/ads/library/?id=2266349837616214">2266349837616214</a> · <a href="https://www.facebook.com/ads/library/?id=2216442825885813">2216442825885813</a> · <a href="https://www.facebook.com/ads/library/?id=1881521946188000">1881521946188000</a> · <a href="https://www.facebook.com/ads/library/?id=2628651550935554">2628651550935554</a> · <a href="https://www.facebook.com/ads/library/?id=1874384050578573">1874384050578573</a> · <a href="https://www.facebook.com/ads/library/?id=1419474486566763">1419474486566763</a> · <a href="https://www.facebook.com/ads/library/?id=1509024592286074">1509024592286074</a> · <a href="https://www.facebook.com/ads/library/?id=2378055582947916">2378055582947916</a> · <a href="https://www.facebook.com/ads/library/?id=1365764658820626">1365764658820626</a> · <a href="https://www.facebook.com/ads/library/?id=4615216978751545">4615216978751545</a> · <a href="https://www.facebook.com/ads/library/?id=1814432813095768">1814432813095768</a> · <a href="https://www.facebook.com/ads/library/?id=1148197457819183">1148197457819183</a> · <a href="https://www.facebook.com/ads/library/?id=1638926667714294">1638926667714294</a> · <a href="https://www.facebook.com/ads/library/?id=1784836006136428">1784836006136428</a> · <a href="https://www.facebook.com/ads/library/?id=1931945954841409">1931945954841409</a> · <a href="https://www.facebook.com/ads/library/?id=1911061073196658">1911061073196658</a> · <a href="https://www.facebook.com/ads/library/?id=2297691567660030">2297691567660030</a> · <a href="https://www.facebook.com/ads/library/?id=1633047668309756">1633047668309756</a> · <a href="https://www.facebook.com/ads/library/?id=2159390574984057">2159390574984057</a> · <a href="https://www.facebook.com/ads/library/?id=1584054260142336">1584054260142336</a> · <a href="https://www.facebook.com/ads/library/?id=1530993675498605">1530993675498605</a> · <a href="https://www.facebook.com/ads/library/?id=2181729759079247">2181729759079247</a> · <a href="https://www.facebook.com/ads/library/?id=1093660336818143">1093660336818143</a> · <a href="https://www.facebook.com/ads/library/?id=1009106448192454">1009106448192454</a> · <a href="https://www.facebook.com/ads/library/?id=1875911716973633">1875911716973633</a> · <a href="https://www.facebook.com/ads/library/?id=1456423159947083">1456423159947083</a> · <a href="https://www.facebook.com/ads/library/?id=2282971735578647">2282971735578647</a> · <a href="https://www.facebook.com/ads/library/?id=1571485508114692">1571485508114692</a> · <a href="https://www.facebook.com/ads/library/?id=2295810561196492">2295810561196492</a> · <a href="https://www.facebook.com/ads/library/?id=1850189376127063">1850189376127063</a> · <a href="https://www.facebook.com/ads/library/?id=2887592338293903">2887592338293903</a> · <a href="https://www.facebook.com/ads/library/?id=1117712301031363">1117712301031363</a> · <a href="https://www.facebook.com/ads/library/?id=1143503995097225">1143503995097225</a> · <a href="https://www.facebook.com/ads/library/?id=1646676816914586">1646676816914586</a> · <a href="https://www.facebook.com/ads/library/?id=1134325692904667">1134325692904667</a> · <a href="https://www.facebook.com/ads/library/?id=971264612308977">971264612308977</a> · <a href="https://www.facebook.com/ads/library/?id=2183827542340575">2183827542340575</a> · <a href="https://www.facebook.com/ads/library/?id=1999522457383990">1999522457383990</a> · <a href="https://www.facebook.com/ads/library/?id=2259045281339156">2259045281339156</a> · <a href="https://www.facebook.com/ads/library/?id=2420119052128904">2420119052128904</a> · <a href="https://www.facebook.com/ads/library/?id=1147879044385141">1147879044385141</a> · <a href="https://www.facebook.com/ads/library/?id=1772127374087019">1772127374087019</a> · <a href="https://www.facebook.com/ads/library/?id=2216382382289589">2216382382289589</a> · <a href="https://www.facebook.com/ads/library/?id=1880980490006535">1880980490006535</a> · <a href="https://www.facebook.com/ads/library/?id=1487588096796277">1487588096796277</a> · <a href="https://www.facebook.com/ads/library/?id=1486522410019690">1486522410019690</a> · <a href="https://www.facebook.com/ads/library/?id=1121240227585851">1121240227585851</a> · <a href="https://www.facebook.com/ads/library/?id=2119751255313480">2119751255313480</a> · <a href="https://www.facebook.com/ads/library/?id=2559955457816364">2559955457816364</a> · <a href="https://www.facebook.com/ads/library/?id=29264682816482206">29264682816482206</a> · <a href="https://www.facebook.com/ads/library/?id=1886797135685000">1886797135685000</a> · <a href="https://www.facebook.com/ads/library/?id=4107149309585640">4107149309585640</a> · <a href="https://www.facebook.com/ads/library/?id=1917608189581742">1917608189581742</a> · <a href="https://www.facebook.com/ads/library/?id=1508735638027825">1508735638027825</a> · <a href="https://www.facebook.com/ads/library/?id=1170427665640797">1170427665640797</a> · <a href="https://www.facebook.com/ads/library/?id=1631883571647526">1631883571647526</a> · <a href="https://www.facebook.com/ads/library/?id=1835856907568033">1835856907568033</a> · <a href="https://www.facebook.com/ads/library/?id=1845669813241228">1845669813241228</a> · <a href="https://www.facebook.com/ads/library/?id=1667432774784515">1667432774784515</a> · <a href="https://www.facebook.com/ads/library/?id=3799061960262782">3799061960262782</a> · <a href="https://www.facebook.com/ads/library/?id=2192443614679764">2192443614679764</a> · <a href="https://www.facebook.com/ads/library/?id=1812251746718568">1812251746718568</a> · <a href="https://www.facebook.com/ads/library/?id=1267095055633264">1267095055633264</a> · <a href="https://www.facebook.com/ads/library/?id=29621155410810076">29621155410810076</a> · <a href="https://www.facebook.com/ads/library/?id=1464076225910451">1464076225910451</a> · <a href="https://www.facebook.com/ads/library/?id=920414824371333">920414824371333</a> · <a href="https://www.facebook.com/ads/library/?id=1130616506341531">1130616506341531</a> · <a href="https://www.facebook.com/ads/library/?id=1698768091807495">1698768091807495</a> · <a href="https://www.facebook.com/ads/library/?id=2158952134761697">2158952134761697</a> · <a href="https://www.facebook.com/ads/library/?id=1138493285394396">1138493285394396</a> · <a href="https://www.facebook.com/ads/library/?id=2215386989055662">2215386989055662</a> · <a href="https://www.facebook.com/ads/library/?id=2233386247221494">2233386247221494</a> · <a href="https://www.facebook.com/ads/library/?id=2188201571774773">2188201571774773</a> · <a href="https://www.facebook.com/ads/library/?id=1484008946953082">1484008946953082</a> · <a href="https://www.facebook.com/ads/library/?id=1444928261058705">1444928261058705</a> · <a href="https://www.facebook.com/ads/library/?id=1172610438431797">1172610438431797</a> · <a href="https://www.facebook.com/ads/library/?id=1485828387009160">1485828387009160</a> · <a href="https://www.facebook.com/ads/library/?id=2040615739937225">2040615739937225</a> · <a href="https://www.facebook.com/ads/library/?id=1164034209379207">1164034209379207</a> · <a href="https://www.facebook.com/ads/library/?id=1332452298931565">1332452298931565</a> · <a href="https://www.facebook.com/ads/library/?id=1105228418943594">1105228418943594</a> · <a href="https://www.facebook.com/ads/library/?id=1454554253473840">1454554253473840</a> · <a href="https://www.facebook.com/ads/library/?id=1013633364342839">1013633364342839</a> · <a href="https://www.facebook.com/ads/library/?id=1133820916025313">1133820916025313</a> · <a href="https://www.facebook.com/ads/library/?id=1799090594649299">1799090594649299</a> · <a href="https://www.facebook.com/ads/library/?id=1052172531241285">1052172531241285</a> · <a href="https://www.facebook.com/ads/library/?id=1654106946263283">1654106946263283</a> · <a href="https://www.facebook.com/ads/library/?id=1640824181391708">1640824181391708</a> · <a href="https://www.facebook.com/ads/library/?id=2572724603242557">2572724603242557</a> · <a href="https://www.facebook.com/ads/library/?id=1077683378641855">1077683378641855</a> · <a href="https://www.facebook.com/ads/library/?id=1545550340465783">1545550340465783</a> · <a href="https://www.facebook.com/ads/library/?id=4278978609062491">4278978609062491</a> · <a href="https://www.facebook.com/ads/library/?id=2467701353761217">2467701353761217</a> · <a href="https://www.facebook.com/ads/library/?id=3707113569429312">3707113569429312</a> · <a href="https://www.facebook.com/ads/library/?id=1072380179147957">1072380179147957</a> · <a href="https://www.facebook.com/ads/library/?id=1644739317287708">1644739317287708</a> · <a href="https://www.facebook.com/ads/library/?id=1492880462692226">1492880462692226</a> · <a href="https://www.facebook.com/ads/library/?id=1829618891625804">1829618891625804</a> · <a href="https://www.facebook.com/ads/library/?id=1125447560200394">1125447560200394</a> · <a href="https://www.facebook.com/ads/library/?id=2127469497902159">2127469497902159</a> · <a href="https://www.facebook.com/ads/library/?id=1508263324551566">1508263324551566</a> · <a href="https://www.facebook.com/ads/library/?id=1026519093800540">1026519093800540</a> · <a href="https://www.facebook.com/ads/library/?id=2233633264228795">2233633264228795</a> · <a href="https://www.facebook.com/ads/library/?id=1407029411512874">1407029411512874</a> · <a href="https://www.facebook.com/ads/library/?id=1114963687826111">1114963687826111</a> · <a href="https://www.facebook.com/ads/library/?id=1457371840788644">1457371840788644</a> · <a href="https://www.facebook.com/ads/library/?id=1480125090655843">1480125090655843</a> · <a href="https://www.facebook.com/ads/library/?id=1893185025195044">1893185025195044</a> · <a href="https://www.facebook.com/ads/library/?id=1144836578243781">1144836578243781</a> · <a href="https://www.facebook.com/ads/library/?id=2674158766384296">2674158766384296</a> · <a href="https://www.facebook.com/ads/library/?id=29648059191468754">29648059191468754</a> · <a href="https://www.facebook.com/ads/library/?id=1920495642248830">1920495642248830</a></div>
+        <div class="detail">⚠️ Basis: about 18 not loaded; group counts come from text matching, and one ad can fall into several groups.</div>
+        <div class="src">Sources: <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=257670834093707">Meta Ad Library · ArenaPlus (advertiser lock)</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> observe — see §02 card 1.</span></div>
+      </div>
+
+      <div class="mcard" id="ad-02" style="border-top-color:#E89AAA">
+        <div class="top"><span class="logo" style="background:#E89AAA;width:26px;height:26px;font-size:10px">BP</span>
+          <div class="meta"><b>BingoPlus</b><span>11/11-11/14</span></div>
+          <span class="sev high">High impact</span>
+        </div>
+        <h4>All 8 BingoPlus ads are new, <span class="hi">led by event and winner stories.</span></h4>
+        <div class="detail">About 8 at the top, 8 loaded: two on 11/14 for the ALEX EALA LIVE partnership and ticket trivia, six winner-story videos on 11/11; none states a reward amount.</div>
+        <div class="detail"><b>Library IDs:</b> <a href="https://www.facebook.com/ads/library/?id=1117613524598820">1117613524598820</a> · <a href="https://www.facebook.com/ads/library/?id=4756587734575990">4756587734575990</a> · <a href="https://www.facebook.com/ads/library/?id=4613897792273211">4613897792273211</a> · <a href="https://www.facebook.com/ads/library/?id=1899599864816726">1899599864816726</a> · <a href="https://www.facebook.com/ads/library/?id=1959324048374286">1959324048374286</a> · <a href="https://www.facebook.com/ads/library/?id=1683109473414925">1683109473414925</a> · <a href="https://www.facebook.com/ads/library/?id=1140989565082098">1140989565082098</a> · <a href="https://www.facebook.com/ads/library/?id=1514462617190576">1514462617190576</a></div>
+        <div class="src">Sources: <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=100332105816384">Meta Ad Library · BingoPlus (advertiser lock)</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> observe — see §03 card 2.</span></div>
+      </div>
+
+      <div class="mcard" id="ad-03" style="border-top-color:#4F8C5C">
+        <div class="top"><span class="logo" style="background:#4F8C5C;width:26px;height:26px;font-size:10px">GZ</span>
+          <div class="meta"><b>GameZone</b><span>11/13-11/15</span></div>
+          <span class="sev low">Low impact</span>
+        </div>
+        <h4>GameZone adds 5 MV ads; <span class="hi">event ad absent from the sample.</span></h4>
+        <div class="detail">About 26 at the top (about 51 in W46), 26 loaded, the 5 in-window ads all for the "Tara G!" MV; 3 dance-challenge and 3 ₱8,800 welcome ads still live.</div>
+        <div class="detail"><b>In-window Library IDs:</b> <a href="https://www.facebook.com/ads/library/?id=1850045869527111">1850045869527111</a> · <a href="https://www.facebook.com/ads/library/?id=1451586043809921">1451586043809921</a> · <a href="https://www.facebook.com/ads/library/?id=1451187769801522">1451187769801522</a> · <a href="https://www.facebook.com/ads/library/?id=29876875408570963">29876875408570963</a> · <a href="https://www.facebook.com/ads/library/?id=1838082503878083">1838082503878083</a></div>
+        <div class="src">Sources: <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=872328479505097">Meta Ad Library · GameZone (advertiser lock)</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> observe — see §03 card 3.</span></div>
+      </div>
+
+      <div class="mcard" id="ad-04" style="border-top-color:#B89968">
+        <div class="top"><span class="logo" style="background:#B89968;width:26px;height:26px;font-size:10px">CP</span>
+          <div class="meta"><b>CasinoPlus</b><span>11/14</span></div>
+          <span class="sev low">Low impact</span>
+        </div>
+        <h4>CasinoPlus adds 7 ads <span class="hi">with a responsible-gambling headline.</span></h4>
+        <div class="detail">About 29 at the top, 27 loaded; 7 new on 11/14: 5 say color game and real cash rewards and land on the site, 2 point to the app (onelink). Image headline "Enjoy the Moment, But Stay in Control". Still no 1.5% wording.</div>
+        <div class="detail"><b>In-window Library IDs:</b> <a href="https://www.facebook.com/ads/library/?id=1072074812516432">1072074812516432</a> · <a href="https://www.facebook.com/ads/library/?id=1064178916672450">1064178916672450</a> · <a href="https://www.facebook.com/ads/library/?id=2364581414289881">2364581414289881</a> · <a href="https://www.facebook.com/ads/library/?id=1855101505509692">1855101505509692</a> · <a href="https://www.facebook.com/ads/library/?id=1729448358833949">1729448358833949</a> · <a href="https://www.facebook.com/ads/library/?id=1431712019123027">1431712019123027</a> · <a href="https://www.facebook.com/ads/library/?id=1174605761660856">1174605761660856</a></div>
+        <div class="src">Sources: <a href="https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=PH&amp;view_all_page_id=103445969093285">Meta Ad Library · Casino Plus (advertiser lock)</a></div>
+        <div class="impact"><span><b>Proposal (for Client X):</b> observe — see §05.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec" id="timeline">
+    <div class="sec-lbl">
+      <span class="chip">附</span><span class="en">Timeline · last two weeks</span>
+      <h2>Timeline (two weeks, newest first)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="trow"><span class="d">11/15</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">GameZone</span><span class="desc">Meta: 4 new "Tara G!" MV ads, 3 landing on a music link page (W47)</span><span class="wk">W47</span></div>
+      <div class="trow"><span class="d">11/15</span><span class="dot blue"></span><span class="cat">Social</span><span class="br">PlayTime</span><span class="desc">Official X still says ₱2,980 + 1.5% unlimited cashback + 2% slot return; the site says 3.5% (W47)</span><span class="wk">W47</span></div>
+      <div class="trow"><span class="d">11/14</span><span class="dot green"></span><span class="cat">Partnership</span><span class="br">BingoPlus</span><span class="desc">Meta: ALEX EALA LIVE entertainment partner ad and tennis trivia for tickets (event 12/8) (W47)</span><span class="wk">W47</span></div>
+      <div class="trow"><span class="d">11/14</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">CasinoPlus</span><span class="desc">Meta: 7 new ads headlined Enjoy the Moment, But Stay in Control; still no 1.5% wording (W47)</span><span class="wk">W47</span></div>
+      <div class="trow"><span class="d">11/13</span><span class="dot orange"></span><span class="cat">Results</span><span class="br">PhilWeb</span><span class="desc">Q3 revenue ₱443.0M (+152.9%), net income ₱64.2M, platform business 63.5% (W47)</span><span class="wk">W47</span></div>
+      <div class="trow"><span class="d">11/11</span><span class="dot orange"></span><span class="cat">Regulator</span><span class="br">PAGCOR</span><span class="desc">Advisory on an alleged National Database of Restricted Persons leak; PAGCOR-CERT verifying (W47)</span><span class="wk">W47</span></div>
+      <div class="trow"><span class="d">11/11</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">ArenaPlus</span><span class="desc">Meta: Luis Manzano "SET A LIMIT, STICK TO IT" responsible-gambling ads (W47)</span><span class="wk">W47</span></div>
+      <div class="trow"><span class="d">11/11</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">BingoPlus</span><span class="desc">Meta: 6 winner-story videos with "Enjoy within your limits" (W47)</span><span class="wk">W47</span></div>
+      <div class="trow"><span class="d">11/09</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">ArenaPlus</span><span class="desc">Meta: 117 ads started in one day: welcome ₱8,100, daily, weekly, 40% first deposit; one says 5% daily rebate (W47)</span><span class="wk">W47</span></div>
+      <div class="trow"><span class="d">11/05</span><span class="dot orange"></span><span class="cat">Regulator</span><span class="br">CoA</span><span class="desc">PAGCOR 2025 audit: licensed sites reachable or taking bets from abroad (W46 window, added in W47)</span><span class="wk">W47</span></div>
+      <div class="trow"><span class="d">11/08</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">GameZone</span><span class="desc">Meta: new Gloc-9 meet-and-greet ad for 11/13, 5 PM at Blue Leaf Events Pavilion, Taguig, 21+ (W46)</span><span class="wk">W46</span></div>
+      <div class="trow"><span class="d">11/06</span><span class="dot orange"></span><span class="cat">Regulator</span><span class="br">PAGCOR</span><span class="desc">Q3 industry GGR ₱83.72B (-11.41%), e-gaming -22.86%, decline narrower than Q2 (W46)</span><span class="wk">W46</span></div>
+      <div class="trow"><span class="d">11/05</span><span class="dot green"></span><span class="cat">Operations</span><span class="br">OKADA PLAY</span><span class="desc">October GGR above ₱100M, 100,000+ daily users; turnover and GGR each up about 50% on September (W46)</span><span class="wk">W46</span></div>
+      <div class="trow"><span class="d">11/05</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">CasinoPlus</span><span class="desc">Meta: new batch built on color game and real cash rewards, no 1.5% wording (start dates 11/4-11/5, W46)</span><span class="wk">W46</span></div>
+      <div class="trow"><span class="d">11/03</span><span class="dot orange"></span><span class="cat">Results</span><span class="br">DigiPlus</span><span class="desc">Nine-month net income ₱8.85B (-12.5%), Q3 EBITDA margin 22% with improved spending efficiency; Q3 net loss ₱947.6M including a valuation loss (W46)</span><span class="wk">W46</span></div>
+      <div class="trow"><span class="d">11/03</span><span class="dot blue"></span><span class="cat">Ads</span><span class="br">GameZone</span><span class="desc">Meta: new TARA G! SAYAW TAYO! dance challenge, Apple products worth ₱300,000 (W46)</span><span class="wk">W46</span></div>
+      <div class="trow"><span class="d">10/30</span><span class="dot green"></span><span class="cat">Partnership</span><span class="br">GameZone</span><span class="desc">Song "Tara G!" released with Gloc-9 under the "Tara G! Sama Tayo." campaign (W46)</span><span class="wk">W46</span></div>
+      <div class="trow"><span class="d">10/02</span><span class="dot"></span><span class="cat">Rule</span><span class="br">BSP</span><span class="desc">Payment-integrity draft comment deadline (45 days ago); no formal circular seen</span><span class="wk">W38→W45</span></div>
+      <div class="trow"><span class="d">09/30</span><span class="dot"></span><span class="cat">Regulator</span><span class="br">PAGCOR</span><span class="desc">B2B accreditation grace period ended (47 days ago); no further extension, no delisting seen</span><span class="wk">W30→W45</span></div>
+      <div class="trow"><span class="d">07/01</span><span class="dot"></span><span class="cat">Regulator</span><span class="br">PAGCOR</span><span class="desc">Minimum guarantee fee phase 1 in force; phase 2 steps up 2027/01/01 (46 days away)</span><span class="wk">W27→W45</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="implications">
+    <div class="sec-lbl">
+      <span class="chip">附</span><span class="en">Implications · Threats / Opportunities</span>
+      <h2>Implications (threats / opportunities)</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="impl-meth">
+      <h6>Entry parameters (all internal estimates)</h6>
+      <ul>
+        <li><b>ARPU anchored at ₱805, with room to revise down:</b>Carried from W46: Maybank estimates DigiPlus spend per active user at about ₱805 a month; the entry model uses ₱805 as base, ₱1,250 as the optimistic case and ₱725 as the conservative case. No new ARPU data this issue.</li>
+        <li><b>Acquisition cost and promo spend:</b>ArenaPlus has a refreshed sample of ~290 loaded ads with three reward layers, so the leader shows no sign of easing acquisition spend; the conservative case still assumes higher acquisition cost.</li>
+        <li><b>Player scale reference:</b>Carried from W46: DigiPlus Q3 MAU 5.9M. PhilWeb does not disclose per-platform players.</li>
+        <li><b>Rebate caps follow regulation:</b>Cash rebates on bets or deposits 1.5% (casino tables and arcade-type games excluded); cash back on net losses 15%.</li>
+        <li><b>Creative-level limit:</b>ASC Circular 2026-008, in force since 2026/06/24, bars ads from showing or mentioning casino games and equipment.</li>
+        <li><b>Deadlines:</b>The B2B accreditation grace ended 9/30, 47 days ago, with no decommission list public; BSP comments closed 10/2, 45 days ago, with no formal circular seen; MGF phase 2 starts 2027/01/01, 46 days away.</li>
+      </ul>
+    </div>
+    <div class="impl">
+      <div class="col threat"><h5><span class="dot"></span>Threats<span class="en">Threats</span></h5><ul>
+        <li><b>The leader is running layered rewards harder.</b>ArenaPlus runs welcome, daily and weekly offers at once. <em>Cost of inaction (internal estimate): the W45 estimate carries, not measured this week: new-player conversion may be 10-20% lower.</em></li>
+        <li><b>Geo-fencing enforcement may tighten.</b>CoA flagged offshore access and betting. <em>Cost of inaction: not quantified; remediation orders would hit offshore traffic and agent channels.</em></li>
+        <li><b>Impersonation fraud risk.</b>If the alleged restricted-list leak is genuine, phishing in licensed operators' names may rise. <em>Cost of inaction: not quantified.</em></li>
+        <li><b>Casino-backed platforms are expanding.</b>PhilWeb's platform business grew 40.5% quarter on quarter. <em>Cost of inaction: not quantified; scale still below the leader.</em></li>
+      </ul></div>
+      <div class="col opp"><h5><span class="dot"></span>Opportunities<span class="en">Opportunities</span></h5><ul>
+        <li><b>Add a responsible-gambling line to main creatives</b>(internal estimate ~₱10K-₱30K redesign / one-off). Three competitors already do this; low cost and in line with regulation. <em>Reminder: keep the PAGCOR-required warnings alongside; it does not replace the footer.</em></li>
+        <li><b>Check geo-blocking and offshore traffic</b>(internal estimate ~₱20K-₱50K / one-off). Blocking and messaging for non-Philippine IPs on landing pages and the app. <em>Reminder: follow the PAGCOR accreditation framework.</em></li>
+        <li><b>Anti-fraud customer-service line</b>(zero cost). Prepare a line saying official channels never ask for data by private message; decide on publishing once PAGCOR concludes.</li>
+        <li><b>Publish rollover multiples with worked examples</b>(internal estimate ~₱30K-₱80K / one-off, carried from W46). None of the ArenaPlus or CasinoPlus creatives read this issue state the multiple. <em>Reminder: examples must match the terms word for word.</em></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="fcard">
+      <h5>Methodology + sources</h5>
+      <p>8-brand watchlist plus industry, regulatory and legislative moves. W47 follows the layout in use since W46 (decided by Reagan on 11/15): events are collected first (snapshots/2026-W47/events.csv, compared with the 7-row W46 baseline) and Meta serves as corroboration only; §02-§06 hold one event per card. Cards 1-3 come from the Meta Ad Library, card 4 from GGRAsia and asgam, card 5 from PAGCOR's advisory, card 6 from BusinessWorld and card 7 from PT Gaming's site and official X. This is the revised version after the 11/16 follow-up run.</p>
+      <p><b>✅ Meta Ad Library snapshot:</b> read 2026-11-16 (first pass about 04:00 UTC, loaded to the end at about 04:40), locked to official advertiser IDs, country PH, active ads. ArenaPlus about 310 at the top, 292 loaded (all started 11/8-11/15); GameZone about 26, 26 loaded (5 in window); CasinoPlus about 29, 27 loaded (7 in window); BingoPlus about 8, 8 loaded (8 in window). Per-ad IDs are in snapshots/2026-W47/meta-adlib-2026-11-16.csv (353 across four brands). Only running ads are visible; spend and reach are not.</p>
+      <p><b>✅ Images:</b> three ad cards were captured on the follow-up run (ArenaPlus 5% and weekly offer, CasinoPlus responsible-gambling headline), stored in img/W47/. Creatives showing real endorsers (Alex Eala, Luis Manzano, CasinoPlus endorsers, Gloc-9) were not captured; ad-copy excerpts are used instead.</p>
+      <p><b>⚠️ Site checks (follow-up):</b> the Firecrawl connector exits from the US even with the Philippines set, and Chrome exits from Armenia. Results: PT Gaming's site is readable (page description); OKBet's rewards centre shows no promotions and a domestic-only notice; CasinoPlus returns Access Restricted (403); Bet88 redirects to a region-block page; BingoPlus and ArenaPlus return restrict access and GameZone is blank. The three DigiPlus sites, CasinoPlus and Bet88 are marked "check not completed" because of region limits. The local launchd Firecrawl script could not find its key file (.secrets/firecrawl_key.txt) and did not run.</p>
+      <p><b>✅ Source canonical check (follow-up):</b> six pieces (BusinessWorld, iGamingExpert, GGRAsia, two asgam, the PAGCOR advisory) were opened in Chrome with no redirect, and canonical tags match the opened URLs (the PAGCOR page has none); link text uses the page title. PT Gaming was read through Firecrawl; its og:url matches the opened URL.</p>
+      <p><b>⚠️ Social signals:</b> PT Gaming's official X was read on follow-up; Reddit, Threads and public Facebook groups were not sampled; other cards are marked single-channel.</p>
+      <p>Running-state anchors (anchor-table basis): the B2B accreditation grace ended 9/30, 47 days ago; BSP comments closed 10/2, 45 days ago; MGF phase 2 starts 2027/01/01, 46 days away; CasinoPlus 1.5% counted from its 2026-07-31 expiry; sports gap counted from 2026-07-19; CasinoPlus fine counted from 2026-08-24, no change in window. Week counts follow the clock_check table.</p>
+      <p>Exclusions and adoption: card 7's 3.5% figure comes from the site description read on the follow-up run. All daily-monitor HITs in the past 7 days were Brazil and Mexico items, with 0 Philippine HITs, so the weekly opened its own cards. The ALEX EALA LIVE partner post behind card 2 was filed by daily monitoring on 11/12 as an extension of an existing endorsement, not escalated; the weekly adopts it because Meta shows the partner role and ticket mechanic, which changes the read on BingoPlus's acquisition approach. Card 6 was published inside the W46 window and missed then; it is added as background. Bloomberry's narrower Q3 loss and NUSTAR and Westside opening dates concern land-based casinos or non-watchlist firms, so no cards. The source list is a draft with unconfirmed coverage (_sources-ph-draft.md).</p>
+      <p>Data window: 11/09-11/16 look-back, 11/16-11/23 look-ahead.</p>
+      <div class="srcs"><span><i class="ok"></i>Meta Ad Library 11/16<em>ArenaPlus, BingoPlus, GameZone, CasinoPlus official advertisers</em></span><span><i class="ok"></i>PAGCOR / GGRAsia / asgam / iGamingExpert / BusinessWorld<em>NDRP advisory, PhilWeb Q3, CoA audit</em></span><span><i class="ok"></i>PT Gaming site and official X · OKBet rewards centre (Firecrawl)</span><span><i></i>⚠️ Three DigiPlus sites, CasinoPlus, Bet88 region-blocked; social not sampled; PlayTime baseline 2026-05-29 carried</span></div>
+    </div>
+    <div class="fcard">
+      <h5>Next issue (W48 · 2026-11-23) tracking list</h5>
+      <ol><li><span class="n">1</span>Whether ArenaPlus's single 5% daily-rebate creative keeps running; eligibility for the ₱60,000 weekly offer</li><li><span class="n">2</span>BingoPlus × ALEX EALA LIVE follow-up (creatives before the 12/8 event, trivia ticket rules, media coverage); New Perya Happy Hour original post</li><li><span class="n">3</span>PAGCOR's finding on the alleged restricted-list leak; any new requirement for operators</li><li><span class="n">4</span>PAGCOR's response and remediation deadline for the CoA finding; whether operators are named</li><li><span class="n">5</span>PhilWeb per-platform figures; whether Newport or NUSTAR online platforms start Meta ads; OKADA PLAY official advertiser</li><li><span class="n">6</span>Whether CasinoPlus's 1.5% was renewed; whether color game creatives continue</li><li><span class="n">7</span>GameZone dance-challenge results; ₱8,800 welcome terms</li><li><span class="n">8</span>Launch date and features of the licensed-platform ID app</li><li><span class="n">9</span>Terms behind PT Gaming's 3.5% cashback and the iPhone draw rules</li><li><span class="n">10</span>DigiPlus, CasinoPlus and Bet88 onsite pages (Philippine IP needed); restore the local Firecrawl key</li></ol>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <span><b>COMPETITOR // BRIEF</b> · 2026-W47 · PH iGaming · 8-brand watchlist</span>
+    <span>Data window 11/09-11/16 look-back · 11/16-11/23 look-ahead</span>
+  </div>
+</div>
+</div>
+
+<script>
+const RADAR_LABELS = ['BRAND','UX','CONTENT','PRICING','RETENTION','REACH'];
+const RADAR_LABELS_ZH = ['','','','','',''];
+
+const BRANDS = {
+  bingoplus:  { name:'BingoPlus',           color:'#E89AAA', scores:[83,75,86,70,78,85] },
+  arenaplus:  { name:'ArenaPlus',           color:'#2A5FAA', scores:[60,70,70,65,60,75] },
+  gamezone:   { name:'GameZone',            color:'#4F8C5C', scores:[35,70,65,75,70,50] },
+  casinoplus: { name:'CasinoPlus',          color:'#B89968', scores:[75,70,75,60,70,60] },
+  okbet:      { name:'OKBet / OKGames',     color:'#D86B27', scores:[50,60,60,60,60,60] },
+  bet88:      { name:'Bet88',               color:'#C2272D', scores:[50,60,65,60,65,55] },
+  playtime:   { name:'PlayTime / PT Gaming',color:'#4A4FB8', scores:[85,70,70,65,70,65] },
+  okadaplay:  { name:'OKADA PLAY',          color:'#8B7355', scores:[32,25,30,25,20,50] }
+};
+let selfId = 'playtime';
+let vsId = 'gamezone';
+const cx=160, cy=160, R=130;
+const angle = i => (Math.PI*2*i)/6 - Math.PI/2;
+
+function ringPolygon(rr){
+  return Array.from({length:6},(_,i)=>`${cx+rr*Math.cos(angle(i))},${cy+rr*Math.sin(angle(i))}`).join(' ');
+}
+function polyPoints(values){
+  return values.map((v,i)=>{const r=(v/100)*R;return `${cx+r*Math.cos(angle(i))},${cy+r*Math.sin(angle(i))}`;}).join(' ');
+}
+function labelPos(i,off=22){
+  const x = cx + (R+off)*Math.cos(angle(i));
+  const y = cy + (R+off)*Math.sin(angle(i)) + 4;
+  return {x,y};
+}
+
+function initRadar(){
+  const ringsG = document.getElementById('rings');
+  [1,.75,.5,.25].forEach((s,i)=>{
+    const p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',ringPolygon(R*s));
+    p.setAttribute('fill', i===0 ? 'rgba(255,255,255,.04)' : 'none');
+    p.setAttribute('stroke','rgba(255,255,255,.18)');
+    ringsG.appendChild(p);
+  });
+  const axesG = document.getElementById('axes');
+  for(let i=0;i<6;i++){
+    const x=cx+R*Math.cos(angle(i)), y=cy+R*Math.sin(angle(i));
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x);l.setAttribute('y2',y);
+    l.setAttribute('stroke','rgba(255,255,255,.1)');
+    axesG.appendChild(l);
+  }
+  const labG = document.getElementById('labels');
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const p=labelPos(i,18);
+    const t1=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t1.setAttribute('x',p.x);t1.setAttribute('y',p.y-6);t1.setAttribute('text-anchor','middle');
+    t1.setAttribute('fill','#fff');t1.setAttribute('font-size','11');t1.setAttribute('font-weight','800');
+    t1.textContent=lbl;
+    labG.appendChild(t1);
+    const t2=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t2.setAttribute('x',p.x);t2.setAttribute('y',p.y+6);t2.setAttribute('text-anchor','middle');
+    t2.setAttribute('fill','rgba(255,255,255,.6)');t2.setAttribute('font-size','9');
+    t2.textContent=RADAR_LABELS_ZH[i];
+    labG.appendChild(t2);
+  });
+  const selfSel = document.getElementById('selfsel');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = d.name;
+    if(id===selfId) opt.selected = true;
+    selfSel.appendChild(opt);
+  });
+  selfSel.addEventListener('change', e => { selfId = e.target.value; render(); });
+
+  const vsbtns = document.getElementById('vsbtns');
+  Object.entries(BRANDS).forEach(([id,d])=>{
+    const b = document.createElement('button');
+    b.dataset.id = id;
+    b.innerHTML = `<i style="background:${d.color}"></i>${d.name}`;
+    if(id===vsId) b.classList.add('active');
+    b.onclick = () => {
+      vsId = id;
+      document.querySelectorAll('#vsbtns button').forEach(x => x.classList.toggle('active', x.dataset.id===id));
+      render();
+    };
+    vsbtns.appendChild(b);
+  });
+
+  render();
+}
+function render(){
+  const self = BRANDS[selfId];
+  const vs = BRANDS[vsId];
+  const polySelf = document.getElementById('polySelf');
+  const polyVs = document.getElementById('polyVs');
+  polySelf.setAttribute('points', self.closed ? '' : polyPoints(self.scores));
+  polyVs.setAttribute('points', vs.closed ? '' : polyPoints(vs.scores));
+  polyVs.setAttribute('fill', vs.closed ? 'none' : vs.color);
+  polyVs.setAttribute('stroke', vs.closed ? 'none' : vs.color);
+  document.getElementById('legendSelf').textContent='Baseline · '+self.name;
+  document.getElementById('legendVs').textContent=vs.name;
+  document.getElementById('legendVsColor').style.background=vs.closed?'#555':vs.color;
+  const grid = document.getElementById('radarGrid');
+  grid.innerHTML='';
+  RADAR_LABELS.forEach((lbl,i)=>{
+    const sv = self.closed ? 'N/A' : self.scores[i];
+    const vv = vs.closed ? 'N/A' : vs.scores[i];
+    const lead = (!self.closed && !vs.closed && vs.scores[i] > self.scores[i]);
+    grid.innerHTML += `<span>${lbl}</span><span>${sv}</span><span>vs</span><span style="color:${lead?'var(--neg)':'var(--pos)'}">${vv}</span>`;
+  });
+}
+initRadar();
+</script>
+</body>
+</html>
